@@ -28,7 +28,7 @@ const FormInput = ({
       <label
         htmlFor={inputId}
         className="inline-flex justify-center items-center gap-2.5">
-        <span className="justify-start text-black/80 text-lg font-normal font-['Outfit'] tracking-wide">
+        <span className="justify-start text-black-800 text-lg font-normal font-['Outfit'] tracking-wide">
           {label}{" "}
           {required && (
             <span className="text-red-500" aria-label="required">

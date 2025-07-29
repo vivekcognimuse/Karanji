@@ -18,7 +18,7 @@ const HeroSection = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex   flex-col sm:flex-row gap-4">
           <Button className="group bg-black lg:py-1 rounded-full overflow-hidden hover:scale-105 transition-transform">
             Explore Our Solutions
           </Button>

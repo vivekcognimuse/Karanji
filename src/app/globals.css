@@ -62,6 +62,18 @@
   --color-pink-800: #862e2e;
   --color-pink-900: #702c2c;
   --color-pink-950: #3c1313;
+
+  --color-black-50: #f6f6f6;
+  --color-black-100: #e7e7e7;
+  --color-black-200: #d1d1d1;
+  --color-black-300: #b0b0b0;
+  --color-black-400: #888888;
+  --color-black-500: #6d6d6d;
+  --color-black-600: #5d5d5d;
+  --color-black-700: #4f4f4f;
+  --color-black-800: #454545;
+  --color-black-900: #3d3d3d;
+  --color-black-950: #010101;
 }
 
 /* Dark mode support */
@@ -80,7 +92,7 @@ body {
 
 /* Headings (Albert Sans) */
 h1 {
-  @apply font-sans;
+  @apply font-sans text-black text-center leading-tight text-6xl font-normal;
 }
 
 h2 {
@@ -100,7 +112,19 @@ h5 {
 }
 
 /* Paragraph (default to P3) */
-p {
+.p1 {
+  @apply font-outfit text-2xl;
+}
+.p2 {
+  @apply font-outfit;
+}
+.p3 {
+  @apply font-outfit;
+}
+.p4 {
+  @apply font-outfit;
+}
+.p5 {
   @apply font-outfit;
 }
 

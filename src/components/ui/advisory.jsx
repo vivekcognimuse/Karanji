@@ -150,7 +150,7 @@ export const IndustryCard = memo(function IndustryCard({
   icon,
 }) {
   return (
-    <div className="p-6 bg-white rounded-2x -z-1 shadow-lg border border-black/20  flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+    <div className="p-6 bg-white rounded-2xl -z-1 shadow-lg border border-black-200  flex items-center gap-6 hover:scale-105 transition-transform duration-300">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12  rounded-lg flex items-center justify-center">
           <Image
