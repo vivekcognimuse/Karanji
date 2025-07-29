@@ -1,0 +1,1090 @@
+"use client";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { gsap } from "gsap";
+import { Icon } from "@iconify/react";
+import Link from "next/link";
+import { navigationData } from "@/constant/navigation";
+
+// Logo Component
+const Logo = () => (
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 bg-black rounded" />
+    <span className="text-black text-lg font-light tracking-tight">
+      Karanji
+    </span>
+  </div>
+);
+
+// Third Level Dropdown Component
+const ThirdLevelDropdown = ({
+  items,
+  isVisible,
+  parentTitle,
+  thirdLevelRef,
+  position,
+}) => {
+  useEffect(() => {
+    if (thirdLevelRef.current) {
+      if (isVisible) {
+        gsap.fromTo(
+          thirdLevelRef.current,
+          {
+            autoAlpha: 0,
+            x: position?.direction === "left" ? 20 : -20,
+            scale: 0.95,
+            force3D: true,
+          },
+          {
+            autoAlpha: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.25,
+            ease: "power2.out",
+            force3D: true,
+          }
+        );
+      } else {
+        gsap.to(thirdLevelRef.current, {
+          autoAlpha: 0,
+          x: position?.direction === "left" ? 20 : -20,
+          scale: 0.95,
+          duration: 0.2,
+          ease: "power2.in",
+          force3D: true,
+        });
+      }
+    }
+  }, [isVisible, thirdLevelRef, position]);
+
+  if (!items || items.length === 0) return null;
+
+  const positionClasses =
+    position?.direction === "left"
+      ? "right-full top-0 mr-0"
+      : "left-full top-0 ml-0";
+
+  return (
+    <div
+      ref={thirdLevelRef}
+      className={`absolute ${positionClasses} w-80 bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden z-[10001]`}
+      style={{
+        willChange: "transform, opacity, scale",
+        visibility: "hidden",
+      }}>
+      <div className="p-4">
+        <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-3 px-1">
+          {parentTitle}
+        </div>
+        <div className="space-y-1">
+          {items.map((subItem, index) => (
+            <a
+              key={index}
+              href={subItem.href}
+              className="flex items-start gap-3 p-3 hover:bg-purple-50 rounded-lg transition-all duration-200 group/subitem">
+              <div className="flex-shrink-0 w-2 h-2 bg-purple-400 rounded-full mt-2 opacity-60 group-hover/subitem:opacity-100 transition-opacity duration-200" />
+              <div className="flex-1 min-w-0">
+                <p className="text-gray-900 text-sm font-medium tracking-tight mb-1 group-hover/subitem:text-purple-700 transition-colors duration-200">
+                  {subItem.title}
+                </p>
+                <p className="text-gray-600 text-xs font-light tracking-tight leading-4">
+                  {subItem.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Second Level Menu Item Component
+const SecondLevelMenuItem = ({
+  item,
+  category,
+  index,
+  activeThirdLevel,
+  setActiveThirdLevel,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
+  const itemRef = useRef(null);
+  const thirdLevelRef = useRef(null);
+  const [thirdLevelPosition, setThirdLevelPosition] = useState({
+    direction: "right",
+  });
+  const hasSubItems = item.subItems && item.subItems.length > 0;
+  const isThirdLevelActive = activeThirdLevel === `${category}-${index}`;
+  const isActive = isThirdLevelActive; // Parent is active when child dropdown is open
+
+  const calculateThirdLevelPosition = useCallback(() => {
+    if (!itemRef.current || !hasSubItems) return;
+
+    const itemRect = itemRef.current.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const thirdLevelWidth = 320; // 80 * 4 = 320px (w-80)
+    const padding = 16;
+
+    // Check if there's enough space on the right
+    const spaceOnRight = viewportWidth - itemRect.right;
+    const spaceOnLeft = itemRect.left;
+
+    // Prefer right side, but switch to left if not enough space
+    const direction =
+      spaceOnRight >= thirdLevelWidth + padding ? "right" : "left";
+
+    setThirdLevelPosition({ direction });
+  }, [hasSubItems]);
+
+  const handleMouseEnter = useCallback(
+    (e) => {
+      if (hasSubItems) {
+        calculateThirdLevelPosition();
+        setActiveThirdLevel(`${category}-${index}`);
+      }
+      onMouseEnter?.(e);
+    },
+    [
+      hasSubItems,
+      category,
+      index,
+      setActiveThirdLevel,
+      onMouseEnter,
+      calculateThirdLevelPosition,
+    ]
+  );
+
+  const handleMouseLeave = useCallback(
+    (e) => {
+      // Only clear if not moving to third level dropdown
+      const relatedTarget = e.relatedTarget;
+      const isMovingToThirdLevel = relatedTarget?.closest("[data-third-level]");
+
+      if (!isMovingToThirdLevel) {
+        setActiveThirdLevel(null);
+      }
+      onMouseLeave?.(e);
+    },
+    [setActiveThirdLevel, onMouseLeave]
+  );
+
+  // Recalculate position on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (isThirdLevelActive) {
+        calculateThirdLevelPosition();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isThirdLevelActive, calculateThirdLevelPosition]);
+
+  return (
+    <div
+      ref={itemRef}
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      data-second-level>
+      <a
+        href={item.href}
+        className={`flex items-start gap-3 p-4 border-r-2 transition-all duration-200 group/item ${
+          isActive
+            ? "bg-purple-50 border-purple-500 text-purple-700"
+            : "hover:bg-purple-50 border-transparent hover:border-purple-500"
+        }`}>
+        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-lg">
+          <Icon
+            icon={item.icon}
+            className={`w-5 h-5 transition-colors duration-200 ${
+              isActive
+                ? "text-purple-600"
+                : "text-gray-600 group-hover/item:text-purple-600"
+            }`}
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between mb-1">
+            <p
+              className={`text-base font-medium tracking-tight transition-colors duration-200 ${
+                isActive
+                  ? "text-purple-700"
+                  : "text-gray-900 group-hover/item:text-purple-700"
+              }`}>
+              {item.title}
+            </p>
+            {hasSubItems && (
+              <Icon
+                icon={
+                  thirdLevelPosition.direction === "left"
+                    ? "mdi:chevron-left"
+                    : "mdi:chevron-right"
+                }
+                className={`w-4 h-4 transition-all duration-200 ${
+                  isActive
+                    ? "text-purple-600 transform rotate-0"
+                    : "text-gray-400 group-hover/item:text-purple-500 group-hover/item:transform group-hover/item:translate-x-0.5"
+                }`}
+              />
+            )}
+          </div>
+          <p
+            className={`text-sm font-light tracking-tight leading-5 transition-colors duration-200 ${
+              isActive ? "text-purple-600" : "text-gray-600"
+            }`}>
+            {item.description}
+          </p>
+        </div>
+      </a>
+
+      {hasSubItems && (
+        <div data-third-level>
+          <ThirdLevelDropdown
+            items={item.subItems}
+            isVisible={isThirdLevelActive}
+            parentTitle={item.title}
+            thirdLevelRef={thirdLevelRef}
+            position={thirdLevelPosition}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+// First Level Dropdown Container Component
+const DropdownContainer = ({
+  dropdownContainerRef,
+  dropdownContentRef,
+  activeDropdown,
+  activeThirdLevel,
+  setActiveThirdLevel,
+}) => {
+  const handleMouseLeave = useCallback(
+    (e) => {
+      // Check if leaving to a non-dropdown area
+      const relatedTarget = e.relatedTarget;
+      const isStayingInNavigation = relatedTarget?.closest(
+        "[data-navigation-area]"
+      );
+      const isStayingInDropdown =
+        relatedTarget?.closest("[data-dropdown-container]") ||
+        relatedTarget?.closest("[data-third-level]");
+
+      if (!isStayingInDropdown && !isStayingInNavigation) {
+        setActiveThirdLevel(null);
+      }
+    },
+    [setActiveThirdLevel]
+  );
+
+  const handleThirdLevelMouseEnter = useCallback(() => {
+    // Keep third level open when hovering over it
+  }, []);
+
+  const handleThirdLevelMouseLeave = useCallback(
+    (e) => {
+      // Clear third level when leaving it
+      const relatedTarget = e.relatedTarget;
+      const isStayingInSecondLevel = relatedTarget?.closest(
+        "[data-second-level]"
+      );
+
+      if (!isStayingInSecondLevel) {
+        setActiveThirdLevel(null);
+      }
+    },
+    [setActiveThirdLevel]
+  );
+
+  return (
+    <div
+      ref={dropdownContainerRef}
+      data-dropdown-container
+      className="fixed w-full max-w-lg bg-white rounded-lg border border-gray-200 shadow-xl overflow-visible z-[10000]"
+      style={{
+        willChange: "transform, opacity",
+        left: 0,
+        top: 0,
+        visibility: "hidden",
+      }}
+      onMouseLeave={handleMouseLeave}>
+      <div
+        ref={dropdownContentRef}
+        className="p-2 space-y-1"
+        style={{ willChange: "transform, opacity" }}>
+        {activeDropdown &&
+          navigationData[activeDropdown]?.subItems?.map((subItem, index) => (
+            <SecondLevelMenuItem
+              key={`${activeDropdown}-${index}`}
+              item={subItem}
+              category={activeDropdown}
+              index={index}
+              activeThirdLevel={activeThirdLevel}
+              setActiveThirdLevel={setActiveThirdLevel}
+              onMouseEnter={handleThirdLevelMouseEnter}
+              onMouseLeave={handleThirdLevelMouseLeave}
+            />
+          ))}
+      </div>
+    </div>
+  );
+};
+
+// Navigation Item Component
+const NavigationItem = ({ item, navItemsRef, chevronRefs, onMouseEnter }) => {
+  const hasSubItems = navigationData[item]?.subItems?.length > 0;
+
+  return (
+    <div className="relative" onMouseEnter={() => onMouseEnter(item)}>
+      <a
+        ref={(el) => (navItemsRef.current[item] = el)}
+        href={navigationData[item]?.href || "#"}
+        className="p-3 rounded-t-lg flex items-center gap-1 transition-all duration-300 text-gray-900 hover:text-purple-600">
+        <span className="text-base font-medium tracking-tight">{item}</span>
+        {hasSubItems && (
+          <Icon
+            ref={(el) => (chevronRefs.current[item] = el)}
+            icon="mdi:chevron-down"
+            className="w-4 h-4 transition-transform duration-200"
+          />
+        )}
+      </a>
+    </div>
+  );
+};
+
+// Get in Touch Button Component
+const GetInTouchButton = ({ mobile = false }) => (
+  <a
+    href="/contact"
+    className={`${
+      mobile ? "px-4 py-2 text-sm text-center w-full" : "px-6 py-3 text-sm"
+    } bg-purple-600 rounded-full text-white font-medium tracking-wide hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg`}>
+    Request a Consultation
+  </a>
+);
+
+// Mobile Third Level Component
+const MobileThirdLevel = ({ items, isExpanded, parentTitle }) => {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <div
+      className={`overflow-hidden transition-all duration-300 ${
+        isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+      }`}>
+      <div className="pl-8 space-y-1 pt-2 border-l-2 border-purple-100 ml-4">
+        {items.map((subItem, index) => (
+          <a
+            key={index}
+            href={subItem.href}
+            className="flex items-start gap-2 p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+            <div className="flex-shrink-0 w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 opacity-60" />
+            <div className="flex-1">
+              <div className="font-medium text-xs mb-1">{subItem.title}</div>
+              <div className="text-xs text-gray-500 leading-4">
+                {subItem.description}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Mobile Second Level Component
+const MobileSecondLevel = ({
+  item,
+  index,
+  expandedItems,
+  toggleExpanded,
+  categoryKey,
+}) => {
+  const hasSubItems = item.subItems && item.subItems.length > 0;
+  const itemKey = `${categoryKey}-${index}`;
+  const isExpanded = expandedItems.includes(itemKey);
+
+  return (
+    <div className="border-l-2 border-gray-100 ml-2">
+      <div className="flex items-center justify-between">
+        <a
+          href={item.href}
+          className="flex-1 flex items-center gap-3 p-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+          <Icon icon={item.icon} className="w-4 h-4 text-gray-500" />
+          <div className="flex-1">
+            <div className="font-medium text-sm mb-1">{item.title}</div>
+            <div className="text-xs text-gray-500 leading-4">
+              {item.description}
+            </div>
+          </div>
+        </a>
+        {hasSubItems && (
+          <button
+            onClick={() => toggleExpanded(itemKey)}
+            className="p-2 text-gray-400 hover:text-purple-600 transition-colors duration-200"
+            aria-label={`Toggle ${item.title} submenu`}>
+            <Icon
+              icon={isExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
+              className="w-4 h-4"
+            />
+          </button>
+        )}
+      </div>
+      {hasSubItems && (
+        <MobileThirdLevel
+          items={item.subItems}
+          isExpanded={isExpanded}
+          parentTitle={item.title}
+        />
+      )}
+    </div>
+  );
+};
+
+// Mobile Menu Item Component
+const MobileMenuItem = ({
+  category,
+  items,
+  expandedCategories,
+  toggleCategory,
+  expandedItems,
+  toggleExpanded,
+}) => {
+  const isCategoryExpanded = expandedCategories.includes(category);
+  const hasItems = items && items.length > 0;
+
+  if (!hasItems) {
+    return (
+      <a
+        href={navigationData[category]?.href || "#"}
+        className="block text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2">
+        {category}
+      </a>
+    );
+  }
+
+  return (
+    <div className="border-b border-gray-100 pb-3">
+      <div className="flex items-center justify-between">
+        <button
+          onClick={() => toggleCategory(category)}
+          className="flex-1 text-left text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2">
+          {category}
+        </button>
+        <button
+          onClick={() => toggleCategory(category)}
+          className="p-1 text-gray-400 hover:text-purple-600 transition-colors duration-200"
+          aria-label={`Toggle ${category} menu`}>
+          <Icon
+            icon={isCategoryExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
+            className="w-5 h-5"
+          />
+        </button>
+      </div>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isCategoryExpanded
+            ? "max-h-[1000px] opacity-100"
+            : "max-h-0 opacity-0"
+        }`}>
+        <div className="space-y-2 pt-2">
+          {items.map((subItem, index) => (
+            <MobileSecondLevel
+              key={index}
+              item={subItem}
+              index={index}
+              categoryKey={category}
+              expandedItems={expandedItems}
+              toggleExpanded={toggleExpanded}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Mobile Menu Component
+const MobileMenu = ({
+  mobileMenuRef,
+  navigationKeys,
+  expandedCategories,
+  toggleCategory,
+  expandedItems,
+  toggleExpanded,
+}) => (
+  <div
+    ref={mobileMenuRef}
+    className="mobile-menu lg:hidden w-full bg-white border border-gray-200 rounded-lg shadow-xl mt-4 p-4 max-h-[70vh] overflow-y-auto"
+    style={{ willChange: "transform, opacity" }}>
+    <div className="flex flex-col space-y-4">
+      {navigationKeys.map((item) => (
+        <MobileMenuItem
+          key={item}
+          category={item}
+          items={navigationData[item]?.subItems || []}
+          expandedCategories={expandedCategories}
+          toggleCategory={toggleCategory}
+          expandedItems={expandedItems}
+          toggleExpanded={toggleExpanded}
+        />
+      ))}
+      <div className="pt-4 border-t border-gray-200">
+        <GetInTouchButton mobile />
+      </div>
+    </div>
+  </div>
+);
+
+// Custom hook for dropdown animations
+const useDropdownAnimations = (navContainerRef) => {
+  const dropdownContainerRef = useRef(null);
+  const dropdownContentRef = useRef(null);
+  const activeIndicatorRef = useRef(null);
+  const chevronRefs = useRef({});
+  const navItemsRef = useRef({});
+
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeThirdLevel, setActiveThirdLevel] = useState(null);
+
+  const navigationKeys = Object.keys(navigationData);
+
+  // Initialize GSAP
+  useEffect(() => {
+    if (dropdownContainerRef.current) {
+      gsap.set(dropdownContainerRef.current, {
+        autoAlpha: 0,
+        y: -10,
+        force3D: true,
+      });
+    }
+
+    if (activeIndicatorRef.current) {
+      gsap.set(activeIndicatorRef.current, {
+        scaleX: 0,
+        force3D: true,
+      });
+    }
+  }, []);
+
+  // Calculate dropdown position with proper boundary checks
+  const getDropdownPosition = useCallback((itemName) => {
+    const navItem = navItemsRef.current[itemName];
+    const dropdown = dropdownContainerRef.current;
+
+    if (!navItem || !dropdown) return { left: 0, right: "auto" };
+
+    const navItemRect = navItem.getBoundingClientRect();
+    const dropdownWidth = 512; // max-w-lg = 32rem = 512px
+    const viewportWidth = window.innerWidth;
+    const padding = 16;
+
+    // Calculate ideal center position
+    const itemCenter = navItemRect.left + navItemRect.width / 2;
+    const idealLeft = itemCenter - dropdownWidth / 2;
+
+    // Check boundaries and adjust
+    let finalLeft = idealLeft;
+
+    // If dropdown goes beyond left edge
+    if (idealLeft < padding) {
+      finalLeft = padding;
+    }
+    // If dropdown goes beyond right edge
+    else if (idealLeft + dropdownWidth > viewportWidth - padding) {
+      finalLeft = viewportWidth - dropdownWidth - padding;
+    }
+
+    return {
+      left: Math.max(padding, finalLeft),
+      right: "auto",
+    };
+  }, []);
+
+  // Calculate dropdown top position
+  const getDropdownTopPosition = useCallback(() => {
+    if (!navContainerRef.current) return 0;
+
+    const navRect = navContainerRef.current.getBoundingClientRect();
+    return navRect.bottom + 2; // Small gap between nav and dropdown
+  }, []);
+
+  // Update active indicator position
+  const updateActiveIndicator = useCallback((itemName) => {
+    const navItem = navItemsRef.current[itemName];
+    const indicator = activeIndicatorRef.current;
+    const navContainer = navContainerRef.current;
+
+    if (navItem && indicator && navContainer) {
+      const navItemRect = navItem.getBoundingClientRect();
+      const navContainerRect = navContainer.getBoundingClientRect();
+
+      const left = navItemRect.left - navContainerRect.left;
+      const width = navItemRect.width;
+
+      gsap.to(indicator, {
+        x: left,
+        width: width,
+        scaleX: 1,
+        duration: 0.25,
+        ease: "power2.out",
+        force3D: true,
+      });
+    }
+  }, []);
+
+  // Hide active indicator
+  const hideActiveIndicator = useCallback(() => {
+    if (activeIndicatorRef.current) {
+      gsap.to(activeIndicatorRef.current, {
+        scaleX: 0,
+        duration: 0.15,
+        ease: "power2.in",
+        force3D: true,
+      });
+    }
+  }, []);
+
+  // Handle dropdown content sliding
+  const slideToContent = useCallback(
+    (itemName) => {
+      if (dropdownContentRef.current && activeDropdown !== itemName) {
+        const direction =
+          navigationKeys.indexOf(itemName) >
+          navigationKeys.indexOf(activeDropdown)
+            ? 1
+            : -1;
+
+        gsap.to(dropdownContentRef.current, {
+          x: direction * -50,
+          autoAlpha: 0,
+          duration: 0.15,
+          ease: "power2.inOut",
+          force3D: true,
+          onComplete: () => {
+            setActiveDropdown(itemName);
+            setActiveThirdLevel(null);
+            gsap.fromTo(
+              dropdownContentRef.current,
+              { x: direction * 50, autoAlpha: 0, force3D: true },
+              {
+                x: 0,
+                autoAlpha: 1,
+                duration: 0.2,
+                ease: "power2.out",
+                force3D: true,
+              }
+            );
+          },
+        });
+      } else if (!activeDropdown) {
+        setActiveDropdown(itemName);
+        setActiveThirdLevel(null);
+        gsap.fromTo(
+          dropdownContentRef.current,
+          { x: 0, autoAlpha: 0, force3D: true },
+          {
+            x: 0,
+            autoAlpha: 1,
+            duration: 0.2,
+            ease: "power2.out",
+            force3D: true,
+          }
+        );
+      }
+    },
+    [activeDropdown, navigationKeys]
+  );
+
+  // Handle dropdown animations
+  const handleDropdownEnter = useCallback(
+    (itemName) => {
+      const hasSubItems = navigationData[itemName]?.subItems?.length > 0;
+
+      if (!hasSubItems) return;
+
+      const chevron = chevronRefs.current[itemName];
+
+      // Always update active indicator
+      updateActiveIndicator(itemName);
+
+      if (!isDropdownOpen) {
+        setIsDropdownOpen(true);
+        setActiveDropdown(itemName);
+        setActiveThirdLevel(null);
+
+        if (dropdownContainerRef.current) {
+          const position = getDropdownPosition(itemName);
+          const topPosition = getDropdownTopPosition();
+
+          gsap.set(dropdownContainerRef.current, {
+            left: position.left,
+            right: position.right,
+            top: topPosition,
+            autoAlpha: 0,
+            y: -10,
+          });
+
+          gsap.to(dropdownContainerRef.current, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            force3D: true,
+          });
+        }
+      } else {
+        slideToContent(itemName);
+
+        if (dropdownContainerRef.current) {
+          const position = getDropdownPosition(itemName);
+          gsap.to(dropdownContainerRef.current, {
+            left: position.left,
+            right: position.right,
+            duration: 0.25,
+            ease: "power2.out",
+            force3D: true,
+          });
+        }
+      }
+
+      // Animate chevron rotation
+      if (chevron) {
+        gsap.to(chevron, {
+          rotation: 180,
+          duration: 0.15,
+          ease: "power1.inOut",
+          force3D: true,
+        });
+      }
+
+      // Reset other chevrons
+      Object.keys(chevronRefs.current).forEach((key) => {
+        if (key !== itemName && chevronRefs.current[key]) {
+          gsap.to(chevronRefs.current[key], {
+            rotation: 0,
+            duration: 0.15,
+            ease: "power1.inOut",
+            force3D: true,
+          });
+        }
+      });
+    },
+    [
+      isDropdownOpen,
+      getDropdownPosition,
+      getDropdownTopPosition,
+      slideToContent,
+      updateActiveIndicator,
+    ]
+  );
+
+  const handleDropdownLeave = useCallback(() => {
+    setIsDropdownOpen(false);
+    setActiveDropdown(null);
+    setActiveThirdLevel(null);
+
+    hideActiveIndicator();
+
+    if (dropdownContainerRef.current) {
+      gsap.to(dropdownContainerRef.current, {
+        autoAlpha: 0,
+        y: -10,
+        duration: 0.2,
+        ease: "power2.in",
+        force3D: true,
+      });
+    }
+
+    // Reset all chevrons
+    Object.values(chevronRefs.current).forEach((chevron) => {
+      if (chevron) {
+        gsap.to(chevron, {
+          rotation: 0,
+          duration: 0.15,
+          ease: "power1.inOut",
+          force3D: true,
+        });
+      }
+    });
+  }, [hideActiveIndicator]);
+
+  return {
+    dropdownContainerRef,
+    dropdownContentRef,
+    activeIndicatorRef,
+    chevronRefs,
+    navItemsRef,
+    activeDropdown,
+    isDropdownOpen,
+    activeThirdLevel,
+    setActiveThirdLevel,
+    handleDropdownEnter,
+    handleDropdownLeave,
+  };
+};
+
+// Custom hook for mobile menu animations
+const useMobileMenuAnimations = () => {
+  const mobileMenuRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState([]);
+  const [expandedItems, setExpandedItems] = useState([]);
+
+  const toggleMobileMenu = useCallback(() => {
+    const newState = !isMobileMenuOpen;
+    setIsMobileMenuOpen(newState);
+
+    if (mobileMenuRef.current) {
+      if (newState) {
+        gsap.fromTo(
+          mobileMenuRef.current,
+          {
+            autoAlpha: 0,
+            y: -20,
+            force3D: true,
+          },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            force3D: true,
+          }
+        );
+      } else {
+        gsap.to(mobileMenuRef.current, {
+          autoAlpha: 0,
+          y: -20,
+          duration: 0.2,
+          ease: "power2.in",
+          force3D: true,
+        });
+      }
+    }
+  }, [isMobileMenuOpen]);
+
+  const toggleCategory = useCallback((category) => {
+    setExpandedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((cat) => cat !== category)
+        : [...prev, category]
+    );
+  }, []);
+
+  const toggleExpanded = useCallback((itemId) => {
+    setExpandedItems((prev) =>
+      prev.includes(itemId)
+        ? prev.filter((id) => id !== itemId)
+        : [...prev, itemId]
+    );
+  }, []);
+
+  return {
+    mobileMenuRef,
+    isMobileMenuOpen,
+    expandedCategories,
+    expandedItems,
+    toggleMobileMenu,
+    toggleCategory,
+    toggleExpanded,
+  };
+};
+
+// Desktop Navigation Component
+const DesktopNavigation = ({
+  navContainerRef,
+  dropdownHooks,
+  onMouseLeave,
+}) => {
+  const navigationKeys = Object.keys(navigationData);
+
+  return (
+    <div
+      ref={navContainerRef}
+      data-navigation-area
+      className="hidden lg:flex items-center gap-6 relative"
+      onMouseLeave={onMouseLeave}>
+      {/* Active Indicator */}
+      <div
+        ref={dropdownHooks.activeIndicatorRef}
+        className="absolute bottom-0 h-0.5 bg-purple-500 transform origin-left"
+        style={{ willChange: "transform" }}
+      />
+
+      {navigationKeys.map((item) => (
+        <NavigationItem
+          key={item}
+          item={item}
+          navItemsRef={dropdownHooks.navItemsRef}
+          chevronRefs={dropdownHooks.chevronRefs}
+          onMouseEnter={dropdownHooks.handleDropdownEnter}
+        />
+      ))}
+
+      <GetInTouchButton />
+
+      <DropdownContainer
+        dropdownContainerRef={dropdownHooks.dropdownContainerRef}
+        dropdownContentRef={dropdownHooks.dropdownContentRef}
+        activeDropdown={dropdownHooks.activeDropdown}
+        activeThirdLevel={dropdownHooks.activeThirdLevel}
+        setActiveThirdLevel={dropdownHooks.setActiveThirdLevel}
+      />
+    </div>
+  );
+};
+
+// Main Navigation Component
+const Navigation = () => {
+  const navContainerRef = useRef(null);
+  const navigationKeys = Object.keys(navigationData);
+
+  // Use custom hooks
+  const dropdownHooks = useDropdownAnimations(navContainerRef);
+  const mobileHooks = useMobileMenuAnimations();
+
+  // Handle click outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownHooks.dropdownContainerRef.current &&
+        !dropdownHooks.dropdownContainerRef.current.contains(event.target) &&
+        navContainerRef.current &&
+        !navContainerRef.current.contains(event.target)
+      ) {
+        dropdownHooks.handleDropdownLeave();
+      }
+    };
+
+    if (dropdownHooks.isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [dropdownHooks.isDropdownOpen, dropdownHooks.handleDropdownLeave]);
+
+  // Handle escape key to close dropdowns
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        if (dropdownHooks.isDropdownOpen) {
+          dropdownHooks.handleDropdownLeave();
+        }
+        if (mobileHooks.isMobileMenuOpen) {
+          mobileHooks.toggleMobileMenu();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [
+    dropdownHooks.isDropdownOpen,
+    mobileHooks.isMobileMenuOpen,
+    dropdownHooks.handleDropdownLeave,
+    mobileHooks.toggleMobileMenu,
+  ]);
+
+  // Handle window resize to close mobile menu
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && mobileHooks.isMobileMenuOpen) {
+        mobileHooks.toggleMobileMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [mobileHooks.isMobileMenuOpen, mobileHooks.toggleMobileMenu]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileHooks.isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileHooks.isMobileMenuOpen]);
+
+  return (
+    <>
+      <div className="fixed left-0 flex w-full top-0 z-[9998]">
+        <header className="w-full relative bg-white/95 backdrop-blur-sm border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="flex flex-col lg:flex-row justify-between items-center gap-4 py-4">
+              <Logo />
+
+              <DesktopNavigation
+                navContainerRef={navContainerRef}
+                dropdownHooks={dropdownHooks}
+                onMouseLeave={dropdownHooks.handleDropdownLeave}
+              />
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={mobileHooks.toggleMobileMenu}
+                className="lg:hidden p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300 rounded-lg hover:bg-purple-50"
+                aria-label="Toggle mobile menu"
+                aria-expanded={mobileHooks.isMobileMenuOpen}>
+                <Icon
+                  icon={mobileHooks.isMobileMenuOpen ? "mdi:close" : "mdi:menu"}
+                  className="w-6 h-6"
+                />
+              </button>
+            </nav>
+          </div>
+        </header>
+      </div>
+
+      {/* Mobile Navigation Overlay */}
+      {mobileHooks.isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[9999] lg:hidden">
+          <div
+            className="absolute inset-0 bg-black bg-opacity-50"
+            onClick={mobileHooks.toggleMobileMenu}
+          />
+          <div className="relative bg-white h-full overflow-hidden">
+            <div className="p-4 border-b border-gray-200">
+              <div className="flex items-center justify-between">
+                <Logo />
+                <button
+                  onClick={mobileHooks.toggleMobileMenu}
+                  className="p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300"
+                  aria-label="Close mobile menu">
+                  <Icon icon="mdi:close" className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+            <MobileMenu
+              mobileMenuRef={mobileHooks.mobileMenuRef}
+              navigationKeys={navigationKeys}
+              expandedCategories={mobileHooks.expandedCategories}
+              toggleCategory={mobileHooks.toggleCategory}
+              expandedItems={mobileHooks.expandedItems}
+              toggleExpanded={mobileHooks.toggleExpanded}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Spacer to prevent content from being hidden behind fixed header */}
+      <div className="h-20" />
+    </>
+  );
+};
+
+export default Navigation;

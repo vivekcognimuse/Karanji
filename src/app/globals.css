@@ -1,17 +1,70 @@
 @import "tailwindcss";
 
+/* Light mode variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sans: var(--font-albert-sans);
+  --font-outfit: var(--font-outfit);
 }
 
+/* Tailwind inline theme */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-albert-sans);
+  --font-outfit: var(--font-outfit);
+
+  --color-purple-50: #f5f3ff;
+  --color-purple-100: #ede9fe;
+  --color-purple-200: #dcd6fe;
+  --color-purple-300: #baabfc;
+  --color-purple-400: #a48cf9;
+  --color-purple-500: #885df5;
+  --color-purple-600: #783ceb;
+  --color-purple-700: #692ad7;
+  --color-purple-800: #5822b5;
+  --color-purple-900: #491e94;
+  --color-purple-950: #2c1164;
+
+  --color-blue-50: #f4f3ff;
+  --color-blue-100: #eae8ff;
+  --color-blue-200: #d9d4ff;
+  --color-blue-300: #bdb2ff;
+  --color-blue-400: #9d87fe;
+  --color-blue-500: #784ffc;
+  --color-blue-600: #6d33f4;
+  --color-blue-700: #5e21e0;
+  --color-blue-800: #4f1bbc;
+  --color-blue-900: #42189a;
+  --color-blue-950: #270d68;
+
+  --color-hawkes-blue-50: #f3f6fb;
+  --color-hawkes-blue-100: #e3eaf6;
+  --color-hawkes-blue-200: #cad9ee;
+  --color-hawkes-blue-300: #acc4e4;
+  --color-hawkes-blue-400: #84a7d6;
+  --color-hawkes-blue-500: #678aca;
+  --color-hawkes-blue-600: #5371bd;
+  --color-hawkes-blue-700: #4960ac;
+  --color-hawkes-blue-800: #40508d;
+  --color-hawkes-blue-900: #374471;
+  --color-hawkes-blue-950: #252c46;
+
+  --color-pink-50: #fcf4f4;
+  --color-pink-100: #fae6e6;
+  --color-pink-200: #f6d2d2;
+  --color-pink-300: #f0b8b8;
+  --color-pink-400: #e38686;
+  --color-pink-500: #d55e5e;
+  --color-pink-600: #c04242;
+  --color-pink-700: #a13434;
+  --color-pink-800: #862e2e;
+  --color-pink-900: #702c2c;
+  --color-pink-950: #3c1313;
 }
 
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +72,36 @@
   }
 }
 
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[--background] text-[--foreground];
+  font-family: var(--font-outfit), system-ui, sans-serif;
 }
+
+/* Headings (Albert Sans) */
+h1 {
+  @apply font-sans;
+}
+
+h2 {
+  @apply font-sans;
+}
+
+h3 {
+  @apply font-sans;
+}
+
+h4 {
+  @apply font-sans;
+}
+
+h5 {
+  @apply font-sans;
+}
+
+/* Paragraph (default to P3) */
+p {
+  @apply font-outfit;
+}
+
+/* Optional: Buttons and small text can use utility classes or custom classes */
