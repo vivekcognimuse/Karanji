@@ -181,6 +181,54 @@ const DigitalTwins = () => {
     },
   ];
 
+  const DIGITAL_TWIN_CONTENT = {
+    title: "Our Digital Twin Offerings",
+
+    subtitle:
+      "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation",
+
+    services: [
+      "Consulting & Strategy",
+      "Design & Architecture",
+      "Data Integration & IoT Connectivity",
+      "Development & Implementation",
+      "Deployment & Integration",
+      "Monitoring & Maintenance",
+      "Training & Change Management",
+      "Continuous Improvement & Innovation",
+    ],
+
+    ctaText: "Get expert guidance tailored to your goals.",
+    ctaButtonText: "Talk to our Digital Avatars",
+
+    featuredCards: [
+      {
+        icon: null,
+        title: "Consulting & Strategy",
+        description:
+          "Foundations for impactful and scalable digital twin adoption",
+      },
+      {
+        icon: null,
+        title: "Design & Architecture",
+        description:
+          "Blueprints for intelligent, connected, scalable twin systems",
+      },
+      {
+        icon: null,
+        title: "Data Integration & IoT Connectivity",
+        description:
+          "Seamless integration for real-time digital twin connectivity",
+      },
+      {
+        icon: null,
+        title: "Development & Implementation",
+        description:
+          "Smart development, immersive interfaces for virtual precision",
+      },
+    ],
+  };
+
   return (
     <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection
@@ -194,7 +242,14 @@ const DigitalTwins = () => {
         title={ADVANTAGES_CONTENT.title}
         cards={ADVANTAGES_CONTENT.cards}
       />
-      <DigitalTwinOfferings />
+      <DigitalTwinOfferings
+        title={DIGITAL_TWIN_CONTENT.title}
+        subtitle={DIGITAL_TWIN_CONTENT.subtitle}
+        services={DIGITAL_TWIN_CONTENT.services}
+        ctaText={DIGITAL_TWIN_CONTENT.ctaText}
+        ctaButtonText={DIGITAL_TWIN_CONTENT.ctaButtonText}
+        featuredCards={DIGITAL_TWIN_CONTENT.featuredCards}
+      />
       <Methodology
         title="Our Methodology & Technical Architecture"
         description="Our Digital Twins solution is built on a robust methodology that ensures seamless integration between physical and digital realms"

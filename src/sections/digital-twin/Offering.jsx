@@ -3,78 +3,38 @@ import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
 
 const DigitalTwinOfferings = ({
-  title = "Our Digital Twin Offerings",
-  subtitle = "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation",
-  services = [
-    "Consulting & Strategy",
-    "Design & Architecture",
-    "Data Integration & IoT Connectivity",
-    "Development & Implementation",
-    "Deployment & Integration",
-    "Monitoring & Maintenance",
-    "Training & Change Management",
-    "Continuous Improvement & Innovation",
-  ],
-  ctaText = "Get expert guidance tailored to your goals.",
-  ctaButtonText = "Talk to our Digital Avatars",
+  title,
+  subtitle,
+  services,
+  ctaText,
+  ctaButtonText,
   onCtaClick = () => {},
-  featuredCards = [
-    {
-      icon: null,
-      title: "Consulting & Strategy",
-      description:
-        "Foundations for impactful and scalable digital twin adoption",
-    },
-    {
-      icon: null,
-      title: "Design & Architecture",
-      description:
-        "Blueprints for intelligent, connected, scalable twin systems",
-    },
-    {
-      icon: null,
-      title: "Data Integration & IoT Connectivity",
-      description:
-        "Seamless integration for real-time digital twin connectivity",
-    },
-    {
-      icon: null,
-      title: "Development & Implementation",
-      description:
-        "Smart development, immersive interfaces for virtual precision",
-    },
-  ],
+  featuredCards,
   showNavigation = true,
   onPrevClick = () => {},
   onNextClick = () => {},
   className = "",
 }) => {
   return (
-    <div className={` py-16 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={`py-16 px-4 sm:px-6 lg:px-8 ${className}`}>
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
         <div className="text-left mb-12">
-          <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            {title}
-          </h3>
-          <P2 className="text-lg text-gray-700 max-w-4xl">{subtitle}</P2>
+          <h3 className=" text-gray-900 mb-6">{title}</h3>
+          <P2 className=" max-w-4xl">{subtitle}</P2>
         </div>
 
-        {/* Services List and CTA */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {/* Services Lists */}
           <div className="lg:col-span-2">
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
               {services.map((service, index) => (
                 <P3 key={index} className="flex items-start">
                   <span className="text-black-400 mr-3 mt-1">{index + 1}.</span>
-                  <span className="text-black-400 ">{service}</span>
+                  <span className="text-black-400">{service}</span>
                 </P3>
               ))}
             </div>
           </div>
 
-          {/* CTA Card */}
           <div className="bg-blue-100 rounded-2xl p-8 text-center">
             <p className="text-gray-900 font-semibold text-lg mb-6">
               {ctaText}
@@ -87,7 +47,6 @@ const DigitalTwinOfferings = ({
           </div>
         </div>
 
-        {/* Featured Cards Section */}
         <div className="relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredCards.map((card, index) => (
@@ -105,7 +64,7 @@ const DigitalTwinOfferings = ({
                     />
                   </div>
                 )}
-                <h4 className=" mb-40">{card.title}</h4>
+                <h4 className="mb-4">{card.title}</h4>
                 <P3 className="text-gray-600 leading-relaxed">
                   {card.description}
                 </P3>
@@ -113,7 +72,6 @@ const DigitalTwinOfferings = ({
             ))}
           </div>
 
-          {/* Navigation Arrows */}
           {showNavigation && (
             <div className="flex justify-end mt-8 space-x-4">
               <button

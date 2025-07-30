@@ -1,3 +1,4 @@
+import { P2 } from "@/components/CustomTags";
 import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
 
 const features = [
@@ -27,10 +28,8 @@ export default function TechnologyAdvantage() {
   return (
     <section className="space-y-16">
       <div className="space-y-4">
-        <h2 className="text-black text-5xl font-medium">
-          The Karanji Technology Advantage
-        </h2>
-        <p className="text-black text-xl font-normal leading-9 tracking-wide">
+        <h3 className=" ">The Karanji Technology Advantage</h3>
+        <P2 className="">
           Our approach combines strategic insight with hands-on implementation.
           We specialize in integrating artificial intelligence consulting,
           XR/VR/AR experiences, and digital twin technologies to help you
@@ -38,7 +37,7 @@ export default function TechnologyAdvantage() {
           transformation. Rooted in the evolution of AI and shaped by today's
           realities-from AI policy to limited memory AI-we bring future-ready
           solutions that align with your long-term vision.
-        </p>
+        </P2>
       </div>
 
       <div className="flex gap-16">

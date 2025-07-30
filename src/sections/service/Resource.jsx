@@ -1,5 +1,6 @@
 // Updated Resource.jsx
 "use client";
+import { P2 } from "@/components/CustomTags";
 import { ResourceCard } from "@/components/ui/Service";
 import useCMSStore from "@/stores/cmsStore";
 
@@ -10,14 +11,14 @@ export default function ResourcesSection() {
     <section className="space-y-16">
       <div className="space-y-8">
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-medium text-black">
+          <h3 className="text-4xl md:text-5xl font-medium text-black">
             Technology Resources & Insights
-          </h2>
-          <p className="text-xl text-black leading-9 tracking-wide">
+          </h3>
+          <P2 className="text-xl text-black leading-9 tracking-wide">
             Stay ahead with our latest insights on technology implementation and
             digital innovation. Explore whitepapers, webinars, and thought
             leadership articles that delve into emerging trends and solutions.
-          </p>
+          </P2>
         </div>
       </div>
 
