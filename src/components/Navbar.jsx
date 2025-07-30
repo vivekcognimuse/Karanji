@@ -16,60 +16,19 @@ const Logo = () => (
 );
 
 // Third Level Dropdown Component
-const ThirdLevelDropdown = ({
-  items,
-  isVisible,
-  parentTitle,
-  thirdLevelRef,
-  position,
-}) => {
-  useEffect(() => {
-    if (thirdLevelRef.current) {
-      if (isVisible) {
-        gsap.fromTo(
-          thirdLevelRef.current,
-          {
-            autoAlpha: 0,
-            x: position?.direction === "left" ? 20 : -20,
-            scale: 0.95,
-            force3D: true,
-          },
-          {
-            autoAlpha: 1,
-            x: 0,
-            scale: 1,
-            duration: 0.25,
-            ease: "power2.out",
-            force3D: true,
-          }
-        );
-      } else {
-        gsap.to(thirdLevelRef.current, {
-          autoAlpha: 0,
-          x: position?.direction === "left" ? 20 : -20,
-          scale: 0.95,
-          duration: 0.2,
-          ease: "power2.in",
-          force3D: true,
-        });
-      }
-    }
-  }, [isVisible, thirdLevelRef, position]);
-
+const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
   if (!items || items.length === 0) return null;
-
-  const positionClasses =
-    position?.direction === "left"
-      ? "right-full top-0 mr-0"
-      : "left-full top-0 ml-0";
 
   return (
     <div
-      ref={thirdLevelRef}
-      className={`absolute ${positionClasses} w-80 bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden z-[10001]`}
+      className={`absolute left-full top-0 ml-2 w-80 bg-white rounded-lg border border-gray-200 shadow-xl overflow-hidden z-[10001] transition-all duration-300 ${
+        isVisible
+          ? "opacity-100 visible transform translate-x-0"
+          : "opacity-0 invisible transform -translate-x-4"
+      }`}
       style={{
-        willChange: "transform, opacity, scale",
-        visibility: "hidden",
+        willChange: "transform, opacity",
+        top: position?.top || 0,
       }}>
       <div className="p-4">
         <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-3 px-1">
@@ -108,50 +67,30 @@ const SecondLevelMenuItem = ({
   onMouseEnter,
   onMouseLeave,
 }) => {
+  const [thirdLevelPosition, setThirdLevelPosition] = useState({ top: 0 });
   const itemRef = useRef(null);
-  const thirdLevelRef = useRef(null);
-  const [thirdLevelPosition, setThirdLevelPosition] = useState({
-    direction: "right",
-  });
   const hasSubItems = item.subItems && item.subItems.length > 0;
   const isThirdLevelActive = activeThirdLevel === `${category}-${index}`;
-  const isActive = isThirdLevelActive; // Parent is active when child dropdown is open
-
-  const calculateThirdLevelPosition = useCallback(() => {
-    if (!itemRef.current || !hasSubItems) return;
-
-    const itemRect = itemRef.current.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const thirdLevelWidth = 320; // 80 * 4 = 320px (w-80)
-    const padding = 16;
-
-    // Check if there's enough space on the right
-    const spaceOnRight = viewportWidth - itemRect.right;
-    const spaceOnLeft = itemRect.left;
-
-    // Prefer right side, but switch to left if not enough space
-    const direction =
-      spaceOnRight >= thirdLevelWidth + padding ? "right" : "left";
-
-    setThirdLevelPosition({ direction });
-  }, [hasSubItems]);
 
   const handleMouseEnter = useCallback(
     (e) => {
-      if (hasSubItems) {
-        calculateThirdLevelPosition();
+      if (hasSubItems && itemRef.current) {
+        const rect = itemRef.current.getBoundingClientRect();
+        const dropdownContainer = itemRef.current.closest(
+          "[data-dropdown-container]"
+        );
+
+        if (dropdownContainer) {
+          const containerRect = dropdownContainer.getBoundingClientRect();
+          const relativeTop = rect.top - containerRect.top;
+          setThirdLevelPosition({ top: Math.max(0, relativeTop) });
+        }
+
         setActiveThirdLevel(`${category}-${index}`);
       }
       onMouseEnter?.(e);
     },
-    [
-      hasSubItems,
-      category,
-      index,
-      setActiveThirdLevel,
-      onMouseEnter,
-      calculateThirdLevelPosition,
-    ]
+    [hasSubItems, category, index, setActiveThirdLevel, onMouseEnter]
   );
 
   const handleMouseLeave = useCallback(
@@ -168,18 +107,6 @@ const SecondLevelMenuItem = ({
     [setActiveThirdLevel, onMouseLeave]
   );
 
-  // Recalculate position on window resize
-  useEffect(() => {
-    const handleResize = () => {
-      if (isThirdLevelActive) {
-        calculateThirdLevelPosition();
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isThirdLevelActive, calculateThirdLevelPosition]);
-
   return (
     <div
       ref={itemRef}
@@ -189,50 +116,23 @@ const SecondLevelMenuItem = ({
       data-second-level>
       <a
         href={item.href}
-        className={`flex items-start gap-3 p-4 border-r-2 transition-all duration-200 group/item ${
-          isActive
-            ? "bg-purple-50 border-purple-500 text-purple-700"
-            : "hover:bg-purple-50 border-transparent hover:border-purple-500"
-        }`}>
-        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-lg">
-          <Icon
-            icon={item.icon}
-            className={`w-5 h-5 transition-colors duration-200 ${
-              isActive
-                ? "text-purple-600"
-                : "text-gray-600 group-hover/item:text-purple-600"
-            }`}
-          />
+        className="flex items-start gap-3 p-4 hover:bg-purple-50 border-r-2 border-transparent hover:border-purple-500 transition-all duration-200 group/item">
+        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-lg text-gray-600">
+          <Icon icon={item.icon} className="w-5 h-5" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-1">
-            <p
-              className={`text-base font-medium tracking-tight transition-colors duration-200 ${
-                isActive
-                  ? "text-purple-700"
-                  : "text-gray-900 group-hover/item:text-purple-700"
-              }`}>
+            <p className="text-gray-900 text-base font-medium tracking-tight">
               {item.title}
             </p>
             {hasSubItems && (
               <Icon
-                icon={
-                  thirdLevelPosition.direction === "left"
-                    ? "mdi:chevron-left"
-                    : "mdi:chevron-right"
-                }
-                className={`w-4 h-4 transition-all duration-200 ${
-                  isActive
-                    ? "text-purple-600 transform rotate-0"
-                    : "text-gray-400 group-hover/item:text-purple-500 group-hover/item:transform group-hover/item:translate-x-0.5"
-                }`}
+                icon="mdi:chevron-right"
+                className="w-4 h-4 text-gray-400 group-hover/item:text-purple-500 transition-colors duration-200"
               />
             )}
           </div>
-          <p
-            className={`text-sm font-light tracking-tight leading-5 transition-colors duration-200 ${
-              isActive ? "text-purple-600" : "text-gray-600"
-            }`}>
+          <p className="text-gray-600 text-sm font-light tracking-tight leading-5">
             {item.description}
           </p>
         </div>
@@ -244,7 +144,6 @@ const SecondLevelMenuItem = ({
             items={item.subItems}
             isVisible={isThirdLevelActive}
             parentTitle={item.title}
-            thirdLevelRef={thirdLevelRef}
             position={thirdLevelPosition}
           />
         </div>
@@ -265,33 +164,11 @@ const DropdownContainer = ({
     (e) => {
       // Check if leaving to a non-dropdown area
       const relatedTarget = e.relatedTarget;
-      const isStayingInNavigation = relatedTarget?.closest(
-        "[data-navigation-area]"
-      );
       const isStayingInDropdown =
         relatedTarget?.closest("[data-dropdown-container]") ||
         relatedTarget?.closest("[data-third-level]");
 
-      if (!isStayingInDropdown && !isStayingInNavigation) {
-        setActiveThirdLevel(null);
-      }
-    },
-    [setActiveThirdLevel]
-  );
-
-  const handleThirdLevelMouseEnter = useCallback(() => {
-    // Keep third level open when hovering over it
-  }, []);
-
-  const handleThirdLevelMouseLeave = useCallback(
-    (e) => {
-      // Clear third level when leaving it
-      const relatedTarget = e.relatedTarget;
-      const isStayingInSecondLevel = relatedTarget?.closest(
-        "[data-second-level]"
-      );
-
-      if (!isStayingInSecondLevel) {
+      if (!isStayingInDropdown) {
         setActiveThirdLevel(null);
       }
     },
@@ -323,8 +200,6 @@ const DropdownContainer = ({
               index={index}
               activeThirdLevel={activeThirdLevel}
               setActiveThirdLevel={setActiveThirdLevel}
-              onMouseEnter={handleThirdLevelMouseEnter}
-              onMouseLeave={handleThirdLevelMouseLeave}
             />
           ))}
       </div>

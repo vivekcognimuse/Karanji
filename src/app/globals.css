@@ -92,40 +92,40 @@ body {
 
 /* Headings (Albert Sans) */
 h1 {
-  @apply font-sans text-black text-center leading-tight text-6xl font-normal;
+  @apply font-sans text-black text-center leading-tight text-5xl  sm:text-6xl lg:text-8xl  font-normal;
 }
 
 h2 {
-  @apply font-sans;
+  @apply font-sans text-4xl sm:text-5xl lg:text-[4rem] text-black font-normal mb-4;
 }
 
 h3 {
-  @apply font-sans;
+  @apply font-sans text-3xl sm:text-4xl lg:text-[2.625rem] mb-4;
 }
 
 h4 {
-  @apply font-sans;
+  @apply font-sans text-[1.625rem] sm:text-3xl mb-4;
 }
 
 h5 {
-  @apply font-sans;
+  @apply font-sans text-[1.375rem] sm:text-2xl font-medium mb-4;
 }
 
 /* Paragraph (default to P3) */
 .p1 {
-  @apply font-outfit text-2xl;
+  @apply font-outfit text-[1.375rem] sm:text-2xl;
 }
 .p2 {
-  @apply font-outfit;
+  @apply font-outfit text-xl sm:text-[1.375rem];
 }
 .p3 {
-  @apply font-outfit;
+  @apply font-outfit text-lg sm:text-xl;
 }
 .p4 {
-  @apply font-outfit;
+  @apply font-outfit text-base;
 }
 .p5 {
-  @apply font-outfit;
+  @apply font-outfit text-sm mb-4;
 }
 
 /* Optional: Buttons and small text can use utility classes or custom classes */

@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { P4, P5 } from "./CustomTags";
 const Footer = () => {
   const footerSections = [
     {
@@ -53,16 +54,14 @@ const Footer = () => {
         <nav className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-6">
-              <h3 className="text-black text-lg font-normal font-outfit tracking-wide">
-                {section.title}
-              </h3>
+              <P4 className="text-black ">{section.title}</P4>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link}>
                     <Link
                       href="#"
                       className="text-black  font-normal font-outfit leading-loose tracking-wide">
-                      {link}
+                      <P5>{link}</P5>
                     </Link>
                   </li>
                 ))}

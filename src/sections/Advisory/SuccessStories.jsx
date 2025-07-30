@@ -1,9 +1,14 @@
 "use client";
+import { P2, P3 } from "@/components/CustomTags";
 import { TestimonialCarousel } from "@/components/ui/advisory";
-import { testimonialsData } from "@/constant/advisory";
+
 import { useState } from "react";
 
-export default function SuccessStories() {
+export default function SuccessStories({
+  title,
+  testimonialsData,
+  description,
+}) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = () => {
@@ -23,14 +28,9 @@ export default function SuccessStories() {
   return (
     <section className="px-4 md:px-8 lg:px-16 py-16">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
-            Use Cases & Success Stories
-          </h2>
-          <p className="text-lg md:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide mb-8">
-            Discover real-world impact as our immersive solutions transform
-            operations across industries
-          </p>
+        <div className="mb-16">
+          <h3 className="">{title}</h3>
+          <P2 className=" text-black  mb-8">{description}</P2>
         </div>
 
         <TestimonialCarousel
