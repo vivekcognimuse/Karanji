@@ -4,7 +4,6 @@ export const navigationData = {
     subItems: [],
   },
   Solutions: {
-    href: "/solutions",
     subItems: [
       {
         icon: "mdi:brain",
@@ -83,7 +82,6 @@ export const navigationData = {
     ],
   },
   Industries: {
-    href: "/industries",
     subItems: [
       {
         icon: "mdi:medical-bag",
@@ -121,7 +119,6 @@ export const navigationData = {
     ],
   },
   Resources: {
-    href: "/resources",
     subItems: [
       {
         icon: "mdi:file-document",
@@ -149,7 +146,6 @@ export const navigationData = {
     ],
   },
   Company: {
-    href: "/company",
     subItems: [
       {
         icon: "mdi:account-group",

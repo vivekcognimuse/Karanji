@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import { P2, P3 } from "../CustomTags";
 
 // Loading Spinner Component
 export const LoadingSpinner = memo(function LoadingSpinner() {
@@ -21,7 +22,7 @@ export const StatsDisplay = memo(function StatsDisplay({ stats }) {
             <div className="text-3xl md:text-4xl lg:text-5xl font-semibold font-sans  text-black">
               {stat.value}
             </div>
-            <div className="text-sm md:text-lg font-light font-['Outfit'] text-black/70 uppercase leading-relaxed tracking-wide">
+            <div className="text-sm md:text-lg font-light text-black/70 uppercase leading-relaxed tracking-wide">
               {stat.label}
             </div>
           </div>
@@ -41,82 +42,56 @@ export const ServiceCard = memo(function ServiceCard({
   featured,
   index,
   currentIndex,
+  heightDifference = false,
   icon,
 }) {
   const isActive = index === currentIndex;
 
   return (
-    <div className="w-full  h-[420px] p-8 -z-1 relative">
-      {/* Border using pseudo-element */}
+    <div
+      className={`w-full border border-black/10 rounded-2xl shadow-lg p-8 z-0 relative`}
+      style={
+        heightDifference
+          ? { minHeight: `calc(290px + ${index * 40}px)` }
+          : { height: "390px" } // Ensure uniform card height when disabled
+      }>
       <div
-        className="absolute inset-0 rounded-2xl -z-10"
-        style={{
-          clipPath:
-            "polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0% 60%, 0 10%)",
-          background: "oklch(58.5% 0.233 277.117)",
-          transform: "scale(1.005)",
-        }}
-      />
-
-      {/* Background card with gradient and clip-path */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-white via-white via-50% to-indigo-100 rounded-2xl shadow-lg overflow-hidden"
-        style={{
-          clipPath:
-            "polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0% 60%, 0 10%)",
-        }}
-      />
-
-      {/* Content container */}
-      <div
-        className={`relative z-10 h-full flex flex-col justify-between ${
+        className={`relative z-10 flex flex-col h-full ${
           featured || isActive ? "lg:scale-105 z-10" : "lg:hover:blur-none"
         } transition-all duration-300 hover:scale-105`}>
-        {/* Top section with icon and titles */}
+        {/* Top Section: Icon + Title + Subtitle */}
         <div className="flex flex-col gap-4">
-          {/* Icon section */}
           <div className="flex justify-start items-center">
             {Icon ? (
-              <div className="w-10 h-10 flex items-center justify-center  rounded-lg">
+              <div className="w-10 h-10 flex items-center justify-center rounded-lg">
                 <Icon icon={icon} className="w-6 h-6 text-indigo-600" />
               </div>
             ) : (
-              // Custom icon placeholder (your original design)
               <div className="w-10 h-10 relative overflow-hidden">
-                <div className="w-8 h-8 left-[2px] top-[7.13px] absolute bg-indigo-400  outline-indigo-400" />
-                <div className="w-6 h-6 left-[7.60px] top-[12.73px] absolute bg-indigo-400  outline-indigo-400" />
-                <div className="w-3 h-3 left-[13.20px] top-[18.32px] absolute bg-indigo-400  outline-indigo-400" />
-                <div className="w-1 h-1 left-[37.11px] top-[2.20px] absolute bg-indigo-400  outline-indigo-400" />
-                <div className="w-4 h-4 left-[18.36px] top-[8.64px] absolute bg-indigo-400  outline-indigo-400" />
-                <div className="w-2 h-2 left-[32.79px] top-[2px] absolute bg-indigo-400  outline-indigo-400" />
+                {/* Custom fallback icon shapes */}
+                <div className="w-8 h-8 left-[2px] top-[7.13px] absolute bg-indigo-400" />
               </div>
             )}
           </div>
 
-          {/* Title and subtitle */}
-          <div className="flex flex-col gap-1">
-            <h3
-              className={`text-black font-normal font-sans  ${
-                featured || isActive ? "text-3xl" : "text-2xl"
-              }`}>
-              {title}
-            </h3>
-            <p className="text-black/50 text-xl font-light font-['Outfit'] tracking-wide">
-              {subtitle}
-            </p>
+          <div className="flex flex-col gap-[10px]">
+            <h4>{title}</h4>
+            {subtitle && <P3 className="text-black-500">{subtitle}</P3>}
           </div>
         </div>
 
+        {/* Spacer to visually align with bg image */}
+        <div className="mt-auto" />
+
         {/* Description at bottom */}
-        <div className="mt-auto">
-          <p className="text-black/50 text-lg font-light font-['Outfit'] tracking-wide leading-relaxed">
-            {description}
-          </p>
+        <div>
+          <P3 className="text-black/50 font-light">{description}</P3>
         </div>
       </div>
     </div>
   );
 });
+
 // Methodology Step Component
 export const MethodologyStep = memo(function MethodologyStep({
   step,
@@ -135,7 +110,7 @@ export const MethodologyStep = memo(function MethodologyStep({
             {title}
           </div>
         </div>
-        <div className="flex-1 text-lg md:text-xl font-light font-['Outfit'] text-black/50 tracking-wide">
+        <div className="flex-1 text-lg md:text-xl font-light text-black/50 tracking-wide">
           {description}
         </div>
       </div>
@@ -163,12 +138,8 @@ export const IndustryCard = memo(function IndustryCard({
         </div>
       </div>
       <div className="flex-1">
-        <h3 className="text-lg md:text-xl font-medium font-sans  text-black tracking-wide mb-2">
-          {title}
-        </h3>
-        <p className="text-lg md:text-xl font-light font-['Outfit'] text-black/50 tracking-wide">
-          {description}
-        </p>
+        <h5 className="">{title}</h5>
+        <P3 className="text-black-500">{description}</P3>
       </div>
     </div>
   );
@@ -185,71 +156,65 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <>
-      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+    <div className="py-14">
+      <div className="flex flex-col  lg:flex-row items-center gap-8 lg:gap-16">
         <button
           onClick={onPrev}
           className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
           aria-label="Previous testimonial">
           <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
         </button>
-
         <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-6 md:p-8">
-          <div className="mb-8">
-            <h3 className="text-2xl md:text-3xl font-normal font-sans  text-black mb-6">
-              {currentTestimonial.title}
-            </h3>
+          <div className="">
+            <h4 className="mb-12">{currentTestimonial.title}</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {currentTestimonial.metrics.map((metric, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="w-px h-24 bg-black"></div>
+                <div
+                  key={index}
+                  className="flex border-l border-black pl-4 items-center gap-4">
                   <div>
-                    <div className="text-3xl md:text-4xl lg:text-5xl font-semibold font-sans  text-black">
+                    <p className="font-sans font-semibold text-5xl">
                       {metric.value}
-                    </div>
-                    <div className="text-lg md:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide">
-                      {metric.label}
-                    </div>
+                    </p>
+                    <P2 className="  text-black ">{metric.label}</P2>
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="text-lg md:text-xl font-normal font-['Outfit'] text-black/50 leading-relaxed tracking-wide mb-6">
+            <P2 className=" text-black-500 mb-6">
               {currentTestimonial.description}
-            </p>
+            </P2>
 
-            <div className="flex items-center gap-2 text-lg font-normal font-['Outfit'] tracking-wide cursor-pointer hover:text-indigo-600 transition-colors">
+            <div className="flex items-center gap-2 text-lg font-normal  justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors">
               <span>Read Full CaseStudy</span>
               <Icon icon="lucide:arrow-up-right" className="w-6 h-6" />
             </div>
           </div>
         </div>
-
         <button
           onClick={onNext}
           className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
           aria-label="Next testimonial">
           <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
-        </button>
+        </button>{" "}
       </div>
-
       {/* Pagination dots */}
       <div className="flex justify-center gap-2 mt-8">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => onDotClick(index)}
-            className={`w-4 h-4 rounded-full transition-all ${
+            className={` cursor-pointer rounded-full transition-all ${
               index === currentIndex
-                ? "bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200"
-                : "bg-black/30"
+                ? "bg-gradient-to-br size-4  from-indigo-200 via-sky-100 to-rose-200"
+                : "bg-black/30 size-3"
             }`}
             aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
       </div>
-    </>
+    </div>
   );
 });

@@ -1,21 +1,17 @@
+import { P2 } from "@/components/CustomTags";
 import { MethodologyStep } from "@/components/ui/advisory";
 import { methodologyData } from "@/constant/advisory";
 
-export default function Methodology() {
+export default function Methodology({ title, description, methodologyData }) {
   return (
-    <section className=" py-16">
+    <section className=" ">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
-            Our Proven Methodology
-          </h2>
-          <p className="text-lg md:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide">
-            We combine cutting-edge tech with business acumen to build
-            AI-powered business solutions that perform.
-          </p>
+        <div className="mb-16">
+          <h3 className="">{title}</h3>
+          <P2 className="">{description}</P2>
         </div>
 
-        <div className="bg-white/50  -z-1 rounded-2xl  space-y-8">
+        <div className="bg-white/50 px-40  -z-1 rounded-2xl  space-y-8">
           {methodologyData.map((item, index) => (
             <MethodologyStep
               key={index}

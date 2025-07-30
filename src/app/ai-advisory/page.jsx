@@ -1,5 +1,10 @@
 "use client";
 
+import {
+  methodologyData,
+  serviceOfferingsData,
+  testimonialsData,
+} from "@/constant/advisory";
 import Hero from "@/sections/Advisory/Hero";
 import HeroSection from "@/sections/Advisory/Hero";
 import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
@@ -58,14 +63,27 @@ export default function AIAdvisoryPage() {
         statsCards={exampleStatsCards}
       />
 
-      <ServiceOfferings />
-      <Methodology />
+      <ServiceOfferings
+        title=" Our AI Service Offerings"
+        description="From high-level strategy to tactical execution and operational implementation, we guide you through every aspect of your AI journey."
+        serviceOfferingsData={serviceOfferingsData}
+      />
+      <Methodology
+        title="Our Proven Methodology"
+        description="We combine cutting-edge tech with business acumen to build
+            AI-powered business solutions that perform."
+        methodologyData={methodologyData}
+      />
       <IndustryExpertise
         title="Industry-Specific Expertise in AI Consulting"
         subtitle="Tailored approaches that address unique challenges in diverse sectors."
         industriesData={industriesData}
       />
-      <SuccessStories />
+      <SuccessStories
+        title="Use Cases & Success Stories "
+        description="Discover real-world impact as our immersive solutions transform operations across industries "
+        testimonialsData={testimonialsData}
+      />
     </main>
   );
 }
