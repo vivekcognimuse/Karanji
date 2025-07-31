@@ -7,7 +7,7 @@ export const navigationData = {
     subItems: [
       {
         icon: "mdi:brain",
-        title: "AI Solutions",
+        title: "Technology Solutions",
         description: "Artificial Intelligence and Machine Learning solutions",
         href: "/technology-solutions",
         subItems: [

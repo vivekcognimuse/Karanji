@@ -2,10 +2,32 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { Icon } from "@iconify/react";
-import Link from "next/link";
 import { navigationData } from "@/constant/navigation";
 
-// Logo Component
+// ===== UTILITY FUNCTIONS =====
+const getDropdownPosition = (navItem, dropdownWidth = 512, padding = 16) => {
+  if (!navItem) return { left: 0, right: "auto" };
+
+  const navItemRect = navItem.getBoundingClientRect();
+  const viewportWidth = window.innerWidth;
+  const itemCenter = navItemRect.left + navItemRect.width / 2;
+  const idealLeft = itemCenter - dropdownWidth / 2;
+
+  let finalLeft = Math.max(padding, idealLeft);
+  if (idealLeft + dropdownWidth > viewportWidth - padding) {
+    finalLeft = viewportWidth - dropdownWidth - padding;
+  }
+
+  return { left: finalLeft, right: "auto" };
+};
+
+const getDropdownTopPosition = (navContainer) => {
+  if (!navContainer) return 0;
+  const navRect = navContainer.getBoundingClientRect();
+  return navRect.bottom + 2;
+};
+
+// ===== UI COMPONENTS =====
 const Logo = () => (
   <div className="flex items-center gap-2">
     <div className="w-6 h-6 bg-black rounded" />
@@ -15,9 +37,19 @@ const Logo = () => (
   </div>
 );
 
-// Third Level Dropdown Component
+const GetInTouchButton = ({ mobile = false }) => (
+  <a
+    href="/contact"
+    className={`${
+      mobile ? "px-4 py-2 text-sm text-center w-full" : "px-6 py-3 text-sm"
+    } bg-purple-600 rounded-full text-white font-medium tracking-wide hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg`}>
+    Request a Consultation
+  </a>
+);
+
+// ===== DROPDOWN COMPONENTS =====
 const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
-  if (!items || items.length === 0) return null;
+  if (!items?.length) return null;
 
   return (
     <div
@@ -26,10 +58,7 @@ const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
           ? "opacity-100 visible transform translate-x-0"
           : "opacity-0 invisible transform -translate-x-4"
       }`}
-      style={{
-        willChange: "transform, opacity",
-        top: position?.top || 0,
-      }}>
+      style={{ willChange: "transform, opacity", top: position?.top || 0 }}>
       <div className="p-4">
         <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-3 px-1">
           {parentTitle}
@@ -57,7 +86,6 @@ const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
   );
 };
 
-// Second Level Menu Item Component
 const SecondLevelMenuItem = ({
   item,
   category,
@@ -69,7 +97,7 @@ const SecondLevelMenuItem = ({
 }) => {
   const [thirdLevelPosition, setThirdLevelPosition] = useState({ top: 0 });
   const itemRef = useRef(null);
-  const hasSubItems = item.subItems && item.subItems.length > 0;
+  const hasSubItems = item.subItems?.length > 0;
   const isThirdLevelActive = activeThirdLevel === `${category}-${index}`;
 
   const handleMouseEnter = useCallback(
@@ -95,7 +123,6 @@ const SecondLevelMenuItem = ({
 
   const handleMouseLeave = useCallback(
     (e) => {
-      // Only clear if not moving to third level dropdown
       const relatedTarget = e.relatedTarget;
       const isMovingToThirdLevel = relatedTarget?.closest("[data-third-level]");
 
@@ -152,7 +179,6 @@ const SecondLevelMenuItem = ({
   );
 };
 
-// First Level Dropdown Container Component
 const DropdownContainer = ({
   dropdownContainerRef,
   dropdownContentRef,
@@ -162,7 +188,6 @@ const DropdownContainer = ({
 }) => {
   const handleMouseLeave = useCallback(
     (e) => {
-      // Check if leaving to a non-dropdown area
       const relatedTarget = e.relatedTarget;
       const isStayingInDropdown =
         relatedTarget?.closest("[data-dropdown-container]") ||
@@ -207,43 +232,9 @@ const DropdownContainer = ({
   );
 };
 
-// Navigation Item Component
-const NavigationItem = ({ item, navItemsRef, chevronRefs, onMouseEnter }) => {
-  const hasSubItems = navigationData[item]?.subItems?.length > 0;
-
-  return (
-    <div className="relative" onMouseEnter={() => onMouseEnter(item)}>
-      <a
-        ref={(el) => (navItemsRef.current[item] = el)}
-        href={navigationData[item]?.href || "#"}
-        className="p-3 rounded-t-lg flex items-center gap-1 transition-all duration-300 text-gray-900 hover:text-purple-600">
-        <span className="text-base font-medium tracking-tight">{item}</span>
-        {hasSubItems && (
-          <Icon
-            ref={(el) => (chevronRefs.current[item] = el)}
-            icon="mdi:chevron-down"
-            className="w-4 h-4 transition-transform duration-200"
-          />
-        )}
-      </a>
-    </div>
-  );
-};
-
-// Get in Touch Button Component
-const GetInTouchButton = ({ mobile = false }) => (
-  <a
-    href="/contact"
-    className={`${
-      mobile ? "px-4 py-2 text-sm text-center w-full" : "px-6 py-3 text-sm"
-    } bg-purple-600 rounded-full text-white font-medium tracking-wide hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg`}>
-    Request a Consultation
-  </a>
-);
-
-// Mobile Third Level Component
-const MobileThirdLevel = ({ items, isExpanded, parentTitle }) => {
-  if (!items || items.length === 0) return null;
+// ===== MOBILE COMPONENTS =====
+const MobileThirdLevel = ({ items, isExpanded }) => {
+  if (!items?.length) return null;
 
   return (
     <div
@@ -270,7 +261,6 @@ const MobileThirdLevel = ({ items, isExpanded, parentTitle }) => {
   );
 };
 
-// Mobile Second Level Component
 const MobileSecondLevel = ({
   item,
   index,
@@ -278,15 +268,24 @@ const MobileSecondLevel = ({
   toggleExpanded,
   categoryKey,
 }) => {
-  const hasSubItems = item.subItems && item.subItems.length > 0;
+  const hasSubItems = item.subItems?.length > 0;
   const itemKey = `${categoryKey}-${index}`;
   const isExpanded = expandedItems.includes(itemKey);
+
+  const handleItemClick = (e) => {
+    if (hasSubItems) {
+      e.preventDefault(); // Prevent navigation for items with subItems
+      toggleExpanded(itemKey);
+    }
+    // If no subItems, allow normal navigation
+  };
 
   return (
     <div className="border-l-2 border-gray-100 ml-2">
       <div className="flex items-center justify-between">
         <a
-          href={item.href}
+          href={hasSubItems ? "#" : item.href}
+          onClick={handleItemClick}
           className="flex-1 flex items-center gap-3 p-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
           <Icon icon={item.icon} className="w-4 h-4 text-gray-500" />
           <div className="flex-1">
@@ -309,17 +308,12 @@ const MobileSecondLevel = ({
         )}
       </div>
       {hasSubItems && (
-        <MobileThirdLevel
-          items={item.subItems}
-          isExpanded={isExpanded}
-          parentTitle={item.title}
-        />
+        <MobileThirdLevel items={item.subItems} isExpanded={isExpanded} />
       )}
     </div>
   );
 };
 
-// Mobile Menu Item Component
 const MobileMenuItem = ({
   category,
   items,
@@ -329,7 +323,15 @@ const MobileMenuItem = ({
   toggleExpanded,
 }) => {
   const isCategoryExpanded = expandedCategories.includes(category);
-  const hasItems = items && items.length > 0;
+  const hasItems = items?.length > 0;
+
+  const handleCategoryClick = (e) => {
+    if (hasItems) {
+      e.preventDefault(); // Prevent navigation for categories with items
+      toggleCategory(category);
+    }
+    // If no items, allow normal navigation
+  };
 
   if (!hasItems) {
     return (
@@ -345,7 +347,7 @@ const MobileMenuItem = ({
     <div className="border-b border-gray-100 pb-3">
       <div className="flex items-center justify-between">
         <button
-          onClick={() => toggleCategory(category)}
+          onClick={handleCategoryClick}
           className="flex-1 text-left text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2">
           {category}
         </button>
@@ -382,7 +384,6 @@ const MobileMenuItem = ({
   );
 };
 
-// Mobile Menu Component
 const MobileMenu = ({
   mobileMenuRef,
   navigationKeys,
@@ -414,7 +415,67 @@ const MobileMenu = ({
   </div>
 );
 
-// Custom hook for dropdown animations
+// ===== DESKTOP COMPONENTS =====
+const NavigationItem = ({ item, navItemsRef, chevronRefs, onMouseEnter }) => {
+  const hasSubItems = navigationData[item]?.subItems?.length > 0;
+
+  return (
+    <div className="relative" onMouseEnter={() => onMouseEnter(item)}>
+      <a
+        ref={(el) => (navItemsRef.current[item] = el)}
+        href={navigationData[item]?.href || "#"}
+        className="p-3 rounded-t-lg flex items-center gap-1 transition-all duration-300 text-gray-900 hover:text-purple-600">
+        <span className="text-base font-medium tracking-tight">{item}</span>
+        {hasSubItems && (
+          <Icon
+            ref={(el) => (chevronRefs.current[item] = el)}
+            icon="mdi:chevron-down"
+            className="w-4 h-4 transition-transform duration-200"
+          />
+        )}
+      </a>
+    </div>
+  );
+};
+
+const DesktopNavigation = ({
+  navContainerRef,
+  dropdownHooks,
+  onMouseLeave,
+}) => {
+  const navigationKeys = Object.keys(navigationData);
+
+  return (
+    <div
+      ref={navContainerRef}
+      data-navigation-area
+      className="hidden lg:flex items-center gap-6 relative"
+      onMouseLeave={onMouseLeave}>
+      {/* Active Indicator */}
+      <div
+        ref={dropdownHooks.activeIndicatorRef}
+        className="absolute bottom-0 h-0.5 bg-purple-500 transform origin-left"
+        style={{ willChange: "transform" }}
+      />
+
+      {navigationKeys.map((item) => (
+        <NavigationItem
+          key={item}
+          item={item}
+          navItemsRef={dropdownHooks.navItemsRef}
+          chevronRefs={dropdownHooks.chevronRefs}
+          onMouseEnter={dropdownHooks.handleDropdownEnter}
+        />
+      ))}
+
+      <GetInTouchButton />
+
+      <DropdownContainer {...dropdownHooks} />
+    </div>
+  );
+};
+
+// ===== CUSTOM HOOKS =====
 const useDropdownAnimations = (navContainerRef) => {
   const dropdownContainerRef = useRef(null);
   const dropdownContentRef = useRef(null);
@@ -446,49 +507,6 @@ const useDropdownAnimations = (navContainerRef) => {
     }
   }, []);
 
-  // Calculate dropdown position with proper boundary checks
-  const getDropdownPosition = useCallback((itemName) => {
-    const navItem = navItemsRef.current[itemName];
-    const dropdown = dropdownContainerRef.current;
-
-    if (!navItem || !dropdown) return { left: 0, right: "auto" };
-
-    const navItemRect = navItem.getBoundingClientRect();
-    const dropdownWidth = 512; // max-w-lg = 32rem = 512px
-    const viewportWidth = window.innerWidth;
-    const padding = 16;
-
-    // Calculate ideal center position
-    const itemCenter = navItemRect.left + navItemRect.width / 2;
-    const idealLeft = itemCenter - dropdownWidth / 2;
-
-    // Check boundaries and adjust
-    let finalLeft = idealLeft;
-
-    // If dropdown goes beyond left edge
-    if (idealLeft < padding) {
-      finalLeft = padding;
-    }
-    // If dropdown goes beyond right edge
-    else if (idealLeft + dropdownWidth > viewportWidth - padding) {
-      finalLeft = viewportWidth - dropdownWidth - padding;
-    }
-
-    return {
-      left: Math.max(padding, finalLeft),
-      right: "auto",
-    };
-  }, []);
-
-  // Calculate dropdown top position
-  const getDropdownTopPosition = useCallback(() => {
-    if (!navContainerRef.current) return 0;
-
-    const navRect = navContainerRef.current.getBoundingClientRect();
-    return navRect.bottom + 2; // Small gap between nav and dropdown
-  }, []);
-
-  // Update active indicator position
   const updateActiveIndicator = useCallback((itemName) => {
     const navItem = navItemsRef.current[itemName];
     const indicator = activeIndicatorRef.current;
@@ -512,7 +530,6 @@ const useDropdownAnimations = (navContainerRef) => {
     }
   }, []);
 
-  // Hide active indicator
   const hideActiveIndicator = useCallback(() => {
     if (activeIndicatorRef.current) {
       gsap.to(activeIndicatorRef.current, {
@@ -524,7 +541,6 @@ const useDropdownAnimations = (navContainerRef) => {
     }
   }, []);
 
-  // Handle dropdown content sliding
   const slideToContent = useCallback(
     (itemName) => {
       if (dropdownContentRef.current && activeDropdown !== itemName) {
@@ -575,7 +591,6 @@ const useDropdownAnimations = (navContainerRef) => {
     [activeDropdown, navigationKeys]
   );
 
-  // Handle dropdown animations
   const handleDropdownEnter = useCallback(
     (itemName) => {
       const hasSubItems = navigationData[itemName]?.subItems?.length > 0;
@@ -584,7 +599,6 @@ const useDropdownAnimations = (navContainerRef) => {
 
       const chevron = chevronRefs.current[itemName];
 
-      // Always update active indicator
       updateActiveIndicator(itemName);
 
       if (!isDropdownOpen) {
@@ -593,8 +607,8 @@ const useDropdownAnimations = (navContainerRef) => {
         setActiveThirdLevel(null);
 
         if (dropdownContainerRef.current) {
-          const position = getDropdownPosition(itemName);
-          const topPosition = getDropdownTopPosition();
+          const position = getDropdownPosition(navItemsRef.current[itemName]);
+          const topPosition = getDropdownTopPosition(navContainerRef.current);
 
           gsap.set(dropdownContainerRef.current, {
             left: position.left,
@@ -616,7 +630,7 @@ const useDropdownAnimations = (navContainerRef) => {
         slideToContent(itemName);
 
         if (dropdownContainerRef.current) {
-          const position = getDropdownPosition(itemName);
+          const position = getDropdownPosition(navItemsRef.current[itemName]);
           gsap.to(dropdownContainerRef.current, {
             left: position.left,
             right: position.right,
@@ -627,7 +641,6 @@ const useDropdownAnimations = (navContainerRef) => {
         }
       }
 
-      // Animate chevron rotation
       if (chevron) {
         gsap.to(chevron, {
           rotation: 180,
@@ -637,7 +650,6 @@ const useDropdownAnimations = (navContainerRef) => {
         });
       }
 
-      // Reset other chevrons
       Object.keys(chevronRefs.current).forEach((key) => {
         if (key !== itemName && chevronRefs.current[key]) {
           gsap.to(chevronRefs.current[key], {
@@ -649,13 +661,7 @@ const useDropdownAnimations = (navContainerRef) => {
         }
       });
     },
-    [
-      isDropdownOpen,
-      getDropdownPosition,
-      getDropdownTopPosition,
-      slideToContent,
-      updateActiveIndicator,
-    ]
+    [isDropdownOpen, slideToContent, updateActiveIndicator]
   );
 
   const handleDropdownLeave = useCallback(() => {
@@ -675,7 +681,6 @@ const useDropdownAnimations = (navContainerRef) => {
       });
     }
 
-    // Reset all chevrons
     Object.values(chevronRefs.current).forEach((chevron) => {
       if (chevron) {
         gsap.to(chevron, {
@@ -703,7 +708,6 @@ const useDropdownAnimations = (navContainerRef) => {
   };
 };
 
-// Custom hook for mobile menu animations
 const useMobileMenuAnimations = () => {
   const mobileMenuRef = useRef(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -718,11 +722,7 @@ const useMobileMenuAnimations = () => {
       if (newState) {
         gsap.fromTo(
           mobileMenuRef.current,
-          {
-            autoAlpha: 0,
-            y: -20,
-            force3D: true,
-          },
+          { autoAlpha: 0, y: -20, force3D: true },
           {
             autoAlpha: 1,
             y: 0,
@@ -770,56 +770,11 @@ const useMobileMenuAnimations = () => {
   };
 };
 
-// Desktop Navigation Component
-const DesktopNavigation = ({
-  navContainerRef,
-  dropdownHooks,
-  onMouseLeave,
-}) => {
-  const navigationKeys = Object.keys(navigationData);
-
-  return (
-    <div
-      ref={navContainerRef}
-      data-navigation-area
-      className="hidden lg:flex items-center gap-6 relative"
-      onMouseLeave={onMouseLeave}>
-      {/* Active Indicator */}
-      <div
-        ref={dropdownHooks.activeIndicatorRef}
-        className="absolute bottom-0 h-0.5 bg-purple-500 transform origin-left"
-        style={{ willChange: "transform" }}
-      />
-
-      {navigationKeys.map((item) => (
-        <NavigationItem
-          key={item}
-          item={item}
-          navItemsRef={dropdownHooks.navItemsRef}
-          chevronRefs={dropdownHooks.chevronRefs}
-          onMouseEnter={dropdownHooks.handleDropdownEnter}
-        />
-      ))}
-
-      <GetInTouchButton />
-
-      <DropdownContainer
-        dropdownContainerRef={dropdownHooks.dropdownContainerRef}
-        dropdownContentRef={dropdownHooks.dropdownContentRef}
-        activeDropdown={dropdownHooks.activeDropdown}
-        activeThirdLevel={dropdownHooks.activeThirdLevel}
-        setActiveThirdLevel={dropdownHooks.setActiveThirdLevel}
-      />
-    </div>
-  );
-};
-
-// Main Navigation Component
+// ===== MAIN COMPONENT =====
 const Navigation = () => {
   const navContainerRef = useRef(null);
   const navigationKeys = Object.keys(navigationData);
 
-  // Use custom hooks
   const dropdownHooks = useDropdownAnimations(navContainerRef);
   const mobileHooks = useMobileMenuAnimations();
 
@@ -838,13 +793,12 @@ const Navigation = () => {
 
     if (dropdownHooks.isDropdownOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => {
+      return () =>
         document.removeEventListener("mousedown", handleClickOutside);
-      };
     }
   }, [dropdownHooks.isDropdownOpen, dropdownHooks.handleDropdownLeave]);
 
-  // Handle escape key to close dropdowns
+  // Handle escape key
   useEffect(() => {
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
@@ -858,9 +812,7 @@ const Navigation = () => {
     };
 
     document.addEventListener("keydown", handleEscapeKey);
-    return () => {
-      document.removeEventListener("keydown", handleEscapeKey);
-    };
+    return () => document.removeEventListener("keydown", handleEscapeKey);
   }, [
     dropdownHooks.isDropdownOpen,
     mobileHooks.isMobileMenuOpen,
@@ -868,7 +820,7 @@ const Navigation = () => {
     mobileHooks.toggleMobileMenu,
   ]);
 
-  // Handle window resize to close mobile menu
+  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024 && mobileHooks.isMobileMenuOpen) {
@@ -877,19 +829,12 @@ const Navigation = () => {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, [mobileHooks.isMobileMenuOpen, mobileHooks.toggleMobileMenu]);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileHooks.isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = mobileHooks.isMobileMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -900,7 +845,7 @@ const Navigation = () => {
       <div className="fixed left-0 flex w-full top-0 z-[9998]">
         <header className="w-full relative bg-white/95 backdrop-blur-sm border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav className="flex flex-col lg:flex-row justify-between items-center gap-4 py-4">
+            <nav className="flex flex-row justify-between items-center gap-4 py-4">
               <Logo />
 
               <DesktopNavigation
@@ -909,7 +854,6 @@ const Navigation = () => {
                 onMouseLeave={dropdownHooks.handleDropdownLeave}
               />
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={mobileHooks.toggleMobileMenu}
                 className="lg:hidden p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300 rounded-lg hover:bg-purple-50"

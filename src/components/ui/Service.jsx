@@ -43,7 +43,7 @@ export const FeatureCard = memo(function FeatureCard({
 // AI Assessment Card Component
 export const AIAssessmentCard = memo(function AIAssessmentCard() {
   return (
-    <div className=" w-7/12  flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
+    <div className=" w-full  flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
       {/*  bg-[url(/solutions/assessmentCard-bg.svg)] */}
 
       <div className="  space-y-8">
@@ -67,7 +67,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard() {
 // Service Card Component
 export const ServiceCard = memo(function ServiceCard({ title, number, image }) {
   return (
-    <div className="h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
+    <div className=" h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
       <div className="relative h-full w-full px-7 py-5 ">
         <div className="absolute -z-1 bottom-0">
           <Image

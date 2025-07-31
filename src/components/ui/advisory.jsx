@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import { P2, P3 } from "../CustomTags";
+import { P2, P3, P4 } from "../CustomTags";
 
 // Loading Spinner Component
 export const LoadingSpinner = memo(function LoadingSpinner() {
@@ -106,9 +106,9 @@ export const MethodologyStep = memo(function MethodologyStep({
           <p className="text-3xl  w-fit sm:w-ful md:text-4xl lg:text-5xl font-extralight font-sans italic  text-black/80  sm:w-32">
             {step}
           </p>
-          <p className="text-2xl md:text-3xl font-normal font-sans  text-black w-full sm:w-32 md:w-56">
+          <div className="text-2xl md:text-3xl font-normal font-sans  text-black w-full sm:w-32 md:w-56">
             {title}
-          </p>
+          </div>
         </div>
         <div className="flex-1 text-lg md:text-xl font-light text-black/50 tracking-wide">
           {description}
@@ -156,64 +156,128 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <div className="py-14">
-      <div className="flex flex-col  lg:flex-row items-center gap-8 lg:gap-16">
+    <div className="py-14 relative">
+      <div className="block lg:hidden">
+        <div className="bg-white rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 mb-6">
+          <h4 className="mb-8">{currentTestimonial.title}</h4>
+
+          <div className="grid grid-cols-1 gap-4 mb-8">
+            {currentTestimonial.metrics.map((metric, index) => (
+              <div
+                key={index}
+                className="flex border-l border-black pl-4 items-center gap-4">
+                <div>
+                  <p className="font-sans font-semibold text-2xl md:text-5xl">
+                    {metric.value}
+                  </p>
+                  <P2 className="text-black">{metric.label}</P2>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <P4 className="text-black-500 mb-6">
+            {currentTestimonial.description}
+          </P4>
+
+          <div className="flex items-center gap-2 text-lg font-normal justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors">
+            <span>Read Full CaseStudy</span>
+            <Icon icon="lucide:arrow-up-right" className="w-6 h-6" />
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        <div className="flex items-center justify-center gap-6">
+          <button
+            onClick={onPrev}
+            className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="Previous testimonial">
+            <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
+          </button>
+
+          <div className="flex gap-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => onDotClick(index)}
+                className={`cursor-pointer rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-gradient-to-br size-3 from-indigo-200 via-sky-100 to-rose-200"
+                    : "bg-black/30 size-2"
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={onNext}
+            className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="Next testimonial">
+            <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex flex-row items-center gap-8 lg:gap-16">
         <button
           onClick={onPrev}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform order-2 lg:order-1"
+          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
           aria-label="Previous testimonial">
           <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
         </button>
-        <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 md:p-8 order-1 lg:order-2 w-full">
-          <div className="">
-            <h4 className="mb-8 sm:mb-12">{currentTestimonial.title}</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
-              {currentTestimonial.metrics.map((metric, index) => (
-                <div
-                  key={index}
-                  className="flex border-l border-black pl-4 items-center gap-4">
-                  <div>
-                    <p className="font-sans font-semibold text-5xl">
-                      {metric.value}
-                    </p>
-                    <P2 className="  text-black ">{metric.label}</P2>
-                  </div>
+        <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-6 md:p-8">
+          <h4 className="mb-12">{currentTestimonial.title}</h4>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {currentTestimonial.metrics.map((metric, index) => (
+              <div
+                key={index}
+                className="flex border-l border-black pl-4 items-center gap-4">
+                <div>
+                  <p className="font-sans font-semibold text-5xl">
+                    {metric.value}
+                  </p>
+                  <P2 className="text-black">{metric.label}</P2>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
 
-            <P2 className=" text-black-500 mb-6">
-              {currentTestimonial.description}
-            </P2>
+          <P4 className="text-black-500 mb-6">
+            {currentTestimonial.description}
+          </P4>
 
-            <div className="flex items-center gap-2 text-lg font-normal  justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors">
-              <span>Read Full CaseStudy</span>
-              <Icon icon="lucide:arrow-up-right" className="w-6 h-6" />
-            </div>
+          <div className="flex items-center gap-2 text-lg font-normal justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors">
+            <span>Read Full CaseStudy</span>
+            <Icon icon="lucide:arrow-up-right" className="w-6 h-6" />
           </div>
         </div>
+
         <button
           onClick={onNext}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform order-3 lg:order-3"
+          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
           aria-label="Next testimonial">
           <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
-        </button>{" "}
-      </div>
-      {/* Pagination dots */}
-      <div className="flex justify-center gap-2 mt-6 sm:mt-8">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => onDotClick(index)}
-            className={` cursor-pointer rounded-full transition-all ${
-              index === currentIndex
-                ? "bg-gradient-to-br size-4  from-indigo-200 via-sky-100 to-rose-200"
-                : "bg-black/30 size-3"
-            }`}
-            aria-label={`Go to testimonial ${index + 1}`}
-          />
-        ))}
+        </button>
+
+        {/* Desktop Pagination dots */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 mt-8">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => onDotClick(index)}
+              className={`cursor-pointer rounded-full transition-all ${
+                index === currentIndex
+                  ? "bg-gradient-to-br  from-indigo-200 via-sky-100 to-rose-200"
+                  : "bg-black/30 size-2 md:size-3"
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

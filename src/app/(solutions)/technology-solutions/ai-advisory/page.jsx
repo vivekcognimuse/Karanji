@@ -12,20 +12,16 @@ import SuccessStories from "@/sections/Advisory/SuccessStories";
 
 const exampleStatsCards = [
   {
-    mainText: "30%",
-    subText: "COST REDUCTION",
+    mainText: "89%",
+    subText: "Return On Investment",
   },
   {
-    mainText: "90%",
-    subText: "LEARNING RETENTION THROUGH VR",
-  },
-  {
-    mainText: "40%",
-    subText: "FASTER ONBOARDING",
+    mainText: "73%",
+    subText: "Efficiency Boost",
   },
   {
     mainText: "25%",
-    subText: "EFFICIENCY IMPROVEMENT",
+    subText: "COST REDUCTION",
   },
 ];
 

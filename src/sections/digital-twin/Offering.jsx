@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
+import { cn } from "@/lib/utils";
+import Button from "@/components/ui/Button";
 
 const DigitalTwinOfferings = ({
   title,
@@ -16,7 +18,7 @@ const DigitalTwinOfferings = ({
   className = "",
 }) => {
   return (
-    <div className={`py-16 px-4 sm:px-6 lg:px-8 ${className}`}>
+    <div className={cn("py-16", className)}>
       <div className="max-w-7xl mx-auto">
         <div className="text-left mb-12">
           <h3 className=" text-gray-900 mb-6">{title}</h3>
@@ -39,11 +41,9 @@ const DigitalTwinOfferings = ({
             <p className="text-gray-900 font-semibold text-lg mb-6">
               {ctaText}
             </p>
-            <button
-              onClick={onCtaClick}
-              className="bg-gray-900 text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200">
+            <Button onClick={onCtaClick} className="">
               {ctaButtonText}
-            </button>
+            </Button>
           </div>
         </div>
 

@@ -1,10 +1,11 @@
 "use client";
 import HeroSection from "@/sections/Advisory/Hero";
+import SuccessStories from "@/sections/Advisory/SuccessStories";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 
 import ResourcesSection from "@/sections/service/Resource";
 import TechnologyServices from "@/sections/service/Service";
-import SuccessStories from "@/sections/service/Stories";
+
 import TechnologyAdvantage from "@/sections/service/Technology";
 
 export default function ServicesPage() {
@@ -31,8 +32,29 @@ export default function ServicesPage() {
       img: "/solutions/icons/scalable-solutions.svg",
     },
   ];
+
+  const testimonialsData = [
+    {
+      title: "AI-Powered Digital Twin for Manufacturing",
+      metrics: [
+        { value: "25%", label: "Improved Operational Efficiency" },
+        { value: "30%", label: "Reduced Downtime" },
+      ],
+      description:
+        "An integrated solution combining digital twins simulations with AI analytics to streamline manufacturing processes, reduce downtime, and optimize production efficiency.",
+    },
+    {
+      title: "Immersive XR Training with AI Personalization",
+      metrics: [
+        { value: "60%", label: "Increase in training effectiveness" },
+        { value: "40%", label: "Faster onboarding" },
+      ],
+      description:
+        "A customized XR training program tailored with AI-driven insights transforming traditional training methods.",
+    },
+  ];
   return (
-    <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full  max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection
         description="Empower your business with intelligent, immersive solutions tailored for today’s dynamic digital landscape. Stay ahead in the world of AI with technologies that drive meaningful, measurable change."
         title="Transform Your Business with Future-Ready Technology in the World of AI"
@@ -54,8 +76,13 @@ export default function ServicesPage() {
       />
 
       <TechnologyServices />
-
-      <SuccessStories />
+      <SuccessStories
+        title="Technology Implementation Success Stories"
+        description="Real-world examples demonstrate the tangible benefits of our
+          technology solutions. Explore case studies showcasing measurable
+          improvements across industries."
+        testimonialsData={testimonialsData}
+      />
 
       <ResourcesSection />
     </main>
