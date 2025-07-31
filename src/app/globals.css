@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 /* Light mode variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --font-sans: var(--font-albert-sans);
   --font-outfit: var(--font-outfit);
 }
@@ -77,12 +78,6 @@
 }
 
 /* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 /* Base styles */
 body {
@@ -100,7 +95,7 @@ h2 {
 }
 
 h3 {
-  @apply font-sans text-3xl sm:text-4xl lg:text-[2.625rem] mb-4;
+  @apply font-sans text-3xl sm:text-4xl font-medium lg:text-[2.625rem] mb-4;
 }
 
 h4 {
@@ -119,7 +114,7 @@ h5 {
   @apply font-outfit text-xl sm:text-[1.375rem];
 }
 .p3 {
-  @apply font-outfit text-lg sm:text-xl;
+  @apply font-outfit text-lg font-light sm:text-xl;
 }
 .p4 {
   @apply font-outfit text-base;

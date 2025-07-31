@@ -1,5 +1,6 @@
 // Updated Service.jsx
 "use client";
+import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/Service";
 import useCMSStore from "@/stores/cmsStore";
 
@@ -10,13 +11,11 @@ export default function TechnologyServices() {
     <section id="solutions" className="space-y-16">
       <div className="space-y-8">
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-medium text-black">
-            Our Technology Services
-          </h2>
-          <p className="text-xl text-black leading-9 tracking-wide">
+          <h3 className="">Our Technology Services</h3>
+          <P2 className="">
             Explore a full spectrum of technology services crafted to drive
             innovation and operational excellence.
-          </p>
+          </P2>
         </div>
       </div>
 

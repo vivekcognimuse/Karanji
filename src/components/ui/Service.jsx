@@ -2,6 +2,7 @@ import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { P1, P3 } from "../CustomTags";
 
 // Loading Spinner Component
 export function LoadingSpinner() {
@@ -32,12 +33,8 @@ export const FeatureCard = memo(function FeatureCard({
         />
       </div>
       <div className="space-y-4">
-        <h3 className="text-xl font-medium text-black/80 tracking-wide">
-          {title}
-        </h3>
-        <p className="text-xl font-light text-black/50 tracking-wide">
-          {description}
-        </p>
+        <h5 className=" text-black/80 ">{title}</h5>
+        <P3 className=" text-black/50">{description}</P3>
       </div>
       <div className="border-t mt-auto border-neutral-600/20" />
     </div>
@@ -46,18 +43,16 @@ export const FeatureCard = memo(function FeatureCard({
 // AI Assessment Card Component
 export const AIAssessmentCard = memo(function AIAssessmentCard() {
   return (
-    <div className=" w-7/12 bg-red-100 flex items-center justify-center bg-[url(/solutions/assessmentCard-bg.svg)] bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
-      {/* Background Gradients */}
+    <div className=" w-full  flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
+      {/*  bg-[url(/solutions/assessmentCard-bg.svg)] */}
 
       <div className="  space-y-8">
         <div className="text-center space-y-4">
-          <h3 className="text-2xl md:text-3xl font-normal text-black">
-            Not sure how AI-ready your business is?
-          </h3>
-          <p className="text-xl text-black/80 leading-9 tracking-wide">
+          <h4 className="">Not sure how AI-ready your business is?</h4>
+          <P3 className="text-black-800">
             Take our quick diagnostic to benchmark your AI maturity and unlock
             tailored insights
-          </p>
+          </P3>
         </div>
         <div className="flex justify-center">
           <button className="bg-black rounded-full px-8 py-3 text-white text-xl hover:bg-gray-800 transition-colors">
@@ -72,7 +67,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard() {
 // Service Card Component
 export const ServiceCard = memo(function ServiceCard({ title, number, image }) {
   return (
-    <div className="h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
+    <div className=" h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
       <div className="relative h-full w-full px-7 py-5 ">
         <div className="absolute -z-1 bottom-0">
           <Image
@@ -86,9 +81,7 @@ export const ServiceCard = memo(function ServiceCard({ title, number, image }) {
           />
         </div>
         <div className="h-full flex flex-col justify-between">
-          <h3 className="text-2xl md:text-3xl font-normal text-black">
-            {title}
-          </h3>
+          <h5 className="">{title}</h5>
 
           <div className="flex  justify-end items-center gap-2.5">
             <span className="text-2xl font-normal text-black/80 leading-9 tracking-wide">
@@ -113,9 +106,7 @@ export const CaseStudyCarousel = memo(function CaseStudyCarousel() {
       </button>
 
       <div className="max-w-4xl bg-white rounded-[20px] shadow-lg border border-black/20 p-8 space-y-12">
-        <h3 className="text-2xl md:text-3xl font-normal text-black">
-          AI-Powered Digital Twin for Manufacturing
-        </h3>
+        <h3 className="">AI-Powered Digital Twin for Manufacturing</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex items-center gap-4">
@@ -193,9 +184,7 @@ export const ResourceCard = memo(function ResourceCard({
 
       {/* Content Section */}
       <div className="flex flex-col flex-1 pt-6">
-        <h3 className="text-xl md:text-2xl font-normal text-black leading-9 tracking-wide">
-          {title}
-        </h3>
+        <P1 className="">{title}</P1>
 
         {/* Spacer to push button down */}
         <div className="flex-1" />

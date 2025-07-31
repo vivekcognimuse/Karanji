@@ -225,6 +225,7 @@ const DigitalTwins = () => {
         description="Transforming business operations with immersive XR & Gaming solutions that drive engagement, efficiency, and measurable outcomes."
         linkText="Explore Our Approach"
         linkHref="#solutions"
+        backgroundImage="/public/Images/Banner images/Webinar.webp"
         statsCards={exampleStatsCards}
       />
 
