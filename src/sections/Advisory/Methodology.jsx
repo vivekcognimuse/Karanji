@@ -11,7 +11,7 @@ export default function Methodology({ title, description, methodologyData }) {
           <P2 className="">{description}</P2>
         </div>
 
-        <div className="bg-white/50 px-40  -z-1 rounded-2xl  space-y-8">
+        <div className="bg-white/50 lg:px-40  -z-1 rounded-2xl  space-y-8">
           {methodologyData.map((item, index) => (
             <MethodologyStep
               key={index}

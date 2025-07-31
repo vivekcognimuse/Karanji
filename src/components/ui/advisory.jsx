@@ -15,10 +15,10 @@ export const LoadingSpinner = memo(function LoadingSpinner() {
 // Stats Display Component
 export const StatsDisplay = memo(function StatsDisplay({ stats }) {
   return (
-    <div className="max-w-6xl mx-auto mt-16 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+    <div className="max-w-6xl mx-auto mt-16 px-4 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
       {stats.map((stat, index) => (
         <div key={index} className="flex items-center">
-          <div className="flex items-center gap-4 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center md:text-left">
             <div className="text-3xl md:text-4xl lg:text-5xl font-semibold font-sans  text-black">
               {stat.value}
             </div>
@@ -49,11 +49,11 @@ export const ServiceCard = memo(function ServiceCard({
 
   return (
     <div
-      className={`w-full border border-black/10 rounded-2xl shadow-lg p-8 z-0 relative`}
+      className={`w-full border border-black/10 rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative`}
       style={
         heightDifference
           ? { minHeight: `calc(290px + ${index * 40}px)` }
-          : { height: "390px" } // Ensure uniform card height when disabled
+          : { minHeight: "350px", height: "auto" } // Responsive height
       }>
       <div
         className={`relative z-10 flex flex-col h-full ${
@@ -102,13 +102,13 @@ export const MethodologyStep = memo(function MethodologyStep({
   return (
     <div className={`${!isLast ? "border-b -z-1 border-black/50 pb-6" : ""}`}>
       <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        <div className="flex items-center gap-8">
-          <div className="text-3xl md:text-4xl lg:text-5xl font-extralight font-sans italic  text-black/80 w-32">
+        <div className="flex flex-row items-start sm:items-center gap-4 sm:gap-8">
+          <p className="text-3xl  w-fit sm:w-ful md:text-4xl lg:text-5xl font-extralight font-sans italic  text-black/80  sm:w-32">
             {step}
-          </div>
-          <div className="text-2xl md:text-3xl font-normal font-sans  text-black w-32 md:w-56">
+          </p>
+          <p className="text-2xl md:text-3xl font-normal font-sans  text-black w-full sm:w-32 md:w-56">
             {title}
-          </div>
+          </p>
         </div>
         <div className="flex-1 text-lg md:text-xl font-light text-black/50 tracking-wide">
           {description}
@@ -125,7 +125,7 @@ export const IndustryCard = memo(function IndustryCard({
   icon,
 }) {
   return (
-    <div className="p-6 bg-white rounded-2xl -z-1 shadow-lg border border-black-200  flex items-center gap-6 hover:scale-105 transition-transform duration-300">
+    <div className="p-4 sm:p-6 bg-white rounded-2xl -z-1 shadow-lg border border-black-200  flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 hover:scale-105 transition-transform duration-300">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12  rounded-lg flex items-center justify-center">
           <Image
@@ -160,15 +160,15 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
       <div className="flex flex-col  lg:flex-row items-center gap-8 lg:gap-16">
         <button
           onClick={onPrev}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform order-2 lg:order-1"
           aria-label="Previous testimonial">
           <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
         </button>
-        <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-6 md:p-8">
+        <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 md:p-8 order-1 lg:order-2 w-full">
           <div className="">
-            <h4 className="mb-12">{currentTestimonial.title}</h4>
+            <h4 className="mb-8 sm:mb-12">{currentTestimonial.title}</h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
               {currentTestimonial.metrics.map((metric, index) => (
                 <div
                   key={index}
@@ -195,13 +195,13 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
         </div>
         <button
           onClick={onNext}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform order-3 lg:order-3"
           aria-label="Next testimonial">
           <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
         </button>{" "}
       </div>
       {/* Pagination dots */}
-      <div className="flex justify-center gap-2 mt-8">
+      <div className="flex justify-center gap-2 mt-6 sm:mt-8">
         {testimonials.map((_, index) => (
           <button
             key={index}

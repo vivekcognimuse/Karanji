@@ -1,6 +1,6 @@
 export const navigationData = {
   Home: {
-    href: "/home",
+    href: "/",
     subItems: [],
   },
   Solutions: {
@@ -9,21 +9,21 @@ export const navigationData = {
         icon: "mdi:brain",
         title: "AI Solutions",
         description: "Artificial Intelligence and Machine Learning solutions",
-        href: "/ai-solutions",
+        href: "/technology-solutions",
         subItems: [
           {
             title: "AI Advisory & Implementation",
-            href: "/ai-advisory",
+            href: "/technology-solutions/ai-advisory",
             description: "Strategic AI consulting and implementation",
           },
           {
             title: "XR & Gaming Solutions",
-            href: "/xr-gaming",
+            href: "/technology-solutions/xr-gaming",
             description: "Extended Reality and Gaming development",
           },
           {
             title: "Digital Twins & Simulations",
-            href: "/digital-twins",
+            href: "/technology-solutions/digital-twins",
             description: "Digital twin technology and simulations",
           },
         ],

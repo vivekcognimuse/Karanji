@@ -43,13 +43,13 @@ export const FeatureCard = memo(function FeatureCard({
 // AI Assessment Card Component
 export const AIAssessmentCard = memo(function AIAssessmentCard() {
   return (
-    <div className=" w-7/12  flex items-center justify-center bg-[url(/solutions/assessmentCard-bg.svg)] bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
-      {/* Background Gradients */}
+    <div className=" w-7/12  flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
+      {/*  bg-[url(/solutions/assessmentCard-bg.svg)] */}
 
       <div className="  space-y-8">
         <div className="text-center space-y-4">
           <h4 className="">Not sure how AI-ready your business is?</h4>
-          <P3 className="text-xl text-black/80 leading-9 tracking-wide">
+          <P3 className="text-black-800">
             Take our quick diagnostic to benchmark your AI maturity and unlock
             tailored insights
           </P3>

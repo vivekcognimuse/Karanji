@@ -23,7 +23,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${albertSans.variable} ${outfit.variable} antialiased`}>
+      <body
+        className={`${albertSans.variable} ${outfit.variable}  antialiased`}>
         <Navigation />
         {children}
         <Footer />

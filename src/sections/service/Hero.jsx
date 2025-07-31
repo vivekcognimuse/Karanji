@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import useCMSStore from "@/stores/cmsStore";
 
-export default function HeroSection() {
-  const { heroData } = useCMSStore();
-
+export default function HeroSection(data) {
+  // const { heroData } = useCMSStore();
+  const heroData = data;
   return (
     <section
       className="flex flex-col -z-1 min-h-screen lg:flex-row items-center gap-12 py-10
