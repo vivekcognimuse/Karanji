@@ -26,7 +26,7 @@ export default function SuccessStories({
   };
 
   return (
-    <section className=" py-16">
+    <section className="">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <h3 className="">{title}</h3>

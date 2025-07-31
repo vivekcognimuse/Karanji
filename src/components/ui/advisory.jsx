@@ -49,14 +49,14 @@ export const ServiceCard = memo(function ServiceCard({
 
   return (
     <div
-      className={`w-full border border-black/10 rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative`}
+      className={`w-full border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative`}
       style={
         heightDifference
-          ? { minHeight: `calc(290px + ${index * 40}px)` }
+          ? { minHeight: `calc(320px + ${index * 70}px)` }
           : { minHeight: "350px", height: "auto" } // Responsive height
       }>
       <div
-        className={`relative z-10 flex flex-col h-full ${
+        className={`relative z-10  flex flex-col h-full ${
           featured || isActive ? "lg:scale-105 z-10" : "lg:hover:blur-none"
         } transition-all duration-300 hover:scale-105`}>
         {/* Top Section: Icon + Title + Subtitle */}
@@ -64,7 +64,13 @@ export const ServiceCard = memo(function ServiceCard({
           <div className="flex justify-start items-center">
             {Icon ? (
               <div className="w-10 h-10 flex items-center justify-center rounded-lg">
-                <Icon icon={icon} className="w-6 h-6 text-indigo-600" />
+                <Image
+                  src={icon}
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="size-10"
+                />
               </div>
             ) : (
               <div className="w-10 h-10 relative overflow-hidden">
@@ -74,9 +80,9 @@ export const ServiceCard = memo(function ServiceCard({
             )}
           </div>
 
-          <div className="flex flex-col gap-[10px]">
-            <h4>{title}</h4>
-            {subtitle && <P3 className="text-black-500">{subtitle}</P3>}
+          <div className="flex flex-col ">
+            <h4 className="mb-2">{title}</h4>
+            {subtitle && <P3 className="text-black-500 mb-8">{subtitle}</P3>}
           </div>
         </div>
 
@@ -123,15 +129,16 @@ export const IndustryCard = memo(function IndustryCard({
   title,
   description,
   icon,
+  altTag,
 }) {
   return (
-    <div className="p-4 sm:p-6 bg-white rounded-2xl -z-1 shadow-lg border border-black-200  flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 hover:scale-105 transition-transform duration-300">
+    <div className="p-4 sm:p-6 rounded-2xl -z-1 shadow-lg border border-black-200  flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 hover:scale-105 transition-transform duration-300">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12  rounded-lg flex items-center justify-center">
           <Image
             src={icon}
             width={40}
-            alt=""
+            alt={altTag}
             height={40}
             className="w-11 h-11 text-white"
           />
@@ -154,11 +161,11 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
   onDotClick,
 }) {
   const currentTestimonial = testimonials[currentIndex];
-
+  const showButton = testimonials.length > 1;
   return (
     <div className="py-14 relative">
       <div className="block lg:hidden">
-        <div className="bg-white rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 mb-6">
+        <div className=" rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 mb-6">
           <h4 className="mb-8">{currentTestimonial.title}</h4>
 
           <div className="grid grid-cols-1 gap-4 mb-8">
@@ -188,12 +195,14 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
 
         {/* Mobile Navigation */}
         <div className="flex items-center justify-center gap-6">
-          <button
-            onClick={onPrev}
-            className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-            aria-label="Previous testimonial">
-            <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
-          </button>
+          {showButton && (
+            <button
+              onClick={onPrev}
+              className="w-8 h-8 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              aria-label="Previous testimonial">
+              <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
+            </button>
+          )}
 
           <div className="flex gap-2">
             {testimonials.map((_, index) => (
@@ -210,25 +219,32 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
             ))}
           </div>
 
-          <button
-            onClick={onNext}
-            className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-            aria-label="Next testimonial">
-            <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
-          </button>
+          {showButton && (
+            <button
+              onClick={onNext}
+              className="w-8h-8 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+              aria-label="Next testimonial">
+              <Icon
+                icon="lucide:chevron-right"
+                className="w-6 h-6 text-black"
+              />
+            </button>
+          )}
         </div>
       </div>
 
       {/* Desktop Layout */}
       <div className="hidden lg:flex flex-row items-center gap-8 lg:gap-16">
-        <button
-          onClick={onPrev}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-          aria-label="Previous testimonial">
-          <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
-        </button>
+        {showButton && (
+          <button
+            onClick={onPrev}
+            className="w-8 h-8 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="Previous testimonial">
+            <Icon icon="lucide:chevron-left" className="w-6 h-6 text-black" />
+          </button>
+        )}
 
-        <div className="flex-1 bg-white rounded-3xl shadow-lg border border-black/20 p-6 md:p-8">
+        <div className="flex-1  rounded-3xl shadow-lg border border-black/20 p-6 md:p-8">
           <h4 className="mb-12">{currentTestimonial.title}</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
@@ -256,12 +272,14 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
           </div>
         </div>
 
-        <button
-          onClick={onNext}
-          className="w-12 h-12 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-          aria-label="Next testimonial">
-          <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
-        </button>
+        {showButton && (
+          <button
+            onClick={onNext}
+            className="w-8 h-8 bg-gradient-to-br from-indigo-200 via-sky-100 to-rose-200 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="Next testimonial">
+            <Icon icon="lucide:chevron-right" className="w-6 h-6 text-black" />
+          </button>
+        )}
 
         {/* Desktop Pagination dots */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 mt-8">

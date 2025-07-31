@@ -1,6 +1,5 @@
 import { P2 } from "@/components/CustomTags";
 import { MethodologyStep } from "@/components/ui/advisory";
-import { methodologyData } from "@/constant/advisory";
 
 export default function Methodology({ title, description, methodologyData }) {
   return (
@@ -11,7 +10,7 @@ export default function Methodology({ title, description, methodologyData }) {
           <P2 className="">{description}</P2>
         </div>
 
-        <div className="bg-white/50 lg:px-40  -z-1 rounded-2xl  space-y-8">
+        <div className=" lg:px-40  -z-1 rounded-2xl  space-y-8">
           {methodologyData.map((item, index) => (
             <MethodologyStep
               key={index}

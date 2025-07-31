@@ -98,37 +98,37 @@ const industriesData = [
     title: "Aerospace & Defense",
     description:
       "Optimize maintenance turnaround and reduce testing costs with AI-driven predictive models.",
-    icon: null,
+    icon: "/Icons/Technology.svg",
   },
   {
     title: "Healthcare",
     description:
       "From predictive analytics to patient management solutions that enhance outcomes.",
-    icon: null,
+    icon: "/Icons/Healthcare.svg",
   },
   {
     title: "Smart Cities & Construction",
     description:
       "Leverage real-time simulation to reduce project delivery time and energy consumption in construction.",
-    icon: null,
+    icon: "/Icons/Smart-Cities.svg",
   },
   {
     title: "Transportation & Logistics",
     description:
       "Enhance fleet utilization, improve delivery accuracy, and optimize fuel efficiency with advanced AI solutions.",
-    icon: null,
+    icon: "/Icons/Logistics.svg",
   },
   {
     title: "Manufacturing",
     description:
       "Leveraging digital twin-driven optimization and predictive maintenance, manufacturing solutions enhance efficiency & reduce downtime.",
-    icon: null,
+    icon: "/Icons/Manufacturing-2.svg",
   },
   {
     title: "Energy & Utilities",
     description:
       "Utilize advanced and actionable predictive analytics to extend equipment lifespan and significantly enhance grid reliability.",
-    icon: null,
+    icon: "/Icons/Energy.svg",
   },
 ];
 
@@ -201,25 +201,25 @@ const DIGITAL_TWIN_CONTENT = {
 
   featuredCards: [
     {
-      icon: null,
+      icon: "/Icons/Consulting.svg",
       title: "Consulting & Strategy",
       description:
         "Foundations for impactful and scalable digital twin adoption",
     },
     {
-      icon: null,
+      icon: "/Icons/Design.svg",
       title: "Design & Architecture",
       description:
         "Blueprints for intelligent, connected, scalable twin systems",
     },
     {
-      icon: null,
+      icon: "/Icons/Data.svg",
       title: "Data Integration & IoT Connectivity",
       description:
         "Seamless integration for real-time digital twin connectivity",
     },
     {
-      icon: null,
+      icon: "/Icons/Development.svg",
       title: "Development & Implementation",
       description:
         "Smart development, immersive interfaces for virtual precision",

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { P1 } from "@/components/CustomTags";
 
 const HeroSection = ({
   title,
@@ -14,15 +15,17 @@ const HeroSection = ({
 }) => {
   return (
     <section
-      className={`flex flex-col -z-1 min-h-[calc(100vh-80px)] items-center py-10
+      className={`flex flex-col  h-fit -z-1 pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center 
          before:content-[''] before:absolute before:inset-0
          before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
          before:opacity-12 before:-z-1 ${className}`}
       style={{ backgroundImage: backgroundImage }}>
-      <div className="space-y-6 sm:space-y-8 lg:flex-1 flex flex-col justify-center max-w-7xl lg:mx-auto">
+      <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
-          <h1 className="text-center  ">{title}</h1>
-          {description && <p className="text-black  mx-auto">{description}</p>}
+          <h2 className="text-center  ">{title}</h2>
+          {description && (
+            <P1 className="text-black text-center   mx-auto">{description}</P1>
+          )}
         </div>
         {linkText && (
           <div className="flex">
@@ -37,7 +40,7 @@ const HeroSection = ({
       </div>
 
       {statsCards && statsCards.length > 0 && (
-        <div className="w-full  mt-16 px-4 sm:px-6">
+        <div className="w-full   my-16 px-4 sm:px-6">
           <div
             className={`grid gap-4 ${
               statsCards.length === 3

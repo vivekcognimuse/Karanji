@@ -5,7 +5,7 @@ import { IndustryCard } from "@/components/ui/advisory";
 
 const IndustryExpertise = ({ title, subtitle, industriesData }) => {
   return (
-    <section className="py-16">
+    <section className="">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
@@ -23,6 +23,7 @@ const IndustryExpertise = ({ title, subtitle, industriesData }) => {
               title={industry.title}
               description={industry.description}
               icon={industry.icon}
+              altTag={industry.altTag}
             />
           ))}
         </div>

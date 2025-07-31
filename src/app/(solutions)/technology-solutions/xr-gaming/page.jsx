@@ -91,14 +91,14 @@ const DigitalTwins = () => {
       subtitle: null,
       description: "Custom immersive experiences across platforms",
       featured: false,
-      icon: "mdi:virtual-reality",
+      icon: "/Icons/VR-AR.svg",
     },
     {
       title: "Interactive Training Simulations",
       subtitle: null,
       description: "Realistic simulations to boost skills and safety",
       featured: false,
-      icon: "mdi:account-group-outline",
+      icon: "/Icons/Interactive-Training.svg",
     },
     {
       title: "Game based learning experiences",
@@ -106,14 +106,14 @@ const DigitalTwins = () => {
       description:
         "Enhanced learner retention through game based eLearning modules",
       featured: false,
-      icon: "mdi:gamepad-variant-outline",
+      icon: "/Icons/Game-based-learning.svg",
     },
     {
       title: "XR Infrastructure & Integration",
       subtitle: null,
       description: "Seamlessly connect XR capabilities with systems",
       featured: false,
-      icon: "mdi:lan-connect",
+      icon: "/Icons/XRInfrastructure.svg",
     },
   ];
 

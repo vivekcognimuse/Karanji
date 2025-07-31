@@ -14,7 +14,7 @@ export default function ServiceOfferings({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className=" py-16">
+    <section className=" ">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 ">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">

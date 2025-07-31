@@ -6,7 +6,7 @@ export const serviceOfferingsData = [
     description:
       "Our intelligence consulting experts start with readiness assessments, opportunity identification, and a strategic AI roadmap tailored to your business goals.",
     featured: true,
-    icon: "octicon:goal-24",
+    icon: "/Icons/Strategy.svg",
   },
   {
     title: "Tactical",
@@ -14,7 +14,7 @@ export const serviceOfferingsData = [
     description:
       "We develop custom artificial intelligence prototypes and proof-of-concepts, offering real-world impact early in your journey.",
     featured: false,
-    icon: "octicon:goal-24",
+    icon: "/Icons/Tactical.svg",
   },
   {
     title: "Operational",
@@ -22,7 +22,7 @@ export const serviceOfferingsData = [
     description:
       "With deep experience in artificial intelligence in professional services, we handle deployment, integration, change management, and continuous optimization-ensuring your AI initiatives scale with confidence.",
     featured: false,
-    icon: "akar-icons:gear",
+    icon: "/Icons/Operational.svg",
   },
 ];
 

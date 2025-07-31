@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(solutions)/technology-solutions/digital-twins/page": "app/(solutions)/technology-solutions/digital-twins/page.js",
+  "/(solutions)/technology-solutions/ai-advisory/page": "app/(solutions)/technology-solutions/ai-advisory/page.js",
+  "/(solutions)/technology-solutions/page": "app/(solutions)/technology-solutions/page.js",
+  "/(solutions)/technology-solutions/xr-gaming/page": "app/(solutions)/technology-solutions/xr-gaming/page.js",
+  "/cms/dashboard/page": "app/cms/dashboard/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js"
+}
