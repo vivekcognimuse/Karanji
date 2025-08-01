@@ -195,7 +195,10 @@ export const ResourceCard = memo(function ResourceCard({
             href="#"
             className="inline-flex items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity">
             {action}
-            <Icon icon="pepicons-pencil:arrow-up-right" className="w-6 h-6" />
+            <Icon
+              icon="pepicons-pencil:arrow-up-right"
+              className="w-6 text-black h-6"
+            />
           </Link>
         </div>
       </div>

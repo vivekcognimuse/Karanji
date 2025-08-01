@@ -401,201 +401,242 @@ const PieChart = ({ active })=>{
     }, this);
 };
 _c = PieChart;
-const GSAPScrollAnimation = ()=>{
+const LogoStoryAnimation = ()=>{
     _s();
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const leftCardRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const rightCardRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const pieChartRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [currentSection, setCurrentSection] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    const scrollTriggerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "GSAPScrollAnimation.useEffect": ()=>{
+        "LogoStoryAnimation.useEffect": ()=>{
             const container = containerRef.current;
             const leftCard = leftCardRef.current;
             const rightCard = rightCardRef.current;
             const pieChart = pieChartRef.current;
             if (!container || !leftCard || !rightCard || !pieChart) return;
+            // Clean up any existing ScrollTriggers
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"].getAll().forEach({
+                "LogoStoryAnimation.useEffect": (trigger)=>trigger.kill()
+            }["LogoStoryAnimation.useEffect"]);
             const sectionCount = sections.length;
-            const scrollLength = sectionCount * 1000;
+            const scrollLength = sectionCount * 100; // Reduced scroll length for smoother experience
+            // Set initial positions
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(leftCard, {
-                x: "-100%",
+                x: "-100vw",
                 opacity: 0
             });
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(rightCard, {
-                x: "100%",
+                x: "100vw",
                 opacity: 0
             });
-            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(pieChart, {
-                scale: 0.5,
-                opacity: 0
+            // Create the main timeline
+            const tl = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].timeline({
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top top",
+                    end: `+=1200vh`,
+                    pin: true,
+                    scrub: 1,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true,
+                    onUpdate: {
+                        "LogoStoryAnimation.useEffect.tl": (self)=>{
+                            const progress = self.progress;
+                            const sectionIndex = Math.min(Math.floor(progress * sectionCount), sectionCount - 1);
+                            // Only update section if it actually changed
+                            if (sectionIndex !== currentSection) {
+                                setCurrentSection(sectionIndex);
+                            }
+                        }
+                    }["LogoStoryAnimation.useEffect.tl"]
+                }
             });
-            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"].create({
-                trigger: container,
-                start: "top top",
-                end: `+=${scrollLength}`,
-                pin: true,
-                scrub: true,
-                onUpdate: {
-                    "GSAPScrollAnimation.useEffect": (self)=>{
-                        const progress = self.progress;
-                        const sectionSize = 1 / sectionCount;
-                        const sectionIndex = Math.floor(progress / sectionSize);
-                        const sectionProgress = progress % sectionSize / sectionSize;
-                        const clampedIndex = Math.min(sectionIndex, sectionCount - 1);
-                        // Set section for progress indicator only
-                        if (clampedIndex !== currentSection) {
-                            setCurrentSection(clampedIndex);
-                        }
-                        const currentData = sections[clampedIndex];
-                        let leftX, rightX, pieScale, opacity;
-                        if (sectionProgress <= 0.3) {
-                            const entry = sectionProgress / 0.3;
-                            leftX = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(-100, 0, entry);
-                            rightX = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(100, 0, entry);
-                            pieScale = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(0.5, 1, entry);
-                            opacity = entry;
-                        } else if (sectionProgress <= 0.7) {
-                            leftX = 0;
-                            rightX = 0;
-                            pieScale = 1;
-                            opacity = 1;
-                        } else {
-                            const exit = (sectionProgress - 0.7) / 0.3;
-                            leftX = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(0, -100, exit);
-                            rightX = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(0, 100, exit);
-                            pieScale = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].utils.interpolate(1, 0.5, exit);
-                            opacity = 1 - exit;
-                        }
-                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(leftCard, {
-                            x: `${leftX}%`,
-                            opacity
-                        });
-                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(rightCard, {
-                            x: `${rightX}%`,
-                            opacity
-                        });
-                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].set(pieChart, {
-                            scale: pieScale,
-                            opacity
+            // Create animations for each section
+            sections.forEach({
+                "LogoStoryAnimation.useEffect": (section, index)=>{
+                    const isLastSection = index === sections.length - 1;
+                    // Entry animation
+                    tl.to([
+                        leftCard,
+                        rightCard,
+                        pieChart
+                    ], {
+                        duration: 0.3,
+                        x: "0%",
+                        scale: 1,
+                        opacity: 1,
+                        ease: "power2.out"
+                    }, index);
+                    // Hold animation
+                    tl.to([
+                        leftCard,
+                        rightCard,
+                        pieChart
+                    ], {
+                        duration: 0.4
+                    }, index + 0.3);
+                    // Exit animation (skip for last section)
+                    if (!isLastSection) {
+                        tl.to(leftCard, {
+                            duration: 0.3,
+                            x: "-100%",
+                            opacity: 0,
+                            ease: "power2.in"
+                        }, index + 0.7).to(rightCard, {
+                            duration: 0.3,
+                            x: "100%",
+                            opacity: 0,
+                            ease: "power2.in"
+                        }, index + 0.7).to(pieChart, {
+                            duration: 0.3,
+                            scale: 0.5,
+                            opacity: 0,
+                            ease: "power2.in"
+                        }, index + 0.7);
+                    }
+                }
+            }["LogoStoryAnimation.useEffect"]);
+            // Store reference for cleanup
+            scrollTriggerRef.current = tl.scrollTrigger;
+            return ({
+                "LogoStoryAnimation.useEffect": ()=>{
+                    if (scrollTriggerRef.current) {
+                        scrollTriggerRef.current.kill();
+                    }
+                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"].getAll().forEach({
+                        "LogoStoryAnimation.useEffect": (trigger)=>trigger.kill()
+                    }["LogoStoryAnimation.useEffect"]);
+                }
+            })["LogoStoryAnimation.useEffect"];
+        }
+    }["LogoStoryAnimation.useEffect"], []); // Remove currentSection from dependencies to prevent re-creation
+    // // Separate effect for content updates
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "LogoStoryAnimation.useEffect": ()=>{
+            const leftCard = leftCardRef.current;
+            const rightCard = rightCardRef.current;
+            if (!leftCard || !rightCard) return;
+            // Smoothly update content without interfering with scroll
+            __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to([
+                leftCard,
+                rightCard
+            ], {
+                duration: 0.3,
+                opacity: 0,
+                onComplete: {
+                    "LogoStoryAnimation.useEffect": ()=>{
+                        // Content will update via React re-render
+                        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["gsap"].to([
+                            leftCard,
+                            rightCard
+                        ], {
+                            duration: 0.3,
+                            opacity: 1
                         });
                     }
-                }["GSAPScrollAnimation.useEffect"]
+                }["LogoStoryAnimation.useEffect"]
             });
-            return ({
-                "GSAPScrollAnimation.useEffect": ()=>{
-                    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ScrollTrigger"].getAll().forEach({
-                        "GSAPScrollAnimation.useEffect": (trigger)=>trigger.kill()
-                    }["GSAPScrollAnimation.useEffect"]);
-                }
-            })["GSAPScrollAnimation.useEffect"];
         }
-    }["GSAPScrollAnimation.useEffect"], [
+    }["LogoStoryAnimation.useEffect"], [
         currentSection
     ]);
     const currentData = sections[currentSection];
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                ref: containerRef,
-                className: "py-20 bg-white min-h-screen flex items-center justify-center relative overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-7xl px-6 w-full",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                ref: leftCardRef,
-                                className: "w-full",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$home$2f$contentCard$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ContentCard"], {
-                                    ...currentData.left
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/LandingAnimation.js",
-                                    lineNumber: 228,
-                                    columnNumber: 13
-                                }, this)
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            ref: containerRef,
+            className: "py-20 bg-white min-h-screen flex items-center justify-center relative overflow-hidden",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-7xl px-6 w-full",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: leftCardRef,
+                            className: "w-full",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$home$2f$contentCard$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ContentCard"], {
+                                ...currentData.left
                             }, void 0, false, {
                                 fileName: "[project]/src/components/LandingAnimation.js",
-                                lineNumber: 227,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                ref: pieChartRef,
-                                className: "flex justify-center",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PieChart, {
-                                    active: currentData.pieChart
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/LandingAnimation.js",
-                                    lineNumber: 231,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/LandingAnimation.js",
-                                lineNumber: 230,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                ref: rightCardRef,
-                                className: "w-full",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$home$2f$contentCard$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RightContentCard"], {
-                                    ...currentData.right
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/LandingAnimation.js",
-                                    lineNumber: 234,
-                                    columnNumber: 13
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/LandingAnimation.js",
-                                lineNumber: 233,
-                                columnNumber: 11
+                                lineNumber: 298,
+                                columnNumber: 13
                             }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/LandingAnimation.js",
-                        lineNumber: 226,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute bottom-8 left-1/2 transform -translate-x-1/2",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex space-x-2",
-                            children: sections.map((_, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `w-3 h-3 rounded-full transition-colors duration-300 ${idx === currentSection ? "bg-blue-600" : "bg-gray-300"}`
-                                }, idx, false, {
-                                    fileName: "[project]/src/components/LandingAnimation.js",
-                                    lineNumber: 242,
-                                    columnNumber: 15
-                                }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/components/LandingAnimation.js",
-                            lineNumber: 240,
+                            lineNumber: 297,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: pieChartRef,
+                            className: "flex justify-center",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PieChart, {
+                                active: currentData.pieChart
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/LandingAnimation.js",
+                                lineNumber: 301,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/LandingAnimation.js",
+                            lineNumber: 300,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: rightCardRef,
+                            className: "w-full",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$home$2f$contentCard$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RightContentCard"], {
+                                ...currentData.right
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/LandingAnimation.js",
+                                lineNumber: 304,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/LandingAnimation.js",
+                            lineNumber: 303,
                             columnNumber: 11
                         }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/components/LandingAnimation.js",
+                    lineNumber: 296,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex space-x-3",
+                        children: sections.map((_, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: `w-3 h-3 rounded-full transition-all duration-500 ${idx === currentSection ? "bg-blue-600 scale-125" : "bg-gray-300 hover:bg-gray-400"}`
+                            }, idx, false, {
+                                fileName: "[project]/src/components/LandingAnimation.js",
+                                lineNumber: 312,
+                                columnNumber: 15
+                            }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/LandingAnimation.js",
-                        lineNumber: 239,
-                        columnNumber: 9
+                        lineNumber: 310,
+                        columnNumber: 11
                     }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/components/LandingAnimation.js",
-                lineNumber: 223,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "h-[100vh] bg-white"
-            }, void 0, false, {
-                fileName: "[project]/src/components/LandingAnimation.js",
-                lineNumber: 254,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true);
+                }, void 0, false, {
+                    fileName: "[project]/src/components/LandingAnimation.js",
+                    lineNumber: 309,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/components/LandingAnimation.js",
+            lineNumber: 293,
+            columnNumber: 7
+        }, this)
+    }, void 0, false);
 };
-_s(GSAPScrollAnimation, "g88xoLrl/N/7SptBDD0ejPJvYuM=");
-_c1 = GSAPScrollAnimation;
-const __TURBOPACK__default__export__ = GSAPScrollAnimation;
+_s(LogoStoryAnimation, "aZ9HTLwrW13+d890YXbgPJGMRTE=");
+_c1 = LogoStoryAnimation;
+const __TURBOPACK__default__export__ = LogoStoryAnimation;
 var _c, _c1;
 __turbopack_context__.k.register(_c, "PieChart");
-__turbopack_context__.k.register(_c1, "GSAPScrollAnimation");
+__turbopack_context__.k.register(_c1, "LogoStoryAnimation");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }
@@ -943,9 +984,9 @@ const HeroSection = ()=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: " w-full h-96  ",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                        src: "/hero.png",
+                        src: "/home/logo.webp",
                         alt: "Karanji Logo",
-                        className: " rounded-lg",
+                        className: " ",
                         width: 500,
                         height: 500,
                         priority: true
@@ -1585,6 +1626,11 @@ const KaranjiLanding = ()=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$sections$2f$home$2f$Hero$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/page.js",
                 lineNumber: 11,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$sections$2f$home$2f$Stats$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                fileName: "[project]/src/app/page.js",
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$LandingAnimation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {

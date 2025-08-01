@@ -1,6 +1,6 @@
 {
-  "/(solutions)/technology-solutions/ai-advisory/page": "app/(solutions)/technology-solutions/ai-advisory/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/digital-learning/content-design/page": "app/digital-learning/content-design/page.js",
+  "/digital-learning/page": "app/digital-learning/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

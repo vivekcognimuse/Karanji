@@ -141,12 +141,13 @@ const PieChart = ({ active }) => {
   );
 };
 
-const GSAPScrollAnimation = () => {
+const LogoStoryAnimation = () => {
   const containerRef = useRef(null);
   const leftCardRef = useRef(null);
   const rightCardRef = useRef(null);
   const pieChartRef = useRef(null);
   const [currentSection, setCurrentSection] = useState(0);
+  const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -156,64 +157,133 @@ const GSAPScrollAnimation = () => {
 
     if (!container || !leftCard || !rightCard || !pieChart) return;
 
+    // Clean up any existing ScrollTriggers
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
     const sectionCount = sections.length;
-    const scrollLength = sectionCount * 1000;
+    const scrollLength = sectionCount * 100; // Reduced scroll length for smoother experience
 
-    gsap.set(leftCard, { x: "-100%", opacity: 0 });
-    gsap.set(rightCard, { x: "100%", opacity: 0 });
-    gsap.set(pieChart, { scale: 0.5, opacity: 0 });
+    // Set initial positions
+    gsap.set(leftCard, { x: "-100vw", opacity: 0 });
+    gsap.set(rightCard, { x: "100vw", opacity: 0 });
 
-    ScrollTrigger.create({
-      trigger: container,
-      start: "top top",
-      end: `+=${scrollLength}`,
-      pin: true,
-      scrub: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const sectionSize = 1 / sectionCount;
-        const sectionIndex = Math.floor(progress / sectionSize);
-        const sectionProgress = (progress % sectionSize) / sectionSize;
+    // Create the main timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container,
+        start: "top top",
+        end: `+=1200vh`,
+        pin: true,
+        scrub: 1, // Smoother scrub value
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const sectionIndex = Math.min(
+            Math.floor(progress * sectionCount),
+            sectionCount - 1
+          );
 
-        const clampedIndex = Math.min(sectionIndex, sectionCount - 1);
-
-        // Set section for progress indicator only
-        if (clampedIndex !== currentSection) {
-          setCurrentSection(clampedIndex);
-        }
-
-        const currentData = sections[clampedIndex];
-
-        let leftX, rightX, pieScale, opacity;
-
-        if (sectionProgress <= 0.3) {
-          const entry = sectionProgress / 0.3;
-          leftX = gsap.utils.interpolate(-100, 0, entry);
-          rightX = gsap.utils.interpolate(100, 0, entry);
-          pieScale = gsap.utils.interpolate(0.5, 1, entry);
-          opacity = entry;
-        } else if (sectionProgress <= 0.7) {
-          leftX = 0;
-          rightX = 0;
-          pieScale = 1;
-          opacity = 1;
-        } else {
-          const exit = (sectionProgress - 0.7) / 0.3;
-          leftX = gsap.utils.interpolate(0, -100, exit);
-          rightX = gsap.utils.interpolate(0, 100, exit);
-          pieScale = gsap.utils.interpolate(1, 0.5, exit);
-          opacity = 1 - exit;
-        }
-
-        gsap.set(leftCard, { x: `${leftX}%`, opacity });
-        gsap.set(rightCard, { x: `${rightX}%`, opacity });
-        gsap.set(pieChart, { scale: pieScale, opacity });
+          // Only update section if it actually changed
+          if (sectionIndex !== currentSection) {
+            setCurrentSection(sectionIndex);
+          }
+        },
       },
     });
 
+    // Create animations for each section
+    sections.forEach((section, index) => {
+      const isLastSection = index === sections.length - 1;
+
+      // Entry animation
+      tl.to(
+        [leftCard, rightCard, pieChart],
+        {
+          duration: 0.3,
+          x: "0%",
+          scale: 1,
+          opacity: 1,
+          ease: "power2.out",
+        },
+        index
+      );
+
+      // Hold animation
+      tl.to(
+        [leftCard, rightCard, pieChart],
+        {
+          duration: 0.4,
+          // Keep current position
+        },
+        index + 0.3
+      );
+
+      // Exit animation (skip for last section)
+      if (!isLastSection) {
+        tl.to(
+          leftCard,
+          {
+            duration: 0.3,
+            x: "-100%",
+            opacity: 0,
+            ease: "power2.in",
+          },
+          index + 0.7
+        )
+          .to(
+            rightCard,
+            {
+              duration: 0.3,
+              x: "100%",
+              opacity: 0,
+              ease: "power2.in",
+            },
+            index + 0.7
+          )
+          .to(
+            pieChart,
+            {
+              duration: 0.3,
+              scale: 0.5,
+              opacity: 0,
+              ease: "power2.in",
+            },
+            index + 0.7
+          );
+      }
+    });
+
+    // Store reference for cleanup
+    scrollTriggerRef.current = tl.scrollTrigger;
+
     return () => {
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+      }
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
+  }, []); // Remove currentSection from dependencies to prevent re-creation
+
+  // // Separate effect for content updates
+  useEffect(() => {
+    const leftCard = leftCardRef.current;
+    const rightCard = rightCardRef.current;
+
+    if (!leftCard || !rightCard) return;
+
+    // Smoothly update content without interfering with scroll
+    gsap.to([leftCard, rightCard], {
+      duration: 0.3,
+      opacity: 0,
+      onComplete: () => {
+        // Content will update via React re-render
+        gsap.to([leftCard, rightCard], {
+          duration: 0.3,
+          opacity: 1,
+        });
+      },
+    });
   }, [currentSection]);
 
   const currentData = sections[currentSection];
@@ -236,24 +306,23 @@ const GSAPScrollAnimation = () => {
         </div>
 
         {/* Progress Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="flex space-x-2">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex space-x-3">
             {sections.map((_, idx) => (
               <div
                 key={idx}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  idx === currentSection ? "bg-blue-600" : "bg-gray-300"
+                className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                  idx === currentSection
+                    ? "bg-blue-600 scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}
           </div>
         </div>
       </div>
-
-      {/* Spacer to allow unpinning */}
-      <div className="h-[100vh] bg-white" />
     </>
   );
 };
 
-export default GSAPScrollAnimation;
+export default LogoStoryAnimation;

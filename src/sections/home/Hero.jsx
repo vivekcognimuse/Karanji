@@ -32,9 +32,9 @@ const HeroSection = () => {
       <div className="w-full lg:w-1/3">
         <div className=" w-full h-96  ">
           <Image
-            src="/hero.png"
+            src="/home/logo.webp"
             alt="Karanji Logo"
-            className=" rounded-lg"
+            className=" "
             width={500}
             height={500}
             priority

@@ -7,6 +7,7 @@ import ResourcesSection from "@/sections/service/Resource";
 import TechnologyServices from "@/sections/service/Service";
 
 import TechnologyAdvantage from "@/sections/service/Technology";
+import useCMSStore from "@/stores/cmsStore";
 
 export default function ServicesPage() {
   const features = [
@@ -53,6 +54,7 @@ export default function ServicesPage() {
         "A customized XR training program tailored with AI-driven insights transforming traditional training methods.",
     },
   ];
+  const { services } = useCMSStore();
   return (
     <main className="w-full  max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection
@@ -75,7 +77,12 @@ export default function ServicesPage() {
         title="The Karanji Technology Advantage"
       />
 
-      <TechnologyServices />
+      <TechnologyServices
+        description="Explore a full spectrum of technology services crafted to drive
+            innovation and operational excellence."
+        title="Our Technology Services"
+        services={services}
+      />
       <SuccessStories
         title="Technology Implementation Success Stories"
         description="Real-world examples demonstrate the tangible benefits of our

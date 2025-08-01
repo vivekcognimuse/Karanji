@@ -1,120 +1,55 @@
 module.exports = {
 
-"[project]/src/components/LandingAnimation.js [app-ssr] (ecmascript)": (function(__turbopack_context__) {
+"[project]/src/components/LandingAnimation.js [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
 
-var { g: global, __dirname, m: module, e: exports } = __turbopack_context__;
+var { g: global, __dirname } = __turbopack_context__;
 {
-useEffect(()=>{
-    const container = containerRef.current;
-    const leftCard = leftCardRef.current;
-    const rightCard = rightCardRef.current;
-    const pieChart = pieChartRef.current;
-    if (!container || !leftCard || !rightCard || !pieChart) return;
-    // Set initial positions
-    gsap.set(leftCard, {
-        x: "-100vw",
-        opacity: 0
-    });
-    gsap.set(rightCard, {
-        x: "100vw",
-        opacity: 0
-    });
-    gsap.set(pieChart, {
-        scale: 0.5,
-        opacity: 0
-    });
-    console.log("Initial positions set");
-    const st = ScrollTrigger.create({
-        trigger: container,
-        start: "top 80px",
-        end: "+=300vh",
-        pin: true,
-        pinSpacing: true,
-        scrub: 1,
-        onUpdate: (self)=>{
-            const progress = self.progress;
-            const totalSections = sections.length;
-            const sectionProgress = progress * totalSections;
-            const currentIndex = Math.floor(sectionProgress);
-            const sectionLocalProgress = sectionProgress - currentIndex;
-            console.log("ScrollTrigger progress:", progress.toFixed(3));
-            console.log("Section progress:", sectionProgress.toFixed(3));
-            console.log("Current index:", currentIndex);
-            console.log("Section local progress:", sectionLocalProgress.toFixed(3));
-            const newSection = Math.min(currentIndex, totalSections - 1);
-            if (newSection !== currentSection) {
-                console.log(`Section changed: ${currentSection} → ${newSection}`);
-                setCurrentSection(newSection);
-            }
-            // Entry phase
-            if (sectionLocalProgress < 0.3) {
-                const entryProgress = sectionLocalProgress / 0.3;
-                console.log("Entry phase", entryProgress.toFixed(3));
-                const leftX = gsap.utils.interpolate("-100vw", "0vw", entryProgress);
-                const rightX = gsap.utils.interpolate("100vw", "0vw", entryProgress);
-                const scale = gsap.utils.interpolate(0.5, 1, entryProgress);
-                console.log({
-                    leftX,
-                    rightX,
-                    scale
-                });
-                gsap.set(leftCard, {
-                    x: leftX,
-                    opacity: entryProgress
-                });
-                gsap.set(rightCard, {
-                    x: rightX,
-                    opacity: entryProgress
-                });
-                gsap.set(pieChart, {
-                    scale,
-                    opacity: entryProgress
-                });
-            } else if (sectionLocalProgress < 0.7) {
-                console.log("Hold phase");
-                gsap.set([
-                    leftCard,
-                    rightCard,
-                    pieChart
-                ], {
-                    x: "0vw",
-                    opacity: 1,
-                    scale: 1
-                });
-            } else if (currentIndex < totalSections - 1) {
-                const exitProgress = (sectionLocalProgress - 0.7) / 0.3;
-                console.log("Exit phase", exitProgress.toFixed(3));
-                const leftX = gsap.utils.interpolate("0vw", "-100vw", exitProgress);
-                const rightX = gsap.utils.interpolate("0vw", "100vw", exitProgress);
-                const scale = gsap.utils.interpolate(1, 0.5, exitProgress);
-                console.log({
-                    leftX,
-                    rightX,
-                    scale
-                });
-                gsap.set(leftCard, {
-                    x: leftX,
-                    opacity: 1 - exitProgress
-                });
-                gsap.set(rightCard, {
-                    x: rightX,
-                    opacity: 1 - exitProgress
-                });
-                gsap.set(pieChart, {
-                    scale,
-                    opacity: 1 - exitProgress
-                });
-            }
+__turbopack_context__.s({
+    "default": (()=>SmoothScrollWrapper)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/gsap/index.js [app-ssr] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/gsap/ScrollTrigger.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollSmoother$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/gsap/ScrollSmoother.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].registerPlugin(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollTrigger$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ScrollTrigger"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollSmoother$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ScrollSmoother"]);
+function SmoothScrollWrapper({ children }) {
+    const smootherRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])();
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (!smootherRef.current) {
+            smootherRef.current = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$gsap$2f$ScrollSmoother$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ScrollSmoother"].create({
+                wrapper: "#smooth-wrapper",
+                content: "#smooth-content",
+                smooth: 1.5,
+                effects: true
+            });
         }
-    });
-    console.log("ScrollTrigger created");
-    return ()=>{
-        console.log("Cleaning up ScrollTrigger");
-        st.kill();
-    };
-}, [
-    currentSection
-]);
+        return ()=>{
+            smootherRef.current?.kill();
+        };
+    }, []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        id: "smooth-wrapper",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            id: "smooth-content",
+            children: children
+        }, void 0, false, {
+            fileName: "[project]/src/components/LandingAnimation.js",
+            lineNumber: 28,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/components/LandingAnimation.js",
+        lineNumber: 27,
+        columnNumber: 5
+    }, this);
+}
 }}),
 "[project]/src/lib/utils.jsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
@@ -435,9 +370,9 @@ const HeroSection = ()=>{
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: " w-full h-96  ",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        src: "/hero.png",
+                        src: "/home/logo.webp",
                         alt: "Karanji Logo",
-                        className: " rounded-lg",
+                        className: " ",
                         width: 500,
                         height: 500,
                         priority: true

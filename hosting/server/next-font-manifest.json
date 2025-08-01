@@ -1,16 +1,16 @@
 {
   "app": {
-    "[project]/src/app/(solutions)/technology-solutions/ai-advisory/page": [
-      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
-      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
-    ],
     "[project]/src/app/_not-found/page": [
-      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
-      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2",
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2"
     ],
-    "[project]/src/app/page": [
-      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
-      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+    "[project]/src/app/digital-learning/content-design/page": [
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2",
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2"
+    ],
+    "[project]/src/app/digital-learning/page": [
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2",
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2"
     ]
   },
   "appUsingSizeAdjust": true,

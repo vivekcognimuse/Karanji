@@ -35,9 +35,9 @@ export const navigationData = {
         href: "/digital-learning",
         subItems: [
           {
-            title: "eLearning Development",
-            href: "/elearning-development",
-            description: "Custom eLearning platform development",
+            title: "Content Design & Development",
+            href: "/digital-learning/content-design",
+            description: "Custom content design and development",
           },
           {
             title: "Microlearning & Gamification",
