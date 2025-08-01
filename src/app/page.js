@@ -9,7 +9,7 @@ const KaranjiLanding = () => {
   return (
     <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <LogoStoryAnimation />
       <SuccessStoriesSection />
     </main>

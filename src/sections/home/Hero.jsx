@@ -1,20 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { P1 } from "@/components/CustomTags";
 
 const HeroSection = () => {
   return (
     <section className="  mt-40 flex flex-col lg:flex-row items-start gap-8">
       <div className="flex-1 space-y-8">
         <div className="space-y-4">
-          <h1 className="text-black  text-8xl font-sans leading-tight ">
-            Let's Bring Your Vision to Life
-          </h1>
-          <p className="text-black text-2xl font-normal leading-9 tracking-wide">
+          <h1 className="">Let's Bring Your Vision to Life</h1>
+          <P1 className="">
             We help organizations solve complex business challenges through the
             strategic integration of digital learning, immersive experiences,
             and practical AI implementation.
-          </p>
+          </P1>
         </div>
 
         {/* CTA Buttons */}

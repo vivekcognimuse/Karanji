@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${albertSans.variable} ${outfit.variable} bg-gradient  antialiased`}>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
         <Footer />
       </body>

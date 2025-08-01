@@ -77,9 +77,10 @@
   --color-black-950: #010101;
 }
 
-/* Dark mode support */
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
 
-/* Base styles */
 body {
   @apply bg-[--background] text-[--foreground];
   font-family: var(--font-outfit), system-ui, sans-serif;
@@ -87,7 +88,7 @@ body {
 
 /* Headings (Albert Sans) */
 h1 {
-  @apply font-sans text-black text-center leading-tight text-5xl  sm:text-6xl lg:text-8xl  font-normal;
+  @apply font-sans text-black  leading-tight text-5xl  sm:text-6xl lg:text-8xl  font-normal;
 }
 
 h2 {
