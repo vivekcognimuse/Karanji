@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 
 const ScrollSpySidebar = ({ headings }) => {
@@ -6,8 +7,9 @@ const ScrollSpySidebar = ({ headings }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const blogContent = document.getElementById("blog-content");
+    const blogContent = document.getElementById("content");
     if (!blogContent) return;
+    
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
@@ -68,7 +70,9 @@ const ScrollSpySidebar = ({ headings }) => {
   if (!isVisible) return null;
 
   return (
-    <aside className="hidden lg:flex fixed right-8 top-36 z-30 flex-col">
+    <aside   className={`hidden lg:flex fixed right-8 top-36 z-30 flex-col transition-opacity duration-500 ${
+    isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+  }`}>
       <div className="relative h-full min-h-[250px] ml-2">
         {/* Track */}
         <div className="absolute left-0 top-0 w-1 h-full bg-black-950/20 rounded-full" />
@@ -85,10 +89,10 @@ const ScrollSpySidebar = ({ headings }) => {
             <button
               key={h.id}
               onClick={() => scrollTo(h.id)}
-              className={`text-left text-sm transition-colors ${
+              className={`text-left text-sm transition-colors leading-12 ${
                 h.id === activeId
-                  ? "text-black-950 font-semibold"
-                  : "text-gray-400 hover:text-black-950 cursor-pointer"
+                  ? "text-black-950  "
+                  : "text-black-950/50 hover:text-black-950 cursor-pointer"
               }`}
             >
               {h.content}

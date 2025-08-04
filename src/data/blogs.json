@@ -28,19 +28,19 @@
             "content": "Addressing the Healthcare Skill Gap"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "The healthcare sector is always advancing, which means healthcare professionals need continuous learning to stay current. But providing effective training isn’t always easy. That’s where the challenge came in."
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "A multinational company with a CSR arm recognized the urgent need to upskill their healthcare workforce in areas like dialysis technology, medical laboratory procedures, and patient care. The company’s goal was to not only address the skill gaps but also create a safe, immersive environment where employees could practice without risk."
           },
           {
-            "type": "subheading",
+            "type": "text",
             "content": "Identifying the Key Challenges in Healthcare Training"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Here’s what the company faced:"
           },
           {
@@ -64,7 +64,7 @@
             "content": "Immersive VR Training"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Karanji created an innovative VR training solution that offered 21 immersive training modules, each lasting 8–10 minutes. The solution was designed to offer a realistic experience where healthcare professionals could practice key procedures in a safe, virtual environment. Here’s how they tackled the challenges:"
           },
           {
@@ -88,7 +88,7 @@
             "content": "Covered in the Training"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "The VR training modules provided comprehensive coverage of critical areas in healthcare, including:"
           },
           {
@@ -103,7 +103,7 @@
             ]
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Each module was designed to offer a brief yet impactful training session, enabling healthcare workers to learn quickly and efficiently."
           },
           {
@@ -115,7 +115,7 @@
             "content": "Transforming Healthcare Training"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "The results of this immersive training program:"
           },
           {
@@ -131,7 +131,7 @@
             "content": "Better Patient Care: As employees developed new skills, patient care improved, leading to higher satisfaction and better outcomes."
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Not to mention, the company saw a significant return on investment (ROI) by improving overall employee efficiency, reducing turnover, and preventing workplace incidents."
           },
           {
@@ -144,11 +144,11 @@
           },
           {
             "type": "quote",
-            "content": "“It was like practicing in a real dialysis center without any risk. I learned all the technical aspects.”"
+            "content": "It was like practicing in a real dialysis center without any risk. I learned all the technical aspects."
           },
           {
             "type": "quote",
-            "content": "“This VR solution has not only upskilled our healthcare professionals but also elevated our patient care standards.”"
+            "content": "This VR solution has not only upskilled our healthcare professionals but also elevated our patient care standards."
           },
           {
             "type": "heading",
@@ -159,11 +159,11 @@
             "content": "Why Virtual Reality Is a Game–Changer for Healthcare Training"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "With VR, healthcare professionals can now train at their own pace, practicing procedures as often as needed without risking patient safety. Whether it’s mastering complex machinery or learning critical patient care protocols, VR training is setting a new standard in the healthcare industry."
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Not only does it save time and costs, but it also offers a highly engaging and scalable solution to training that can be rolled out across multiple locations worldwide."
           },
           {
@@ -175,11 +175,11 @@
             "content": "The Future of Healthcare Training Is Virtual"
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "The shift to VR-based training is more than just a trend–it’s a necessity in today’s fast-paced healthcare environment. By embracing immersive technologies, organizations can ensure their workforce is not only skilled but also prepared for the challenges of tomorrow’s healthcare landscape."
           },
           {
-            "type": "text",
+            "type": "subtext",
             "content": "Not only does it save time and costs, but it also offers a highly engaging and scalable solution to training that can be rolled out across multiple locations worldwide."
           }
         ]

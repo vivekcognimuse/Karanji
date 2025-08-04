@@ -1,19 +1,20 @@
 import React from "react";
 import Button from "@/components/ui/Button";
+import { P3 } from "../CustomTags";
 const NewsletterSubscribe = () => {
   return (
     <section className="mt-24 space-y-4">
       <h3 className="text-2xl font-semibold">
         Transform Your Business with Karanji
       </h3>
-      <p className="text-gray-600 text-sm max-w-2xl">
+      <P3 className="text-black-950/50 ">
         Stay ahead with Karanji’s newsletter! Get monthly tips on how our VR
         training, immersive learning, and AI solutions can help your team grow,
         improve operations, and make a real difference.
-      </p>
+      </P3>
 
       <form
-        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 max-w-md"
+        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 "
         onSubmit={(e) => {
           e.preventDefault();
           // handle submit logic here
@@ -23,7 +24,7 @@ const NewsletterSubscribe = () => {
           type="email"
           required
           placeholder="yourname@email.com"
-          className="w-full border-b border-black focus:outline-none text-sm px-2 py-2"
+          className="w-full border-b border-black focus:outline-none font-outfit text-lg font-light sm:text-xl px-2 py-2"
         />
         <Button
           type="submit"
