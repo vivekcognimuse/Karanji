@@ -1,13 +1,15 @@
 // app/not-found.js
 
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div style={styles.container}>
       <h1 style={styles.code}>404</h1>
       <p style={styles.message}>Sorry, this page doesn’t exist.</p>
-      <a href="/" style={styles.link}>
+      <Link href="/" style={styles.link}>
         Return Home
-      </a>
+      </Link>
     </div>
   );
 }

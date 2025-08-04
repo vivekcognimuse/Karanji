@@ -1,0 +1,15 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/_not-found/page": "/_not-found",
+  "/(solutions)/technology-solutions/ai-advisory/page": "/technology-solutions/ai-advisory",
+  "/(solutions)/technology-solutions/digital-twins/page": "/technology-solutions/digital-twins",
+  "/(solutions)/technology-solutions/page": "/technology-solutions",
+  "/(solutions)/technology-solutions/xr-gaming/page": "/technology-solutions/xr-gaming",
+  "/cms/dashboard/page": "/cms/dashboard",
+  "/contact/page": "/contact",
+  "/digital-learning/lms-implementation/page": "/digital-learning/lms-implementation",
+  "/page": "/",
+  "/digital-learning/analytics/page": "/digital-learning/analytics",
+  "/digital-learning/page": "/digital-learning",
+  "/digital-learning/content-design/page": "/digital-learning/content-design"
+}

@@ -1,6 +1,15 @@
 {
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/digital-learning/content-design/page": "app/digital-learning/content-design/page.js",
+  "/(solutions)/technology-solutions/ai-advisory/page": "app/(solutions)/technology-solutions/ai-advisory/page.js",
+  "/(solutions)/technology-solutions/digital-twins/page": "app/(solutions)/technology-solutions/digital-twins/page.js",
+  "/(solutions)/technology-solutions/page": "app/(solutions)/technology-solutions/page.js",
+  "/(solutions)/technology-solutions/xr-gaming/page": "app/(solutions)/technology-solutions/xr-gaming/page.js",
+  "/cms/dashboard/page": "app/cms/dashboard/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/digital-learning/lms-implementation/page": "app/digital-learning/lms-implementation/page.js",
+  "/page": "app/page.js",
+  "/digital-learning/analytics/page": "app/digital-learning/analytics/page.js",
   "/digital-learning/page": "app/digital-learning/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/digital-learning/content-design/page": "app/digital-learning/content-design/page.js"
 }

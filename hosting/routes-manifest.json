@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/cms/dashboard",
+      "regex": "^/cms/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/cms/dashboard(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/digital-learning",
+      "regex": "^/digital\\-learning(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/digital\\-learning(?:/)?$"
+    },
+    {
+      "page": "/digital-learning/analytics",
+      "regex": "^/digital\\-learning/analytics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/digital\\-learning/analytics(?:/)?$"
+    },
+    {
+      "page": "/digital-learning/content-design",
+      "regex": "^/digital\\-learning/content\\-design(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/digital\\-learning/content\\-design(?:/)?$"
+    },
+    {
+      "page": "/digital-learning/lms-implementation",
+      "regex": "^/digital\\-learning/lms\\-implementation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/digital\\-learning/lms\\-implementation(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/technology-solutions",
+      "regex": "^/technology\\-solutions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technology\\-solutions(?:/)?$"
+    },
+    {
+      "page": "/technology-solutions/ai-advisory",
+      "regex": "^/technology\\-solutions/ai\\-advisory(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technology\\-solutions/ai\\-advisory(?:/)?$"
+    },
+    {
+      "page": "/technology-solutions/digital-twins",
+      "regex": "^/technology\\-solutions/digital\\-twins(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technology\\-solutions/digital\\-twins(?:/)?$"
+    },
+    {
+      "page": "/technology-solutions/xr-gaming",
+      "regex": "^/technology\\-solutions/xr\\-gaming(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/technology\\-solutions/xr\\-gaming(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}

@@ -3,6 +3,7 @@ import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
 import ContentFormats from "@/sections/digital-learning/Content-Formats";
+import CTA from "@/sections/digital-learning/CTA";
 import CustomELearning from "@/sections/digital-learning/CustomELearning";
 import CustomELearningSolution from "@/sections/digital-learning/CustomELearningSolution";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
@@ -22,26 +23,7 @@ const exampleStatsCards = [
     subText: "Modern, Engaging Formats",
   },
 ];
-const services = [
-  {
-    id: 1,
-    title: "Content Design & Development",
-    number: "01",
-    image: "/solutions/ai-advisory.webp",
-  },
-  {
-    id: 2,
-    title: "Learning Management System (LMS)",
-    number: "02",
-    image: "/solutions/gaming-solutions.webp",
-  },
-  {
-    id: 3,
-    title: "Learning Analytics & Optimization",
-    number: "03",
-    image: "/solutions/digital-twins.webp",
-  },
-];
+
 const contentFormatsData = [
   { description: "Custom eLearning", src: null },
   { description: "Microlearning", src: null },
@@ -229,6 +211,12 @@ const ContentDesign = () => {
         title="Success Stories"
         description="Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes."
         testimonialsData={testimonialsData}
+      />
+      <CTA
+        title="Looking to Enrich Your Learning Content"
+        description="Partner with our experts to craft impactful, learner-centric content through innovative design, agile development, and scalable talent support."
+        SecondaryButtonText="Schedule a Consultation"
+        SecondaryButtonLink="/"
       />
     </div>
   );
