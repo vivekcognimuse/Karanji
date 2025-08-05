@@ -1,3 +1,4 @@
+"use client";
 import React, { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils"; // Utility function for className merging
@@ -5,7 +6,7 @@ import { cn } from "@/lib/utils"; // Utility function for className merging
 // Button variants using CVA (Class Variance Authority)
 const buttonVariants = cva(
   // Base styles
-  "inline-flex items-center justify-center transition cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+  "inline-flex flex-center items-center  justify-center transition cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
   {
     variants: {
       variant: {
@@ -15,6 +16,7 @@ const buttonVariants = cva(
           "bg-transparent text-black border border-black hover:bg-gray-50 hover:scale-105 focus-visible:bg-gray-50",
         ghost:
           "border-transparent text-black hover:bg-gray-100 hover:scale-105 focus-visible:bg-gray-100",
+        text: "inline-flex mx-auto items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity",
         destructive:
           "bg-red-600 text-white border border-red-600 hover:bg-red-700 hover:scale-105 focus-visible:bg-red-700",
       },

@@ -71,14 +71,17 @@ const lmsLearningData = {
 
 // ✅ This is now an async component
 export default async function ContentDesign() {
-  const res = await fetch("http://localhost:1337/api/landing-page?populate=*", {
-    next: { revalidate: 60 },
-  });
+  const res = await fetch(
+    "http://localhost:1337/api/landing-page?populate=all",
+    {
+      next: { revalidate: 60 },
+    }
+  );
   const json = await res.json();
-  console.log("Strapi Data:", json); // 👈 Add this
+  console.log("Strapi Data:", json);
 
   const hero = json.data?.heroSection || null;
-  console.log("Strapi Data:", hero); // 👈 Add this
+  console.log("Strapi Data:", hero);
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -86,7 +89,7 @@ export default async function ContentDesign() {
         title={hero?.title}
         description={hero?.subTitle}
         linkText={hero?.ctaText}
-        statsCards={hero?.cards || []}
+        statsCards={hero?.statCard || []}
       />
 
       <ServiceOfferings
