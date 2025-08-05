@@ -35,23 +35,23 @@ export const navigationData = {
         href: "/digital-learning",
         subItems: [
           {
-            title: "eLearning Development",
-            href: "/elearning-development",
-            description: "Custom eLearning platform development",
+            title: "Content Design & Development",
+            href: "/digital-learning/content-design",
+            description: "Custom content design and development",
           },
           {
             title: "Microlearning & Gamification",
-            href: "/microlearning",
+            href: "/digital-learning/microlearning",
             description: "Bite-sized learning with gamification",
           },
           {
             title: "Interactive Implementation & Support",
-            href: "/interactive-support",
+            href: "/digital-learning/interactive-support",
             description: "Implementation and ongoing support",
           },
           {
             title: "LMS Implementation",
-            href: "/lms-implementation",
+            href: "/digital-learning/lms-implementation",
             description: "Learning Management System setup",
           },
         ],

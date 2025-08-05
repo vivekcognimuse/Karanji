@@ -14,7 +14,7 @@ export default function ServiceOfferings({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <section className=" py-16">
+    <section className=" ">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 ">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
@@ -27,7 +27,9 @@ export default function ServiceOfferings({
 
         <div
           className={cn(
-            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8",
+            `grid grid-cols-1 md:grid-cols-2 gap-6 ${
+              heightDifference ? "lg:grid-cols-3" : "lg:grid-cols-4"
+            } lg:gap-8`,
             className
           )}>
           {serviceOfferingsData.map((service, index) => (

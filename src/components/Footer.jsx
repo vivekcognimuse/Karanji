@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { P4, P5 } from "./CustomTags";
+import Image from "next/image";
 const Footer = () => {
   const footerSections = [
     {
@@ -39,19 +40,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full max-w-7xl mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
+    <footer className="w-full max-w-7xl px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
       {/* Footer Links */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
-        {/* Logo */}
-        <div className="flex  gap-2">
-          <div className="w-10 h-10 bg-black rounded" />
-          <span className="text-2xl lg:text-3xl font-light font-outfit tracking-wide text-black">
-            Karanji
-          </span>
-        </div>
+        <Image
+          src="/logo.svg"
+          className="h-8 w-fit"
+          alt="Logo"
+          width={100}
+          height={100}
+        />
 
         {/* Footer Navigation */}
-        <nav className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <nav className="flex-1 grid grid-cols-2  justify-around md:grid-cols-2 lg:grid-cols-4 gap-6">
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-6">
               <P4 className="text-black ">{section.title}</P4>

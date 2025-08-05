@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
@@ -37,10 +38,8 @@ const DigitalTwinOfferings = ({
             </div>
           </div>
 
-          <div className="bg-blue-100 rounded-2xl p-8 text-center">
-            <p className="text-gray-900 font-semibold text-lg mb-6">
-              {ctaText}
-            </p>
+          <div className="bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat border border-black-300 shadow-lg rounded-2xl p-8 text-center">
+            <p className="text-gray-900 text-lg mb-6">{ctaText}</p>
             <Button onClick={onCtaClick} className="">
               {ctaButtonText}
             </Button>
@@ -52,7 +51,7 @@ const DigitalTwinOfferings = ({
             {featuredCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl flex flex-col p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-200">
+                className=" rounded-2xl flex flex-col p-4 bg-[url('/gradients/offering-card-gradient.svg')] bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200">
                 {card.icon && (
                   <div className="mb-6 w-16 h-16 flex items-center justify-center">
                     <Image
@@ -72,7 +71,7 @@ const DigitalTwinOfferings = ({
             ))}
           </div>
 
-          {showNavigation && (
+          {/* {showNavigation && (
             <div className="flex justify-end mt-8 space-x-4">
               <button
                 onClick={onPrevClick}
@@ -109,7 +108,7 @@ const DigitalTwinOfferings = ({
                 </svg>
               </button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

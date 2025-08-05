@@ -2,20 +2,18 @@
 "use client";
 import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/Service";
-import useCMSStore from "@/stores/cmsStore";
 
-export default function TechnologyServices() {
-  const { services } = useCMSStore();
-
+export default function TechnologyServices({
+  title = "",
+  description = "",
+  services = {},
+}) {
   return (
     <section id="solutions" className="space-y-16">
       <div className="space-y-8">
         <div className="space-y-4">
-          <h3 className="">Our Technology Services</h3>
-          <P2 className="">
-            Explore a full spectrum of technology services crafted to drive
-            innovation and operational excellence.
-          </P2>
+          <h3 className="">{title} </h3>
+          <P2 className=""> {description}</P2>
         </div>
       </div>
 

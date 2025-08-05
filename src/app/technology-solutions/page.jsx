@@ -1,14 +1,15 @@
-"use client";
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 
 import ResourcesSection from "@/sections/service/Resource";
 import TechnologyServices from "@/sections/service/Service";
 
 import TechnologyAdvantage from "@/sections/service/Technology";
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const response = await fetchFromStrapi("technology-solutions"); // Change this to your actual Strapi collection name
+  const data = response?.data?.attributes?.services || [];
   const features = [
     {
       title: "Outcome-Driven Methodology",
@@ -53,9 +54,30 @@ export default function ServicesPage() {
         "A customized XR training program tailored with AI-driven insights transforming traditional training methods.",
     },
   ];
+  const services = [
+    {
+      id: 1,
+      title: "AI Advisory & Implementation",
+      number: "01",
+      image: "/solutions/ai-advisory.webp",
+    },
+    {
+      id: 2,
+      title: "XR & Gaming Solutions",
+      number: "02",
+      image: "/solutions/gaming-solutions.webp",
+    },
+    {
+      id: 3,
+      title: "Digital twins & Simulations",
+      number: "03",
+      image: "/solutions/digital-twins.webp",
+    },
+  ];
   return (
     <main className="w-full  max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection
+        data={response?.data?.attributes?.heroData}
         description="Empower your business with intelligent, immersive solutions tailored for today’s dynamic digital landscape. Stay ahead in the world of AI with technologies that drive meaningful, measurable change."
         title="Transform Your Business with Future-Ready Technology in the World of AI"
         linkText="Explore Our Technology Solutions"
@@ -75,7 +97,12 @@ export default function ServicesPage() {
         title="The Karanji Technology Advantage"
       />
 
-      <TechnologyServices />
+      <TechnologyServices
+        description="Explore a full spectrum of technology services crafted to drive
+            innovation and operational excellence."
+        title="Our Technology Services"
+        services={services}
+      />
       <SuccessStories
         title="Technology Implementation Success Stories"
         description="Real-world examples demonstrate the tangible benefits of our

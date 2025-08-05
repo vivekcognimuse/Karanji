@@ -29,25 +29,35 @@ const industriesData = [
   {
     title: "Healthcare",
     description: "AI-powered solutions to improve patient care and outcomes.",
-    icon: null,
+    icon: "/Icons/Healthcare.svg",
+    altTag: "Healthcare Industry",
   },
   {
     title: "Finance",
     description: "Optimizing financial strategies using AI insights.",
-    icon: null,
+    icon: "/Icons/Financial-Services.svg",
+    altTag: "Finance Industry",
   },
   {
     title: "Retail",
     description:
       "Enhancing customer experience with AI-driven recommendations.",
-    icon: null,
+    icon: "/Icons/Manufacturing.svg",
+    altTag: "Retail Industry",
+  },
+  {
+    title: "Technology",
+    description:
+      "Drive innovation through AI-powered product development & operational efficiency.",
+    icon: "/Icons/Technology.svg",
+    altTag: "Technology Industry",
   },
   // Add more industries as needed
 ];
 
 export default function AIAdvisoryPage() {
   return (
-    <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection
         title="AI Advisory & Implementation"
         description="As a leading artificial intelligence consulting firm, we specialize in creating custom strategies that generate results-measurable, scalable, and built for the real world."
@@ -58,6 +68,7 @@ export default function AIAdvisoryPage() {
       />
 
       <ServiceOfferings
+        heightDifference={true}
         title=" Our AI Service Offerings"
         description="From high-level strategy to tactical execution and operational implementation, we guide you through every aspect of your AI journey."
         serviceOfferingsData={serviceOfferingsData}

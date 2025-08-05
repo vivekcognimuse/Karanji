@@ -1,8 +1,12 @@
 import { P2 } from "@/components/CustomTags";
 import { MethodologyStep } from "@/components/ui/advisory";
-import { methodologyData } from "@/constant/advisory";
 
-export default function Methodology({ title, description, methodologyData }) {
+export default function Methodology({
+  title,
+  description,
+  methodologyData,
+  column,
+}) {
   return (
     <section className=" ">
       <div className="max-w-6xl mx-auto">
@@ -11,12 +15,14 @@ export default function Methodology({ title, description, methodologyData }) {
           <P2 className="">{description}</P2>
         </div>
 
-        <div className="bg-white/50 lg:px-40  -z-1 rounded-2xl  space-y-8">
+        <div className=" lg:px-32  -z-1 rounded-2xl  space-y-8">
           {methodologyData.map((item, index) => (
             <MethodologyStep
+              column={column}
               key={index}
               step={item.step}
               title={item.title}
+              tags={item.tags}
               description={item.description}
               isLast={index === methodologyData.length - 1}
             />

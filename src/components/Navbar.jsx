@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { Icon } from "@iconify/react";
 import { navigationData } from "@/constant/navigation";
+import Image from "next/image";
 
 // ===== UTILITY FUNCTIONS =====
 const getDropdownPosition = (navItem, dropdownWidth = 512, padding = 16) => {
@@ -26,16 +27,6 @@ const getDropdownTopPosition = (navContainer) => {
   const navRect = navContainer.getBoundingClientRect();
   return navRect.bottom + 2;
 };
-
-// ===== UI COMPONENTS =====
-const Logo = () => (
-  <div className="flex items-center gap-2">
-    <div className="w-6 h-6 bg-black rounded" />
-    <span className="text-black text-lg font-light tracking-tight">
-      Karanji
-    </span>
-  </div>
-);
 
 const GetInTouchButton = ({ mobile = false }) => (
   <a
@@ -846,7 +837,13 @@ const Navigation = () => {
         <header className="w-full relative bg-white/95 backdrop-blur-sm border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex flex-row justify-between items-center gap-4 py-4">
-              <Logo />
+              <Image
+                src="/logo.svg"
+                className="h-8 w-fit"
+                alt="Logo"
+                width={100}
+                height={100}
+              />
 
               <DesktopNavigation
                 navContainerRef={navContainerRef}
@@ -879,7 +876,13 @@ const Navigation = () => {
           <div className="relative bg-white h-full overflow-hidden">
             <div className="p-4 border-b border-gray-200">
               <div className="flex items-center justify-between">
-                <Logo />
+                <Image
+                  src="/logo.svg"
+                  className="h-8 w-fit"
+                  alt="Logo"
+                  width={100}
+                  height={100}
+                />
                 <button
                   onClick={mobileHooks.toggleMobileMenu}
                   className="p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300"
