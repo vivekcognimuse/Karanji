@@ -3,11 +3,9 @@
 import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/Service";
 
-export default function TechnologyServices({
-  title = "",
-  description = "",
-  services = {},
-}) {
+export default function TechnologyServices({ data }) {
+  const { title, description, cards } = data || {};
+  console.log("TechnologyServices data:", data);
   return (
     <section id="solutions" className="space-y-16">
       <div className="space-y-8">
@@ -18,7 +16,7 @@ export default function TechnologyServices({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
+        {cards.map((service) => (
           <ServiceCard
             key={service.id}
             title={service.title}

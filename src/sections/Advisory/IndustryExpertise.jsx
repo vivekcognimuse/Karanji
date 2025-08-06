@@ -3,7 +3,8 @@
 import { P3 } from "@/components/CustomTags";
 import { IndustryCard } from "@/components/ui/advisory";
 
-const IndustryExpertise = ({ title, subtitle, industriesData }) => {
+const IndustryExpertise = ({ data }) => {
+  const { title, subtitle, cards } = data || {};
   return (
     <section className="">
       <div className="max-w-7xl mx-auto">
@@ -17,7 +18,7 @@ const IndustryExpertise = ({ title, subtitle, industriesData }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {industriesData.map((industry, index) => (
+          {cards.map((industry, index) => (
             <IndustryCard
               key={index}
               title={industry.title}

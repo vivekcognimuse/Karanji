@@ -1,7 +1,9 @@
 import { P2 } from "@/components/CustomTags";
 import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
 
-export default function TechnologyAdvantage({ title, description, features }) {
+export default function TechnologyAdvantage({ data }) {
+  console.log("TechnologyAdvantage data:", data);
+  const { title, description, cards } = data;
   return (
     <section className="space-y-8 md:space-y-16 ">
       <div className="space-y-4">
@@ -12,7 +14,7 @@ export default function TechnologyAdvantage({ title, description, features }) {
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
         {/* Features Grid */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16">
-          {features.map((feature, index) => (
+          {cards?.map((feature, index) => (
             <FeatureCard
               key={index}
               img={feature.img}

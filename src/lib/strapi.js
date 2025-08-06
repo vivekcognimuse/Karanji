@@ -1,5 +1,3 @@
-// lib/strapi.js
-
 export async function fetchFromStrapi(endpoint, options = {}) {
   const baseUrl = process.env.STRAPI_API_URL;
 
@@ -24,13 +22,18 @@ export async function fetchFromStrapi(endpoint, options = {}) {
     fetchOptions.next = { revalidate };
   }
 
-  const res = await fetch(url.toString(), fetchOptions);
+  try {
+    const res = await fetch(url.toString(), fetchOptions);
 
-  if (!res.ok) {
-    console.error(`Strapi fetch failed for ${endpoint}: ${res.statusText}`);
-    return null;
+    if (!res.ok) {
+      console.error(`Strapi fetch failed for ${endpoint}: ${res.statusText}`);
+      return [];
+    }
+
+    const json = await res.json();
+    return json?.data || {};
+  } catch (error) {
+    console.error(`Strapi fetch error for ${endpoint}:`, error);
+    return {};
   }
-
-  const data = await res.json();
-  return data;
 }

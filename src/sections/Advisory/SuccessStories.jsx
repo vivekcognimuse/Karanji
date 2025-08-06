@@ -4,12 +4,10 @@ import { TestimonialCarousel } from "@/components/ui/advisory";
 
 import { useState } from "react";
 
-export default function SuccessStories({
-  title,
-  testimonialsData,
-  description,
-}) {
+export default function SuccessStories({ data }) {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const { cards: testimonialsData, title, description } = data || {};
+  console.log("SuccessStories Data:", data);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonialsData.length);

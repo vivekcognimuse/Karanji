@@ -6,12 +6,12 @@ import Button from "@/components/ui/Button";
 
 const HeroSection = ({ data }) => {
   const {
-    title,
-    description,
+    title = "",
     linkText,
     linkHref,
     linkIcon,
-    statsCards,
+    subTitle,
+    stats,
     backgroundImage,
   } = data;
   return (
@@ -24,8 +24,8 @@ const HeroSection = ({ data }) => {
       <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h2 className="text-center  ">{title}</h2>
-          {description && (
-            <P1 className="text-black text-center   mx-auto">{description}</P1>
+          {subTitle && (
+            <P1 className="text-black text-center   mx-auto">{subTitle}</P1>
           )}
         </div>
         {linkText && (
@@ -40,16 +40,16 @@ const HeroSection = ({ data }) => {
         )}
       </div>
 
-      {statsCards && statsCards.length > 0 && (
+      {stats && stats.length > 0 && (
         <div className="w-full   my-16 px-4 sm:px-6">
           <div
             className={`grid gap-4 ${
-              statsCards.length === 3
+              stats.length === 3
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-1 sm:grid-cols-2"
             }`}>
-            {statsCards.map((card, index) => {
-              const isThreeCards = statsCards.length === 3;
+            {stats.map((card, index) => {
+              const isThreeCards = stats.length === 3;
               const addLgBorderLeft =
                 isThreeCards && index > 0 ? " lg:border-l" : "";
 
@@ -59,11 +59,11 @@ const HeroSection = ({ data }) => {
                   className={`px-4 sm:px-6 flex border-l border-black/30 :flex-row gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
                     index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
                   }${addLgBorderLeft}`}>
-                  <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black lg:mx-auto sm:mx-0">
-                    {card.title}
+                  <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black  sm:mx-0">
+                    {card.number}
                   </div>
-                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed lg:mx-auto sm:mx-0 max-w-xs sm:max-w-none">
-                    {card.subTitle}
+                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed  sm:mx-0 max-w-xs sm:max-w-none">
+                    {card.text}
                   </p>
                 </div>
               );
