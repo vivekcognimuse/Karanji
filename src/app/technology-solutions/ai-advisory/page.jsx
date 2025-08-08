@@ -64,23 +64,16 @@ export default async function AIAdvisoryPage() {
   console.log("AI Advisory data:", data);
   const {
     hero,
-    advantages,
+    successStories,
     serviceOffering,
     methodology,
     industryExpertise,
-    successStories,
   } = data || {};
   return (
     <main className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={hero} />
 
-      <ServiceOfferings
-        data={serviceOffering}
-        heightDifference={true}
-        title=" Our AI Service Offerings"
-        description="From high-level strategy to tactical execution and operational implementation, we guide you through every aspect of your AI journey."
-        serviceOfferingsData={serviceOfferingsData}
-      />
+      <ServiceOfferings data={serviceOffering} heightDifference={true} />
       <Methodology data={methodology} />
       <IndustryExpertise data={industryExpertise} />
       <SuccessStories data={successStories} />
