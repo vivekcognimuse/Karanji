@@ -5,13 +5,13 @@ import { ServiceCard } from "@/components/ui/advisory";
 import { cn } from "@/lib/utils";
 
 export default function ServiceOfferings({
-  title,
-  description,
-  serviceOfferingsData,
   heightDifference,
   className,
+  data,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const { title, description, cards } = data || {};
 
   return (
     <section className=" ">
@@ -32,7 +32,7 @@ export default function ServiceOfferings({
             } lg:gap-8`,
             className
           )}>
-          {serviceOfferingsData.map((service, index) => (
+          {cards.map((service, index) => (
             <div key={index} className="flex flex-col justify-end h-full">
               <ServiceCard
                 title={service.title}

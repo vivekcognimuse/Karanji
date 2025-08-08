@@ -62,7 +62,7 @@ export const ServiceCard = memo(function ServiceCard({
         {/* Top Section: Icon + Title + Subtitle */}
         <div className="flex flex-col gap-4">
           <div className="flex justify-start items-center">
-            {Icon ? (
+            {icon ? (
               <div className="w-10 h-10 flex items-center justify-center rounded-lg">
                 <Image
                   src={icon}
@@ -114,7 +114,7 @@ export const MethodologyStep = memo(function MethodologyStep({
         <div className="flex flex-col  space-y-6">
           {/* Step Number */}
           <div className="text-4xl  font-extralight font-sans italic text-black/80">
-            {step}
+            {"#"} {step}
           </div>
 
           {/* Title */}
@@ -146,7 +146,7 @@ export const MethodologyStep = memo(function MethodologyStep({
       <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
         <div className="flex flex-row items-start sm:items-center gap-4 sm:gap-8">
           <p className="text-3xl w-fit  md:text-4xl lg:text-5xl font-extralight font-sans italic text-black/80 sm:w-32">
-            {step}
+            #{step}
           </p>
           <div className="text-2xl md:text-3xl font-normal font-sans text-black w-full sm:w-32 md:w-56">
             {title}

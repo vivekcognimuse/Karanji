@@ -17,7 +17,7 @@ export default function Methodology({ column, data }) {
             <MethodologyStep
               column={column}
               key={index}
-              step={item.step}
+              step={index + 1}
               title={item.title}
               tags={item.tags}
               description={item.description}
