@@ -11,7 +11,7 @@ const DownloadSection = ({
   buttonLabel,
 }) => {
   return (
-    <section className="bg-white rounded-md  space-y-6  mt-24">
+    <section className=" rounded-md  space-y-6  mt-24">
       {/* Outside the box */}
       <h3 className="text-black ">{title}</h3>
       {intro && <P3 className="text-black-950/50">{intro}</P3>}

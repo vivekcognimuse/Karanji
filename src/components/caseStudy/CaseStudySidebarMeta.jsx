@@ -1,4 +1,4 @@
-// components/CaseStudySidebarMeta.jsx
+// components/caseStudyCaseStudySidebarMeta.jsx
 "use client";
 import React from "react";
 
