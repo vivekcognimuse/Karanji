@@ -5,11 +5,6 @@ import Head from "next/head";
 import BlogPage from "@/components/blog/BlogPage"; // adjust the path as per your project structure
 
 const BlogInsights = () => {
-  useEffect(() => {
-    // scroll to top when mounted
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <Head>
@@ -33,7 +28,7 @@ const BlogInsights = () => {
         />
       </Head>
 
-      <main className="w-full max-w-7xl mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
+      <main className="w-full  mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
         <BlogPage />
       </main>
     </>

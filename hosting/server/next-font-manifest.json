@@ -1,0 +1,23 @@
+{
+  "app": {
+    "[project]/src/app/_not-found/page": [
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+    ],
+    "[project]/src/app/blog-insights/page": [
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+    ],
+    "[project]/src/app/case-studies/[id]/page": [
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+    ],
+    "[project]/src/app/page": [
+      "static/media/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU-s.p.be1e8eb6.woff2",
+      "static/media/QGYvz_MVcBeNP4NJtEtqUYLknw-s.p.de485432.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
