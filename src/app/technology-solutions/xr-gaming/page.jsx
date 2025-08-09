@@ -1,14 +1,10 @@
-"use client";
-
-import Advantages from "@/sections/digital-twin/Advantages";
-import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
-import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 
-const DigitalTwins = () => {
+const XRGaming = async () => {
   const ADVANTAGES_CONTENT = {
     title: "Advantages",
     cards: [
@@ -117,138 +113,25 @@ const DigitalTwins = () => {
     },
   ];
 
-  const exampleStatsCards = [
-    {
-      mainText: "30%",
-      subText: "COST REDUCTION",
-    },
-    {
-      mainText: "90%",
-      subText: "LEARNING RETENTION THROUGH VR",
-    },
-    {
-      mainText: "40%",
-      subText: "FASTER ONBOARDING",
-    },
-    {
-      mainText: "25%",
-      subText: "EFFICIENCY IMPROVEMENT",
-    },
-  ];
-  const industriesData = [
-    {
-      title: "Aerospace & Defense",
-      description:
-        "Optimize maintenance turnaround and reduce testing costs with AI-driven predictive models.",
-      icon: null,
-    },
-    {
-      title: "Healthcare",
-      description:
-        "From predictive analytics to patient management solutions that enhance outcomes.",
-      icon: null,
-    },
-    {
-      title: "Smart Cities & Construction",
-      description:
-        "Leverage real-time simulation to reduce project delivery time and energy consumption in construction.",
-      icon: null,
-    },
-    {
-      title: "Transportation & Logistics",
-      description:
-        "Enhance fleet utilization, improve delivery accuracy, and optimize fuel efficiency with advanced AI solutions.",
-      icon: null,
-    },
-    {
-      title: "Manufacturing",
-      description:
-        "Leveraging digital twin-driven optimization and predictive maintenance, manufacturing solutions enhance efficiency & reduce downtime.",
-      icon: null,
-    },
-    {
-      title: "Energy & Utilities",
-      description:
-        "Utilize advanced and actionable predictive analytics to extend equipment lifespan and significantly enhance grid reliability.",
-      icon: null,
-    },
-  ];
-
-  const METHODOLOGY = [
-    {
-      step: "#1",
-      title: "Discover",
-      description: "Identify requirements & opportunities",
-    },
-    {
-      step: "#2",
-      title: "Design",
-      description: "Create engaging user experiences",
-    },
-    {
-      step: "#3",
-      title: "Develop",
-      description: "Build and refine prototypes",
-    },
-    {
-      step: "#4",
-      title: "Testing",
-      description: "Validate and optimize usability",
-    },
-  ];
-
-  const testimonialsData = [
-    {
-      title: "AI-Powered Digital Twin for Manufacturing",
-      metrics: [
-        { value: "25%", label: "Improved Operational Efficiency" },
-        { value: "30%", label: "Reduced Downtime" },
-      ],
-      description:
-        "An integrated solution combining digital twins simulations with AI analytics to streamline manufacturing processes, reduce downtime, and optimize production efficiency.",
-    },
-    {
-      title: "Immersive XR Training with AI Personalization",
-      metrics: [
-        { value: "60%", label: "Increase in training effectiveness" },
-        { value: "40%", label: "Faster onboarding" },
-      ],
-      description:
-        "A customized XR training program tailored with AI-driven insights transforming traditional training methods.",
-    },
-  ];
+  const data = await fetchFromStrapi("xr-gaming");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("XRGaming data:", data);
+  const { hero, methodology, successStories, serviceOffering } = data || {};
 
   return (
     <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection
-        title="XR & Gaming Solutions"
-        description="Transforming business operations with immersive XR & Gaming solutions that drive engagement, efficiency, and measurable outcomes."
-        linkText="Explore Our Approach"
-        linkHref="#solutions"
-        backgroundImage="/public/Images/Banner images/Webinar.webp"
-        statsCards={exampleStatsCards}
-      />
+      <HeroSection data={hero} />
 
-      <ServiceOfferings
-        className="grid-cols-1 md:grid-cols-4 justify-between lg:grid-cols-4"
-        heightDifference={false}
-        title="Our XR & Gaming Offerings"
-        serviceOfferingsData={serviceOfferingsData}
-      />
+      <ServiceOfferings data={serviceOffering} />
 
-      <Methodology
-        title="Our Methodology & Technical Architecture"
-        description="Our Digital Twins solution is built on a robust methodology that ensures seamless integration between physical and digital realms"
-        methodologyData={METHODOLOGY}
-      />
+      <Methodology data={methodology} />
 
-      <SuccessStories
-        title="Use Cases & Success Stories "
-        description="Discover real-world impact as our immersive solutions transform operations across industries "
-        testimonialsData={testimonialsData}
-      />
+      <SuccessStories data={successStories} />
     </main>
   );
 };
 
-export default DigitalTwins;
+export default XRGaming;

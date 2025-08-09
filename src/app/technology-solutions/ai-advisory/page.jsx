@@ -1,9 +1,9 @@
-"use client";
 import {
   methodologyData,
   serviceOfferingsData,
   testimonialsData,
 } from "@/constant/advisory";
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -55,40 +55,28 @@ const industriesData = [
   // Add more industries as needed
 ];
 
-export default function AIAdvisoryPage() {
+export default async function AIAdvisoryPage() {
+  const data = await fetchFromStrapi("ai-advisory");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("AI Advisory data:", data);
+  const {
+    hero,
+    successStories,
+    serviceOffering,
+    methodology,
+    industryExpertise,
+  } = data || {};
   return (
     <main className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection
-        title="AI Advisory & Implementation"
-        description="As a leading artificial intelligence consulting firm, we specialize in creating custom strategies that generate results-measurable, scalable, and built for the real world."
-        linkText="Explore Our Offerings"
-        linkHref="#solutions"
-        statsCards={exampleStatsCards}
-        backgroundImage="/public/Images/Banner images/AI advisory.webp"
-      />
+      <HeroSection data={hero} />
 
-      <ServiceOfferings
-        heightDifference={true}
-        title=" Our AI Service Offerings"
-        description="From high-level strategy to tactical execution and operational implementation, we guide you through every aspect of your AI journey."
-        serviceOfferingsData={serviceOfferingsData}
-      />
-      <Methodology
-        title="Our Proven Methodology"
-        description="We combine cutting-edge tech with business acumen to build
-            AI-powered business solutions that perform."
-        methodologyData={methodologyData}
-      />
-      <IndustryExpertise
-        title="Industry-Specific Expertise in AI Consulting"
-        subtitle="Tailored approaches that address unique challenges in diverse sectors."
-        industriesData={industriesData}
-      />
-      <SuccessStories
-        title="Use Cases & Success Stories "
-        description="Discover real-world impact as our immersive solutions transform operations across industries "
-        testimonialsData={testimonialsData}
-      />
+      <ServiceOfferings data={serviceOffering} heightDifference={true} />
+      <Methodology data={methodology} />
+      <IndustryExpertise data={industryExpertise} />
+      <SuccessStories data={successStories} />
     </main>
   );
 }

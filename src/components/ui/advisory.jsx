@@ -62,7 +62,7 @@ export const ServiceCard = memo(function ServiceCard({
         {/* Top Section: Icon + Title + Subtitle */}
         <div className="flex flex-col gap-4">
           <div className="flex justify-start items-center">
-            {Icon ? (
+            {icon ? (
               <div className="w-10 h-10 flex items-center justify-center rounded-lg">
                 <Image
                   src={icon}
@@ -103,18 +103,18 @@ export const MethodologyStep = memo(function MethodologyStep({
   step,
   title,
   description,
-  isLast,
+
   tags,
   column = false,
 }) {
   if (column) {
     return (
-      <div className={`${!isLast ? "border-b border-black/50 pb-8" : ""}`}>
+      <div className={`${"border-b border-black/50 pb-8"}`}>
         {/* Column Layout */}
         <div className="flex flex-col  space-y-6">
           {/* Step Number */}
           <div className="text-4xl  font-extralight font-sans italic text-black/80">
-            {step}
+            {"#"} {step}
           </div>
 
           {/* Title */}
@@ -142,11 +142,11 @@ export const MethodologyStep = memo(function MethodologyStep({
 
   // Original horizontal layout
   return (
-    <div className={`${!isLast ? "border-b -z-1 border-black/50 pb-6" : ""}`}>
+    <div className="border-b -z-1 border-black/50 pb-6">
       <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
         <div className="flex flex-row items-start sm:items-center gap-4 sm:gap-8">
           <p className="text-3xl w-fit  md:text-4xl lg:text-5xl font-extralight font-sans italic text-black/80 sm:w-32">
-            {step}
+            #{step}
           </p>
           <div className="text-2xl md:text-3xl font-normal font-sans text-black w-full sm:w-32 md:w-56">
             {title}
@@ -170,15 +170,17 @@ export const IndustryCard = memo(function IndustryCard({
   return (
     <div className="p-4 sm:p-6 rounded-2xl -z-1 shadow-lg border border-black-200  flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 hover:scale-105 transition-transform duration-300">
       <div className="flex items-center gap-3">
-        <div className="w-12 h-12  rounded-lg flex items-center justify-center">
-          <Image
-            src={icon}
-            width={40}
-            alt={altTag}
-            height={40}
-            className="w-11 h-11 text-white"
-          />
-        </div>
+        {icon && (
+          <div className="w-12 h-12  rounded-lg flex items-center justify-center">
+            <Image
+              src={icon}
+              width={40}
+              alt={altTag}
+              height={40}
+              className="w-11 h-11 text-white"
+            />
+          </div>
+        )}
       </div>
       <div className="flex-1">
         <h5 className="">{title}</h5>
@@ -205,7 +207,7 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
           <h4 className="mb-8">{currentTestimonial.title}</h4>
 
           <div className="grid grid-cols-1 gap-4 mb-8">
-            {currentTestimonial.metrics.map((metric, index) => (
+            {currentTestimonial?.stats?.map((metric, index) => (
               <div
                 key={index}
                 className="flex border-l border-black pl-4 items-center gap-4">
@@ -284,7 +286,7 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
           <h4 className="mb-12">{currentTestimonial.title}</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {currentTestimonial.metrics.map((metric, index) => (
+            {currentTestimonial?.stats?.map((metric, index) => (
               <div
                 key={index}
                 className="flex border-l border-black pl-4 items-center gap-4">

@@ -21,17 +21,17 @@ export const FeatureCard = memo(function FeatureCard({
 }) {
   return (
     <div className="space-y-8 flex flex-col">
-      <div className="w-11 h-11">
-        {" "}
-        {/* Container keeps the fixed size */}
-        <Image
-          src={img}
-          alt={`${title} "icon"`}
-          width={40}
-          height={40}
-          className=""
-        />
-      </div>
+      {img && (
+        <div className="w-11 h-11">
+          <Image
+            src={img}
+            alt={`${title} "icon"`}
+            width={40}
+            height={40}
+            className=""
+          />
+        </div>
+      )}
       <div className="space-y-4">
         <h5 className=" text-black/80 ">{title}</h5>
         <P3 className=" text-black/50">{description}</P3>
@@ -65,21 +65,24 @@ export const AIAssessmentCard = memo(function AIAssessmentCard() {
 });
 
 // Service Card Component
-export const ServiceCard = memo(function ServiceCard({ title, number, image }) {
+export const ServiceCard = memo(function ServiceCard({ data }) {
+  const { title, number, image } = data || {};
   return (
     <div className=" h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
       <div className="relative h-full w-full px-7 py-5 ">
-        <div className="absolute -z-1 bottom-0">
-          <Image
-            src={image}
-            alt={title}
-            width={432}
-            height={523}
-            className="object-contain "
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={false}
-          />
-        </div>
+        {image && (
+          <div className="absolute -z-1 bottom-0">
+            <Image
+              src={image}
+              alt={title}
+              width={432}
+              height={523}
+              className="object-contain "
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={false}
+            />
+          </div>
+        )}
         <div className="h-full flex flex-col justify-between">
           <h5 className="">{title}</h5>
 
@@ -167,14 +170,16 @@ export const ResourceCard = memo(function ResourceCard({
     <div className="flex flex-col p-5 bg-gradient-to-b from-indigo-200/15 to-indigo-200/30 rounded-2xl shadow-lg border border-black/20 backdrop-blur-sm hover:scale-105 transition-transform duration-300 h-full">
       {/* Image Section */}
       <div className="h-64 p-2 rounded-2xl relative overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover rounded-xl"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
-        />
+        {image && (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover rounded-xl"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority={false}
+          />
+        )}
         <div className="absolute top-4 left-4">
           <span className="px-3 py-1 bg-white/75 rounded-full shadow text-sm font-normal text-black">
             {type}
