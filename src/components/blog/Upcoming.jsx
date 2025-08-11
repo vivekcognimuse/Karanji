@@ -44,15 +44,15 @@ const Upcoming = () => {
               href={item.link}
               className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200"
             >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
                 <P2 className="text-black-800 group-hover:text-black-950 transition-colors line-clamp-2 flex-1">
                   {item.title}
                 </P2>
-                <div className="flex items-center gap-4 text-sm text-gray-500 shrink-0">
-                  <span className="font-medium text-black-800">
+                <div className="flex items-center gap-4 md:gap-6 shrink-0">
+                  <span className="font-medium text-black-800 text-sm md:w-20">
                     {item.date}
                   </span>
-                  <span className="px-3 py-1 bg-purple-100 text-black-800 rounded-full text-xs font-medium">
+                  <span className="px-3 py-1 bg-purple-100 text-black-800 rounded-full text-xs font-medium md:w-24 md:text-center">
                     {item.type}
                   </span>
                 </div>
