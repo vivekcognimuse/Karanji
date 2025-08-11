@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { P1 } from "../CustomTags";
 
 const resources = [
   {
@@ -50,23 +51,26 @@ const ResourcesGrid = () => {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <span className="absolute top-3 left-3 bg-black/90 text-white text-xs px-3 py-1 rounded-full font-medium">
+            <span className="absolute top-3 left-3 bg-white/90 text-black-950 text-xs px-3 py-1 rounded-full font-medium">
               {item.type}
             </span>
           </div>
           <div className="p-6 flex flex-col justify-between min-h-[130px]">
-            <h3 className="font-semibold text-base mb-3 text-gray-800 line-clamp-2 group-hover:text-black-950 transition-colors">
+            <P1 className="text-base mb-3 text-gray-800 line-clamp-2 group-hover:text-black-950 transition-colors">
               {item.title}
-            </h3>
-            <span className="text-sm text-black-900 font-semibold group-hover:text-black-950 inline-flex items-center gap-2 transition-colors">
-              {item.cta}
-              <span
-                className="transform group-hover:translate-x-1 transition-transform"
-                aria-hidden
-              >
-                →
+            </P1>
+            <div className="flex justify-end items-center gap-2">
+              <span className="text-lg text-black-900 font-semibold group-hover:text-black-950 transition-colors">
+                {item.cta}
               </span>
-            </span>
+              <Image
+                src="/Icons/clarity_arrow-line.svg"
+                alt="Arrow"
+                width={20}
+                height={20}
+                className="transform group-hover:translate-x-1 transition-transform"
+              />
+            </div>
           </div>
         </Link>
       ))}
