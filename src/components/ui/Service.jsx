@@ -18,18 +18,13 @@ export const FeatureCard = memo(function FeatureCard({
   title,
   description,
   img,
+  ...props
 }) {
   return (
-    <div className="space-y-8 flex flex-col">
+    <div className="space-y-8 flex flex-col" {...props}>
       {img && (
         <div className="w-11 h-11">
-          <Image
-            src={img}
-            alt={`${title} "icon"`}
-            width={40}
-            height={40}
-            className=""
-          />
+          <Image src={img} alt={`${title} "icon"`} width={40} height={40} />
         </div>
       )}
       <div className="space-y-4">
@@ -40,6 +35,7 @@ export const FeatureCard = memo(function FeatureCard({
     </div>
   );
 });
+
 // AI Assessment Card Component
 export const AIAssessmentCard = memo(function AIAssessmentCard() {
   return (
@@ -65,10 +61,12 @@ export const AIAssessmentCard = memo(function AIAssessmentCard() {
 });
 
 // Service Card Component
-export const ServiceCard = memo(function ServiceCard({ data }) {
+export const ServiceCard = memo(function ServiceCard({ data, ...props }) {
   const { title, number, image } = data || {};
   return (
-    <div className=" h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
+    <div
+      {...props}
+      className=" h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 -z-10 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top">
       <div className="relative h-full w-full px-7 py-5 ">
         {image && (
           <div className="absolute -z-1 bottom-0">
