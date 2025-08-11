@@ -1,3 +1,4 @@
+//components/webinar/SuccessStories.jsx
 import { P2, P3 } from "../CustomTags";
 
 export default function SuccessStories({ stories }) {

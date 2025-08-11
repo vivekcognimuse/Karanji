@@ -1,3 +1,4 @@
+//components/webinar/WebinarAgenda.jsx
 import { P2, P3, P4 } from "@/components/CustomTags";
 
 export default function WebinarAgenda({ agenda }) {

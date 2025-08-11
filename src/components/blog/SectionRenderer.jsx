@@ -9,7 +9,7 @@ const SectionRenderer = ({ section }) => {
       return (
         <h4
           id={section.content.replace(/\s+/g, "-").toLowerCase()}
-          className="  mt-10 mb-4 scroll-mt-24"
+          className="mt-10 mb-4 scroll-mt-24"
         >
           {section.content}
         </h4>
@@ -19,7 +19,10 @@ const SectionRenderer = ({ section }) => {
       return <h5 className="text-black-950 mt-6 mb-2">{section.content}</h5>;
 
     case "text":
-      return <P1 className=" mb-4">{section.content}</P1>;
+      return <P1 className="mb-4">{section.content}</P1>;
+
+    case "intro_text":
+      return <P1 className="mb-4">{section.content}</P1>;
 
     case "subtext":
       return <P3 className="text-black-950/50 mb-4">{section.content}</P3>;

@@ -2,6 +2,7 @@
 import BlogPage from "@/components/blog/BlogPage";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { toPlainText, arrayifyList, slugify, getMediaUrl } from "@/utils/ish";
+
 // ---- static SEO for the listing page ----
 export const metadata = {
   title: "Immersive Healthcare VR Training | Karanji Case Study",
@@ -31,6 +32,12 @@ const normalizeBlog = (entry) => {
             // handle b.items (array/string/object) or fallback to b.content
             const items = arrayifyList(b.items ?? b.content ?? []);
             return { type: "list", items };
+          }
+
+          // Handle intro-text component specifically
+          if (name === "intro-text") {
+            const content = toPlainText(b.intro_text);
+            return { type: "intro_text", content };
           }
 
           const content = toPlainText(b.content);
@@ -70,7 +77,7 @@ export default async function BlogInsights() {
   const blogs = (Array.isArray(data) ? data : []).map(normalizeBlog);
 
   return (
-    <main className="w-full  max-w-7xl mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-7xl mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
       <BlogPage blogs={blogs} />
     </main>
   );
