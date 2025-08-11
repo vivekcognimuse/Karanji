@@ -922,8 +922,9 @@ const Navbar = () => {
     { href: "/technology-solutions/digital-twins", label: "Digital Twins" },
     { href: "/blog-insights", label: "Blog Insights" },
     { href: "/case-studies", label: "Case Studies" },
-
+    { href: "/webinar", label: "Webinar" },
     { href: "/resources", label: "Resources" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
