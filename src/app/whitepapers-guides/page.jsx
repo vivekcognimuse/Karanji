@@ -1,7 +1,8 @@
+// app/whitepapers-guides/page.jsx - resources page
 import React from "react";
 import Head from "next/head";
 import ResourcesGrid from "@/components/resources/ResourcesGrid";
-import Upcoming from "@/components/blog/Upcoming"; // ✅ import here
+import Upcoming from "@/components/blog/Upcoming";
 
 const ResourcesPage = () => {
   return (
@@ -24,10 +25,25 @@ const ResourcesPage = () => {
         />
       </Head>
 
-      <main className="max-w-7xl mx-auto px-4 py-12 space-y-10">
-        <h2 className="text-3xl font-bold tracking-tight">What’s New?</h2>
-        <ResourcesGrid />
-        <Upcoming /> {/* ✅ injected here below the grid */}
+      <main className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50/30">
+        <div className="max-w-7xl mx-auto px-4 py-16 space-y-12">
+          {/* Header Section */}
+          <div className=" space-y-4 pt-10">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              What's New?
+            </h2>
+          </div>
+
+          {/* Resources Grid */}
+          <section className="space-y-6">
+            <ResourcesGrid />
+          </section>
+
+          {/* Upcoming Section */}
+          <section className="space-y-6">
+            <Upcoming />
+          </section>
+        </div>
       </main>
     </>
   );

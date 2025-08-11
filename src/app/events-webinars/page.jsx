@@ -1,3 +1,4 @@
+//app/events-webinars/page.jsx
 "use client";
 import WebinarHeader from "@/components/webinar/WebinarHeader";
 import MeetSpeakers from "@/components/webinar/MeetSpeakers";
