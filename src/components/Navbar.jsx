@@ -919,6 +919,10 @@ const Navbar = () => {
     { href: "/technology-solutions/ai-advisory", label: "AI Advisory" },
     { href: "/technology-solutions/xr-gaming", label: "XR Gaming" },
     { href: "/technology-solutions/digital-twins", label: "Digital Twins" },
+    {
+      href: "/whitepapers-guides",
+      label: "Resources",
+    },
   ];
 
   return (
@@ -930,7 +934,8 @@ const Navbar = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-gray-800 hover:text-blue-600 transition-colors">
+                className="text-gray-800 hover:text-blue-600 transition-colors"
+              >
                 {link.label}
               </Link>
             </li>

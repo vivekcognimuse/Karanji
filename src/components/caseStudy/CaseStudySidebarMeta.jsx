@@ -1,32 +1,46 @@
-// components/caseStudyCaseStudySidebarMeta.jsx
+// components/caseStudy/CaseStudySidebarMeta.jsx
 "use client";
 import React from "react";
+import { P3 } from "../CustomTags";
 
 const CaseStudySidebarMeta = ({ domain, targetAudience }) => {
-  return (
-    <div className="mt-10 space-y-6">
-      <div>
-        <h4 className="font-semibold mb-2">Domain</h4>
-        <div className="flex flex-wrap gap-2">
-          <span className="text-sm bg-gray-200 px-3 py-1 rounded-full text-gray-600">
-            {domain}
-          </span>
-        </div>
-      </div>
+  // Don't render if no data
+  if (!domain && (!targetAudience || targetAudience.length === 0)) {
+    return null;
+  }
 
-      <div>
-        <h4 className="font-semibold mb-2">Target Audience</h4>
-        <div className="flex flex-wrap gap-2">
-          {targetAudience.map((aud, idx) => (
-            <span
-              key={idx}
-              className="text-sm bg-gray-200 px-3 py-1 rounded-full text-gray-600"
-            >
-              {aud}
+  return (
+    <div className="mt-8 space-y-6 ml-2">
+      {/* Domain Section */}
+      {domain && (
+        <div>
+          <P3 className="text-black-950  mb-3">Domain</P3>
+          <div className="flex flex-wrap gap-2">
+            <span className="text-xs bg-black-100 px-3 py-1.5 rounded-full text-black-600 font-medium">
+              {domain}
             </span>
-          ))}
+          </div>
         </div>
-      </div>
+      )}
+
+      {/* Target Audience Section */}
+      {targetAudience && targetAudience.length > 0 && (
+        <div>
+          <P3 className="text-sm font-medium text-black-950 mb-3">
+            Target Audience
+          </P3>
+          <div className="flex flex-wrap gap-2">
+            {targetAudience.map((aud, idx) => (
+              <span
+                key={idx}
+                className="text-xs bg-black-100 px-3 py-1.5 rounded-full text-black-600 font-medium"
+              >
+                {aud}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

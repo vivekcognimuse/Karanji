@@ -82,9 +82,9 @@ export default function WebinarAgenda({ agenda }) {
             <div className="bg-gradient-to-br from-[#F9DCDC] to-[#BAABFC] rounded-2xl p-6">
               {/* Header */}
               <div className="text-center mb-6">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                <h5 className="text-xl font-semibold text-gray-900 mb-2">
                   What You'll Take Away
-                </h4>
+                </h5>
                 <p className="text-gray-600">Exclusive resources & insights</p>
               </div>
 

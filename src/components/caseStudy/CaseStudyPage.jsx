@@ -1,8 +1,10 @@
+//components/caseStudy/CaseStudyPage.jsx
 "use client";
 import React, { useMemo } from "react";
 import ScrollSpySidebar from "../blog/ScrollSpySidebar";
 import DownloadSection from "../blog/downloadSection";
 import QuoteBlock from "../blog/QuoteBlock";
+import CaseStudySidebarMeta from "./CaseStudySidebarMeta";
 import { P1, P3 } from "../CustomTags";
 
 const slugify = (s) =>
@@ -115,6 +117,11 @@ const CaseStudyPage = ({ data }) => {
                 {headings.length > 0 && (
                   <ScrollSpySidebar headings={headings} />
                 )}
+                {/* Add CaseStudySidebarMeta below ScrollSpySidebar */}
+                <CaseStudySidebarMeta
+                  domain={data.domain}
+                  targetAudience={data.targetAudience || []}
+                />
               </div>
             </div>
           </div>
