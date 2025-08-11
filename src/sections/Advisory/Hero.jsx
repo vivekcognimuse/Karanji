@@ -4,7 +4,10 @@ import { Icon } from "@iconify/react";
 import { P1 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 
-const HeroSection = ({ data }) => {
+// client-only, returns null, runs GSAP
+import HeroReveal from "@/components/animations/HeroReveal";
+
+export default function HeroSection({ data }) {
   const {
     title = "",
     linkText,
@@ -14,22 +17,34 @@ const HeroSection = ({ data }) => {
     stats,
     backgroundImage,
   } = data;
+
   return (
     <section
-      className={`flex flex-col  h-fit -z-1 pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center 
-         before:content-[''] before:absolute before:inset-0
-         before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
-         before:opacity-12 before:-z-1 `}
-      style={{ backgroundImage: backgroundImage }}>
-      <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
+      id="hero-section"
+      className={`relative flex flex-col h-fit -z-1 pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center 
+        before:content-[''] before:absolute before:inset-0
+        before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
+        before:opacity-12 before:-z-1`}
+      style={{ backgroundImage }}>
+      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
-          <h2 className="text-center  ">{title}</h2>
+          <h2
+            className="text-center opacity-0 will-change-transform"
+            data-reveal>
+            {title}
+          </h2>
+
           {subTitle && (
-            <P1 className="text-black text-center   mx-auto">{subTitle}</P1>
+            <P1
+              className="text-black text-center mx-auto opacity-0 will-change-transform"
+              data-reveal>
+              {subTitle}
+            </P1>
           )}
         </div>
+
         {linkText && (
-          <div className="flex">
+          <div className="flex opacity-0 will-change-transform" data-reveal>
             <Link href={linkHref} className="mx-auto">
               <Button variant="text" className="mx-auto">
                 {linkText}
@@ -40,8 +55,8 @@ const HeroSection = ({ data }) => {
         )}
       </div>
 
-      {stats && stats.length > 0 && (
-        <div className="w-full   my-16 px-4 sm:px-6">
+      {stats?.length > 0 && (
+        <div className="w-full my-16 px-4 sm:px-6">
           <div
             className={`grid gap-4 ${
               stats.length === 3
@@ -58,11 +73,12 @@ const HeroSection = ({ data }) => {
                   key={index}
                   className={`px-4 sm:px-6 flex border-l border-black/30 :flex-row gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
                     index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
-                  }${addLgBorderLeft}`}>
-                  <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black  sm:mx-0">
+                  }${addLgBorderLeft} opacity-0 will-change-transform`}
+                  data-reveal>
+                  <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
                     {card.number}
                   </div>
-                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed  sm:mx-0 max-w-xs sm:max-w-none">
+                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
                     {card.text}
                   </p>
                 </div>
@@ -71,8 +87,9 @@ const HeroSection = ({ data }) => {
           </div>
         </div>
       )}
+
+      {/* GSAP runs client-side; does not affect SSR of markup */}
+      <HeroReveal />
     </section>
   );
-};
-
-export default HeroSection;
+}

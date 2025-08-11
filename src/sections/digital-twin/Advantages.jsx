@@ -1,18 +1,26 @@
 import React from "react";
 import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
-
-// Content constant - matching the exact content from the image
+import SectionReveal from "@/components/animations/sectionReveal";
 
 const Advantages = ({ className = "", data }) => {
   const { title, list } = data || {};
   console.log("Fetched Advantages data:", data);
   return (
-    <div className={className}>
+    <section
+      className={className}
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.6"
+      data-reveal-stagger="0.15">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+          <h2
+            className="text-xl font-semibold text-gray-900"
+            data-reveal
+            data-reveal-dir="up">
+            {title}
+          </h2>
         </div>
 
         {/* Grid of Cards */}
@@ -20,7 +28,9 @@ const Advantages = ({ className = "", data }) => {
           {list.map((card, index) => (
             <div
               key={card.id}
-              className="border-l-2 border-gray-300 pl-4 flex flex-col justify-end min-h-fit">
+              className="border-l-2 border-gray-300 pl-4 flex flex-col justify-end min-h-fit"
+              data-reveal
+              data-reveal-dir="up">
               {/* ID Number - positioned at top right of content */}
               <p className="text-5xl font-[100] text-black font-sans mb-3 text-left">
                 {(index + 1).toString().padStart(2, "0")}
@@ -35,7 +45,10 @@ const Advantages = ({ className = "", data }) => {
           ))}
         </div>
       </div>
-    </div>
+
+      {/* GSAP reveal trigger (uses closest <section>) */}
+      <SectionReveal />
+    </section>
   );
 };
 
