@@ -1,7 +1,7 @@
 export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   baseUrl =
     baseUrl ||
-    " https://e5ce1a012d85.ngrok-free.app/api" ||
+    "https://e5ce1a012d85.ngrok-free.app/api" ||
     process.env.STRAPI_API_URL;
 
   if (!baseUrl) {
