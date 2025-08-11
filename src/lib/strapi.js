@@ -1,6 +1,6 @@
 export async function fetchFromStrapi(endpoint, options = {}) {
   const baseUrl =
-    "https://ef767bdde229.ngrok-free.app/api" || process.env.STRAPI_API_URL;
+    "http://localhost:1337/api" || process.env.STRAPI_API_URL;
 
   if (!baseUrl) {
     throw new Error("STRAPI_API_URL is not defined in environment variables.");
