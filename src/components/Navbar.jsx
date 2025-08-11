@@ -911,6 +911,7 @@
 
 // export default Navigation;
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -919,12 +920,25 @@ const Navbar = () => {
     { href: "/technology-solutions/ai-advisory", label: "AI Advisory" },
     { href: "/technology-solutions/xr-gaming", label: "XR Gaming" },
     { href: "/technology-solutions/digital-twins", label: "Digital Twins" },
+    { href: "/blog-insights", label: "Blog Insights" },
+    { href: "/case-studies", label: "Case Studies" },
+
+    { href: "/resources", label: "Resources" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/30 border-b border-white/20">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="text-lg font-semibold">Karanji</div>
+        <div className="text-lg font-semibold">
+          <Image
+            src="/logo.svg"
+            className="h-8 w-fit"
+            alt="Logo"
+            unoptimized
+            width={100}
+            height={100}
+          />
+        </div>
         <ul className="flex gap-6">
           {links.map((link) => (
             <li key={link.href}>
