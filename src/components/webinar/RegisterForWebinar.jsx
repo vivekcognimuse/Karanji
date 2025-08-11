@@ -1,3 +1,4 @@
+//components/webinar/RegisterForWebinar.jsx
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "../CustomTags";
 

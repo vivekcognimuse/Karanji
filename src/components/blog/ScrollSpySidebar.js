@@ -10,7 +10,6 @@ const ScrollSpySidebar = ({ headings }) => {
     const blogContent = document.getElementById("content");
     if (!blogContent) return;
     
-
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
       { root: null, threshold: 0.1 }
@@ -43,7 +42,7 @@ const ScrollSpySidebar = ({ headings }) => {
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: "-30% 0px -60% 0px", // Top bias
+      rootMargin: "-30% 0px -60% 0px",
       threshold: 0.1,
     });
 
@@ -70,9 +69,9 @@ const ScrollSpySidebar = ({ headings }) => {
   if (!isVisible) return null;
 
   return (
-    <aside   className={`hidden lg:flex fixed right-8 top-36 z-30 flex-col transition-opacity duration-500 ${
-    isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-  }`}>
+    <aside className={`transition-opacity duration-500 ${
+      isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+    }`}>
       <div className="relative h-full min-h-[250px] ml-2">
         {/* Track */}
         <div className="absolute left-0 top-0 w-1 h-full bg-black-950/20 rounded-full" />
@@ -80,7 +79,7 @@ const ScrollSpySidebar = ({ headings }) => {
         {/* Progress */}
         <div
           className="absolute left-0 w-1 bg-black-950 rounded-full transition-all duration-300"
-          style={{ height: `${(progress +1 ) / headings.length * 90}%` }}
+          style={{ height: `${(progress + 1) / headings.length * 90}%` }}
         />
 
         {/* Links */}
@@ -89,9 +88,9 @@ const ScrollSpySidebar = ({ headings }) => {
             <button
               key={h.id}
               onClick={() => scrollTo(h.id)}
-              className={`text-left text-sm transition-colors leading-12 ${
+              className={`text-left text-sm transition-colors leading-12 break-words ${
                 h.id === activeId
-                  ? "text-black-950  "
+                  ? "text-black-950"
                   : "text-black-950/50 hover:text-black-950 cursor-pointer"
               }`}
             >

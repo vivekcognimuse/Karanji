@@ -1,69 +1,76 @@
+//components/webinar/WebinarAgenda.jsx
 import { P2, P3, P4 } from "@/components/CustomTags";
 
 export default function WebinarAgenda({ agenda }) {
   return (
-    <section className="py-16 px-6 ">
-      <div className=" mx-auto">
+    <section className="py-16 px-6">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {agenda.title}
           </h3>
-          <P2 className="text-lg  mx-auto">{agenda.subtitle}</P2>
+          <P2 className="text-lg mx-auto">{agenda.subtitle}</P2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Timeline Section */}
-          <div className="lg:col-span-2">
-            <div className="space-y-0">
+          <div className="lg:col-span-2 relative">
+            {/* Continuous Timeline Line */}
+            <div className="absolute left-1 top-6 bottom-0 w-0.5 bg-black"></div>
+
+            <div className="space-y-12">
               {agenda.sessions.map((session, index) => (
                 <div key={index} className="relative flex gap-6">
-                  {/* Timeline */}
-                  <div className="flex flex-col items-center">
-                    {/* Clock Icon Circle */}
-                    <div className="w-12 h-12 bg-white border-2 border-purple-200 rounded-full flex items-center justify-center z-10 shadow-sm">
+                  {/* Timeline Dot */}
+                  <div className="relative z-10">
+                    {/* Black Dot */}
+                    <div className="w-3 h-3 bg-black rounded-full flex-shrink-0 mt-1"></div>
+                  </div>
+
+                  {/* Clock Icon Circle - separate from timeline */}
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-b from-[#FFCFCF] to-[#D3C9FF] rounded-xl flex items-center justify-center">
                       <img
-                        src="/Icons/clock.svg"
+                        src="/Icons/Clock-1.svg"
                         alt="Clock"
-                        className="w-5 h-5 text-purple-600"
+                        className="w-6 h-6"
                       />
                     </div>
-
-                    {/* Connecting Line */}
-                    {index < agenda.sessions.length - 1 && (
-                      <div className="w-0.5 h-24 bg-purple-200 -mt-1"></div>
-                    )}
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 pb-8">
-                    {/* Time and Tag */}
-                    <div className="flex flex-col gap-2 mb-3">
-                      <span className="px-3 py-1 bg-purple-100 text-black-800 text-lg font-normal rounded-full w-fit">
+                  <div className="flex-1 min-w-0">
+                    {/* Tag and Time */}
+                    <div className="mb-4">
+                      <span className="inline-block px-4 py-2 bg-purple-100 text-black-900 text-sm font-medium rounded-full mb-2">
                         {session.tag}
                       </span>
-                      <span className="text-lg text-black-500 font-outfit">
+                      <div className="text-gray-500 text-sm font-medium">
                         {session.time}
-                      </span>
+                      </div>
                     </div>
 
                     {/* Title */}
-                    <h5 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h4 className="text-xl  text-gray-900 mb-3">
                       {session.title}
-                    </h5>
+                    </h4>
 
                     {/* Description */}
-                    <P3 className="text-gray-600 mb-3 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
                       {session.description}
-                    </P3>
+                    </p>
 
                     {/* Speaker */}
-                    <p className="text-lg text-black font-outfit">
-                      <span className="font-medium">Speaker:</span>{" "}
-                      {session.speaker}
+                    <p className="text-gray-900 font-medium">
+                      <span className="font-semibold">Speaker:</span>{" "}
+                      <span className="font-semibold">{session.speaker}</span>
                     </p>
-                    {/* Divider */}
-                    <hr className="my-4 border-black-200" />
+
+                    {/* Horizontal Line */}
+                    {index < agenda.sessions.length - 1 && (
+                      <hr className="mt-6 border-gray-300" />
+                    )}
                   </div>
                 </div>
               ))}
@@ -71,53 +78,60 @@ export default function WebinarAgenda({ agenda }) {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:sticky lg:top-8 lg:self-start min-w-sm">
-            <div className="bg-gradient-to-br from-[#BAABFC] to-[#F9DCDC] rounded-2xl p-6 border border-purple-200">
+          <div className="lg:sticky lg:top-8 lg:self-start">
+            <div className="bg-gradient-to-br from-[#F9DCDC] to-[#BAABFC] rounded-2xl p-6">
               {/* Header */}
-              <h5 className="text-center text-xl font-semibold text-gray-900 mb-2">
-                What You'll Take Away
-              </h5>
-              <p className="text-center text-lg text-gray-600 mb-6">
-                Exclusive resources & insights
-              </p>
+              <div className="text-center mb-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                  What You'll Take Away
+                </h4>
+                <p className="text-gray-600">Exclusive resources & insights</p>
+              </div>
 
               {/* Takeaways List */}
               <div className="space-y-4 mb-8">
-                {agenda.takeaways.slice(0, 4).map((takeaway, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="rounded flex items-center justify-center flex-shrink-0">
-                      <img
-                        src="/Icons/Check box.svg"
-                        alt="Check"
-                        className="w-8 h-8"
-                      />
+                {agenda.takeaways.slice(0, 4).map((takeaway, index) => {
+                  const parts = takeaway.split(" – ");
+                  return (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-0.5">
+                        <img
+                          src="/Icons/Check box.svg"
+                          alt="Check"
+                          className="w-6 h-6"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-gray-900 font-medium text-sm leading-relaxed">
+                          {parts[0]}
+                        </p>
+                        {parts[1] && (
+                          <p className="text-gray-600 text-sm mt-1">
+                            {parts[1]}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <P3>{takeaway.split(" – ")[0]}</P3>
-                      {takeaway.split(" – ")[1] && (
-                        <div className="text-lg text-black-500 mt-1">
-                          {takeaway.split(" – ")[1]}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Certificate Section */}
               <div className="pt-6 border-t border-purple-200">
-                <div className="bg-white rounded-xl p-6 text-center border border-purple-100 shadow-sm">
-                  <div className="w-16 h-16  rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-white rounded-xl p-6 text-center">
+                  <div className="flex justify-center mb-4">
                     <img
                       src="/Icons/ph_certificate-light.svg"
                       alt="Certificate"
-                      className="w-20 h-20"
+                      className="w-16 h-16"
                     />
                   </div>
-                  <P3 className=" mb-2">Certificate of completion</P3>
-                  <P3 className="">
+                  <p className="text-gray-900 font-medium text-sm mb-2">
+                    Certificate of completion
+                  </p>
+                  <p className="text-gray-600 text-sm">
                     30-day access to exclusive resource library
-                  </P3>
+                  </p>
                 </div>
               </div>
             </div>

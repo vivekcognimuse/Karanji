@@ -1,3 +1,4 @@
+//components/webinar/MeetSpeakers.jsx
 import { P2 } from "../CustomTags";
 
 export default function MeetSpeakers({ speakers }) {

@@ -1,49 +1,69 @@
 // components/blog/Upcoming.jsx
 import React from "react";
 import { SlidersHorizontal } from "lucide-react";
+import Link from "next/link";
+import { P2 } from "../CustomTags";
 
 const upcomingItems = [
   {
     title: "Why Extended Reality is the Next Big Thing in Digital Learning",
     date: "06/08/2025",
     type: "Blog",
+    link: "/blog-insights/extended-reality-digital-learning", // Updated routing
   },
   {
     title: "Enhancing Manufacturing Efficiency with Digital Twin Technology",
     date: "07/08/2025",
     type: "Case Study",
+    link: "/case-studies/digital-twin-manufacturing", // Updated routing
   },
   {
     title:
       "How AI Advisory Services Can Help Your Business Unlock the Full Potential of Artificial Intelligence",
     date: "10/08/2025",
     type: "Webinar",
+    link: "/events-webinars/ai-advisory-services", // Updated routing
   },
 ];
 
 const Upcoming = () => {
   return (
-    <div className="bg-gradient-to-tr from-white to-purple-50 p-6 rounded-xl ">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="">Upcoming</h2>
-        <SlidersHorizontal size={16} className="text-gray-600" />
+    <div className="bg-gradient-to-br from-white via-purple-50 to-blue-50 p-8 rounded-2xl border border-purple-100 shadow-sm">
+      <div className="flex justify-between items-center mb-6">
+        <h4 className="text-2xl text-black-950">Upcoming</h4>
+        <SlidersHorizontal
+          size={18}
+          className="text-gray-500 hover:text-black-950 cursor-pointer transition-colors"
+        />
       </div>
 
-      <ul className="divide-y divide-black-950/70">
+      <div className="space-y-0">
         {upcomingItems.map((item, idx) => (
-          <li key={idx} className="py-3">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-              <span className="text-sm text-black font-medium">
-                {item.title}
-              </span>
-              <div className="flex gap-6 text-sm text-gray-500">
-                <span>{item.date}</span>
-                <span>{item.type}</span>
+          <div key={idx}>
+            <Link
+              href={item.link}
+              className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                <P2 className="text-black-800 group-hover:text-black-950 transition-colors line-clamp-2 flex-1">
+                  {item.title}
+                </P2>
+                <div className="flex items-center gap-4 text-sm text-gray-500 shrink-0">
+                  <span className="font-medium text-black-800">
+                    {item.date}
+                  </span>
+                  <span className="px-3 py-1 bg-purple-100 text-black-800 rounded-full text-xs font-medium">
+                    {item.type}
+                  </span>
+                </div>
               </div>
-            </div>
-          </li>
+            </Link>
+            {idx < upcomingItems.length - 1 && (
+              <div className="border-b border-black-800 mx-2"></div>
+            )}
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
