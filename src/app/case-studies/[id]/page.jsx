@@ -1,33 +1,84 @@
-// app/casestudies/[id]/page.jsx
-import React from "react";
-import Head from "next/head";
-import caseStudyData from "@/data/casestudies.json";
+// app/case-studies/[id]/page.jsx
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
+import { fetchFromStrapi } from "@/lib/strapi";
+import {
+  toPlainText,
+  arrayifyList,
+  splitCommaString,
+  getMediaUrl,
+} from "@/utils/ish";
 
-const CaseStudyDetail = ({ params }) => {
-  const data = caseStudyData.caseStudies.find(
-    (cs) => cs.id === parseInt(params.id)
-  );
+// Normalize Strapi v5 -> your JSON shape that CaseStudyPage expects
+const normalizeCaseStudy = (entry) => {
+  const a = entry?.attributes ? entry.attributes : entry || {};
 
-  if (!data) return <p>Case study not found.</p>;
+  const sections = Array.isArray(a.sections)
+    ? a.sections
+        .map((b) => {
+          const name = b.__component?.split(".")[1];
+          if (!name) return null;
 
-  return (
-    <>
-      <Head>
-        <title>{data.title} | Karanji</title>
-        <meta name="description" content={data.description} />
-        <meta name="keywords" content={data.tags.join(", ")} />
-        <meta name="author" content="Karanji Team" />
-        <meta property="og:title" content={data.title} />
-        <meta property="og:description" content={data.description} />
-        <meta property="og:image" content={`/${data.image}`} />
-      </Head>
+          if (name === "list")
+            return {
+              type: "list",
+              items: arrayifyList(b.items ?? b.content ?? []),
+            };
 
-      <main className="w-full max-w-7xl mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
-        <CaseStudyPage data={data} />
-      </main>
-    </>
-  );
+          const content = toPlainText(b.content);
+          if (name === "quote") return { type: "quote", content };
+          if (name === "subheading") return { type: "subheading", content };
+          if (name === "subtext") return { type: "subtext", content };
+          if (name === "text") return { type: "text", content };
+          if (name === "heading") return { type: "heading", content };
+          return null;
+        })
+        .filter(Boolean)
+    : [];
+
+  const download = a.downloadCta || a.download || {};
+  const downloadCta = {
+    title: "Access VR Walkthrough Story",
+    intro:
+      "See how a leading manufacturer used VR to improve product demos, engage clients better, and make onboarding easier.",
+    description: "",
+    audienceNote:
+      "If you're in manufacturing or industrial training, this case study shows what’s possible with immersive technology.",
+    encouragementNote: "Use it, learn from it, and start your own impact story",
+    buttonLabel: "Download Full Case Study",
+  };
+
+  return {
+    id: entry.id,
+    title: a.title,
+    description: toPlainText(a.description || ""),
+    tags: splitCommaString(a.tags),
+    domain: a.domain || "",
+    targetAudience: splitCommaString(a.targetAudience),
+    image: getMediaUrl(a.image) || getMediaUrl("caseStudies/Casestudy 3.webp"),
+    sections,
+    downloadCta,
+  };
 };
 
-export default CaseStudyDetail;
+export const revalidate = 60;
+
+export default async function CaseStudyDetail({ params }) {
+  const p = await params; // Next.js 15
+  const slug = p.slug ?? p.id;
+
+  const data = await fetchFromStrapi(
+    `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
+    { populate: "*" }
+  );
+
+  const entry = Array.isArray(data) ? data[0] : null;
+  if (!entry) return <p>Case study not found.</p>;
+
+  const normalized = normalizeCaseStudy(entry);
+
+  return (
+    <main className="w-full max-w-7xl mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
+      <CaseStudyPage data={normalized} />
+    </main>
+  );
+}

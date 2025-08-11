@@ -38,3 +38,14 @@ export const arrayifyList = (val) => {
     .map(s => s.replace(/^\s*[•\-–]\s*/, "").trim())
     .filter(Boolean);
 };
+
+export const splitCommaString = (val) => {
+  if (Array.isArray(val)) return val.map(toPlainText).filter(Boolean);
+  if (typeof val === "string") {
+    return val
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+  }
+  return [];
+};
