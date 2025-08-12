@@ -1,4 +1,5 @@
 import SectionReveal from "@/components/animations/sectionReveal";
+import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/advisory";
 import { cn } from "@/lib/utils";
 
@@ -26,44 +27,47 @@ export default function ServiceOfferings({
       className=" ">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24">
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4 opacity-0 will-change-transform"
+          <h3
+            className=" mb-4 opacity-0 will-change-transform"
             data-reveal
             data-reveal-dir="up">
             {title}
-          </h2>
+          </h3>
 
-          <p
-            className="text-lg md:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide max-w-4xl opacity-0 will-change-transform"
+          <P2
+            className=" text-black  opacity-0 will-change-transform"
             data-reveal
             data-reveal-dir="up">
             {description}
-          </p>
+          </P2>
         </div>
 
         <div
           className={cn(
-            `grid grid-cols-1 md:grid-cols-2 gap-6 ${
-              heightDifference ? "lg:grid-cols-3" : "lg:grid-cols-4"
+            `grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
+              cards.length === 3
+                ? "lg:grid-cols-3"
+                : cards.length === 4
+                ? "lg:grid-cols-4"
+                : "lg:grid-cols-5" // Optional, in case you want more columns for larger card counts
             } lg:gap-8`,
             className
           )}>
           {cards.map((service, index) => (
-            <div key={index} className="flex flex-col justify-end h-full">
-              <ServiceCard
-                title={service.title}
-                subtitle={service.subtitle}
-                description={service.description}
-                featured={service.featured}
-                index={index}
-                heightDifference={heightDifference}
-                icon={service.icon}
-                // reveal
-                data-reveal
-                data-reveal-dir={dirForIndex(index)}
-                className="opacity-0 will-change-transform"
-              />
-            </div>
+            <ServiceCard
+              key={index}
+              title={service.title}
+              subtitle={service.subtitle}
+              description={service.description}
+              featured={service.featured}
+              index={index}
+              heightDifference={heightDifference}
+              icon={service.icon}
+              // reveal
+              data-reveal
+              data-reveal-dir={dirForIndex(index)}
+              className="opacity-0 will-change-transform"
+            />
           ))}
         </div>
       </div>

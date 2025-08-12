@@ -2,7 +2,9 @@ import { P2 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
-const ContentFormats = ({ title, description, content }) => {
+const ContentFormats = ({ data }) => {
+  const { title, description, content } = data || {};
+
   return (
     <div>
       <h3>{title}</h3>
@@ -18,7 +20,7 @@ const ContentFormats = ({ title, description, content }) => {
         {content.map((item, index) => (
           <div
             key={index}
-            className="mb-8 bg-white  shadow-md px-4 py-2 gap-4 rounded-2xl flex items-center ">
+            className="mb-8 bg-white shadow-md px-4 py-2 gap-4 rounded-2xl flex items-center ">
             {item.src && (
               <Image
                 src={item.src}
@@ -28,7 +30,7 @@ const ContentFormats = ({ title, description, content }) => {
                 className="size-10 mb-2"
               />
             )}
-            <p className="font-sans text-[1.375rem] sm:text-2xl  ">
+            <p className="font-sans text-[1.375rem] sm:text-2xl">
               {item.description}
             </p>
           </div>

@@ -1,18 +1,19 @@
-"use client";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import React from "react";
 
-const CTA = ({
-  title,
-  description,
-  PrimaryButtonText,
-  PrimaryButtonLink,
-  SecondaryButtonText,
-  SecondaryButtonLink,
-}) => {
+const CTA = ({ className = "", data }) => {
+  const {
+    title,
+    description,
+    PrimaryButtonText,
+    PrimaryButtonLink,
+    SecondaryButtonText,
+    SecondaryButtonLink,
+  } = data || {};
+
   return (
-    <div className="text-center">
+    <div className={`text-center ${className}`}>
       <h3>{title}</h3>
       <P2>{description}</P2>
       <div className="flex-center mt-8 gap-8">
