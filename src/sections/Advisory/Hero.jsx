@@ -7,7 +7,7 @@ import Button from "@/components/ui/Button";
 // client-only, returns null, runs GSAP
 import HeroReveal from "@/components/animations/HeroReveal";
 
-export default function HeroSection({ data }) {
+export default function HeroSection({ data, bgImage }) {
   const {
     title = "",
     linkText,

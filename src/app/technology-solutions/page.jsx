@@ -1,15 +1,11 @@
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-
-import ResourcesSection from "@/sections/service/Resource";
 import TechnologyServices from "@/sections/service/Service";
-
 import TechnologyAdvantage from "@/sections/service/Technology";
-
-export default async function XRGaming() {
+export default async function TechnologySolution() {
   const data = await fetchFromStrapi("technology-solutions");
-  console.log("XRGaming data:", data);
+  console.log("TechnologySolution data:", data);
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

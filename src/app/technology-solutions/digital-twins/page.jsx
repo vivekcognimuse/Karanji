@@ -24,7 +24,7 @@ const DigitalTwins = async () => {
   } = data || {};
   return (
     <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={hero} />
+      <HeroSection data={hero} bgImage="" />
       <Advantages data={advantages} />
       <DigitalTwinOfferings data={offering} />
       <Methodology data={methodology} />

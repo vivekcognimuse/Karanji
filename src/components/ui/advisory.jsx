@@ -49,15 +49,20 @@ export const ServiceCard = memo(function ServiceCard({
 }) {
   const isActive = index === currentIndex;
 
+  // Calculate the height based on index when heightDifference is true
+  const dynamicHeight = heightDifference
+    ? `calc(420px + ${index * 70}px)`
+    : "450px";
+
   return (
     <div
       {...props}
-      className={`w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative ${className}`}
-      style={
-        heightDifference
-          ? { minHeight: `calc(320px + ${index * 70}px)` }
-          : { minHeight: "350px", height: "auto" }
-      }>
+      className={`w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4  z-0 relative ${className}`}
+      style={{
+        height: heightDifference ? dynamicHeight : "auto",
+        minHeight: heightDifference ? dynamicHeight : "350px",
+        flexShrink: 0, // Prevent flex container from shrinking this item
+      }}>
       <div
         className={`relative z-10 flex flex-col h-full ${
           featured || isActive ? "lg:scale-105 z-10" : "lg:hover:blur-none"
@@ -174,7 +179,7 @@ export const IndustryCard = memo(function IndustryCard({
         )}
       </div>
       <div className="flex-1">
-        <h5 className="" data-reveal data-reveal-dir="up">
+        <h5 className="mb-2" data-reveal data-reveal-dir="up">
           {title}
         </h5>
         <P3 className="text-black-500" data-reveal data-reveal-dir="up">

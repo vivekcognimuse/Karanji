@@ -33,6 +33,7 @@ export default function TechnologyAdvantage({ data }) {
           {cards.map((feature, index) => (
             <FeatureCard
               key={index}
+              index={index}
               img={feature.img}
               title={feature.title}
               description={feature.description}

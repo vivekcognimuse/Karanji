@@ -7,6 +7,7 @@ export default function ServiceOfferings({
   heightDifference,
   className,
   data,
+  icon,
 }) {
   const { title, description, cards = [] } = data || {};
 
@@ -44,13 +45,15 @@ export default function ServiceOfferings({
 
         <div
           className={cn(
-            `grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
-              cards.length === 3
-                ? "lg:grid-cols-3"
-                : cards.length === 4
-                ? "lg:grid-cols-4"
-                : "lg:grid-cols-5" // Optional, in case you want more columns for larger card counts
-            } lg:gap-8`,
+            heightDifference
+              ? "flex flex-wrap items-end justify-center gap-6 lg:gap-8"
+              : `grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
+                  cards.length === 3
+                    ? "lg:grid-cols-3"
+                    : cards.length === 4
+                    ? "lg:grid-cols-4"
+                    : "lg:grid-cols-5"
+                } lg:gap-8`,
             className
           )}>
           {cards.map((service, index) => (
@@ -62,7 +65,7 @@ export default function ServiceOfferings({
               featured={service.featured}
               index={index}
               heightDifference={heightDifference}
-              icon={service.icon}
+              icon={`${icon}/${index + 1}.svg`}
               // reveal
               data-reveal
               data-reveal-dir={dirForIndex(index)}

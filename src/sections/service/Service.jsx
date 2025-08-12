@@ -3,7 +3,7 @@ import SectionReveal from "@/components/animations/sectionReveal";
 import { ServiceCard } from "@/components/ui/serviceCard";
 import { Images } from "lucide-react";
 
-export default function TechnologyServices({ data }) {
+export default function TechnologyServices({ data, image }) {
   const { title, description, cards = [] } = data || {};
 
   return (
@@ -31,7 +31,7 @@ export default function TechnologyServices({ data }) {
       </div>
 
       {/* Now just pass the cards array to ServiceCard */}
-      <ServiceCard cards={cards} />
+      <ServiceCard cards={cards} image={image} />
 
       <SectionReveal />
     </section>

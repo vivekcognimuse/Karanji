@@ -41,7 +41,7 @@ const serviceOfferingsData = {
       description:
         "Tailored for your needs from the very beginning, every feature is customizable.",
       featured: true,
-      icon: "/Icons/BuiltGroundUp.svg",
+      icon: "/digital-learning/lms-discover/1.svg",
     },
     {
       title: "Flexible Deployment",
@@ -49,7 +49,7 @@ const serviceOfferingsData = {
       description:
         "Choose between cloud-based or on-premise solutions based on your preferences.",
       featured: false,
-      icon: "/Icons/FlexibleDeployment.svg",
+      icon: "/digital-learning/lms-discover/2.svg",
     },
     {
       title: "Value Pricing",
@@ -57,7 +57,7 @@ const serviceOfferingsData = {
       description:
         "Affordable pay-per-user model with full customization options.",
       featured: false,
-      icon: "/Icons/ValuePricing.svg",
+      icon: "/digital-learning/lms-discover/3.svg",
     },
     {
       title: "Integrate",
@@ -65,7 +65,7 @@ const serviceOfferingsData = {
       description:
         "Seamlessly connect with any system, regardless of complexity or scale.",
       featured: false,
-      icon: "/Icons/Integrate.svg",
+      icon: "/digital-learning/lms-discover/4.svg",
     },
   ],
 };
@@ -85,7 +85,7 @@ const lmsLearningData = {
   cards: [
     {
       title: "Common LMS Challenges",
-      image: null,
+      image: "/digital-learning/lms-challenges/1.svg",
       description: [
         "Complex navigation frustrates learners",
         "Difficult content organization",
@@ -95,7 +95,7 @@ const lmsLearningData = {
     },
     {
       title: "The K-nest Solution",
-      image: null,
+      image: "/digital-learning/lms-challenges/2.svg",
       description: [
         "Guided navigation ensures smooth progression",
         "Easy-to-structure and organize content",
@@ -114,19 +114,19 @@ const learningChallenges = {
       title: "Learning Experience",
       description:
         "Engaging, intuitive interfaces for seamless learning journeys.",
-      icon: null, // Optional SVG icon as string
+      icon: "/digital-learning/lms-learning/1.svg", // Optional SVG icon as string
     },
     {
       title: "Content Management",
       description:
         "Powerful tools to organize & deliver diverse learning materials",
-      icon: null,
+      icon: "/digital-learning/lms-learning/2.svg", // Optional SVG icon as string
     },
     {
       title: "Administration & Analytics",
       description:
         "Robust backend systems for management, tracking, & optimization.",
-      icon: null,
+      icon: "/digital-learning/lms-learning/3.svg",
     },
   ],
 };
@@ -135,7 +135,10 @@ export default async function LMSImplementation() {
     <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
 
-      <ServiceOfferings data={serviceOfferingsData} />
+      <ServiceOfferings
+        data={serviceOfferingsData}
+        icon="/digital-learning/lms-discover"
+      />
 
       <LMSLearning data={lmsLearningData} />
 

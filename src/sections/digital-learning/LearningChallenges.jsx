@@ -25,7 +25,7 @@ export default function LearningChallenges({ data }) {
                   alt={challenge.title}
                   width={64}
                   height={64}
-                  className="size-10"
+                  className="size-10 mb-8"
                 />
               )}
 

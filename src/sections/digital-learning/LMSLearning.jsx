@@ -1,4 +1,5 @@
 import { P2, P3 } from "@/components/CustomTags";
+import Image from "next/image";
 import React from "react";
 
 const LMSLearning = ({ data }) => {
@@ -13,9 +14,15 @@ const LMSLearning = ({ data }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="bg-[#FFE5E5] mt-8 space-y-8 p-4 rounded-2xl">
+            className="bg-[#FFE5E5] mt-8 space-y-8 p-5 rounded-2xl">
             {card.image && (
-              <Image src={card.image} alt={card.title} className="size-10" />
+              <Image
+                src={card.image}
+                alt={card.title}
+                width={40}
+                height={40}
+                className="size-10"
+              />
             )}
             <h5>{card.title}</h5>
             <hr className="h-px opacity-20 bg-black-100" />
