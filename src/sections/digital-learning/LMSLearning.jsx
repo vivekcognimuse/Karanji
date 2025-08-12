@@ -1,7 +1,9 @@
 import { P2, P3 } from "@/components/CustomTags";
 import React from "react";
 
-const LMSLearning = ({ title, description, cards }) => {
+const LMSLearning = ({ data }) => {
+  const { title, description, cards } = data || {};
+
   return (
     <div>
       <h3>{title}</h3>
@@ -11,7 +13,7 @@ const LMSLearning = ({ title, description, cards }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="  bg-[#FFE5E5] mt-8 space-y-8 p-4 rounded-2xl">
+            className="bg-[#FFE5E5] mt-8 space-y-8 p-4 rounded-2xl">
             {card.image && (
               <Image src={card.image} alt={card.title} className="size-10" />
             )}

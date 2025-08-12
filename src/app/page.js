@@ -13,14 +13,13 @@ const KaranjiLanding = () => {
     router.push("/technology-solutions");
   }, [router]);
 
-  return (
-    <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection />
-      <StatsSection />
-      <LogoStoryAnimation />
-      <SuccessStoriesSection />
-    </main>
-  );
+  return null;
+  // <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+  //   <HeroSection />
+  //   <StatsSection />
+  //   <LogoStoryAnimation />a
+  //   <SuccessStoriesSection />
+  // </main>
 };
 
 export default KaranjiLanding;

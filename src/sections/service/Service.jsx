@@ -1,17 +1,15 @@
 import { P2 } from "@/components/CustomTags";
-import { ServiceCard } from "@/components/ui/Service";
 import SectionReveal from "@/components/animations/sectionReveal";
+import { ServiceCard } from "@/components/ui/serviceCard";
+import { Images } from "lucide-react";
 
 export default function TechnologyServices({ data }) {
   const { title, description, cards = [] } = data || {};
 
-  const dirForIndex = (i) =>
-    i % 3 === 0 ? "right" : i % 3 === 1 ? "up" : "left";
-
   return (
     <section
       id="solutions"
-      className="space-y-16"
+      className="space-y-16 overflow-hidden"
       data-reveal-amount="0.25"
       data-reveal-duration="0.5"
       data-reveal-stagger="0.12">
@@ -32,19 +30,8 @@ export default function TechnologyServices({ data }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {cards.map((service, i) => (
-          <ServiceCard
-            key={service.id}
-            title={service.title}
-            number={service.number}
-            image={service.image}
-            data-reveal
-            data-reveal-dir={dirForIndex(i)}
-            className="opacity-0 will-change-transform"
-          />
-        ))}
-      </div>
+      {/* Now just pass the cards array to ServiceCard */}
+      <ServiceCard cards={cards} />
 
       <SectionReveal />
     </section>

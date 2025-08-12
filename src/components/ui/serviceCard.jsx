@@ -1,115 +1,201 @@
-import { memo, useState } from "react";
+"use client";
+import { memo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
 
-export const ServiceCard = memo(function ServiceCard({
-  title,
-  number,
-  image,
-  description,
-  features = [],
-}) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      setIsFlipped(!isFlipped);
-    }
-  };
+export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
+  const dirForIndex = (i) =>
+    i % 3 === 0 ? "right" : i % 3 === 1 ? "up" : "left";
 
   return (
     <div
-      className="relative h-[400px] lg:h-[500px] bg-white/20 rounded-[32px] shadow-lg border border-indigo-200 overflow-hidden group hover:scale-105 transition-transform duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-[url('/solutions/technologyCard-bg.svg')] bg-no-repeat bg-cover bg-top"
-      onClick={handleCardClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={0}
-      role="button"
-      aria-label={`${title} - Click to ${isFlipped ? "hide" : "show"} details`}>
-      {/* Original Front Card */}
-      <div
-        className={`absolute inset-0 transition-all duration-500 ${
-          isFlipped ? "opacity-0 invisible" : "opacity-100 visible"
-        }`}>
-        <div className="relative h-full w-full px-7 py-5">
-          <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-            <Image
-              src={image}
-              alt={title}
-              width={432}
-              height={523}
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority={false}
-            />
+      className="service-cards-container flex flex-col lg:flex-row gap-8 lg:gap-4 xl:gap-6 justify-start lg:justify-start items-start overflow-x-auto lg:overflow-x-visible"
+      {...props}>
+      {cards.map((service, i) => (
+        <SingleServiceCard
+          data={service}
+          key={service.id}
+          index={i}
+          data-reveal
+          data-reveal-dir={dirForIndex(i)}
+          className="opacity-0 will-change-transform flex-shrink-0"
+        />
+      ))}
+
+      <style jsx global>{`
+        /* Container for service cards to handle sibling width changes */
+        .service-cards-container {
+          /* Container styles handled by Tailwind classes above */
+        }
+
+        /* Default width transition for all cards */
+        .single-service-card {
+          transition: width 0.5s ease-out, z-index 0s;
+          width: 350px; /* Default width for mobile */
+        }
+
+        /* Desktop widths */
+        @media (min-width: 1024px) {
+          .single-service-card {
+            width: 450px; /* Default width for desktop */
+          }
+        }
+
+        /* When any card is hovered, reduce siblings width */
+        .service-cards-container:hover .single-service-card:not(:hover) {
+          width: 315px; /* 0.9x of 350px for mobile */
+        }
+
+        @media (min-width: 1024px) {
+          .service-cards-container:hover .single-service-card:not(:hover) {
+            width: 405px; /* 0.9x of 450px for desktop */
+          }
+        }
+
+        /* Increase the hovered card width */
+        .service-cards-container:hover .single-service-card:hover {
+          width: 420px; /* 1.2x of 350px for mobile */
+          z-index: 20;
+        }
+
+        @media (min-width: 1024px) {
+          .service-cards-container:hover .single-service-card:hover {
+            width: 540px; /* 1.2x of 450px for desktop */
+          }
+        }
+
+        /* Blur animations only during transitions */
+        .default-content {
+          transition: opacity 0.3s ease-in-out, filter 0.15s ease-in-out;
+        }
+
+        .hover-content {
+          transition: opacity 0.3s ease-in-out 0.1s,
+            transform 0.3s ease-in-out 0.1s, filter 0.15s ease-in-out;
+        }
+
+        /* Apply blur only during opacity transitions */
+        .single-service-card:hover .default-content {
+          filter: blur(10px);
+          transition: opacity 0.3s ease-in-out, filter 0.15s ease-in-out;
+        }
+
+        .single-service-card:not(:hover) .hover-content {
+          filter: blur(10px);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+            filter 0.15s ease-in-out;
+        }
+
+        /* Additional CSS for more reliable hover detection */
+        @media (hover: hover) {
+          .single-service-card:hover .group-hover\\:opacity-100 {
+            opacity: 1;
+          }
+          .single-service-card:hover .group-hover\\:opacity-0 {
+            opacity: 0;
+          }
+          .single-service-card:hover .group-hover\\:scale-100 {
+            transform: scale(1);
+          }
+          .single-service-card:hover .group-hover\\:bg-white\\/95 {
+            background-color: rgba(255, 255, 255, 0.95);
+          }
+        }
+      `}</style>
+    </div>
+  );
+});
+
+const SingleServiceCard = memo(function SingleServiceCard({
+  data,
+  index,
+  ...props
+}) {
+  const { title, description, image, list, ctaText, ctaLink, id } = data || {};
+
+  return (
+    <div
+      {...props}
+      className="single-service-card relative h-[400px] lg:h-[500px] rounded-[32px] shadow-lg border border-slate-200 overflow-hidden z-10 backdrop-blur-sm group">
+      {/* Background layer with CSS transitions */}
+      <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm bg-white/90 group-hover:bg-white/95 transition-all duration-300 ease-in-out" />
+
+      <div className="relative h-full w-full px-8 py-8">
+        {/* Background Image - hidden on hover */}
+        <div className="absolute z-0 bottom-0 w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300">
+          <Image
+            src={image || `/technologySolutions/card${index + 1}.webp`}
+            alt={title}
+            width={180}
+            height={220}
+            className="object-contain w-full h-full"
+          />
+        </div>
+
+        {/* Default Content */}
+        <div className="default-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-100 group-hover:opacity-0 transition-all duration-300 ease-in-out">
+          <div>
+            <h4 className="text-slate-800 text-xl md:text-2xl font-semibold leading-tight mb-4">
+              {title}
+            </h4>
           </div>
-          <div className="relative z-10 h-full flex flex-col justify-between">
-            <h5 className="">{title}</h5>
-            <div className="flex justify-end items-center gap-2.5">
-              <span className="text-2xl font-normal text-black/80 leading-9 tracking-wide">
-                {number}
-              </span>
-              <button
-                className="w-12 h-12 p-2 rounded-full border-2 border-black backdrop-blur-sm flex items-center justify-center gap-1 hover:bg-black/10 transition-colors pointer-events-none"
-                tabIndex={-1}>
+
+          <div className="flex justify-end items-center gap-2.5">
+            <button className="w-12 h-12 p-2 rounded-full border-2 border-slate-400 backdrop-blur-sm flex items-center justify-center hover:bg-slate-100 transition-colors">
+              <Icon
+                icon="pepicons-pencil:arrow-up-right"
+                className="size-6 text-slate-600"
+              />
+            </button>
+          </div>
+        </div>
+
+        {/* Hover Content */}
+        <div className="hover-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-300 ease-in-out delay-100 group-hover:delay-100">
+          <div className="flex-1">
+            <h4 className="text-slate-800 text-xl md:text-2xl font-semibold leading-tight mb-4">
+              {title}
+            </h4>
+
+            {description && (
+              <p className="text-slate-700 text-base font-normal leading-relaxed mb-6">
+                {description}
+              </p>
+            )}
+
+            {/* Features list - 2 columns for better use of space */}
+            {list && list.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {list.map((item) => (
+                  <div key={item.id} className="rounded-lg p-3">
+                    <p className="text-slate-700 text-sm font-medium leading-tight">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-between items-end">
+            {ctaText && ctaLink && (
+              <Link href={ctaLink}>
+                <button className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition-colors">
+                  {ctaText}
+                </button>
+              </Link>
+            )}
+
+            <div className="flex items-center gap-2.5">
+              <button className="w-12 h-12 p-2 rounded-full border-2 border-slate-400 backdrop-blur-sm flex items-center justify-center hover:bg-slate-100 transition-colors">
                 <Icon
                   icon="pepicons-pencil:arrow-up-right"
-                  className="size-10"
+                  className="size-6 text-slate-600"
                 />
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Back Card - Desktop Hover + Click */}
-      <div
-        className={`absolute inset-0 transition-all duration-500 ${
-          isFlipped ? "opacity-100 visible" : "opacity-0 invisible"
-        } md:group-hover:opacity-100 md:group-hover:visible`}>
-        <div className="absolute inset-0 p-7 rounded-[32px]">
-          <div className="h-full flex flex-col ">
-            {/* Top Section - Description */}
-            <div className="flex-1 flex flex-col justify-start pt-4">
-              <p className=" text-base leading-relaxed">{description}</p>
-            </div>
-
-            {/* Middle Section - Features in 2x2 Grid */}
-            <div className="flex-1 flex items-center">
-              <div className="grid grid-cols-2 gap-4 w-full">
-                {features.slice(0, 4).map((feature, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/10  rounded-2xl p-4 min-h-[80px] flex items-center">
-                    <span className=" text-sm leading-relaxed">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom Section - Learn More Button */}
-            <div className="flex justify-center pb-4">
-              <button
-                className="bg-black  px-8 py-3 rounded-full font-medium text-sm hover:bg-black/80 transition-colors pointer-events-none"
-                tabIndex={-1}>
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Click indicator for mobile/tablet */}
-      <div className="absolute top-4 right-4 md:hidden">
-        <div className="w-8 h-8 bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-          <Icon
-            icon={isFlipped ? "mdi:close" : "mdi:information-outline"}
-            className="size-5 "
-          />
         </div>
       </div>
     </div>

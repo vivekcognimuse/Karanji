@@ -16,7 +16,7 @@ export default async function XRGaming() {
   }
   const { hero, technologyAdvantage, technologyService } = data || {};
   return (
-    <main className="w-full  max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full  max-w-[1580px] mx-auto p-4 lg:p-20 space-y-16 lg:space-y-32">
       <HeroSection data={hero} />
 
       <TechnologyAdvantage data={technologyAdvantage} />

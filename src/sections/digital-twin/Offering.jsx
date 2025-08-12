@@ -28,7 +28,7 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
             <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
-              {list.map((service, index) => (
+              {list?.map((service, index) => (
                 <P3
                   key={index}
                   className="flex items-start"
