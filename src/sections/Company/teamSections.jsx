@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { P2 } from "@/components/CustomTags";
+import { P3 } from "@/components/CustomTags";
+import MemberCard from "./MemberCard";
 
 const TeamSection = ({ sections }) => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -9,21 +10,42 @@ const TeamSection = ({ sections }) => {
     setExpandedSection(expandedSection === index ? null : index);
   };
 
+  const handleConnect = (memberName) => {
+    console.log(`Connecting with ${memberName}`);
+    // Add your connect logic here
+  };
+
+  const handleTalkToDigitalTwin = (memberName) => {
+    console.log(`Talking to ${memberName}'s digital twin`);
+    // Add your digital twin logic here
+  };
+
   return (
     <div className="w-full">
-      {/* Desktop Layout */}
-      <div className="hidden md:block">
+      <div
+        className="hidden md:block rounded-2xl p-4"
+        style={{
+          background:
+            "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
+        }}
+      >
         {sections.map((section, index) => (
           <div key={index} className="border-b border-gray-100 last:border-b-0">
             <button
               className="w-full py-12 text-left focus:outline-none"
               onClick={() => toggleSection(index)}
             >
-              <div className="flex items-start justify-between">
-                <div className="flex-1 pr-8">
-                  <h3 className="font-normal text-black mb-0 leading-tight">
+              <div className="flex items-start pr-4 ">
+                <div className="flex-1">
+                  <h3 className="font-normal text-black mb-4 leading-tight">
                     {section.title}
                   </h3>
+                </div>
+
+                <div className="flex-1 pl-4">
+                  <P3 className="text-gray-600 leading-relaxed pr-4">
+                    {section.description}
+                  </P3>
                 </div>
 
                 <div className="flex items-center">
@@ -46,23 +68,30 @@ const TeamSection = ({ sections }) => {
               </div>
             </button>
 
-            {expandedSection === index && (
+            {expandedSection === index && section.members && (
               <div className="pb-12 animate-slideDown">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1 pr-8"></div>
-                  <div className="flex-1">
-                    <P2 className="text-black-800 leading-relaxed pr-8">
-                      {section.description}
-                    </P2>
-                  </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                  {section.members.map((member, memberIndex) => (
+                    <MemberCard
+                      key={memberIndex}
+                      name={member.name}
+                      role={member.role}
+                      company={member.company}
+                      brief={member.brief}
+                      image={member.image}
+                      showTalkButton={section.showTalkButton || false}
+                      onConnect={() => handleConnect(member.name)}
+                      onTalkToDigitalTwin={() =>
+                        handleTalkToDigitalTwin(member.name)
+                      }
+                    />
+                  ))}
                 </div>
               </div>
             )}
           </div>
         ))}
       </div>
-
-      {/* Mobile Layout - Dropdown */}
       <div className="block md:hidden">
         {sections.map((section, index) => (
           <div key={index} className="border-b border-gray-200 last:border-b-0">
@@ -70,39 +99,57 @@ const TeamSection = ({ sections }) => {
               className="w-full py-6 px-4 text-left focus:outline-none"
               onClick={() => toggleSection(index)}
             >
-              <div className="flex items-center justify-between">
-                <h2 className="font-normal text-black leading-tight pr-4">
-                  {section.title}
-                </h2>
-                <svg
-                  className={`w-5 h-5 text-gray-400 transform transition-transform duration-200 flex-shrink-0 ${
-                    expandedSection === index ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-normal text-black leading-tight pr-4 text-xl">
+                    {section.title}
+                  </h3>
+                  <svg
+                    className={`w-5 h-5 text-gray-400 transform transition-transform duration-200 flex-shrink-0 ${
+                      expandedSection === index ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+                <P3 className="text-gray-600 leading-relaxed">
+                  {section.description}
+                </P3>
               </div>
             </button>
 
-            {expandedSection === index && (
+            {expandedSection === index && section.members && (
               <div className="px-4 pb-6 animate-slideDown">
-                <P2 className="text-black-800 leading-relaxed">
-                  {section.description}
-                </P2>
+                <div className="space-y-4 mt-6">
+                  {section.members.map((member, memberIndex) => (
+                    <MemberCard
+                      key={memberIndex}
+                      name={member.name}
+                      role={member.role}
+                      company={member.company}
+                      brief={member.brief}
+                      image={member.image}
+                      showTalkButton={section.showTalkButton || false}
+                      onConnect={() => handleConnect(member.name)}
+                      onTalkToDigitalTwin={() =>
+                        handleTalkToDigitalTwin(member.name)
+                      }
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </div>
         ))}
       </div>
-
       <style jsx>{`
         @keyframes slideDown {
           from {
@@ -112,7 +159,7 @@ const TeamSection = ({ sections }) => {
           }
           to {
             opacity: 1;
-            max-height: 200px;
+            max-height: 1000px;
             transform: translateY(0);
           }
         }
