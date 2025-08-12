@@ -155,12 +155,12 @@ export const navigationData = {
         subItems: [
           {
             title: "Our Team",
-            href: "/our-team",
+            href: "company/our-team",
             description: "Meet our talented team",
           },
           {
             title: "Careers",
-            href: "/careers",
+            href: "company/careers",
             description: "Join our growing team",
           },
           {
