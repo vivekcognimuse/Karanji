@@ -52,7 +52,7 @@ export const ServiceCard = memo(function ServiceCard({
   return (
     <div
       {...props}
-      className={`w-full border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative ${className}`}
+      className={`w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-6 sm:p-8 z-0 relative ${className}`}
       style={
         heightDifference
           ? { minHeight: `calc(320px + ${index * 70}px)` }

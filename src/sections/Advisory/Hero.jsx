@@ -12,7 +12,6 @@ export default function HeroSection({ data }) {
     title = "",
     linkText,
     linkHref,
-    linkIcon,
     subTitle,
     stats,
     backgroundImage,
@@ -46,9 +45,14 @@ export default function HeroSection({ data }) {
         {linkText && (
           <div className="flex opacity-0 will-change-transform" data-reveal>
             <Link href={linkHref} className="mx-auto">
-              <Button variant="text" className="mx-auto">
+              <Button
+                variant="text"
+                className="mx-auto flex flex-nowrap text-nowrap">
                 {linkText}
-                <Icon icon={linkIcon} className="w-6 h-6" />
+                <Icon
+                  icon="material-symbols:arrow-forward"
+                  className="w-6 h-6"
+                />
               </Button>
             </Link>
           </div>
