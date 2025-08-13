@@ -27,10 +27,6 @@ const BlogPage = ({ blogs = [] }) => {
 
   if (!blogs.length) return null;
 
-  // Debug logs
-  console.log("Intro sections:", introSections);
-  console.log("Main sections:", mainSections);
-
   return (
     <div className="relative">
       {blogs.map((blog) => (

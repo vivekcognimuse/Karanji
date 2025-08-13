@@ -33,7 +33,8 @@ const GetInTouchButton = ({ mobile = false }) => (
     href="/contact"
     className={`${
       mobile ? "px-4 py-2 text-sm text-center w-full" : "px-6 py-3 text-sm"
-    } bg-purple-600 rounded-full text-white font-medium tracking-wide hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg`}>
+    } bg-purple-600 rounded-full text-white font-medium tracking-wide hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg`}
+  >
     Request a Consultation
   </a>
 );
@@ -49,7 +50,8 @@ const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
           ? "opacity-100 visible transform translate-x-0"
           : "opacity-0 invisible transform -translate-x-4"
       }`}
-      style={{ willChange: "transform, opacity", top: position?.top || 0 }}>
+      style={{ willChange: "transform, opacity", top: position?.top || 0 }}
+    >
       <div className="p-4">
         <div className="text-xs font-semibold text-purple-600 uppercase tracking-wide mb-3 px-1">
           {parentTitle}
@@ -59,7 +61,8 @@ const ThirdLevelDropdown = ({ items, isVisible, parentTitle, position }) => {
             <a
               key={index}
               href={subItem.href}
-              className="flex items-start gap-3 p-3 hover:bg-purple-50 rounded-lg transition-all duration-200 group/subitem">
+              className="flex items-start gap-3 p-3 hover:bg-purple-50 rounded-lg transition-all duration-200 group/subitem"
+            >
               <div className="flex-shrink-0 w-2 h-2 bg-purple-400 rounded-full mt-2 opacity-60 group-hover/subitem:opacity-100 transition-opacity duration-200" />
               <div className="flex-1 min-w-0">
                 <p className="text-gray-900 text-sm font-medium tracking-tight mb-1 group-hover/subitem:text-purple-700 transition-colors duration-200">
@@ -131,10 +134,12 @@ const SecondLevelMenuItem = ({
       className="relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      data-second-level>
+      data-second-level
+    >
       <a
         href={item.href}
-        className="flex items-start gap-3 p-4 hover:bg-purple-50 border-r-2 border-transparent hover:border-purple-500 transition-all duration-200 group/item">
+        className="flex items-start gap-3 p-4 hover:bg-purple-50 border-r-2 border-transparent hover:border-purple-500 transition-all duration-200 group/item"
+      >
         <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-lg text-gray-600">
           <Icon icon={item.icon} className="w-5 h-5" />
         </div>
@@ -202,11 +207,13 @@ const DropdownContainer = ({
         top: 0,
         visibility: "hidden",
       }}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+    >
       <div
         ref={dropdownContentRef}
         className="p-2 space-y-1"
-        style={{ willChange: "transform, opacity" }}>
+        style={{ willChange: "transform, opacity" }}
+      >
         {activeDropdown &&
           navigationData[activeDropdown]?.subItems?.map((subItem, index) => (
             <SecondLevelMenuItem
@@ -231,13 +238,15 @@ const MobileThirdLevel = ({ items, isExpanded }) => {
     <div
       className={`overflow-hidden transition-all duration-300 ${
         isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-      }`}>
+      }`}
+    >
       <div className="pl-8 space-y-1 pt-2 border-l-2 border-purple-100 ml-4">
         {items.map((subItem, index) => (
           <a
             key={index}
             href={subItem.href}
-            className="flex items-start gap-2 p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+            className="flex items-start gap-2 p-2 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+          >
             <div className="flex-shrink-0 w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 opacity-60" />
             <div className="flex-1">
               <div className="font-medium text-xs mb-1">{subItem.title}</div>
@@ -277,7 +286,8 @@ const MobileSecondLevel = ({
         <a
           href={hasSubItems ? "#" : item.href}
           onClick={handleItemClick}
-          className="flex-1 flex items-center gap-3 p-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200">
+          className="flex-1 flex items-center gap-3 p-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200"
+        >
           <Icon icon={item.icon} className="w-4 h-4 text-gray-500" />
           <div className="flex-1">
             <div className="font-medium text-sm mb-1">{item.title}</div>
@@ -290,7 +300,8 @@ const MobileSecondLevel = ({
           <button
             onClick={() => toggleExpanded(itemKey)}
             className="p-2 text-gray-400 hover:text-purple-600 transition-colors duration-200"
-            aria-label={`Toggle ${item.title} submenu`}>
+            aria-label={`Toggle ${item.title} submenu`}
+          >
             <Icon
               icon={isExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
               className="w-4 h-4"
@@ -328,7 +339,8 @@ const MobileMenuItem = ({
     return (
       <a
         href={navigationData[category]?.href || "#"}
-        className="block text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2">
+        className="block text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2"
+      >
         {category}
       </a>
     );
@@ -339,13 +351,15 @@ const MobileMenuItem = ({
       <div className="flex items-center justify-between">
         <button
           onClick={handleCategoryClick}
-          className="flex-1 text-left text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2">
+          className="flex-1 text-left text-gray-900 text-base font-medium tracking-tight hover:text-purple-600 transition-colors duration-300 py-2"
+        >
           {category}
         </button>
         <button
           onClick={() => toggleCategory(category)}
           className="p-1 text-gray-400 hover:text-purple-600 transition-colors duration-200"
-          aria-label={`Toggle ${category} menu`}>
+          aria-label={`Toggle ${category} menu`}
+        >
           <Icon
             icon={isCategoryExpanded ? "mdi:chevron-up" : "mdi:chevron-down"}
             className="w-5 h-5"
@@ -357,7 +371,8 @@ const MobileMenuItem = ({
           isCategoryExpanded
             ? "max-h-[1000px] opacity-100"
             : "max-h-0 opacity-0"
-        }`}>
+        }`}
+      >
         <div className="space-y-2 pt-2">
           {items.map((subItem, index) => (
             <MobileSecondLevel
@@ -386,7 +401,8 @@ const MobileMenu = ({
   <div
     ref={mobileMenuRef}
     className="mobile-menu lg:hidden w-full bg-white border border-gray-200 rounded-lg shadow-xl mt-4 p-4 max-h-[70vh] overflow-y-auto"
-    style={{ willChange: "transform, opacity" }}>
+    style={{ willChange: "transform, opacity" }}
+  >
     <div className="flex flex-col space-y-4">
       {navigationKeys.map((item) => (
         <MobileMenuItem
@@ -415,7 +431,8 @@ const NavigationItem = ({ item, navItemsRef, chevronRefs, onMouseEnter }) => {
       <a
         ref={(el) => (navItemsRef.current[item] = el)}
         href={navigationData[item]?.href || "#"}
-        className="p-3 rounded-t-lg flex items-center gap-1 transition-all duration-300 text-gray-900 hover:text-purple-600">
+        className="p-3 rounded-t-lg flex items-center gap-1 transition-all duration-300 text-gray-900 hover:text-purple-600"
+      >
         <span className="text-base font-medium tracking-tight">{item}</span>
         {hasSubItems && (
           <Icon
@@ -441,7 +458,8 @@ const DesktopNavigation = ({
       ref={navContainerRef}
       data-navigation-area
       className="hidden lg:flex items-center gap-6 relative"
-      onMouseLeave={onMouseLeave}>
+      onMouseLeave={onMouseLeave}
+    >
       {/* Active Indicator */}
       <div
         ref={dropdownHooks.activeIndicatorRef}
@@ -855,7 +873,8 @@ const Navigation = () => {
                 onClick={mobileHooks.toggleMobileMenu}
                 className="lg:hidden p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300 rounded-lg hover:bg-purple-50"
                 aria-label="Toggle mobile menu"
-                aria-expanded={mobileHooks.isMobileMenuOpen}>
+                aria-expanded={mobileHooks.isMobileMenuOpen}
+              >
                 <Icon
                   icon={mobileHooks.isMobileMenuOpen ? "mdi:close" : "mdi:menu"}
                   className="w-6 h-6"
@@ -886,7 +905,8 @@ const Navigation = () => {
                 <button
                   onClick={mobileHooks.toggleMobileMenu}
                   className="p-2 text-gray-900 hover:text-purple-600 transition-colors duration-300"
-                  aria-label="Close mobile menu">
+                  aria-label="Close mobile menu"
+                >
                   <Icon icon="mdi:close" className="w-6 h-6" />
                 </button>
               </div>

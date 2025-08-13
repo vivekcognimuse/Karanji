@@ -12,6 +12,7 @@ export default function HeroSection({ data, bgImage }) {
     title = "",
     linkText,
     linkHref,
+    linkIcon,
     subTitle,
     stats,
     backgroundImage,
@@ -24,19 +25,22 @@ export default function HeroSection({ data, bgImage }) {
         before:content-[''] before:absolute before:inset-0
         before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
         before:opacity-12 before:-z-1`}
-      style={{ backgroundImage }}>
+      style={{ backgroundImage }}
+    >
       <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h2
             className="text-center opacity-0 will-change-transform"
-            data-reveal>
+            data-reveal
+          >
             {title}
           </h2>
 
           {subTitle && (
             <P1
               className="text-black text-center mx-auto opacity-0 will-change-transform"
-              data-reveal>
+              data-reveal
+            >
               {subTitle}
             </P1>
           )}
@@ -47,7 +51,8 @@ export default function HeroSection({ data, bgImage }) {
             <Link href={linkHref} className="mx-auto">
               <Button
                 variant="text"
-                className="mx-auto flex flex-nowrap text-nowrap">
+                className="mx-auto flex flex-nowrap text-nowrap"
+              >
                 {linkText}
                 <Icon
                   icon="material-symbols:arrow-forward"
@@ -66,7 +71,8 @@ export default function HeroSection({ data, bgImage }) {
               stats.length === 3
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-1 sm:grid-cols-2"
-            }`}>
+            }`}
+          >
             {stats.map((card, index) => {
               const isThreeCards = stats.length === 3;
               const addLgBorderLeft =
@@ -78,7 +84,8 @@ export default function HeroSection({ data, bgImage }) {
                   className={`px-4 sm:px-6 flex border-l border-black/30 :flex-row gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
                     index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
                   }${addLgBorderLeft} opacity-0 will-change-transform`}
-                  data-reveal>
+                  data-reveal
+                >
                   <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
                     {card.number}
                   </div>

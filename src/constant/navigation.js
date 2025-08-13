@@ -151,16 +151,16 @@ export const navigationData = {
         icon: "mdi:account-group",
         title: "About Us",
         description: "Learn about our company",
-        href: "/about-us",
+        href: "/company/about-us",
         subItems: [
           {
             title: "Our Team",
-            href: "/our-team",
+            href: "/company/our-team",
             description: "Meet our talented team",
           },
           {
             title: "Careers",
-            href: "/careers",
+            href: "/company/careers",
             description: "Join our growing team",
           },
           {
