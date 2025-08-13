@@ -76,7 +76,7 @@ export default async function BlogInsights() {
   const data = await fetchFromStrapi(
     "blogs",
     { populate: "*" },
-    "https://7b97e85117bc.ngrok-free.appapi"
+    "https://7b97e85117bc.ngrok-free.app/api"
   );
   const blogs = (Array.isArray(data) ? data : []).map(normalizeBlog);
 
