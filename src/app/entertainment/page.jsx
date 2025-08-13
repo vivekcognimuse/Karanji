@@ -1,4 +1,5 @@
 import HeroSection from "@/sections/Advisory/Hero";
+import SuccessStories from "@/sections/Advisory/SuccessStories";
 import EntertainmentServices from "@/sections/entertainment/EntertainmentService";
 import TechnologyServices from "@/sections/service/Service";
 import React from "react";
@@ -123,12 +124,33 @@ const technologyServices = {
   ],
 };
 
+const successStoriesData = {
+  title: "Entertainment Services Success Stories",
+  tag: "Entertainment Services",
+  description:
+    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, & drive engagement across entertainment platforms.",
+  cards: [
+    {
+      title: "One-Hour Podcast into a Visual Experience",
+      metrics: [
+        { value: "+100%", label: "Improved Video Clarity" },
+        { value: "30–sec", label: "Hook Developed Proactively" },
+      ],
+      description:
+        "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals & motion graphics hook to elevate the content, making it more engaging & visually compelling.",
+      link: "Read Full CaseStudy",
+    },
+    // Add more testimonial data objects as required
+  ],
+};
+
 const Entertainment = () => {
   return (
     <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <EntertainmentServices data={entertainmentServices} />
       <TechnologyServices data={technologyServices} />
+      <SuccessStories data={successStoriesData} />
     </div>
   );
 };

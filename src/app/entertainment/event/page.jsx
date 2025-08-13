@@ -1,0 +1,228 @@
+import HeroSection from "@/sections/Advisory/Hero";
+import Methodology from "@/sections/Advisory/Methodology";
+import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
+import SuccessStories from "@/sections/Advisory/SuccessStories";
+import ContentFormats from "@/sections/digital-learning/Content-Formats";
+import CTA from "@/sections/digital-learning/CTA";
+import Accordion from "@/sections/entertainment/Accordian";
+import ServiceOverview from "@/sections/entertainment/ServiceOverview";
+import React from "react";
+
+const heroData = {
+  title: "Event Production & Management",
+  description:
+    "Flawless execution of memorable events from concept to completion",
+  linkText: "Explore Our Services",
+  linkHref: "/", // Adjust as necessary
+  backgroundImage: null, // No visible background image
+  stats: [], // Omit if none are shown
+};
+
+const serviceOverview = {
+  title: "Service overview",
+  subtitle: "Exceptional events powered by expertise & technology",
+  description:
+    "Our event production team delivers immersive experiences that engage audiences & exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
+  feature:
+    "With expert coordination, technical reliability, & creative stagecraft, we manage every element of execution—ensuring events are safe, seamless, and memorable at scale or remotely.",
+  image: {
+    src: "/event/overview.jpg", // Replace with actual path
+    alt: "Stage event with audience and speaker under lights",
+  },
+};
+
+const serviceOfferingsData = {
+  title: "Our Services Offerings",
+  description:
+    "Create exceptional events powered by technology & expert planning. Our team ensures every critical element runs smoothly while you connect with your audience.",
+  tag: "Event Services",
+  cards: [
+    {
+      title: "Live event production & management",
+      subtitle: "",
+      description: "Event management from concept to execution.",
+      featured: true,
+      icon: "/event/icons/production.svg",
+    },
+    {
+      title: "Event tech & equipment rental",
+      subtitle: "",
+      description: "State-of-the-art technical solutions for any event scale.",
+      featured: false,
+      icon: "/event/icons/tech.svg",
+    },
+    {
+      title: "Stage design & Production",
+      subtitle: "",
+      description: "Custom environments for presentation & branding.",
+      featured: false,
+      icon: "/event/icons/stage-design.svg",
+    },
+    {
+      title: "Virtual & hybrid events production",
+      subtitle: "",
+      description: "Seamless experiences for in-person & online attendees.",
+      featured: false,
+      icon: "/event/icons/hybrid.svg",
+    },
+  ],
+};
+
+const methodologyData = {
+  title: "Our Production Process",
+  subtitle:
+    "Professional‑grade tools backed by a streamlined workflow. From planning to post‑event review, our process delivers results with clarity & control.",
+  list: [
+    {
+      title: "Discovery & Planning",
+      description: "Understanding your goals & creating project plans.",
+      tags: [],
+    },
+    {
+      title: "Technical Design",
+      description: "Custom solutions for your specific requirements.",
+      tags: [],
+    },
+    {
+      title: "Pre‑Production",
+      description: "Scheduling, coordination, & preparation.",
+      tags: [],
+    },
+    {
+      title: "Execution",
+      description: "On‑site management & technical coordination.",
+      tags: [],
+    },
+    {
+      title: "Post‑Event Analysis",
+      description: "Evaluation, reporting & recommendations.",
+      tags: [],
+    },
+  ],
+};
+
+const contentFormatsData = {
+  title: "Our Event Technology",
+  description:
+    "Industry‑standard tools like H‑Acoustics, Martin Lighting, & Blackmagic gear. We use modern equipment to ensure performance, reliability, & quality.",
+  image: null,
+  content: [
+    {
+      description: "HDL‑Acoustics sound systems",
+      src: "/event/tools/sound.svg",
+    },
+    {
+      description: "Dynamic Martin lighting solutions",
+      src: "/event/tools/lighting.svg",
+    },
+    {
+      description: "4K projection & LED display walls",
+      src: "/event/tools/projection.svg",
+    },
+    {
+      description: "High‑resolution LED display technology",
+      src: "/event/tools/led.svg",
+    },
+    {
+      description: "Blackmagic video production gear",
+      src: "/event/tools/blackmagic.svg",
+    },
+    {
+      description: "ClearCom communication systems",
+      src: "/event/tools/communication.svg",
+    },
+    {
+      description: "Modular custom stage rigging setups",
+      src: "/event/tools/rigging.svg",
+    },
+    {
+      description: "Streaming encoders & platforms",
+      src: "/event/tools/streaming.svg",
+    },
+    {
+      description: "Interactive audience response tools",
+      src: "/event/tools/response.svg",
+    },
+  ],
+};
+
+const successStoriesData = {
+  title: "Use Cases & Success Stories",
+  description:
+    "Explore how our services adapt across industries, formats, & event scales.",
+  cards: [
+    {
+      title: "Convocation Day School Video Project",
+      metrics: [
+        { value: "0 Delays", label: "Timely Delivery" },
+        { value: "3‑Days", label: "Turnaround Time" },
+      ],
+      description:
+        "We rapidly scripted, shot, & edited a captivating, high‑quality video to showcase the school during its convocation ceremony, despite tight deadlines & limited resources.",
+      link: "Read Full CaseStudy",
+    },
+  ],
+};
+
+const accordionData = {
+  title: "Frequently Asked Questions",
+  subtitle:
+    "Answers to your top event planning questions in one place. From booking timelines to pricing & hybrid strategies, we’ve got you covered.",
+  questions: [
+    {
+      question: "How far in advance should I book event production services?",
+      answer:
+        "We recommend booking at least 4–6 weeks in advance to allow time for planning, technical setup, and coordination. For large-scale events, more lead time is ideal.",
+    },
+    {
+      question: "How do you determine pricing?",
+      answer:
+        "Pricing is based on factors such as event size, technical needs, location, duration, and production complexity. We provide custom quotes after understanding your exact requirements.",
+    },
+    {
+      question: "Can you work with our existing venue or help find one?",
+      answer:
+        "Yes. We’re experienced in working with client-selected venues or helping source the right location through our network of partners.",
+    },
+    {
+      question: "What contingency plans do you have for technical failures?",
+      answer:
+        "We implement redundancies for critical systems, have on-site tech support, and detailed backup procedures to ensure uninterrupted event execution.",
+    },
+    {
+      question: "Do you do fully hybrid events?",
+      answer:
+        "Absolutely—we support hybrid events that combine live experiences with virtual participation. Our team handles streaming, interaction, and platform integration end-to-end.",
+    },
+  ],
+};
+
+const CTAData = {
+  title: "Ready to create an unforgettable event ?",
+  description:
+    "Let’s bring your vision to life with expert coordination—from creative design to flawless execution.",
+  PrimaryButtonText: null,
+  PrimaryButtonLink: null,
+  SecondaryButtonText: "Schedule a Consultation",
+  SecondaryButtonLink: "/",
+};
+
+const VfxAnimation = () => {
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      <HeroSection data={heroData} />
+      <ServiceOverview data={serviceOverview} />
+      <ServiceOfferings
+        data={serviceOfferingsData}
+        icon="/entertainment/vfx/offering"
+      />{" "}
+      <Methodology data={methodologyData} />
+      <ContentFormats data={contentFormatsData} />{" "}
+      <SuccessStories data={successStoriesData} />
+      <Accordion data={accordionData} />
+      <CTA data={CTAData} />
+    </div>
+  );
+};
+
+export default VfxAnimation;

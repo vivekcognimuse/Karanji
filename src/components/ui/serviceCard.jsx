@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
+import { P1, P3 } from "../CustomTags";
 
 export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
   const dirForIndex = (i) =>
@@ -161,19 +162,17 @@ const SingleServiceCard = memo(function SingleServiceCard({
             </h4>
 
             {description && (
-              <p className="text-slate-700 text-base font-normal leading-relaxed mb-6">
-                {description}
-              </p>
+              <P1 className="text-black-800 mb-6">{description}</P1>
             )}
 
             {/* Features list - 2 columns for better use of space */}
             {list && list.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8 mb-6">
                 {list.map((item) => (
-                  <div key={item.id} className="rounded-lg p-3">
-                    <p className="text-slate-700 text-sm font-medium leading-tight">
-                      {item.text}
-                    </p>
+                  <div
+                    key={item.id}
+                    className=" border-b  border-black-200 pb-4 p-3">
+                    <P3 className="text-black-500">{item.text}</P3>
                   </div>
                 ))}
               </div>
