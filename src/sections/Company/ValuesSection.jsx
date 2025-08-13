@@ -32,10 +32,10 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="values-section py-16 px-4 rounded-2xl shadow-xl">
+    <section className="values-section py-5 px-4 rounded-2xl shadow-xl">
       <div className="max-w-6xl mx-auto ">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <div className="mb-4">
             <img
               src="/Icons/visionicon.svg"
@@ -45,12 +45,12 @@ const ValuesSection = () => {
               className="w-12 h-12 mx-auto"
             />
           </div>
-          <h4 className="text-black-950 text-2xl mb-4">Values</h4>
+          <h4 className="text-black-950 text-2xl mb-3">Values</h4>
           <div className="w-full h-px bg-gray-300 mx-auto"></div>
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* First Row - Two cards */}
           <ValueCard {...valuesData[0]} />
           <ValueCard {...valuesData[1]} />

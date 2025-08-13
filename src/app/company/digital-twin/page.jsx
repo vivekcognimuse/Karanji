@@ -3,7 +3,27 @@ import QuoteSection from "@/sections/Company/quoteSection";
 
 import NextUpSection from "@/sections/Company/NextUpSection";
 const heroData = {
-  title: "Animation",
+  title: "Transform Learning Outcomes with Advanced Analytics",
+  subTitle:
+    "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+  linkText: "Explore Our Approach",
+  linkHref: "/", // You can change this to the appropriate link for your services page
+  linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
+  backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
+  stats: [
+    {
+      subText: "Personalized Learning",
+    },
+    {
+      subText: "Proactive Learner Support",
+    },
+    {
+      subText: "Data-Driven Decision Making",
+    },
+    {
+      subText: "Cloud-Based Solution",
+    },
+  ],
 };
 const teamData = {
   title: "Our Story, Our People, Your Future",

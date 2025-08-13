@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import NextUpCard from "./NextUpCard";
-
-const NextUpSection = ({ heading, cards }) => {
+import { P1 } from "@/components/CustomTags";
+const NextUpSection = ({ heading, title, description, cards }) => {
   const handleCardClick = (card) => {
     if (card.onClick) {
       card.onClick();
@@ -15,7 +15,13 @@ const NextUpSection = ({ heading, cards }) => {
     <div className="w-full">
       <div className=" mx-auto">
         {/* Section Heading */}
-        <h3 className=" text-black">{heading}</h3>
+        <h3 className="text-black">{heading}</h3>
+
+        {/* Title & Description */}
+        <div className="text-center  mx-auto mb-10">
+          <h2 className=" mb-4">{title}</h2>
+          <P1 className="text-black-950">{description}</P1>
+        </div>
 
         {/* Cards Grid */}
         <div className="flex flex-wrap justify-center gap-8">

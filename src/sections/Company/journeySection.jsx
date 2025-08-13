@@ -23,10 +23,10 @@ const JourneySection = ({ data }) => {
     >
       {/* Header Row - Title 30%, Subtitle 70% */}
       <div className="flex items-start mb-4">
-        <div className="w-[30%] pr-6">
+        <div className="w-[40%] pr-6">
           <h3>{title}</h3>
         </div>
-        <div className="w-[70%] flex justify-end">
+        <div className="w-[60%] flex justify-end">
           <P3 className="text-black-800 text-lg">{subtitle}</P3>
         </div>
       </div>
