@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
 import { P1, P3 } from "../CustomTags";
+import CarouselContainer from "../animations/Carousal";
 
 export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
   const dirForIndex = (i) =>
@@ -12,19 +13,38 @@ export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
 
   return (
     <div
-      className="service-cards-container flex flex-col lg:flex-row gap-8 lg:gap-4 xl:gap-6 justify-start lg:justify-start items-start overflow-x-auto lg:overflow-x-visible"
+      className="service-cards-container  flex-col lg:flex-row gap-8 lg:gap-4 xl:gap-6 justify-start lg:justify-start items-start overflow-x-auto lg:overflow-x-visible"
       {...props}>
-      {cards.map((service, i) => (
-        <SingleServiceCard
-          data={service}
-          key={service.id}
-          index={i}
-          data-reveal
-          data-reveal-dir={dirForIndex(i)}
-          className="opacity-0 will-change-transform flex-shrink-0"
-        />
-      ))}
-
+      <div className="hidden lg:block">
+        {cards.map((service, i) => (
+          <SingleServiceCard
+            data={service}
+            key={service.id}
+            index={i}
+            data-reveal
+            data-reveal-dir={dirForIndex(i)}
+            className="opacity-0 will-change-transform flex-shrink-0"
+          />
+        ))}
+      </div>
+      <div className="lg:hidden h-screen 0 carousel-mode" {...props}>
+        <CarouselContainer
+          autoPlay={false} // autoplay is optional; disable if you like
+          showDots
+          showArrows
+          className="w-full">
+          {cards.map((service, i) => (
+            <SingleServiceCard
+              key={service?.id ?? i}
+              data={service}
+              index={i}
+              data-reveal
+              data-reveal-dir={dirForIndex(i)}
+              className="w-full opacity-100" // ensure visible in slides
+            />
+          ))}
+        </CarouselContainer>
+      </div>
       <style jsx global>{`
         /* Container for service cards to handle sibling width changes */
         .service-cards-container {
@@ -120,7 +140,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   return (
     <div
       {...props}
-      className="single-service-card relative h-[400px] lg:h-[500px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
+      className="single-service-card relative h-[400px] lg:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
       {/* Background layer with CSS transitions */}
       <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
@@ -157,10 +177,6 @@ const SingleServiceCard = memo(function SingleServiceCard({
         {/* Hover Content */}
         <div className="hover-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-300 ease-in-out delay-100 group-hover:delay-100">
           <div className="flex-1">
-            <h4 className="text-slate-800 text-xl md:text-2xl font-semibold leading-tight mb-4">
-              {title}
-            </h4>
-
             {description && (
               <P1 className="text-black-800 mb-6">{description}</P1>
             )}

@@ -1,8 +1,8 @@
 import { memo, useState, useEffect, useCallback, useRef } from "react";
 import { Icon } from "@iconify/react";
-import { P2, P3, P4 } from "../CustomTags";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
+import { TestimonialCard } from "./TestimonialCard";
 
 // Register GSAP plugins
 gsap.registerPlugin(Draggable);
@@ -235,51 +235,6 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
     return null;
   }
 
-  const renderTestimonialCard = (testimonial, index) => (
-    <div
-      key={testimonial.id || index}
-      className="w-full flex-shrink-0 px-2 lg:px-4"
-      style={{ width: containerWidth || "100%" }}
-      role="tabpanel"
-      aria-label={`Slide ${index + 1} of ${testimonials.length}`}
-      aria-hidden={currentIndex !== index}>
-      <div className="rounded-3xl shadow-lg border border-black/20 p-4 sm:p-6 lg:p-6 md:lg:p-8">
-        {testimonial?.tag && (
-          <span className="ml-auto border text-sm border-black-500 rounded-[5px] py-0.5 bg-gradient-to-r bg-clip-text text-transparent from-[#5254CB] to-[#FF942F] px-1 block w-fit mb-4">
-            {testimonial.tag}
-          </span>
-        )}
-
-        <h4 className="mb-8 lg:mb-12">{testimonial?.title}</h4>
-
-        <div className="grid grid-cols-1 lg:flex lg:justify-between lg:flex-wrap gap-4 lg:gap-6 mb-8 lg:mb-12">
-          {testimonial?.stats?.map((metric, index) => (
-            <div
-              key={index}
-              className="flex border-l border-black pl-4 items-center gap-4">
-              <div>
-                <p className="font-sans font-semibold text-2xl md:text-5xl mb-2">
-                  {metric.title}
-                </p>
-                <P2 className="text-black">{metric.subTitle}</P2>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <P4 className="text-black-500 mb-6">{testimonial?.description}</P4>
-
-        <div className="flex items-center gap-2 text-lg font-normal justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors group">
-          <span>Read Full CaseStudy</span>
-          <Icon
-            icon="lucide:arrow-up-right"
-            className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-          />
-        </div>
-      </div>
-    </div>
-  );
-
   return (
     <div
       className={`relative overflow-hidden ${className}`}
@@ -295,7 +250,15 @@ export const TestimonialCarousel = memo(function TestimonialCarousel({
           isDraggingRef.current ? "cursor-grabbing" : "cursor-grab"
         }`}
         style={{ touchAction: "pan-y pinch-zoom" }}>
-        {testimonials.map((item, index) => renderTestimonialCard(item, index))}
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            key={testimonial.id || index}
+            testimonial={testimonial}
+            index={index}
+            containerWidth={containerWidth}
+            isActive={currentIndex === index}
+          />
+        ))}
       </div>
 
       {/* Navigation Controls */}
