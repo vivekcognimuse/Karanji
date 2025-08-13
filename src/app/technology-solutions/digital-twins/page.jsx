@@ -23,7 +23,7 @@ const DigitalTwins = async () => {
     successStories,
   } = data || {};
   return (
-    <main className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={hero} bgImage="" />
       <Advantages data={advantages} />
       <DigitalTwinOfferings data={offering} />

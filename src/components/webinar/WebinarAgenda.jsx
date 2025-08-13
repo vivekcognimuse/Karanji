@@ -4,7 +4,7 @@ import { P2, P3, P4 } from "@/components/CustomTags";
 export default function WebinarAgenda({ agenda }) {
   return (
     <section className="py-16 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         {/* Header */}
         <div className="mb-12">
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

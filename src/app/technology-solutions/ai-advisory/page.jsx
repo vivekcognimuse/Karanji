@@ -20,7 +20,7 @@ export default async function AIAdvisoryPage() {
     industryExpertise,
   } = data || {};
   return (
-    <main className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={hero} />
 
       <ServiceOfferings

@@ -8,7 +8,7 @@ import { Tag } from "lucide-react";
 
 const heroData = {
   title: "Elevate Your Corporate Learning with K-nest LMS",
-  description:
+  subTitle:
     " A fully-customizable learning platform that adapts to your organization's unique requirements",
   linkText: "Explore Our Platform",
   linkHref: "/", // You can change this to the appropriate link for your services page
@@ -132,7 +132,7 @@ const learningChallenges = {
 };
 export default async function LMSImplementation() {
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
 
       <ServiceOfferings

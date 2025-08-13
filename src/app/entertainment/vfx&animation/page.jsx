@@ -11,7 +11,7 @@ import React from "react";
 // HERO SECTION
 const heroData = {
   title: "Professional Audio Podcast & Production",
-  description:
+  subTitle:
     "Studio-quality sound that elevates your content & engages audiences",
   linkText: "Explore Our Services",
   linkHref: "/", // adjust as needed
@@ -205,7 +205,7 @@ const CTAData = {
 
 const AudioPodcastProduction = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings

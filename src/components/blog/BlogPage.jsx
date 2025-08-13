@@ -62,7 +62,7 @@ const BlogPage = ({ blogs = [] }) => {
           )}
 
           {/* Content Section with Sidebar Layout */}
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-[1580px] mx-auto">
             <div className="hidden xl:flex xl:gap-8">
               {/* Main Content */}
               <div className="flex-1 max-w-5xl">

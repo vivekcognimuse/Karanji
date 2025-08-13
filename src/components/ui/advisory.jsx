@@ -171,7 +171,7 @@ export const IndustryCard = memo(function IndustryCard({
             <Image
               src={icon}
               width={40}
-              alt={altTag}
+              alt={altTag || { title }}
               height={40}
               className="w-11 h-11 text-white"
             />

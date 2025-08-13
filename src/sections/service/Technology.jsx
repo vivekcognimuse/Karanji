@@ -3,7 +3,7 @@ import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
 import SectionReveal from "@/components/animations/sectionReveal"; // <- client
 
 export default function TechnologyAdvantage({ data }) {
-  const { title, description, cards = [] } = data;
+  const { title, subTitle, cards = [] } = data;
 
   return (
     <section
@@ -23,7 +23,7 @@ export default function TechnologyAdvantage({ data }) {
           className="opacity-0 will-change-transform"
           data-reveal
           data-reveal-dir="up">
-          {description}
+          {subTitle}
         </P2>
       </div>
 

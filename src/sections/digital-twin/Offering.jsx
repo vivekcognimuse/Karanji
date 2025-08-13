@@ -15,7 +15,7 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
       data-reveal-stagger="0.12">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         <div className="text-left mb-12">
           <h3 className=" text-gray-900 mb-6" data-reveal data-reveal-dir="up">
             {title}

@@ -26,7 +26,7 @@ export default function ServiceOfferings({
       data-reveal-duration="0.5"
       data-reveal-stagger="0.12"
       className=" ">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         <div className="mb-24">
           <h3
             className=" mb-4 opacity-0 will-change-transform"
