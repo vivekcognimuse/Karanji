@@ -18,7 +18,7 @@ const JourneySection = ({ data }) => {
 
   return (
     <section
-      className="h-screen w-full max-w-7xl mx-auto flex flex-col justify-center"
+      className="h-screen w-full  mx-auto flex flex-col justify-center"
       style={{ height: "calc(100vh - 80px)" }}
     >
       {/* Header Row - Title 30%, Subtitle 70% */}
