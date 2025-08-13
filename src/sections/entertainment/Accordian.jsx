@@ -1,5 +1,5 @@
 "use client";
-import { P2, P3 } from "@/components/CustomTags";
+import { P1, P2, P3 } from "@/components/CustomTags";
 import { Icon } from "@iconify/react";
 import React from "react";
 
@@ -22,9 +22,9 @@ const Accordion = ({ data }) => {
               key={index}
               className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
               <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
-                <span className="text-gray-900 font-medium text-sm md:text-base pr-4">
+                <P1 className="text-gray-900 font-medium text-sm md:text-base pr-4">
                   {item.question}
-                </span>
+                </P1>
 
                 {/* Custom Chevron */}
                 <div className="accordion-chevron flex-shrink-0 w-5 h-5 text-gray-500">

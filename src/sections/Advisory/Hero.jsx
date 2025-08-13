@@ -66,8 +66,7 @@ export default function HeroSection({ data, bgImage }) {
       {stats?.length > 0 && (
         <div className="w-full my-16 px-4 sm:px-6">
           <div
-            className={`gap-4 flex
-         
+            className={`gap-4 flex flex-col lg:flex-row
             `}>
             {/* ${
               stats.length === 3
@@ -89,7 +88,7 @@ export default function HeroSection({ data, bgImage }) {
                   <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
                     {card.number}
                   </div>
-                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
+                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg uppercase leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
                     {card.text}
                   </p>
                 </div>
