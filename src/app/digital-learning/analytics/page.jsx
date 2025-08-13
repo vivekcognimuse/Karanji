@@ -9,7 +9,7 @@ import SwitchSection from "@/sections/digital-learning/SwitchSection";
 
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
-  description:
+  subTitle:
     "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
   linkText: "Explore Our Approach",
   linkHref: "/", // You can change this to the appropriate link for your services page
@@ -166,7 +166,7 @@ const methodologyData = {
 
 const ContentDesign = () => {
   return (
-    <div className="w-full  max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <LearningChallenges data={learningChallenges} />
       <ServiceOfferings data={serviceOfferingsData} />

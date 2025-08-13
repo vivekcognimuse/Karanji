@@ -293,7 +293,7 @@ const LogoStoryAnimation = () => {
       <div
         ref={containerRef}
         className="py-20 bg-white min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-7xl px-6 w-full">
+        <div className="relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-[1580px] px-6 w-full">
           <div ref={leftCardRef} className="w-full">
             <ContentCard {...currentData.left} />
           </div>

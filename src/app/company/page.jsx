@@ -32,8 +32,10 @@ const cardsData = [
 ];
 export default async function companyLanding() {
   return (
+
     <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage={"/Company/Animation/5.png"} />
+
 
       <QuoteSection title="Innovate. Design. Transform." />
 

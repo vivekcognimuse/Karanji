@@ -7,7 +7,7 @@ import React from "react";
 const heroData = {
   title:
     "Elevate your content with professional entertainment production services",
-  description:
+  subTitle:
     "From stunning visual effects to immersive audio experiences & dynamic event coverage-bringing your vision to life",
   linkText: "Explore Our Services",
   linkHref: "/", // You can change this to the appropriate link for your services page
@@ -146,7 +146,7 @@ const successStoriesData = {
 
 const Entertainment = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <EntertainmentServices data={entertainmentServices} />
       <TechnologyServices data={technologyServices} />

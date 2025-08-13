@@ -1,7 +1,6 @@
 import { P2 } from "@/components/CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal";
 import { ServiceCard } from "@/components/ui/serviceCard";
-import { Images } from "lucide-react";
 
 export default function TechnologyServices({ data, image }) {
   const { title, description, cards = [] } = data || {};
@@ -30,7 +29,6 @@ export default function TechnologyServices({ data, image }) {
         </div>
       </div>
 
-      {/* Now just pass the cards array to ServiceCard */}
       <ServiceCard cards={cards} image={image} />
 
       <SectionReveal />

@@ -10,8 +10,7 @@ import React from "react";
 
 const heroData = {
   title: "Event Production & Management",
-  description:
-    "Flawless execution of memorable events from concept to completion",
+  subTitle: "Flawless execution of memorable events from concept to completion",
   linkText: "Explore Our Services",
   linkHref: "/", // Adjust as necessary
   backgroundImage: null, // No visible background image
@@ -209,7 +208,7 @@ const CTAData = {
 
 const VfxAnimation = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings

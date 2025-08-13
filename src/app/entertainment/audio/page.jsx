@@ -225,7 +225,7 @@ const CTAData = {
 
 const VfxAnimation = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings

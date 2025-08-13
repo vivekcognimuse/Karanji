@@ -10,9 +10,10 @@ import HeroReveal from "@/components/animations/HeroReveal";
 export default function HeroSection({ data, bgImage }) {
   const {
     title = "",
-    linkText,
+    ctaText,
+
     linkHref,
-    linkIcon,
+    ctaLink,
     subTitle,
     stats,
     backgroundImage,
@@ -25,39 +26,37 @@ export default function HeroSection({ data, bgImage }) {
         before:content-[''] before:absolute before:inset-0
         before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
         before:opacity-12 before:-z-1`}
-      style={{ backgroundImage }}
-    >
-      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-7xl lg:mx-auto">
+      style={{ backgroundImage }}>
+      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h2
             className="text-center opacity-0 will-change-transform"
-            data-reveal
-          >
+            data-reveal>
             {title}
           </h2>
 
           {subTitle && (
             <P1
               className="text-black text-center mx-auto opacity-0 will-change-transform"
-              data-reveal
-            >
+              data-reveal>
               {subTitle}
             </P1>
           )}
         </div>
 
-        {linkText && (
+        {ctaText && (
           <div className="flex opacity-0 will-change-transform" data-reveal>
-            <Link href={linkHref} className="mx-auto">
+            <Link href={ctaLink} className="mx-auto">
               <Button
                 variant="text"
-                className="mx-auto flex flex-nowrap text-nowrap"
-              >
-                {linkText}
-                <Icon
-                  icon="material-symbols:arrow-forward"
-                  className="w-6 h-6"
-                />
+                className="mx-auto whitespace-nowrap"
+                rightIcon={
+                  <Icon
+                    icon="material-symbols:arrow-forward"
+                    className="w-6 h-6"
+                  />
+                }>
+                {ctaText}
               </Button>
             </Link>
           </div>
@@ -67,29 +66,29 @@ export default function HeroSection({ data, bgImage }) {
       {stats?.length > 0 && (
         <div className="w-full my-16 px-4 sm:px-6">
           <div
-            className={`grid gap-4 ${
+            className={`gap-4 flex flex-col lg:flex-row
+            `}>
+            {/* ${
               stats.length === 3
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-1 sm:grid-cols-2"
-            }`}
-          >
+            } */}
             {stats.map((card, index) => {
               const isThreeCards = stats.length === 3;
               const addLgBorderLeft =
-                isThreeCards && index > 0 ? " lg:border-l" : "";
+                isThreeCards && index > 0 ? " lg:border-l" : "lg:border-l";
 
               return (
                 <div
                   key={index}
-                  className={`px-4 sm:px-6 flex border-l border-black/30 :flex-row gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
+                  className={`px-4 sm:px-6 flex border-l border-black/30  gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
                     index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
                   }${addLgBorderLeft} opacity-0 will-change-transform`}
-                  data-reveal
-                >
+                  data-reveal>
                   <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
                     {card.number}
                   </div>
-                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg capitalize leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
+                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg uppercase leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
                     {card.text}
                   </p>
                 </div>

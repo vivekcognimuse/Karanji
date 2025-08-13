@@ -1,3 +1,4 @@
+import CarouselContainer from "@/components/animations/Carousal";
 import SectionReveal from "@/components/animations/sectionReveal";
 import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/advisory";
@@ -26,7 +27,7 @@ export default function ServiceOfferings({
       data-reveal-duration="0.5"
       data-reveal-stagger="0.12"
       className=" ">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         <div className="mb-24">
           <h3
             className=" mb-4 opacity-0 will-change-transform"
@@ -46,14 +47,14 @@ export default function ServiceOfferings({
         <div
           className={cn(
             heightDifference
-              ? "flex flex-wrap items-end justify-center gap-6 lg:gap-8"
-              : `grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
+              ? " lg:flex flex-wrap items-end justify-center gap-6 lg:gap-8"
+              : `lg:grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
                   cards.length === 3
                     ? "lg:grid-cols-3"
                     : cards.length === 4
                     ? "lg:grid-cols-4"
                     : "lg:grid-cols-5"
-                } lg:gap-8`,
+                } lg:gap-8 hidden`,
             className
           )}>
           {cards.map((service, index) => (
@@ -72,6 +73,26 @@ export default function ServiceOfferings({
               className="opacity-0 will-change-transform"
             />
           ))}
+        </div>
+        <div className="lg:hidden">
+          <CarouselContainer>
+            {cards.map((service, i) => (
+              <ServiceCard
+                key={i}
+                title={service.title}
+                subtitle={service.subtitle}
+                description={service.description}
+                featured={service.featured}
+                index={i}
+                heightDifference={heightDifference}
+                icon={`${icon}/${i + 1}.svg`}
+                // reveal
+                data-reveal
+                data-reveal-dir={dirForIndex(i)}
+                className="opacity-0 will-change-transform"
+              />
+            ))}
+          </CarouselContainer>
         </div>
       </div>
 
