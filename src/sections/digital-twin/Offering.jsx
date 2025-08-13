@@ -60,17 +60,18 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
                 className=" rounded-2xl flex flex-col p-4 bg-[url('/gradients/offering-card-gradient.svg')] bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200"
                 data-reveal
                 data-reveal-dir="up">
-                {card.icon && (
-                  <div className="mb-6 w-16 h-16 flex items-center justify-center">
-                    <Image
-                      src={card.icon}
-                      alt={`${card.title} icon`}
-                      width={48}
-                      height={48}
-                      className="object-contain"
-                    />
-                  </div>
-                )}
+                <div className="mb-6 w-16 h-16 flex items-center justify-center">
+                  <Image
+                    src={`/technologySolutions/digital-offering/${
+                      index + 1
+                    }.svg`}
+                    alt={`${card.title} icon`}
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
+                </div>
+
                 <h4 className="mb-4">{card.title}</h4>
                 <P3 className="text-gray-600 leading-relaxed">
                   {card.description}

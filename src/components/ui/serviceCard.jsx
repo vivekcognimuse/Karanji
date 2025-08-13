@@ -3,6 +3,8 @@ import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import Button from "./Button";
+import { P1, P3 } from "../CustomTags";
 
 export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
   const dirForIndex = (i) =>
@@ -110,26 +112,27 @@ export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
 const SingleServiceCard = memo(function SingleServiceCard({
   data,
   index,
+  image,
   ...props
 }) {
-  const { title, description, image, list, ctaText, ctaLink, id } = data || {};
+  const { title, description, list, ctaText, ctaLink, id } = data || {};
 
   return (
     <div
       {...props}
-      className="single-service-card relative h-[400px] lg:h-[500px] rounded-[32px] shadow-lg border border-slate-200 overflow-hidden z-10 backdrop-blur-sm group">
+      className="single-service-card relative h-[400px] lg:h-[500px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
       {/* Background layer with CSS transitions */}
-      <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm bg-white/90 group-hover:bg-white/95 transition-all duration-300 ease-in-out" />
+      <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
       <div className="relative h-full w-full px-8 py-8">
         {/* Background Image - hidden on hover */}
-        <div className="absolute z-0 bottom-0 w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300">
+        <div className="absolute z-0 bottom-0 bg-[url('/technologySolutions/gradient.svg')] bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300">
           <Image
             src={image || `/technologySolutions/card${index + 1}.webp`}
             alt={title}
             width={180}
             height={220}
-            className="object-contain w-full h-full"
+            className="object-contain  w-full h-full"
           />
         </div>
 
@@ -159,19 +162,17 @@ const SingleServiceCard = memo(function SingleServiceCard({
             </h4>
 
             {description && (
-              <p className="text-slate-700 text-base font-normal leading-relaxed mb-6">
-                {description}
-              </p>
+              <P1 className="text-black-800 mb-6">{description}</P1>
             )}
 
             {/* Features list - 2 columns for better use of space */}
             {list && list.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8 mb-6">
                 {list.map((item) => (
-                  <div key={item.id} className="rounded-lg p-3">
-                    <p className="text-slate-700 text-sm font-medium leading-tight">
-                      {item.text}
-                    </p>
+                  <div
+                    key={item.id}
+                    className=" border-b  border-black-200 pb-4 p-3">
+                    <P3 className="text-black-500">{item.text}</P3>
                   </div>
                 ))}
               </div>
@@ -181,9 +182,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
           <div className="flex justify-between items-end">
             {ctaText && ctaLink && (
               <Link href={ctaLink}>
-                <button className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-slate-800 transition-colors">
-                  {ctaText}
-                </button>
+                <Button className="">{ctaText}</Button>
               </Link>
             )}
 

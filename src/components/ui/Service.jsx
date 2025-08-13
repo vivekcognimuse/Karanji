@@ -19,15 +19,19 @@ export const FeatureCard = memo(function FeatureCard({
   title,
   description,
   img,
+  index,
   ...props
 }) {
   return (
     <div className="space-y-8 flex flex-col" {...props}>
-      {img && (
-        <div className="w-11 h-11">
-          <Image src={img} alt={`${title} "icon"`} width={40} height={40} />
-        </div>
-      )}
+      <Image
+        src={`/technologySolutions/advantage/${index + 1}.svg`}
+        alt={`${title} "icon"`}
+        width={40}
+        height={40}
+        className="size-10"
+      />
+
       <div className="space-y-4">
         <h5 className=" text-black/80 ">{title}</h5>
         <P3 className=" text-black/50">{description}</P3>

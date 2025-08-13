@@ -199,16 +199,42 @@ const contentFormatsData = {
   title: "Our Content Formats",
   description:
     "We offer a diverse range of content formats to meet your specific needs, from custom eLearning modules to interactive videos. Each format is designed to keep learners engaged, whether it's for large-scale training or niche subjects.",
+
+  image: "/digital-learning/content-format/main.webp",
   content: [
-    { description: "Custom eLearning", src: null },
-    { description: "Microlearning", src: null },
-    { description: "Short Learning", src: null },
-    { description: "Videos", src: null },
-    { description: "Software Simulations", src: null },
-    { description: "Gamification", src: null },
-    { description: "Comic Strips", src: null },
-    { description: "Story–Tutorials", src: null },
-    { description: "E-books & PDFs", src: null },
+    {
+      description: "Custom eLearning",
+      src: "/digital-learning/content-format/1.svg",
+    },
+    {
+      description: "Microlearning",
+      src: "/digital-learning/content-format/2.svg",
+    },
+    {
+      description: "Short Learning",
+      src: "/digital-learning/content-format/3.svg",
+    },
+    { description: "Videos", src: "/digital-learning/content-format/4.svg" },
+    {
+      description: "Software Simulations",
+      src: "/digital-learning/content-format/5.svg",
+    },
+    {
+      description: "Gamification",
+      src: "/digital-learning/content-format/6.svg",
+    },
+    {
+      description: "Comic Strips",
+      src: "/digital-learning/content-format/7.svg",
+    },
+    {
+      description: "Story–Tutorials",
+      src: "/digital-learning/content-format/8.svg",
+    },
+    {
+      description: "E-books & PDFs",
+      src: "/digital-learning/content-format/9.svg",
+    },
   ],
 };
 const learningChallenges = {

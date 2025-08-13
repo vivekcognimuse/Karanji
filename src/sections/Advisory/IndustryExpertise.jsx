@@ -35,7 +35,7 @@ const IndustryExpertise = ({ data }) => {
               <IndustryCard
                 title={industry.title}
                 description={industry.description}
-                icon={industry.icon}
+                icon={`/technologySolutions/digital-industry/${index + 1}.svg`}
                 altTag={industry.altTag}
               />
             </div>
