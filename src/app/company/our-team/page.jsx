@@ -1,7 +1,7 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/teamSections";
-import { c } from "next/dist/compiled/next-server/app-page-turbo.runtime.dev";
+
 const heroData = {
   title: "Meet the Experts",
   subTitle:
