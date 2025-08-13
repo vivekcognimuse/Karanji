@@ -12,7 +12,7 @@ const Advantages = ({ className = "", data }) => {
       data-reveal-amount="0.3"
       data-reveal-duration="0.6"
       data-reveal-stagger="0.15">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         <div className="mb-8">
           <h2
             className="text-xl font-semibold text-gray-900"

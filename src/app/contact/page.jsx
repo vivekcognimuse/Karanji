@@ -250,7 +250,7 @@ const ContactPage = () => {
 
   return (
     <div className=" mt-8 pt-20 w-full py-8 bg-gradient-to-br from-indigo-100 via-blue-200 to-red-100 inline-flex flex-col justify-start items-center overflow-hidden min-h-screen">
-      <main className="self-stretch  mx-auto w-full max-w-7xl overflow-hidden p-4 lg:p-10  flex flex-col justify-start items-start gap-16">
+      <main className="self-stretch  mx-auto w-full max-w-[1580px] overflow-hidden p-4 lg:p-10  flex flex-col justify-start items-start gap-16">
         <header className="self-stretch inline-flex justify-between items-center">
           <h1 className="self-stretch justify-start text-black/40 text-xl font-normal font-sans">
             Contact

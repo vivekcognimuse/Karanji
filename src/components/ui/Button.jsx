@@ -16,7 +16,7 @@ const buttonVariants = cva(
           "bg-transparent text-black border border-black hover:bg-gray-50 hover:scale-105 focus-visible:bg-gray-50",
         ghost:
           "border-transparent text-black hover:bg-gray-100 hover:scale-105 focus-visible:bg-gray-100",
-        text: "inline-flex mx-auto items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity",
+        text: "flex mx-auto items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity",
         destructive:
           "bg-red-600 text-white border border-red-600 hover:bg-red-700 hover:scale-105 focus-visible:bg-red-700",
       },

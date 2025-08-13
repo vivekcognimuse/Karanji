@@ -1,34 +1,79 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import { P4, P5 } from "./CustomTags";
+import { P5 } from "./CustomTags";
 import Image from "next/image";
+
 const Footer = () => {
   const footerSections = [
     {
       title: "Technology Solutions",
       links: [
-        "AI Advisory & Implementation",
-        "Digital Twins & Simulations",
-        "XR & Gaming Solutions",
+        {
+          name: "AI Advisory & Implementation",
+          href: "/technology-solutions/ai-advisory",
+        },
+        {
+          name: "Digital Twins & Simulations",
+          href: "/technology-solutions/digital-twins",
+        },
+        {
+          name: "XR & Gaming Solutions",
+          href: "/technology-solutions/xr-gaming",
+        },
       ],
-    },
-    {
-      title: "Creative & Entertainment",
-      links: ["VFX & Animation", "Event Production", "Audio & Podcast"],
     },
     {
       title: "Digital Learning",
       links: [
-        "eLearning Development",
-        "MicroLearning",
-        "Interactive Experiences",
-        "LMS Implementation",
+        {
+          name: "Content Design & Development",
+          href: "/digital-learning/content-design",
+        },
+        {
+          name: "Learning Management Systems",
+          href: "/digital-learning/lms-implementation",
+        },
+        { name: "Advanced Analytics", href: "/digital-learning/analytics" },
+      ],
+    },
+    {
+      title: "Entertainment Services",
+      links: [
+        {
+          name: "VFX & Animation Services",
+          href: "/entertainment/vfx&animation",
+        },
+        { name: "Audio & Podcast Production", href: "/entertainment/audio" },
+        { name: "Event Production & Management", href: "/entertainment/event" },
+      ],
+    },
+    {
+      title: "Industries",
+      links: [
+        { name: "Healthcare", href: "#" },
+        { name: "Aviation", href: "#" },
+        { name: "Logistics", href: "#" },
+        { name: "Oil & Gas", href: "#" },
       ],
     },
     {
       title: "Company",
-      links: ["About Us", "Our Team", "Careers", "Contact"],
+      links: [
+        { name: "About Us", href: "/company/about-us" },
+        { name: "Our Team", href: "/company/our-team" },
+        { name: "Digital Twins", href: "/technology-solutions/digital-twins" },
+        { name: "Careers", href: "#" },
+        { name: "Contact", href: "/contact" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { name: "Blog", href: "/blog-insights" },
+        { name: "Case Studies", href: "/case-studies" },
+        { name: "Webinars", href: "/webinar" },
+      ],
     },
   ];
 
@@ -40,8 +85,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full max-w-7xl px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
-      {/* Footer Links */}
+    <footer className="w-full max-w-[1580px] px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
+      {/* Top */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
         <Image
           src="/logo.svg"
@@ -51,18 +96,18 @@ const Footer = () => {
           height={100}
         />
 
-        {/* Footer Navigation */}
-        <nav className="flex-1 grid grid-cols-2  justify-around md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Nav */}
+        <nav className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
           {footerSections.map((section) => (
-            <div key={section.title} className="space-y-6">
-              <P4 className="text-black ">{section.title}</P4>
+            <div key={section.title} className="space-y-4 min-w-0">
+              <P5 className="text-black break-words">{section.title}</P5>
               <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.name} className="min-w-0">
                     <Link
-                      href="#"
-                      className="text-black  font-normal font-outfit leading-loose tracking-wide">
-                      <P5>{link}</P5>
+                      href={link.href}
+                      className="text-black font-normal font-outfit leading-relaxed tracking-wide break-words">
+                      <P5 className="break-words">{link.name}</P5>
                     </Link>
                   </li>
                 ))}
@@ -72,9 +117,8 @@ const Footer = () => {
         </nav>
       </div>
 
-      {/* Footer Bottom */}
+      {/* Bottom */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-black/10">
-        {/* Copyright and Legal Links */}
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
           <div className="flex items-center gap-2">
             <Icon icon="mdi:copyright" className="w-4 h-4 text-black/70" />
@@ -94,7 +138,6 @@ const Footer = () => {
           )}
         </div>
 
-        {/* Social Icons */}
         <div className="flex items-center gap-4">
           {socialIcons.map((social, index) => (
             <a

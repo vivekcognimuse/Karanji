@@ -9,7 +9,7 @@ export default function SuccessStories({ data }) {
 
   return (
     <section className="">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1580px] mx-auto">
         <div className="mb-16">
           <h3>{title}</h3>
           <P2 className="text-black mb-8">{description}</P2>
@@ -38,7 +38,7 @@ export default function SuccessStories({ data }) {
 //       data-reveal-duration="0.5" // per-item duration
 //       data-reveal-stagger="0.12" // delay between items (top→bottom)
 //     >
-//       <div className="max-w-7xl mx-auto">
+//       <div className="max-w-[1580px] mx-auto">
 //         <div className="mb-16">
 //           {/* title */}
 //           <h3

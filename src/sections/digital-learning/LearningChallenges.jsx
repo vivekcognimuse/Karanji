@@ -7,7 +7,7 @@ export default function LearningChallenges({ data }) {
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 ">
-      <div className="max-w-7xl space-y-16 mx-auto">
+      <div className="max-w-[1580px] space-y-16 mx-auto">
         {/* Header */}
         <div className=" ">
           <h3 className=" mb-4">{title}</h3>
