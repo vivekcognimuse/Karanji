@@ -5,16 +5,18 @@ import { P3 } from "@/components/CustomTags";
 const ValueCard = ({ icon, title, description, isFullWidth = false }) => {
   return (
     <div
-      className={`value-card rounded-lg p-6 ${isFullWidth ? "col-span-2" : ""}`}
+      className={`value-card rounded-lg p-6 ${
+        isFullWidth ? "col-span-2 text-center" : ""
+      }`}
     >
       {/* Icon */}
-      <div className="mb-4">
+      <div className={`mb-4${isFullWidth ? " flex justify-center" : ""}`}>
         <img
           src={icon}
           alt={`${title} Icon`}
           width="32"
           height="32"
-          className="w-8 h-8"
+          className=" "
         />
       </div>
 

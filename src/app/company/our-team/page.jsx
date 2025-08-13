@@ -1,7 +1,7 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/teamSections";
-import { c } from "next/dist/compiled/next-server/app-page-turbo.runtime.dev";
+
 const heroData = {
   title: "Meet the Experts",
   subTitle:
@@ -83,13 +83,7 @@ const teamSectionData = [
           "Ryan accelerates business growth through strategic HR solutions & growth-driven technologies.",
         image: "/team/Ryan.jpg",
       },
-      {
-        name: "Shihab Kalandar",
-        role: "Executive Director",
-        brief:
-          "Shihab focuses on developing AI-driven solutions that help businesses transform & optimize operations for greater efficiency & productivity.",
-        image: "/team/Shihab.jpg",
-      },
+
       {
         name: "Vikram Kemmai",
         role: "Senior Director",
