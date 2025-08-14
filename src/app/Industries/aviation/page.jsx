@@ -31,6 +31,7 @@ const ctaData = {
   title: "Ready to lead the future of Aviation?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Aviation",
+  PrimaryButtonText: "Please Click here",
   PrimaryButtonLink: "/",
 };
 const industryData = {
