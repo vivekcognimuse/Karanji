@@ -1,8 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -138,7 +136,8 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleDropdown = (index) => {
+  const toggleDropdown = (e, index) => {
+    e.preventDefault();
     setActiveDropdown(activeDropdown === index ? null : index);
   };
 
@@ -152,33 +151,33 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              <Image
-                src="/logo.svg"
-                className="h-8 w-fit"
-                alt="Logo"
-                width={100}
-                height={100}
-              />
-            </Link>
+            <a href="/" className="text-2xl font-bold text-gray-900">
+              Karanji
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:space-x-1">
             {navItems.map((item, index) => (
               <div key={index} className="nav-item relative">
-                <button
-                  onClick={() => toggleDropdown(index)}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200">
-                  {item.title}
+                <div className="flex items-center">
+                  <a
+                    href={item.href}
+                    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200">
+                    {item.title}
+                  </a>
                   {item.dropdown && (
-                    <ChevronDown
-                      className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                        activeDropdown === index ? "rotate-180" : ""
-                      }`}
-                    />
+                    <button
+                      onClick={(e) => toggleDropdown(e, index)}
+                      className="p-1 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200">
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          activeDropdown === index ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
                   )}
-                </button>
+                </div>
 
                 {/* Desktop Dropdown */}
                 {item.dropdown && activeDropdown === index && (
@@ -226,18 +225,24 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item, index) => (
               <div key={index}>
-                <button
-                  onClick={() => toggleMobileDropdown(index)}
-                  className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
-                  {item.title}
+                <div className="flex items-center justify-between">
+                  <a
+                    href={item.href}
+                    className="flex-1 px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                    {item.title}
+                  </a>
                   {item.dropdown && (
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        activeMobileDropdown === index ? "rotate-180" : ""
-                      }`}
-                    />
+                    <button
+                      onClick={() => toggleMobileDropdown(index)}
+                      className="p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          activeMobileDropdown === index ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
                   )}
-                </button>
+                </div>
 
                 {/* Mobile Dropdown */}
                 {item.dropdown && activeMobileDropdown === index && (
