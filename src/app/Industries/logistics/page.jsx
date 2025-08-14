@@ -2,31 +2,27 @@ import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
-import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
+import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 const heroData = {
   title: "Driving Digital Transformation inGlobal Logistics",
   subTitle:
     "From AI-driven compliance & training software to predictive maintenance & digital twins for operations-empower your workforce & streamline logistics.",
-  ctaText: "Explore the Transformation Landscape",
+  ctaText: "Explore the Strategic Priorities",
   ctaLink: "/industries",
   stats: [
     {
-      text: "Executives Prioritize AI",
-      number: "77%",
+      text: "Reduction in processing time",
+      number: "80%",
     },
     {
-      text: "Market Growth by 2032",
-      number: "46B",
+      text: "Faster technician training",
+      number: "45-60%",
     },
     {
-      text: "Worker Shortage by 2028",
-      number: "100K+",
-    },
-    {
-      text: "Market Growth by 2032",
-      number: "68%",
+      text: "Fewer empty miles",
+      number: "30%",
     },
   ],
 };
@@ -41,125 +37,144 @@ const industryData = {
   sectionTitle: "Industry Challenges & Priorities",
   overviewTitle: "Overview",
   overviewDescription:
-    "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
-  challengesTitle: "Critical Challenges",
+    "The $12B logistics sector is growing but challenged by operational disruptions, tech fragmentation, & evolving regulatory demands. AI-driven learning & automation, supported by training software & eLearning platforms, are key to enabling agility & workforce readiness.",
+  challengesTitle: "Top Challenges",
   image: "Images/industry-vr-healthcare.jpg", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
       id: 1,
       icon: "Icons/user-md.svg", // Replace with your icon path
-      title: "Workforce Crisis",
+      title: "Supply Chain Disruptions & Cost Pressures",
       description:
-        "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
+        "Delays from trade tensions & shortages, plus rising fuel & tech upgrade costs.",
     },
     {
       id: 2,
       icon: "Icons/microchip.svg", // Replace with your icon path
-      title: "Financial Pressure",
+      title: "Regulatory Complexity & Sustainability Demands",
       description:
-        "8% cost increases, 2% operating margins, $100B underpayment gap.",
+        "Global emissions goals & shifting regulations raise compliance challenges.",
     },
     {
       id: 3,
       icon: "Icons/microchip.svg", // Replace with your icon path
-      title: "Technology Gaps",
+      title: "Workforce Shortages & Skills Gaps",
       description:
-        "180+ ransomware attacks, 137TB daily data, workflow inefficiencies.",
+        "Limited talent & high turnover in critical roles hinder operations.",
     },
     {
       id: 4,
       icon: "Icons/hospital.svg", // Replace with your icon path
-      title: "Access Barriers",
+      title: "Legacy Systems & Cybersecurity Risks",
       description:
-        "26-day wait times, 4 in 10 can't afford care, cost-driven skipping.",
+        "Outdated tech reduces visibility & increases cyberattack exposure.",
     },
   ],
 };
 
 const strategicPrioritiesData = {
-  sectionTitle: "Strategic Priorities 2025",
+  sectionTitle: "Strategic Priorities & Digital Adoption",
+  sectionDescription:
+    "As the global logistics sector confronts its core challenges, companies are establishing clear business priorities & accelerating digital adoption to enhance resilience & competitiveness.",
+  businessPrioritiesTitle: "Business Priorities",
   topRowCards: [
     {
       id: 1,
-      value: "65%",
-      title: "Revenue Growth",
-      subtitle: "of executives' top priority",
+      title: "Operational Excellence",
+      subtitle:
+        "Investing in infrastructure & digital platforms for automation & cost reduction.",
     },
     {
       id: 2,
-      value: "55%",
-      title: "Consumer Experience",
-      subtitle: "of executives' top priority",
+      title: "Sustainability",
+      subtitle:
+        "Transitioning to cleaner fuels & strengthening ESG reporting capabilities.",
     },
     {
       id: 3,
-      value: "55%",
-      title: "AI & Technology",
-      subtitle: "priority ranking",
+      title: "Workforce Development",
+      subtitle:
+        "Upskilling talent using VR/AR, microlearning, & digital knowledge tools.",
     },
   ],
   bottomRowCards: [
     {
       id: 1,
-      value: "70%",
-      title: "Workforce Development",
-      subtitle: "Critical retention, training focus",
+      title: "Digital Transformation",
+      subtitle:
+        "Using AI, analytics, & digital twins to optimize operations & customer experience.",
     },
     {
       id: 2,
-      value: "60%",
       title: "Cybersecurity",
-      subtitle: "prioritizing enhancement",
+      subtitle:
+        "Enhancing supply chain security with zero-trust, threat detection, & compliance frameworks.",
     },
   ],
 };
-const digitalTransformationData = {
-  sectionTitle: "Digital Transformation Landscape",
-  sectionSubtitle: "Empowering Healthcare Through Smart Technologies",
+const digitalAdoptionData = {
+  sectionTitle: "Digital Adoption",
+  sectionDescription:
+    "Regional digital adoption patterns reveal diverse priorities: North America & Europe lead in analytics & sustainability tech, Asia Pacific accelerates smart port & IoT adoption, while the Middle East & Africa focus on infrastructure modernization & blockchain for trade efficiency.",
   digitalCards: [
     {
       id: 1,
-      title: "AI Leadership",
-      icon: "Icons/ai-icon.svg", // Replace with your icon path
-      points: [
-        "77% of leaders prioritize AI",
-        "73% plan to use Generative AI",
-        "Market growth $4B to $46B",
+      title: "AI & Advanced Analytics",
+      icon: "Icons/ai-analytics.svg",
+      description:
+        "AI streamlines operations with predictive tools & document automation.",
+      hoverContent: [
+        "65% of carriers use predictive maintenance",
+        "40% are testing generative AI for customs documentation",
       ],
     },
     {
       id: 2,
-      title: "XR/VR Revolution",
-      icon: "Icons/vr-icon.svg", // Replace with your icon path
-      points: [
-        "68% medical schools use VR",
-        "71% doctors prefer VR training",
-        "84% believe positive impact",
+      title: "IoT & Connected Devices",
+      icon: "Icons/iot-devices.svg",
+      description:
+        "IoT enables real-time asset tracking & operational insights.",
+      hoverContent: [
+        "IoT enables real-time asset tracking & operational insights.",
+        "GPS, RFID, & sensors are widely implemented",
+        "Telematics supports smarter fleet management",
       ],
     },
     {
       id: 3,
-      title: "Digital Learning",
-      icon: "Icons/learning-icon.svg", // Replace with your icon path
-      points: [
-        "Remote Acceleration",
-        "AI personalizes training paths",
-        "Enhance learning engagement",
+      title: "Digital Twins & Simulation",
+      icon: "Icons/digital-twins.svg",
+      description:
+        "Digital twins reduce congestion & support operational simulations.",
+      hoverContent: [
+        "Digital twins reduce congestion & support operational simulations.",
       ],
     },
     {
       id: 4,
-      title: "Patient Centric Care",
-      icon: "Icons/patient-care-icon.svg", // Replace with your icon path
-      points: [
-        "Digital front doors",
-        "$265B home care by 2025",
-        "Boost patient engagement",
+      title: "Blockchain Technology",
+      icon: "Icons/blockchain.svg",
+      description:
+        "Blockchain enhances compliance, traceability, & secure documentation.",
+      hoverContent: [
+        "Blockchain enhances compliance, traceability, & secure documentation.",
+      ],
+    },
+    // Add more cards to test arrow functionality
+    {
+      id: 5,
+      title: "Cloud Computing",
+      icon: "Icons/cloud.svg",
+      description: "Cloud solutions enable scalable, flexible operations.",
+      hoverContent: [
+        "Cloud adoption accelerates digital transformation",
+        "90% of logistics companies use cloud services",
       ],
     },
   ],
 };
+
 const strategicRoadmapData = {
   sectionTitle: "Strategic StrategicRoadmap for Healthcare Transformation",
   sectionDescription:
@@ -338,11 +353,11 @@ const strategicUseCaseData = {
 
 export default async function Logistics() {
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
-      <DigitalTransformation data={digitalTransformationData} />
+      <DigitalAdoption data={digitalAdoptionData} />
       <StrategicRoadmap data={strategicRoadmapData} />
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />

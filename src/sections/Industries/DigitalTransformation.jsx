@@ -6,7 +6,7 @@ const DigitalTransformation = ({ data }) => {
 
   return (
     <section className="bg-gradient-to-r from-white via-gray-50 to-white py-12 px-4">
-      <div className="max-w-7xl mx-auto text-left mb-16">
+      <div className=" mx-auto text-left mb-16">
         <h3 className="">{sectionTitle}</h3>
         <P2 className="mt-2">{sectionSubtitle}</P2>
       </div>
