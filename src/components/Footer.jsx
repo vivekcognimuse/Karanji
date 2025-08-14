@@ -8,6 +8,7 @@ const Footer = () => {
   const footerSections = [
     {
       title: "Technology Solutions",
+      href: "/technology-solutions",
       links: [
         {
           name: "AI Advisory & Implementation",
@@ -25,6 +26,7 @@ const Footer = () => {
     },
     {
       title: "Digital Learning",
+      href: "/digital-learning",
       links: [
         {
           name: "Content Design & Development",
@@ -39,6 +41,7 @@ const Footer = () => {
     },
     {
       title: "Entertainment Services",
+      href: "/entertainment",
       links: [
         {
           name: "VFX & Animation Services",
@@ -50,25 +53,28 @@ const Footer = () => {
     },
     {
       title: "Industries",
+      href: "/industries",
       links: [
-        { name: "Healthcare", href: "#" },
-        { name: "Aviation", href: "#" },
-        { name: "Logistics", href: "#" },
-        { name: "Oil & Gas", href: "#" },
+        { name: "Healthcare", href: "/healthcare" },
+        { name: "Aviation", href: "/aviation" },
+        { name: "Logistics", href: "/logistics" },
+        { name: "Oil & Gas", href: "/oil-and-gas" },
       ],
     },
     {
       title: "Company",
+      href: "/company",
       links: [
         { name: "About Us", href: "/company/about-us" },
         { name: "Our Team", href: "/company/our-team" },
         { name: "Digital Twins", href: "/technology-solutions/digital-twins" },
-        { name: "Careers", href: "#" },
+        { name: "Careers", href: "/company/careers" },
         { name: "Contact", href: "/contact" },
       ],
     },
     {
       title: "Resources",
+      href: "/resources",
       links: [
         { name: "Blog", href: "/blog-insights" },
         { name: "Case Studies", href: "/case-studies" },
@@ -99,14 +105,18 @@ const Footer = () => {
         {/* Nav */}
         <nav className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
           {footerSections.map((section) => (
-            <div key={section.title} className="space-y-4 min-w-0">
-              <P5 className="text-black break-words">{section.title}</P5>
+            <div key={section.title} className="space-y-4   mb-4 min-w-0">
+              <Link href={section.href}>
+                <P5 className="text-black cursor-pointer hover:underline break-words">
+                  {section.title}
+                </P5>
+              </Link>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name} className="min-w-0">
                     <Link
                       href={link.href}
-                      className="text-black font-normal font-outfit leading-relaxed tracking-wide break-words">
+                      className="text-black hover:underline font-normal font-outfit leading-relaxed tracking-wide break-words">
                       <P5 className="break-words">{link.name}</P5>
                     </Link>
                   </li>
