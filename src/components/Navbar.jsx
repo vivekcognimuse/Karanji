@@ -61,10 +61,10 @@ const Navbar = () => {
       title: "Industries",
       href: "/industries",
       dropdown: [
-        { name: "Healthcare", href: "/healthcare" },
-        { name: "Aviation", href: "/aviation" },
-        { name: "Logistics", href: "/logistics" },
-        { name: "Oil & Gas", href: "/oil-and-gas" },
+        { name: "Healthcare", href: "/Industries/healthcare" },
+        { name: "Aviation", href: "/Industries/aviation" },
+        { name: "Logistics", href: "/Industries/logistics" },
+        { name: "Oil & Gas", href: "/Industries/oil-and-gas" },
       ],
     },
     {
@@ -169,7 +169,8 @@ const Navbar = () => {
               <div key={index} className="nav-item relative">
                 <button
                   onClick={() => toggleDropdown(index)}
-                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200">
+                  className="flex items-center px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors duration-200"
+                >
                   {item.title}
                   {item.dropdown && (
                     <ChevronDown
@@ -188,13 +189,15 @@ const Navbar = () => {
                       dropdownAlignment[index] === "right"
                         ? "right-0"
                         : "left-0"
-                    }`}>
+                    }`}
+                  >
                     <div className="py-1">
                       {item.dropdown.map((subItem, subIndex) => (
                         <a
                           key={subIndex}
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200">
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+                        >
                           {subItem.name}
                         </a>
                       ))}
@@ -209,7 +212,8 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
@@ -228,7 +232,8 @@ const Navbar = () => {
               <div key={index}>
                 <button
                   onClick={() => toggleMobileDropdown(index)}
-                  className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                  className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                >
                   {item.title}
                   {item.dropdown && (
                     <ChevronDown
@@ -246,7 +251,8 @@ const Navbar = () => {
                       <a
                         key={subIndex}
                         href={subItem.href}
-                        className="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md">
+                        className="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                      >
                         {subItem.name}
                       </a>
                     ))}

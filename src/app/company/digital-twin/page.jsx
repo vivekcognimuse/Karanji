@@ -45,7 +45,7 @@ const avatarData = {
     {
       name: "Prakash",
       role: "CEO, Karanji",
-      image: "/Prakash.svg",
+      image: "/Company/Digital Twins/Prakash digital twin.webp",
       expertise: [
         "Know About the Company",
         "Explore Our Services",
@@ -56,7 +56,7 @@ const avatarData = {
     {
       name: "Srikant",
       role: "Solution Architect, Karanji",
-      image: "/Srikanth.svg",
+      image: "/Company/Digital Twins/Srikant Digital Twin.webp",
       expertise: [
         "Solves AI Implementation Challenges",
         "Explore Industry Use Cases",
@@ -92,10 +92,7 @@ const sectionData = {
 export default async function companyLanding() {
   return (
     <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <DigitalTwinHeroSection
-        data={heroData}
-        bgImage={"/Company/Animation/4.png"}
-      />
+      <DigitalTwinHeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <ChooseAvatarSection data={avatarData} />
       <RealImpactResults sectionData={sectionData} />
       <CTA data={ctaData} />
