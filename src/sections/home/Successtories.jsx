@@ -9,10 +9,10 @@ const SuccessStoriesSection = () => {
     {
       title: "AI-Enhanced Healthcare Training",
       // No category here
-      metrics: [
-        { value: "68%", label: "Improved Retention" },
-        { value: "42%", label: "Faster Completion" },
-        { value: "$1.2M", label: "Annual Savings" },
+      stats: [
+        { title: "68%", subtitle: "Improved Retention" },
+        { title: "42%", subtitle: "Faster Completion" },
+        { title: "$1.2M", subtitle: "Annual Savings" },
       ],
       description:
         "By integrating AI-powered personalization with immersive VR training scenarios, we transformed clinical staff training for a major hospital network.",
@@ -20,10 +20,10 @@ const SuccessStoriesSection = () => {
     {
       title: "Digital Transformation Initiative",
       category: "Manufacturing | Fortune 500 Company", // Category present
-      metrics: [
-        { value: "85%", label: "Process Efficiency" },
-        { value: "60%", label: "Cost Reduction" },
-        { value: "$2.8M", label: "Revenue Increase" },
+      stats: [
+        { title: "85%", subtitle: "Process Efficiency" },
+        { title: "60%", subtitle: "Cost Reduction" },
+        { title: "$2.8M", subtitle: "Revenue Increase" },
       ],
       description:
         "Revolutionized manufacturing processes through digital twin technology and AI-driven optimization systems for enhanced operational excellence.",
@@ -31,10 +31,10 @@ const SuccessStoriesSection = () => {
     {
       title: "Immersive Learning Platform",
       category: "Education | Global University", // Category present
-      metrics: [
-        { value: "92%", label: "Student Engagement" },
-        { value: "55%", label: "Knowledge Retention" },
-        { value: "$850K", label: "Cost Savings" },
+      stats: [
+        { title: "92%", subtitle: "Student Engagement" },
+        { title: "55%", subtitle: "Knowledge Retention" },
+        { title: "$850K", subtitle: "Cost Savings" },
       ],
       description:
         "Created an innovative immersive learning environment that combines AR/VR technology with adaptive AI to revolutionize higher education.",

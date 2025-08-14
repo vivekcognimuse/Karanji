@@ -22,12 +22,11 @@ export default function HeroSection({ data, bgImage }) {
   return (
     <section
       id="hero-section"
-      className={`relative flex flex-col h-fit -z-1 pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center 
-        before:content-[''] before:absolute before:inset-0
-        before:bg-[url('/advisory/hero.png')] before:bg-contain before:bg-center before:bg-no-repeat
-        before:opacity-12 before:-z-1`}
-      style={{ backgroundImage }}>
-      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
+      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain `}
+      style={{
+        backgroundImage: `url('${bgImage}')`,
+      }}>
+      <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h2
             className="text-center opacity-0 will-change-transform"
@@ -66,7 +65,7 @@ export default function HeroSection({ data, bgImage }) {
       {stats?.length > 0 && (
         <div className="w-full my-16 px-4 sm:px-6">
           <div
-            className={`gap-4 flex flex-col lg:flex-row
+            className={`gap-4 flex flex-col lg:justify-center lg:flex-row
             `}>
             {/* ${
               stats.length === 3

@@ -89,7 +89,7 @@ const technologyServices = {
       ],
       ctaText: "Learn More",
       ctaLink: "/",
-      image: null,
+      image: "/entertainment/landing/service/1.webp",
     },
     {
       id: 2,
@@ -104,7 +104,7 @@ const technologyServices = {
       ],
       ctaText: "Learn More",
       ctaLink: "/",
-      image: null,
+      image: "/entertainment/landing/service/2.webp",
     },
     {
       id: 3,
@@ -119,7 +119,7 @@ const technologyServices = {
       ],
       ctaText: "Learn More",
       ctaLink: "/",
-      image: null,
+      image: "/entertainment/landing/service/3.webp",
     },
   ],
 };
@@ -132,9 +132,9 @@ const successStoriesData = {
   cards: [
     {
       title: "One-Hour Podcast into a Visual Experience",
-      metrics: [
-        { value: "+100%", label: "Improved Video Clarity" },
-        { value: "30–sec", label: "Hook Developed Proactively" },
+      stats: [
+        { title: "+100%", subtitle: "Improved Video Clarity" },
+        { title: "30–sec", subtitle: "Hook Developed Proactively" },
       ],
       description:
         "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals & motion graphics hook to elevate the content, making it more engaging & visually compelling.",
@@ -147,9 +147,12 @@ const successStoriesData = {
 const Entertainment = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/entertainment.webp" />
       <EntertainmentServices data={entertainmentServices} />
-      <TechnologyServices data={technologyServices} />
+      <TechnologyServices
+        data={technologyServices}
+        image="/entertainment/landing/service"
+      />
       <SuccessStories data={successStoriesData} />
     </div>
   );

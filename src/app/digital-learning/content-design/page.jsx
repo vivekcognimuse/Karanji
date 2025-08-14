@@ -1,3 +1,4 @@
+"use client";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -6,12 +7,13 @@ import ContentFormats from "@/sections/digital-learning/Content-Formats";
 import CTA from "@/sections/digital-learning/CTA";
 
 import CustomELearningSolution from "@/sections/digital-learning/CustomELearningSolution";
+import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learning/CustomELearningSolutionDeepDive";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import TechnologyServices from "@/sections/service/Service";
-import React from "react";
+import React, { useState } from "react";
 
 // heroData.js
 
@@ -85,9 +87,9 @@ const successStoriesData = {
   cards: [
     {
       title: "Custom Content Development",
-      metrics: [
-        { value: "42%", label: "Increase in Course Completion" },
-        { value: "38%", label: "Improved Learner Engagement" },
+      stats: [
+        { title: "42%", subtitle: "Increase in Course Completion" },
+        { title: "38%", subtitle: "Improved Learner Engagement" },
       ],
       description:
         "Legacy training was replaced with interactive, scenario-based modules and gamified assessments—resulting in significantly higher completion rates and improved learner participation.",
@@ -255,17 +257,124 @@ const learningChallenges = {
     },
   ],
 };
+
+// Example usage:
+const eLearning = {
+  tabs: {
+    custom: {
+      buttonSubTitle: "Custom Content Solutions",
+      title: "Custom Content Solutions",
+      img: "/digital-learning/content-solution/CustomContentSolutions.webp",
+      alt: "Custom Content Solutions",
+      description:
+        "We create tailored training content that meets your specific needs, from instructional design to localization. Our 3-step approach ensures engaging, high-quality & culturally relevant learning materials for any audience.",
+      stats: [
+        { title: "3 step Approach" },
+        { title: "Content Creation" },
+        { title: "Modules" },
+      ],
+    },
+    ready: {
+      buttonSubTitle: "Ready Solutions & Resources",
+      title: "Ready Solutions & Resources",
+      img: "/digital-learning/content-solution/Readysolutionsandresources.webp",
+      alt: "Ready Solutions & Resources",
+      description:
+        "Accelerate your learning initiatives with our pre-built, customizable content library. Designed by industry experts & ready for immediate deployment, our resources are fully compatible with major LMS platforms.",
+      stats: [{ title: "Library Preview" }, { title: "Talent Augmentation" }],
+    },
+  },
+  defaultTab: "custom", // optional, defaults to first tab
+};
+const customELearningSolutionDeepDive = {
+  title: "Custom E-Learning Solutions Deep Dive",
+  subtitle:
+    "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging e-learning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
+  cards: [
+    {
+      subtitle: "Level 1",
+      description:
+        "Basic text, images, & voice with minor interactive animations & visual enhancements.",
+      imageSrc: "/digital-learning/content-solution/deepLearning/level 1.webp",
+      videoSrc:
+        "https://360.articulate.com/review/content/86f66826-278f-4400-b6c4-829f0833272b/review",
+      imageAlt: "Information Security Awareness Training slide",
+    },
+    {
+      subtitle: "Level 2",
+      description: "Enhanced graphics & animations with interactive quizzes.",
+      imageSrc: "/digital-learning/content-solution/deepLearning/level 2.webp",
+      videoSrc:
+        "https://360.articulate.com/review/content/d6db3a2f-2051-4488-9efe-d7907bce4663/review",
+      imageAlt: "Global and US Healthcare Industry slide",
+    },
+    {
+      subtitle: "Level 3",
+      description:
+        "2D animations, branching scenarios, mini-games, assessments",
+      imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
+      videoSrc:
+        "https://360.articulate.com/review/content/896d0d5c-001a-42d8-a311-3b9f6148fa4e/review",
+      imageAlt: "Global and US Healthcare Industry slide",
+    },
+    {
+      subtitle: "Level 4",
+      description:
+        "Rich graphics, custom music & advanced interactive content.",
+      imageSrc: "/digital-learning/content-solution/deepLearning/level 4.webp",
+      videoSrc:
+        "https://360.articulate.com/review/content/224d0588-ba86-4680-808f-883ef2648267/review",
+      imageAlt: "Global and US Healthcare Industry slide",
+    },
+  ],
+  cta: {
+    text: "Need something totally ready to deploy?",
+    buttonText: "View Ready Solutions & Resources",
+  },
+};
 const ContentDesign = () => {
+  const [activeTab, setActiveTab] = useState("custom");
+
   return (
-    <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
       <LearningChallenges data={learningChallenges} />
 
-      <Methodology column={true} data={methodologyData} />
-      <ContentFormats data={contentFormatsData} />
-      <CustomELearningSolution />
-      <Advantages data={ADVANTAGES_CONTENT} />
-      <DigitalTwinOfferings data={digitalTwinData} />
+      {/* Toggle Buttons */}
+      <div className="flex justify-center gap-2 mb-8">
+        {Object.entries(eLearning.tabs).map(([key, tabData]) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+              activeTab === key
+                ? "bg-[#F0B8B8] text-gray-800"
+                : "bg-white text-gray-600 hover:bg-pink-100"
+            }`}>
+            {tabData.buttonLabel}
+          </button>
+        ))}
+      </div>
+      <div className="p-8 bg-[#FCE8E8] space-y-16 lg:space-y-32 rounded-2xl">
+        {/* Tab Content */}
+        <CustomELearningSolution data={eLearning} activeTab={activeTab} />
+
+        {/* Conditional Content */}
+        {activeTab === "custom" ? (
+          <>
+            <Methodology column={true} data={methodologyData} />
+            <ContentFormats data={contentFormatsData} />
+          </>
+        ) : (
+          <>
+            <Advantages data={ADVANTAGES_CONTENT} />
+            <DigitalTwinOfferings data={digitalTwinData} />
+          </>
+        )}
+      </div>
+      <ELearningCustomELearningSolutionDeepDive
+        data={customELearningSolutionDeepDive}
+      />
       <SuccessStories data={successStoriesData} />
       <CTA data={CTAData} />
     </div>

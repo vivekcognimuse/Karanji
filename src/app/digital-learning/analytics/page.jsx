@@ -1,6 +1,9 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
+import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
+import ImplementApproach from "@/sections/digital-learning/analytics/ImplementApproach";
+import AnalyticsMaturityModel from "@/sections/digital-learning/analytics/MatureModal";
 import Results from "@/sections/digital-learning/analytics/Result";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
@@ -37,7 +40,7 @@ const lmsLearningData = {
   cards: [
     {
       title: "Common LMS Challenges",
-      image: null, // Replace with actual image path if available
+      image: "/digital-learning/analytics/learning/1.svg", // Replace with actual image path if available
       description: [
         "Complex navigation frustrates learners",
         "Difficult content organization",
@@ -47,7 +50,7 @@ const lmsLearningData = {
     },
     {
       title: "The K-nest Solution",
-      image: null, // Replace with actual image path if available
+      image: "/digital-learning/analytics/learning/1.svg", // Replace with actual image path if available
       description: [
         "Guided navigation ensures smooth progression",
         "Easy-to-structure and organize content",
@@ -104,19 +107,19 @@ const learningChallenges = {
       title: "One-Size-Fits-All Approach",
       description:
         "Learning experience not adapted to individual needs. Content created at 'average' level.",
-      icon: null, // Optional SVG icon as string
+      icon: "/digital-learning/analytics/learning/1.svg", // Optional SVG icon as string
     },
     {
       title: "Reactive Intervention",
       description:
         "No proactive 'nudge'-based support systems. No way to identify learners who need help.",
-      icon: null,
+      icon: "/digital-learning/analytics/learning/2.svg",
     },
     {
       title: "Measurement Gaps",
       description:
         "Unclear metrics on learning impact. Programs designed with limited audience insights.",
-      icon: null,
+      icon: "/digital-learning/analytics/learning/3.svg",
     },
   ],
   description:
@@ -163,13 +166,110 @@ const methodologyData = {
     },
   ],
 };
+const analyticsData = {
+  title: "Analytics Maturity Model",
+  subtitle:
+    "From tracking progress to predicting outcomes, & optimizing learning paths—empowering data-driven decisions at every stage.",
+  stairImage: "/digital-learning/analytics/matureModal.svg", // Replace with your actual image path
+  stages: [
+    {
+      title: "Describe",
+      question: "What is happening?",
+      points: [
+        "Measurement of completion & engagement",
+        "Data exploration & integration",
+        "Multi-dimensional dashboards",
+      ],
+    },
+    {
+      title: "Diagnose",
+      question: "Why is it happening?",
+      points: [
+        "Learner segmentation & analysis",
+        "Content effectiveness assessment",
+        "Causal analysis & actionable insights",
+      ],
+    },
+    {
+      title: "Predict",
+      question: "What will happen?",
+      points: [
+        "Learning outcome forecasting",
+        "Early intervention modeling",
+        "Risk analysis & opportunity identification",
+      ],
+    },
+    {
+      title: "Prescribe & Optimize",
+      question: "What should be done?",
+      points: [
+        "Personalized learning paths",
+        "Automated support recommendations",
+        "Continuous content optimization",
+      ],
+    },
+  ],
+};
+const deliverablesData = {
+  heroImage: "/digital-learning/analytics/deliverables.webp", // Replace with your actual image path
+  features: [
+    {
+      icon: "/digital-learning/analytics/deliverableIcons/1.svg", // Replace with actual icon path
+      title: "Learner Success Forecasting",
+      description: "Predict outcomes based on early indicators",
+    },
+    {
+      icon: "/digital-learning/analytics/deliverableIcons/2.svg", // Replace with actual icon path
+      title: "At-Risk Learner Support",
+      description: "Proactive real-time intervention systems",
+    },
+    {
+      icon: "/digital-learning/analytics/deliverableIcons/3.svg", // Replace with actual icon path
+      title: "Content Effectiveness Index",
+      description: "Measure of engagement & learning outcomes",
+    },
+    {
+      icon: "/digital-learning/analytics/deliverableIcons/4.svg", // Replace with actual icon path
+      title: "Audience Targeting",
+      description: "Program marketing through targeted audience insights",
+    },
+  ],
+};
+const implementApproachData = {
+  title: "Our Implementation Approach",
+  description:
+    "A data-driven methodology combining learner behavior, content insights, & AI for accurate success forecasting.",
+  image: {
+    src: "/digital-learning/analytics/implement.svg",
+    alt: "Implementation Approach",
+    width: 1360,
+    height: 203,
+  },
+  sections: [
+    {
+      title: "Implementation Timeline",
+      content:
+        "No investment in proprietary software. Open-source applications & cloud access.",
+    },
+    {
+      title: "Access",
+      contentTop: "T0 + 1-2 weeks",
+      divider: true,
+      contentBottom:
+        "All variables • Data consistency • Measure correlation • Check removal",
+    },
+  ],
+};
 
 const ContentDesign = () => {
   return (
     <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/1.Analytics banner .webp" />
       <LearningChallenges data={learningChallenges} />
-      <ServiceOfferings data={serviceOfferingsData} />
+      <ServiceOfferings
+        data={serviceOfferingsData}
+        icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
+      />
       <LMSLearning data={lmsLearningData} />
       <Results
         data={{
@@ -181,8 +281,11 @@ const ContentDesign = () => {
           proactiveSupport: "Proactive Support",
         }}
       />
+      <AnalyticsMaturityModel data={analyticsData} />
       <Methodology column={true} data={methodologyData} />
-      <SwitchSection />
+      <ImplementApproach data={implementApproachData} />
+      <Deliverables data={deliverablesData} />
+      {/* <SwitchSection /> */}
       <CTA data={ctaData} />
     </div>
   );

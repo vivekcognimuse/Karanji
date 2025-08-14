@@ -24,7 +24,10 @@ const DigitalTwins = async () => {
   } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={hero} bgImage="" />
+      <HeroSection
+        data={hero}
+        bgImage="/hero/Digital Twins & Simulations.webp"
+      />
       <Advantages data={advantages} />
       <DigitalTwinOfferings data={offering} />
       <Methodology data={methodology} />

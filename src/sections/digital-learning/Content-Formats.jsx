@@ -29,7 +29,7 @@ const ContentFormats = ({ data }) => {
             {item.src && (
               <Image
                 src={item.src}
-                alt={item.alt}
+                alt={item.alt || item.description}
                 width={40}
                 height={40}
                 className="size-10 "

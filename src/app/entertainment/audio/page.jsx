@@ -38,10 +38,20 @@ const serviceOverview = {
     "Our VFX & animation team delivers stunning visual elements that elevate your project from ordinary to extraordinary. With expertise spanning film, advertising, and digital media, we provide end-to-end visual effects solutions tailored to your creative vision & technical requirements.",
   feature:
     "From subtle enhancements to complex digital environments, our industry veterans bring technical precision & artistic excellence to every frame, ensuring seamless integration & maximum visual impact.",
-  image: {
-    src: "/entertainment/vfx/overview.jpg",
-    alt: "Professional VFX and animation workspace with multiple monitors showing creative projects",
-  },
+  images: [
+    {
+      src: "/entertainment/audio/1 Podcast.webp",
+      alt: "Podcast production setup with microphones and mixer",
+    },
+    {
+      src: "/entertainment/audio/2 Podcast.webp",
+      alt: "Voice-over recording in professional studio",
+    },
+    {
+      src: "/entertainment/audio/3 Podcast.webp",
+      alt: "Sound engineer working with audio mixing software",
+    },
+  ],
 };
 
 const serviceOfferingsData = {
@@ -168,9 +178,9 @@ const successStoriesData = {
   cards: [
     {
       title: "Bringing a Murder Mystery to Life",
-      metrics: [
-        { value: "Seamless", label: "Video Tracking" },
-        { value: "0 Bugs", label: "Final Delivery" },
+      stats: [
+        { title: "Seamless", subtitle: "Video Tracking" },
+        { title: "0 Bugs", subtitle: "Final Delivery" },
       ],
       description:
         "We transformed provided footage into realistic video playback on set phones using advanced tracking techniques & Mocha AE, ensuring seamless integration & meeting tight deadlines.",
@@ -226,7 +236,7 @@ const CTAData = {
 const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings
         data={serviceOfferingsData}

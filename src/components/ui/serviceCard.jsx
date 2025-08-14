@@ -4,30 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
-import { P1, P3 } from "../CustomTags";
+import { P1, P3, P4 } from "../CustomTags";
 import CarouselContainer from "../animations/Carousal";
 
-export const ServiceCard = memo(function ServiceCard({ cards = [], ...props }) {
+export const ServiceCard = memo(function ServiceCard({
+  cards = [],
+  image,
+  ...props
+}) {
   const dirForIndex = (i) =>
     i % 3 === 0 ? "right" : i % 3 === 1 ? "up" : "left";
 
   return (
     <div
-      className="service-cards-container  flex-col lg:flex-row gap-8 lg:gap-4 xl:gap-6 justify-start lg:justify-start items-start overflow-x-auto lg:overflow-x-visible"
+      className="service-cards-container  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
       {...props}>
-      <div className="hidden lg:block">
+      <div className="hidden justify-between gap-8 lg:flex">
         {cards.map((service, i) => (
           <SingleServiceCard
             data={service}
             key={service.id}
             index={i}
             data-reveal
+            image={service.image}
             data-reveal-dir={dirForIndex(i)}
             className="opacity-0 will-change-transform flex-shrink-0"
           />
         ))}
       </div>
-      <div className="lg:hidden h-screen 0 carousel-mode" {...props}>
+      <div className="lg:hidden carousel-mode" {...props}>
         <CarouselContainer
           autoPlay={false} // autoplay is optional; disable if you like
           showDots
@@ -140,7 +145,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   return (
     <div
       {...props}
-      className="single-service-card relative h-[400px] lg:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
+      className="single-service-card relative  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
       {/* Background layer with CSS transitions */}
       <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
@@ -152,7 +157,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
             alt={title}
             width={180}
             height={220}
-            className="object-contain  w-full h-full"
+            className="object-contain object-bottom  w-full h-full"
           />
         </div>
 
@@ -183,12 +188,12 @@ const SingleServiceCard = memo(function SingleServiceCard({
 
             {/* Features list - 2 columns for better use of space */}
             {list && list.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-8 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-6">
                 {list.map((item) => (
                   <div
                     key={item.id}
                     className=" border-b  border-black-200 pb-4 p-3">
-                    <P3 className="text-black-500">{item.text}</P3>
+                    <P4 className="text-black-500 ">{item.text}</P4>
                   </div>
                 ))}
               </div>

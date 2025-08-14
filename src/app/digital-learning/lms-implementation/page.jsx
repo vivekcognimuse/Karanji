@@ -130,10 +130,126 @@ const learningChallenges = {
     },
   ],
 };
+const switchSectionData = {
+  tabs: [
+    "Learning Experience",
+    "Content Management",
+    "Administration & Reporting",
+  ],
+  content: {
+    "Learning Experience": {
+      sections: [
+        {
+          title: "Course Navigation",
+          image:
+            "/digital-learning/switchSection/Learning experience/Course Navigation.webp",
+          content:
+            "With K-nest LMS, navigating through training content is easy & effortless, providing a seamless learning experience.",
+          tags: [
+            "CYU quizzes for comprehension",
+            "Access Active & Completed courses",
+          ],
+        },
+        {
+          title: "Gamification & Engagement",
+          image:
+            "/digital-learning/switchSection/Learning experience/Gamification & Engagement (1).webp",
+          content:
+            "Gamification & leaderboards inspire achievement & healthy competition, motivating learners to perform their best",
+          tags: [
+            "Custom badges",
+            "Leaderboards & points",
+            "Social learning tools",
+          ],
+        },
+        {
+          title: "Mobile Learning",
+          image:
+            "/digital-learning/switchSection/Learning experience/Mobile Learning (1).webp",
+          content:
+            "The K-nest MobiTute Mobile App, you can learn anytime & anywhere, putting education right in the palm of your hand",
+          tags: [
+            "Offline access",
+            "Mobile assessments",
+            "Cross-device compatibility",
+          ],
+        },
+      ],
+    },
+    "Content Management": {
+      sections: [
+        {
+          title: "Course Structure",
+          image:
+            "/digital-learning/switchSection/Content Management/Course Structure.webp",
+          content:
+            "Organize & structure your courses with an intuitive hierarchy, supports various file types including SCORM for easy management.",
+          tags: ["Hierarchical structure", "SCORM support"],
+        },
+        {
+          title: "Assessment Tools",
+          image:
+            "/digital-learning/switchSection/Content Management/Assessment Tools.webp",
+          content:
+            "Track learner progress with built-in assessments, tailored question difficulty, & precise grading, providing valuable insights, reports.",
+          tags: ["Built-in assessments", "Coaching reports", "Precise grading"],
+        },
+        {
+          title: "Certification",
+          image:
+            "/digital-learning/switchSection/Content Management/Certification.webp",
+          content:
+            "Celebrate learner achievements with customizable certificates & badges, all featuring your company’s branding & detailed grades",
+          tags: ["Custom certificates", "Badges", "Grades", "Credentials"],
+        },
+      ],
+    },
+    "Administration & Reporting": {
+      sections: [
+        {
+          title: "User Management",
+          image:
+            "/digital-learning/switchSection/Administration and supporting/User Management.png",
+          content:
+            "Manage users & groups easily with bulk operations & HRMS integration, including single sign-on for seamless access.",
+          tags: [
+            "Effortless user creation",
+            "Bulk operations",
+            "Single sign-on",
+          ],
+        },
+        {
+          title: "Reporting & Analytics",
+          image:
+            "/digital-learning/switchSection/Administration and supporting/Reporting & Analytics.webp",
+          content:
+            "Get valuable insights into your training efforts with performance tracking, activity monitoring, & customizable reports.",
+          tags: [
+            "Performance tracking",
+            "Activity monitoring",
+            "Exportable reports",
+          ],
+        },
+        {
+          title: "System Administration",
+          image:
+            "/digital-learning/switchSection/Administration and supporting/System Administration.png",
+          content:
+            "Take full control of your training environment with reusable course components, bulk assessments, & automated reminders.",
+          tags: [
+            "Reusable components",
+            "Automated notifications",
+            "Bulk assessments",
+          ],
+        },
+      ],
+    },
+  },
+};
 export default async function LMSImplementation() {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
 
       <ServiceOfferings
         data={serviceOfferingsData}
@@ -143,7 +259,7 @@ export default async function LMSImplementation() {
       <LMSLearning data={lmsLearningData} />
 
       <LearningChallenges data={learningChallenges} />
-      <SwitchSection />
+      <SwitchSection data={switchSectionData} />
 
       <CTA data={ctaData} />
     </div>

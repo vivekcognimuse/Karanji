@@ -24,10 +24,20 @@ const serviceOverview = {
     "Our event production team delivers immersive experiences that engage audiences & exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
   feature:
     "With expert coordination, technical reliability, & creative stagecraft, we manage every element of execution—ensuring events are safe, seamless, and memorable at scale or remotely.",
-  image: {
-    src: "/event/overview.jpg", // Replace with actual path
-    alt: "Stage event with audience and speaker under lights",
-  },
+  images: [
+    {
+      src: "/entertainment/event/1 event.webp",
+      alt: "Podcast production setup with microphones and mixer",
+    },
+    {
+      src: "/entertainment/event/2 event.webp",
+      alt: "Voice-over recording in professional studio",
+    },
+    {
+      src: "/entertainment/event/3 event.webp",
+      alt: "Sound engineer working with audio mixing software",
+    },
+  ],
 };
 
 const serviceOfferingsData = {
@@ -108,39 +118,39 @@ const contentFormatsData = {
   content: [
     {
       description: "HDL‑Acoustics sound systems",
-      src: "/event/tools/sound.svg",
+      src: "/entertainment/event/technology/1.svg",
     },
     {
       description: "Dynamic Martin lighting solutions",
-      src: "/event/tools/lighting.svg",
+      src: "/entertainment/event/technology/2.svg",
     },
     {
       description: "4K projection & LED display walls",
-      src: "/event/tools/projection.svg",
+      src: "/entertainment/event/technology/3.svg",
     },
     {
       description: "High‑resolution LED display technology",
-      src: "/event/tools/led.svg",
+      src: "/entertainment/event/technology/4.svg",
     },
     {
       description: "Blackmagic video production gear",
-      src: "/event/tools/blackmagic.svg",
+      src: "/entertainment/event/technology/5.svg",
     },
     {
       description: "ClearCom communication systems",
-      src: "/event/tools/communication.svg",
+      src: "/entertainment/event/technology/6.svg",
     },
     {
       description: "Modular custom stage rigging setups",
-      src: "/event/tools/rigging.svg",
+      src: "/entertainment/event/technology/7.svg",
     },
     {
       description: "Streaming encoders & platforms",
-      src: "/event/tools/streaming.svg",
+      src: "/entertainment/event/technology/8.svg",
     },
     {
       description: "Interactive audience response tools",
-      src: "/event/tools/response.svg",
+      src: "/entertainment/event/technology/9.svg",
     },
   ],
 };
@@ -152,9 +162,9 @@ const successStoriesData = {
   cards: [
     {
       title: "Convocation Day School Video Project",
-      metrics: [
-        { value: "0 Delays", label: "Timely Delivery" },
-        { value: "3‑Days", label: "Turnaround Time" },
+      stats: [
+        { title: "0 Delays", subtitle: "Timely Delivery" },
+        { title: "3‑Days", subtitle: "Turnaround Time" },
       ],
       description:
         "We rapidly scripted, shot, & edited a captivating, high‑quality video to showcase the school during its convocation ceremony, despite tight deadlines & limited resources.",
@@ -209,7 +219,7 @@ const CTAData = {
 const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings
         data={serviceOfferingsData}

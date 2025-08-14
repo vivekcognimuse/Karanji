@@ -89,9 +89,9 @@ export const industriesData = [
 export const testimonialsData = [
   {
     title: "AI-Powered Digital Twin for Manufacturing",
-    metrics: [
-      { value: "25%", label: "Improved Operational Efficiency" },
-      { value: "30%", label: "Reduced Downtime" },
+    stats: [
+      { title: "25%", subtitle: "Improved Operational Efficiency" },
+      { title: "30%", subtitle: "Reduced Downtime" },
     ],
     description:
       "An integrated solution combining digital twins simulations with AI analytics to streamline manufacturing processes, reduce downtime, and optimize production efficiency.",
@@ -100,7 +100,7 @@ export const testimonialsData = [
 ];
 
 export const statsData = [
-  { value: "389%", label: "Return On Investment" },
-  { value: "73%", label: "Efficiency Boost" },
-  { value: "$4.2M", label: "Annual Savings" },
+  { title: "389%", subtitle: "Return On Investment" },
+  { title: "73%", subtitle: "Efficiency Boost" },
+  { title: "$4.2M", subtitle: "Annual Savings" },
 ];
