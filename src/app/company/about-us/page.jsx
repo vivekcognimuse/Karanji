@@ -2,12 +2,12 @@
 "use client";
 import { useState } from "react";
 import HeroSection from "@/sections/Advisory/Hero";
-import QuoteSection from "@/sections/Company/quoteSection";
-import NextUpSection from "@/sections/Company/NextUpSection";
-import VisionMission from "@/sections/Company/VisionMission";
-import ValuesSection from "@/sections/Company/ValuesSection";
-import JourneySection from "@/sections/Company/journeySection";
-import TimelineComponent from "@/sections/Company/TimelineComponent";
+import QuoteSection from "@/sections/Company/about/quoteSection";
+import NextUpSection from "@/sections/Company/about/NextUpSection";
+import VisionMission from "@/sections/Company/about/VisionMission";
+import ValuesSection from "@/sections/Company/about/ValuesSection";
+import JourneySection from "@/sections/Company/about/journeySection";
+import TimelineComponent from "@/sections/Company/about/TimelineComponent";
 
 const heroData = {
   title: "Our Identity & Purpose",

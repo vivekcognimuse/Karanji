@@ -1,6 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
-import TeamSections from "@/sections/Company/teamSections";
+import TeamSections from "@/sections/Company/about/teamSections";
 
 const heroData = {
   title: "Meet the Experts",
@@ -121,7 +121,7 @@ const teamSectionData = [
 export default async function teampage() {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/Company/Animation/5.png" />
       <CTA data={teamData} />
       <TeamSections sections={teamSectionData} />
 

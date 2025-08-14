@@ -31,7 +31,8 @@ const CaseStudyPage = ({ data }) => {
           <h4
             id={slugify(section.content)}
             className="mt-10 mb-4 scroll-mt-24"
-            key={idx}>
+            key={idx}
+          >
             {section.content}
           </h4>
         );
@@ -51,7 +52,8 @@ const CaseStudyPage = ({ data }) => {
         return (
           <ul
             className="font-outfit text-lg font-light sm:text-xl list-disc pl-5 space-y-2 text-black-950/50 mb-4"
-            key={idx}>
+            key={idx}
+          >
             {(section.items || []).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -78,7 +80,8 @@ const CaseStudyPage = ({ data }) => {
               {(data.tags || []).map((tag, idx) => (
                 <span
                   key={idx}
-                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1">
+                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1"
+                >
                   {tag}
                 </span>
               ))}

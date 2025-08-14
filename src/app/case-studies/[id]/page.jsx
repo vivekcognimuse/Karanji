@@ -69,7 +69,7 @@ export default async function CaseStudyDetail({ params }) {
   const data = await fetchFromStrapi(
     `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
     { populate: "*" },
-    "https://7b97e85117bc.ngrok-free.app/api"
+    "https://3e80ef6ecbf1.ngrok-free.app/api"
   );
 
   const entry = Array.isArray(data) ? data[0] : null;
