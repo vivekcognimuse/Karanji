@@ -916,15 +916,15 @@ export default Navigation;
 
 // const Navbar = () => {
 //   const links = [
-//     { href: "/technology-solutions", label: "Technology Solutions" },
-//     { href: "/technology-solutions/ai-advisory", label: "AI Advisory" },
-//     { href: "/technology-solutions/xr-gaming", label: "XR Gaming" },
-//     { href: "/technology-solutions/digital-twins", label: "Digital Twins" },
-//     { href: "/blog-insights", label: "Blog Insights" },
-//     { href: "/case-studies", label: "Case Studies" },
-//     { href: "/webinar", label: "Webinar" },
-//     { href: "/resources", label: "Resources" },
-//     { href: "/contact", label: "Contact" },
+//     { href: "/technology-solutions", subtitle: "Technology Solutions" },
+//     { href: "/technology-solutions/ai-advisory", subtitle: "AI Advisory" },
+//     { href: "/technology-solutions/xr-gaming", subtitle: "XR Gaming" },
+//     { href: "/technology-solutions/digital-twins", subtitle: "Digital Twins" },
+//     { href: "/blog-insights", subtitle: "Blog Insights" },
+//     { href: "/case-studies", subtitle: "Case Studies" },
+//     { href: "/webinar", subtitle: "Webinar" },
+//     { href: "/resources", subtitle: "Resources" },
+//     { href: "/contact", subtitle: "Contact" },
 //   ];
 
 //   return (

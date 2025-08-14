@@ -44,7 +44,7 @@ const normalizeCaseStudy = (entry) => {
     audienceNote:
       "If you're in manufacturing or industrial training, this case study shows what’s possible with immersive technology.",
     encouragementNote: "Use it, learn from it, and start your own impact story",
-    buttonLabel: "Download Full Case Study",
+    buttonSubTitle: "Download Full Case Study",
   };
 
   return {

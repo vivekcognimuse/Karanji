@@ -40,22 +40,53 @@ const technologyServicesData = {
       id: 1,
       title: "Content Design & Development",
       number: "01",
-      image: "/solutions/ai-advisory.webp",
+      image: null,
+      description:
+        "Transforming learning experiences through expert content design, development, & talent resources",
+      list: [
+        { text: "Custom eLearning modules" },
+        { text: "Microlearning formats" },
+        { text: "Interactive & Immersive Learning" },
+        { text: "Learning Gamification" },
+      ],
+      ctaText: "Learn More",
+      ctaLink: "/",
     },
     {
       id: 2,
       title: "Learning Management System (LMS)",
       number: "02",
       image: "/solutions/gaming-solutions.webp",
+      description:
+        "A fully customizable learning platform that adapts to your organization’s needs.",
+      ctaText: "Learn More",
+      list: [
+        { text: "Homegrown LMS " },
+        { text: "System Integration" },
+        { text: "Content Management" },
+        { text: "Platform Administration" },
+      ],
+      ctaLink: "/",
     },
     {
       id: 3,
       title: "Learning Analytics & Optimization",
       number: "03",
       image: "/solutions/digital-twins.webp",
+      description:
+        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+      list: [
+        { text: "Learning Data Management" },
+        { text: "Custom Dashboards" },
+        { text: "AI Based Learning" },
+        { text: "Performance Measurement" },
+      ],
+      ctaText: "Learn More",
+      ctaLink: "/",
     },
   ],
 };
+
 // methodologyData.js
 
 const methodologyData = {
@@ -110,9 +141,9 @@ const successStoriesData = {
   cards: [
     {
       title: "One-Hour Podcast into a Visual Experience",
-      metrics: [
-        { value: "+100%", label: "Improved Video Clarity" },
-        { value: "30–sec", label: "Hook Developed Proactively" },
+      stats: [
+        { title: "+100%", subTitle: "Improved Video Clarity" },
+        { title: "30–sec", subTitle: "Hook Developed Proactively" },
       ],
       description:
         "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals and a motion graphics hook to elevate the content, making it more engaging and visually compelling.",
@@ -125,11 +156,11 @@ const successStoriesData = {
 const DigitalLearning = () => {
   return (
     <div className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/digital-Learning.webp" />
       <TechnologyServices data={technologyServicesData} />
       <EcoSystem />
       <ConsultancyFramework />
-      <Methodology data={methodologyData} />{" "}
+      <Methodology column={true} data={methodologyData} />{" "}
       <SuccessStories data={successStoriesData} />
     </div>
   );

@@ -26,10 +26,20 @@ const serviceOverview = {
     "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs & sound design.",
   feature:
     "With state-of-the-art recording tools & in-house engineers, we deliver polished, professional sound across any distribution platform.",
-  image: {
-    src: "/audio/overview.jpg", // replace with your actual image path
-    alt: "Podcast production setup with professional audio equipment",
-  },
+  images: [
+    {
+      src: "/entertainment/vfx/1 VFX.webp",
+      alt: "Podcast production setup with microphones and mixer",
+    },
+    {
+      src: "/entertainment/vfx/2 VFX.webp",
+      alt: "Voice-over recording in professional studio",
+    },
+    {
+      src: "/entertainment/vfx/3 VFX.webp",
+      alt: "Sound engineer working with audio mixing software",
+    },
+  ],
 };
 
 // SERVICE OFFERINGS
@@ -111,29 +121,35 @@ const contentFormatsData = {
     "Industry‑standard tools like Pro Tools HD, Neumann mics, & Avalon preamps. Our setup is built for high‑end audio across formats.",
   image: null,
   content: [
-    { description: "Pro Tools HD", src: "/audio/tools/pro-tools-hd.svg" },
-    { description: "Logic Pro X", src: "/audio/tools/logic-pro-x.svg" },
+    { description: "Pro Tools HD", src: "/entertainment/vfx/techstack/1.svg" },
+    { description: "Logic Pro X", src: "/entertainment/vfx/techstack/2.svg" },
     {
       description: "Neumann microphones",
-      src: "/audio/tools/neumann-mics.svg",
+      src: "/entertainment/vfx/techstack/3.svg",
     },
     {
       description: "Soundcraft mixing console",
-      src: "/audio/tools/soundcraft-console.svg",
+      src: "/entertainment/vfx/techstack/4.svg",
     },
-    { description: "Avalon preamps", src: "/audio/tools/avalon-preamps.svg" },
-    { description: "iZotope RX suite", src: "/audio/tools/izotope-rx.svg" },
+    {
+      description: "Avalon preamps",
+      src: "/entertainment/vfx/techstack/5.svg",
+    },
+    {
+      description: "iZotope RX suite",
+      src: "/entertainment/vfx/techstack/6.svg",
+    },
     {
       description: "Waves plugin bundle",
-      src: "/audio/tools/waves-plugins.svg",
+      src: "/entertainment/vfx/techstack/7.svg",
     },
     {
       description: "Sound‑treated studio rooms",
-      src: "/audio/tools/studio-rooms.svg",
+      src: "/entertainment/vfx/techstack/8.svg",
     },
     {
       description: "Podcast recording setup",
-      src: "/audio/tools/podcast-setup.svg",
+      src: "/entertainment/vfx/techstack/9.svg",
     },
   ],
 };
@@ -146,9 +162,9 @@ const successStoriesData = {
   cards: [
     {
       title: "One‑Hour Podcast into a Visual Experience",
-      metrics: [
-        { value: "+100%", label: "Improved Video Clarity" },
-        { value: "30‑sec", label: "Hook Developed Proactively" },
+      stats: [
+        { title: "+100%", subtitle: "Improved Video Clarity" },
+        { title: "30‑sec", subtitle: "Hook Developed Proactively" },
       ],
       description:
         "We enhanced a raw one‑hour podcast with AI‑driven upgrades, adding dynamic visuals & a motion‑graphics hook to elevate the content, making it more engaging & visually compelling.",
@@ -206,11 +222,11 @@ const CTAData = {
 const AudioPodcastProduction = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} />
+      <HeroSection data={heroData} bgImage="/hero/VFX banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings
         data={serviceOfferingsData}
-        icon="/audio/icons/default.svg" // Update if using dynamic icons
+        icon="/entertainment/vfx/offering" // Update if using dynamic icons
       />
       <Methodology data={methodologyData} />
       <ContentFormats data={contentFormatsData} />

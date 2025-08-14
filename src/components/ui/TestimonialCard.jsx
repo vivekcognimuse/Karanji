@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Icon } from "@iconify/react";
+import Button from "./Button";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
@@ -13,29 +14,24 @@ const TestimonialCard = ({ testimonial }) => {
 
       <h4 className="mb-8 lg:mb-12 text-2xl ">{testimonial?.title}</h4>
 
-      <div className="grid grid-cols-1 lg:flex lg:justify-between lg:flex-wrap gap-4 lg:gap-6 mb-8 lg:mb-12">
-        {testimonial?.metrics?.map((metric, statsIndex) => (
+      <div className="flex  flex-col lg:flex-row gap-8  mb-8 lg:mb-12">
+        {testimonial?.stats?.map((metric, statsIndex) => (
           <div
             key={statsIndex}
-            className="flex border-l-2 border-black pl-4 items-center gap-4">
-            <div>
-              <p className="font-sans font-semibold text-2xl md:text-5xl mb-2">
-                {metric.value}
-              </p>
-              <p className="text-black text-sm">{metric.label}</p>
-            </div>
+            className="flex w-full lg:items-start  lg:justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4">
+            <p className="font-sans my-auto  font-semibold text-2xl md:text-5xl">
+              {metric.title}
+            </p>
+            <p className="text-black text-sm">{metric.subTitle}</p>
           </div>
         ))}
       </div>
 
       <p className="text-black/70 mb-6">{testimonial?.description}</p>
-
-      <div className="flex items-center gap-2 text-lg font-normal justify-end tracking-wide cursor-pointer hover:text-indigo-600 transition-colors group">
-        <span>{testimonial?.link || "Read Full CaseStudy"}</span>
-        <Icon
-          icon="lucide:arrow-up-right"
-          className="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-        />
+      <div className="flex">
+        <Button className="ml-auto" variant="text">
+          {testimonial?.link || "Read Full CaseStudy"}
+        </Button>
       </div>
     </div>
   );

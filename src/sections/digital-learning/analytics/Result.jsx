@@ -8,6 +8,7 @@
 // }} />
 
 import { P3 } from "@/components/CustomTags";
+import Image from "next/image";
 
 export default function Results({ data = {} }) {
   const {
@@ -19,16 +20,23 @@ export default function Results({ data = {} }) {
   } = data;
 
   return (
-    <div className="max-w-md mx-auto p-6">
+    <div className=" ">
       {/* Header */}
       <div className="mb-8">
         <h4 className=" mb-4">{title}</h4>
         <P3 className="text-sm text-gray-600">{subtitle}</P3>
       </div>
 
+      <Image
+        src="/digital-learning/analytics/theResult.svg"
+        alt="Descriptive Alt Text"
+        width={1360}
+        height={317}
+        className="object-contain w-full h-auto"
+      />
+
       {/* Content Layout */}
-      <div className="space-y-6">
-        {/* Adaptive Content - Center */}
+      {/* <div className="space-y-6">
         <div className="flex flex-col items-center">
           <span className="text-sm text-gray-700 text-center">
             {adaptiveContent}
@@ -43,9 +51,8 @@ export default function Results({ data = {} }) {
           </div>
         </div>
 
-        {/* Bottom Row - Personalized Learning & Proactive Support */}
         <div className="flex justify-between items-center px-4">
-          {/* Personalized Learning - Left */}
+         
           <div className="flex gap-4  items-center">
             <span className="text-xs text-gray-700 text-center">
               {personalizedLearning}
@@ -60,7 +67,7 @@ export default function Results({ data = {} }) {
             </div>
           </div>
 
-          {/* Proactive Support - Right */}
+       
           <div className="flex  gap-4 items-center">
             <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mb-2">
               <svg
@@ -75,7 +82,7 @@ export default function Results({ data = {} }) {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

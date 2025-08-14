@@ -449,7 +449,6 @@ const CarouselContainer = ({
           style={{
             height:
               containerHeight === "auto" ? "auto" : `${containerHeight}px`,
-            minHeight: "400px",
           }}
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
@@ -470,36 +469,36 @@ const CarouselContainer = ({
 
         {/* Navigation Arrows */}
         {showArrows && totalSlides > 1 && (
-          <>
+          <div className="hidden md:block">
             <button
               onClick={goToPrevious}
-              className="absolute -left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-colors"
+              className="absolute -left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF]  rounded-full p-3 shadow-lg cursor-pointer transition-colors"
               aria-label="Previous slide"
               disabled={isAnimating}>
               <Icon icon="lucide:chevron-left" className="w-6 h-6" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF]  rounded-full p-3 shadow-lg cursor-pointer transition-colors"
               aria-label="Next slide"
               disabled={isAnimating}>
               <Icon icon="lucide:chevron-right" className="w-6 h-6" />
             </button>
-          </>
+          </div>
         )}
       </div>
 
       {/* Progress Dots */}
       {showDots && totalSlides > 1 && (
-        <div className="flex justify-center items-center gap-2 mt-6">
+        <div className="flex mt-8 justify-center items-center gap-2 ">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
+              className={`transition-all  duration-300 rounded-full ${
                 index === currentIndex
-                  ? "w-8 h-2 bg-black"
-                  : "w-2 h-2 bg-black/30 hover:bg-black/50"
+                  ? "w-8 h-2 bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF]"
+                  : "w-2 h-2 bg-black/30 cursor-pointer hover:bg-black/50"
               }`}
               aria-label={`Go to slide ${index + 1}`}
               disabled={isAnimating}
