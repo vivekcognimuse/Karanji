@@ -3,6 +3,7 @@ import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
+import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 const heroData = {
@@ -27,9 +28,9 @@ const heroData = {
   ],
 };
 const ctaData = {
-  title: "Ready to lead the future of healthcare?",
+  title: "Ready to transform the future of logistics?",
   description:
-    " To know more about these cases or discuss any other requirement for transformation of Healthcare ",
+    " To know more about these cases or discuss any other requirement for transformation of Logistics",
   PrimaryButtonText: "Please Click here",
   PrimaryButtonLink: "/",
 };
@@ -113,105 +114,92 @@ const strategicPrioritiesData = {
     },
   ],
 };
-const digitalAdoptionData = {
-  sectionTitle: "Digital Adoption",
-  sectionDescription:
+const digitalOfferingsData = {
+  title: "Digital Adoption",
+  description:
     "Regional digital adoption patterns reveal diverse priorities: North America & Europe lead in analytics & sustainability tech, Asia Pacific accelerates smart port & IoT adoption, while the Middle East & Africa focus on infrastructure modernization & blockchain for trade efficiency.",
-  digitalCards: [
+  tag: "Digital Transformation",
+  cards: [
     {
-      id: 1,
       title: "AI & Advanced Analytics",
-      icon: "Icons/ai-analytics.svg",
       description:
         "AI streamlines operations with predictive tools & document automation.",
+      featured: true,
+      icon: "/Icons/ai-analytics.svg",
       hoverContent: [
-        "65% of carriers use predictive maintenance",
-        "40% are testing generative AI for customs documentation",
+        { text: "65% of carriers use predictive maintenance" },
+        { text: "40% are testing generative AI for customs documentation" },
       ],
+      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png", // Update this path to your front image
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
     },
     {
-      id: 2,
       title: "IoT & Connected Devices",
-      icon: "Icons/iot-devices.svg",
       description:
         "IoT enables real-time asset tracking & operational insights.",
+      featured: false,
+      icon: "/Icons/iot-devices.svg",
       hoverContent: [
-        "IoT enables real-time asset tracking & operational insights.",
-        "GPS, RFID, & sensors are widely implemented",
-        "Telematics supports smarter fleet management",
+        {
+          text: "IoT enables real-time asset tracking & operational insights.",
+        },
+        { text: "GPS, RFID, & sensors are widely implemented" },
+        { text: "Telematics supports smarter fleet management" },
       ],
+      frontImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png", // Update this path to your front image
+      hoverImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png", // Update this path to your hover/back image
     },
     {
-      id: 3,
       title: "Digital Twins & Simulation",
-      icon: "Icons/digital-twins.svg",
       description:
         "Digital twins reduce congestion & support operational simulations.",
+      featured: false,
+      icon: "/Icons/digital-twins.svg",
       hoverContent: [
-        "Digital twins reduce congestion & support operational simulations.",
+        {
+          text: "Digital twins reduce congestion & support operational simulations.",
+        },
       ],
+      frontImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png", // Update this path to your front image
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
     },
     {
-      id: 4,
       title: "Blockchain Technology",
-      icon: "Icons/blockchain.svg",
       description:
         "Blockchain enhances compliance, traceability, & secure documentation.",
+      featured: false,
+      icon: "/Icons/blockchain.svg",
       hoverContent: [
-        "Blockchain enhances compliance, traceability, & secure documentation.",
+        {
+          text: "Blockchain enhances compliance, traceability, & secure documentation.",
+        },
       ],
+      frontImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your front image
+      hoverImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png", // Update this path to your hover/back image
     },
-    // Add more cards to test arrow functionality
     {
-      id: 5,
       title: "Cloud Computing",
-      icon: "Icons/cloud.svg",
       description: "Cloud solutions enable scalable, flexible operations.",
+      featured: false,
+      icon: "/Icons/cloud.svg",
       hoverContent: [
-        "Cloud adoption accelerates digital transformation",
-        "90% of logistics companies use cloud services",
+        { text: "Cloud adoption accelerates digital transformation" },
+        { text: "90% of logistics companies use cloud services" },
       ],
-    },
-  ],
-};
-
-const strategicRoadmapData = {
-  sectionTitle: "Strategic StrategicRoadmap for Healthcare Transformation",
-  sectionDescription:
-    "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
-  roadmapData: [
-    {
-      title: "Immediate Priorities",
-      timeframe: "(0–6 months)",
-      intro: "Focus on quick wins & workforce gaps:",
-      points: [
-        "VR surgical training platforms",
-        "AI services for revenue cycle optimization",
-        "Patient education content",
-      ],
-      note: "Builds early success & market trust",
+      frontImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png", // Update this path to your front image
+      hoverImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png", // Update this path to your hover/back image
     },
     {
-      title: "Medium–Term Priorities",
-      timeframe: "(6–18 months)",
-      intro: "Exp& into broader solutions:",
-      points: [
-        "Learning management systems (LMS)",
-        "Clinical decision support AI",
-        "Patient engagement services",
+      title: "Immersive Technologies",
+      description: "VR/AR enhance training & operational support.",
+      featured: false,
+      icon: "/Icons/immersive.svg",
+      hoverContent: [
+        { text: "VR/AR enhance training & operational support." },
+        { text: "72% of firms use VR for logistics training" },
       ],
-      note: "Deepens offerings & strengthens client ties",
-    },
-    {
-      title: "Long–Term Priorities",
-      timeframe: "(18+ months)",
-      intro: "Aim for market leadership:",
-      points: [
-        "Fully integrated transformation platforms",
-        "Advanced VR therapy",
-        "Scalable workforce development",
-      ],
-      note: "Positions as a strategic healthcare partner",
+      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png", // Update this path to your front image
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
     },
   ],
 };
@@ -219,134 +207,121 @@ const strategicRoadmapData = {
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases & Implementation",
   sectionDescription:
-    "12 validated opportunities with proven market demand & clear ROI pathways",
+    "AI-Powered Solutions Transforming the Logistics Industry",
   filterButtons: [
     { label: "All", active: true },
-    { label: "XR & Gaming", active: false },
-    { label: "AI Advisory & Implementation", active: false },
-    { label: "Creative & Entertainment", active: false },
-    { label: "Digital Learning", active: false },
+    { label: "AI Consulting & Technology Services", active: false },
+    { label: "Immersive Technologies & Digital Learning", active: false },
   ],
+  categoryMapping: {
+    "AI Consulting & Technology Services": "AI Consulting & Tech",
+    "Immersive Technologies & Digital Learning":
+      "Immersive Tech & Digital Learning",
+  },
   useCaseCards: [
     {
       id: 1,
-      icon: "Icons/vr-cardboard.svg", // Replace with your icon path
-      category: "XR & Gaming",
-      title: "Surgical Training Platform",
+      icon: "Icons/ocr-nlp.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "Automatic Document Verification System",
       description:
-        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities",
-      duration: "12–18 months",
-      complexity: "Medium Complexity",
+        "Reduces document errors by 95% & speeds up processing by 70% using OCR & NLP-based verification.",
     },
     {
       id: 2,
-      icon: "Icons/notes-medical.svg", // Replace with your icon path
-      category: "XR & Gaming",
-      title: "Patient Education VR",
+      icon: "Icons/rag-multilingual.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "RAG-Based Multilingual Document Access System",
       description:
-        "4 in 10 patients face affordability & understanding gaps: poor treatment compliance",
-      duration: "12–18 months",
-      complexity: "Low Complexity",
+        "Cuts translation costs by 90% & boosts information retrieval speed by 80% using RAG & multilingual models.",
     },
     {
       id: 3,
-      icon: "Icons/laptop-medical.svg", // Replace with your icon path
-      category: "XR & Gaming",
-      title: "Remote Consultation Platform",
+      icon: "Icons/ai-compliance.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "AI Compliance Engine for Regulatory Automation",
       description:
-        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care",
-      duration: "18–24 months",
-      complexity: "High Complexity",
+        "Achieves 99% accuracy in classification & reduces compliance checks time by 90%.",
     },
     {
       id: 4,
-      icon: "Icons/microchip.svg", // Replace with your icon path
-      category: "AI Advisory",
-      title: "AI Readiness Assessment",
+      icon: "Icons/ai-dispatch.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "Autonomous Dispatch System",
       description:
-        "77% prioritize AI but lack a strategic framework for effective, scalable implementation",
-      duration: "12–18 months",
-      complexity: "Medium Complexity",
+        "Reduces empty miles by 30% & improves on-time delivery by 25% using AI-based carrier matching.",
     },
     {
       id: 5,
-      icon: "Icons/money-bill-wave.svg", // Replace with your icon path
-      category: "AI Advisory",
-      title: "Revenue Cycle Optimization",
+      icon: "Icons/financial-operations.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "AI-Powered Financial Operations System",
       description:
-        "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency",
-      duration: "6–12 months",
-      complexity: "Medium Complexity",
+        "Cuts payment errors by 85% & invoice processing time by 50% through AI-based reconciliation.",
     },
     {
       id: 6,
-      icon: "Icons/user-md.svg", // Replace with your icon path
-      category: "AI Advisory",
-      title: "Clinical Decision Support",
+      icon: "Icons/customer-service.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "Intelligent Customer Service Automation",
       description:
-        "Medical decisions suffer without real-time AI to improve safety, accuracy, & diagnostic confidence.",
-      duration: "12–18 months",
-      complexity: "High Complexity",
+        "Delivers 24/7 support, reduces agent workload, & improves satisfaction via AI chatbots & sentiment analysis.",
     },
     {
       id: 7,
-      icon: "Icons/book-medical.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
-      title: "Patient Education Content",
+      icon: "Icons/supplier-ecosystem.svg", // Replace with appropriate icon path
+      category: "AI Consulting & Tech",
+      title: "Supplier & Partner Ecosystem Collaboration",
       description:
-        "Low health literacy persists; providers lack customizable, multilingual tools for clear patient communication.",
-      duration: "12–18 months",
-      complexity: "Low Complexity",
+        "Automates 80% of document exchanges & achieves 100% shipment traceability through blockchain.",
     },
     {
       id: 8,
-      icon: "Icons/microchip.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
-      title: "Healthcare Marketing",
+      icon: "Icons/vr-cardboard.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "Maritime Training & Safety Simulation",
       description:
-        "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust & community engagement.",
-      duration: "6–12 months",
-      complexity: "Medium Complexity",
+        "Reduces training time by up to 75% & enhances safety through VR-based emergency drills.",
     },
     {
       id: 9,
-      icon: "Icons/user-md.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
-      title: "Medical Training Content Production",
+      icon: "Icons/maritime-academy.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "Maritime Knowledge Academy",
       description:
-        "Healthcare workers lack effective training content tailored to learning styles, specialists, & competency needs.",
-      duration: "12–18 months",
-      complexity: "High Complexity",
+        "Standardizes training globally & scales learning access 24/7 via gamified e-learning.",
     },
     {
       id: 10,
-      icon: "Icons/laptop-medical.svg", // Replace with your icon path
-      category: "Digital Learning",
-      title: "Healthcare LMS",
+      icon: "Icons/cybersecurity.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "Cybersecurity Awareness",
       description:
-        "Fragmented training programs lack robust LMS tools for workforce & competency tracking.",
-      duration: "12–18 months",
-      complexity: "Medium Complexity",
+        "Improves security behavior & reduces incidents via scenario-based microlearning.",
     },
     {
       id: 11,
-      icon: "Icons/gamepad.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
-      title: "Gamified Learning",
+      icon: "Icons/sustainability.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "Sustainability & Compliance Training",
       description:
-        "Traditional training underperforms; gamified learning boosts engagement, retention, & clinical outcomes.",
-      duration: "12–18 months",
-      complexity: "Medium Complexity",
+        "Ensures compliance & reduces risk of violations through environmental regulation training.",
     },
     {
       id: 12,
-      icon: "Icons/vr-cardboard.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
-      title: "Virtual Skills Laboratory",
+      icon: "Icons/ar-maintenance.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "AR-Enhanced Maintenance & Repair",
       description:
-        "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural & patient training.",
-      duration: "18–24 months",
-      complexity: "High Complexity",
+        "Reduces repair time by 30% & preserves knowledge through AR-guided procedures.",
+    },
+    {
+      id: 13,
+      icon: "Icons/digital-twin.svg", // Replace with appropriate icon path
+      category: "Immersive Tech & Digital Learning",
+      title: "Digital Twin Visualization for Port Operations",
+      description:
+        "Improves port throughput by 20% & reduces emissions through 3D visual planning tools.",
     },
   ],
 };
@@ -357,8 +332,12 @@ export default async function Logistics() {
       <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
-      <DigitalAdoption data={digitalAdoptionData} />
-      <StrategicRoadmap data={strategicRoadmapData} />
+
+      <ServiceOfferings
+        data={digitalOfferingsData}
+        icon="/entertainment/vfx/offering" // Update if using dynamic icons
+      />
+
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />
     </div>

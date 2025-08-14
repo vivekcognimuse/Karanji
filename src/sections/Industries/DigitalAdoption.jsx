@@ -24,23 +24,45 @@ const DigitalAdoption = ({ data }) => {
         <h4 className="mb-8">{sectionTitle}</h4>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto relative">
-          {visibleCards.map(
-            ({ id, title, icon, description, hoverContent }) => (
+          {visibleCards.map(({ id, title, icon, description }) => (
+            <div
+              key={id}
+              className={`bg-white rounded-xl shadow-md p-6 transition-all duration-300 cursor-pointer relative overflow-hidden ${
+                hoveredCard === id ? "scale-110 z-10" : "hover:scale-105"
+              }`}
+              onMouseEnter={() => setHoveredCard(id)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* Front Face (Default) */}
               <div
-                key={id}
-                className={`bg-white rounded-xl shadow-md p-6 transition-all duration-300 cursor-pointer relative overflow-hidden ${
-                  hoveredCard === id ? "scale-110 z-10" : "hover:scale-105"
+                className={`transition-opacity duration-300 ${
+                  hoveredCard === id ? "opacity-0" : "opacity-100"
                 }`}
-                onMouseEnter={() => setHoveredCard(id)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Front Face (Default) */}
-                <div
-                  className={`transition-opacity duration-300 ${
-                    hoveredCard === id ? "opacity-0" : "opacity-100"
-                  }`}
-                >
-                  <div className="flex mb-4">
+                <div className="flex mb-4">
+                  <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full">
+                    <img
+                      src={icon}
+                      alt={title}
+                      className="h-6 w-6 text-white"
+                    />
+                  </div>
+                </div>
+                <h5 className="mb-3 font-medium">{title}</h5>
+                <P3 className="text-sm text-gray-500">{description}</P3>
+              </div>
+
+              {/* Back Face (Hover) */}
+              <div
+                className={`absolute inset-0 p-6 transition-opacity duration-300 ${
+                  hoveredCard === id ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <div className="h-full flex flex-col justify-between">
+                  <div className="border-t border-gray-200 pt-4">
+                    <P3 className="text-sm text-gray-600">{description}</P3>
+                  </div>
+                  <div className="flex justify-start">
                     <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full">
                       <img
                         src={icon}
@@ -49,41 +71,10 @@ const DigitalAdoption = ({ data }) => {
                       />
                     </div>
                   </div>
-                  <h5 className="mb-3 font-medium">{title}</h5>
-                  <P3 className="text-sm text-gray-500">{description}</P3>
-                </div>
-
-                {/* Back Face (Hover) */}
-                <div
-                  className={`absolute inset-0 p-6 transition-opacity duration-300 ${
-                    hoveredCard === id ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <div className="h-full flex flex-col justify-between">
-                    {/* Top section with border-t and hover content */}
-                    <div className="border-t border-gray-200 pt-4">
-                      {hoverContent.map((content, idx) => (
-                        <P3 key={idx} className="text-sm text-gray-600 mb-2">
-                          {content}
-                        </P3>
-                      ))}
-                    </div>
-
-                    {/* Bottom left icon */}
-                    <div className="flex justify-start">
-                      <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full">
-                        <img
-                          src={icon}
-                          alt={title}
-                          className="h-6 w-6 text-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
-            )
-          )}
+            </div>
+          ))}
         </div>
 
         {/* Navigation Arrows */}

@@ -18,7 +18,8 @@ export const ServiceCard = memo(function ServiceCard({
   return (
     <div
       className="service-cards-container  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
-      {...props}>
+      {...props}
+    >
       <div className="hidden justify-between gap-8 lg:flex">
         {cards.map((service, i) => (
           <SingleServiceCard
@@ -37,7 +38,8 @@ export const ServiceCard = memo(function ServiceCard({
           autoPlay={false} // autoplay is optional; disable if you like
           showDots
           showArrows
-          className="w-full">
+          className="w-full"
+        >
           {cards.map((service, i) => (
             <SingleServiceCard
               key={service?.id ?? i}
@@ -145,7 +147,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
   return (
     <div
       {...props}
-      className="single-service-card relative  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
+      className="single-service-card relative  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group"
+    >
       {/* Background layer with CSS transitions */}
       <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
@@ -192,7 +195,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
                 {list.map((item) => (
                   <div
                     key={item.id}
-                    className=" border-b  border-black-200 pb-4 p-3">
+                    className=" border-b  border-black-200 pb-4 p-3"
+                  >
                     <P4 className="text-black-500 ">{item.text}</P4>
                   </div>
                 ))}

@@ -205,6 +205,12 @@ const strategicUseCaseData = {
     { label: "Creative & Entertainment", active: false },
     { label: "Digital Learning", active: false },
   ],
+  categoryMapping: {
+    "XR & Gaming": "XR & Gaming",
+    "AI Advisory & Implementation": "AI Advisory",
+    "Creative & Entertainment": "Creative & Entertainment",
+    "Digital Learning": "Digital Learning",
+  },
   useCaseCards: [
     {
       id: 1,
