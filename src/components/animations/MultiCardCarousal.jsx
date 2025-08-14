@@ -188,7 +188,7 @@ const MultiCardCarousel = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       {/* Carousel Container */}
-      <div ref={carouselRef} className="relative py-8 overflow-hidden w-full">
+      <div ref={carouselRef} className="relative overflow-hidden w-full">
         <div
           ref={scrollContainerRef}
           className="flex items-center  w-fit"

@@ -8,7 +8,8 @@ const NAV_LINKS = [
     title: "Home",
     href: "/",
     links: [],
-    description: "Welcome to our homepage, where you can explore our services and solutions.",
+    description:
+      "Welcome to our homepage, where you can explore our services and solutions.",
   },
   {
     title: "Solutions",
@@ -16,21 +17,25 @@ const NAV_LINKS = [
       {
         title: "Technology Solutions",
         href: "/technology-solutions",
+        icon: "/nav/technology-solutions.svg",
         description: "Innovative technology for your digital needs.",
         links: [
           {
             name: "AI Advisory & Implementation",
             href: "/technology-solutions/ai-advisory",
+            icon: "/nav/ai-advisory-implementation.svg",
             description: "Implement AI to drive smarter decisions.",
           },
           {
             name: "XR & Gaming Solutions",
             href: "/technology-solutions/xr-gaming",
+            icon: "/nav/xr-gaming-solutions.svg",
             description: "Transform your business with immersive XR.",
           },
           {
             name: "Digital Twins & Simulations",
             href: "/technology-solutions/digital-twins",
+            icon: "/nav/digital-twins-simulations.svg",
             description: "Optimize operations with virtual simulations.",
           },
         ],
@@ -38,21 +43,26 @@ const NAV_LINKS = [
       {
         title: "Digital Learning",
         href: "/digital-learning",
-        description: "Empowering businesses through cutting-edge digital learning.",
+        icon: "/nav/digital-learning.svg",
+        description:
+          "Empowering businesses through cutting-edge digital learning.",
         links: [
           {
             name: "Content Design & Development",
             href: "/digital-learning/content-design",
+            icon: "/nav/content-design-development.svg",
             description: "Tailored content & expert-led learning.",
           },
           {
             name: "Learning Management Systems",
             href: "/digital-learning/lms-implementation",
+            icon: "/nav/learning-management-systems.svg",
             description: "Customizable, & seamlessly integrated learning.",
           },
           {
             name: "Advanced Analytics",
             href: "/digital-learning/analytics",
+            icon: "/nav/advanced-analytics.svg",
             description: "Actionable insights for better performance.",
           },
         ],
@@ -60,22 +70,27 @@ const NAV_LINKS = [
       {
         title: "Creative Services",
         href: "/creative-services",
-        description: "Bringing your ideas to life with creativity & innovation.",
+        icon: "/nav/creative-services.svg",
+        description:
+          "Bringing your ideas to life with creativity & innovation.",
         links: [
           {
             name: "VFX & Animation Services",
-            href: "/entertainment/vfx&animation",
-            description: "Implement AI to drive smarter decisions.",
+            href: "/creative-services/vfx&animation",
+            icon: "/nav/vfx-animation-services.svg",
+            description: "Stunning visual effects and animations.",
           },
           {
             name: "Audio & Podcast Production",
-            href: "/entertainment/audio",
-            description: "Optimize operations with virtual simulations.",
+            href: "/creative-services/audio",
+            icon: "/nav/audio-podcast-production.svg",
+            description: "Professional audio and podcast solutions.",
           },
           {
             name: "Event Production & Management",
-            href: "/entertainment/event",
-            description: "Transform your business with immersive XR.",
+            href: "/creative-services/event",
+            icon: "/nav/event-production-management.svg",
+            description: "Transform your events with expert management.",
           },
         ],
       },
@@ -87,21 +102,25 @@ const NAV_LINKS = [
       {
         name: "Healthcare",
         href: "/healthcare",
+        icon: "/nav/healthcare.svg",
         description: "Empowering care with smart technology.",
       },
       {
         name: "Aviation",
         href: "/aviation",
+        icon: "/nav/aviation.svg",
         description: "Transforming aviation with future-ready solutions.",
       },
       {
         name: "Logistics",
         href: "/logistics",
+        icon: "/nav/logistics.svg",
         description: "Streamlining supply chains with precision.",
       },
       {
         name: "Oil & Gas",
         href: "/oil-and-gas",
+        icon: "/nav/oil-gas.svg",
         description: "Fueling digital innovation & efficiency.",
       },
     ],
@@ -112,21 +131,25 @@ const NAV_LINKS = [
       {
         name: "About Us",
         href: "/company/about-us",
+        icon: "/nav/about-us.svg",
         description: "Our vision & mission guide everything we do.",
       },
       {
         name: "Our Team",
         href: "/company/our-team",
+        icon: "/nav/our-team.svg",
         description: "Meet the experts driving innovation & success.",
       },
       {
         name: "Careers",
         href: "/company/careers",
+        icon: "/nav/careers.svg",
         description: "Join our team & make an impact.",
       },
       {
         name: "Contact Us",
         href: "/contact",
+        icon: "/nav/contact-us.svg",
         description: "Get in touch for inquiries & support.",
       },
     ],
@@ -137,22 +160,24 @@ const NAV_LINKS = [
       {
         name: "Case Studies",
         href: "/case-studies",
+        icon: "/nav/case-studies.svg",
         description: "Explore real-world solutions & success stories.",
       },
       {
         name: "Blog & Insights",
         href: "/blog-insights",
+        icon: "/nav/blog-insights.svg",
         description: "Stay informed with the latest trends & insights.",
       },
       {
         name: "Webinars",
         href: "/webinar",
+        icon: "/nav/webinars.svg",
         description: "Join us for insightful webinars & events.",
       },
     ],
   },
 ];
-
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -282,7 +307,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className=" sticky top-0 z-50 shadow-lg"
+      className=" sticky bg-white top-0 z-[999] shadow-lg"
       role="navigation"
       aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -343,7 +368,7 @@ export default function Navbar() {
                     style={{ ...getDropdownPosition(index), minWidth: "560px" }}
                     role="menu">
                     <div className="flex">
-                      <div className="w-1/2 border-r bg-red-300 border-gray-100">
+                      <div className="w-1/2 border-r  border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
                           <div
                             key={sectionIndex}
@@ -414,7 +439,7 @@ export default function Navbar() {
                               <a
                                 key={linkIndex}
                                 href={link.href}
-                                className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors duration-150
+                                className={`block px-4 py-2 text-xl hover:bg-purple-50 transition-colors duration-150
                               ${
                                 isActive(link.href)
                                   ? "text-black font-medium border-r-2 border-purple-600"
@@ -442,7 +467,7 @@ export default function Navbar() {
                         <a
                           key={linkIndex}
                           href={link.href}
-                          className={`block px-4 py-2 text-sm hover:bg-purple-50 transition-colors duration-150
+                          className={`block px-4 py-2 text-xl hover:bg-purple-50 transition-colors duration-150
                           ${
                             isActive(link.href)
                               ? "text-black font-medium border-r-2 border-purple-600"
@@ -460,7 +485,7 @@ export default function Navbar() {
             {/* Get in Touch CTA */}
             <a
               href="/contact"
-              className="ml-4 px-6 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-200"
+              className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
               aria-label="Get in Touch">
               Get in Touch
             </a>
@@ -536,7 +561,7 @@ export default function Navbar() {
                         <div className="flex items-center justify-between">
                           <a
                             href={section.href}
-                            className={`flex-1 px-3 py-2 text-sm rounded-md
+                            className={`flex-1 px-3 py-2 text-xl rounded-md
                               ${
                                 isActive(section.href) ||
                                 isParentActive(section.links)
@@ -602,7 +627,7 @@ export default function Navbar() {
                       <a
                         key={linkIndex}
                         href={link.href}
-                        className={`block px-3 py-2 text-sm rounded-md
+                        className={`block px-3 py-2 text-xl rounded-md
                           ${
                             isActive(link.href)
                               ? "text-black bg-purple-50 border-l-2 border-purple-600"
@@ -619,7 +644,7 @@ export default function Navbar() {
             {/* Mobile Get in Touch CTA */}
             <a
               href="/contact"
-              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-200">
+              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200">
               Get in Touch
             </a>
           </div>

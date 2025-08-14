@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal";
+import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
+import CarouselContainer from "@/components/animations/Carousal";
 
 const Advantages = ({ className = "", data }) => {
   const { title, list } = data || {};
@@ -22,7 +24,7 @@ const Advantages = ({ className = "", data }) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-8 items-end">
+        <div className="md:grid hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-8 items-end">
           {list.map((card, index) => (
             <div
               key={card.id}
@@ -38,6 +40,28 @@ const Advantages = ({ className = "", data }) => {
               <P3 className="text-black-500 font-light">{card.description}</P3>
             </div>
           ))}
+        </div>
+
+        <div className="md:hidden">
+          <CarouselContainer>
+            {list.map((card, index) => (
+              <div
+                key={card.id}
+                className="border-l-2 max-w-screen border-gray-300 pl-4 flex flex-col justify-end min-h-fit"
+                data-reveal
+                data-reveal-dir="up">
+                <p className="text-5xl font-[100] text-black font-sans mb-3 text-left">
+                  {(index + 1).toString().padStart(2, "0")}
+                </p>
+
+                <P2 className="">{card.title}</P2>
+
+                <P3 className="text-black-500 font-light">
+                  {card.description}
+                </P3>
+              </div>
+            ))}
+          </CarouselContainer>
         </div>
       </div>
 

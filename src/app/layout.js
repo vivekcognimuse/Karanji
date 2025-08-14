@@ -1,8 +1,9 @@
 import { Albert_Sans, Outfit } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navbar";
+
 import Footer from "@/components/Footer";
-import SmoothScrollWrapper from "@/components/ScrollSmoother";
+
+import Navbar from "@/components/Navbar";
 
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${albertSans.variable} ${outfit.variable}  antialiased`}>
-        <Navigation />
+        className={`${albertSans.variable} ${outfit.variable}   antialiased`}>
+        <Navbar />
         {/* <SmoothScrollWrapper> */}
-        {children}
-        <Footer />
+        <div className="bg-[url('/page/home.svg')]  bg-cover bg-right bg-no-repeat">
+          {children}
+          <Footer />
+        </div>
         {/* </SmoothScrollWrapper> */}
       </body>
     </html>

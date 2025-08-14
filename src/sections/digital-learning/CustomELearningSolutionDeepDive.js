@@ -1,3 +1,4 @@
+import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 import { P1, P2, P3 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { Icon } from "@iconify/react";
@@ -28,38 +29,45 @@ export default function ELearningSolutions({ data }) {
       </div>
 
       {/* Cards */}
-      <div className="max-w-6xl w-full min-w-lg flex gap-8 mx-auto px-6 pb-10">
-        {cards.map((card, index) => {
-          const { label, description, videoSrc, imageSrc, alt } = card;
-          return (
-            <div
-              key={index}
-              className="bg-white  rounded-2xl border border-black-300 p-4">
-              <P1 className="w-fit rounded-full py-2 border border-black-200 mb-4 px-6">
-                {label}
-              </P1>
-              <P3 className="mb-8">{description}</P3>
-              <div className=" relative min-h-20  h-auto w-auto">
-                <Image
-                  src={imageSrc}
-                  alt={alt || description}
-                  width={500}
-                  height={310}
-                  className="w-full aspect-auto"
-                />
-
-                <a href={videoSrc} target="_blank" rel="noopener noreferrer">
-                  <button className="size-12 cursor-pointer flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 justify-center rounded-full items-center bg-black">
-                    <Icon
-                      icon="f7:play-fill"
-                      className="size-6 text-[#F7D9D9]"
+      <div className=" w-full min-w-lg  gap-8 mx-auto px-6 ">
+        <MultiCardCarousel>
+          {cards.map((card, index) => {
+            const { subtitle, description, videoSrc, imageSrc, alt } = card;
+            return (
+              <div className="flex flex-wrap gap-4 justify-center">
+                <div
+                  key={index}
+                  className="bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col">
+                  <P1 className="w-fit rounded-full py-2 border border-black-200 mb-4 px-6">
+                    {subtitle}
+                  </P1>
+                  <P3 className="mb-8 flex-grow">{description}</P3>
+                  <div className="relative mt-auto aspect-auto border rounded-2xl overflow-hidden flex items-end  w-auto flex-grow">
+                    <Image
+                      src={imageSrc}
+                      alt={alt || description}
+                      width={500}
+                      height={310}
+                      className="w-full   "
                     />
-                  </button>
-                </a>
+
+                    <a
+                      href={videoSrc}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <button className="size-12 cursor-pointer flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 justify-center rounded-full items-center bg-black">
+                        <Icon
+                          icon="f7:play-fill"
+                          className="size-6 text-[#F7D9D9]"
+                        />
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}{" "}
+        </MultiCardCarousel>
       </div>
       {/* CTA */}
       <div className="mt-16  flex justify-end items-center gap-4 ">
