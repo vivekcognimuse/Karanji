@@ -7,6 +7,7 @@ import Link from "next/link";
 import SectionReveal from "@/components/animations/sectionReveal";
 import CarouselContainer from "@/components/animations/Carousal";
 import OfferingCard from "@/components/ui/OfferingCard";
+import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 
 const DigitalTwinOfferings = ({ className = "", data }) => {
   const { title, subtitle, list, ctaCard, cards } = data || {};
@@ -54,10 +55,12 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
           </div>
         </div>
 
-        <div className="hidden lg:grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cards.map((card, index) => (
-            <OfferingCard key={index} card={card} index={index} />
-          ))}
+        <div className=" hidden lg:block">
+          <MultiCardCarousel>
+            {cards.map((card, index) => (
+              <OfferingCard key={index} card={card} index={index} />
+            ))}
+          </MultiCardCarousel>{" "}
         </div>
         <div className="lg:hidden">
           <CarouselContainer>

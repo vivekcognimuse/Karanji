@@ -188,13 +188,15 @@ const MultiCardCarousel = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       {/* Carousel Container */}
-      <div ref={carouselRef} className="relative overflow-hidden w-full">
+      <div ref={carouselRef} className="relative py-8 overflow-hidden w-full">
         <div
           ref={scrollContainerRef}
-          className="flex w-fit"
+          className="flex items-center  w-fit"
           style={{ gap: "32px" }}>
           {React.Children.map(children, (child, index) => (
-            <div key={index} className="carousel-card flex-shrink-0">
+            <div
+              key={index}
+              className="carousel-card flex items-center flex-shrink-0">
               {child}
             </div>
           ))}
@@ -206,10 +208,10 @@ const MultiCardCarousel = ({
         <div className="flex justify-end items-center gap-2 mt-6">
           <button
             onClick={goToPrevious}
-            className={`flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-200 ${
+            className={`flex items-center justify-center w-10 h-10 rounded-full  transition-all duration-200 ${
               canScrollLeft
-                ? "border-gray-300 hover:border-gray-400 hover:bg-gray-50 cursor-pointer"
-                : "border-gray-200 bg-gray-100 cursor-not-allowed opacity-50"
+                ? " bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF] cursor-pointer"
+                : " bg-gray-100 cursor-not-allowed opacity-50"
             }`}
             aria-label="Previous cards"
             disabled={!canScrollLeft || isAnimating}>
@@ -222,10 +224,10 @@ const MultiCardCarousel = ({
           </button>
           <button
             onClick={goToNext}
-            className={`flex items-center justify-center w-10 h-10 rounded-full border transition-all duration-200 ${
+            className={`flex items-center justify-center w-10 h-10 rounded-full  transition-all duration-200 ${
               canScrollRight
-                ? "border-gray-300 hover:border-gray-400 hover:bg-gray-50 cursor-pointer"
-                : "border-gray-200 bg-gray-100 cursor-not-allowed opacity-50"
+                ? " bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF] cursor-pointer"
+                : " bg-gray-100 cursor-not-allowed opacity-50"
             }`}
             aria-label="Next cards"
             disabled={!canScrollRight || isAnimating}>
@@ -236,15 +238,6 @@ const MultiCardCarousel = ({
               }`}
             />
           </button>
-        </div>
-      )}
-
-      {/* Optional: Progress Indicator */}
-      {totalCards > visibleCards && (
-        <div className="flex justify-center mt-4">
-          <div className="text-sm text-gray-500">
-            {Math.min(currentIndex + visibleCards, totalCards)} of {totalCards}
-          </div>
         </div>
       )}
     </div>
