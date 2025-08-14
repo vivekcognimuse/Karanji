@@ -65,7 +65,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
         }`}
       >
         {/* Header */}
-        <div className="max-w-7xl mx-auto w-full px-6">
+        <div className=" mx-auto w-full px-6">
           <div className="flex items-center gap-3 mb-2 w-fit">
             <Button
               className={`text-black-500`}
