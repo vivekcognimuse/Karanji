@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   {
@@ -285,8 +286,8 @@ export default function Navbar() {
     if (!item) return {};
 
     const rect = item.getBoundingClientRect();
-    const dropdownWidth = 280;
-    const megaMenuWidth = 560;
+    const dropdownWidth = 680;
+    const megaMenuWidth = 960;
 
     if (index === 1) {
       // Solutions mega menu
@@ -309,25 +310,28 @@ export default function Navbar() {
       ref={navRef}
       className=" sticky bg-white top-0 z-[999] shadow-lg"
       role="navigation"
-      aria-label="Main navigation">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      aria-label="Main navigation flex">
+      <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a
-              href="/"
-              className="text-white text-xl font-bold"
-              aria-label="Karanji Home">
-              Karanji
-            </a>
+            <Link href="/" aria-label="Karanji Home">
+              <Image
+                src="/logo.svg"
+                className="h-8 w-fit"
+                alt="Logo"
+                width={100}
+                height={100}
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-1">
+          <div className="hidden md:flex text-start md:items-center md:space-x-1">
             {NAV_LINKS.map((item, index) => (
               <div
                 key={index}
-                className="relative"
+                className="relative text-nowrap"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 ref={(el) => (dropdownRefs.current[index] = el)}>
@@ -365,10 +369,10 @@ export default function Navbar() {
                 {item.subSections && activeDropdown === index && (
                   <div
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
-                    style={{ ...getDropdownPosition(index), minWidth: "560px" }}
+                    style={{ ...getDropdownPosition(index), minWidth: "760px" }}
                     role="menu">
-                    <div className="flex">
-                      <div className="w-1/2 border-r  border-gray-100">
+                    <div className="flex ">
+                      <div className="w-1/2 border-r   border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
                           <div
                             key={sectionIndex}
@@ -377,78 +381,85 @@ export default function Navbar() {
                             }
                             className={`relative ${
                               activeSolution === sectionIndex
-                                ? "bg-purple-50"
+                                ? "bg-[#F0E4FF]"
                                 : ""
                             }`}>
                             <Link
                               href={section.href}
-                              className={`block px-4 py-3 hover:bg-purple-50 transition-colors duration-150 group
+                              className={`block  px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
                                 ${
                                   isActive(section.href) ||
                                   isParentActive(section.links)
-                                    ? "text-black font-medium border-r-2 border-purple-600"
-                                    : "text-gray-700"
+                                    ? "  border-r-2 border-purple-600"
+                                    : ""
                                 }`}
                               role="menuitem">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <div className="font-medium flex items-center gap-2">
-                                    {sectionIndex === 0 && (
-                                      <Icon
-                                        icon="mdi:robot"
-                                        className="w-5 h-5 text-purple-600"
-                                      />
-                                    )}
-                                    {sectionIndex === 1 && (
-                                      <Icon
-                                        icon="mdi:school"
-                                        className="w-5 h-5 text-purple-600"
-                                      />
-                                    )}
-                                    {sectionIndex === 2 && (
-                                      <Icon
-                                        icon="mdi:palette"
-                                        className="w-5 h-5 text-purple-600"
-                                      />
-                                    )}
-                                    {section.title}
-                                  </div>
-                                  <div className="text-xs text-gray-500 mt-1">
-                                    {sectionIndex === 0 &&
-                                      "Innovative technology for your digital needs"}
-                                    {sectionIndex === 1 &&
-                                      "Empowering businesses through cutting-edge digital learning"}
-                                    {sectionIndex === 2 &&
-                                      "Bringing your ideas to life with creativity & innovation"}
-                                  </div>
-                                </div>
-                                <Icon
-                                  icon="mdi:chevron-right"
-                                  className="w-5 h-5 text-gray-400 group-hover:text-purple-600"
+                              <div className="flex gap-2 items-center justify-start">
+                                <Image
+                                  src={section.icon}
+                                  alt={section.name + " icon"}
+                                  width={40}
+                                  height={40}
+                                  className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
+                                    isActive(section.href)
+                                      ? "opacity-100"
+                                      : "opacity-60"
+                                  }`}
                                 />
+                                <div className="space-y-2">
+                                  <p className="text-lg gap-2">
+                                    {section.title}
+                                  </p>
+                                  <p className="text-xs  font-light ">
+                                    {section.description}
+                                  </p>
+                                </div>
                               </div>
                             </Link>
                           </div>
                         ))}
                       </div>
 
-                      <div className="w-1/2 py-2">
+                      <div className="w-1/2  space-y-2 py-2">
                         {activeSolution !== null &&
                           item.subSections[activeSolution]?.links.map(
-                            (link, linkIndex) => (
-                              <a
-                                key={linkIndex}
-                                href={link.href}
-                                className={`block px-4 py-2 text-xl hover:bg-purple-50 transition-colors duration-150
+                            (link, linkIndex) => {
+                              console.log("Link:", link);
+                              return (
+                                <Link key={linkIndex} href={link.href}>
+                                  <div
+                                    className={`block  px-4 py-2  hover:bg-[#F0E4FF] transition-colors duration-150
                               ${
                                 isActive(link.href)
-                                  ? "text-black font-medium border-r-2 border-purple-600"
-                                  : "text-gray-600 hover:text-black"
+                                  ? " border-r-2 border-purple-600"
+                                  : ""
                               }`}
-                                role="menuitem">
-                                {link.name}
-                              </a>
-                            )
+                                    role="menuitem">
+                                    <div className="flex gap-2 items-center justify-start">
+                                      <Image
+                                        src={link.icon}
+                                        alt={link.name + " icon"}
+                                        width={40}
+                                        height={40}
+                                        className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
+                                          isActive(link.href)
+                                            ? "opacity-100"
+                                            : "opacity-60"
+                                        }`}
+                                      />
+                                      <div className="space-y-2">
+                                        <p className="text-lg  gap-2">
+                                          {link.name}
+                                        </p>
+                                        <p className="text-xs  font-light ">
+                                          {link.description}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>{" "}
+                                </Link>
+                              );
+                            }
                           )}
                       </div>
                     </div>
@@ -460,22 +471,40 @@ export default function Navbar() {
                   item.links.length > 0 &&
                   activeDropdown === index && (
                     <div
-                      className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
                       style={getDropdownPosition(index)}
                       role="menu">
                       {item.links.map((link, linkIndex) => (
-                        <a
+                        <Link
                           key={linkIndex}
                           href={link.href}
-                          className={`block px-4 py-2 text-xl hover:bg-purple-50 transition-colors duration-150
+                          className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150
                           ${
                             isActive(link.href)
                               ? "text-black font-medium border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }`}
                           role="menuitem">
-                          {link.name}
-                        </a>
+                          <div className="flex gap-2 items-center justify-start">
+                            <Image
+                              src={link.icon}
+                              alt={link.name + " icon"}
+                              width={40}
+                              height={40}
+                              className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
+                                isActive(link.href)
+                                  ? "opacity-100"
+                                  : "opacity-60"
+                              }`}
+                            />
+                            <div className="space-y-2">
+                              <p className="text-lg">{link.name}</p>
+                              <p className="text-xs   font-light ">
+                                {link.description}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -483,12 +512,12 @@ export default function Navbar() {
             ))}
 
             {/* Get in Touch CTA */}
-            <a
+            <Link
               href="/contact"
               className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
               aria-label="Get in Touch">
               Get in Touch
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -530,7 +559,7 @@ export default function Navbar() {
                     className={`flex-1 px-3 py-2 text-base font-medium rounded-md
                       ${
                         isSectionActive(item)
-                          ? "text-black bg-purple-50 border-l-2 border-purple-600"
+                          ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
                       }`}>
                     {item.title}
@@ -565,7 +594,7 @@ export default function Navbar() {
                               ${
                                 isActive(section.href) ||
                                 isParentActive(section.links)
-                                  ? "text-black bg-purple-50 border-l-2 border-purple-600"
+                                  ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
                               }`}>
                             {section.title}
@@ -607,7 +636,7 @@ export default function Navbar() {
                                 className={`block px-3 py-2 text-xs rounded-md
                                   ${
                                     isActive(link.href)
-                                      ? "text-black bg-purple-50 border-l-2 border-purple-600"
+                                      ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                       : "text-gray-500 hover:text-black hover:bg-gray-50"
                                   }`}>
                                 {link.name}
@@ -630,7 +659,7 @@ export default function Navbar() {
                         className={`block px-3 py-2 text-xl rounded-md
                           ${
                             isActive(link.href)
-                              ? "text-black bg-purple-50 border-l-2 border-purple-600"
+                              ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
                           }`}>
                         {link.name}
