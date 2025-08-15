@@ -45,7 +45,10 @@ const avatarData = {
     {
       name: "Prakash",
       role: "CEO, Karanji",
-      image: "/Company/Digital Twins/Prakash digital twin.webp",
+      image: "/Company/Digital Twins/Prakash digital twin.webp", // Fallback image
+      agentId: "v2_agt_BlxDCvda", // You need to replace this with Prakash's actual agent ID
+      clientKey:
+        "YXV0aDB8NjgyYzc1ZGU4M2Y5YWU0YjM3YWJiNGNkOlVOWDF5UnZ3Mk9hZVg2bjJBbDViZw==",
       expertise: [
         "Know About the Company",
         "Explore Our Services",
@@ -56,7 +59,10 @@ const avatarData = {
     {
       name: "Srikant",
       role: "Solution Architect, Karanji",
-      image: "/Company/Digital Twins/Srikant Digital Twin.webp",
+      image: "/Company/Digital Twins/Srikant Digital Twin.webp", // Fallback image
+      agentId: "v2_agt_e98VhldA", // Srikant's actual agent ID
+      clientKey:
+        "Z29vZ2xlLW9hdXRoMnwxMTI5OTgwMjkzOTg4OTUzMjg4MzA6RGdndlE0ZHJIUzB6SC1hLVZfckp6", // Srikant's client key
       expertise: [
         "Solves AI Implementation Challenges",
         "Explore Industry Use Cases",
