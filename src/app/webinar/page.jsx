@@ -10,8 +10,11 @@ import webinarData from "@/data/webinarData.json";
 
 export default function WebinarPage() {
   return (
-    <main className=" text-black w-full max-w-[1580px] mx-auto p-4  lg:p-10  ">
-      <WebinarHeader data={webinarData.header} />
+    <main className=" text-black w-full  mx-auto p-4  lg:p-10  ">
+      <WebinarHeader
+        data={webinarData.header}
+        bgImage={"/hero/webinarBg.webp"}
+      />
       <MeetSpeakers speakers={webinarData.speakers} />
       <WebinarAgenda agenda={webinarData.agenda} /> {/* ✅ Inserted here */}
       <SuccessStories stories={webinarData.successStories} />

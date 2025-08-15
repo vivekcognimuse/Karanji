@@ -170,7 +170,7 @@ export default function AboutUs() {
   return (
     <>
       <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-        <HeroSection data={heroData} />
+        <HeroSection data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
         <JourneySection
           data={{
             ...journeyData,

@@ -103,25 +103,25 @@ const NAV_LINKS = [
     links: [
       {
         name: "Healthcare",
-        href: "/healthcare",
+        href: "/Industries/healthcare",
         icon: "/nav/healthcare.svg",
         description: "Empowering care with smart technology.",
       },
       {
         name: "Aviation",
-        href: "/aviation",
+        href: "/Industries/aviation",
         icon: "/nav/aviation.svg",
         description: "Transforming aviation with future-ready solutions.",
       },
       {
         name: "Logistics",
-        href: "/logistics",
+        href: "/Industries/logistics",
         icon: "/nav/logistics.svg",
         description: "Streamlining supply chains with precision.",
       },
       {
         name: "Oil & Gas",
-        href: "/oil-and-gas",
+        href: "/Industries/oil-and-gas",
         icon: "/nav/oil-gas.svg",
         description: "Fueling digital innovation & efficiency.",
       },
