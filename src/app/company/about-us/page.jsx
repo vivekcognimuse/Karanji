@@ -1,6 +1,6 @@
 //about-us.jsx
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import HeroSection from "@/sections/Advisory/Hero";
 import QuoteSection from "@/sections/Company/about/quoteSection";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
@@ -126,6 +126,19 @@ const timelineData = [
 
 export default function AboutUs() {
   const [showTimeline, setShowTimeline] = useState(false);
+  const timelineRef = useRef(null);
+
+  useEffect(() => {
+    // Lock the background scroll when the timeline is visible
+    if (showTimeline) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto"; // Clean up on unmount
+    };
+  }, [showTimeline]);
 
   const handleContinueJourney = () => {
     setShowTimeline(true);
@@ -137,15 +150,26 @@ export default function AboutUs() {
 
   const handleNextUp = () => {
     setShowTimeline(false);
-    // Scroll to vision mission section
     document.getElementById("vision-mission")?.scrollIntoView({
       behavior: "smooth",
     });
   };
 
+  const handleMouseEnter = () => {
+    if (timelineRef.current) {
+      timelineRef.current.style.overflow = "auto";
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (timelineRef.current) {
+      timelineRef.current.style.overflow = "hidden";
+    }
+  };
+
   return (
     <>
-      <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
         <HeroSection data={heroData} />
         <JourneySection
           data={{
@@ -163,11 +187,23 @@ export default function AboutUs() {
 
       {/* Timeline Component Overlay */}
       {showTimeline && (
-        <TimelineComponent
-          timelineData={timelineData}
-          onBackToAbout={handleBackToAbout}
-          onNextUp={handleNextUp}
-        />
+        <div
+          ref={timelineRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50"
+          style={{
+            top: "60px", // Adjusted top position for header
+            height: "100vh", // Ensuring full height of the viewport
+            overflow: "hidden", // Initially hide overflow
+          }}
+        >
+          <TimelineComponent
+            timelineData={timelineData}
+            onBackToAbout={handleBackToAbout}
+            onNextUp={handleNextUp}
+          />
+        </div>
       )}
     </>
   );

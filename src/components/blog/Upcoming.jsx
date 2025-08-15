@@ -1,32 +1,54 @@
-// components/blog/Upcoming.jsx
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { P2 } from "../CustomTags";
-
-const upcomingItems = [
-  {
-    title: "Why Extended Reality is the Next Big Thing in Digital Learning",
-    date: "06/08/2025",
-    type: "Blog",
-    link: "/blog-insights/extended-reality-digital-learning", // Updated routing
-  },
-  {
-    title: "Enhancing Manufacturing Efficiency with Digital Twin Technology",
-    date: "07/08/2025",
-    type: "Case Study",
-    link: "/case-studies/digital-twin-manufacturing", // Updated routing
-  },
-  {
-    title:
-      "How AI Advisory Services Can Help Your Business Unlock the Full Potential of Artificial Intelligence",
-    date: "10/08/2025",
-    type: "Webinar",
-    link: "/events-webinars/ai-advisory-services", // Updated routing
-  },
-];
+import { fetchFromStrapi } from "@/lib/strapi"; // Reuse your existing fetch function
 
 const Upcoming = () => {
+  const [upcomingItems, setUpcomingItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch all published case studies when the component mounts
+  useEffect(() => {
+    const getUpcomingItems = async () => {
+      try {
+        // Fetch all case studies without sorting, just fetch all published ones
+        const caseStudies = await fetchFromStrapi(
+          "case-studies?filters[status][$eq]=Published&populate=*",
+          { populate: "*" },
+          "https://77586f016802.ngrok-free.app/api" // Optional populate parameter if you need to load relations
+        );
+
+        // Extract data from case studies and format it for display
+        const items = caseStudies.data.map((item) => ({
+          title: item.attributes?.title,
+          date: item.attributes?.publishedAt, // Use publishedAt field for date
+          type: "Case Study", // Static type for case studies
+          link: `/case-studies/${item.attributes?.slug}`, // Link to individual case study
+        }));
+
+        setUpcomingItems(items); // Set the fetched data into state
+      } catch (err) {
+        console.error("Error fetching upcoming items:", err);
+        setError("Failed to load upcoming items.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getUpcomingItems(); // Fetch items on component mount
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <div className="bg-gradient-to-br from-white via-purple-50 to-blue-50 p-8 rounded-2xl border border-purple-100 shadow-sm">
       <div className="flex justify-between items-center mb-6">
@@ -50,7 +72,7 @@ const Upcoming = () => {
                 </P2>
                 <div className="flex items-center gap-4 md:gap-6 shrink-0">
                   <span className="font-medium text-black-800 text-sm md:w-20">
-                    {item.date}
+                    {new Date(item.date).toLocaleDateString()}
                   </span>
                   <span className="px-3 py-1 bg-purple-100 text-black-800 rounded-full text-xs font-medium md:w-24 md:text-center">
                     {item.type}

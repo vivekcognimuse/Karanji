@@ -35,16 +35,20 @@ const normalizeCaseStudy = (entry) => {
         .filter(Boolean)
     : [];
 
-  const download = a.downloadCta || a.download || {};
+  const download = a.downloadCta || {};
   const downloadCta = {
-    title: "Access VR Walkthrough Story",
+    title: download.title || "Access VR Walkthrough Story",
     intro:
+      download.intro ||
       "See how a leading manufacturer used VR to improve product demos, engage clients better, and make onboarding easier.",
-    description: "",
+    description: download.description || "",
     audienceNote:
+      download.audienceNote ||
       "If you're in manufacturing or industrial training, this case study shows what’s possible with immersive technology.",
-    encouragementNote: "Use it, learn from it, and start your own impact story",
-    buttonSubTitle: "Download Full Case Study",
+    encouragementNote:
+      download.encouragementNote ||
+      "Use it, learn from it, and start your own impact story",
+    buttonLabel: download.buttonLabel || "Download Full Case Study",
   };
 
   return {
@@ -69,7 +73,7 @@ export default async function CaseStudyDetail({ params }) {
   const data = await fetchFromStrapi(
     `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
     { populate: "*" },
-    "https://3e80ef6ecbf1.ngrok-free.app/api"
+    "https://77586f016802.ngrok-free.app/api"
   );
 
   const entry = Array.isArray(data) ? data[0] : null;

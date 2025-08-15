@@ -1,4 +1,3 @@
-//components/caseStudy/CaseStudyPage.jsx
 "use client";
 import React, { useMemo } from "react";
 import ScrollSpySidebar from "../blog/ScrollSpySidebar";
@@ -70,7 +69,7 @@ const CaseStudyPage = ({ data }) => {
     <div className="relative">
       <article>
         {/* Full Width Header */}
-        <div className="mx-auto">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-10">
             <h2 className="mt-20 mb-4">{data.title}</h2>
             <P1 className="text-black-500 text-base mb-4">
@@ -100,10 +99,11 @@ const CaseStudyPage = ({ data }) => {
         </div>
 
         {/* Content Section with Sidebar Layout */}
-        <div className="max-w-[1580px] mx-auto">
-          <div className="hidden xl:flex xl:gap-8">
+        <div className="max-w-full mx-auto">
+          {/* Desktop and Large Tablets: Sidebar to the right (Absolute Position) */}
+          <div className="hidden xl:flex xl:gap-8 relative">
             {/* Main Content */}
-            <div className="flex-1 max-w-4xl">
+            <div className="flex-1 max-w-6xl">
               <div id="content" className="pr-6">
                 {(data.sections || []).map((section, idx) =>
                   renderSection(section, idx)
@@ -111,13 +111,12 @@ const CaseStudyPage = ({ data }) => {
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="w-64 shrink-0">
+            {/* Sidebar (Positioned to Right Corner) */}
+            <div className="absolute right-0 top-36 w-64 shrink-0">
               <div className="sticky top-36">
                 {headings.length > 0 && (
                   <ScrollSpySidebar headings={headings} />
                 )}
-                {/* Add CaseStudySidebarMeta below ScrollSpySidebar */}
                 <CaseStudySidebarMeta
                   domain={data.domain}
                   targetAudience={data.targetAudience || []}
@@ -126,12 +125,21 @@ const CaseStudyPage = ({ data }) => {
             </div>
           </div>
 
-          {/* Mobile Content */}
+          {/* Mobile Content: Sidebar below content */}
           <div className="xl:hidden">
             <div className="px-4">
               {(data.sections || []).map((section, idx) =>
                 renderSection(section, idx)
               )}
+            </div>
+
+            {/* Mobile Sidebar (Below Content) */}
+            <div className="mt-8">
+              {headings.length > 0 && <ScrollSpySidebar headings={headings} />}
+              <CaseStudySidebarMeta
+                domain={data.domain}
+                targetAudience={data.targetAudience || []}
+              />
             </div>
           </div>
         </div>

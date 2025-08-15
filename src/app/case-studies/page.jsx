@@ -9,7 +9,7 @@ export default async function CaseStudiesIndex() {
   const list = await fetchFromStrapi(
     "case-studies?sort=publishedAt:desc&pagination[pageSize]=1",
     { populate: "" },
-    "https://3e80ef6ecbf1.ngrok-free.app/api"
+    "https://77586f016802.ngrok-free.app/api"
   );
 
   const first = Array.isArray(list) ? list[0] : null;
