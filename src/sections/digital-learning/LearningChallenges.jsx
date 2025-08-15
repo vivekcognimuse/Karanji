@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 export default function LearningChallenges({ data }) {
-  const { title, subtitle, challenges = [], description = "" } = data;
+  const { title, subTitle, challenges = [], description = "" } = data;
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 ">
@@ -11,11 +11,11 @@ export default function LearningChallenges({ data }) {
         {/* Header */}
         <div className=" ">
           <h3 className=" mb-4">{title}</h3>
-          <P2 className="">{subtitle}</P2>
+          <P2 className="">{subTitle}</P2>
         </div>
 
         {/* Challenge Cards */}
-        <div className="flex gap-8 lg:gap-12 ">
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 ">
           {challenges.map((challenge, index) => (
             <div key={index} className="border-b border-black-200 pb-8">
               {/* Icon */}

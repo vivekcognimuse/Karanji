@@ -63,13 +63,11 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
       className={`fixed inset-0 bg-gradient-to-br from-purple-50 to-blue-50 z-50 ${
         isLastStep ? "overflow-y-auto" : "overflow-hidden"
       }`}
-      style={{ height: "calc(100vh - 80px)", top: "60px" }}
-    >
+      style={{ height: "calc(100vh - 80px)", top: "60px" }}>
       <div
         className={`w-full mx-auto flex flex-col ${
           isLastStep ? "min-h-full" : "h-full"
-        }`}
-      >
+        }`}>
         {/* Header */}
         <div className="mx-auto w-full px-6 sm:px-12">
           <div className="flex items-center gap-3 mb-2 w-fit">
@@ -77,8 +75,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
               className="text-black-500"
               variant="text"
               size="sm"
-              onClick={onBackToAbout}
-            >
+              onClick={onBackToAbout}>
               Take me back to About Us
             </Button>
             <P3 className="font-semibold">Karanji's Journey</P3>
@@ -100,8 +97,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
         <div
           className={`flex-1 flex flex-col ${
             isLastStep ? "py-12" : "justify-center"
-          } px-6 sm:px-12`}
-        >
+          } px-6 sm:px-12`}>
           {/* Years Display */}
           <div className="relative text-center mb-4">
             {/* Previous Year (Visible only on larger screens) */}
@@ -130,8 +126,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                 fontSize: "clamp(80px, 12vw, 128px)",
                 lineHeight: "1",
                 letterSpacing: "-5%",
-              }}
-            >
+              }}>
               {currentStep.year}
             </div>
 
@@ -204,10 +199,10 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
               {currentStep.title}
             </h3>
           </div>
-          {currentStep.subtitle && (
+          {currentStep.subTitle && (
             <div className="text-center mb-4">
               <h5 className="text-black-600 max-w-4xl mx-auto">
-                {currentStep.subtitle}
+                {currentStep.subTitle}
               </h5>
             </div>
           )}

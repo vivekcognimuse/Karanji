@@ -16,7 +16,7 @@ const CTA = ({ className = "", data }) => {
     <div className={`text-center ${className}`}>
       <h3>{title}</h3>
       <P2>{description}</P2>
-      <div className="flex-center mt-8 gap-8">
+      <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
         {PrimaryButtonText && PrimaryButtonLink && (
           <Button href={PrimaryButtonLink}>{PrimaryButtonText}</Button>
         )}

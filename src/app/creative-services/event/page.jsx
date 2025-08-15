@@ -19,7 +19,7 @@ const heroData = {
 
 const serviceOverview = {
   title: "Service overview",
-  subtitle: "Exceptional events powered by expertise & technology",
+  subTitle: "Exceptional events powered by expertise & technology",
   description:
     "Our event production team delivers immersive experiences that engage audiences & exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
   feature:
@@ -48,28 +48,28 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "Live event production & management",
-      subtitle: "",
+      subTitle: "",
       description: "Event management from concept to execution.",
       featured: true,
       icon: "/event/icons/production.svg",
     },
     {
       title: "Event tech & equipment rental",
-      subtitle: "",
+      subTitle: "",
       description: "State-of-the-art technical solutions for any event scale.",
       featured: false,
       icon: "/event/icons/tech.svg",
     },
     {
       title: "Stage design & Production",
-      subtitle: "",
+      subTitle: "",
       description: "Custom environments for presentation & branding.",
       featured: false,
       icon: "/event/icons/stage-design.svg",
     },
     {
       title: "Virtual & hybrid events production",
-      subtitle: "",
+      subTitle: "",
       description: "Seamless experiences for in-person & online attendees.",
       featured: false,
       icon: "/event/icons/hybrid.svg",
@@ -79,7 +79,7 @@ const serviceOfferingsData = {
 
 const methodologyData = {
   title: "Our Production Process",
-  subtitle:
+  subTitle:
     "Professional‑grade tools backed by a streamlined workflow. From planning to post‑event review, our process delivers results with clarity & control.",
   list: [
     {
@@ -161,13 +161,13 @@ const successStoriesData = {
     "Explore how our services adapt across industries, formats, & event scales.",
   cards: [
     {
-      title: "Convocation Day School Video Project",
+      title: "Convocation Day School Real Video Project",
       stats: [
-        { title: "0 Delays", subtitle: "Timely Delivery" },
-        { title: "3‑Days", subtitle: "Turnaround Time" },
+        { title: "95%", subTitle: "Engaging" },
+        { title: "100%", subTitle: "Client Satisfaction" },
       ],
       description:
-        "We rapidly scripted, shot, & edited a captivating, high‑quality video to showcase the school during its convocation ceremony, despite tight deadlines & limited resources.",
+        "A three-day, end-to-end convocation video for a school, produced via rapid scripting/storyboarding, in-school filming, and smart use of stock footage to showcase the institution during the ceremony.",
       link: "Read Full CaseStudy",
     },
   ],
@@ -175,7 +175,7 @@ const successStoriesData = {
 
 const accordionData = {
   title: "Frequently Asked Questions",
-  subtitle:
+  subTitle:
     "Answers to your top event planning questions in one place. From booking timelines to pricing & hybrid strategies, we’ve got you covered.",
   questions: [
     {

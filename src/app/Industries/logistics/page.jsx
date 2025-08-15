@@ -83,19 +83,19 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "Operational Excellence",
-      subtitle:
+      subTitle:
         "Investing in infrastructure & digital platforms for automation & cost reduction.",
     },
     {
       id: 2,
       title: "Sustainability",
-      subtitle:
+      subTitle:
         "Transitioning to cleaner fuels & strengthening ESG reporting capabilities.",
     },
     {
       id: 3,
       title: "Workforce Development",
-      subtitle:
+      subTitle:
         "Upskilling talent using VR/AR, microlearning, & digital knowledge tools.",
     },
   ],
@@ -103,13 +103,13 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "Digital Transformation",
-      subtitle:
+      subTitle:
         "Using AI, analytics, & digital twins to optimize operations & customer experience.",
     },
     {
       id: 2,
       title: "Cybersecurity",
-      subtitle:
+      subTitle:
         "Enhancing supply chain security with zero-trust, threat detection, & compliance frameworks.",
     },
   ],

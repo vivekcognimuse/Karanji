@@ -37,7 +37,7 @@ export const StatsDisplay = memo(function StatsDisplay({ stats }) {
 
 export const ServiceCard = memo(function ServiceCard({
   title = "Strategy",
-  subtitle = "Strong Foundation",
+  subTitle = "Strong Foundation",
   description = "...",
   featured,
   index,
@@ -89,7 +89,7 @@ export const ServiceCard = memo(function ServiceCard({
 
           <div className="flex flex-col">
             <h4 className="mb-2">{title}</h4>
-            {subtitle && <P3 className="text-black-500 mb-8">{subtitle}</P3>}
+            {subTitle && <P3 className="text-black-500 mb-8">{subTitle}</P3>}
           </div>
         </div>
 
@@ -121,17 +121,19 @@ export const MethodologyStep = memo(function MethodologyStep({
           <h4 className="">{title}</h4>
           <P2 className="text-black-500">{description}</P2>
 
-          {tags && (
-            <div className="flex gap-4 flex-wrap">
-              {tags.map((tag, index) => (
-                <P3
-                  key={index}
-                  className="rounded-full text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
-                  {tag}
-                </P3>
-              ))}
-            </div>
-          )}
+          <div>
+            {tags && (
+              <div className="flex gap-4 flex-wrap">
+                {tags.map((tag, index) => (
+                  <P3
+                    key={index}
+                    className="rounded-full text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
+                    {tag}
+                  </P3>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     );

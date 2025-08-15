@@ -13,8 +13,18 @@ const ImplementApproach = ({ data }) => {
       <P2 className="mb-16">{description}</P2>
 
       <div>
+        <div className="flex-center">
+          <Image
+            src={image.mblSrc}
+            alt={image.alt}
+            width={image.width}
+            className=" w-[50vw]  h-fit md:hidden"
+            height={image.height}
+          />
+        </div>
         <Image
           src={image.src}
+          className="hidden  md:block"
           alt={image.alt}
           width={image.width}
           height={image.height}

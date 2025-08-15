@@ -1,7 +1,7 @@
 // Example usage:
 // <LearningOutcomesCard data={{
 //   title: "The Result",
-//   subtitle: "Better learning outcomes & professional growth for everyone involved.",
+//   subTitle: "Better learning outcomes & professional growth for everyone involved.",
 //   adaptiveContent: "Adaptive Content",
 //   personalizedLearning: "Personalized Learning",
 //   proactiveSupport: "Proactive Support"
@@ -13,7 +13,7 @@ import Image from "next/image";
 export default function Results({ data = {} }) {
   const {
     title = "The Result",
-    subtitle = "Better learning outcomes & professional growth for everyone involved.",
+    subTitle = "Better learning outcomes & professional growth for everyone involved.",
     adaptiveContent = "Adaptive Content",
     personalizedLearning = "Personalized Learning",
     proactiveSupport = "Proactive Support",
@@ -24,16 +24,17 @@ export default function Results({ data = {} }) {
       {/* Header */}
       <div className="mb-8">
         <h4 className=" mb-4">{title}</h4>
-        <P3 className="text-sm text-gray-600">{subtitle}</P3>
+        <P3 className="text-sm text-gray-600">{subTitle}</P3>
       </div>
-
-      <Image
-        src="/digital-learning/analytics/theResult.svg"
-        alt="Descriptive Alt Text"
-        width={1360}
-        height={317}
-        className="object-contain w-full h-auto"
-      />
+      <div className="flex-center">
+        <Image
+          src="/digital-learning/analytics/theResult.svg"
+          alt="Descriptive Alt Text"
+          width={1360}
+          height={317}
+          className="object-contain w-full lg:max-w-lg h-auto"
+        />
+      </div>
 
       {/* Content Layout */}
       {/* <div className="space-y-6">

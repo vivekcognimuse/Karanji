@@ -29,7 +29,9 @@ const DigitalTwins = async () => {
         bgImage="/hero/Digital Twins & Simulations.webp"
       />
       <Advantages data={advantages} />
-      <DigitalTwinOfferings data={offering} />
+      <div id="digital-twin-offerings">
+        <DigitalTwinOfferings data={offering} />
+      </div>
       <Methodology data={methodology} />
       <IndustryExpertise data={industryExpertise} />
       <SuccessStories data={successStories} />

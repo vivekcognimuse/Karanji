@@ -1,9 +1,10 @@
 import { P2 } from "@/components/CustomTags";
 import { MethodologyStep } from "@/components/ui/advisory";
 import SectionReveal from "@/components/animations/sectionReveal";
+import CarouselContainer from "@/components/animations/Carousal";
 
 export default function Methodology({ column, data }) {
-  const { title, subtitle, list } = data || {};
+  const { title, subTitle, list } = data || {};
 
   return (
     <section
@@ -17,11 +18,11 @@ export default function Methodology({ column, data }) {
             {title}
           </h3>
           <P2 className="" data-reveal data-reveal-dir="up">
-            {subtitle}
+            {subTitle}
           </P2>
         </div>
 
-        <div className=" lg:px-32  -z-1 rounded-2xl  space-y-8">
+        <div className=" hidden lg:block lg:px-32  -z-1 rounded-2xl  space-y-8">
           {list.map((item, index) => (
             <div key={index} data-reveal data-reveal-dir="up">
               <MethodologyStep
@@ -33,6 +34,22 @@ export default function Methodology({ column, data }) {
               />
             </div>
           ))}
+        </div>
+
+        <div className="lg:hidden lg:px-32 -z-1 rounded-2xl  space-y-8">
+          <CarouselContainer>
+            {list.map((item, index) => (
+              <div key={index} data-reveal data-reveal-dir="up">
+                <MethodologyStep
+                  column={column}
+                  step={index + 1}
+                  title={item.title}
+                  tags={item.tags}
+                  description={item.description}
+                />
+              </div>
+            ))}
+          </CarouselContainer>
         </div>
       </div>
 

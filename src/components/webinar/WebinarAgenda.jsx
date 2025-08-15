@@ -10,7 +10,7 @@ export default function WebinarAgenda({ agenda }) {
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {agenda.title}
           </h3>
-          <P2 className="text-lg mx-auto">{agenda.subtitle}</P2>
+          <P2 className="text-lg mx-auto">{agenda.subTitle}</P2>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">

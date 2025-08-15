@@ -28,7 +28,7 @@ const HeroSection = ({ data }) => {
       </div>
 
       <div className="w-full lg:w-1/3">
-        <div className=" w-full h-96  ">
+        <div className=" w-full h-96">
           <Image
             src={logo || "/home/logo.webp"}
             alt="Karanji Logo"

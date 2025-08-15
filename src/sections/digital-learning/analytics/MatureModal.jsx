@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const AnalyticsMaturityModel = ({ data }) => {
-  const { title, subtitle, stairImage, stages } = data;
+  const { title, subTitle, stairImage, stages } = data;
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -13,14 +13,14 @@ const AnalyticsMaturityModel = ({ data }) => {
           {title}
         </h1>
         <p className="text-base sm:text-lg text-gray-600 max-w-6xl">
-          {subtitle}
+          {subTitle}
         </p>
       </div>
 
       {/* Main Content Grid */}
-      <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         {/* Left Side - Stair Step Image */}
-        <div className="flex items-center justify-center lg:justify-start">
+        <div className="flex  items-center justify-center lg:justify-start">
           <div className="relative w-full max-w-md">
             <Image
               src={stairImage}
@@ -34,7 +34,7 @@ const AnalyticsMaturityModel = ({ data }) => {
         </div>
 
         {/* Right Side - Stage Details */}
-        <div className=" grid lg:grid-cols-2 gap-16 ">
+        <div className=" grid  lg:grid-cols-2 gap-16 ">
           {stages.map((stage, index) => (
             <div key={index} className="space-y-3">
               {/* Stage Title */}
