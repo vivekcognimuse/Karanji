@@ -10,7 +10,7 @@ const heroData = {
   subTitle:
     "Transforming healthcare with AI, XR, & Digital Learning to solve workforce gaps, control costs, & boost patient engagement through immersive, intelligent, & scalable solutions.",
   ctaText: "Explore the Transformation Landscape",
-  ctaLink: "/industries",
+  ctaLink: "digital-transformation-landscape",
   stats: [
     {
       text: "Executives Prioritize AI",
@@ -344,11 +344,16 @@ const strategicUseCaseData = {
 
 export default async function HealthCare() {
   return (
-    <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage={"/Industries & its pages/Healthcare/Healthcare banner.webp"} />
+    <div className="w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+      <HeroSection
+        data={heroData}
+        bgImage={"/Industries & its pages/Healthcare/Healthcare banner.webp"}
+      />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
-      <DigitalTransformation data={digitalTransformationData} />
+      <div id="digital-transformation-landscape">
+        <DigitalTransformation data={digitalTransformationData} />
+      </div>
       <StrategicRoadmap data={strategicRoadmapData} />
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />

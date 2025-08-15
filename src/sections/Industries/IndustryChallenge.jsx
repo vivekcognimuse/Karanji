@@ -1,5 +1,5 @@
-// src/components/Industrychal.jsx
 import { P2, P3 } from "@/components/CustomTags";
+import Image from "next/image";
 import React from "react";
 
 const Industrychallenge = ({ data }) => {
@@ -15,7 +15,7 @@ const Industrychallenge = ({ data }) => {
 
   return (
     <section className="bg-white py-12 px-4">
-      <div className=" mx-auto">
+      <div className="mx-auto">
         {/* Heading */}
         <h3 className="text-3xl font-bold text-gray-900 pb-8">
           {sectionTitle}
@@ -24,42 +24,49 @@ const Industrychallenge = ({ data }) => {
         <P2 className="text-gray-700 pb-8">{overviewDescription}</P2>
 
         {/* Critical Challenges Section */}
-        <div className="flex justify-between items-start gap-8">
-          {/* Image Section */}
-          <div className="w-full md:w-3/5">
-            <img
-              src={image}
-              alt={imageAlt || "Industry challenges"}
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
+        <div className="flex justify-between  items-stretch gap-8">
+          {/* Wrapper to hold image and challenges with equal height */}
+          <div className="w-full flex gap-8 overflow-hidden">
+            {/* Image Section */}
+            <div className="w-full md:w-3/5 flex">
+              <div className="relative py-4 w-full aspect-[2/1] h-full">
+                <Image
+                  width={600}
+                  height={400}
+                  src={image}
+                  alt={imageAlt || "Industry  challenges"}
+                  className="w-full h-full rounded-2xl object-cover"
+                />
+              </div>
+            </div>
 
-          {/* Challenges Section */}
-          <div className="w-full md:w-2/5">
-            {/* Heading */}
-            <h4 className="text-2xl  mb-6">{challengesTitle}</h4>
+            {/* Challenges Section */}
+            <div className="w-full md:w-2/5 flex flex-col justify-between">
+              {/* Heading */}
+              <h4 className="text-2xl mb-6">{challengesTitle}</h4>
 
-            {/* Card Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {challenges.map(({ id, icon, title, description }) => (
-                <div key={id}>
-                  <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full inline-block">
-                    <img
-                      src={icon}
-                      alt={title}
-                      className="text-xl text-white w-5 h-5"
-                    />
+              {/* Card Grid */}
+              <div className="grid grid-cols-2 gap-6 flex-grow">
+                {challenges.map(({ id, icon, title, description }) => (
+                  <div key={id}>
+                    <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full inline-block">
+                      <img
+                        src={icon}
+                        alt={title}
+                        className="text-xl text-white w-5 h-5"
+                      />
+                    </div>
+                    <h5 className="text-lg font-semibold text-black-800 mt-4">
+                      {title}
+                    </h5>
+                    <P3 className="text-sm text-black-500">{description}</P3>
                   </div>
-                  <h5 className="text-lg font-semibold text-black-800 mt-4">
-                    {title}
-                  </h5>
-                  <P3 className="text-sm text-black-500">{description}</P3>
-                </div>
-              ))}
+                ))}
 
-              {/* Divider spanning two columns */}
-              <div className="col-span-2 my-4">
-                <hr className="border-gray-300" />
+                {/* Divider spanning two columns */}
+                <div className="col-span-2 my-4">
+                  <hr className="border-gray-300" />
+                </div>
               </div>
             </div>
           </div>

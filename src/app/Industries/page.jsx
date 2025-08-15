@@ -6,7 +6,7 @@ const heroData = {
   subTitle:
     "From predictive maintenance to automated workflows, our AI tools help teams in Healthcare, Aviation, Logistics, & Oil & Gas work smarter, safer, & faster.",
   ctaText: "See Industry Solutions",
-  ctaLink: "/industries",
+  ctaLink: "industries-section",
 };
 const ctaData = {
   title: "Ready to lead the future?",
@@ -76,9 +76,11 @@ export default async function IndustryLanding() {
     <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection
         data={heroData}
-        bgImage={"/Industries & its pages/Landing page/banner.webp"}
+        bgImage="/Industries & its pages/Landing page/banner.webp"
       />
-      <IndustriesSection data={industriesData} />
+      <div id="industries-section">
+        <IndustriesSection data={industriesData} />
+      </div>
       <CTA data={ctaData} />
     </div>
   );

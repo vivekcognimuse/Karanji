@@ -40,7 +40,7 @@ const industryData = {
   overviewDescription:
     "The $12B logistics sector is growing but challenged by operational disruptions, tech fragmentation, & evolving regulatory demands. AI-driven learning & automation, supported by training software & eLearning platforms, are key to enabling agility & workforce readiness.",
   challengesTitle: "Top Challenges",
-  image: "Images/industry-vr-healthcare.jpg", // Replace with your image path
+  image: "/Images/industry-vr-healthcare.jpg", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {

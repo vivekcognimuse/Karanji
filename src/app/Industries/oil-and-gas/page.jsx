@@ -39,7 +39,7 @@ const industryData = {
   overviewDescription:
     "The oil & gas sector is undergoing rapid disruption from price volatility & environmental pressures to workforce & infrastructure challenges. To stay competitive, companies are turning to digital solutions like AI-driven maintenance, emissions tracking, & immersive training. The future of energy is data-powered, automated, & built for resilience.",
   challengesTitle: "Top Challenges",
-  image: "Images/oil-and-gas-industry.jpg", // Replace with your image path
+  image: "/Images/oil-and-gas-industry.jpg", // Replace with your image path
   imageAlt: "Oil and gas workers on site",
   challenges: [
     {
