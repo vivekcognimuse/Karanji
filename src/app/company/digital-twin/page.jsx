@@ -91,11 +91,11 @@ const sectionData = {
 };
 export default async function companyLanding() {
   return (
-    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <DigitalTwinHeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <ChooseAvatarSection data={avatarData} />
       <RealImpactResults sectionData={sectionData} />
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }

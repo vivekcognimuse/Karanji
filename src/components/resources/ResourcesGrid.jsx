@@ -16,7 +16,7 @@ const resources = [
     type: "Webinar",
     title: "Future of Automotive Engineering Training",
     image: "/caseStudies/Casestudy 1.webp",
-    link: "/events-webinars/",
+    link: "/webinar/",
     cta: "Register for Webinar",
   },
   {

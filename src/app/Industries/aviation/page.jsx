@@ -298,7 +298,7 @@ const strategicUseCaseData = {
 
 export default async function Aviation() {
   return (
-    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
@@ -310,6 +310,6 @@ export default async function Aviation() {
 
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }

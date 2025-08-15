@@ -10,7 +10,7 @@ import webinarData from "@/data/webinarData.json";
 
 export default function WebinarPage() {
   return (
-    <main className=" text-black w-full  mx-auto p-4  lg:p-10  ">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <WebinarHeader
         data={webinarData.header}
         bgImage={"/hero/webinarBg.webp"}

@@ -19,7 +19,7 @@ const DigitalAdoption = ({ data }) => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-white via-gray-50 to-white py-12 px-4">
+    <section className="">
       <div className="mx-auto text-left mb-16">
         <h4 className="mb-8">{sectionTitle}</h4>
 

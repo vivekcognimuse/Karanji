@@ -171,7 +171,7 @@ export default function AboutUs() {
 
   return (
     <>
-      <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
         <HeroSection data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
         <JourneySection
           data={{
@@ -185,7 +185,7 @@ export default function AboutUs() {
         <ValuesSection />
         <NextUpSection heading="Next Up" cards={cardsData} />
         <QuoteSection title="Innovate. Design. Transform." />
-      </div>
+      </main>
 
       {/* Timeline Component Overlay */}
       {showTimeline && (
@@ -193,12 +193,13 @@ export default function AboutUs() {
           ref={timelineRef}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50"
+          className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50 "
           style={{
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}>
+          }}
+        >
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}
