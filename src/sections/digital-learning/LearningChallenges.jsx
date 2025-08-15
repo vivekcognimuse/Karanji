@@ -15,7 +15,7 @@ export default function LearningChallenges({ data }) {
         </div>
 
         {/* Challenge Cards */}
-        <div className="flex gap-8 lg:gap-12 ">
+        <div className="flex flex-col md:flex-row gap-8 lg:gap-12 ">
           {challenges.map((challenge, index) => (
             <div key={index} className="border-b border-black-200 pb-8">
               {/* Icon */}

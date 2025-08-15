@@ -1,22 +1,15 @@
-export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
-  baseUrl =
-    baseUrl ||
-    "https://d297e7a22d4e.ngrok-free.app/api" ||
-    process.env.STRAPI_API_URL;
-
-  if (!baseUrl) {
-    throw new Error("STRAPI_API_URL is not defined in environment variables.");
-  }
+export async function fetchFromStrapi(endpoint, options = {}) {
+  const baseUrl = "https://77586f016802.ngrok-free.app/api/case-studies"; // Hardcoded base URL
 
   const {
-    populate = "all", // Default populate
+    populate = "all", // Default populate is "all"
     revalidate = undefined, // No revalidate by default (pure SSG)
   } = options;
 
-  const url = new URL(`${baseUrl}/${endpoint}`);
+  const url = new URL(baseUrl);
 
   if (populate) {
-    url.searchParams.append("populate", populate);
+    url.searchParams.append("populate", populate); // Always appends "populate=all" unless a different value is passed
   }
 
   const fetchOptions = {};

@@ -18,9 +18,9 @@ const AnalyticsMaturityModel = ({ data }) => {
       </div>
 
       {/* Main Content Grid */}
-      <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         {/* Left Side - Stair Step Image */}
-        <div className="flex items-center justify-center lg:justify-start">
+        <div className="flex  items-center justify-center lg:justify-start">
           <div className="relative w-full max-w-md">
             <Image
               src={stairImage}
@@ -34,7 +34,7 @@ const AnalyticsMaturityModel = ({ data }) => {
         </div>
 
         {/* Right Side - Stage Details */}
-        <div className=" grid lg:grid-cols-2 gap-16 ">
+        <div className=" grid  lg:grid-cols-2 gap-16 ">
           {stages.map((stage, index) => (
             <div key={index} className="space-y-3">
               {/* Stage Title */}

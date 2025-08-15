@@ -10,7 +10,7 @@ const LMSLearning = ({ data }) => {
       <h3>{title}</h3>
       <P2>{description}</P2>
 
-      <div className="flex-center gap-8">
+      <div className="flex-center flex-col lg:flex-row gap-8">
         {cards.map((card, index) => (
           <div
             key={index}

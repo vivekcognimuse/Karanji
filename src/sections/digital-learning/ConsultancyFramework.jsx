@@ -11,9 +11,17 @@ const ConsultancyFramework = () => {
         implement, and optimize training programs. It ensures a holistic,
         data-driven approach to enhance organizational learning and development.
       </P2>
-      <div className="flex justify-center">
+      <div className="hidden md:flex justify-center">
         <Image
           src="/digital-learning/ConsultancyFramework.svg"
+          alt="Consultancy Framework"
+          height={196}
+          width={1062}
+        />
+      </div>
+      <div className=" md:hidden flex justify-center">
+        <Image
+          src="/digital-learning/ConsultancyFrameworkMbl.svg"
           alt="Consultancy Framework"
           height={196}
           width={1062}

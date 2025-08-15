@@ -26,14 +26,15 @@ export default function Results({ data = {} }) {
         <h4 className=" mb-4">{title}</h4>
         <P3 className="text-sm text-gray-600">{subtitle}</P3>
       </div>
-
-      <Image
-        src="/digital-learning/analytics/theResult.svg"
-        alt="Descriptive Alt Text"
-        width={1360}
-        height={317}
-        className="object-contain w-full h-auto"
-      />
+      <div className="flex-center">
+        <Image
+          src="/digital-learning/analytics/theResult.svg"
+          alt="Descriptive Alt Text"
+          width={1360}
+          height={317}
+          className="object-contain w-full lg:max-w-lg h-auto"
+        />
+      </div>
 
       {/* Content Layout */}
       {/* <div className="space-y-6">
