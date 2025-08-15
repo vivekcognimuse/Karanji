@@ -2,6 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
+import HowItWorks from "@/sections/digital-learning/analytics/HowItWorks";
 import ImplementApproach from "@/sections/digital-learning/analytics/ImplementApproach";
 import AnalyticsMaturityModel from "@/sections/digital-learning/analytics/MatureModal";
 import Results from "@/sections/digital-learning/analytics/Result";
@@ -260,7 +261,36 @@ const implementApproachData = {
     },
   ],
 };
-
+const howItWorks = {
+  title: "How It Works in Practice",
+  subtitle: "Process flow",
+  
+  steps: [
+    {
+      number: "01",
+      title: "Calculate Learner Success",
+      description: "Personalized learning paths are created",
+    },
+    {
+      number: "02",
+      title: "Learning Path Creation",
+      description: "Continuous monitoring enables timely support",
+    },
+    {
+      number: "03",
+      title: "Monitoring & Adaptation",
+      description: "Content adapts based on performance",
+    },
+  ],
+  completion: {
+    title: "COMPLETION & GROWTH",
+    description: "Outcome metrics validate learning effectiveness",
+  },
+  entry: {
+    title: "ENTRY",
+    description: "Learners are evaluated at entry",
+  },
+};
 const ContentDesign = () => {
   return (
     <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -285,7 +315,7 @@ const ContentDesign = () => {
       <Methodology column={true} data={methodologyData} />
       <ImplementApproach data={implementApproachData} />
       <Deliverables data={deliverablesData} />
-      {/* <SwitchSection /> */}
+      <HowItWorks data={howItWorks} />
       <CTA data={ctaData} />
     </div>
   );

@@ -29,7 +29,7 @@ const ServiceOverview = ({ data }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Content Section */}
-        <div className="space-y-6">
+        <div className="space-y-6 my-auto">
           <P2 className="mb-6">{description}</P2>
           <P3 className="text-black-500">{feature}</P3>
         </div>
