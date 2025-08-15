@@ -324,8 +324,7 @@ export default function Navbar() {
       ref={navRef}
       className=" sticky bg-white top-0 z-[999] shadow-lg"
       role="navigation"
-      aria-label="Main navigation flex"
-    >
+      aria-label="Main navigation flex">
       <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -333,7 +332,7 @@ export default function Navbar() {
             <Link href="/" aria-label="Karanji Home">
               <Image
                 src="/logo.svg"
-                className="h-8 w-fit"
+                className="h-12 w-fit"
                 alt="Logo"
                 width={100}
                 height={100}
@@ -350,8 +349,7 @@ export default function Navbar() {
                 className="relative text-nowrap"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
-                ref={(el) => (dropdownRefs.current[index] = el)}
-              >
+                ref={(el) => (dropdownRefs.current[index] = el)}>
                 <Link
                   href={item.href || "#"}
                   onClick={(e) => {
@@ -370,10 +368,7 @@ export default function Navbar() {
                   aria-expanded={activeDropdown === index}
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
-
-                  }
-                >
-
+                  }>
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -389,15 +384,10 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
-
-
-                    className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
-                    style={{ ...getDropdownPosition(index), minWidth: "760px" }}
-                    role="menu"
-                  >
-                    <div className="flex ">
-                      <div className="w-1/2 border-r   border-gray-100">
-
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown w-[760px]"
+                    role="menu">
+                    <div className="flex">
+                      <div className="w-1/2 border-r border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
                           <div
                             key={sectionIndex}
@@ -408,8 +398,7 @@ export default function Navbar() {
                               activeSolution === sectionIndex
                                 ? "bg-[#F0E4FF]"
                                 : ""
-                            }`}
-                          >
+                            }`}>
                             <Link
                               href={section.href}
                               className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
@@ -419,8 +408,7 @@ export default function Navbar() {
                                     ? "border-r-2 border-purple-600"
                                     : ""
                                 }`}
-                              role="menuitem"
-                            >
+                              role="menuitem">
                               <div className="flex gap-2 items-center justify-start">
                                 <Image
                                   src={section.icon}
@@ -447,46 +435,38 @@ export default function Navbar() {
                         ))}
                       </div>
 
-
-
-                      <div className="w-1/2  space-y-2 py-2">
-                        {activeSolution !== null &&
-                          item.subSections[activeSolution]?.links.map(
-                            (link, linkIndex) => {
-                              console.log("Link:", link);
-                              return (
-                                <Link key={linkIndex} href={link.href}>
-                                  <div
-                                    className={`block  px-4 py-2  hover:bg-[#F0E4FF] transition-colors duration-150
-                              ${
-                                isActive(link.href)
-                                  ? " border-r-2 border-purple-600"
-                                  : ""
-                              }`}
-                                    role="menuitem"
-                                  >
-                                    <div className="flex gap-2 items-center justify-start">
-                                      <Image
-                                        src={link.icon}
-                                        alt={link.name + " icon"}
-                                        width={40}
-                                        height={40}
-                                        className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
-                                          isActive(link.href)
-                                            ? "opacity-100"
-                                            : "opacity-60"
-                                        }`}
-                                      />
-                                      <div className="space-y-2">
-                                        <p className="text-lg  gap-2">
-                                          {link.name}
-                                        </p>
-                                        <p className="text-xs  font-light ">
-                                          {link.description}
-                                        </p>
-                                      </div>
-
-
+                      <div className="w-1/2 space-y-2 py-2">
+                        {item.subSections[activeSolution]?.links.map(
+                          (link, linkIndex) => {
+                            return (
+                              <Link key={linkIndex} href={link.href}>
+                                <div
+                                  className={`block px-4 py-2 hover:bg-[#F0E4FF] transition-colors duration-150
+                                    ${
+                                      isActive(link.href)
+                                        ? "border-r-2 border-purple-600"
+                                        : ""
+                                    }`}
+                                  role="menuitem">
+                                  <div className="flex gap-2 items-center justify-start">
+                                    <Image
+                                      src={link.icon}
+                                      alt={link.name + " icon"}
+                                      width={40}
+                                      height={40}
+                                      className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
+                                        isActive(link.href)
+                                          ? "opacity-100"
+                                          : "opacity-60"
+                                      }`}
+                                    />
+                                    <div className="space-y-2">
+                                      <p className="text-lg gap-2">
+                                        {link.name}
+                                      </p>
+                                      <p className="text-xs font-light">
+                                        {link.description}
+                                      </p>
                                     </div>
                                   </div>
                                 </div>
@@ -505,13 +485,7 @@ export default function Navbar() {
                   activeDropdown === index && (
                     <div
                       className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
-
-
-                      style={getDropdownPosition(index)}
-
-                      role="menu"
-                    >
-
+                      role="menu">
                       {item.links.map((link, linkIndex) => (
                         <Link
                           key={linkIndex}
@@ -522,8 +496,7 @@ export default function Navbar() {
                               ? "text-black border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }`}
-                          role="menuitem"
-                        >
+                          role="menuitem">
                           <div className="flex gap-2 items-center justify-start">
                             <Image
                               src={link.icon}
@@ -552,16 +525,10 @@ export default function Navbar() {
             ))}
 
             {/* Get in Touch CTA */}
-
-
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
-              aria-label="Get in Touch"
-            >
-              Get in Touch
-
-
+            <Link href="/contact" className="" aria-label="Get in Touch">
+              <Button size="sm" className="px-4 text-xl">
+                Get in Touch
+              </Button>
             </Link>
           </div>
 
@@ -571,8 +538,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-black hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-expanded={isOpen}
-              aria-label="Toggle mobile menu"
-            >
+              aria-label="Toggle mobile menu">
               <Icon
                 icon={isOpen ? "mdi:close" : "mdi:menu"}
                 className="w-6 h-6"
@@ -624,8 +590,7 @@ export default function Navbar() {
                         isSectionActive(item)
                           ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
-                      }`}
-                  >
+                      }`}>
                     {item.title}
                   </Link>
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
@@ -633,8 +598,7 @@ export default function Navbar() {
                       onClick={() => toggleMobileExpanded(`main-${index}`)}
                       className="p-2 hover:bg-gray-100 rounded"
                       aria-label={`Toggle ${item.title} submenu`}
-                      aria-expanded={mobileExpandedItems[`main-${index}`]}
-                    >
+                      aria-expanded={mobileExpandedItems[`main-${index}`]}>
                       <Icon
                         icon="mdi:chevron-down"
                         className={`w-5 h-5 transition-transform duration-200 ${
@@ -662,8 +626,7 @@ export default function Navbar() {
                                 isParentActive(section.links)
                                   ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
-                              }`}
-                          >
+                              }`}>
                             {section.title}
                           </Link>
                           <button
@@ -678,8 +641,7 @@ export default function Navbar() {
                               mobileExpandedItems[
                                 `section-${index}-${sectionIndex}`
                               ]
-                            }
-                          >
+                            }>
                             <Icon
                               icon={
                                 mobileExpandedItems[
@@ -707,8 +669,7 @@ export default function Navbar() {
                                     isActive(link.href)
                                       ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                       : "text-gray-500 hover:text-black hover:bg-gray-50"
-                                  }`}
-                              >
+                                  }`}>
                                 {link.name}
                               </a>
                             ))}
@@ -732,8 +693,7 @@ export default function Navbar() {
                             isActive(link.href)
                               ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
-                          }`}
-                      >
+                          }`}>
                         {link.name}
                       </a>
                     ))}
@@ -743,11 +703,9 @@ export default function Navbar() {
             ))}
 
             {/* Mobile Get in Touch CTA */}
-
             <Link href="/contact" onClick={() => setIsOpen(false)}>
               <Button className="">Get in Touch</Button>
             </Link>
-
           </div>
         </div>
       )}

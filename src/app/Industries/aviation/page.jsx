@@ -40,7 +40,7 @@ const industryData = {
   overviewDescription:
     "The global aviation industry stands at a critical inflection point as it approaches $1 trillion in annual revenues & 5 billion passengers by 2025. Despite this growth trajectory, the sector faces unprecedented challenges across operations, supply chains, workforce, technology, sustainability, & regulatory compliance—all while navigating volatile economic conditions that threaten already thin profit margins.",
   challengesTitle: "Top Challenges",
-  image: "Images/industry-vr-healthcare.jpg", // Replace with your image path
+  image: "/Images/industry-vr-healthcare.jpg", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
