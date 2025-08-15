@@ -1,4 +1,3 @@
-// TimelineComponent.jsx
 import React, { useState, useEffect } from "react";
 import { P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
@@ -13,31 +12,24 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
   // Handle scroll for vertical data change
   useEffect(() => {
     const handleScroll = (e) => {
-      // On last step, check if we're at the top of the scroll container
       if (isLastStep) {
         const container = e.currentTarget;
         if (container.scrollTop === 0 && e.deltaY < 0) {
-          // Allow going back to previous step only when scrolled to top and scrolling up
           e.preventDefault();
           setCurrentIndex(currentIndex - 1);
         }
-        // Otherwise allow normal scrolling
         return;
       }
 
-      // For non-last steps, prevent default scrolling and navigate timeline
       e.preventDefault();
 
       if (e.deltaY > 0 && currentIndex < totalSteps - 1) {
-        // Scroll down - next item
         setCurrentIndex(currentIndex + 1);
       } else if (e.deltaY < 0 && currentIndex > 0) {
-        // Scroll up - previous item
         setCurrentIndex(currentIndex - 1);
       }
     };
 
-    // Add event listener to the container instead of window
     const container = document.querySelector("[data-timeline-container]");
     if (container) {
       container.addEventListener("wheel", handleScroll, { passive: false });
@@ -51,13 +43,27 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
     setCurrentIndex(index);
   };
 
+  // Handle click for previous year
+  const handlePrevYearClick = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  // Handle click for next year
+  const handleNextYearClick = () => {
+    if (currentIndex < totalSteps - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
   return (
     <div
       data-timeline-container
       className={`fixed inset-0 bg-gradient-to-br from-purple-50 to-blue-50 z-50 ${
         isLastStep ? "overflow-y-auto" : "overflow-hidden"
       }`}
-      style={{ height: "calc(100vh - 80px)", top: "80px" }}
+      style={{ height: "calc(100vh - 80px)", top: "60px" }}
     >
       <div
         className={`w-full mx-auto flex flex-col ${
@@ -65,10 +71,10 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
         }`}
       >
         {/* Header */}
-        <div className=" mx-auto w-full px-6">
+        <div className="mx-auto w-full px-6 sm:px-12">
           <div className="flex items-center gap-3 mb-2 w-fit">
             <Button
-              className={`text-black-500`}
+              className="text-black-500"
               variant="text"
               size="sm"
               onClick={onBackToAbout}
@@ -94,14 +100,14 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
         <div
           className={`flex-1 flex flex-col ${
             isLastStep ? "py-12" : "justify-center"
-          } px-6`}
+          } px-6 sm:px-12`}
         >
           {/* Years Display */}
           <div className="relative text-center mb-4">
-            {/* Previous Year */}
+            {/* Previous Year (Visible only on larger screens) */}
             {currentIndex > 0 && (
               <div
-                className="absolute left-0 top-0 text-gray-400 leading-none"
+                className="absolute left-0 top-0 text-gray-400 leading-none cursor-pointer sm:block hidden"
                 style={{
                   fontFamily: "Inria Serif",
                   fontWeight: 700,
@@ -109,6 +115,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                   lineHeight: "1",
                   letterSpacing: "-5%",
                 }}
+                onClick={handlePrevYearClick} // Click to go to previous year
               >
                 {timelineData[currentIndex - 1].year}
               </div>
@@ -128,10 +135,10 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
               {currentStep.year}
             </div>
 
-            {/* Next Year */}
+            {/* Next Year (Visible only on larger screens) */}
             {currentIndex < totalSteps - 1 && (
               <div
-                className="absolute right-0 top-0 text-gray-400 leading-none"
+                className="absolute right-0 top-0 text-gray-400 leading-none cursor-pointer sm:block hidden"
                 style={{
                   fontFamily: "Inria Serif",
                   fontWeight: 700,
@@ -139,6 +146,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                   lineHeight: "1",
                   letterSpacing: "-5%",
                 }}
+                onClick={handleNextYearClick} // Click to go to next year
               >
                 {timelineData[currentIndex + 1].year}
               </div>
@@ -154,16 +162,13 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
 
           {/* Timeline Visual */}
           <div className="relative mb-8">
-            {/* Dynamic Timeline Lines based on journey position */}
             {currentIndex === 0 && (
-              // First step: Only right line (journey starts)
               <div className="absolute left-1/2 top-1/2 w-1/2 h-px bg-black-300 transform -translate-y-1/2">
                 <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border border-black-300 bg-black-100 z-20"></div>
               </div>
             )}
 
             {currentIndex > 0 && currentIndex < totalSteps - 1 && (
-              // Middle steps: Both left and right lines (journey continues)
               <>
                 <div className="absolute left-0 top-1/2 w-1/2 h-px bg-black-300 transform -translate-y-1/2">
                   <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border border-black-300 bg-black-100 z-20"></div>
@@ -175,13 +180,11 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
             )}
 
             {currentIndex === totalSteps - 1 && (
-              // Last step: Only left line (journey ends)
               <div className="absolute left-0 top-1/2 w-1/2 h-px bg-black-300 transform -translate-y-1/2">
                 <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full border border-black-300 bg-black-100 z-20"></div>
               </div>
             )}
 
-            {/* Center Icon */}
             <div className="flex justify-center">
               <div className="flex items-center justify-center w-16 h-16 rounded-full relative bg-black-50 z-10">
                 {currentStep.iconSrc && (
@@ -197,13 +200,13 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
 
           {/* Step Title */}
           <div className="text-center">
-            <h3 className=" text-black-800 max-w-4xl mx-auto">
+            <h3 className="text-black-800 max-w-4xl mx-auto">
               {currentStep.title}
             </h3>
           </div>
           {currentStep.subtitle && (
             <div className="text-center mb-4">
-              <h5 className=" text-black-600 max-w-4xl mx-auto">
+              <h5 className="text-black-600 max-w-4xl mx-auto">
                 {currentStep.subtitle}
               </h5>
             </div>

@@ -1,9 +1,9 @@
 // app/company/careers/page.jsx
 import CTA from "@/sections/digital-learning/CTA";
-import WhyWorkWithUsSection from "@/sections/Company/WhyWorkWithUsSection";
+import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
 
 // ⬇️ Import the careers table + default data
-import CareersTable, { defaultCareers } from "@/sections/Company/CareersTable";
+import CareersTable, { defaultCareers } from "@/sections/Company/careers/CareersTable";
 
 const teamData = {
   title: "Your Next Chapter Starts Here",

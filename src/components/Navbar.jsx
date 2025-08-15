@@ -188,9 +188,12 @@ export default function Navbar() {
   const [currentPath, setCurrentPath] = useState("/");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
+
+
   const navRef = useRef(null);
   const timeoutRef = useRef(null);
   const dropdownRefs = useRef({});
+
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -327,6 +330,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
+
           <div className="hidden md:flex text-start md:items-center md:space-x-1">
             {NAV_LINKS.map((item, index) => (
               <div
@@ -353,6 +357,7 @@ export default function Navbar() {
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
                   }>
+
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -368,6 +373,7 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
+
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
                     style={{ ...getDropdownPosition(index), minWidth: "760px" }}
                     role="menu">
@@ -462,6 +468,7 @@ export default function Navbar() {
                             }
                           )}
                       </div>
+
                     </div>
                   </div>
                 )}
@@ -523,6 +530,7 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
+
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-expanded={isOpen}
@@ -531,6 +539,7 @@ export default function Navbar() {
                 icon={isOpen ? "mdi:close" : "mdi:menu"}
                 className="w-6 h-6"
               />
+
             </button>
           </div>
         </div>
@@ -542,6 +551,7 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {NAV_LINKS.map((item, index) => (
               <div key={index}>
+
                 {/* Main item */}
                 <div className="flex items-center justify-between">
                   <a
@@ -579,6 +589,7 @@ export default function Navbar() {
                         }`}
                       />
                     </button>
+
                   )}
                 </div>
 
@@ -654,6 +665,7 @@ export default function Navbar() {
                   <div className="ml-4 mt-1 space-y-1">
                     {item.links.map((link, linkIndex) => (
                       <a
+
                         key={linkIndex}
                         href={link.href}
                         className={`block px-3 py-2 text-xl rounded-md
@@ -663,6 +675,7 @@ export default function Navbar() {
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
                           }`}>
                         {link.name}
+
                       </a>
                     ))}
                   </div>

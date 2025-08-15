@@ -1,5 +1,5 @@
 // app/company/careers/[slug]/page.jsx
-import CareerDetails from "@/sections/Company/CareerDetails";
+import CareerDetails from "@/sections/Company/careers/CareerDetails";
 import {
   getCareerDetailsBySlug,
   getAllCareerSlugs,
