@@ -47,7 +47,7 @@ const industryData = {
   challenges: [
     {
       id: 1,
-      icon: "Icons/user-md.svg", // Replace with your icon path
+      icon: "/Icons/Industries/Healthcare/speedometer_12736847.svg", // Replace with your icon path
       title: "Workforce Crisis",
       description: "100K+ critical worker shortage by 2028, 50% burnout rate persists."
     },
@@ -116,7 +116,7 @@ const digitalTransformationData = {
     {
       id: 1,
       title: "AI Leadership",
-      icon: "Icons/ai-icon.svg", // Replace with your icon path
+      icon: "/Icons/Industries/Healthcare/181871881_ad886793-50ea-40d7-91fe-c9a4318f47c8 (1) 1.svg", // Replace with your icon path
       points: [
         "77% of leaders prioritize AI",
         "73% plan to use Generative AI",
@@ -126,7 +126,7 @@ const digitalTransformationData = {
     {
       id: 2,
       title: "XR/VR Revolution",
-      icon: "Icons/vr-icon.svg", // Replace with your icon path
+      icon: "/Icons/Industries/Healthcare/vr-glasses_3646958 1.svg", // Replace with your icon path
       points: [
         "68% medical schools use VR",
         "71% doctors prefer VR training",
