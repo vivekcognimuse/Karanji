@@ -4,7 +4,7 @@ import SectionReveal from "@/components/animations/sectionReveal";
 import CarouselContainer from "@/components/animations/Carousal";
 
 export default function Methodology({ column, data }) {
-  const { title, subTitle, list } = data || {};
+  const { title, subTitle, list, isStepHidden } = data || {};
 
   return (
     <section
@@ -27,6 +27,7 @@ export default function Methodology({ column, data }) {
             <div key={index} data-reveal data-reveal-dir="up">
               <MethodologyStep
                 column={column}
+                isStepHidden={isStepHidden}
                 step={index + 1}
                 title={item.title}
                 tags={item.tags}

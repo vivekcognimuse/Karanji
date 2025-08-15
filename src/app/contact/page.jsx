@@ -240,16 +240,13 @@ const ContactPage = () => {
   });
 
   const socialIcons = [
-    { name: "Instagram", href: "#", icon: "circum:instagram" },
-    { name: "Twitter", href: "#", icon: "bi:twitter-x" },
     { name: "LinkedIn", href: "#", icon: "teenyicons:linkedin-outline" },
-    { name: "YouTube", href: "#", icon: "uit:youtube" },
   ];
 
   const locations = ["India", "UAE", "USA", "Singapore"];
 
   return (
-    <div className=" mt-8 pt-20 w-full py-8 bg-gradient-to-br from-indigo-100 via-blue-200 to-red-100 inline-flex flex-col justify-start items-center overflow-hidden min-h-screen">
+    <div className="  pt-20 w-full py-8 bg-gradient-to-br from-indigo-100 via-blue-200 to-red-100 inline-flex flex-col justify-start items-center overflow-hidden min-h-screen">
       <main className="self-stretch  mx-auto w-full max-w-[1580px] overflow-hidden p-4 lg:p-10  flex flex-col justify-start items-start gap-16">
         <header className="self-stretch inline-flex justify-between items-center">
           <h1 className="self-stretch justify-start text-black/40 text-xl font-normal font-sans">
@@ -257,7 +254,7 @@ const ContactPage = () => {
           </h1>
         </header>
 
-        <div className=" h-auto inline-flex justify-center items-start gap-32">
+        <div className=" h-auto lg:inline-flex justify-center items-start gap-32">
           <div className="flex-1 self-stretch inline-flex flex-col justify-between items-start">
             <div className="self-stretch flex flex-col justify-start items-start gap-6">
               <div className="self-stretch flex flex-col justify-start items-start gap-4">
@@ -280,7 +277,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <footer className="flex flex-col justify-start items-start gap-4">
+            <footer className="flex mt-8 flex-col justify-start items-start gap-4">
               <div className="inline-flex justify-center items-center gap-4">
                 {socialIcons.map((social) => (
                   <a
@@ -368,19 +365,19 @@ const ContactPage = () => {
                   touched={touched.project}
                   placeholder="Describe your project requirements, timeline, and any specific technologies you're interested in..."
                   maxLength={2000}
-                  rows={4}
+                  rows={2}
                   disabled={isSubmitting}
                 />
               </div>
 
-              <div className="mt-4 flex flex-col gap-2">
+              <div className="mt-10  flex flex-col gap-2">
                 <button
                   type="button"
                   onClick={handleSubmit}
                   disabled={!formState.canSubmit}
                   className="bg-black rounded-[32px] inline-flex justify-start items-center gap-6 flex-wrap content-center overflow-hidden hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   aria-describedby="submit-help">
-                  <div className="h-12 px-4 py-2 bg-gradient-to-br from-white/5 to-white/5 rounded-md shadow-[0px_1px_4px_0px_rgba(0,0,0,0.10)] outline outline-1 outline-offset-[-1px] outline-black backdrop-blur-[50px] flex justify-center items-center gap-2.5">
+                  <div className="h-12 px-4 py-2 bg-gradient-to-br from-white/5 to-white/5 rounded-md shadow-[0px_1px_4px_0px_rgba(0,0,0,0.10)]  outline-offset-[-1px] outline-black backdrop-blur-[50px] flex justify-center items-center gap-2.5">
                     <span className="justify-start text-white text-xl font-normal font-['Outfit']">
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">

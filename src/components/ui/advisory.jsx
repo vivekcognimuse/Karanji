@@ -109,15 +109,18 @@ export const MethodologyStep = memo(function MethodologyStep({
   title,
   description,
   tags,
+  isStepHidden = false,
   column = false,
 }) {
   if (column) {
     return (
       <div className={`${"border-b border-black/50 pb-8"}`}>
         <div className="flex flex-col  space-y-6">
-          <div className="text-4xl  font-extralight font-sans italic text-black/80">
-            {"#"} {step}
-          </div>
+          {!isStepHidden && (
+            <div className="text-4xl  font-extralight font-sans italic text-black/80">
+              {"#"} {step}
+            </div>
+          )}
           <h4 className="">{title}</h4>
           <P2 className="text-black-500">{description}</P2>
 
