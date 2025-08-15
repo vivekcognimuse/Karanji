@@ -32,11 +32,10 @@ export default function RegisterForWebinar({ data }) {
             {/* Register for Free Box */}
             <div className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl">
               <div className="text-center">
-                <h5 className=" font-semibold text-black-950 mb-4">
-                  REGISTER FOR FREE
-                </h5>
-                <P3 className="text-gray-700 text-lg leading-relaxed">
-                  {data.registerBox.subTitle}
+                <h5 className="  text-black-950 mb-4">REGISTER FOR FREE</h5>
+                <P3 className="text-black-700 text-lg ">
+                  Transform Your Workforce with Karanji’s Virtual Engine
+                  Workshop Today
                 </P3>
               </div>
             </div>
@@ -89,9 +88,7 @@ export default function RegisterForWebinar({ data }) {
                 />
               </div>
 
-              <Button
-                type="submit"
-                className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-full text-lg font-medium mt-auto">
+              <Button type="submit" className="">
                 Submit
               </Button>
             </form>

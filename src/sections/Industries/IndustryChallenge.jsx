@@ -50,9 +50,11 @@ const Industrychallenge = ({ data }) => {
                 {challenges.map(({ id, icon, title, description }) => (
                   <div key={id}>
                     <div className=" p-2 rounded-full inline-block">
-                      <img
+                      <Image
                         src={icon}
                         alt={title}
+                        width={20}
+                        height={20}
                         className="text-xl text-white w-5 h-5"
                       />
                     </div>

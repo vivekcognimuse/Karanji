@@ -49,27 +49,28 @@ const industryData = {
   challenges: [
     {
       id: 1,
-      icon: "/Icons/Industries/fluent-mdl2_health.svg", 
+      icon: "/Icons/fluent-mdl2_health.svg", 
       title: "Workforce Crisis",
       description:
         "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
     },
     {
       id: 2,
-      icon: "Icons/microchip.svg", 
+      icon: "/Icons/Industries/vr-glasses_3646958 1.svg", 
+      title: "Financial Pressure",
       description:
         "8% cost increases, 2% operating margins, $100B underpayment gap.",
     },
     {
       id: 3,
-      icon: "Icons/microchip.svg", // Replace with your icon path
+      icon: "/nav/about-us.svg", // Replace with your icon path
       title: "Technology Gaps",
       description:
         "180+ ransomware attacks, 137TB daily data, workflow inefficiencies.",
     },
     {
       id: 4,
-      icon: "Icons/hospital.svg", // Replace with your icon path
+      icon: "/Icons/_x34_7_Maximize.svg", // Replace with your icon path
       title: "Access Barriers",
       description:
         "26-day wait times, 4 in 10 can't afford care, cost-driven skipping.",
@@ -222,7 +223,7 @@ const strategicUseCaseData = {
   useCaseCards: [
     {
       id: 1,
-      icon: "Icons/vr-cardboard.svg", // Replace with your icon path
+      icon: "/Icons/_x34_7_Maximize.svg", // Replace with your icon path
       category: "XR & Gaming",
       title: "Surgical Training Platform",
       description:

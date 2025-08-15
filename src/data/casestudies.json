@@ -1,96 +1,223 @@
-{
-  "caseStudies": [
-    {
-      "id": 201,
-      "title": "Enhancing Product Exploration with VR Factory Walkthrough",
-      "description": "A leading iron and steel manufacturer struggled to effectively showcase their products and operations. Karanji’s VR 'Factory Walkthrough' solution offered an immersive, hands-on experience for clients and employees. This case study demonstrates how the VR module improved product understanding, engagement, and onboarding.",
-      "tags": ["Iron & Steel Industry", "VR", "6 min Read"],
-      "domain": "Iron and Steel Industry",
-      "targetAudience": ["New Employees", "Prospective Clients", "Industry Partners"],
-      "image": "caseStudies/Casestudy 3.webp",
-      "sections": [
-        { "type": "heading", "content": "Problem Statement" },
-        {
-          "type": "text",
-          "content": "A leading company in the iron and steel manufacturing industry faced challenges in effectively showcasing their diverse range of products and the complexities of their factory operations to prospective clients and new employees. While they had detailed catalogs and offered physical tours, these methods lacked the engagement and depth necessary to truly highlight the quality and specifications of their products. Clients and employees, particularly those interested in understanding the specific features and applications of various products, were seeking a solution that provided more immersive, hands-on insights."
-        },
-        {
-          "type": "text",
-          "content": "To meet this demand, Karanji introduced the “Factory Walkthrough” VR experience. This innovative solution allows users to virtually explore the factory, gaining detailed insights into the products and operations, thus bridging the gap between superficial awareness and deep understanding."
-        },
-        { "type": "heading", "content": "Challenges" },
-        {
-          "type": "text",
-          "content": "The creation of the “Factory Walkthrough” VR experience presented several key challenges:"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Incorporating detailed views of various products and their specific features.",
-            "Ensuring ease of use for individuals unfamiliar with VR technology.",
-            "Blending interactive and informational elements to keep users engaged."
-          ]
-        },
-        { "type": "heading", "content": "Critical Success Factors" },
-        {
-          "type": "list",
-          "items": [
-            "Enhanced Understanding of Product Features: The VR walkthrough provided users with a deeper understanding of each product’s features and applications.",
-            "Increased Engagement: The immersive nature of the VR experience made product exploration memorable and engaging.",
-            "Personalized User-Driven Factory Tours: Users could tailor their experience, exploring different departments and gaining insights at their own pace."
-          ]
-        },
-        { "type": "heading", "content": "Content Coverage" },
-        {
-          "type": "text",
-          "content": "The “Factory Walkthrough” VR allows users to explore the company’s iron and steel products within a virtual factory environment. Users can navigate around various departments, witnessing firsthand how the manufacturing processes unfold. "
-        },
-        {
-          "type": "text",
-          "content": "This virtual walkthrough mimics a physical tour, providing a detailed, interactive experience that offers a deep dive into the company's operations and product offerings.."
-        },
-       
-        { "type": "heading", "content": "Karanji’s Solution" },
-        {
-          "type": "text",
-          "content": "Karanji assembled a team of VR experts, video developers, & instructional designers to create the comprehensive VR walkthrough. Each team member played a critical role in ensuring that the experience was both engaging & educational"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Instructional Designers: Translated complex product features into understandable, engaging content.",
-            "Video Developers: Crafted lifelike factory environments, displaying products with realistic detail.",
-            "VR Experts: Made the experience user-friendly and visually engaging across all tech levels."
-          ]
-        },
-        { "type": "heading", "content": "The Impact and ROI" },
-        {
-          "type": "list",
-          "items": [
-            "Client Engagement: Increased by 70% due to immersive exploration.",
-            "Sales Growth: 25% increase in sales within the first 6 months.",
-            "Employee Onboarding: Reduced training time and improved operational efficiency."
-          ]
-        },
-        { "type": "heading", "content": "Testimonials & Feedback" },
-        {
-          "type": "quote", "content": "I’ve never experienced such a detailed and immersive way to explore products." 
-        },
-        {
-          "type": "quote", "content": "This VR module made my onboarding process so smooth. It thoroughly helped me understand our products and factory layout before even stepping into the physical space." 
-        },
-        {
-          "type": "quote", "content": "This VR module made my onboarding process so smooth. It thoroughly helped me understand our products and factory layout before even stepping into the physical space." 
-        }
-      ],
-      "downloadCta": {
-        "title": "Access VR Walkthrough Story",
-        "intro": "See how a leading manufacturer used VR to improve product demos, engage clients better, and make onboarding easier.",
-        "description": "",
-        "audienceNote": "If you're in manufacturing or industrial training, this case study shows what’s possible with immersive technology.",
-        "encouragementNote": "Use it, learn from it, and start your own impact story",
-        "buttonLabel": "Download Full Case Study"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "slug": "1",
+    "downloadCta": {
+      "title": "Access AI-Generated Ad Campaign Case Study",
+      "intro": "See how we used AI creative tools to create a high-quality, 3D AI video in just four days - delivering a game-changing solution for fast, affordable ad production.",
+      "description": "Case Study 1 detailed description.",
+      "audienceNote": "If you’re in marketing or creative production, this case demonstrates how AI-powered production services can revolutionize ad creation.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/1_3d_ai_advertisement.webp"
+  },
+  {
+    "id": 3,
+    "slug": "3",
+    "downloadCta": {
+      "title": "Access K-Buddy AI Chatbot Case Study",
+      "intro": "Discover how AI chatbots and eLearning solutions scale personalized support, boosting student engagement and understanding in real-time.",
+      "description": "Case Study 2 detailed description.",
+      "audienceNote": "If you're in education technology or student support, this case shows how AI-powered learning solutions can transform study experiences and outcomes.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/2_k_buddy_ai_learning_companion.webp"
+  },
+  {
+    "id": 4,
+    "slug": "4",
+    "downloadCta": {
+      "title": "Access Outbound Calling Agent Story",
+      "intro": "See how inside-sales teams automate follow-ups, simplify logging, and gain real control with a proactive calling agent.",
+      "description": "Case Study 3 detailed description.",
+      "audienceNote": "If you’re in sales or EdTech, this case shows what’s possible with AI computer solutions for outreach and team efficiency.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/3_outbound_calling_agent_.webp"
+  },
+  {
+    "id": 5,
+    "slug": "5",
+    "downloadCta": {
+      "title": "Access Sign Language Bot (SignBot) Story",
+      "intro": "See how a unified sign-clip library, SBERT matching, and real-time stitching make text-to-sign translation practical for education and accessibility teams.",
+      "description": "Case Study 4 detailed description.",
+      "audienceNote": "If you’re in education, NGOs, or customer support, this case shows what’s possible with AI-powered business solutions for inclusive communication.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/4_sign_language_bot_signbot_.webp"
+  },
+  {
+    "id": 6,
+    "slug": "6",
+    "downloadCta": {
+      "title": "Access Teacher Empowerment System (TES) Story",
+      "intro": "See how schools streamline lesson planning, generate quizzes, and support diverse classrooms with an AI-driven assistant.",
+      "description": "Case Study 5 detailed description.",
+      "audienceNote": "If you’re training students from Grade 1-12, this case study shows what’s possible with a training management system approach to day-to-day teaching.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/5_teacher_empowerment_system_tes_.webp"
+  },
+  {
+    "id": 7,
+    "slug": "7",
+    "downloadCta": {
+      "title": "Access Quality Month: Video Animation Story",
+      "intro": "See how culturally rooted storytelling, local voice acting, and character-driven narratives can bring internal campaigns to life.",
+      "description": "Case Study 6 detailed description.",
+      "audienceNote": "If you manage corporate communications or learning initiatives, this case shows what’s possible with tailored animation and on-the-ground collaboration.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/6_quality_month_video_animation_.webp"
+  },
+  {
+    "id": 8,
+    "slug": "8",
+    "downloadCta": {
+      "title": "Access Futuristic Digital Payments Training Module Story",
+      "intro": "See how simulations, holographic UI, and narrative design turn payment infrastructure into a clear, engaging learning experience.",
+      "description": "Case Study 7 detailed description.",
+      "audienceNote": "If you lead enablement in fintech or banking, this case shows how a modern training management system approach can accelerate product understanding.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/7_futuristic_digital_payments_training_module.webp"
+  },
+  {
+    "id": 9,
+    "slug": "9",
+    "downloadCta": {
+      "title": "Access Driving School & Training Module Story",
+      "intro": "See how scenario design, simulator alignment, and role-based modules create job-ready training for managers and instructors.",
+      "description": "Case Study 8 detailed description.",
+      "audienceNote": "If you run an automotive academy or safety initiative, this case shows how eLearning solutions can translate real-world driving demands into clear, scalable instruction.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/8_driving_school_training_module_.webp"
+  },
+  {
+    "id": 10,
+    "slug": "10",
+    "downloadCta": {
+      "title": "Access Banking Branching Simulation Story",
+      "intro": "See how visual logic maps, parallel production, and scenario trees create realistic, decision-driven training for financial teams.",
+      "description": "Case Study 9 detailed description.",
+      "audienceNote": "If you’re in financial services or corporate training, this case shows best practices for crafting impactful e-learning content.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/9_corporate_learning_development_teams.webp"
+  },
+  {
+    "id": 11,
+    "slug": "11",
+    "downloadCta": {
+      "title": "Access Foundations of Artificial Intelligence: LMS Implementations Story",
+      "intro": "See how engineered timers, scoring, and SCORM behavior create a reliable AI-certification journey that scales within broader AI-powered business solutions.",
+      "description": "Case Study 10 detailed description.",
+      "audienceNote": "If you’re in leadership enablement or AI-powered solutions, this case shows how digital twin technology can help organizations unlock their expertise.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/10_foundation_of_artificial_intelligence_lms.webp"
+  },
+  {
+    "id": 12,
+    "slug": "12",
+    "downloadCta": {
+      "title": "Access Automobile-EV Training Module: Micro-learning Case Study",
+      "intro": "See how we turned complex EV concepts into quick, interactive micro-lessons for the automotive industry.",
+      "description": "Case Study 11 detailed description.",
+      "audienceNote": "If you're in automotive training or e-learning development, this case shows how eLearning solutions can streamline complex content into digestible modules.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/11_automobile_ev_training_module.webp"
+  },
+  {
+    "id": 13,
+    "slug": "13",
+    "downloadCta": {
+      "title": "Access “From Dull to Dynamic” Podcast Transformation Story",
+      "intro": "See how AI-driven video enhancement and custom motion graphics turned a basic podcast into an engaging, visually-rich learning asset.",
+      "description": "Case Study 12 detailed description.",
+      "audienceNote": "If you’re in corporate learning or innovation, this case demonstrates how AI-generated imagery and interactive design can elevate leadership content.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/12_elevating_a_one_hour_podcast_into_a_visually_engaging_experience_.webp"
+  },
+  {
+    "id": 14,
+    "slug": "14",
+    "downloadCta": {
+      "title": "Access “From Dull to Dynamic” Crime Scene Integration Story",
+      "intro": "See how Mocha AE tracked the murder video onto a moving phone screen to create a seamless, realistic effect for this crime series.",
+      "description": "Case Study 13 detailed description.",
+      "audienceNote": "If you’re in video production or post-production, this case shows how video post-production services can bring critical evidence scenes to life with precise tracking and real-time editing.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/13_from_real_footage_to_on_screen_evidence_bringing_a_murder_mystery_scene_to_life_.webp"
+  },
+  {
+    "id": 15,
+    "slug": "15",
+    "downloadCta": {
+      "title": "Access Convocation Day Video Story",
+      "intro": "See how quick scripting, spot editing, and stock footage created an impactful video under tight timelines.",
+      "description": "Case Study 14 detailed description.",
+      "audienceNote": "If you’re in event production or school branding, this case shows how rapid production techniques can tell powerful stories, even with limited resources.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/14_convocation_day_school_real_video_project_.webp"
+  },
+  {
+    "id": 16,
+    "slug": "16",
+    "downloadCta": {
+      "title": "Access Cybersecurity Awareness Game Story",
+      "intro": "See how we transformed cybersecurity education from dry to dynamic, using gamified learning and interactive mini-games to engage employees and reinforce critical security practices.",
+      "description": "Case Study 15 detailed description.",
+      "audienceNote": "If you’re in corporate training or IT security, this case shows how cybersecurity eLearning solutions can be fun, impactful, and scalable for global teams.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/15_cybersecurity_awareness_game_.webp"
+  },
+  {
+    "id": 17,
+    "slug": "17",
+    "downloadCta": {
+      "title": "Access VR Training for Electric Vehicles Case Study",
+      "intro": "See how VR technology transformed EV training for service technicians and employees, creating realistic, hands-on learning experiences that boosted engagement and safety awareness.",
+      "description": "Case Study 16 detailed description.",
+      "audienceNote": "If you’re in automotive training or corporate learning, this case shows how immersive VR training solutions can drive efficiency and performance.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/16. VR Training for Electric Vehicle (EV).webp"
+  },
+  {
+    "id": 18,
+    "slug": "18",
+    "downloadCta": {
+      "title": "Access Digital Clones in Action Case Study",
+      "intro": "See how AI-powered digital clones helped Karanji scale expertise, improve decision-making, and enhance client engagement-all while freeing up executive time for strategic work.",
+      "description": "Case Study 17 detailed description.",
+      "audienceNote": "If you’re in leadership enablement or AI-powered solutions, this case shows how digital twin technology can help organizations unlock their expertise for faster, more effective decision-making.",
+      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      "buttonLabel": "Download Full Case Study"
+    },
+    "image": "/CaseStudyImages/17_Digital_Twins.webp"
+  }
+]

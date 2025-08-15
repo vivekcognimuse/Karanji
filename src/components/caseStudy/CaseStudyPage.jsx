@@ -5,7 +5,7 @@ import DownloadSection from "../blog/downloadSection";
 import QuoteBlock from "../blog/QuoteBlock";
 import CaseStudySidebarMeta from "./CaseStudySidebarMeta";
 import { P1, P3 } from "../CustomTags";
-
+import Image from "next/image";
 const slugify = (s) =>
   (s || "")
     .toLowerCase()
@@ -142,16 +142,19 @@ const CaseStudyPage = ({ data }) => {
 
         {/* Full Width Hero Image */}
         <div className="mx-auto">
-          <img
+          <Image
             id="hero-image"
-            src="/caseStudies/Casestudy 3.webp"
+            src={data.image}
             alt={data.title}
-            className="w-full rounded-2xl my-6"
+            width={1200}
+            height={600}
+            unoptimized
+            className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
           />
         </div>
 
         {/* Content Section with Sidebar Layout */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto ">
           {/* Desktop and Large Tablets: Sidebar Layout */}
           <div className="hidden xl:block">
             <div className="flex gap-8">

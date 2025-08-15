@@ -1,41 +1,9 @@
-// components/resources/ResourcesGrid.jsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { P1 } from "../CustomTags";
 
-const resources = [
-  {
-    type: "Case Study",
-    title: "Enhancing Product Exploration with VR Factory Walkthrough",
-    image: "/caseStudies/Casestudy 3.webp",
-    link: "/case-studies/",
-    cta: "View Case Study",
-  },
-  {
-    type: "Webinar",
-    title: "Future of Automotive Engineering Training",
-    image: "/caseStudies/Casestudy 1.webp",
-    link: "/webinar/",
-    cta: "Register for Webinar",
-  },
-  {
-    type: "Blog",
-    title: "Immersive Healthcare Education: Bridging the Skill Gap through VR",
-    image: "/blog/Casestudy 2.webp",
-    link: "/blog-insights/",
-    cta: "Read Blog",
-  },
-  {
-    type: "Blog",
-    title: "Advanced VR Applications in Medical Training",
-    image: "/blog/Casestudy 2.webp",
-    link: "/blog-insights/",
-    cta: "Read Blog",
-  },
-];
-
-const ResourcesGrid = () => {
+const ResourcesGrid = ({ resources }) => {
   return (
     <div className="space-y-6">
       {/* First Row: Small (30%) + Large (70%) */}

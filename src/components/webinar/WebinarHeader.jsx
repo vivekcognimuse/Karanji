@@ -62,113 +62,121 @@ export default function WebinarHeader({ data, bgImage }) {
 
   return (
     <section
-      className="relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-cover"
+      className="relative bg-no-repeat  bg-center bg-cover"
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}
     >
-      {/* Main Content Container - Following HeroSection pattern */}
-      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto px-4 sm:px-6">
-        {/* Title and Description - Following HeroSection spacing */}
-        <div className="space-y-3 sm:space-y-4">
-          <h2 className="text-center">{data?.title}</h2>
+      <div className="w-full flex  lg:min-h-[calc(100vh-80px)] justify-center  flex-col items-center h-fit pt-16 md:pt-0 max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+        {/* Main Content Container - Following HeroSection pattern */}
+        <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto px-4 sm:px-6">
+          {/* Title and Description - Following HeroSection spacing */}
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-center">{data?.title}</h2>
 
-          {data?.description && (
-            <P1 className="text-center mx-auto max-w-4xl">
-              {toPlainText(data.description)}
-            </P1>
+            {data?.description && (
+              <P1 className="text-center mx-auto max-w-4xl">
+                {toPlainText(data.description)}
+              </P1>
+            )}
+          </div>
+
+          {/* Buttons - Following HeroSection CTA pattern */}
+          {(buttons.register || buttons.preview) && (
+            <div className="flex justify-center gap-4 flex-wrap">
+              {buttons.register && (
+                <Button className="whitespace-nowrap">
+                  {buttons.register}
+                </Button>
+              )}
+              {buttons.preview && (
+                <Button
+                  variant="secondary"
+                  className="bg-white text-black border border-black whitespace-nowrap"
+                >
+                  {buttons.preview}
+                </Button>
+              )}
+            </div>
           )}
         </div>
 
-        {/* Buttons - Following HeroSection CTA pattern */}
-        {(buttons.register || buttons.preview) && (
-          <div className="flex justify-center gap-4 flex-wrap">
-            {buttons.register && (
-              <Button className="whitespace-nowrap">{buttons.register}</Button>
-            )}
-            {buttons.preview && (
-              <Button
-                variant="secondary"
-                className="bg-white text-black border border-black whitespace-nowrap"
-              >
-                {buttons.preview}
-              </Button>
-            )}
+        {/* Event Details Section - Following HeroSection stats pattern */}
+        {(data?.date || data?.time || data?.location) && (
+          <div className="w-full my-8 sm:my-12 lg:my-16 px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+              {/* Date */}
+              {data?.date && (
+                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img
+                      src="/Icons/Calendar.svg"
+                      alt="Calendar"
+                      className="w-6 h-6"
+                    />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                      {dateFormatted.line1}
+                    </div>
+                    {dateFormatted.line2 && (
+                      <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                        {dateFormatted.line2}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Time */}
+              {data?.time && (
+                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                  <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img
+                      src="/Icons/Clock.svg"
+                      alt="Time"
+                      className="w-6 h-6"
+                    />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                      {timeFormatted.line1}
+                    </div>
+                    {timeFormatted.line2 && (
+                      <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                        {timeFormatted.line2}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Location */}
+              {data?.location && (
+                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <img
+                      src="/Icons/weui_location-outlined.svg"
+                      alt="Location"
+                      className="w-6 h-6"
+                    />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                      {locationFormatted.line1}
+                    </div>
+                    {locationFormatted.line2 && (
+                      <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                        {locationFormatted.line2}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
-
-      {/* Event Details Section - Following HeroSection stats pattern */}
-      {(data?.date || data?.time || data?.location) && (
-        <div className="w-full my-8 sm:my-12 lg:my-16 px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
-            {/* Date */}
-            {data?.date && (
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <img
-                    src="/Icons/Calendar.svg"
-                    alt="Calendar"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div className="text-left min-w-0">
-                  <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                    {dateFormatted.line1}
-                  </div>
-                  {dateFormatted.line2 && (
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {dateFormatted.line2}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Time */}
-            {data?.time && (
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <img src="/Icons/Clock.svg" alt="Time" className="w-6 h-6" />
-                </div>
-                <div className="text-left min-w-0">
-                  <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                    {timeFormatted.line1}
-                  </div>
-                  {timeFormatted.line2 && (
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {timeFormatted.line2}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Location */}
-            {data?.location && (
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <img
-                    src="/Icons/weui_location-outlined.svg"
-                    alt="Location"
-                    className="w-6 h-6"
-                  />
-                </div>
-                <div className="text-left min-w-0">
-                  <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                    {locationFormatted.line1}
-                  </div>
-                  {locationFormatted.line2 && (
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {locationFormatted.line2}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

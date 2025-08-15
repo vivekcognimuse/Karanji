@@ -1,7 +1,7 @@
 //about-us.jsx
 "use client";
 import { useState, useRef, useEffect } from "react";
-import HeroSection from "@/sections/Advisory/Hero";
+import WebinarHeader from "@/components/webinar/WebinarHeader";
 import QuoteSection from "@/sections/Company/about/quoteSection";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
 import VisionMission from "@/sections/Company/about/VisionMission";
@@ -11,7 +11,7 @@ import TimelineComponent from "@/sections/Company/about/TimelineComponent";
 
 const heroData = {
   title: "Our Identity & Purpose",
-  subTitle:
+  description:
     "Discover who we are, what drives us, and the values that shape every solution we deliver.",
   backgroundImage: "/path/to/your/hero-image.jpg",
 };
@@ -171,20 +171,22 @@ export default function AboutUs() {
 
   return (
     <>
-      <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-        <HeroSection data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
-        <JourneySection
-          data={{
-            ...journeyData,
-            onContinueJourney: handleContinueJourney,
-          }}
-        />
-        <div id="vision-mission">
-          <VisionMission />
+      <main className="">
+        <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
+        <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+          <JourneySection
+            data={{
+              ...journeyData,
+              onContinueJourney: handleContinueJourney,
+            }}
+          />
+          <div id="vision-mission">
+            <VisionMission />
+          </div>
+          <ValuesSection />
+          <NextUpSection heading="Next Up" cards={cardsData} />
+          <QuoteSection title="Innovate. Design. Transform." />
         </div>
-        <ValuesSection />
-        <NextUpSection heading="Next Up" cards={cardsData} />
-        <QuoteSection title="Innovate. Design. Transform." />
       </main>
 
       {/* Timeline Component Overlay */}
