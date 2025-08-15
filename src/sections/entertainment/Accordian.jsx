@@ -22,7 +22,7 @@ const Accordion = ({ data }) => {
               key={index}
               className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
               <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
-                <P1 className="text-gray-900 font-medium text-sm md:text-base pr-4">
+                <P1 className="text-gray-900   md:text-base pr-4">
                   {item.question}
                 </P1>
 

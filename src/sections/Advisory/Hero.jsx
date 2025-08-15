@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
@@ -11,7 +12,6 @@ export default function HeroSection({ data, bgImage }) {
   const {
     title = "",
     ctaText,
-
     linkHref,
     ctaLink,
     subTitle,
@@ -19,14 +19,26 @@ export default function HeroSection({ data, bgImage }) {
     backgroundImage,
   } = data;
 
+  // Function to handle smooth scrolling
+  const handleScrollToSection = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section
       id="hero-section"
-      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain `}
+      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain`}
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}>
-      <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
+      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h2
             className="text-center opacity-0 will-change-transform"
@@ -45,33 +57,26 @@ export default function HeroSection({ data, bgImage }) {
 
         {ctaText && (
           <div className="flex opacity-0 will-change-transform" data-reveal>
-            <Link href={ctaLink} className="mx-auto">
-              <Button
-                variant="text"
-                className="mx-auto whitespace-nowrap"
-                rightIcon={
-                  <Icon
-                    icon="material-symbols:arrow-forward"
-                    className="w-6 h-6"
-                  />
-                }>
-                {ctaText}
-              </Button>
-            </Link>
+            <Button
+              variant="text"
+              className="mx-auto whitespace-nowrap"
+              rightIcon={
+                <Icon
+                  icon="material-symbols:arrow-forward"
+                  className="w-6 h-6"
+                />
+              }
+              onClick={(e) => handleScrollToSection(e, ctaLink)} // Handle scroll on click
+            >
+              {ctaText}
+            </Button>
           </div>
         )}
       </div>
 
       {stats?.length > 0 && (
         <div className="w-full my-16 px-4 sm:px-6">
-          <div
-            className={`gap-4 flex flex-col lg:justify-center lg:flex-row
-            `}>
-            {/* ${
-              stats.length === 3
-                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                : "grid-cols-1 sm:grid-cols-2"
-            } */}
+          <div className={`gap-4 flex flex-col lg:justify-center lg:flex-row`}>
             {stats.map((card, index) => {
               const isThreeCards = stats.length === 3;
               const addLgBorderLeft =
@@ -80,7 +85,7 @@ export default function HeroSection({ data, bgImage }) {
               return (
                 <div
                   key={index}
-                  className={`px-4 sm:px-6 flex border-l border-black/30  gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
+                  className={`px-4 sm:px-6 flex border-l border-black/30 gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
                     index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
                   }${addLgBorderLeft} opacity-0 will-change-transform`}
                   data-reveal>

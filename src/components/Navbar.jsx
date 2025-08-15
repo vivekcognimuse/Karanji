@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "./ui/Button";
 
 const NAV_LINKS = [
   {
@@ -188,12 +189,9 @@ export default function Navbar() {
   const [currentPath, setCurrentPath] = useState("/");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-
-
   const navRef = useRef(null);
   const timeoutRef = useRef(null);
   const dropdownRefs = useRef({});
-
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -347,7 +345,7 @@ export default function Navbar() {
                       handleClick(index);
                     }
                   }}
-                  className={`px-4 py-2 text-lg lg:text-xl font-medium transition-colors duration-200 flex items-center gap-1
+                  className={`px-4 py-2  lg:text-xl  transition-colors duration-200 flex items-center gap-1
                     ${
                       isSectionActive(item)
                         ? "text-black "
@@ -357,7 +355,6 @@ export default function Navbar() {
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
                   }>
-
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -373,7 +370,6 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
-
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
                     style={{ ...getDropdownPosition(index), minWidth: "760px" }}
                     role="menu">
@@ -468,7 +464,6 @@ export default function Navbar() {
                             }
                           )}
                       </div>
-
                     </div>
                   </div>
                 )}
@@ -488,7 +483,7 @@ export default function Navbar() {
                           className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150
                           ${
                             isActive(link.href)
-                              ? "text-black font-medium border-r-2 border-purple-600"
+                              ? "text-black  border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }`}
                           role="menuitem">
@@ -519,27 +514,24 @@ export default function Navbar() {
             ))}
 
             {/* Get in Touch CTA */}
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
-              aria-label="Get in Touch">
-              Get in Touch
+            <Link href="/contact" className="" aria-label="Get in Touch">
+              <Button size="sm" className="px-4 text-xl">
+                Get in Touch
+              </Button>
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="text-black hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-expanded={isOpen}
               aria-label="Toggle mobile menu">
               <Icon
                 icon={isOpen ? "mdi:close" : "mdi:menu"}
                 className="w-6 h-6"
               />
-
             </button>
           </div>
         </div>
@@ -551,10 +543,9 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {NAV_LINKS.map((item, index) => (
               <div key={index}>
-
                 {/* Main item */}
                 <div className="flex items-center justify-between">
-                  <a
+                  <Link
                     href={item.href || "#"}
                     onClick={(e) => {
                       if (
@@ -566,14 +557,14 @@ export default function Navbar() {
                         }
                       }
                     }}
-                    className={`flex-1 px-3 py-2 text-base font-medium rounded-md
+                    className={`flex-1 px-3 py-2 text-base  rounded-md
                       ${
                         isSectionActive(item)
                           ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
                       }`}>
                     {item.title}
-                  </a>
+                  </Link>
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <button
                       onClick={() => toggleMobileExpanded(`main-${index}`)}
@@ -589,7 +580,6 @@ export default function Navbar() {
                         }`}
                       />
                     </button>
-
                   )}
                 </div>
 
@@ -599,9 +589,9 @@ export default function Navbar() {
                     {item.subSections.map((section, sectionIndex) => (
                       <div key={sectionIndex}>
                         <div className="flex items-center justify-between">
-                          <a
+                          <Link
                             href={section.href}
-                            className={`flex-1 px-3 py-2 text-xl rounded-md
+                            className={`flex-1 px-3 py-2 lg:text-xl rounded-md
                               ${
                                 isActive(section.href) ||
                                 isParentActive(section.links)
@@ -609,14 +599,14 @@ export default function Navbar() {
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
                               }`}>
                             {section.title}
-                          </a>
+                          </Link>
                           <button
                             onClick={() =>
                               toggleMobileExpanded(
                                 `section-${index}-${sectionIndex}`
                               )
                             }
-                            className="p-2 hover:bg-gray-100 rounded"
+                            className="px-3"
                             aria-label={`Toggle ${section.title} submenu`}
                             aria-expanded={
                               mobileExpandedItems[
@@ -665,17 +655,15 @@ export default function Navbar() {
                   <div className="ml-4 mt-1 space-y-1">
                     {item.links.map((link, linkIndex) => (
                       <a
-
                         key={linkIndex}
                         href={link.href}
-                        className={`block px-3 py-2 text-xl rounded-md
+                        className={`block px-3 py-2  lg:text-xl rounded-md
                           ${
                             isActive(link.href)
                               ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
                           }`}>
                         {link.name}
-
                       </a>
                     ))}
                   </div>
@@ -684,11 +672,9 @@ export default function Navbar() {
             ))}
 
             {/* Mobile Get in Touch CTA */}
-            <a
-              href="/contact"
-              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200">
-              Get in Touch
-            </a>
+            <Link href="/contact">
+              <Button className="">Get in Touch</Button>
+            </Link>
           </div>
         </div>
       )}

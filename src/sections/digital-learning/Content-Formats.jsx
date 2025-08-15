@@ -1,4 +1,6 @@
+import CarouselContainer from "@/components/animations/Carousal";
 import { P2 } from "@/components/CustomTags";
+import { Car } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -21,7 +23,7 @@ const ContentFormats = ({ data }) => {
         </div>
       )}
 
-      <div className="mt-16 grid gap-4 grid-cols-3">
+      <div className="mt-16 hidden lg:grid gap-4 grid-cols-1 lg:grid-cols-3">
         {content.map((item, index) => (
           <div
             key={index}
@@ -38,6 +40,27 @@ const ContentFormats = ({ data }) => {
             <h5 className="mb-0">{item.description}</h5>
           </div>
         ))}
+      </div>
+
+      <div className="mt-16 lg:hidden ">
+        <CarouselContainer>
+          {content.map((item, index) => (
+            <div
+              key={index}
+              className="mb-8 w-full  border border-black-200 shadow-md px-4 py-2 gap-4 rounded-2xl flex items-center ">
+              {item.src && (
+                <Image
+                  src={item.src}
+                  alt={item.alt || item.description}
+                  width={40}
+                  height={40}
+                  className="size-10"
+                />
+              )}
+              <h5 className="mb-0">{item.description}</h5>
+            </div>
+          ))}
+        </CarouselContainer>
       </div>
     </div>
   );
