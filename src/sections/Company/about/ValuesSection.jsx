@@ -33,7 +33,7 @@ const ValuesSection = () => {
 
   return (
     <section className="values-section py-5 px-4 rounded-2xl shadow-xl">
-      <div className="max-w-6xl mx-auto ">
+      <div className=" mx-auto ">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="mb-4">

@@ -10,7 +10,7 @@ const teamData = {
     "Build your career with us & help shape the future of [Industry/Field]. We value innovation, diversity, & collaborative growth.",
   SecondaryButtonText: "View Open Roles",
   // Scrolls to the roles section below
-  SecondaryButtonLink: "#open-roles",
+  SecondaryButtonLink: "open-roles",
 };
 
 const sectionData = {

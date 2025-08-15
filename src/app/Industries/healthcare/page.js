@@ -344,6 +344,7 @@ const strategicUseCaseData = {
   ],
 };
 const strategicFramework = {
+  isStepHidden: true,
   title: "Strategic Transformation Framework",
   subTitle:
     "A strategic framework driving innovation, efficiency, & resilience across care delivery, workforce, & operations.",
@@ -389,7 +390,7 @@ export default async function HealthCare() {
       <div id="digital-transformation-landscape">
         <DigitalTransformation data={digitalTransformationData} />
       </div>
-       <Methodology data={strategicFramework} isStepHidden =  {true} />
+       <Methodology data={strategicFramework}  />
       <StrategicRoadmap data={strategicRoadmapData} />
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />

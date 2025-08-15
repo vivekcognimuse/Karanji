@@ -40,7 +40,7 @@ const VisionMission = () => {
 
   return (
     <section className="py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className=" mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
           <VisionCard {...visionData} />
           <VisionCard {...missionData} />
