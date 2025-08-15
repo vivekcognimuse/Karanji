@@ -27,7 +27,7 @@ const heroData = {
     {
       text: "Market Growth by 2032",
       number: "68%",
-    }
+    },
   ],
 };
 const ctaData = {
@@ -39,8 +39,9 @@ const ctaData = {
 };
 const industryData = {
   sectionTitle: "Industry Challenges & Priorities",
-  overviewTitle: "Overview", 
-  overviewDescription: "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
+  overviewTitle: "Overview",
+  overviewDescription:
+    "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
   challengesTitle: "Critical Challenges",
   image: "Images/industry-vr-healthcare.jpg", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
@@ -49,27 +50,31 @@ const industryData = {
       id: 1,
       icon: "Icons/user-md.svg", // Replace with your icon path
       title: "Workforce Crisis",
-      description: "100K+ critical worker shortage by 2028, 50% burnout rate persists."
+      description:
+        "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
     },
     {
       id: 2,
       icon: "Icons/microchip.svg", // Replace with your icon path
-      title: "Financial Pressure", 
-      description: "8% cost increases, 2% operating margins, $100B underpayment gap."
+      title: "Financial Pressure",
+      description:
+        "8% cost increases, 2% operating margins, $100B underpayment gap.",
     },
     {
       id: 3,
       icon: "Icons/microchip.svg", // Replace with your icon path
       title: "Technology Gaps",
-      description: "180+ ransomware attacks, 137TB daily data, workflow inefficiencies."
+      description:
+        "180+ ransomware attacks, 137TB daily data, workflow inefficiencies.",
     },
     {
       id: 4,
       icon: "Icons/hospital.svg", // Replace with your icon path
       title: "Access Barriers",
-      description: "26-day wait times, 4 in 10 can't afford care, cost-driven skipping."
-    }
-  ]
+      description:
+        "26-day wait times, 4 in 10 can't afford care, cost-driven skipping.",
+    },
+  ],
 };
 
 const strategicPrioritiesData = {
@@ -79,19 +84,19 @@ const strategicPrioritiesData = {
       id: 1,
       value: "65%",
       title: "Revenue Growth",
-      subtitle: "of executives' top priority",
+      subTitle: "of executives' top priority",
     },
     {
       id: 2,
       value: "55%",
       title: "Consumer Experience",
-      subtitle: "of executives' top priority",
+      subTitle: "of executives' top priority",
     },
     {
       id: 3,
       value: "55%",
       title: "AI & Technology",
-      subtitle: "priority ranking",
+      subTitle: "priority ranking",
     },
   ],
   bottomRowCards: [
@@ -99,13 +104,13 @@ const strategicPrioritiesData = {
       id: 1,
       value: "70%",
       title: "Workforce Development",
-      subtitle: "Critical retention, training focus",
+      subTitle: "Critical retention, training focus",
     },
     {
       id: 2,
       value: "60%",
       title: "Cybersecurity",
-      subtitle: "prioritizing enhancement",
+      subTitle: "prioritizing enhancement",
     },
   ],
 };
@@ -157,7 +162,8 @@ const digitalTransformationData = {
 };
 const strategicRoadmapData = {
   sectionTitle: "Strategic StrategicRoadmap for Healthcare Transformation",
-  sectionDescription: "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
+  sectionDescription:
+    "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
   roadmapData: [
     {
       title: "Immediate Priorities",
@@ -197,7 +203,8 @@ const strategicRoadmapData = {
 
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases & Implementation",
-  sectionDescription: "12 validated opportunities with proven market demand & clear ROI pathways",
+  sectionDescription:
+    "12 validated opportunities with proven market demand & clear ROI pathways",
   filterButtons: [
     { label: "All", active: true },
     { label: "XR & Gaming", active: false },
@@ -217,7 +224,8 @@ const strategicUseCaseData = {
       icon: "Icons/vr-cardboard.svg", // Replace with your icon path
       category: "XR & Gaming",
       title: "Surgical Training Platform",
-      description: "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities",
+      description:
+        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -226,7 +234,8 @@ const strategicUseCaseData = {
       icon: "Icons/notes-medical.svg", // Replace with your icon path
       category: "XR & Gaming",
       title: "Patient Education VR",
-      description: "4 in 10 patients face affordability & understanding gaps: poor treatment compliance",
+      description:
+        "4 in 10 patients face affordability & understanding gaps: poor treatment compliance",
       duration: "12–18 months",
       complexity: "Low Complexity",
     },
@@ -235,7 +244,8 @@ const strategicUseCaseData = {
       icon: "Icons/laptop-medical.svg", // Replace with your icon path
       category: "XR & Gaming",
       title: "Remote Consultation Platform",
-      description: "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care",
+      description:
+        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care",
       duration: "18–24 months",
       complexity: "High Complexity",
     },
@@ -244,7 +254,8 @@ const strategicUseCaseData = {
       icon: "Icons/microchip.svg", // Replace with your icon path
       category: "AI Advisory",
       title: "AI Readiness Assessment",
-      description: "77% prioritize AI but lack a strategic framework for effective, scalable implementation",
+      description:
+        "77% prioritize AI but lack a strategic framework for effective, scalable implementation",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -253,7 +264,8 @@ const strategicUseCaseData = {
       icon: "Icons/money-bill-wave.svg", // Replace with your icon path
       category: "AI Advisory",
       title: "Revenue Cycle Optimization",
-      description: "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency",
+      description:
+        "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency",
       duration: "6–12 months",
       complexity: "Medium Complexity",
     },
@@ -262,7 +274,8 @@ const strategicUseCaseData = {
       icon: "Icons/user-md.svg", // Replace with your icon path
       category: "AI Advisory",
       title: "Clinical Decision Support",
-      description: "Medical decisions suffer without real-time AI to improve safety, accuracy, & diagnostic confidence.",
+      description:
+        "Medical decisions suffer without real-time AI to improve safety, accuracy, & diagnostic confidence.",
       duration: "12–18 months",
       complexity: "High Complexity",
     },
@@ -271,7 +284,8 @@ const strategicUseCaseData = {
       icon: "Icons/book-medical.svg", // Replace with your icon path
       category: "Creative & Entertainment",
       title: "Patient Education Content",
-      description: "Low health literacy persists; providers lack customizable, multilingual tools for clear patient communication.",
+      description:
+        "Low health literacy persists; providers lack customizable, multilingual tools for clear patient communication.",
       duration: "12–18 months",
       complexity: "Low Complexity",
     },
@@ -280,7 +294,8 @@ const strategicUseCaseData = {
       icon: "Icons/microchip.svg", // Replace with your icon path
       category: "Creative & Entertainment",
       title: "Healthcare Marketing",
-      description: "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust & community engagement.",
+      description:
+        "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust & community engagement.",
       duration: "6–12 months",
       complexity: "Medium Complexity",
     },
@@ -289,7 +304,8 @@ const strategicUseCaseData = {
       icon: "Icons/user-md.svg", // Replace with your icon path
       category: "Creative & Entertainment",
       title: "Medical Training Content Production",
-      description: "Healthcare workers lack effective training content tailored to learning styles, specialists, & competency needs.",
+      description:
+        "Healthcare workers lack effective training content tailored to learning styles, specialists, & competency needs.",
       duration: "12–18 months",
       complexity: "High Complexity",
     },
@@ -298,7 +314,8 @@ const strategicUseCaseData = {
       icon: "Icons/laptop-medical.svg", // Replace with your icon path
       category: "Digital Learning",
       title: "Healthcare LMS",
-      description: "Fragmented training programs lack robust LMS tools for workforce & competency tracking.",
+      description:
+        "Fragmented training programs lack robust LMS tools for workforce & competency tracking.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -307,7 +324,8 @@ const strategicUseCaseData = {
       icon: "Icons/gamepad.svg", // Replace with your icon path
       category: "Creative & Entertainment",
       title: "Gamified Learning",
-      description: "Traditional training underperforms; gamified learning boosts engagement, retention, & clinical outcomes.",
+      description:
+        "Traditional training underperforms; gamified learning boosts engagement, retention, & clinical outcomes.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -316,7 +334,8 @@ const strategicUseCaseData = {
       icon: "Icons/vr-cardboard.svg", // Replace with your icon path
       category: "Creative & Entertainment",
       title: "Virtual Skills Laboratory",
-      description: "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural & patient training.",
+      description:
+        "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural & patient training.",
       duration: "18–24 months",
       complexity: "High Complexity",
     },

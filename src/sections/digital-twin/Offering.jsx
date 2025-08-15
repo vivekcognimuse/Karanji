@@ -10,7 +10,7 @@ import OfferingCard from "@/components/ui/OfferingCard";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 
 const DigitalTwinOfferings = ({ className = "", data }) => {
-  const { title, subtitle, list, ctaCard, cards } = data || {};
+  const { title, subTitle, list, ctaCard, cards } = data || {};
   console.log("DigitalTwinOfferings data:", data);
   return (
     <section
@@ -24,7 +24,7 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
             {title}
           </h3>
           <P2 className=" max-w-4xl" data-reveal data-reveal-dir="up">
-            {subtitle}
+            {subTitle}
           </P2>
         </div>
 

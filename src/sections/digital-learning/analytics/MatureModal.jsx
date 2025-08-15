@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const AnalyticsMaturityModel = ({ data }) => {
-  const { title, subtitle, stairImage, stages } = data;
+  const { title, subTitle, stairImage, stages } = data;
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -13,7 +13,7 @@ const AnalyticsMaturityModel = ({ data }) => {
           {title}
         </h1>
         <p className="text-base sm:text-lg text-gray-600 max-w-6xl">
-          {subtitle}
+          {subTitle}
         </p>
       </div>
 

@@ -36,7 +36,7 @@ export default function RegisterForWebinar({ data }) {
                   REGISTER FOR FREE
                 </h5>
                 <P3 className="text-gray-700 text-lg leading-relaxed">
-                  {data.registerBox.subtitle}
+                  {data.registerBox.subTitle}
                 </P3>
               </div>
             </div>
@@ -91,8 +91,7 @@ export default function RegisterForWebinar({ data }) {
 
               <Button
                 type="submit"
-                className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-full text-lg font-medium mt-auto"
-              >
+                className="w-full bg-black hover:bg-gray-800 text-white py-4 rounded-full text-lg font-medium mt-auto">
                 Submit
               </Button>
             </form>

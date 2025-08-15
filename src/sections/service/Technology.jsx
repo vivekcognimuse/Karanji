@@ -3,7 +3,7 @@ import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
 import SectionReveal from "@/components/animations/sectionReveal"; // <- client
 
 export default function TechnologyAdvantage({ data }) {
-  const { title, subTitle, cards = [] } = data;
+  const { title, subTitle, ctaCard, cards = [] } = data;
 
   return (
     <section
@@ -51,7 +51,7 @@ export default function TechnologyAdvantage({ data }) {
           className="w-full flex justify-center lg:max-w-5/12 xl:w-5/12 opacity-0 will-change-transform"
           data-reveal
           data-reveal-dir="right">
-          <AIAssessmentCard />
+          <AIAssessmentCard data={ctaCard} />
         </div>
       </div>
 

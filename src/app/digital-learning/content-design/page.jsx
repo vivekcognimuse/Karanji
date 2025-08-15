@@ -8,11 +8,11 @@ import CTA from "@/sections/digital-learning/CTA";
 
 import CustomELearningSolution from "@/sections/digital-learning/CustomELearningSolution";
 import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learning/CustomELearningSolutionDeepDive";
-import EcoSystem from "@/sections/digital-learning/Eco-system";
+
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
-import TechnologyServices from "@/sections/service/Service";
+
 import React, { useState } from "react";
 
 // heroData.js
@@ -23,8 +23,8 @@ const tabs = [
 const heroData = {
   title: "End-to-End Digital Learning Solutions",
   subTitle: "From custom content creation to LMS integration and analytics",
-  linkText: "Explore Our Services",
-  linkHref: "/", // You can change this to the appropriate link for your services page
+  ctaText: "Explore Our Services",
+  ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -43,7 +43,7 @@ const heroData = {
 
 const methodologyData = {
   title: "Content Development Approach",
-  subtitle:
+  subTitle:
     "Our streamlined 3-step approach delivers engaging learning content that transforms your training initiatives:",
   list: [
     {
@@ -89,23 +89,43 @@ const successStoriesData = {
     "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
   cards: [
     {
-      title: "Custom Content Development",
+      title: "Gamified, Branching E-Learning Modules",
       stats: [
-        { title: "42%", subtitle: "Increase in Course Completion" },
-        { title: "38%", subtitle: "Improved Learner Engagement" },
+        { title: "70%", subTitle: "Quality Animations" },
+        { title: "High", subTitle: "Seamless Alignment" },
       ],
       description:
-        "Legacy training was replaced with interactive, scenario-based modules and gamified assessments—resulting in significantly higher completion rates and improved learner participation.",
-      link: "Read Full CaseStudy", // optional field if your component uses this
+        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+      link: "Read Full CaseStudy",
     },
-    // Add more testimonial data objects as required
+    {
+      title: "Driving School & Training Module",
+      stats: [
+        { title: "6", subTitle: "Crafted Modules" },
+        { title: "100%", subTitle: "Client Satisfaction" },
+      ],
+      description:
+        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+      link: "Read Full CaseStudy",
+    },
+    {
+      title: "Futuristic Digital Payments Training Module",
+      stats: [
+        { title: "80%", subTitle: "Completion Efficiency" },
+        { title: "+90%", subTitle: "Learner Engagement" },
+      ],
+      description:
+        "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
+      link: "Read Full CaseStudy",
+    },
   ],
 };
+
 // digitalTwinData.js
 
 export const digitalTwinData = {
   title: "Our Digital Twin Offerings",
-  subtitle:
+  subTitle:
     "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation.",
   list: [
     { text: "Consulting & Strategy" },
@@ -244,7 +264,7 @@ const contentFormatsData = {
 };
 const learningChallenges = {
   title: "Custom E-Learning Solutions",
-  subtitle: "Why Organizations Need Learning Analytics",
+  subTitle: "Why Organizations Need Learning Analytics",
   challenges: [
     {
       title: "Custom Content Solutions",
@@ -291,11 +311,11 @@ const eLearning = {
 };
 const customELearningSolutionDeepDive = {
   title: "Custom E-Learning Solutions Deep Dive",
-  subtitle:
+  subTitle:
     "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging e-learning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
   cards: [
     {
-      subtitle: "Level 1",
+      subTitle: "Level 1",
       description:
         "Basic text, images, & voice with minor interactive animations & visual enhancements.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 1.webp",
@@ -304,7 +324,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Information Security Awareness Training slide",
     },
     {
-      subtitle: "Level 2",
+      subTitle: "Level 2",
       description: "Enhanced graphics & animations with interactive quizzes.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 2.webp",
       videoSrc:
@@ -312,7 +332,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subtitle: "Level 3",
+      subTitle: "Level 3",
       description:
         "2D animations, branching scenarios, mini-games, assessments",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
@@ -321,7 +341,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subtitle: "Level 4",
+      subTitle: "Level 4",
       description:
         "Rich graphics, custom music & advanced interactive content.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 4.webp",
@@ -341,7 +361,9 @@ const ContentDesign = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
-      <LearningChallenges data={learningChallenges} />
+      <div id="e-learning-solutions">
+        <LearningChallenges data={learningChallenges} />
+      </div>
 
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-2 mb-8">

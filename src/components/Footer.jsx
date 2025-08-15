@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
@@ -36,49 +37,90 @@ const Footer = () => {
           name: "Learning Management Systems",
           href: "/digital-learning/lms-implementation",
         },
-        { name: "Advanced Analytics", href: "/digital-learning/analytics" },
+        {
+          name: "Advanced Analytics",
+          href: "/digital-learning/analytics",
+        },
       ],
     },
     {
-      title: "Entertainment Services",
-      href: "/entertainment",
+      title: "Creative Services", // Updated from Entertainment Services to Creative Services
+      href: "/creative-services",
       links: [
         {
           name: "VFX & Animation Services",
-          href: "/entertainment/vfx&animation",
+          href: "/creative-services/vfx-animation",
         },
-        { name: "Audio & Podcast Production", href: "/entertainment/audio" },
-        { name: "Event Production & Management", href: "/entertainment/event" },
+        {
+          name: "Audio & Podcast Production",
+          href: "/creative-services/audio",
+        },
+        {
+          name: "Event Production & Management",
+          href: "/creative-services/event",
+        },
       ],
     },
     {
       title: "Industries",
       href: "/industries",
       links: [
-        { name: "Healthcare", href: "/healthcare" },
-        { name: "Aviation", href: "/aviation" },
-        { name: "Logistics", href: "/logistics" },
-        { name: "Oil & Gas", href: "/oil-and-gas" },
+        {
+          name: "Healthcare",
+          href: "/healthcare",
+        },
+        {
+          name: "Aviation",
+          href: "/aviation",
+        },
+        {
+          name: "Logistics",
+          href: "/logistics",
+        },
+        {
+          name: "Oil & Gas",
+          href: "/oil-and-gas",
+        },
       ],
     },
     {
       title: "Company",
       href: "/company",
       links: [
-        { name: "About Us", href: "/company/about-us" },
-        { name: "Our Team", href: "/company/our-team" },
-        { name: "Digital Twins", href: "/technology-solutions/digital-twins" },
-        { name: "Careers", href: "/company/careers" },
-        { name: "Contact", href: "/contact" },
+        {
+          name: "About Us",
+          href: "/company/about-us",
+        },
+        {
+          name: "Our Team",
+          href: "/company/our-team",
+        },
+        {
+          name: "Careers",
+          href: "/company/careers",
+        },
+        {
+          name: "Contact",
+          href: "/contact",
+        },
       ],
     },
     {
       title: "Resources",
       href: "/resources",
       links: [
-        { name: "Blog", href: "/blog-insights" },
-        { name: "Case Studies", href: "/case-studies" },
-        { name: "Webinars", href: "/webinar" },
+        {
+          name: "Case Studies",
+          href: "/case-studies",
+        },
+        {
+          name: "Blog & Insights",
+          href: "/blog-insights",
+        },
+        {
+          name: "Webinars",
+          href: "/webinar",
+        },
       ],
     },
   ];

@@ -42,21 +42,21 @@ export const FeatureCard = memo(function FeatureCard({
 });
 
 // AI Assessment Card Component
-export const AIAssessmentCard = memo(function AIAssessmentCard() {
+export const AIAssessmentCard = memo(function AIAssessmentCard({ data }) {
+  const { title, subTitle, ctaLink, ctaText } = data || {};
   return (
     <div className=" w-full bg-[url(/solutions/assessmentCard-bg.svg)]   flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden">
       {/*   */}
 
       <div className="  space-y-8">
         <div className="text-center space-y-4">
-          <h4 className="">Not sure how AI-ready your business is?</h4>
-          <P3 className="text-black-800">
-            Take our quick diagnostic to benchmark your AI maturity and unlock
-            tailored insights
-          </P3>
+          <h4 className="">{title}</h4>
+          <P3 className="text-black-800">{subTitle}</P3>
         </div>
         <div className="flex justify-center">
-          <Button className="">Start AI Assessment</Button>
+          <a target="_blank" rel="noreferrer" href={ctaLink}>
+            <Button className="">{ctaText}</Button>
+          </a>
         </div>
       </div>
     </div>

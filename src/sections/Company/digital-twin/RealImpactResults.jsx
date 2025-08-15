@@ -15,7 +15,7 @@ export default function RealImpactResults({ sectionData }) {
         {sectionData.impactItems.map((item, index) => (
           <div key={index} className="text-center max-w-xs">
             <P2 className=" mb-3">{item.title}</P2>
-            <P3 className="mb-6">{item.subtitle}</P3>
+            <P3 className="mb-6">{item.subTitle}</P3>
             {/* Divider line */}
             <div className="w-full h-px bg-gray-200"></div>
           </div>

@@ -2,7 +2,7 @@
 export const serviceOfferingsData = [
   {
     title: "Strategy",
-    subtitle: "Strong Foundation",
+    subTitle: "Strong Foundation",
     description:
       "Our intelligence consulting experts start with readiness assessments, opportunity identification, and a strategic AI roadmap tailored to your business goals.",
     featured: true,
@@ -10,7 +10,7 @@ export const serviceOfferingsData = [
   },
   {
     title: "Tactical",
-    subtitle: "Fast Growth",
+    subTitle: "Fast Growth",
     description:
       "We develop custom artificial intelligence prototypes and proof-of-concepts, offering real-world impact early in your journey.",
     featured: false,
@@ -18,7 +18,7 @@ export const serviceOfferingsData = [
   },
   {
     title: "Operational",
-    subtitle: "Reap Benifits",
+    subTitle: "Reap Benifits",
     description:
       "With deep experience in artificial intelligence in professional services, we handle deployment, integration, change management, and continuous optimization-ensuring your AI initiatives scale with confidence.",
     featured: false,
@@ -90,8 +90,8 @@ export const testimonialsData = [
   {
     title: "AI-Powered Digital Twin for Manufacturing",
     stats: [
-      { title: "25%", subtitle: "Improved Operational Efficiency" },
-      { title: "30%", subtitle: "Reduced Downtime" },
+      { title: "25%", subTitle: "Improved Operational Efficiency" },
+      { title: "30%", subTitle: "Reduced Downtime" },
     ],
     description:
       "An integrated solution combining digital twins simulations with AI analytics to streamline manufacturing processes, reduce downtime, and optimize production efficiency.",
@@ -100,7 +100,7 @@ export const testimonialsData = [
 ];
 
 export const statsData = [
-  { title: "389%", subtitle: "Return On Investment" },
-  { title: "73%", subtitle: "Efficiency Boost" },
-  { title: "$4.2M", subtitle: "Annual Savings" },
+  { title: "389%", subTitle: "Return On Investment" },
+  { title: "73%", subTitle: "Efficiency Boost" },
+  { title: "$4.2M", subTitle: "Annual Savings" },
 ];

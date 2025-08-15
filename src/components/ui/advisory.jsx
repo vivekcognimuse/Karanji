@@ -37,7 +37,7 @@ export const StatsDisplay = memo(function StatsDisplay({ stats }) {
 
 export const ServiceCard = memo(function ServiceCard({
   title = "Strategy",
-  subtitle = "Strong Foundation",
+  subTitle = "Strong Foundation",
   description = "...",
   featured,
   index,
@@ -89,7 +89,7 @@ export const ServiceCard = memo(function ServiceCard({
 
           <div className="flex flex-col">
             <h4 className="mb-2">{title}</h4>
-            {subtitle && <P3 className="text-black-500 mb-8">{subtitle}</P3>}
+            {subTitle && <P3 className="text-black-500 mb-8">{subTitle}</P3>}
           </div>
         </div>
 
