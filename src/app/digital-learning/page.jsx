@@ -92,7 +92,7 @@ const technologyServicesData = {
 
 const methodologyData = {
   title: "Our Proven Methodology",
-  subtitle:
+  subTitle:
     "We combine cutting-edge tech with business acumen to build AI-powered business solutions that perform.",
   list: [
     {

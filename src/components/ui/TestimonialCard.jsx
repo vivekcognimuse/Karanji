@@ -24,7 +24,7 @@ const TestimonialCard = ({ testimonial }) => {
               {metric.title}
             </p>
             <P2 className="text-black text-sm">
-              {metric.subTitle || metric.subtitle}
+              {metric.subTitle || metric.subTitle}
             </P2>
           </div>
         ))}

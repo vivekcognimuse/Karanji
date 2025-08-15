@@ -30,7 +30,7 @@ const heroData = {
 };
 const entertainmentServices = {
   title: "The Advantage of choosing our entertainment services",
-  subtitle:
+  subTitle:
     "We offer a full range of solutions, from VFX & animation to audio production & live event coverage, using industry expertise & cutting-edge technology to bring your vision to life.",
   services: [
     {
@@ -88,7 +88,7 @@ const technologyServices = {
         { id: 104, text: "Character Animation" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/creative-services/vfx&animation",
+      ctaLink: "/creative-services/vfx-animation",
       image: "/entertainment/landing/service/1.webp",
     },
     {
@@ -133,8 +133,8 @@ const successStoriesData = {
     {
       title: "One-Hour Podcast into a Visual Experience",
       stats: [
-        { title: "+100%", subtitle: "Improved Video Clarity" },
-        { title: "30–sec", subtitle: "Hook Developed Proactively" },
+        { title: "+100%", subTitle: "Improved Video Clarity" },
+        { title: "30–sec", subTitle: "Hook Developed Proactively" },
       ],
       description:
         "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals & motion graphics hook to elevate the content, making it more engaging & visually compelling.",

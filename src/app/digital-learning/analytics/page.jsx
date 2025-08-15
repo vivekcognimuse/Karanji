@@ -68,21 +68,21 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "Learners",
-      subtitle: "",
+      subTitle: "",
       description: "Get more personalized & effective learning experiences",
       featured: true,
       icon: "/Icons/BuiltGroundUp.svg",
     },
     {
       title: "Instructors",
-      subtitle: "",
+      subTitle: "",
       description: "Can tailor content & support to each learner’s needs",
       featured: false,
       icon: "/Icons/FlexibleDeployment.svg",
     },
     {
       title: "Organizations",
-      subtitle: "",
+      subTitle: "",
       description:
         "Gain insights to better allocate resources & reach the right audiences",
       featured: false,
@@ -101,7 +101,7 @@ const ctaData = {
 };
 const learningChallenges = {
   title: "Learning Challenges",
-  subtitle: "Why Organizations Need Learning Analytics",
+  subTitle: "Why Organizations Need Learning Analytics",
   challenges: [
     {
       title: "One-Size-Fits-All Approach",
@@ -128,7 +128,7 @@ const learningChallenges = {
 
 const methodologyData = {
   title: "Content Development Approach",
-  subtitle:
+  subTitle:
     "Our streamlined 3-step approach delivers engaging learning content that transforms your training initiatives:",
   list: [
     {
@@ -168,7 +168,7 @@ const methodologyData = {
 };
 const analyticsData = {
   title: "Analytics Maturity Model",
-  subtitle:
+  subTitle:
     "From tracking progress to predicting outcomes, & optimizing learning paths—empowering data-driven decisions at every stage.",
   stairImage: "/digital-learning/analytics/matureModal.svg", // Replace with your actual image path
   stages: [
@@ -263,7 +263,7 @@ const implementApproachData = {
 };
 const howItWorks = {
   title: "How It Works in Practice",
-  subtitle: "Process flow",
+  subTitle: "Process flow",
 
   steps: [
     {
@@ -306,7 +306,7 @@ const ContentDesign = () => {
       <Results
         data={{
           title: "The Result",
-          subtitle:
+          subTitle:
             "Better learning outcomes & professional growth for everyone involved.",
           adaptiveContent: "Adaptive Content",
           personalizedLearning: "Personalized Learning",

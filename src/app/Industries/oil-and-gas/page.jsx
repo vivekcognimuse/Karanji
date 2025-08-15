@@ -78,7 +78,7 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "AI & Analytics",
-      subtitle:
+      subTitle:
         "Predictive maintenance, production optimization, & intelligent exploration solutions",
       number: "+18%",
       metric: "Equipment Uptime",
@@ -86,7 +86,7 @@ const strategicPrioritiesData = {
     {
       id: 2,
       title: "Learning Tech",
-      subtitle:
+      subTitle:
         "VR safety training, AR-assisted maintenance, & digital learning ecosystems",
       number: "40%",
       metric: "Faster Competency",
@@ -94,7 +94,7 @@ const strategicPrioritiesData = {
     {
       id: 3,
       title: "Asset Optimization",
-      subtitle:
+      subTitle:
         "Digital twins, predictive maintenance, & condition-based monitoring",
       number: "$4.2M",
       metric: "Annual Savings",
@@ -104,7 +104,7 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "Environmental",
-      subtitle:
+      subTitle:
         "Emissions monitoring, ESG analytics, & regulatory compliance platforms",
       number: "65%",
       metric: "Reporting Efficiency",
@@ -112,7 +112,7 @@ const strategicPrioritiesData = {
     {
       id: 2,
       title: "Knowledge Management",
-      subtitle:
+      subTitle:
         "Expertise capture, collaborative platforms, & knowledge transfer systems",
       number: "200+",
       metric: "Videos in 6 Months",
@@ -120,7 +120,7 @@ const strategicPrioritiesData = {
     {
       id: 3,
       title: "Implementation",
-      subtitle: "Strategy development, change management, & ROI measurement",
+      subTitle: "Strategy development, change management, & ROI measurement",
       number: "8-12",
       metric: "Week Implementation",
     },

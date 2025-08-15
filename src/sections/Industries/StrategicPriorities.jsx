@@ -13,7 +13,7 @@ const StrategicPriorities = ({ data }) => {
 
   // Function to render card content based on available data
   const renderCardContent = (card) => {
-    const { value, title, subtitle, description, number, metric } = card;
+    const { value, title, subTitle, description, number, metric } = card;
 
     return (
       <>
@@ -23,8 +23,8 @@ const StrategicPriorities = ({ data }) => {
         )}
 
         {/* Subtitle/description for services portfolio */}
-        {isServicesPortfolio && subtitle && (
-          <P3 className="text-sm text-gray-500 mb-6">{subtitle}</P3>
+        {isServicesPortfolio && subTitle && (
+          <P3 className="text-sm text-gray-500 mb-6">{subTitle}</P3>
         )}
 
         {/* Primary value/number display */}
@@ -40,8 +40,8 @@ const StrategicPriorities = ({ data }) => {
         )}
 
         {/* For non-services portfolio: Subtitle after title */}
-        {!isServicesPortfolio && subtitle && (
-          <P3 className="text-sm text-gray-500">{subtitle}</P3>
+        {!isServicesPortfolio && subTitle && (
+          <P3 className="text-sm text-gray-500">{subTitle}</P3>
         )}
 
         {/* Metric (for services portfolio use case) */}
@@ -97,8 +97,7 @@ const StrategicPriorities = ({ data }) => {
             {topRowCards.map((card) => (
               <div
                 key={card.id}
-                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
-              >
+                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full">
                 {renderCardContent(card)}
               </div>
             ))}
@@ -108,13 +107,11 @@ const StrategicPriorities = ({ data }) => {
         {/* Bottom row */}
         {bottomRowCards && bottomRowCards.length > 0 && (
           <div
-            className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}
-          >
+            className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}>
             {bottomRowCards.map((card) => (
               <div
                 key={card.id}
-                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
-              >
+                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full">
                 {renderCardContent(card)}
               </div>
             ))}

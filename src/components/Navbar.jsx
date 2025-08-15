@@ -78,7 +78,7 @@ const NAV_LINKS = [
         links: [
           {
             name: "VFX & Animation Services",
-            href: "/creative-services/vfx&animation",
+            href: "/creative-services/vfx-animation",
             icon: "/nav/vfx-animation-services.svg",
             description: "Stunning visual effects and animations.",
           },

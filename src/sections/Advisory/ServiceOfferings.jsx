@@ -61,7 +61,7 @@ export default function ServiceOfferings({
             <ServiceCard
               key={index}
               title={service.title}
-              subtitle={service.subtitle}
+              subTitle={service.subTitle}
               description={service.description}
               featured={service.featured}
               index={index}
@@ -80,7 +80,7 @@ export default function ServiceOfferings({
               <ServiceCard
                 key={i}
                 title={service.title}
-                subtitle={service.subtitle}
+                subTitle={service.subTitle}
                 description={service.description}
                 featured={service.featured}
                 index={i}

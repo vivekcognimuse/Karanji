@@ -38,7 +38,7 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "Built Ground Up",
-      subtitle: "",
+      subTitle: "",
       description:
         "Tailored for your needs from the very beginning, every feature is customizable.",
       featured: true,
@@ -46,7 +46,7 @@ const serviceOfferingsData = {
     },
     {
       title: "Flexible Deployment",
-      subtitle: "",
+      subTitle: "",
       description:
         "Choose between cloud-based or on-premise solutions based on your preferences.",
       featured: false,
@@ -54,7 +54,7 @@ const serviceOfferingsData = {
     },
     {
       title: "Value Pricing",
-      subtitle: "",
+      subTitle: "",
       description:
         "Affordable pay-per-user model with full customization options.",
       featured: false,
@@ -62,7 +62,7 @@ const serviceOfferingsData = {
     },
     {
       title: "Integrate",
-      subtitle: "",
+      subTitle: "",
       description:
         "Seamlessly connect with any system, regardless of complexity or scale.",
       featured: false,
@@ -108,7 +108,7 @@ const lmsLearningData = {
 };
 const learningChallenges = {
   title: "A Comprehensive Learning Platform",
-  subtitle:
+  subTitle:
     " K-nest LMS offers everything you need to create, deliver, & measure effective learning experiences.",
   challenges: [
     {
@@ -248,15 +248,15 @@ const switchSectionData = {
   },
 };
 const successStoriesData = {
-  title: "Success Stories",
+  title: "LMS Implementation Success Stories",
   description:
-    "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
+    "Explore how our LMS platforms streamline learning, enhance engagement, and deliver measurable outcomes across industries. Discover success stories of digital transformation in education and training.",
   cards: [
     {
       title: "AI-Certification LMS",
       stats: [
-        { title: "+90%", subtitle: "Optimized Time Controls" },
-        { title: "100%", subtitle: "Seamless LMS Integration" },
+        { title: "+90%", subTitle: "Optimized Time Controls" },
+        { title: "100%", subTitle: "Seamless LMS Integration" },
       ],
       description:
         "AI-certification LMS by building a per-question JavaScript timer, rewriting score logic to store the highest attempt, and adjusting SCORM resume settings so learners can restart cleanly—delivering a smooth, certification-ready experience.",
@@ -265,8 +265,8 @@ const successStoriesData = {
     {
       title: "Automobile-EV Training Module",
       stats: [
-        { title: "75%", subtitle: "Cross Team Synergy" },
-        { title: "85%", subtitle: "Increased Learner Engagement" },
+        { title: "75%", subTitle: "Cross Team Synergy" },
+        { title: "85%", subTitle: "Increased Learner Engagement" },
       ],
       description:
         "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking.",

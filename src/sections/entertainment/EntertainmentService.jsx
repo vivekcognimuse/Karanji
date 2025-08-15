@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 const EntertainmentServices = ({ data }) => {
-  const { title, subtitle, services } = data;
+  const { title, subTitle, services } = data;
 
   return (
     <div className="">
@@ -12,7 +12,7 @@ const EntertainmentServices = ({ data }) => {
         {/* Header Section */}
         <div className=" mb-16">
           <h3 className=" mb-4">{title}</h3>
-          <P2 className="">{subtitle}</P2>
+          <P2 className="">{subTitle}</P2>
         </div>
 
         {/* Services Grid */}

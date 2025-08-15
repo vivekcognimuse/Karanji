@@ -43,7 +43,7 @@ const heroData = {
 
 const methodologyData = {
   title: "Content Development Approach",
-  subtitle:
+  subTitle:
     "Our streamlined 3-step approach delivers engaging learning content that transforms your training initiatives:",
   list: [
     {
@@ -91,8 +91,8 @@ const successStoriesData = {
     {
       title: "Gamified, Branching E-Learning Modules",
       stats: [
-        { title: "70%", subtitle: "Quality Animations" },
-        { title: "High", subtitle: "Seamless Alignment" },
+        { title: "70%", subTitle: "Quality Animations" },
+        { title: "High", subTitle: "Seamless Alignment" },
       ],
       description:
         "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
@@ -101,8 +101,8 @@ const successStoriesData = {
     {
       title: "Driving School & Training Module",
       stats: [
-        { title: "6", subtitle: "Crafted Modules" },
-        { title: "100%", subtitle: "Client Satisfaction" },
+        { title: "6", subTitle: "Crafted Modules" },
+        { title: "100%", subTitle: "Client Satisfaction" },
       ],
       description:
         "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
@@ -111,8 +111,8 @@ const successStoriesData = {
     {
       title: "Futuristic Digital Payments Training Module",
       stats: [
-        { title: "80%", subtitle: "Completion Efficiency" },
-        { title: "+90%", subtitle: "Learner Engagement" },
+        { title: "80%", subTitle: "Completion Efficiency" },
+        { title: "+90%", subTitle: "Learner Engagement" },
       ],
       description:
         "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
@@ -125,7 +125,7 @@ const successStoriesData = {
 
 export const digitalTwinData = {
   title: "Our Digital Twin Offerings",
-  subtitle:
+  subTitle:
     "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation.",
   list: [
     { text: "Consulting & Strategy" },
@@ -264,7 +264,7 @@ const contentFormatsData = {
 };
 const learningChallenges = {
   title: "Custom E-Learning Solutions",
-  subtitle: "Why Organizations Need Learning Analytics",
+  subTitle: "Why Organizations Need Learning Analytics",
   challenges: [
     {
       title: "Custom Content Solutions",
@@ -311,11 +311,11 @@ const eLearning = {
 };
 const customELearningSolutionDeepDive = {
   title: "Custom E-Learning Solutions Deep Dive",
-  subtitle:
+  subTitle:
     "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging e-learning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
   cards: [
     {
-      subtitle: "Level 1",
+      subTitle: "Level 1",
       description:
         "Basic text, images, & voice with minor interactive animations & visual enhancements.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 1.webp",
@@ -324,7 +324,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Information Security Awareness Training slide",
     },
     {
-      subtitle: "Level 2",
+      subTitle: "Level 2",
       description: "Enhanced graphics & animations with interactive quizzes.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 2.webp",
       videoSrc:
@@ -332,7 +332,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subtitle: "Level 3",
+      subTitle: "Level 3",
       description:
         "2D animations, branching scenarios, mini-games, assessments",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
@@ -341,7 +341,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subtitle: "Level 4",
+      subTitle: "Level 4",
       description:
         "Rich graphics, custom music & advanced interactive content.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 4.webp",

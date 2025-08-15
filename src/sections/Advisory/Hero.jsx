@@ -12,13 +12,12 @@ export default function HeroSection({ data, bgImage }) {
   const {
     title = "",
     ctaText,
-    linkHref,
     ctaLink,
     subTitle,
     stats,
     backgroundImage,
   } = data;
-
+  console.log("HeroSection data:", data);
   // Function to handle smooth scrolling
   const handleScrollToSection = (e, targetId) => {
     e.preventDefault();
@@ -90,9 +89,7 @@ export default function HeroSection({ data, bgImage }) {
               return (
                 <div
                   key={index}
-                  className={`px-4 sm:px-6 flex border-l border-black/30 gap-3 sm:gap-4 items-start lg:items-center justify-start text-left ${
-                    index % 2 === 1 ? " lg:pl-8" : "lg:border-none"
-                  }${addLgBorderLeft} opacity-0 will-change-transform`}
+                  className={`px-4 sm:px-6 flex border-l border-black/30 gap-3 sm:gap-4 items-start lg:items-center justify-start text-left${addLgBorderLeft} opacity-0 will-change-transform`}
                   data-reveal>
                   <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
                     {card.number}

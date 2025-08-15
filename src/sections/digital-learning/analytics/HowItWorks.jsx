@@ -2,14 +2,14 @@ import { P2, P3 } from "@/components/CustomTags";
 import React from "react";
 
 const HowItWorks = ({ data }) => {
-  const { title, subtitle, entry, steps, completion } = data || {};
+  const { title, subTitle, entry, steps, completion } = data || {};
 
   return (
     <div className="">
       {/* Header */}
       <div className="mb-8 md:mb-16">
         <h3 className="mb-4">{title}</h3>
-        <P2 className="">{subtitle}</P2>
+        <P2 className="">{subTitle}</P2>
       </div>
 
       {/* Process Flow Container */}

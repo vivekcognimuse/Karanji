@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 
 const Accordion = ({ data }) => {
-  const { title, subtitle, questions } = data;
+  const { title, subTitle, questions } = data;
 
   return (
     <>
@@ -12,7 +12,7 @@ const Accordion = ({ data }) => {
         {/* Header */}
         <div className="mb-16">
           <h3 className=" mb-4">{title}</h3>
-          {subtitle && <P2 className="">{subtitle}</P2>}
+          {subTitle && <P2 className="">{subTitle}</P2>}
         </div>
 
         {/* Accordion Items */}

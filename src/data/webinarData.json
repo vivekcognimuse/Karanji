@@ -72,12 +72,12 @@
       }
     ],
     "registerBox": {
-      "subtitle": "Transform Your Workforce with Karanji's Virtual Engine Workshop Today"
+      " subTitle": "Transform Your Workforce with Karanji's Virtual Engine Workshop Today"
     }
   },
   "agenda": {
     "title": "Webinar Agenda",
-    "subtitle": "2 hours packed with actionable insights & proven strategies from industry experts",
+    " subTitle": "2 hours packed with actionable insights & proven strategies from industry experts",
     "sessions": [
       {
         "time": "2:00 - 2:20 PM",
