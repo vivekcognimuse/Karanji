@@ -23,14 +23,16 @@ const NextUpCard = ({ title, description, image, onClick }) => {
         </div>
 
         {/* Description */}
-        <P4 className="text-gray-600 text-sm leading-relaxed mb-6">
-          {description}
-        </P4>
+        <P4 className="text-gray-600 text-sm leading-relaxed">{description}</P4>
       </div>
 
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover object-bottom"
+        />
       </div>
 
       <style jsx>{`

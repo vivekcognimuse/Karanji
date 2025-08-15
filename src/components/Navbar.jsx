@@ -99,6 +99,7 @@ const NAV_LINKS = [
   },
   {
     title: "Industries",
+    href: "/Industries",
     links: [
       {
         name: "Healthcare",
@@ -128,6 +129,7 @@ const NAV_LINKS = [
   },
   {
     title: "Company",
+    href: "/company",
     links: [
       {
         name: "About Us",
@@ -157,6 +159,7 @@ const NAV_LINKS = [
   },
   {
     title: "Resources",
+    href: "/resources",
     links: [
       {
         name: "Case Studies",
@@ -188,12 +191,9 @@ export default function Navbar() {
   const [currentPath, setCurrentPath] = useState("/");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
-
-
   const navRef = useRef(null);
   const timeoutRef = useRef(null);
   const dropdownRefs = useRef({});
-
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -313,7 +313,8 @@ export default function Navbar() {
       ref={navRef}
       className=" sticky bg-white top-0 z-[999] shadow-lg"
       role="navigation"
-      aria-label="Main navigation flex">
+      aria-label="Main navigation flex"
+    >
       <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -338,7 +339,8 @@ export default function Navbar() {
                 className="relative text-nowrap"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
-                ref={(el) => (dropdownRefs.current[index] = el)}>
+                ref={(el) => (dropdownRefs.current[index] = el)}
+              >
                 <Link
                   href={item.href || "#"}
                   onClick={(e) => {
@@ -356,8 +358,8 @@ export default function Navbar() {
                   aria-expanded={activeDropdown === index}
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
-                  }>
-
+                  }
+                >
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -373,10 +375,10 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
-
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
                     style={{ ...getDropdownPosition(index), minWidth: "760px" }}
-                    role="menu">
+                    role="menu"
+                  >
                     <div className="flex ">
                       <div className="w-1/2 border-r   border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
@@ -389,7 +391,8 @@ export default function Navbar() {
                               activeSolution === sectionIndex
                                 ? "bg-[#F0E4FF]"
                                 : ""
-                            }`}>
+                            }`}
+                          >
                             <Link
                               href={section.href}
                               className={`block  px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
@@ -399,7 +402,8 @@ export default function Navbar() {
                                     ? "  border-r-2 border-purple-600"
                                     : ""
                                 }`}
-                              role="menuitem">
+                              role="menuitem"
+                            >
                               <div className="flex gap-2 items-center justify-start">
                                 <Image
                                   src={section.icon}
@@ -440,7 +444,8 @@ export default function Navbar() {
                                   ? " border-r-2 border-purple-600"
                                   : ""
                               }`}
-                                    role="menuitem">
+                                    role="menuitem"
+                                  >
                                     <div className="flex gap-2 items-center justify-start">
                                       <Image
                                         src={link.icon}
@@ -468,7 +473,6 @@ export default function Navbar() {
                             }
                           )}
                       </div>
-
                     </div>
                   </div>
                 )}
@@ -480,7 +484,8 @@ export default function Navbar() {
                     <div
                       className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
                       style={getDropdownPosition(index)}
-                      role="menu">
+                      role="menu"
+                    >
                       {item.links.map((link, linkIndex) => (
                         <Link
                           key={linkIndex}
@@ -491,7 +496,8 @@ export default function Navbar() {
                               ? "text-black font-medium border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }`}
-                          role="menuitem">
+                          role="menuitem"
+                        >
                           <div className="flex gap-2 items-center justify-start">
                             <Image
                               src={link.icon}
@@ -522,7 +528,8 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
-              aria-label="Get in Touch">
+              aria-label="Get in Touch"
+            >
               Get in Touch
             </Link>
           </div>
@@ -530,16 +537,15 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-expanded={isOpen}
-              aria-label="Toggle mobile menu">
+              aria-label="Toggle mobile menu"
+            >
               <Icon
                 icon={isOpen ? "mdi:close" : "mdi:menu"}
                 className="w-6 h-6"
               />
-
             </button>
           </div>
         </div>
@@ -551,7 +557,6 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1">
             {NAV_LINKS.map((item, index) => (
               <div key={index}>
-
                 {/* Main item */}
                 <div className="flex items-center justify-between">
                   <a
@@ -571,7 +576,8 @@ export default function Navbar() {
                         isSectionActive(item)
                           ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
-                      }`}>
+                      }`}
+                  >
                     {item.title}
                   </a>
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
@@ -579,7 +585,8 @@ export default function Navbar() {
                       onClick={() => toggleMobileExpanded(`main-${index}`)}
                       className="p-2 hover:bg-gray-100 rounded"
                       aria-label={`Toggle ${item.title} submenu`}
-                      aria-expanded={mobileExpandedItems[`main-${index}`]}>
+                      aria-expanded={mobileExpandedItems[`main-${index}`]}
+                    >
                       <Icon
                         icon="mdi:chevron-down"
                         className={`w-5 h-5 transition-transform duration-200 ${
@@ -589,7 +596,6 @@ export default function Navbar() {
                         }`}
                       />
                     </button>
-
                   )}
                 </div>
 
@@ -607,7 +613,8 @@ export default function Navbar() {
                                 isParentActive(section.links)
                                   ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
-                              }`}>
+                              }`}
+                          >
                             {section.title}
                           </a>
                           <button
@@ -622,7 +629,8 @@ export default function Navbar() {
                               mobileExpandedItems[
                                 `section-${index}-${sectionIndex}`
                               ]
-                            }>
+                            }
+                          >
                             <Icon
                               icon={
                                 mobileExpandedItems[
@@ -649,7 +657,8 @@ export default function Navbar() {
                                     isActive(link.href)
                                       ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                       : "text-gray-500 hover:text-black hover:bg-gray-50"
-                                  }`}>
+                                  }`}
+                              >
                                 {link.name}
                               </a>
                             ))}
@@ -665,7 +674,6 @@ export default function Navbar() {
                   <div className="ml-4 mt-1 space-y-1">
                     {item.links.map((link, linkIndex) => (
                       <a
-
                         key={linkIndex}
                         href={link.href}
                         className={`block px-3 py-2 text-xl rounded-md
@@ -673,9 +681,9 @@ export default function Navbar() {
                             isActive(link.href)
                               ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
-                          }`}>
+                          }`}
+                      >
                         {link.name}
-
                       </a>
                     ))}
                   </div>
@@ -686,7 +694,8 @@ export default function Navbar() {
             {/* Mobile Get in Touch CTA */}
             <a
               href="/contact"
-              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200">
+              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
+            >
               Get in Touch
             </a>
           </div>

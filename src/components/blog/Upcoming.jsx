@@ -16,7 +16,7 @@ const Upcoming = () => {
       try {
         // Fetch all case studies without sorting, just fetch all published ones
         const caseStudies = await fetchFromStrapi(
-          "case-studies?filters[status][$eq]=Published&populate=*",
+          "case-studies",
           { populate: "*" },
           "https://77586f016802.ngrok-free.app/api" // Optional populate parameter if you need to load relations
         );

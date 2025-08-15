@@ -21,13 +21,13 @@ const cardsData = [
     title: "Our Team",
     description:
       "Meet the minds shaping the future of immersive tech & storytelling",
-    image: "/Images/Card images/teamcardimg.png",
+    image: "/Company/Landing page/Our Team.webp",
   },
   {
     title: "Career",
     description:
       "Build your career at the crossroads of AI, creativity, & impact",
-    image: "/Images/Card images/teamcardimg.png",
+    image: "/Company/Landing page/Career.webp",
   },
 ];
 
@@ -63,7 +63,7 @@ const timelineData = [
     title: "Building the Bridge Between Traditional & Modern Learning",
     description:
       "Karanji started working on creating a bridge between traditional training methods & emerging technologies like AI & Virtual Reality (VR).",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year08icon.svg",
   },
   {
     year: "2010-'13",
@@ -72,7 +72,7 @@ const timelineData = [
     title: "Growing the Foundation – First Major Client: Infosys",
     description:
       "Through hard work & tad bit of luck, Infosys became the company's first major client, which validated their vision & gave them confidence.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year13icon.svg",
   },
   {
     year: "2014-'16",
@@ -81,7 +81,7 @@ const timelineData = [
     title: "The Big Leap - Entering Virtual Reality & Augmented Reality",
     description:
       "Karanji made a strategic decision to integrate VR & AR into their learning design, which would revolutionize training & learning processes.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year16icon.svg",
   },
   {
     year: "2017",
@@ -90,7 +90,7 @@ const timelineData = [
     title: "Global Expansion – Partnership with Novigo Solutions",
     description:
       "Karanji partnered with Novigo Solutions, gaining access to global clients & resources for more innovative ideas.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year17icon.svg",
   },
   {
     year: "2020",
@@ -100,7 +100,7 @@ const timelineData = [
       "Adapting to the Global Shift - Helping Clients Transition to Remote Learning During COVID-19",
     description:
       "When COVID-19 hit, Karanji quickly adapted & helped businesses shift to remote learning through their integrated solutions.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year20icon.svg",
   },
   {
     year: "2024",
@@ -109,7 +109,7 @@ const timelineData = [
     title: "The AI Revolution - Building a Full AI Team",
     description:
       "Karanji created a dedicated AI team to help clients use AI in smart, impactful ways for learning & business solutions.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year24icon.svg",
   },
   {
     year: "2025",
@@ -120,7 +120,7 @@ const timelineData = [
       "“We rebranded to reflect who we’ve become - an integrated technology partner for the AI era.”",
     description:
       "In 2025, Karanji embraced a new visual identity to match its evolved mission. What began as a digital learning company now leads the way in AI, VR, AR and creative technology. This rebrand marks our transformation into a comprehensive technology services partner, helping businesses across industries create meaningful, human-centered digital experiences.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year25icon.svg",
   },
 ];
 

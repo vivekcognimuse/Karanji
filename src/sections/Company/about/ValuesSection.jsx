@@ -4,28 +4,28 @@ import ValueCard from "./ValueCard";
 const ValuesSection = () => {
   const valuesData = [
     {
-      icon: "/Icons/visionicon.svg",
+      icon: "/Company/about/hugeicons_ai-innovation-03.svg",
       title: "Continuous innovation",
       description: "Leading with new ideas in design, AI, and XR.",
     },
     {
-      icon: "/Icons/visionicon.svg",
+      icon: "/Company/about/carbon_collaborate.svg",
       title: "Empowerment",
       description: "Helping people grow through immersive tech.",
     },
     {
-      icon: "/Icons/visionicon.svg",
+      icon: "/Company/about/arcticons_s-trust.svg",
       title: "Impact",
       description: "Transforming how the world learns and works.",
       isFullWidth: true,
     },
     {
-      icon: "/Icons/visionicon.svg",
+      icon: "/Company/about/pepicons-pencil_stars.svg",
       title: "Agility",
       description: "Adapting fast to emerging trends and needs.",
     },
     {
-      icon: "/Icons/visionicon.svg",
+      icon: "/Company/about/emojione-monotone_world-map.svg",
       title: "Integrity",
       description: "Building trust through vision, honesty & progress.",
     },
@@ -38,7 +38,7 @@ const ValuesSection = () => {
         <div className="text-center mb-8">
           <div className="mb-4">
             <img
-              src="/Icons/visionicon.svg"
+              src="/Company/about/values_16257068 1.svg"
               alt="Values Icon"
               width="48"
               height="48"

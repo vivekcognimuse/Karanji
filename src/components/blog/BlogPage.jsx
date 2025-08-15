@@ -55,9 +55,7 @@ const BlogPage = ({ blogs = [] }) => {
           {/* Full Width Intro Text */}
           {introSections.length > 0 && (
             <div className="mx-auto mb-8 px-4">
-              {introSections.map((section, idx) => (
-                <SectionRenderer key={`intro-${idx}`} section={section} />
-              ))}
+              <SectionRenderer sections={introSections} />
             </div>
           )}
 
@@ -67,9 +65,7 @@ const BlogPage = ({ blogs = [] }) => {
               {/* Main Content */}
               <div className="flex-1 max-w-5xl">
                 <div id="content" className="pr-6">
-                  {mainSections.map((section, idx) => (
-                    <SectionRenderer key={`main-${idx}`} section={section} />
-                  ))}
+                  <SectionRenderer sections={mainSections} />
                 </div>
               </div>
 
@@ -84,9 +80,7 @@ const BlogPage = ({ blogs = [] }) => {
             {/* Mobile Content */}
             <div className="xl:hidden">
               <div className="px-4">
-                {mainSections.map((section, idx) => (
-                  <SectionRenderer key={`mobile-${idx}`} section={section} />
-                ))}
+                <SectionRenderer sections={mainSections} />
               </div>
             </div>
           </div>
