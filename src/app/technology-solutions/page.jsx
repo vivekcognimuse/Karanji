@@ -12,7 +12,7 @@ export default async function TechnologySolution() {
   }
   const { hero, technologyAdvantage, technologyService } = data || {};
   return (
-    <main className="w-full  max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+    <main className="w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
       <HeroSection data={hero} bgImage="/hero/TechnologySolutions.webp" />
 
       <TechnologyAdvantage data={technologyAdvantage} />

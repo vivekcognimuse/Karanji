@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 import SectionReveal from "@/components/animations/sectionReveal";
 import CarouselContainer from "@/components/animations/Carousal";
+import OfferingCard from "@/components/ui/OfferingCard";
+import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 
 const DigitalTwinOfferings = ({ className = "", data }) => {
   const { title, subtitle, list, ctaCard, cards } = data || {};
@@ -53,55 +55,17 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
           </div>
         </div>
 
-        <div className="hidden lg:grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cards.map((card, index) => (
-            <div
-              key={index}
-              className=" rounded-2xl flex flex-col p-4 bg-[url('/gradients/offering-card-gradient.svg')] bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200"
-              data-reveal
-              data-reveal-dir="up">
-              <div className="mb-6 w-16 h-16 flex items-center justify-center">
-                <Image
-                  src={`/technologySolutions/digital-offering/${index + 1}.svg`}
-                  alt={`${card.title} icon`}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
-              </div>
-
-              <h4 className="mb-4">{card.title}</h4>
-              <P3 className="text-gray-600 leading-relaxed">
-                {card.description}
-              </P3>
-            </div>
-          ))}
+        <div className=" hidden lg:block">
+          <MultiCardCarousel>
+            {cards.map((card, index) => (
+              <OfferingCard key={index} card={card} index={index} />
+            ))}
+          </MultiCardCarousel>{" "}
         </div>
         <div className="lg:hidden">
           <CarouselContainer>
             {cards.map((card, index) => (
-              <div
-                key={index}
-                className=" rounded-2xl flex flex-col p-4 bg-[url('/gradients/offering-card-gradient.svg')] bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200"
-                data-reveal
-                data-reveal-dir="up">
-                <div className="mb-6 w-16 h-16 flex items-center justify-center">
-                  <Image
-                    src={`/technologySolutions/digital-offering/${
-                      index + 1
-                    }.svg`}
-                    alt={`${card.title} icon`}
-                    width={48}
-                    height={48}
-                    className="object-contain"
-                  />
-                </div>
-
-                <h4 className="mb-4">{card.title}</h4>
-                <P3 className="text-gray-600 leading-relaxed">
-                  {card.description}
-                </P3>
-              </div>
+              <OfferingCard key={index} card={card} index={index} />
             ))}
           </CarouselContainer>
         </div>

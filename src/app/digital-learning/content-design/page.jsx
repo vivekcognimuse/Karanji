@@ -16,7 +16,10 @@ import TechnologyServices from "@/sections/service/Service";
 import React, { useState } from "react";
 
 // heroData.js
-
+const tabs = [
+  { key: "custom", buttonLabel: "Custom Content Solutions" },
+  { key: "ready", buttonLabel: "Ready Solutions & Resources" },
+];
 const heroData = {
   title: "End-to-End Digital Learning Solutions",
   subTitle: "From custom content creation to LMS integration and analytics",
@@ -342,7 +345,7 @@ const ContentDesign = () => {
 
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-2 mb-8">
-        {Object.entries(eLearning.tabs).map(([key, tabData]) => (
+        {tabs.map(({ key, buttonLabel }) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
@@ -351,11 +354,11 @@ const ContentDesign = () => {
                 ? "bg-[#F0B8B8] text-gray-800"
                 : "bg-white text-gray-600 hover:bg-pink-100"
             }`}>
-            {tabData.buttonLabel}
+            {buttonLabel}
           </button>
         ))}
       </div>
-      <div className="p-8 bg-[#FCE8E8] space-y-16 lg:space-y-32 rounded-2xl">
+      <div className="p-8 bg-[#FCE8E8] border border-black-200 space-y-16 lg:space-y-32 rounded-2xl">
         {/* Tab Content */}
         <CustomELearningSolution data={eLearning} activeTab={activeTab} />
 

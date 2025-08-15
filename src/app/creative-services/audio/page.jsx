@@ -9,35 +9,21 @@ import ServiceOverview from "@/sections/entertainment/ServiceOverview";
 import React from "react";
 
 const heroData = {
-  title: "Cutting-Edge VFX & Animation Services",
-  description:
-    "Bringing extraordinary visions to life with precision & creativity",
+  title: "Professional Audio Podcast & Production",
+  subTitle:
+    "Studio-quality sound that elevates your content & engages audiences",
   linkText: "Explore Our Services",
-  linkHref: "/", // You can change this to the appropriate link for your services page
-
-  backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
-  stats: [
-    {
-      subText: "Visual Quality & Integration",
-    },
-    {
-      subText: "Workflow & Collaboration",
-    },
-    {
-      subText: "Technical Precision",
-    },
-    {
-      subText: "Production Efficiency",
-    },
-  ],
+  linkHref: "/", // adjust as needed
+  backgroundImage: null, // only include if there's a background image provided
+  stats: [], // omitted since the image shows no stats
 };
 const serviceOverview = {
   title: "Service overview",
-  subtitle: "Transform your vision with professional vfx & animation",
+  subtitle: "Captivate your audience with professional audio",
   description:
-    "Our VFX & animation team delivers stunning visual elements that elevate your project from ordinary to extraordinary. With expertise spanning film, advertising, and digital media, we provide end-to-end visual effects solutions tailored to your creative vision & technical requirements.",
+    "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs & sound design.",
   feature:
-    "From subtle enhancements to complex digital environments, our industry veterans bring technical precision & artistic excellence to every frame, ensuring seamless integration & maximum visual impact.",
+    "With state-of-the-art recording tools & in-house engineers, we deliver polished, professional sound across any distribution platform.",
   images: [
     {
       src: "/entertainment/audio/1 Podcast.webp",
@@ -53,140 +39,134 @@ const serviceOverview = {
     },
   ],
 };
-
 const serviceOfferingsData = {
-  title: "Our Service Offerings",
+  title: "Our Services Offerings",
   description:
-    "Transform your vision with professional VFX & animation. Our team delivers end-to-end solutions across film, television, advertising, & digital media to elevate your project.",
-  tag: "Entertainment Services",
+    "Capture Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal‑clear sound with creative storytelling for podcasts, voice-overs, & commercial media.",
+  tag: "Audio Production",
   cards: [
     {
-      title: "Rotoscoping services",
+      title: "End‑to‑End Podcast Production",
       subtitle: "",
-      description:
-        "Frame-by-frame precision to isolate & manipulate elements for seamless compositing.",
+      description: "Comprehensive service from concept through distribution.",
       featured: true,
-      icon: "/entertainment/vfx/offering",
+      icon: "/audio/icons/end-to-end.svg",
     },
     {
-      title: "Compositing & CG Integration",
+      title: "Audio engineering & Sound Design",
       subtitle: "",
-      description:
-        "Blending computer-generated elements with live-action footage for realistic quality.",
+      description: "Creative sound solutions for any media project.",
       featured: false,
-      icon: "/entertainment/vfx/offering",
+      icon: "/audio/icons/sound-design.svg",
     },
     {
-      title: "Motion graphics & Particle effects",
+      title: "Voice‑over recording, direction",
       subtitle: "",
-      description:
-        "Dynamic visual elements enhancing storytelling & brand consistency.",
+      description: "Voice recording for ads, narration, or characters.",
       featured: false,
-      icon: "/entertainment/vfx/offering",
+      icon: "/audio/icons/voice-over.svg",
     },
     {
-      title: "VFX pipeline consulting & on-set supervision",
+      title: "Audio restoration & enhancement",
       subtitle: "",
-      description:
-        "Expert guidance for optimizing VFX workflow & on-set capture.",
+      description: "Specialized services to fix problematic audio.",
       featured: false,
-      icon: "/entertainment/vfx/offering",
+      icon: "/audio/icons/restoration.svg",
     },
   ],
 };
 const methodologyData = {
-  title: "Our VFX Process",
+  title: "Our Production Process",
   subtitle:
-    "Our streamlined VFX process guarantees smooth production, from consultation to final delivery.",
+    "A 5‑step workflow from planning to delivery ensures efficiency & quality. Designed for smooth collaboration & on‑time results.",
   list: [
     {
       title: "Consultation & Planning",
-      description: "Understanding your vision & planning optimal approach.",
+      description: "Understanding your goals & project needs.",
       tags: [],
     },
     {
-      title: "Production & Capture",
-      description: "Collecting necessary footage & technical data.",
+      title: "Pre‑Production",
+      description: "Script development, scheduling, technical preparation.",
       tags: [],
     },
     {
-      title: "Creation & Integration",
-      description: "Developing VFX elements & integrating with source media.",
+      title: "Recording & Performance",
+      description: "Capturing high-quality audio with expert direction.",
       tags: [],
     },
     {
-      title: "Refinement & Approval",
-      description: "Collaborative review process with revisions as needed.",
+      title: "Post‑Production",
+      description: "Editing, mixing, & mastering.",
       tags: [],
     },
     {
-      title: "Final Delivery",
-      description: "Outputting in required formats with quality assurance.",
+      title: "Delivery & Distribution",
+      description: "Final files & platform optimization.",
       tags: [],
     },
   ],
 };
-const contentFormatsData = {
-  title: "Our Technology Stack",
-  description:
-    "We rely on the best industry tools to craft exceptional VFX, ensuring precision & quality at every stage of production.",
 
-  image: null, // No main image shown in your screenshot — set to null or remove if unused
+// AUDIO TECH STACK (used in ContentFormats component)
+const contentFormatsData = {
+  title: "Our Audio Technology",
+  description:
+    "Industry‑standard tools like Pro Tools HD, Neumann mics, & Avalon preamps. Our setup is built for high‑end audio across formats.",
+  image: null,
   content: [
     {
-      description: "After Effects",
-      src: "/entertainment/vfx/techstack/1.svg",
+      description: "Pro Tools HD",
+      src: "/entertainment/audio/techstack/1.svg",
+    },
+    { description: "Logic Pro X", src: "/entertainment/audio/techstack/2.svg" },
+    {
+      description: "Neumann microphones",
+      src: "/entertainment/audio/techstack/3.svg",
     },
     {
-      description: "Adobe Photoshop",
-      src: "/entertainment/vfx/techstack/2.svg",
+      description: "Soundcraft mixing console",
+      src: "/entertainment/audio/techstack/4.svg",
     },
     {
-      description: "Nuke",
-      src: "/entertainment/vfx/techstack/3.svg",
+      description: "Avalon preamps",
+      src: "/entertainment/audio/techstack/5.svg",
     },
     {
-      description: "Cinema 4D",
-      src: "/entertainment/vfx/techstack/4.svg",
+      description: "iZotope RX suite",
+      src: "/entertainment/audio/techstack/6.svg",
     },
     {
-      description: "Houdini",
-      src: "/entertainment/vfx/techstack/5.svg",
+      description: "Waves plugin bundle",
+      src: "/entertainment/audio/techstack/7.svg",
     },
     {
-      description: "Mocha Pro",
-      src: "/entertainment/vfx/techstack/6.svg",
+      description: "Sound‑treated studio rooms",
+      src: "/entertainment/audio/techstack/8.svg",
     },
     {
-      description: "Blender",
-      src: "/entertainment/vfx/techstack/7.svg",
-    },
-    {
-      description: "DaVinci Resolve",
-      src: "/entertainment/vfx/techstack/8.svg",
-    },
-    {
-      description: "Custom rendering pipeline",
-      src: "/entertainment/vfx/techstack/9.svg",
+      description: "Podcast recording setup",
+      src: "/entertainment/audio/techstack/9.svg",
     },
   ],
 };
+
+// SUCCESS STORIES
 const successStoriesData = {
   title: "Use Cases & Success Stories",
   description:
-    "Explore case studies that demonstrate how we enhance visual storytelling, integrate cutting-edge effects, & elevate the overall cinematic experience across entertainment platforms.",
+    "Explore how our audio & podcast production services have helped clients elevate their content, engage audiences, & deliver polished, professional results across platforms.",
   cards: [
     {
-      title: "Bringing a Murder Mystery to Life",
+      title: "One‑Hour Podcast into a Visual Experience",
       stats: [
-        { title: "Seamless", subtitle: "Video Tracking" },
-        { title: "0 Bugs", subtitle: "Final Delivery" },
+        { title: "+100%", subtitle: "Improved Video Clarity" },
+        { title: "30‑sec", subtitle: "Hook Developed Proactively" },
       ],
       description:
-        "We transformed provided footage into realistic video playback on set phones using advanced tracking techniques & Mocha AE, ensuring seamless integration & meeting tight deadlines.",
-      link: "Read Full CaseStudy", // Optional field
+        "We enhanced a raw one‑hour podcast with AI‑driven upgrades, adding dynamic visuals & a motion‑graphics hook to elevate the content, making it more engaging & visually compelling.",
+      link: "Read Full CaseStudy", // keep if component uses it
     },
-    // Add more stories here if needed
   ],
 };
 const accordionData = {
