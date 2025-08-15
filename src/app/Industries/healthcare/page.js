@@ -44,20 +44,24 @@ const industryData = {
   overviewDescription:
     "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
   challengesTitle: "Critical Challenges",
-  image: "/Industries & its pages/Healthcare/Healthcare image.webp", 
+  image: "/Industries & its pages/Healthcare/Healthcare image.webp",
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
       id: 1,
+
       icon: "/Icons/fluent-mdl2_health.svg", 
+
       title: "Workforce Crisis",
       description:
         "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
     },
     {
       id: 2,
+
       icon: "/Icons/Industries/vr-glasses_3646958 1.svg", 
       title: "Financial Pressure",
+
       description:
         "8% cost increases, 2% operating margins, $100B underpayment gap.",
     },
@@ -79,7 +83,6 @@ const industryData = {
 };
 
 const strategicPrioritiesData = {
-    
   businessPrioritiesTitle: "Strategic Priorities 2025",
   topRowCards: [
     {
@@ -344,38 +347,33 @@ const strategicUseCaseData = {
   ],
 };
 const strategicFramework = {
+  isStepHidden: true,
   title: "Strategic Transformation Framework",
   subTitle:
     "A strategic framework driving innovation, efficiency, & resilience across care delivery, workforce, & operations.",
   list: [
     {
       title: "Tech-First",
-      description:
-        "AI, VR/AR, digital platforms",
+      description: "AI, VR/AR, digital platforms",
     },
     {
       title: "Workforce Augmentation",
-      description:
-        "AI workflows, remote learning",
+      description: "AI workflows, remote learning",
     },
     {
       title: "Patient-Centric",
-      description:
-        "Digital front doors, home-based care ($265B by 2025)",
+      description: "Digital front doors, home-based care ($265B by 2025)",
     },
     {
       title: "Operational Excellence",
-      description:
-        "Cost control, security, quality systems",
+      description: "Cost control, security, quality systems",
     },
     {
       title: "Regulatory Adaptation",
-      description:
-        "Compliance automation, value-based care models",
+      description: "Compliance automation, value-based care models",
     },
   ],
 };
-
 
 export default async function HealthCare() {
   return (
@@ -389,7 +387,7 @@ export default async function HealthCare() {
       <div id="digital-transformation-landscape">
         <DigitalTransformation data={digitalTransformationData} />
       </div>
-       <Methodology data={strategicFramework} isStepHidden =  {true} />
+      <Methodology data={strategicFramework} />
       <StrategicRoadmap data={strategicRoadmapData} />
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />

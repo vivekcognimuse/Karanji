@@ -1,5 +1,6 @@
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 import React from "react";
 
 const CTA = ({ className = "", data }) => {
@@ -18,12 +19,16 @@ const CTA = ({ className = "", data }) => {
       <P2>{description}</P2>
       <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
         {PrimaryButtonText && PrimaryButtonLink && (
-          <Button href={PrimaryButtonLink}>{PrimaryButtonText}</Button>
+          <Link href={PrimaryButtonLink}>
+            <Button href={PrimaryButtonLink}>{PrimaryButtonText}</Button>
+          </Link>
         )}
         {SecondaryButtonText && SecondaryButtonLink && (
-          <Button href={SecondaryButtonLink} variant="secondary" className="">
-            {SecondaryButtonText}
-          </Button>
+          <Link href={SecondaryButtonLink}>
+            <Button href={SecondaryButtonLink} variant="secondary" className="">
+              {SecondaryButtonText}
+            </Button>
+          </Link>
         )}
       </div>
     </div>

@@ -2,44 +2,43 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import CaseStudyCard from "@/components/cards/CaseStudyCard";
 
+const caseStudies = [
+  {
+    title: "AI-Enhanced Healthcare Training",
+    // No category here
+    stats: [
+      { title: "68%", subTitle: "Improved Retention" },
+      { title: "42%", subTitle: "Faster Completion" },
+      { title: "$1.2M", subTitle: "Annual Savings" },
+    ],
+    description:
+      "By integrating AI-powered personalization with immersive VR training scenarios, we transformed clinical staff training for a major hospital network.",
+  },
+  {
+    title: "Digital Transformation Initiative",
+    category: "Manufacturing | Fortune 500 Company", // Category present
+    stats: [
+      { title: "85%", subTitle: "Process Efficiency" },
+      { title: "60%", subTitle: "Cost Reduction" },
+      { title: "$2.8M", subTitle: "Revenue Increase" },
+    ],
+    description:
+      "Revolutionized manufacturing processes through digital twin technology and AI-driven optimization systems for enhanced operational excellence.",
+  },
+  {
+    title: "Immersive Learning Platform",
+    category: "Education | Global University", // Category present
+    stats: [
+      { title: "92%", subTitle: "Student Engagement" },
+      { title: "55%", subTitle: "Knowledge Retention" },
+      { title: "$850K", subTitle: "Cost Savings" },
+    ],
+    description:
+      "Created an innovative immersive learning environment that combines AR/VR technology with adaptive AI to revolutionize higher education.",
+  },
+];
 const SuccessStoriesSection = () => {
   const [currentCaseStudy, setCurrentCaseStudy] = useState(0);
-
-  const caseStudies = [
-    {
-      title: "AI-Enhanced Healthcare Training",
-      // No category here
-      stats: [
-        { title: "68%", subTitle: "Improved Retention" },
-        { title: "42%", subTitle: "Faster Completion" },
-        { title: "$1.2M", subTitle: "Annual Savings" },
-      ],
-      description:
-        "By integrating AI-powered personalization with immersive VR training scenarios, we transformed clinical staff training for a major hospital network.",
-    },
-    {
-      title: "Digital Transformation Initiative",
-      category: "Manufacturing | Fortune 500 Company", // Category present
-      stats: [
-        { title: "85%", subTitle: "Process Efficiency" },
-        { title: "60%", subTitle: "Cost Reduction" },
-        { title: "$2.8M", subTitle: "Revenue Increase" },
-      ],
-      description:
-        "Revolutionized manufacturing processes through digital twin technology and AI-driven optimization systems for enhanced operational excellence.",
-    },
-    {
-      title: "Immersive Learning Platform",
-      category: "Education | Global University", // Category present
-      stats: [
-        { title: "92%", subTitle: "Student Engagement" },
-        { title: "55%", subTitle: "Knowledge Retention" },
-        { title: "$850K", subTitle: "Cost Savings" },
-      ],
-      description:
-        "Created an innovative immersive learning environment that combines AR/VR technology with adaptive AI to revolutionize higher education.",
-    },
-  ];
 
   const nextCaseStudy = () => {
     setCurrentCaseStudy((prev) => (prev + 1) % caseStudies.length);

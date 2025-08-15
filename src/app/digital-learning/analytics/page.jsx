@@ -62,9 +62,9 @@ const lmsLearningData = {
 };
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
-  description:
-    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
-  Tag: "Who Benefits",
+  subTitle:
+    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes",
+  tag: "Who Benefits",
   cards: [
     {
       title: "Learners",
@@ -127,30 +127,53 @@ const learningChallenges = {
 };
 
 const methodologyData = {
-  title: "Content Development Approach",
+  title: "Our Analytics Approach",
   subTitle:
-    "Our streamlined 3-step approach delivers engaging learning content that transforms your training initiatives:",
+    "Turning learner data into measurable growth through personalized profiles & targeted interventions.",
   list: [
     {
-      title: "Content Creation",
-      description:
-        "We select the ideal content formats, add engaging visuals and animations, and develop interactive learning experiences.",
+      title: "Define Successful Outcomes",
+      description: (
+        <>
+          <span className="w-full block pb-6">
+            {" "}
+            Success = Measurable Growth + Goal Achievement
+          </span>
+          <span className="w-full mt-8">
+            {" "}
+            We track success using clear, outcome-based metrics:
+          </span>
+        </>
+      ),
       tags: [
-        "Expert SME engagement",
-        "Thorough needs analysis",
-        "Target audience profiling",
-        "Instructional design",
+        "Skill development & real-world application",
+        "Career or professional advancement",
+        "Performance improvement",
+        "Goal achievement rates",
       ],
     },
     {
-      title: "Digitization",
-      description:
-        "We select the ideal content formats, add engaging visuals and animations, and develop interactive learning experiences.",
+      title: "Understand What Drives Success",
+      description: (
+        <>
+          <span className="w-full block pb-6">
+            {" "}
+            Success = Profile + Intervention
+          </span>
+          <span className="w-full mt-8"> We use objective data to define:</span>
+        </>
+      ),
       tags: [
-        "Format selection",
-        "Graphic design and visualization",
-        "Animation & interactivity",
-        "Authoring & development",
+        "Demographics",
+        "Learning styles",
+        "Prior knowledge",
+        "Motivation drivers",
+        "Personal goals & aspirations",
+        "Content quality & relevance",
+        "Engagement & participation",
+        "Learning activities & paths",
+        "Support mechanisms",
+        "Systems for feedback & improvement",
       ],
     },
     {
@@ -298,11 +321,11 @@ const ContentDesign = () => {
       <LearningChallenges data={learningChallenges} />
       <div id="analytics-service-offerings">
         <ServiceOfferings
+          className="w-fit mx-auto"
           data={serviceOfferingsData}
           icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
         />
       </div>
-      <LMSLearning data={lmsLearningData} />
       <Results
         data={{
           title: "The Result",
@@ -314,6 +337,7 @@ const ContentDesign = () => {
         }}
       />
       <Methodology column={true} data={methodologyData} />
+
       <AnalyticsMaturityModel data={analyticsData} />
 
       <ImplementApproach data={implementApproachData} />

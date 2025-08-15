@@ -41,9 +41,9 @@ const serviceOverview = {
 };
 const serviceOfferingsData = {
   title: "Our Services Offerings",
-  description:
-    "Capture Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal‑clear sound with creative storytelling for podcasts, voice-overs, & commercial media.",
-  tag: "Audio Production",
+  subTitle:
+    "Captivate Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal-clear sound with creative storytelling for podcasts, voice-overs, & commercial media..",
+
   cards: [
     {
       title: "End‑to‑End Podcast Production",
@@ -78,7 +78,7 @@ const serviceOfferingsData = {
 const methodologyData = {
   title: "Our Production Process",
   subTitle:
-    "A 5‑step workflow from planning to delivery ensures efficiency & quality. Designed for smooth collaboration & on‑time results.",
+    "A 5-step workflow from planning to delivery ensures efficiency & quality. Designed for smooth collaboration & on-time results.",
   list: [
     {
       title: "Consultation & Planning",

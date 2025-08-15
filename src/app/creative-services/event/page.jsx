@@ -11,8 +11,8 @@ import React from "react";
 const heroData = {
   title: "Event Production & Management",
   subTitle: "Flawless execution of memorable events from concept to completion",
-  linkText: "Explore Our Services",
-  linkHref: "/", // Adjust as necessary
+  ctaText: "Explore Our Services",
+  ctaLink: "event-service-offerings", // Adjust as necessary
   backgroundImage: null, // No visible background image
   stats: [], // Omit if none are shown
 };
@@ -221,10 +221,12 @@ const VfxAnimation = () => {
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
-      <ServiceOfferings
-        data={serviceOfferingsData}
-        icon="/entertainment/vfx/offering"
-      />{" "}
+      <div id="event-service-offerings">
+        <ServiceOfferings
+          data={serviceOfferingsData}
+          icon="/entertainment/vfx/offering"
+        />{" "}
+      </div>
       <Methodology data={methodologyData} />
       <ContentFormats data={contentFormatsData} />{" "}
       <SuccessStories data={successStoriesData} />
