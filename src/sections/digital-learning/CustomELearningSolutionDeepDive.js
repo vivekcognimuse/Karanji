@@ -34,7 +34,7 @@ export default function ELearningSolutions({ data }) {
           {cards.map((card, index) => {
             const { subtitle, description, videoSrc, imageSrc, alt } = card;
             return (
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div key={index} className="flex flex-wrap gap-4 justify-center">
                 <div
                   key={index}
                   className="bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col">
