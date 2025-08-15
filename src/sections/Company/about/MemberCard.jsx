@@ -14,24 +14,25 @@ const MemberCard = ({
   showTalkButton = false,
 }) => {
   return (
-    <div className="member-card rounded-2xl p-4 flex flex-row space-x-4 shadow-lg">
+    <div className="member-card rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 shadow-lg">
       {/* Profile Image */}
-      <div className="flex-shrink-0">
-        <div className="w-28 h-28 bg-white rounded-2xl overflow-hidden shadow-md aspect-square">
+      <div className="flex-shrink-0 mx-auto sm:mx-0">
+        <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-white rounded-2xl overflow-hidden shadow-md">
           <img src={image} alt={name} className="w-full h-full object-cover" />
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-between space-y-2">
+      <div className="flex-1 flex flex-col justify-between space-y-2 text-center sm:text-left px-4">
         {/* Name and Title */}
         <div>
-          <P1 className="text-black-950 text-lg mb-1">{name}</P1>
-          <P3 className="text-black-800 ">
+          <P1 className="text-black-950 text-base sm:text-lg mb-1">{name}</P1>
+          <P3 className="text-black-800 text-sm sm:text-base">
             {role}
             {company && (
               <>
-                ,<br />
+                ,<br className="hidden sm:block" />
+                <span className="sm:hidden"> </span>
                 <span className="text-black-800">{company}</span>
               </>
             )}
@@ -39,16 +40,27 @@ const MemberCard = ({
         </div>
 
         {/* Brief Description */}
-        <P4 className="text-gray-600 leading-relaxed text-xs mb-2">{brief}</P4>
+        <P4 className="text-gray-600 leading-relaxed text-xs sm:text-sm mb-2 px-2 sm:px-0">
+          {brief}
+        </P4>
 
         {/* Action Buttons */}
-        <div className="flex flex-col space-y-2">
-          <Button onClick={onConnect} variant="secondary" size="sm">
+        <div className="flex flex-col space-y-2 px-2 sm:px-0">
+          <Button
+            onClick={onConnect}
+            variant="secondary"
+            size="sm"
+            className="w-full sm:w-auto"
+          >
             Connect with {name.split(" ")[0]}
           </Button>
-
           {showTalkButton && (
-            <Button onClick={onTalkToDigitalTwin} variant="secondary" size="sm">
+            <Button
+              onClick={onTalkToDigitalTwin}
+              variant="secondary"
+              size="sm"
+              className="w-full sm:w-auto"
+            >
               Talk to My Digital Twin
             </Button>
           )}
@@ -62,10 +74,16 @@ const MemberCard = ({
           backdrop-filter: blur(10px);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
         .member-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 639px) {
+          .member-card {
+            min-height: auto;
+          }
         }
       `}</style>
     </div>

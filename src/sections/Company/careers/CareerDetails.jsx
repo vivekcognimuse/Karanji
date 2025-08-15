@@ -29,15 +29,27 @@ export default function CareerDetails({
   )}`;
 
   return (
-    <section className="w-full max-w-7xl mx-auto p-4 lg:p-10">
-      <div className="gradient rounded-3xl backdrop-blur-[30px] shadow-elevated p-4 sm:p-6 lg:p-10">
+    <section className="w-full mx-auto p-4 lg:p-10">
+      <div
+        className="p-10 rounded-[32px]"
+        style={{
+          background:
+            "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
+          backdropFilter: "blur(28.100000381469727px)",
+          boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)",
+        }}
+      >
         {/* Top bar */}
         <div className="flex items-center justify-between mb-6">
           <Link
             href={backHref}
             className="inline-flex items-center gap-2 text-black/70 hover:text-black"
           >
-            <span>←</span>
+            <img
+              src="/hero/carbon_return.svg"
+              alt="Return"
+              className="w-5 h-5"
+            />
             <span>Return to Careers</span>
           </Link>
           {postedAgo ? (
@@ -45,7 +57,6 @@ export default function CareerDetails({
           ) : null}
         </div>
 
-        {/* Category chip */}
         {category ? (
           <div className="inline-block px-3 py-1 bg-black/90 text-white text-sm rounded-full mb-4">
             {category}
@@ -89,7 +100,7 @@ export default function CareerDetails({
         {requirements?.length ? (
           <div className="mb-10">
             <h4 className="text-2xl font-medium mb-3">
-              What We’re Looking For
+              What We're Looking For
             </h4>
             <P3 className="list-disc pl-5 space-y-2 text-black/80">
               {requirements.map((item, i) => (

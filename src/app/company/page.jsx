@@ -15,19 +15,19 @@ const cardsData = [
     title: "About Us",
     description:
       "Our journey of innovation through technology, learning, & creativity",
-    image: "/Images/Card images/teamcardimg.png",
+    image: "/Company/Landing page/About us.webp",
   },
   {
     title: "Our Team",
     description:
       "Meet the minds shaping the future of immersive tech & storytelling",
-    image: "/Images/Card images/teamcardimg.png",
+    image: "/Company/Landing page/Our Team.webp",
   },
   {
     title: "Career",
     description:
       "Build your career at the crossroads of AI, creativity, & impact",
-    image: "/Images/Card images/teamcardimg.png",
+    image: "/Company/Landing page/Career.webp",
   },
 ];
 export default async function companyLanding() {

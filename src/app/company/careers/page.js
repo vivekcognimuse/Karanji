@@ -1,7 +1,6 @@
 // app/company/careers/page.jsx
 import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
-
 // ⬇️ Import the careers table + default data
 import CareersTable, { defaultCareers } from "@/sections/Company/careers/CareersTable";
 
@@ -22,27 +21,27 @@ const sectionData = {
 
 const cardsData = [
   {
-    icon: "Company/culture.svg",
+    icon: "/Company/Team/icons/culture.svg",
     title: "Culture",
     description: "We foster a collaborative environment built on trust & innovation.",
-    image: "/company/cultureimg.png",
+    image: "/Company/Culture.webp",
   },
   {
-    icon: "Company/learning.svg",
+    icon: "/Company/Team/icons/learning.svg",
     title: "Learning",
     description: "Continuous development opportunities to foster personal growth.",
-    image: "/company/learningimg.png",
+    image: "/Company/Learning.webp",
   },
   {
-    icon: "Company/growth.svg",
+    icon: "/Company/Team/icons/growth.svg",
     title: "Growth",
     description: "Opportunities for advancement & career paths based on performance.",
-    image: "/company/growthimg.png",
+    image: "/Company/growth.webp",
   },
 ];
 
 const ctaData = {
-  title: "Don’t see a role that fits?",
+  title: "Don't see a role that fits?",
   description:
     "Please send an email to recruitment@karanji.com with subject line as 'Application | Role Title' with your profile and interest, we are always on lookout for talent.",
   PrimaryButtonText: "Send us an Email",
@@ -51,41 +50,54 @@ const ctaData = {
 
 export default function careersPage() {
   return (
-    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <CTA
-        data={teamData}
-        className="
-          !text-left
-          [&>h3]:!text-4xl sm:[&>h3]:!text-5xl lg:[&>h3]:!text-[4rem] [&>h3]:!font-normal
-          [&>.p2]:!text-[1.375rem] sm:[&>.p2]:!text-2xl
-          [&_.flex-center]:justify-start [&_.flex-center]:items-start
-          [&_.flex-center>button]:!px-6 [&_.flex-center>button]:!py-4 [&_.flex-center>button]:!text-lg
-          lg:[&_.flex-center>button]:!px-7 lg:[&_.flex-center>button]:!py-[1.125rem] lg:[&_.flex-center>button]:!text-xl
-          [&_.flex-center>a]:!px-6 [&_.flex-center>a]:!py-4 [&_.flex-center>a]:!text-lg
-          lg:[&_.flex-center>a]:!px-7 lg:[&_.flex-center>a]:!py-[1.125rem] lg:[&_.flex-center>a]:!text-xl
-        "
-      />
-
-      {/* Why Work With Us */}
-      <WhyWorkWithUsSection
-        title={sectionData.title}
-        description={sectionData.description}
-        cards={cardsData}
-      />
-
-      {/* Open Roles */}
-      <section id="open-roles" >
-        <CareersTable
-          jobs={defaultCareers}
-          // Optional: open an external form/email instead of routing
-          // onViewRole={(job) =>
-          //   window.open(job.formLink ?? 'mailto:recruitment@karanji.com', '_blank')
-          // }
-          // Optional: change the detail page base path if you have role detail pages
-          detailBasePath="/company/careers"
-        />
-      </section>
-
+    <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      {/* Wrapper for all components except the last CTA */}
+      <div 
+        className="p-10 rounded-[32px]"
+        style={{
+          background: "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
+          backdropFilter: "blur(28.100000381469727px)",
+          boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)"
+        }}
+      >
+        <div className="space-y-16 lg:space-y-32">
+          <CTA
+            data={teamData}
+            className="
+              !text-left
+              [&>h3]:!text-4xl sm:[&>h3]:!text-5xl lg:[&>h3]:!text-[4rem] [&>h3]:!font-normal
+              [&>.p2]:!text-[1.375rem] sm:[&>.p2]:!text-2xl
+              [&_.flex-center]:justify-start [&_.flex-center]:items-start
+              [&_.flex-center>button]:!px-6 [&_.flex-center>button]:!py-4 [&_.flex-center>button]:!text-lg
+              lg:[&_.flex-center>button]:!px-7 lg:[&_.flex-center>button]:!py-[1.125rem] lg:[&_.flex-center>button]:!text-xl
+              [&_.flex-center>a]:!px-6 [&_.flex-center>a]:!py-4 [&_.flex-center>a]:!text-lg
+              lg:[&_.flex-center>a]:!px-7 lg:[&_.flex-center>a]:!py-[1.125rem] lg:[&_.flex-center>a]:!text-xl
+            "
+          />
+          
+          {/* Why Work With Us */}
+          <WhyWorkWithUsSection
+            title={sectionData.title}
+            description={sectionData.description}
+            cards={cardsData}
+          />
+          
+          {/* Open Roles */}
+          <section id="open-roles">
+            <CareersTable
+              jobs={defaultCareers}
+              // Optional: open an external form/email instead of routing
+              // onViewRole={(job) =>
+              //   window.open(job.formLink ?? 'mailto:recruitment@karanji.com', '_blank')
+              // }
+              // Optional: change the detail page base path if you have role detail pages
+              detailBasePath="/company/careers"
+            />
+          </section>
+        </div>
+      </div>
+      
+      {/* Final CTA - Outside the wrapper */}
       <CTA data={ctaData} />
     </div>
   );

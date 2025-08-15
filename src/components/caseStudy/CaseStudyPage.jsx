@@ -23,6 +23,39 @@ const CaseStudyPage = ({ data }) => {
       }));
   }, [data.sections]);
 
+  // Group consecutive quotes together
+  const groupedSections = useMemo(() => {
+    const sections = data.sections || [];
+    const grouped = [];
+    let currentQuoteGroup = [];
+
+    sections.forEach((section, index) => {
+      if (section.type === "quote") {
+        currentQuoteGroup.push(section);
+      } else {
+        // If we have accumulated quotes, add them as a group
+        if (currentQuoteGroup.length > 0) {
+          grouped.push({
+            type: "quote_group",
+            quotes: currentQuoteGroup,
+          });
+          currentQuoteGroup = [];
+        }
+        grouped.push(section);
+      }
+    });
+
+    // Don't forget the last quote group if sections end with quotes
+    if (currentQuoteGroup.length > 0) {
+      grouped.push({
+        type: "quote_group",
+        quotes: currentQuoteGroup,
+      });
+    }
+
+    return grouped;
+  }, [data.sections]);
+
   const renderSection = (section, idx) => {
     switch (section.type) {
       case "heading":
@@ -58,7 +91,26 @@ const CaseStudyPage = ({ data }) => {
             ))}
           </ul>
         );
+      case "quote_group":
+        return (
+          <div key={idx} className="relative mb-6 p-6">
+            <div
+              className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
+              style={{
+                backgroundImage: "url('/blog/Quotes.svg')",
+                opacity: 0.3,
+                pointerEvents: "none",
+              }}
+            />
+            <div className="relative z-10">
+              {section.quotes.map((quote, quoteIndex) => (
+                <QuoteBlock key={quoteIndex} quote={quote.content} />
+              ))}
+            </div>
+          </div>
+        );
       case "quote":
+        // This case should not occur with grouping, but keeping as fallback
         return <QuoteBlock quote={section.content} key={idx} />;
       default:
         return null;
@@ -105,7 +157,7 @@ const CaseStudyPage = ({ data }) => {
             {/* Main Content */}
             <div className="flex-1 max-w-6xl">
               <div id="content" className="pr-6">
-                {(data.sections || []).map((section, idx) =>
+                {groupedSections.map((section, idx) =>
                   renderSection(section, idx)
                 )}
               </div>
@@ -128,7 +180,7 @@ const CaseStudyPage = ({ data }) => {
           {/* Mobile Content: Sidebar below content */}
           <div className="xl:hidden">
             <div className="px-4">
-              {(data.sections || []).map((section, idx) =>
+              {groupedSections.map((section, idx) =>
                 renderSection(section, idx)
               )}
             </div>
