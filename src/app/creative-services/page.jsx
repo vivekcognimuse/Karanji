@@ -9,8 +9,8 @@ const heroData = {
     "Elevate your content with professional entertainment production services",
   subTitle:
     "From stunning visual effects to immersive audio experiences & dynamic event coverage-bringing your vision to life",
-  linkText: "Explore Our Services",
-  linkHref: "/", // You can change this to the appropriate link for your services page
+  ctaText: "Explore Our Services",
+  ctaLink: "entertainment-services", // You can change this to the appropriate link for your services page
 
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -148,7 +148,9 @@ const Entertainment = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/entertainment.webp" />
-      <EntertainmentServices data={entertainmentServices} />
+      <div id="entertainment-services">
+        <EntertainmentServices data={entertainmentServices} />
+      </div>
       <TechnologyServices
         data={technologyServices}
         image="/entertainment/landing/service"

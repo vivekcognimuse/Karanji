@@ -10,19 +10,19 @@ const HeroSection = ({ data }) => {
     <section className="  mt-40 flex flex-col lg:flex-row items-start gap-8">
       <div className="flex-1 space-y-8">
         <div className="space-y-4">
-          <h1 className="">{title}</h1>
-          <P1 className="">{Subtitles}</P1>
+          <h1 className="">Let’s Bring Your Vision to Life</h1>
+          <P1 className="">
+            We help organizations solve complex business challenges through the
+            strategic integration of digital learning, immersive experiences, &
+            practical AI implementation.
+          </P1>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex   flex-col sm:flex-row gap-4">
-          <Button className="group bg-black lg:py-1 rounded-full overflow-hidden hover:scale-105 transition-transform">
-            {cta1_text}
-          </Button>
-          <Button
-            variant="secondary"
-            className="group rounded-full border border-black overflow-hidden hover:bg-gray-50 transition-colors">
-            {cta2_text}
+          <Button className="">Explore Our Solutions</Button>
+          <Button variant="secondary" className="">
+            View Case Studies
           </Button>
         </div>
       </div>

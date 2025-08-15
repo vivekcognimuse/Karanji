@@ -27,19 +27,19 @@ const ServiceOverview = ({ data }) => {
       {/* Subtitle */}
       <h4 className="mb-16">{subTitle}</h4>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+      <div className="grid  grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Content Section */}
-        <div className="space-y-6 my-auto">
-          <P2 className="mb-6">{description}</P2>
+        <div className="space-y-6  col-span-5 my-auto">
+          <P2 className="mb-6 text=[#010101]">{description}</P2>
           <P3 className="text-black-500">{feature}</P3>
         </div>
 
         {/* Right Image Section */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full min-h-[300px]">
+        <div className="relative col-span-7  rounded-2xl overflow-hidden shadow-2xl h-full ">
           <Image
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full aspect-[772/334] object-cover"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           />

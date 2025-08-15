@@ -1,328 +1,211 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ContentCard, RightContentCard } from "./home/contentCard";
+import React, { useEffect, useRef } from "react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-const sections = [
-  {
-    left: {
-      badge: "Key Services",
-      title: "Immersive AR/VR Experiences",
-      description:
-        "Leverages narrative immersion to engage learners emotionally and cognitively within virtual environments.",
-      actionText: "View Solutions",
-    },
-    right: {
-      title: "Story Driven VR/AR Experiences",
-      highlight1: "Creative Learning",
-      highlight2: "Immersive Tech",
-      imageSrc: "/images/vr-girl.png",
-    },
-    pieChart: [1, 0, 1],
-  },
-  {
-    left: {
-      badge: "Key Services",
-      title: "Adaptive Personalized Learnings",
-      description:
-        "Learners follow optimized paths powered by adaptive systems tailored to their unique goals and pace.",
-      actionText: "View Solutions",
-    },
-    right: {
-      title: "Adaptive & Personalized Learning",
-      highlight1: "Creative Learning",
-      highlight2: "AI Innovation",
-      imageSrc: "/images/ai-profile.png",
-    },
-    pieChart: [1, 1, 0],
-  },
-  {
-    left: {
-      badge: "Key Services",
-      title: "Intelligent Simulations & Forecasts",
-      description:
-        "Blends experiential learning with AI-driven insights to enhance outcomes and performance.",
-      actionText: "View Solutions",
-    },
-    right: {
-      title: "Intelligent Simulations & Real Time Analytics",
-      highlight1: "Immersive Tech",
-      highlight2: "AI Innovation",
-      imageSrc: "/images/cyber-head.png",
-    },
-    pieChart: [0, 1, 1],
-  },
-];
-
-const PieChart = ({ active }) => {
-  const colors = ["#f9a8d4", "#93c5fd", "#a78bfa"]; // pink, blue, purple
-  const sectors = [
-    {
-      d: "M 160 160 L 160 30 A 130 130 0 0 1 272.487 200 Z", // Creative
-      label: ["CREATIVE", "LEARNING"],
-      x: 220,
-      y: 90,
-    },
-    {
-      d: "M 160 160 L 272.487 200 A 130 130 0 0 1 47.513 200 Z", // AI
-      label: ["AI", "INNOVATION"],
-      x: 160,
-      y: 250,
-    },
-    {
-      d: "M 160 160 L 47.513 200 A 130 130 0 0 1 160 30 Z", // Immersive
-      label: ["IMMERSIVE", "TECH"],
-      x: 100,
-      y: 90,
-    },
-  ];
-
-  return (
-    <svg
-      width="320"
-      height="320"
-      viewBox="0 0 320 320"
-      className="drop-shadow-2xl transition-all duration-500">
-      <defs>
-        <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="100%" stopColor="#f8fafc" />
-        </radialGradient>
-      </defs>
-
-      {/* Background circle */}
-      <circle
-        cx="160"
-        cy="160"
-        r="130"
-        fill="url(#bgGrad)"
-        stroke="#e2e8f0"
-        strokeWidth="2"
-      />
-
-      {/* Render pie slices with fade in/out */}
-      {sectors.map((sector, index) => {
-        const isActive = active[index];
-        return (
-          <g key={index}>
-            <path
-              d={sector.d}
-              fill={colors[index]}
-              opacity={isActive ? 1 : 0}
-              stroke="white"
-              strokeWidth="4"
-              style={{ transition: "opacity 0.5s ease" }}
-            />
-            <text
-              x={sector.x}
-              y={sector.y}
-              textAnchor="middle"
-              className="text-xs font-bold fill-gray-700"
-              style={{
-                opacity: isActive ? 1 : 0,
-                transition: "opacity 0.5s ease",
-              }}>
-              <tspan x={sector.x} dy="0">
-                {sector.label[0]}
-              </tspan>
-              <tspan x={sector.x} dy="14">
-                {sector.label[1]}
-              </tspan>
-            </text>
-          </g>
-        );
-      })}
-    </svg>
-  );
-};
-
-const LogoStoryAnimation = () => {
+const StickyVideoScroll = () => {
+  const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const leftCardRef = useRef(null);
-  const rightCardRef = useRef(null);
-  const pieChartRef = useRef(null);
-  const [currentSection, setCurrentSection] = useState(0);
-  const scrollTriggerRef = useRef(null);
+  const textRefs = useRef([]);
 
   useEffect(() => {
-    const container = containerRef.current;
-    const leftCard = leftCardRef.current;
-    const rightCard = rightCardRef.current;
-    const pieChart = pieChartRef.current;
+    // Dynamically load GSAP and ScrollTrigger
+    const loadGSAP = async () => {
+      const gsapScript = document.createElement("script");
+      gsapScript.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
+      document.head.appendChild(gsapScript);
 
-    if (!container || !leftCard || !rightCard || !pieChart) return;
+      const scrollTriggerScript = document.createElement("script");
+      scrollTriggerScript.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js";
+      document.head.appendChild(scrollTriggerScript);
 
-    // Clean up any existing ScrollTriggers
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Wait for scripts to load
+      await new Promise((resolve) => {
+        let loaded = 0;
+        const checkLoaded = () => {
+          loaded++;
+          if (loaded === 2) resolve();
+        };
+        gsapScript.onload = checkLoaded;
+        scrollTriggerScript.onload = checkLoaded;
+      });
 
-    const sectionCount = sections.length;
-    const scrollLength = sectionCount * 100; // Reduced scroll length for smoother experience
-
-    // Set initial positions
-    gsap.set(leftCard, { x: "-100vw", opacity: 0 });
-    gsap.set(rightCard, { x: "100vw", opacity: 0 });
-
-    // Create the main timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: "top top",
-        end: `+=1200vh`,
-        pin: true,
-        scrub: 1, // Smoother scrub value
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const sectionIndex = Math.min(
-            Math.floor(progress * sectionCount),
-            sectionCount - 1
-          );
-
-          // Only update section if it actually changed
-          if (sectionIndex !== currentSection) {
-            setCurrentSection(sectionIndex);
-          }
-        },
-      },
-    });
-
-    // Create animations for each section
-    sections.forEach((section, index) => {
-      const isLastSection = index === sections.length - 1;
-
-      // Entry animation
-      tl.to(
-        [leftCard, rightCard, pieChart],
-        {
-          duration: 0.3,
-          x: "0%",
-          scale: 1,
-          opacity: 1,
-          ease: "power2.out",
-        },
-        index
-      );
-
-      // Hold animation
-      tl.to(
-        [leftCard, rightCard, pieChart],
-        {
-          duration: 0.4,
-          // Keep current position
-        },
-        index + 0.3
-      );
-
-      // Exit animation (skip for last section)
-      if (!isLastSection) {
-        tl.to(
-          leftCard,
-          {
-            duration: 0.3,
-            x: "-100%",
-            opacity: 0,
-            ease: "power2.in",
-          },
-          index + 0.7
-        )
-          .to(
-            rightCard,
-            {
-              duration: 0.3,
-              x: "100%",
-              opacity: 0,
-              ease: "power2.in",
-            },
-            index + 0.7
-          )
-          .to(
-            pieChart,
-            {
-              duration: 0.3,
-              scale: 0.5,
-              opacity: 0,
-              ease: "power2.in",
-            },
-            index + 0.7
-          );
-      }
-    });
-
-    // Store reference for cleanup
-    scrollTriggerRef.current = tl.scrollTrigger;
-
-    return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-      }
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // Initialize GSAP animations after scripts are loaded
+      initializeAnimations();
     };
-  }, []); // Remove currentSection from dependencies to prevent re-creation
 
-  // // Separate effect for content updates
-  useEffect(() => {
-    const leftCard = leftCardRef.current;
-    const rightCard = rightCardRef.current;
+    const initializeAnimations = () => {
+      const gsap = window.gsap;
+      const ScrollTrigger = window.ScrollTrigger;
+      gsap.registerPlugin(ScrollTrigger);
 
-    if (!leftCard || !rightCard) return;
+      const video = videoRef.current;
+      const container = containerRef.current;
 
-    // Smoothly update content without interfering with scroll
-    gsap.to([leftCard, rightCard], {
-      duration: 0.3,
-      opacity: 0,
-      onComplete: () => {
-        // Content will update via React re-render
-        gsap.to([leftCard, rightCard], {
-          duration: 0.3,
-          opacity: 1,
+      if (!video || !container) return;
+
+      // Ensure video metadata is loaded before accessing duration
+      video.addEventListener("loadedmetadata", () => {
+        console.log("Video duration:", video.duration); // Log the video duration
+        const videoDuration = video.duration;
+
+        // Create ScrollTrigger for video playback control
+        ScrollTrigger.create({
+          trigger: container,
+          start: "top top",
+          end: "+=300%", // Adjust this value to control scroll length
+          pin: true,
+          scrub: 1, // This makes scroll position map directly to video time
+          onUpdate: (self) => {
+            // Update video time based on scroll progress
+            const progress = self.progress;
+            video.currentTime = videoDuration * progress;
+          },
+          onEnter: () => {
+            // Ensure video is ready to play when it enters the view
+            video
+              .play()
+              .then(() => {
+                video.pause(); // Pause immediately as we control via scroll
+              })
+              .catch((e) => console.log("Video play error:", e));
+          },
         });
-      },
-    });
-  }, [currentSection]);
 
-  const currentData = sections[currentSection];
+        // Animate overlay text elements using GSAP
+        textRefs.current.forEach((el, index) => {
+          if (el) {
+            gsap.fromTo(
+              el,
+              {
+                opacity: 0,
+                y: 50,
+                scale: 0.9,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                scrollTrigger: {
+                  trigger: container,
+                  start: `top+=${index * 25}% top`,
+                  end: `top+=${index * 25 + 20}% top`,
+                  scrub: 1,
+                  toggleActions: "play reverse play reverse",
+                },
+              }
+            );
+          }
+        });
+      });
+
+      // Clean up function to remove ScrollTriggers
+      return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      };
+    };
+
+    loadGSAP();
+
+    // Cleanup
+    return () => {
+      const triggers = window.ScrollTrigger?.getAll();
+      if (triggers) {
+        triggers.forEach((trigger) => trigger.kill());
+      }
+    };
+  }, []);
 
   return (
-    <>
-      <div
+    <div className="min-h-screen bg-black">
+      {/* First Section - Hero */}
+      <section className="h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
+        <div className="text-center text-white">
+          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            Welcome to Our Site
+          </h1>
+          <p className="text-xl text-gray-300">
+            Scroll down to experience the magic
+          </p>
+          <div className="mt-8 animate-bounce">
+            <svg
+              className="w-6 h-6 mx-auto text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      {/* Second Section - Sticky Video */}
+      <section
         ref={containerRef}
-        className="py-20 bg-white min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-[1580px] px-6 w-full">
-          <div ref={leftCardRef} className="w-full">
-            <ContentCard {...currentData.left} />
-          </div>
-          <div ref={pieChartRef} className="flex justify-center">
-            <PieChart active={currentData.pieChart} />
-          </div>
-          <div ref={rightCardRef} className="w-full">
-            <RightContentCard {...currentData.right} />
+        className="relative h-screen overflow-hidden bg-black">
+        {/* Video Element */}
+        <video
+          ref={videoRef}
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          playsInline
+          muted
+          preload="auto">
+          <source src="/video.mp4" type="video/mp4" />
+          {/* Replace with your video path: "/path/to/your/video.mp4" */}
+        </video>
+
+        {/* Overlay Content (Optional) */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="text-center text-white z-10">
+            <h2
+              ref={(el) => (textRefs.current[0] = el)}
+              className="text-5xl font-bold mb-4 drop-shadow-2xl">
+              Immersive Experience
+            </h2>
+            <p
+              ref={(el) => (textRefs.current[1] = el)}
+              className="text-xl drop-shadow-lg">
+              Controlled by your scroll
+            </p>
           </div>
         </div>
 
-        {/* Progress Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex space-x-3">
-            {sections.map((_, idx) => (
-              <div
-                key={idx}
-                className={`w-3 h-3 rounded-full transition-all duration-500 ${
-                  idx === currentSection
-                    ? "bg-blue-600 scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
-            ))}
-          </div>
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black bg-opacity-30 pointer-events-none"></div>
+      </section>
+
+      {/* Third Section - Continue scrolling */}
+      <section className="h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900">
+        <div className="text-center text-white max-w-3xl px-6">
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+            Continue Your Journey
+          </h2>
+          <p className="text-xl text-gray-300 mb-8">
+            The video section above was controlled entirely by your scroll. This
+            technique creates engaging, interactive experiences.
+          </p>
+          <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold hover:scale-105 transition-transform">
+            Explore More
+          </button>
         </div>
-      </div>
-    </>
+      </section>
+
+      {/* Fourth Section */}
+      <section className="h-screen flex items-center justify-center bg-gray-900">
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-bold mb-4">More Content Below</h2>
+          <p className="text-xl text-gray-400">
+            Keep scrolling to discover more...
+          </p>
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default LogoStoryAnimation;
+export default StickyVideoScroll;
