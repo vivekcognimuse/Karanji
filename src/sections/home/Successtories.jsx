@@ -10,9 +10,9 @@ const SuccessStoriesSection = () => {
       title: "AI-Enhanced Healthcare Training",
       // No category here
       stats: [
-        { title: "68%", subtitle: "Improved Retention" },
-        { title: "42%", subtitle: "Faster Completion" },
-        { title: "$1.2M", subtitle: "Annual Savings" },
+        { title: "68%", subTitle: "Improved Retention" },
+        { title: "42%", subTitle: "Faster Completion" },
+        { title: "$1.2M", subTitle: "Annual Savings" },
       ],
       description:
         "By integrating AI-powered personalization with immersive VR training scenarios, we transformed clinical staff training for a major hospital network.",
@@ -21,9 +21,9 @@ const SuccessStoriesSection = () => {
       title: "Digital Transformation Initiative",
       category: "Manufacturing | Fortune 500 Company", // Category present
       stats: [
-        { title: "85%", subtitle: "Process Efficiency" },
-        { title: "60%", subtitle: "Cost Reduction" },
-        { title: "$2.8M", subtitle: "Revenue Increase" },
+        { title: "85%", subTitle: "Process Efficiency" },
+        { title: "60%", subTitle: "Cost Reduction" },
+        { title: "$2.8M", subTitle: "Revenue Increase" },
       ],
       description:
         "Revolutionized manufacturing processes through digital twin technology and AI-driven optimization systems for enhanced operational excellence.",
@@ -32,9 +32,9 @@ const SuccessStoriesSection = () => {
       title: "Immersive Learning Platform",
       category: "Education | Global University", // Category present
       stats: [
-        { title: "92%", subtitle: "Student Engagement" },
-        { title: "55%", subtitle: "Knowledge Retention" },
-        { title: "$850K", subtitle: "Cost Savings" },
+        { title: "92%", subTitle: "Student Engagement" },
+        { title: "55%", subTitle: "Knowledge Retention" },
+        { title: "$850K", subTitle: "Cost Savings" },
       ],
       description:
         "Created an innovative immersive learning environment that combines AR/VR technology with adaptive AI to revolutionize higher education.",

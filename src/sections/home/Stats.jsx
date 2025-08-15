@@ -14,9 +14,9 @@ const StatsSection = () => {
   const [countingDone, setCountingDone] = useState(false);
 
   const stats = [
-    { title: "240+", subtitle: "Happy Clients" },
-    { title: "2400+", subtitle: "Projects Completed" },
-    { title: "21000+", subtitle: "e-Learning Hours Developed" },
+    { title: "240+", subTitle: "Happy Clients" },
+    { title: "2400+", subTitle: "Projects Completed" },
+    { title: "21000+", subTitle: "e-Learning Hours Developed" },
   ];
 
   useEffect(() => {

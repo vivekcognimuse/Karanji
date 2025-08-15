@@ -5,7 +5,7 @@ import Image from "next/image";
 import React from "react";
 
 const ServiceOverview = ({ data }) => {
-  const { title, subtitle, description, feature, images } = data;
+  const { title, subTitle, description, feature, images } = data;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Image cycling effect
@@ -25,7 +25,7 @@ const ServiceOverview = ({ data }) => {
       </h3>
 
       {/* Subtitle */}
-      <h4 className="mb-16">{subtitle}</h4>
+      <h4 className="mb-16">{subTitle}</h4>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Content Section */}

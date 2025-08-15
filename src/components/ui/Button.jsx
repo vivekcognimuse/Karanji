@@ -6,17 +6,17 @@ import { cn } from "@/lib/utils"; // Utility function for className merging
 // Button variants using CVA (Class Variance Authority)
 const buttonVariants = cva(
   // Base styles
-  "inline-flex flex-center items-center  justify-center transition cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+  "inline-flex flex-center items-center justify-center transition cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
   {
     variants: {
       variant: {
         primary:
-          "bg-black text-white border border-black  hover:scale-105 focus-visible:bg-gray-800",
+          "bg-black text-white hover:text-black border border-black hover:bg-gradient-to-r hover:from-[#D3C9FF] hover:via-[#DCF0FF] hover:to-[#A7D3FF]",
         secondary:
-          "bg-transparent text-black border border-black hover:bg-gray-50 hover:scale-105 focus-visible:bg-gray-50",
+          "bg-transparent text-black  border border-black hover:bg-gradient-to-r hover:from-[#D3C9FF] hover:via-[#DCF0FF] hover:to-[#A7D3FF] hover:scale-105 focus-visible:bg-gray-50",
         ghost:
           "border-transparent text-black hover:bg-gray-100 hover:scale-105 focus-visible:bg-gray-100",
-        text: "flex  items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity",
+        text: "flex items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity hover:underline", // Underline added here for the text variant
         destructive:
           "bg-red-600 text-white border border-red-600 hover:bg-red-700 hover:scale-105 focus-visible:bg-red-700",
       },
@@ -132,8 +132,5 @@ const Button = forwardRef(
 );
 
 Button.displayName = "Button";
-
-// Utility function for className merging (if you don't have it)
-// Add this to your utils file: @/lib/utils.js
 
 export default Button;

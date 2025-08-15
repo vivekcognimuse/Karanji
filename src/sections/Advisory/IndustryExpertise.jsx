@@ -5,7 +5,7 @@ import { IndustryCard } from "@/components/ui/advisory";
 import SectionReveal from "@/components/animations/sectionReveal";
 
 const IndustryExpertise = ({ data }) => {
-  const { title, subtitle, cards } = data || {};
+  const { title, subTitle, cards } = data || {};
 
   return (
     <section
@@ -25,7 +25,7 @@ const IndustryExpertise = ({ data }) => {
             className="text-lg md:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide"
             data-reveal
             data-reveal-dir="up">
-            {subtitle}
+            {subTitle}
           </P3>
         </div>
 

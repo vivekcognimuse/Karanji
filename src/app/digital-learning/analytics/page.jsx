@@ -9,14 +9,13 @@ import Results from "@/sections/digital-learning/analytics/Result";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import LMSLearning from "@/sections/digital-learning/LMSLearning";
-import SwitchSection from "@/sections/digital-learning/SwitchSection";
 
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
   subTitle:
     "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
-  linkText: "Explore Our Approach",
-  linkHref: "/", // You can change this to the appropriate link for your services page
+  ctaText: "Explore Our Approach",
+  ctaLink: "analytics-service-offerings", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -69,21 +68,21 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "Learners",
-      subtitle: "",
+      subTitle: "",
       description: "Get more personalized & effective learning experiences",
       featured: true,
       icon: "/Icons/BuiltGroundUp.svg",
     },
     {
       title: "Instructors",
-      subtitle: "",
+      subTitle: "",
       description: "Can tailor content & support to each learner’s needs",
       featured: false,
       icon: "/Icons/FlexibleDeployment.svg",
     },
     {
       title: "Organizations",
-      subtitle: "",
+      subTitle: "",
       description:
         "Gain insights to better allocate resources & reach the right audiences",
       featured: false,
@@ -102,7 +101,7 @@ const ctaData = {
 };
 const learningChallenges = {
   title: "Learning Challenges",
-  subtitle: "Why Organizations Need Learning Analytics",
+  subTitle: "Why Organizations Need Learning Analytics",
   challenges: [
     {
       title: "One-Size-Fits-All Approach",
@@ -129,7 +128,7 @@ const learningChallenges = {
 
 const methodologyData = {
   title: "Content Development Approach",
-  subtitle:
+  subTitle:
     "Our streamlined 3-step approach delivers engaging learning content that transforms your training initiatives:",
   list: [
     {
@@ -169,7 +168,7 @@ const methodologyData = {
 };
 const analyticsData = {
   title: "Analytics Maturity Model",
-  subtitle:
+  subTitle:
     "From tracking progress to predicting outcomes, & optimizing learning paths—empowering data-driven decisions at every stage.",
   stairImage: "/digital-learning/analytics/matureModal.svg", // Replace with your actual image path
   stages: [
@@ -242,6 +241,7 @@ const implementApproachData = {
     "A data-driven methodology combining learner behavior, content insights, & AI for accurate success forecasting.",
   image: {
     src: "/digital-learning/analytics/implement.svg",
+    mblSrc: "/digital-learning/analytics/implement-mbl.svg",
     alt: "Implementation Approach",
     width: 1360,
     height: 203,
@@ -263,8 +263,8 @@ const implementApproachData = {
 };
 const howItWorks = {
   title: "How It Works in Practice",
-  subtitle: "Process flow",
-  
+  subTitle: "Process flow",
+
   steps: [
     {
       number: "01",
@@ -296,24 +296,28 @@ const ContentDesign = () => {
     <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/1.Analytics banner .webp" />
       <LearningChallenges data={learningChallenges} />
-      <ServiceOfferings
-        data={serviceOfferingsData}
-        icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
-      />
+      <div id="analytics-service-offerings">
+        <ServiceOfferings
+          data={serviceOfferingsData}
+          icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
+        />
+      </div>
       <LMSLearning data={lmsLearningData} />
       <Results
         data={{
           title: "The Result",
-          subtitle:
+          subTitle:
             "Better learning outcomes & professional growth for everyone involved.",
           adaptiveContent: "Adaptive Content",
           personalizedLearning: "Personalized Learning",
           proactiveSupport: "Proactive Support",
         }}
       />
-      <AnalyticsMaturityModel data={analyticsData} />
       <Methodology column={true} data={methodologyData} />
+      <AnalyticsMaturityModel data={analyticsData} />
+
       <ImplementApproach data={implementApproachData} />
+
       <Deliverables data={deliverablesData} />
       <HowItWorks data={howItWorks} />
       <CTA data={ctaData} />

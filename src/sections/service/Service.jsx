@@ -2,7 +2,7 @@ import { P2 } from "@/components/CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal";
 import { ServiceCard } from "@/components/ui/serviceCard";
 
-export default function TechnologyServices({ data, image }) {
+export default function TechnologyServices({ data, image, bgImage }) {
   const { title, description, cards = [] } = data || {};
 
   return (
@@ -29,7 +29,7 @@ export default function TechnologyServices({ data, image }) {
         </div>
       </div>
 
-      <ServiceCard cards={cards} image={image} />
+      <ServiceCard bgImage={bgImage} cards={cards} image={image} />
 
       <SectionReveal />
     </section>

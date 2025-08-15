@@ -64,8 +64,7 @@ const Upcoming = () => {
           <div key={idx}>
             <Link
               href={item.link}
-              className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200"
-            >
+              className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
                 <P2 className="text-black-800 group-hover:text-black-950 transition-colors line-clamp-2 flex-1">
                   {item.title}

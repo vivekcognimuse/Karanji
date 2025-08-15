@@ -36,7 +36,7 @@ const heroData = {
 // SERVICE OVERVIEW
 const serviceOverview = {
   title: "Service overview",
-  subtitle: "Transform your vision with professional vfx & animation",
+  subTitle: "Transform your vision with professional vfx & animation",
   description:
     "Our VFX & animation team delivers stunning visual elements that elevate your project from ordinary to extraordinary. With expertise spanning film, advertising, and digital media, we provide end-to-end visual effects solutions tailored to your creative vision & technical requirements.",
   feature:
@@ -67,7 +67,7 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "Rotoscoping services",
-      subtitle: "",
+      subTitle: "",
       description:
         "Frame-by-frame precision to isolate & manipulate elements for seamless compositing.",
       featured: true,
@@ -75,7 +75,7 @@ const serviceOfferingsData = {
     },
     {
       title: "Compositing & CG Integration",
-      subtitle: "",
+      subTitle: "",
       description:
         "Blending computer-generated elements with live-action footage for realistic quality.",
       featured: false,
@@ -83,7 +83,7 @@ const serviceOfferingsData = {
     },
     {
       title: "Motion graphics & Particle effects",
-      subtitle: "",
+      subTitle: "",
       description:
         "Dynamic visual elements enhancing storytelling & brand consistency.",
       featured: false,
@@ -91,7 +91,7 @@ const serviceOfferingsData = {
     },
     {
       title: "VFX pipeline consulting & on-set supervision",
-      subtitle: "",
+      subTitle: "",
       description:
         "Expert guidance for optimizing VFX workflow & on-set capture.",
       featured: false,
@@ -101,7 +101,7 @@ const serviceOfferingsData = {
 };
 const methodologyData = {
   title: "Our VFX Process",
-  subtitle:
+  subTitle:
     "Our streamlined VFX process guarantees smooth production, from consultation to final delivery.",
   list: [
     {
@@ -182,24 +182,34 @@ const successStoriesData = {
     "Explore case studies that demonstrate how we enhance visual storytelling, integrate cutting-edge effects, & elevate the overall cinematic experience across entertainment platforms.",
   cards: [
     {
-      title: "Bringing a Murder Mystery to Life",
+      title: "Bringing a Murder Mystery Scene to Life",
       stats: [
-        { title: "Seamless", subtitle: "Video Tracking" },
-        { title: "0 Bugs", subtitle: "Final Delivery" },
+        { title: "70%", subTitle: "Innovation" },
+        { title: "0 bugs", subTitle: "Final Delivery" },
       ],
       description:
-        "We transformed provided footage into realistic video playback on set phones using advanced tracking techniques & Mocha AE, ensuring seamless integration & meeting tight deadlines.",
-      link: "Read Full CaseStudy", // Optional field
+        "We composited client-provided murder footage onto a moving phone screen using Mocha AE planar tracking, matching motion, angle, and lighting for a realistic “video-on-phone” effect—shot with a green screen and replaced in post.",
+      link: "Read Full CaseStudy",
     },
-    // Add more stories here if needed
+    {
+      title: "Quality Month: Video Animation",
+      stats: [
+        { title: "On time", subTitle: "Delivery" },
+        { title: "100%", subTitle: "In-house Dubbing" },
+      ],
+      description:
+        "A culturally resonant animated VSB series for an automotive company’s Quality Month, told in a Panchayat-style narrative with custom Kannada voiceovers to mirror employees and values.",
+      link: "Read Full CaseStudy",
+    },
   ],
 };
+
 // METHODOLOGY
 
 // FAQ ACCORDION
 const accordionData = {
   title: "Frequently Asked Questions",
-  subtitle:
+  subTitle:
     "Find quick guidance on pricing, timelines, equipment needs, remote recording, & distribution support.",
   questions: [
     {

@@ -53,10 +53,12 @@ const XRGaming = async () => {
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={hero} />
 
-      <ServiceOfferings
-        data={serviceOffering}
-        icon={`/technologySolutions/xr-offering`}
-      />
+      <div id="xr-service-offerings">
+        <ServiceOfferings
+          data={serviceOffering}
+          icon={`/technologySolutions/xr-offering`}
+        />
+      </div>
 
       <Methodology data={methodology} />
 

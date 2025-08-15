@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 const JourneySection = ({ data }) => {
   const {
     title,
-    subtitle,
+    subTitle,
     currentYear,
     currentYearDescription,
     nextYear,
@@ -19,15 +19,14 @@ const JourneySection = ({ data }) => {
   return (
     <section
       className="h-screen w-full  mx-auto flex flex-col justify-center"
-      style={{ height: "calc(100vh - 80px)" }}
-    >
+      style={{ height: "calc(100vh - 80px)" }}>
       {/* Header Row - Title 30%, Subtitle 70% */}
       <div className="flex items-start mb-4">
         <div className="w-[40%] pr-6">
           <h3>{title}</h3>
         </div>
         <div className="w-[60%] flex justify-end">
-          <P3 className="text-black-800 text-lg">{subtitle}</P3>
+          <P3 className="text-black-800 text-lg">{subTitle}</P3>
         </div>
       </div>
 
@@ -41,8 +40,7 @@ const JourneySection = ({ data }) => {
             fontSize: "clamp(80px, 12vw, 128px)",
             lineHeight: "1",
             letterSpacing: "-5%",
-          }}
-        >
+          }}>
           {currentYear}
         </div>
 
@@ -55,8 +53,7 @@ const JourneySection = ({ data }) => {
             fontSize: "clamp(40px, 6vw, 64px)",
             lineHeight: "1",
             letterSpacing: "-5%",
-          }}
-        >
+          }}>
           {nextYear}
         </div>
       </div>

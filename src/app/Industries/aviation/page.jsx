@@ -82,19 +82,19 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "Operational Excellence & Cost Management",
-      subtitle:
+      subTitle:
         "AI, digital twins, & cloud tools boost uptime & cut costs in maintenance & scheduling.",
     },
     {
       id: 2,
       title: "Customer Experience & Revenue Enhancement",
-      subtitle:
+      subTitle:
         "Biometrics & AI personalization improve service flow & drive ancillary revenue.",
     },
     {
       id: 3,
       title: "Sustainability & Environmental Responsibility",
-      subtitle:
+      subTitle:
         "IoT & AI optimize emissions, accelerate SAF adoption, & support compliance.",
     },
   ],
@@ -102,19 +102,19 @@ const strategicPrioritiesData = {
     {
       id: 1,
       title: "Workforce Development & Talent Management",
-      subtitle:
+      subTitle:
         "VR/AR & mobile learning speed up training & preserve expert knowledge.",
     },
     {
       id: 2,
       title: "Security & Risk Management Solutions",
-      subtitle:
+      subTitle:
         "AI & blockchain strengthen cybersecurity & reduce system vulnerabilities.",
     },
     {
       id: 3,
       title: "Supply Chain Resilience & Agility",
-      subtitle:
+      subTitle:
         "Digital twins & analytics improve visibility, planning, & disruption response.",
     },
   ],
@@ -125,7 +125,7 @@ const digitalOfferingsData = {
   cards: [
     {
       title: "Airlines",
-      subtitle: "",
+      subTitle: "",
       description:
         "Digitizing retail & operations for better revenue & experience.",
       featured: true,
@@ -137,7 +137,7 @@ const digitalOfferingsData = {
     },
     {
       title: "Airports",
-      subtitle: "",
+      subTitle: "",
       description:
         "Digitally transforming operations with AI, biometrics, & smart infrastructure.",
       featured: false,
@@ -149,7 +149,7 @@ const digitalOfferingsData = {
     },
     {
       title: "Aircraft Manufacturers & MROs",
-      subtitle: "",
+      subTitle: "",
       description:
         "Adopting tech to boost design, maintenance, & supply chains.",
       featured: false,

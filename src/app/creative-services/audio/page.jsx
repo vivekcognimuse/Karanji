@@ -19,7 +19,7 @@ const heroData = {
 };
 const serviceOverview = {
   title: "Service overview",
-  subtitle: "Captivate your audience with professional audio",
+  subTitle: "Captivate your audience with professional audio",
   description:
     "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs & sound design.",
   feature:
@@ -47,28 +47,28 @@ const serviceOfferingsData = {
   cards: [
     {
       title: "End‑to‑End Podcast Production",
-      subtitle: "",
+      subTitle: "",
       description: "Comprehensive service from concept through distribution.",
       featured: true,
       icon: "/audio/icons/end-to-end.svg",
     },
     {
       title: "Audio engineering & Sound Design",
-      subtitle: "",
+      subTitle: "",
       description: "Creative sound solutions for any media project.",
       featured: false,
       icon: "/audio/icons/sound-design.svg",
     },
     {
       title: "Voice‑over recording, direction",
-      subtitle: "",
+      subTitle: "",
       description: "Voice recording for ads, narration, or characters.",
       featured: false,
       icon: "/audio/icons/voice-over.svg",
     },
     {
       title: "Audio restoration & enhancement",
-      subtitle: "",
+      subTitle: "",
       description: "Specialized services to fix problematic audio.",
       featured: false,
       icon: "/audio/icons/restoration.svg",
@@ -77,7 +77,7 @@ const serviceOfferingsData = {
 };
 const methodologyData = {
   title: "Our Production Process",
-  subtitle:
+  subTitle:
     "A 5‑step workflow from planning to delivery ensures efficiency & quality. Designed for smooth collaboration & on‑time results.",
   list: [
     {
@@ -158,20 +158,21 @@ const successStoriesData = {
     "Explore how our audio & podcast production services have helped clients elevate their content, engage audiences, & deliver polished, professional results across platforms.",
   cards: [
     {
-      title: "One‑Hour Podcast into a Visual Experience",
+      title: "One-Hour Podcast into a Visually Engaging Experience",
       stats: [
-        { title: "+100%", subtitle: "Improved Video Clarity" },
-        { title: "30‑sec", subtitle: "Hook Developed Proactively" },
+        { title: "+100%", subTitle: "Improved Video Quality" },
+        { title: "1 week", subTitle: "Project Completion" },
       ],
       description:
-        "We enhanced a raw one‑hour podcast with AI‑driven upgrades, adding dynamic visuals & a motion‑graphics hook to elevate the content, making it more engaging & visually compelling.",
-      link: "Read Full CaseStudy", // keep if component uses it
+        "A one-hour, low-quality video-call podcast (Senior Director × bestselling author) was turned into a visually engaging piece for a global IT services provider—covering innovation, resilience, and storytelling.",
+      link: "Read Full CaseStudy",
     },
   ],
 };
+
 const accordionData = {
   title: "Frequently Asked Questions",
-  subtitle:
+  subTitle:
     "Find quick guidance on pricing, timelines, equipment needs, remote recording, & distribution support.",
   questions: [
     {

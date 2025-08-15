@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
+import Button from "./ui/Button";
 
 const NAV_LINKS = [
   {
@@ -77,7 +78,7 @@ const NAV_LINKS = [
         links: [
           {
             name: "VFX & Animation Services",
-            href: "/creative-services/vfx&animation",
+            href: "/creative-services/vfx-animation",
             icon: "/nav/vfx-animation-services.svg",
             description: "Stunning visual effects and animations.",
           },
@@ -99,7 +100,9 @@ const NAV_LINKS = [
   },
   {
     title: "Industries",
+
     href: "/Industries",
+
     links: [
       {
         name: "Healthcare",
@@ -107,6 +110,7 @@ const NAV_LINKS = [
         icon: "/nav/healthcare.svg",
         description: "Empowering care with smart technology.",
       },
+
       {
         name: "Aviation",
         href: "/Industries/aviation",
@@ -192,7 +196,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeSolution, setActiveSolution] = useState(null);
+  const [activeSolution, setActiveSolution] = useState(0); // Changed to 0 to show Technology Solutions by default
   const [mobileExpandedItems, setMobileExpandedItems] = useState({});
   const [currentPath, setCurrentPath] = useState("/");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -210,14 +214,14 @@ export default function Navbar() {
     const handleEscape = (e) => {
       if (e.key === "Escape") {
         setActiveDropdown(null);
-        setActiveSolution(null);
+        setActiveSolution(0); // Reset to default instead of null
       }
     };
 
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
         setActiveDropdown(null);
-        setActiveSolution(null);
+        setActiveSolution(0); // Reset to default instead of null
       }
     };
 
@@ -235,7 +239,9 @@ export default function Navbar() {
       if (!isTouchDevice && window.innerWidth >= 768) {
         clearTimeout(timeoutRef.current);
         setActiveDropdown(index);
-        if (index !== 1) setActiveSolution(null);
+        if (index === 1) {
+          setActiveSolution(0); // Set to 0 when hovering Solutions
+        }
       }
     },
     [isTouchDevice]
@@ -245,7 +251,7 @@ export default function Navbar() {
     if (!isTouchDevice && window.innerWidth >= 768) {
       timeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
-        setActiveSolution(null);
+        setActiveSolution(0); // Reset to default instead of null
       }, 150);
     }
   }, [isTouchDevice]);
@@ -263,7 +269,9 @@ export default function Navbar() {
   const handleClick = (index) => {
     if (isTouchDevice || window.innerWidth < 768) {
       setActiveDropdown(activeDropdown === index ? null : index);
-      setActiveSolution(null);
+      if (index === 1) {
+        setActiveSolution(0); // Set to 0 when clicking Solutions
+      }
     }
   };
 
@@ -291,27 +299,24 @@ export default function Navbar() {
 
   const getDropdownPosition = (index) => {
     if (typeof window === "undefined") return {};
-    const item = dropdownRefs.current[index];
-    if (!item) return {};
-
-    const rect = item.getBoundingClientRect();
-    const dropdownWidth = 680;
-    const megaMenuWidth = 960;
 
     if (index === 1) {
-      // Solutions mega menu
-      const spaceOnRight = window.innerWidth - rect.left;
-      if (spaceOnRight < megaMenuWidth) {
-        return { right: "0", left: "auto" };
-      }
+      // Solutions mega menu - use CSS transform for smooth centering
+      return {};
     } else {
-      const spaceOnRight = window.innerWidth - rect.left;
-      if (spaceOnRight < dropdownWidth) {
-        return { right: "0", left: "auto" };
-      }
-    }
+      // Regular dropdowns
+      const item = dropdownRefs.current[index];
+      if (!item) return {};
 
-    return {};
+      const rect = item.getBoundingClientRect();
+      const dropdownWidth = 320;
+      const spaceOnRight = window.innerWidth - rect.left;
+
+      if (spaceOnRight < dropdownWidth) {
+        return { right: "0" };
+      }
+      return {};
+    }
   };
 
   return (
@@ -350,12 +355,13 @@ export default function Navbar() {
                 <Link
                   href={item.href || "#"}
                   onClick={(e) => {
+                    // Allow navigation for all items with href
                     if (!item.href || item.href === "#") {
                       e.preventDefault();
                       handleClick(index);
                     }
                   }}
-                  className={`px-4 py-2 text-lg lg:text-xl font-medium transition-colors duration-200 flex items-center gap-1
+                  className={`px-4 py-2  lg:text-xl  transition-colors duration-200 flex items-center gap-1
                     ${
                       isSectionActive(item)
                         ? "text-black "
@@ -364,8 +370,10 @@ export default function Navbar() {
                   aria-expanded={activeDropdown === index}
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
+
                   }
                 >
+
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -381,12 +389,14 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
+
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
                     style={{ ...getDropdownPosition(index), minWidth: "760px" }}
                     role="menu"
                   >
                     <div className="flex ">
                       <div className="w-1/2 border-r   border-gray-100">
+
                         {item.subSections.map((section, sectionIndex) => (
                           <div
                             key={sectionIndex}
@@ -401,11 +411,11 @@ export default function Navbar() {
                           >
                             <Link
                               href={section.href}
-                              className={`block  px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
+                              className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
                                 ${
                                   isActive(section.href) ||
                                   isParentActive(section.links)
-                                    ? "  border-r-2 border-purple-600"
+                                    ? "border-r-2 border-purple-600"
                                     : ""
                                 }`}
                               role="menuitem"
@@ -426,7 +436,7 @@ export default function Navbar() {
                                   <p className="text-lg gap-2">
                                     {section.title}
                                   </p>
-                                  <p className="text-xs  font-light ">
+                                  <p className="text-xs font-light">
                                     {section.description}
                                   </p>
                                 </div>
@@ -435,6 +445,7 @@ export default function Navbar() {
                           </div>
                         ))}
                       </div>
+
 
                       <div className="w-1/2  space-y-2 py-2">
                         {activeSolution !== null &&
@@ -472,12 +483,14 @@ export default function Navbar() {
                                           {link.description}
                                         </p>
                                       </div>
+
                                     </div>
-                                  </div>{" "}
-                                </Link>
-                              );
-                            }
-                          )}
+                                  </div>
+                                </div>
+                              </Link>
+                            );
+                          }
+                        )}
                       </div>
                     </div>
                   </div>
@@ -489,9 +502,11 @@ export default function Navbar() {
                   activeDropdown === index && (
                     <div
                       className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
+
                       style={getDropdownPosition(index)}
                       role="menu"
                     >
+
                       {item.links.map((link, linkIndex) => (
                         <Link
                           key={linkIndex}
@@ -499,7 +514,7 @@ export default function Navbar() {
                           className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150
                           ${
                             isActive(link.href)
-                              ? "text-black font-medium border-r-2 border-purple-600"
+                              ? "text-black border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }`}
                           role="menuitem"
@@ -510,6 +525,7 @@ export default function Navbar() {
                               alt={link.name + " icon"}
                               width={40}
                               height={40}
+                              unoptimized
                               className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
                                 isActive(link.href)
                                   ? "opacity-100"
@@ -518,7 +534,7 @@ export default function Navbar() {
                             />
                             <div className="space-y-2">
                               <p className="text-lg">{link.name}</p>
-                              <p className="text-xs   font-light ">
+                              <p className="text-xs font-light">
                                 {link.description}
                               </p>
                             </div>
@@ -531,12 +547,14 @@ export default function Navbar() {
             ))}
 
             {/* Get in Touch CTA */}
+
             <Link
               href="/contact"
               className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
               aria-label="Get in Touch"
             >
               Get in Touch
+
             </Link>
           </div>
 
@@ -544,7 +562,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="text-black hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
               aria-expanded={isOpen}
               aria-label="Toggle mobile menu"
             >
@@ -565,19 +583,36 @@ export default function Navbar() {
               <div key={index}>
                 {/* Main item */}
                 <div className="flex items-center justify-between">
-                  <a
+                  <Link
                     href={item.href || "#"}
                     onClick={(e) => {
+                      // For items with href and no sub-items, close the menu
                       if (
+                        item.href &&
+                        item.href !== "#" &&
+                        !item.links?.length &&
+                        !item.subSections?.length
+                      ) {
+                        setIsOpen(false);
+                      }
+                      // For items with sub-items, prevent navigation if clicking just to expand
+                      else if (
                         item.links?.length > 0 ||
                         item.subSections?.length > 0
                       ) {
-                        if (e.target === e.currentTarget) {
-                          window.location.href = item.href || "#";
+                        if (
+                          e.target === e.currentTarget &&
+                          item.href &&
+                          item.href !== "#"
+                        ) {
+                          // Allow navigation and close menu
+                          setIsOpen(false);
+                        } else {
+                          e.preventDefault();
                         }
                       }
                     }}
-                    className={`flex-1 px-3 py-2 text-base font-medium rounded-md
+                    className={`flex-1 px-3 py-2 text-base rounded-md
                       ${
                         isSectionActive(item)
                           ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
@@ -585,7 +620,7 @@ export default function Navbar() {
                       }`}
                   >
                     {item.title}
-                  </a>
+                  </Link>
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <button
                       onClick={() => toggleMobileExpanded(`main-${index}`)}
@@ -611,9 +646,10 @@ export default function Navbar() {
                     {item.subSections.map((section, sectionIndex) => (
                       <div key={sectionIndex}>
                         <div className="flex items-center justify-between">
-                          <a
+                          <Link
                             href={section.href}
-                            className={`flex-1 px-3 py-2 text-xl rounded-md
+                            onClick={() => setIsOpen(false)} // Close menu on click
+                            className={`flex-1 px-3 py-2 lg:text-xl rounded-md
                               ${
                                 isActive(section.href) ||
                                 isParentActive(section.links)
@@ -622,14 +658,14 @@ export default function Navbar() {
                               }`}
                           >
                             {section.title}
-                          </a>
+                          </Link>
                           <button
                             onClick={() =>
                               toggleMobileExpanded(
                                 `section-${index}-${sectionIndex}`
                               )
                             }
-                            className="p-2 hover:bg-gray-100 rounded"
+                            className="px-3"
                             aria-label={`Toggle ${section.title} submenu`}
                             aria-expanded={
                               mobileExpandedItems[
@@ -658,6 +694,7 @@ export default function Navbar() {
                               <a
                                 key={linkIndex}
                                 href={link.href}
+                                onClick={() => setIsOpen(false)} // Close menu on click
                                 className={`block px-3 py-2 text-xs rounded-md
                                   ${
                                     isActive(link.href)
@@ -682,7 +719,8 @@ export default function Navbar() {
                       <a
                         key={linkIndex}
                         href={link.href}
-                        className={`block px-3 py-2 text-xl rounded-md
+                        onClick={() => setIsOpen(false)} // Close menu on click
+                        className={`block px-3 py-2 lg:text-xl rounded-md
                           ${
                             isActive(link.href)
                               ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
@@ -698,12 +736,14 @@ export default function Navbar() {
             ))}
 
             {/* Mobile Get in Touch CTA */}
+
             <a
               href="/contact"
               className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
             >
               Get in Touch
             </a>
+
           </div>
         </div>
       )}

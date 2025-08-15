@@ -74,17 +74,17 @@ const sectionData = {
   impactItems: [
     {
       title: "30% Calendar Time Saved",
-      subtitle:
+      subTitle:
         "Freed up 30% of the weekly calendar & increased partner engagement.",
     },
     {
       title: "Engagement Increase",
-      subtitle:
+      subTitle:
         "Increased client interaction without scaling team load or compromising quality",
     },
     {
       title: "24/7 Problem Solving",
-      subtitle:
+      subTitle:
         "Helps our team understand & solve AI implementation challenges continuously",
     },
   ],

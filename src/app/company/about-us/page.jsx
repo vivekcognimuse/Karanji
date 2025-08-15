@@ -33,7 +33,7 @@ const cardsData = [
 
 const journeyData = {
   title: "Redefining the Future: Karanji's Journey",
-  subtitle:
+  subTitle:
     "Step through Karanji's 18+ year journey with our interactive timeline experience. From a bold start in 2007 to becoming a global leader in AI, VR, & digital learning, each milestone reveals how we've continually pushed technological boundaries, delivered transformational solutions, & shaped the future of enterprise learning & digital experiences.",
   currentYear: "2007",
   currentYearDescription:
@@ -116,7 +116,7 @@ const timelineData = [
     yearDescription:
       "In 2024, we took another leap by forming a full AI team to drive the future of learning & business innovation.",
     title: "A Bold New Identity: Reimagined for the Future",
-    subtitle:
+    subTitle:
       "“We rebranded to reflect who we’ve become - an integrated technology partner for the AI era.”",
     description:
       "In 2025, Karanji embraced a new visual identity to match its evolved mission. What began as a digital learning company now leads the way in AI, VR, AR and creative technology. This rebrand marks our transformation into a comprehensive technology services partner, helping businesses across industries create meaningful, human-centered digital experiences.",
@@ -196,8 +196,7 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}
-        >
+          }}>
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}
