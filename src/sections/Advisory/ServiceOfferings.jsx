@@ -10,7 +10,7 @@ export default function ServiceOfferings({
   data,
   icon,
 }) {
-  const { title, description, cards = [] } = data || {};
+  const { title, description, cards, subTitle = [] } = data || {};
 
   // columns at lg: 3 when heightDifference, else 4
   const colsLg = heightDifference ? 3 : 4;
@@ -40,14 +40,14 @@ export default function ServiceOfferings({
             className=" text-black  opacity-0 will-change-transform"
             data-reveal
             data-reveal-dir="up">
-            {description}
+            {subTitle || description}
           </P2>
         </div>
 
         <div
           className={cn(
             heightDifference
-              ? " lg:flex flex-wrap items-end justify-center gap-6 lg:gap-8"
+              ? "hidden lg:flex flex-wrap items-end justify-center gap-6 lg:gap-8"
               : `lg:grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
                   cards.length === 3
                     ? "lg:grid-cols-3"

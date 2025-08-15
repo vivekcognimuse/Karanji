@@ -161,13 +161,13 @@ const successStoriesData = {
     "Explore how our services adapt across industries, formats, & event scales.",
   cards: [
     {
-      title: "Convocation Day School Video Project",
+      title: "Convocation Day School Real Video Project",
       stats: [
-        { title: "0 Delays", subtitle: "Timely Delivery" },
-        { title: "3‑Days", subtitle: "Turnaround Time" },
+        { title: "95%", subtitle: "Engaging" },
+        { title: "100%", subtitle: "Client Satisfaction" },
       ],
       description:
-        "We rapidly scripted, shot, & edited a captivating, high‑quality video to showcase the school during its convocation ceremony, despite tight deadlines & limited resources.",
+        "A three-day, end-to-end convocation video for a school, produced via rapid scripting/storyboarding, in-school filming, and smart use of stock footage to showcase the institution during the ceremony.",
       link: "Read Full CaseStudy",
     },
   ],

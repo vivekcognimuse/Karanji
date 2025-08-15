@@ -158,17 +158,18 @@ const successStoriesData = {
     "Explore how our audio & podcast production services have helped clients elevate their content, engage audiences, & deliver polished, professional results across platforms.",
   cards: [
     {
-      title: "One‑Hour Podcast into a Visual Experience",
+      title: "One-Hour Podcast into a Visually Engaging Experience",
       stats: [
-        { title: "+100%", subtitle: "Improved Video Clarity" },
-        { title: "30‑sec", subtitle: "Hook Developed Proactively" },
+        { title: "+100%", subtitle: "Improved Video Quality" },
+        { title: "1 week", subtitle: "Project Completion" },
       ],
       description:
-        "We enhanced a raw one‑hour podcast with AI‑driven upgrades, adding dynamic visuals & a motion‑graphics hook to elevate the content, making it more engaging & visually compelling.",
-      link: "Read Full CaseStudy", // keep if component uses it
+        "A one-hour, low-quality video-call podcast (Senior Director × bestselling author) was turned into a visually engaging piece for a global IT services provider—covering innovation, resilience, and storytelling.",
+      link: "Read Full CaseStudy",
     },
   ],
 };
+
 const accordionData = {
   title: "Frequently Asked Questions",
   subtitle:

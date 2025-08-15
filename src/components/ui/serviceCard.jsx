@@ -10,6 +10,7 @@ import CarouselContainer from "../animations/Carousal";
 export const ServiceCard = memo(function ServiceCard({
   cards = [],
   image,
+  bgImage,
   ...props
 }) {
   const dirForIndex = (i) =>
@@ -18,13 +19,13 @@ export const ServiceCard = memo(function ServiceCard({
   return (
     <div
       className="service-cards-container  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
-      {...props}
-    >
+      {...props}>
       <div className="hidden justify-between gap-8 lg:flex">
         {cards.map((service, i) => (
           <SingleServiceCard
+            bgImage={bgImage}
             data={service}
-            key={service.id}
+            key={service.id || i}
             index={i}
             data-reveal
             image={service.image}
@@ -38,8 +39,7 @@ export const ServiceCard = memo(function ServiceCard({
           autoPlay={false} // autoplay is optional; disable if you like
           showDots
           showArrows
-          className="w-full"
-        >
+          className="w-full">
           {cards.map((service, i) => (
             <SingleServiceCard
               key={service?.id ?? i}
@@ -140,6 +140,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   data,
   index,
   image,
+  bgImage,
   ...props
 }) {
   const { title, description, list, ctaText, ctaLink, id } = data || {};
@@ -147,18 +148,20 @@ const SingleServiceCard = memo(function SingleServiceCard({
   return (
     <div
       {...props}
-      className="single-service-card relative  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group"
-    >
+      className="single-service-card relative  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
       {/* Background layer with CSS transitions */}
       <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
       <div className="relative h-full w-full px-8 py-8">
         {/* Background Image - hidden on hover */}
-        <div className="absolute z-0 bottom-0 bg-[url('/technologySolutions/gradient.svg')] bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300">
+        <div
+          className="absolute z-0 bottom-0  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300"
+          style={{ backgroundImage: `url('${bgImage}')` }}>
           <Image
             src={image || `/technologySolutions/card${index + 1}.webp`}
             alt={title}
             width={180}
+            unoptimized
             height={220}
             className="object-contain object-bottom  w-full h-full"
           />
@@ -195,8 +198,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
                 {list.map((item) => (
                   <div
                     key={item.id}
-                    className=" border-b  border-black-200 pb-4 p-3"
-                  >
+                    className=" border-b  border-black-200 pb-4 p-3">
                     <P4 className="text-black-500 ">{item.text}</P4>
                   </div>
                 ))}
@@ -204,21 +206,12 @@ const SingleServiceCard = memo(function SingleServiceCard({
             )}
           </div>
 
-          <div className="flex justify-between items-end">
+          <div className="flex justify-end items-end">
             {ctaText && ctaLink && (
               <Link href={ctaLink}>
                 <Button className="">{ctaText}</Button>
               </Link>
             )}
-
-            <div className="flex items-center gap-2.5">
-              <button className="w-12 h-12 p-2 rounded-full border-2 border-slate-400 backdrop-blur-sm flex items-center justify-center hover:bg-slate-100 transition-colors">
-                <Icon
-                  icon="pepicons-pencil:arrow-up-right"
-                  className="size-6 text-slate-600"
-                />
-              </button>
-            </div>
           </div>
         </div>
       </div>

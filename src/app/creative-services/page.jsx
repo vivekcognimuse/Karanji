@@ -88,7 +88,7 @@ const technologyServices = {
         { id: 104, text: "Character Animation" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/",
+      ctaLink: "/creative-services/vfx&animation",
       image: "/entertainment/landing/service/1.webp",
     },
     {
@@ -103,7 +103,7 @@ const technologyServices = {
         { id: 204, text: "Sound Design" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/",
+      ctaLink: "/creative-services/audio",
       image: "/entertainment/landing/service/2.webp",
     },
     {
@@ -118,7 +118,7 @@ const technologyServices = {
         { id: 304, text: "Post-event Editing" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/",
+      ctaLink: "/creative-services/event",
       image: "/entertainment/landing/service/3.webp",
     },
   ],

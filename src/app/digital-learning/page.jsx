@@ -9,8 +9,8 @@ import React from "react";
 const heroData = {
   title: "End-to-End Digital Learning Solutions",
   subTitle: "From custom content creation to LMS integration and analytics",
-  linkText: "Explore Our Services",
-  linkHref: "/services", // You can update the link here based on where you want the button to redirect
+  ctaText: "Explore Our Services",
+  ctaLink: "digital-learning-solutions", // You can update the link here based on where you want the button to redirect
   linkIcon: "material-symbols:arrow-forward", // You can change this icon as per your choice
   backgroundImage: "/path/to/your/image.jpg", // Provide your background image URL
   stats: [
@@ -32,15 +32,16 @@ const heroData = {
 // technologyServicesData.js
 
 const technologyServicesData = {
-  title: "Our Technology Services",
+  title: "Our Digital Learning Services",
   description:
-    "Explore a full spectrum of technology services crafted to drive innovation and operational excellence.",
+    "Explore a full spectrum of technology services crafted to drive innovation & operational excellence.",
   cards: [
     {
       id: 1,
       title: "Content Design & Development",
       number: "01",
-      image: null,
+
+      image: "/digital-learning/service/1.webp",
       description:
         "Transforming learning experiences through expert content design, development, & talent resources",
       list: [
@@ -50,13 +51,13 @@ const technologyServicesData = {
         { text: "Learning Gamification" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/",
+      ctaLink: "/digital-learning/content-design",
     },
     {
       id: 2,
       title: "Learning Management System (LMS)",
       number: "02",
-      image: "/solutions/gaming-solutions.webp",
+      image: "/digital-learning/service/2.webp",
       description:
         "A fully customizable learning platform that adapts to your organization’s needs.",
       ctaText: "Learn More",
@@ -66,13 +67,13 @@ const technologyServicesData = {
         { text: "Content Management" },
         { text: "Platform Administration" },
       ],
-      ctaLink: "/",
+      ctaLink: "/digital-learning/lms-implementation",
     },
     {
       id: 3,
       title: "Learning Analytics & Optimization",
       number: "03",
-      image: "/solutions/digital-twins.webp",
+      image: "/digital-learning/service/3.webp",
       description:
         "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
       list: [
@@ -82,7 +83,7 @@ const technologyServicesData = {
         { text: "Performance Measurement" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/",
+      ctaLink: "/digital-learning/analytics",
     },
   ],
 };
@@ -157,11 +158,16 @@ const DigitalLearning = () => {
   return (
     <div className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/digital-Learning.webp" />
-      <TechnologyServices data={technologyServicesData} />
+      <div id="digital-learning-solutions">
+        <TechnologyServices
+          data={technologyServicesData}
+          bgImage="/digital-learning/service/bg.svg"
+        />
+      </div>
       <EcoSystem />
       <ConsultancyFramework />
       <Methodology column={true} data={methodologyData} />{" "}
-      <SuccessStories data={successStoriesData} />
+      {/* <SuccessStories data={successStoriesData} /> */}
     </div>
   );
 };

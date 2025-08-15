@@ -4,7 +4,7 @@ import SectionReveal from "@/components/animations/sectionReveal";
 import CarouselContainer from "@/components/animations/Carousal";
 
 export default function Methodology({ column, data }) {
-  const { title, subtitle, list } = data || {};
+  const { title, subTitle, list } = data || {};
 
   return (
     <section
@@ -18,7 +18,7 @@ export default function Methodology({ column, data }) {
             {title}
           </h3>
           <P2 className="" data-reveal data-reveal-dir="up">
-            {subtitle}
+            {subTitle}
           </P2>
         </div>
 

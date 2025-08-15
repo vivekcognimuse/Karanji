@@ -8,11 +8,11 @@ import CTA from "@/sections/digital-learning/CTA";
 
 import CustomELearningSolution from "@/sections/digital-learning/CustomELearningSolution";
 import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learning/CustomELearningSolutionDeepDive";
-import EcoSystem from "@/sections/digital-learning/Eco-system";
+
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
-import TechnologyServices from "@/sections/service/Service";
+
 import React, { useState } from "react";
 
 // heroData.js
@@ -23,8 +23,8 @@ const tabs = [
 const heroData = {
   title: "End-to-End Digital Learning Solutions",
   subTitle: "From custom content creation to LMS integration and analytics",
-  linkText: "Explore Our Services",
-  linkHref: "/", // You can change this to the appropriate link for your services page
+  ctaText: "Explore Our Services",
+  ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -89,18 +89,38 @@ const successStoriesData = {
     "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
   cards: [
     {
-      title: "Custom Content Development",
+      title: "Gamified, Branching E-Learning Modules",
       stats: [
-        { title: "42%", subtitle: "Increase in Course Completion" },
-        { title: "38%", subtitle: "Improved Learner Engagement" },
+        { title: "70%", subtitle: "Quality Animations" },
+        { title: "High", subtitle: "Seamless Alignment" },
       ],
       description:
-        "Legacy training was replaced with interactive, scenario-based modules and gamified assessments—resulting in significantly higher completion rates and improved learner participation.",
-      link: "Read Full CaseStudy", // optional field if your component uses this
+        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+      link: "Read Full CaseStudy",
     },
-    // Add more testimonial data objects as required
+    {
+      title: "Driving School & Training Module",
+      stats: [
+        { title: "6", subtitle: "Crafted Modules" },
+        { title: "100%", subtitle: "Client Satisfaction" },
+      ],
+      description:
+        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+      link: "Read Full CaseStudy",
+    },
+    {
+      title: "Futuristic Digital Payments Training Module",
+      stats: [
+        { title: "80%", subtitle: "Completion Efficiency" },
+        { title: "+90%", subtitle: "Learner Engagement" },
+      ],
+      description:
+        "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
+      link: "Read Full CaseStudy",
+    },
   ],
 };
+
 // digitalTwinData.js
 
 export const digitalTwinData = {
@@ -341,7 +361,9 @@ const ContentDesign = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} />
-      <LearningChallenges data={learningChallenges} />
+      <div id="e-learning-solutions">
+        <LearningChallenges data={learningChallenges} />
+      </div>
 
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-2 mb-8">

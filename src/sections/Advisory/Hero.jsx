@@ -23,10 +23,15 @@ export default function HeroSection({ data, bgImage }) {
   const handleScrollToSection = (e, targetId) => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
+
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth", // Smooth scroll
       });
     }
   };

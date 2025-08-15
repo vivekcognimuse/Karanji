@@ -17,7 +17,12 @@ export default async function TechnologySolution() {
 
       <TechnologyAdvantage data={technologyAdvantage} />
 
-      <TechnologyServices data={technologyService} />
+      <div id="technology-solutions">
+        <TechnologyServices
+          bgImage="/technologySolutions/gradient.svg"
+          data={technologyService}
+        />
+      </div>
       <SuccessStories data={technologyService.successStories} />
 
       {/* <ResourcesSection /> */}

@@ -1,5 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
+import SuccessStories from "@/sections/Advisory/SuccessStories";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import LMSLearning from "@/sections/digital-learning/LMSLearning";
@@ -10,8 +11,8 @@ const heroData = {
   title: "Elevate Your Corporate Learning with K-nest LMS",
   subTitle:
     " A fully-customizable learning platform that adapts to your organization's unique requirements",
-  linkText: "Explore Our Platform",
-  linkHref: "/", // You can change this to the appropriate link for your services page
+  ctaText: "Explore Our Platform",
+  ctaLink: "lms-services", // You can change this to the appropriate link for your services page
 
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -246,21 +247,50 @@ const switchSectionData = {
     },
   },
 };
+const successStoriesData = {
+  title: "Success Stories",
+  description:
+    "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
+  cards: [
+    {
+      title: "AI-Certification LMS",
+      stats: [
+        { title: "+90%", subtitle: "Optimized Time Controls" },
+        { title: "100%", subtitle: "Seamless LMS Integration" },
+      ],
+      description:
+        "AI-certification LMS by building a per-question JavaScript timer, rewriting score logic to store the highest attempt, and adjusting SCORM resume settings so learners can restart cleanly—delivering a smooth, certification-ready experience.",
+      link: "Read Full CaseStudy",
+    },
+    {
+      title: "Automobile-EV Training Module",
+      stats: [
+        { title: "75%", subtitle: "Cross Team Synergy" },
+        { title: "85%", subtitle: "Increased Learner Engagement" },
+      ],
+      description:
+        "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking.",
+      link: "Read Full CaseStudy",
+    },
+  ],
+};
+
 export default async function LMSImplementation() {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
-
-      <ServiceOfferings
-        data={serviceOfferingsData}
-        icon="/digital-learning/lms-discover"
-      />
+      <div id="lms-services">
+        <ServiceOfferings
+          data={serviceOfferingsData}
+          icon="/digital-learning/lms-discover"
+        />
+      </div>
 
       <LMSLearning data={lmsLearningData} />
 
       <LearningChallenges data={learningChallenges} />
       <SwitchSection data={switchSectionData} />
-
+      <SuccessStories data={successStoriesData} />
       <CTA data={ctaData} />
     </div>
   );

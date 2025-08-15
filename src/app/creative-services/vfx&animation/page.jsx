@@ -182,18 +182,28 @@ const successStoriesData = {
     "Explore case studies that demonstrate how we enhance visual storytelling, integrate cutting-edge effects, & elevate the overall cinematic experience across entertainment platforms.",
   cards: [
     {
-      title: "Bringing a Murder Mystery to Life",
+      title: "Bringing a Murder Mystery Scene to Life",
       stats: [
-        { title: "Seamless", subtitle: "Video Tracking" },
-        { title: "0 Bugs", subtitle: "Final Delivery" },
+        { title: "70%", subtitle: "Innovation" },
+        { title: "0 bugs", subtitle: "Final Delivery" },
       ],
       description:
-        "We transformed provided footage into realistic video playback on set phones using advanced tracking techniques & Mocha AE, ensuring seamless integration & meeting tight deadlines.",
-      link: "Read Full CaseStudy", // Optional field
+        "We composited client-provided murder footage onto a moving phone screen using Mocha AE planar tracking, matching motion, angle, and lighting for a realistic “video-on-phone” effect—shot with a green screen and replaced in post.",
+      link: "Read Full CaseStudy",
     },
-    // Add more stories here if needed
+    {
+      title: "Quality Month: Video Animation",
+      stats: [
+        { title: "On time", subtitle: "Delivery" },
+        { title: "100%", subtitle: "In-house Dubbing" },
+      ],
+      description:
+        "A culturally resonant animated VSB series for an automotive company’s Quality Month, told in a Panchayat-style narrative with custom Kannada voiceovers to mirror employees and values.",
+      link: "Read Full CaseStudy",
+    },
   ],
 };
+
 // METHODOLOGY
 
 // FAQ ACCORDION

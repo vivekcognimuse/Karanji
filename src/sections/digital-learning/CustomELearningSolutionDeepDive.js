@@ -29,10 +29,11 @@ export default function ELearningSolutions({ data }) {
       </div>
 
       {/* Cards */}
-      <div className=" w-full  md:min-w-lg  gap-8 mx-auto px-6 ">
+      <div className=" w-full  md:min-w-lg  gap-8 mx-auto px-6">
         <MultiCardCarousel>
           {cards.map((card, index) => {
             const { subtitle, description, videoSrc, imageSrc, alt } = card;
+
             return (
               <div key={index} className="flex flex-wrap gap-4 justify-center">
                 <div

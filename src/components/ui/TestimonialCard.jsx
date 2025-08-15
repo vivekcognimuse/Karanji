@@ -2,6 +2,7 @@ import React from "react";
 
 import { Icon } from "@iconify/react";
 import Button from "./Button";
+import { P2 } from "../CustomTags";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
@@ -22,12 +23,14 @@ const TestimonialCard = ({ testimonial }) => {
             <p className="font-sans my-auto  font-semibold text-2xl md:text-5xl">
               {metric.title}
             </p>
-            <p className="text-black text-sm">{metric.subTitle}</p>
+            <P2 className="text-black text-sm">
+              {metric.subTitle || metric.subtitle}
+            </P2>
           </div>
         ))}
       </div>
 
-      <p className="text-black/70 mb-6">{testimonial?.description}</p>
+      <P2 className="text-black-500 mb-6">{testimonial?.description}</P2>
       <div className="flex">
         <Button className="ml-auto" variant="text">
           {testimonial?.link || "Read Full CaseStudy"}
