@@ -589,7 +589,7 @@ export default function Navbar() {
                     className={`flex-1 px-3 py-2 text-base rounded-md
                       ${
                         isSectionActive(item)
-                          ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
+                          ? "text-black bg-[#F0E4FF] "
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
                       }`}>
                     {item.title}
@@ -625,7 +625,7 @@ export default function Navbar() {
                               ${
                                 isActive(section.href) ||
                                 isParentActive(section.links)
-                                  ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
+                                  ? "text-black bg-[#F0E4FF] b"
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
                               }`}>
                             {section.title}
@@ -665,7 +665,7 @@ export default function Navbar() {
                                 key={linkIndex}
                                 href={link.href}
                                 onClick={() => setIsOpen(false)} // Close menu on click
-                                className={`block px-3 py-2 text-xs rounded-md
+                                className={`block px-3 py-2 text-sm rounded-md
                                   ${
                                     isActive(link.href)
                                       ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"

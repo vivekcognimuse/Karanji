@@ -18,7 +18,7 @@ const AnalyticsMaturityModel = ({ data }) => {
       </div>
 
       {/* Main Content Grid */}
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-y-8 gap-x-16">
         {/* Left Side - Stair Step Image */}
         <div className="flex  items-center justify-center lg:justify-start">
           <div className="relative w-full max-w-md">

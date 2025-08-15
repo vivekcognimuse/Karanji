@@ -12,13 +12,14 @@ const ContentFormats = ({ data }) => {
       <h3>{title}</h3>
       <P2>{description}</P2>
       {image && (
-        <div className="mt-8 rounded-2xl h-auto max-h-96 bg-purple-200 overflow-hidden">
+        <div className="mt-8 rounded-2xl h-auto max-h-96 bg-purple-200 object-bottom overflow-hidden">
           <Image
             src={image}
             alt="Content Formats"
             width={600}
+            unoptimized
             height={400}
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       )}
@@ -54,7 +55,7 @@ const ContentFormats = ({ data }) => {
                   alt={item.alt || item.description}
                   width={40}
                   height={40}
-                  className="size-10"
+                  className="size-9"
                 />
               )}
               <h5 className="mb-0">{item.description}</h5>

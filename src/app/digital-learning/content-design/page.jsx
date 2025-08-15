@@ -21,9 +21,10 @@ const tabs = [
   { key: "ready", buttonLabel: "Ready Solutions & Resources" },
 ];
 const heroData = {
-  title: "End-to-End Digital Learning Solutions",
-  subTitle: "From custom content creation to LMS integration and analytics",
-  ctaText: "Explore Our Services",
+  title: "Content Design & Development Solutions",
+  subTitle:
+    " Transforming learning experiences through expert content design, development, & talent resources",
+  ctaText: "Explore Our Solutions",
   ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
@@ -264,7 +265,8 @@ const contentFormatsData = {
 };
 const learningChallenges = {
   title: "Custom E-Learning Solutions",
-  subTitle: "Why Organizations Need Learning Analytics",
+  subTitle:
+    "Transform Your Learning Initiatives with Tailored Content & Expert Resources",
   challenges: [
     {
       title: "Custom Content Solutions",

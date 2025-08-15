@@ -126,10 +126,13 @@ const Footer = () => {
   ];
 
   const socialIcons = [
-    { icon: "mdi:linkedin", href: "#" },
-    { icon: "mdi:twitter", href: "#" },
-    { icon: "mdi:facebook", href: "#" },
-    { icon: "mdi:instagram", href: "#" },
+    {
+      icon: "mdi:linkedin",
+      href: "https://www.linkedin.com/company/karanji-infotech-pvt-ltd/",
+    },
+    // { icon: "mdi:twitter", href: "#" },
+    // { icon: "mdi:facebook", href: "#" },
+    // { icon: "mdi:instagram", href: "#" },
   ];
 
   return (
@@ -178,22 +181,22 @@ const Footer = () => {
               2025 Karanji. All rights reserved.
             </span>
           </div>
-          {["Privacy Policy", "Terms of Service", "Cookie Settings"].map(
-            (item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-sm font-light font-outfit underline leading-relaxed tracking-wide text-black/80 hover:text-black transition-colors">
-                {item}
-              </a>
-            )
-          )}
+          {["Terms of Service"].map((item) => (
+            <Link
+              key={item}
+              href="/terms-policies"
+              className="text-sm font-light font-outfit underline leading-relaxed tracking-wide text-black/80 hover:text-black transition-colors">
+              {item}
+            </Link>
+          ))}
         </div>
 
         <div className="flex items-center gap-4">
           {socialIcons.map((social, index) => (
             <a
               key={index}
+              target="_blank"
+              rel="noopener noreferrer"
               href={social.href}
               className="w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform text-black hover:text-gray-700">
               <Icon icon={social.icon} className="w-5 h-5" />

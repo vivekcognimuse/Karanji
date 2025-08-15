@@ -10,7 +10,7 @@ export default function ServiceOfferings({
   data,
   icon,
 }) {
-  const { title, description, cards, subTitle = [] } = data || {};
+  const { title, description, cards, tag, subTitle = [] } = data || {};
 
   // columns at lg: 3 when heightDifference, else 4
   const colsLg = heightDifference ? 3 : 4;
@@ -28,7 +28,7 @@ export default function ServiceOfferings({
       data-reveal-stagger="0.12"
       className=" ">
       <div className="max-w-[1580px] mx-auto">
-        <div className="mb-24">
+        <div className="mb-8">
           <h3
             className=" mb-4 opacity-0 will-change-transform"
             data-reveal
@@ -37,18 +37,19 @@ export default function ServiceOfferings({
           </h3>
 
           <P2
-            className=" text-black  opacity-0 will-change-transform"
+            className=" text-black mb-16  opacity-0 will-change-transform"
             data-reveal
             data-reveal-dir="up">
             {subTitle || description}
           </P2>
+          {tag && <h4>{tag}</h4>}
         </div>
 
         <div
           className={cn(
             heightDifference
-              ? "hidden lg:flex flex-wrap items-end justify-center gap-6 lg:gap-8"
-              : `lg:grid grid-cols-1 justify-center md:grid-cols-2 gap-6 ${
+              ? "hidden lg:flex flex-wrap w-full justify-center gap-6 lg:gap-8" // No items-end, use justify-center for proper horizontal centering
+              : `lg:grid grid-cols-1 justify-center gap-6 ${
                   cards.length === 3
                     ? "lg:grid-cols-3"
                     : cards.length === 4
