@@ -1,7 +1,7 @@
 import { P3 } from "@/components/CustomTags";
 import IndustryCard from "./IndustryCard";
 
-const IndustriesSection = ({ data }) => {
+const IndustriesSection = ({ data, cards }) => {
   const { title, description, industries } = data;
 
   return (
@@ -21,18 +21,9 @@ const IndustriesSection = ({ data }) => {
       </div>
 
       {/* Cards Grid - 2x2 layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {industries?.map((industry, index) => (
-          <IndustryCard
-            key={index}
-            title={industry.title}
-            description={industry.description}
-            icon={industry.icon}
-            image={industry.image}
-            details={industry.details}
-            buttonText={industry.buttonText}
-            altTag={industry.altTag}
-          />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        {cards?.map((industry, index) => (
+          <IndustryCard card={industry} key={index} />
         ))}
       </div>
     </section>

@@ -11,8 +11,7 @@ export default function Methodology({ column, data }) {
       className=" "
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+      data-reveal-stagger="0.12">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <h3 className="" data-reveal data-reveal-dir="up">

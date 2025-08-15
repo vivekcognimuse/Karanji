@@ -3,7 +3,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import Button from "@/components/ui/Button";
 
-const ScrollButton = ({ ctaText, ctaLink }) => {
+const ScrollButton = ({ ctaText, ctaLink, variant = "text" }) => {
   const handleScrollToSection = (e, targetId) => {
     e.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -23,7 +23,7 @@ const ScrollButton = ({ ctaText, ctaLink }) => {
   return (
     <div className="flex opacity-0 will-change-transform" data-reveal>
       <Button
-        variant="text"
+        variant={variant}
         className="mx-auto whitespace-nowrap"
         rightIcon={
           <Icon icon="material-symbols:arrow-forward" className="w-6 h-6" />
