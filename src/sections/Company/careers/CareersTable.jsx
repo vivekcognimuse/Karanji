@@ -143,10 +143,12 @@ export default function CareersTable({
         <div className="hidden lg:flex justify-between items-center gap-8 mb-8">
           <div className="flex gap-4 flex-wrap">
             {categories.map((c) => (
-              <button
+              <Button
+                variant="secondary"
+                size="sm"
                 key={c.id}
                 onClick={() => setSelectedCategory(c.id)}
-                className={`px-6 py-2 rounded-full shadow-elevated text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
+                className={`px-6 py-2 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
                   selectedCategory === c.id
                     ? "text-black" // Remove bg-black
                     : "bg-white hover:bg-black/30 text-black"
@@ -161,7 +163,7 @@ export default function CareersTable({
                 }
               >
                 {c.name}
-              </button>
+              </Button>
             ))}
           </div>
           <span className="text-gray-700 font-light text-xl">
@@ -190,7 +192,7 @@ export default function CareersTable({
         </div>
 
         {/* Table Header */}
-        <div className="hidden lg:grid grid-cols-6 px-4 pb-3 text-sm tracking-wide text-black/70">
+        <div className="hidden lg:grid grid-cols-6 px-4 pb-3 text-sm tracking-wide text-black/70 border-b border-black-900">
           <P3 className="col-span-2">ROLE</P3>
           <P3>TYPE</P3>
           <P3>LOCATION</P3>
@@ -209,7 +211,7 @@ export default function CareersTable({
               {filteredJobs.map((job) => (
                 <div
                   key={job.id}
-                  className="border-b border-black-900 cursor-pointer group"
+                  className="border-b border-black-200 cursor-pointer group"
                   onClick={() => handleView(job)}
                 >
                   <div className="text-black/80 group-hover:text-white text-base lg:text-xl font-normal py-6 lg:py-8 px-4 group-hover:bg-black transition-colors duration-150">

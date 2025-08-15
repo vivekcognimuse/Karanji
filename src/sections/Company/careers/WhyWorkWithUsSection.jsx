@@ -29,35 +29,32 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
             maskComposite: "exclude",
           }}
         />
-
         {/* Content */}
         <div className="relative z-10">
-          {/* Icon */}
-          <div className="mb-4">
+          {/* Icon and Title in same line */}
+          <div className="mb-4 flex items-center gap-3">
             <img
               src={icon}
               alt={`${title} icon`}
               className="w-12 h-12 object-contain"
             />
+            <h4 className="text-xl font-semibold text-gray-900 mb-0">
+              {title}
+            </h4>
           </div>
-
-          {/* Title */}
-          <h4 className="text-xl font-semibold text-gray-900 mb-3">{title}</h4>
-
           {/* Description */}
           <P3 className="text-gray-700 leading-relaxed mb-4">{description}</P3>
-
-          {/* Main Image */}
-          {image && (
-            <div className="mt-4">
-              <img
-                src={image}
-                alt={`${title} illustration`}
-                className="w-full h-32 object-contain rounded-[16px]"
-              />
-            </div>
-          )}
         </div>
+        {/* Main Image - Outside content div to ignore padding */}
+        {image && (
+          <div className="mt-4 -mx-6 -mb-6">
+            <img
+              src={image}
+              alt={`${title} illustration`}
+              className="w-full h-56 object-cover object-bottom rounded-b-[16px]"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -78,7 +75,6 @@ const WhyWorkWithUsSection = ({
           <h4 className=" text-black-800 mb-8">{title}</h4>
           <P3 className="text-black-950 mx-auto">{description}</P3>
         </div>
-
         {/* Cards Scatter Flexbox */}
         <div className="flex flex-wrap justify-center items-center gap-8 relative">
           {cards.map((card, index) => {

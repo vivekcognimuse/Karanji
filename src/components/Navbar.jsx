@@ -150,6 +150,12 @@ const NAV_LINKS = [
         description: "Join our team & make an impact.",
       },
       {
+        name: "Digital Twin",
+        href: "/company/digital-twin",
+        icon: "/nav/digital-twins-simulations.svg",
+        description: "Discover what it's like to work at Karanji.",
+      },
+      {
         name: "Contact Us",
         href: "/contact",
         icon: "/nav/contact-us.svg",
