@@ -141,7 +141,7 @@ export const digitalTwinData = {
   ctaCard: {
     title: "Get expert guidance tailored to your goals.",
     ctaText: "Talk to our Digital Avatars",
-    ctaLink: "/talk-to-avatars", // You can update this with the actual link
+    ctaLink: "/coming-soon", // You can update this with the actual link
   },
   cards: [
     {

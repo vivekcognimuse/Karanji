@@ -1,98 +1,142 @@
 "use client";
-import { useState } from "react";
-import Button from "@/components/ui/Button";
-import Image from "next/image"; // Assuming you're using Next.js
-import { P2, P3, P4 } from "@/components/CustomTags";
+import React, { useRef, useEffect } from "react";
+import Image from "next/image";
+import { P3 } from "@/components/CustomTags";
+import { gsap } from "gsap";
 
-// New reusable CardContent component
-const CardContent = ({ icon, title, description, altTag }) => (
-  <div className="flex flex-col h-full">
-    {/* Icon */}
-    <div className="flex justify-start items-center mb-4">
-      {icon && (
-        <div className="w-12 h-12 flex items-center justify-center rounded-lg">
-          <Image
-            src={icon}
-            alt={altTag || title}
-            width={40}
-            height={40}
-            className="w-10 h-10"
-          />
-        </div>
-      )}
-    </div>
+const IndustryCard = ({ card, index }) => {
+  const cardRef = useRef(null);
+  const frontContentRef = useRef(null);
+  const backContentRef = useRef(null);
 
-    {/* Title */}
-    <h4 className=" text-gray-900 mb-2">{title}</h4>
+  useEffect(() => {
+    const cardElement = cardRef.current;
+    const frontContent = frontContentRef.current;
+    const backContent = backContentRef.current;
 
-    {/* Description */}
-    <P2 className="text-gray-600 text-sm mb-2 flex-1">{description}</P2>
-  </div>
-);
+    // Only initialize hover effect if there is hover content
+    if (card.hoverContent) {
+      // Initial state - hide back content
+      gsap.set(backContent, {
+        opacity: 0,
+        y: 20,
+        pointerEvents: "none",
+      });
 
-const IndustryCard = ({
-  title,
-  description,
-  image,
-  details,
-  icon,
-  altTag,
-  buttonText = "Learn More",
-}) => {
-  const [isHovered, setIsHovered] = useState(false);
+      // Create hover timeline with height increase effect
+      const tl = gsap.timeline({ paused: true });
+
+      // Increase card height by 1.1x (grow symmetrically)
+      tl.to(cardElement, {
+        height: "110%", // Increase the height by 1.1x
+        transformOrigin: "center", // Grow both up and down symmetrically
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+        .to(frontContent, {
+          opacity: 0,
+          y: -20,
+          duration: 0.3,
+          ease: "power2.inOut",
+          pointerEvents: "none",
+        })
+        .to(
+          backContent,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            ease: "power2.inOut",
+            pointerEvents: "auto",
+          },
+          "-=0.3" // Start back content fade-in simultaneously with height increase
+        );
+
+      // Mouse enter handler
+      const handleMouseEnter = () => {
+        tl.play();
+      };
+
+      // Mouse leave handler
+      const handleMouseLeave = () => {
+        tl.reverse();
+      };
+
+      cardElement.addEventListener("mouseenter", handleMouseEnter);
+      cardElement.addEventListener("mouseleave", handleMouseLeave);
+
+      // Cleanup
+      return () => {
+        cardElement.removeEventListener("mouseenter", handleMouseEnter);
+        cardElement.removeEventListener("mouseleave", handleMouseLeave);
+        tl.kill();
+      };
+    }
+  }, [card.hoverContent]);
+
+  // Get hover content, fallback to null if not available
+  const hoverContent = card.hoverContent;
 
   return (
     <div
-      className="w-full max-w-[20rem] border border-black/10 bg-white rounded-2xl shadow-lg p-4 z-0 relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Card Content - Persistent Front Side (Icon, Title, Description) */}
-      <div className="flex flex-col h-full">
-        <CardContent
-          icon={icon}
-          title={title}
-          description={description}
-          altTag={altTag}
-        />
-
-        {/* Image (Only on hover, replace with details and button) */}
-        <div className="relative flex-1">
-          {!isHovered && image && (
-            <div className="relative h-56 overflow-hidden rounded-lg">
-              <img
-                src={image}
-                alt={title}
-                className="w-full h-full object-cover object-bottom"
-              />
-            </div>
-          )}
-
-          {/* Hover State - Show Details and Button */}
-          {isHovered && (
-            <div className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-between bg-white bg-opacity-80 rounded-lg overflow-hidden">
-              {/* Details Section: Flexible space with a max height */}
-              <div className="flex-1 overflow-y-auto max-h-[calc(100%-3rem)]">
-                {details?.map((detail, index) => (
-                  <P4
-                    key={index}
-                    className="text-sm text-gray-700 border-b border-black-500"
-                  >
-                    {detail}
-                  </P4>
-                ))}
-              </div>
-
-              {/* Button: Ensured at the bottom without overflow */}
-              <div className="mt-2 flex-shrink-0">
-                <Button variant="secondary" size="sm" className="w-full">
-                  {buttonText}
-                </Button>
-              </div>
-            </div>
-          )}
+      ref={cardRef}
+      className="relative rounded-2xl flex flex-col p-4 bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
+      style={{
+        minHeight: "380px",
+        maxWidth: "320px", // Set max width of the card to 320px
+        background: `url('/gradients/offering-card-gradient.svg')`,
+      }}
+      data-reveal
+      data-reveal-dir="up">
+      {/* Front Content - Default State */}
+      <div ref={frontContentRef} className="relative z-10">
+        <div className="mb-6 w-16 h-16 flex items-center justify-center">
+          <Image
+            src={`/technologySolutions/digital-offering/${index + 1}.svg`}
+            alt={`${card.title} icon`}
+            width={48}
+            height={48}
+            className="object-contain"
+          />
         </div>
+
+        <h4 className="mb-4">{card.title}</h4>
+        <P2 className="text-gray-600 ">{card.description}</P2>
       </div>
+
+      {/* Back Content - Hover State */}
+      {hoverContent ? (
+        <div
+          ref={backContentRef}
+          className="absolute inset-0 flex flex-col z-0"
+          style={{
+            background: "url('/gradients/offering-card-gradient.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
+          }}>
+          <div className="rounded-xl p-6 h-full flex flex-col">
+            <div className="space-y-8 flex-1">
+              {hoverContent.map((item, idx) => (
+                <div key={idx} className="items-start">
+                  <P3 className="text-gray-700">{item.text}</P3>
+                  <hr className="mt-2 w-full text-black-200" />
+                </div>
+              ))}
+            </div>
+            <div className="mt-auto flex justify-start">
+              <div className="w-16 h-16 flex items-center justify-center">
+                <Image
+                  src={`/technologySolutions/digital-offering/${index + 1}.svg`}
+                  alt={`${card.title} icon`}
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -16,18 +16,20 @@ const StatsSection = () => {
 
   return (
     <section ref={sectionRef} className="w-full py-16">
-      <div className="flex   justify-center items-start gap-8 h-full pt-20">
-        <div ref={statsGridRef} className="  my-auto flex gap-8 text-center">
+      <div className="flex    justify-center items-center gap-8 h-full pt-20">
+        <div
+          ref={statsGridRef}
+          className="  my-auto flex items-center gap-8 text-center">
           {stats.map((stat, index) =>
             index === 0 ? (
               <div
                 ref={yearsContainerRef}
                 className="w-full lg:w-80 text-center space-y-4 lg:space-y-6">
-                <h4
+                <p
                   ref={yearNumberRef}
                   className="text-9xl font-medium font-sans bg-gradient-to-br from-[#9E87FF] via-[#6DBFFE] to-[#FF8F8F] text-transparent bg-clip-text">
                   18+
-                </h4>
+                </p>
                 <p
                   ref={yearTextRef}
                   className="text-3xl font-bold font-outfit uppercase leading-9 bg-gradient-to-br from-[#9E87FF] via-[#6DBFFE] to-[#FF8F8F] text-transparent bg-clip-text">

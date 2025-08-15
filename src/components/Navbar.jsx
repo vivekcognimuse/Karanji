@@ -384,7 +384,7 @@ export default function Navbar() {
                 {/* Solutions Mega Menu */}
                 {item.subSections && activeDropdown === index && (
                   <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown w-[760px]"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown w-[790px]"
                     role="menu">
                     <div className="flex">
                       <div className="w-1/2 border-r border-gray-100">
@@ -485,7 +485,7 @@ export default function Navbar() {
                   item.links.length > 0 &&
                   activeDropdown === index && (
                     <div
-                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
+                      className="absolute top-full left-0 mt-1 w-[22rem] bg-white rounded-lg shadow-xl py-2 animate-slideDown"
                       role="menu">
                       {item.links.map((link, linkIndex) => (
                         <Link

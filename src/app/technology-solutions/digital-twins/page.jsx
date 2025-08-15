@@ -22,6 +22,7 @@ const DigitalTwins = async () => {
     industryExpertise,
     successStories,
   } = data || {};
+  console.log("digital twins data:", data);
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection

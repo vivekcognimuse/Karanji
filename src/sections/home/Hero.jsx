@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P1 } from "@/components/CustomTags";
+import Link from "next/link";
 
 const HeroSection = ({ data }) => {
   const { title, Subtitles, cta1_text, cta1_link, cta2_text, cta2_link, logo } =
@@ -20,10 +21,14 @@ const HeroSection = ({ data }) => {
 
         {/* CTA Buttons */}
         <div className="flex   flex-col sm:flex-row gap-4">
-          <Button className="">Explore Our Solutions</Button>
-          <Button variant="secondary" className="">
-            View Case Studies
-          </Button>
+          <Link href="/technology-solutions">
+            <Button className="">Explore Our Solutions</Button>
+          </Link>
+          <Link href="/resources">
+            <Button variant="secondary" className="">
+              View Case Studies
+            </Button>
+          </Link>
         </div>
       </div>
 
