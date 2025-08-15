@@ -10,15 +10,15 @@ const Upcoming = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch all published case studies when the component mounts
+  // Fetch all case studies when the component mounts
   useEffect(() => {
     const getUpcomingItems = async () => {
       try {
-        // Fetch all case studies without sorting, just fetch all published ones
+        // Fetch all case studies, sorted by createdAt
         const caseStudies = await fetchFromStrapi(
-          "case-studies",
+          "case-studies?sort=createdAt:asc", // Fetch all case studies sorted by createdAt
           { populate: "*" },
-          "https://77586f016802.ngrok-free.app/api" // Optional populate parameter if you need to load relations
+          "http://localhost:1337/api"
         );
 
         // Extract data from case studies and format it for display
@@ -64,7 +64,8 @@ const Upcoming = () => {
           <div key={idx}>
             <Link
               href={item.link}
-              className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200">
+              className="group block py-4 px-2 rounded-lg hover:bg-white/60 transition-all duration-200"
+            >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4">
                 <P2 className="text-black-800 group-hover:text-black-950 transition-colors line-clamp-2 flex-1">
                   {item.title}

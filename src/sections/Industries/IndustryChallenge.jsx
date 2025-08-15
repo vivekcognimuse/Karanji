@@ -14,7 +14,7 @@ const Industrychallenge = ({ data }) => {
   } = data;
 
   return (
-    <section className="bg-white py-12 px-4">
+    <section className="">
       <div className="mx-auto">
         {/* Heading */}
         <h3 className="text-3xl font-bold text-gray-900 pb-8">
@@ -49,7 +49,7 @@ const Industrychallenge = ({ data }) => {
               <div className="grid grid-cols-2 gap-6 flex-grow">
                 {challenges.map(({ id, icon, title, description }) => (
                   <div key={id}>
-                    <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full inline-block">
+                    <div className=" p-2 rounded-full inline-block">
                       <img
                         src={icon}
                         alt={title}

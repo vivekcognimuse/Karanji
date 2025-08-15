@@ -73,7 +73,7 @@ const industriesData = {
 
 export default async function IndustryLanding() {
   return (
-    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection
         data={heroData}
         bgImage="/Industries & its pages/Landing page/banner.webp"
@@ -82,6 +82,6 @@ export default async function IndustryLanding() {
         <IndustriesSection data={industriesData} />
       </div>
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }

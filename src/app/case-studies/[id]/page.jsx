@@ -82,7 +82,7 @@ export default async function CaseStudyDetail({ params }) {
   const normalized = normalizeCaseStudy(entry);
 
   return (
-    <main className="w-full max-w-[1580px] mx-auto p-4 pr-20 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <CaseStudyPage data={normalized} />
     </main>
   );

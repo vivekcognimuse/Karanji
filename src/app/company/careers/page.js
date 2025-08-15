@@ -50,7 +50,7 @@ const ctaData = {
 
 export default function careersPage() {
   return (
-    <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+  <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {/* Wrapper for all components except the last CTA */}
       <div 
         className="p-10 rounded-[32px]"
@@ -95,6 +95,6 @@ export default function careersPage() {
       
       {/* Final CTA - Outside the wrapper */}
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }

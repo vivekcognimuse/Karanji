@@ -5,6 +5,7 @@ import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
+import Methodology from "@/sections/Advisory/Methodology";
 const heroData = {
   title: "Healthcare Transformation Solutions",
   subTitle:
@@ -43,20 +44,19 @@ const industryData = {
   overviewDescription:
     "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
   challengesTitle: "Critical Challenges",
-  image: "/Industries & its pages/Healthcare/Healthcare image.webp", // Replace with your image path
+  image: "/Industries & its pages/Healthcare/Healthcare image.webp", 
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
       id: 1,
-      icon: "/Icons/Industries/Healthcare/speedometer_12736847.svg", // Replace with your icon path
+      icon: "/Icons/Industries/fluent-mdl2_health.svg", 
       title: "Workforce Crisis",
       description:
         "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
     },
     {
       id: 2,
-      icon: "Icons/microchip.svg", // Replace with your icon path
-      title: "Financial Pressure",
+      icon: "Icons/microchip.svg", 
       description:
         "8% cost increases, 2% operating margins, $100B underpayment gap.",
     },
@@ -78,6 +78,7 @@ const industryData = {
 };
 
 const strategicPrioritiesData = {
+    
   businessPrioritiesTitle: "Strategic Priorities 2025",
   topRowCards: [
     {
@@ -341,10 +342,43 @@ const strategicUseCaseData = {
     },
   ],
 };
+const strategicFramework = {
+  title: "Strategic Transformation Framework",
+  subTitle:
+    "A strategic framework driving innovation, efficiency, & resilience across care delivery, workforce, & operations.",
+  list: [
+    {
+      title: "Tech-First",
+      description:
+        "AI, VR/AR, digital platforms",
+    },
+    {
+      title: "Workforce Augmentation",
+      description:
+        "AI workflows, remote learning",
+    },
+    {
+      title: "Patient-Centric",
+      description:
+        "Digital front doors, home-based care ($265B by 2025)",
+    },
+    {
+      title: "Operational Excellence",
+      description:
+        "Cost control, security, quality systems",
+    },
+    {
+      title: "Regulatory Adaptation",
+      description:
+        "Compliance automation, value-based care models",
+    },
+  ],
+};
+
 
 export default async function HealthCare() {
   return (
-    <div className="w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection
         data={heroData}
         bgImage={"/Industries & its pages/Healthcare/Healthcare banner.webp"}
@@ -354,9 +388,10 @@ export default async function HealthCare() {
       <div id="digital-transformation-landscape">
         <DigitalTransformation data={digitalTransformationData} />
       </div>
+       <Methodology data={strategicFramework} isStepHidden =  {true} />
       <StrategicRoadmap data={strategicRoadmapData} />
       <StrategicUseCase data={strategicUseCaseData} />
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }
