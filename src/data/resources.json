@@ -1,0 +1,30 @@
+[
+  {
+    "type": "Case Study",
+    "title": "3D AI Advertisement",
+    "image": "/caseStudies/Casestudy 3.webp",
+    "link": "/case-studies/1",
+    "cta": "View Case Study"
+  },
+  {
+    "type": "Webinar",  
+    "title": "Future of Automotive Engineering Training",
+    "image": "/caseStudies/Casestudy 1.webp",
+    "link": "/webinar/",
+    "cta": "Register for Webinar"
+  },
+  {
+    "type": "Blog",
+    "title": "Immersive Healthcare Education: Bridging the Skill Gap through VR",
+    "image": "/blog/Casestudy 2.webp",
+    "link": "/blog-insights/",
+    "cta": "Read Blog"
+  },
+  {
+    "type": "Case Study",
+    "title": "Outbound Calling Agent",
+    "image": "/caseStudies/Casestudy 3.webp",
+    "link": "/case-studies/3",
+    "cta": "View Case Study"
+  }
+]

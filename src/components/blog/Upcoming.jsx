@@ -1,54 +1,116 @@
-"use client";
-import React, { useEffect, useState } from "react";
+// components/blog/Upcoming.jsx
+import React from "react";
 import { SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import { P2 } from "../CustomTags";
-import { fetchFromStrapi } from "@/lib/strapi"; // Reuse your existing fetch function
+
+const upcomingItems = [
+  {
+    title: "3D AI Advertisement",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/1",
+  },
+  {
+    title: "K Buddy AI Learning Companion",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/3",
+  },
+  {
+    title: "Outbound Calling Agent",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/4",
+  },
+  {
+    title: "Sign Language Bot (SignBot)",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/5",
+  },
+  {
+    title: "Teacher Empowerment System (TES)",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/6",
+  },
+  {
+    title: "Quality Month: Video Animation",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/7",
+  },
+  {
+    title: "Futuristic Digital Payments Training Module",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/8",
+  },
+  {
+    title: "Driving School & Training Module",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/9",
+  },
+  {
+    title: "Ujjivan - Banking Sector, Corporate Learning & Development Teams",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/10",
+  },
+  {
+    title: "AI LMS",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/11",
+  },
+  {
+    title: "Automobile-EV Training Module",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/12",
+  },
+  {
+    title: "Elevating a One-Hour Podcast into a Visually Engaging Experience",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/13",
+  },
+  {
+    title:
+      "From Real Footage to On-Screen Evidence: Bringing a Murder Mystery Scene to Life",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/14",
+  },
+  {
+    title: "Convocation Day School Real Video Project",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/15",
+  },
+  {
+    title: "Cybersecurity Awareness Game",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/16",
+  },
+  {
+    title: "VR Training for Electric Vehicle (EV)",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/17",
+  },
+  {
+    title: "Digital Twins",
+    date: "06/08/2025", // Default date as no date was provided in the case study
+    type: "Case Study",
+    link: "/case-studies/18",
+  },
+];
 
 const Upcoming = () => {
-  const [upcomingItems, setUpcomingItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Fetch all case studies when the component mounts
-  useEffect(() => {
-    const getUpcomingItems = async () => {
-      try {
-        // Fetch all case studies, sorted by createdAt
-        const caseStudies = await fetchFromStrapi(
-          "case-studies?sort=createdAt:asc", // Fetch all case studies sorted by createdAt
-          { populate: "*" },
-          "http://localhost:1337/api"
-        );
-
-        // Extract data from case studies and format it for display
-        const items = caseStudies.data.map((item) => ({
-          title: item.attributes?.title,
-          date: item.attributes?.publishedAt, // Use publishedAt field for date
-          type: "Case Study", // Static type for case studies
-          link: `/case-studies/${item.attributes?.slug}`, // Link to individual case study
-        }));
-
-        setUpcomingItems(items); // Set the fetched data into state
-      } catch (err) {
-        console.error("Error fetching upcoming items:", err);
-        setError("Failed to load upcoming items.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getUpcomingItems(); // Fetch items on component mount
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
   return (
     <div className="bg-gradient-to-br from-white via-purple-50 to-blue-50 p-8 rounded-2xl border border-purple-100 shadow-sm">
       <div className="flex justify-between items-center mb-6">
@@ -72,7 +134,7 @@ const Upcoming = () => {
                 </P2>
                 <div className="flex items-center gap-4 md:gap-6 shrink-0">
                   <span className="font-medium text-black-800 text-sm md:w-20">
-                    {new Date(item.date).toLocaleDateString()}
+                    {item.date}
                   </span>
                   <span className="px-3 py-1 bg-purple-100 text-black-800 rounded-full text-xs font-medium md:w-24 md:text-center">
                     {item.type}
