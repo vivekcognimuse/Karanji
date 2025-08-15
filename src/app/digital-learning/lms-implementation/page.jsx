@@ -17,16 +17,16 @@ const heroData = {
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
     {
-      subText: "SCORM Compliance",
+      text: "SCORM Compliance",
     },
     {
-      subText: "Unlimited Admins",
+      text: "Unlimited Admins",
     },
     {
-      subText: "Multilingual Support",
+      text: "Multilingual Support",
     },
     {
-      subText: "Single Sign-On (SSO)",
+      text: "Single Sign-On (SSO)",
     },
   ],
 };

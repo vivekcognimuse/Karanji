@@ -1,12 +1,10 @@
-"use client";
 import React from "react";
-import Link from "next/link";
-import { Icon } from "@iconify/react";
+
 import { P1 } from "@/components/CustomTags";
-import Button from "@/components/ui/Button";
 
 // client-only, returns null, runs GSAP
 import HeroReveal from "@/components/animations/HeroReveal";
+import ScrollButton from "@/components/ScrollButton";
 
 export default function HeroSection({ data, bgImage }) {
   const {
@@ -18,22 +16,6 @@ export default function HeroSection({ data, bgImage }) {
     backgroundImage,
   } = data;
   console.log("HeroSection data:", data);
-  // Function to handle smooth scrolling
-  const handleScrollToSection = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      const targetPosition =
-        targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth", // Smooth scroll
-      });
-    }
-  };
 
   return (
     <section
@@ -59,23 +41,8 @@ export default function HeroSection({ data, bgImage }) {
           )}
         </div>
 
-        {ctaText && (
-          <div className="flex opacity-0 will-change-transform" data-reveal>
-            <Button
-              variant="text"
-              className="mx-auto whitespace-nowrap"
-              rightIcon={
-                <Icon
-                  icon="material-symbols:arrow-forward"
-                  className="w-6 h-6"
-                />
-              }
-              onClick={(e) => handleScrollToSection(e, ctaLink)} // Handle scroll on click
-            >
-              {ctaText}
-            </Button>
-          </div>
-        )}
+        {/* Use ScrollButton here */}
+        {ctaText && <ScrollButton ctaText={ctaText} ctaLink={ctaLink} />}
       </div>
 
       {stats?.length > 0 && (

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { P2 } from "@/components/CustomTags";
-import AvatarCard from "./AvatarCard";
+import AvatarCard from "./PrakashAvatarCard";
+import AvatarCardsContainer from "./PrakashAvatarCard";
 
 export default function ChooseAvatarSection({ data }) {
   const { title = "", description = "", avatars = [] } = data;
@@ -23,9 +24,7 @@ export default function ChooseAvatarSection({ data }) {
 
         {/* Avatar Grid */}
         <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
-          {avatars.map((avatar, index) => (
-            <AvatarCard key={index} avatar={avatar} />
-          ))}
+          <AvatarCardsContainer />
         </div>
       </div>
 

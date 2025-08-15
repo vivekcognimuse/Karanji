@@ -19,12 +19,12 @@ const StrategicPriorities = ({ data }) => {
       <>
         {/* Title first for services portfolio layout */}
         {isServicesPortfolio && (
-          <h5 className="text-gray-800 font-medium mb-4">{title}</h5>
+          <h5 className="text-black-800 font-medium mb-4">{title}</h5>
         )}
 
         {/* Subtitle/description for services portfolio */}
         {isServicesPortfolio && subTitle && (
-          <P3 className="text-sm text-gray-500 mb-6">{subTitle}</P3>
+          <P3 className=" text-black-500 mb-6">{subTitle}</P3>
         )}
 
         {/* Primary value/number display */}
@@ -36,22 +36,20 @@ const StrategicPriorities = ({ data }) => {
 
         {/* For non-services portfolio: Title after number */}
         {!isServicesPortfolio && (
-          <h5 className="text-gray-800 font-medium">{title}</h5>
+          <h5 className="text-black-800 font-medium">{title}</h5>
         )}
 
         {/* For non-services portfolio: Subtitle after title */}
         {!isServicesPortfolio && subTitle && (
-          <P3 className="text-sm text-gray-500">{subTitle}</P3>
+          <P3 className=" text-black-500">{subTitle}</P3>
         )}
 
         {/* Metric (for services portfolio use case) */}
-        {metric && (
-          <P3 className="text-sm text-gray-500 font-medium">{metric}</P3>
-        )}
+        {metric && <P3 className=" text-black-500 font-medium">{metric}</P3>}
 
         {/* Additional description */}
         {description && (
-          <P3 className="text-xs text-gray-400 mt-2">{description}</P3>
+          <P3 className="text-xs text-black-400 mt-2">{description}</P3>
         )}
       </>
     );
@@ -76,7 +74,7 @@ const StrategicPriorities = ({ data }) => {
   };
 
   return (
-    <section className="py-12 px-4">
+    <section className="py-12 ">
       <div className="mx-auto space-y-6">
         {/* Section Title */}
         {sectionTitle && <h3 className="mb-4">{sectionTitle}</h3>}

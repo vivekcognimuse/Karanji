@@ -126,14 +126,17 @@ const Footer = () => {
   ];
 
   const socialIcons = [
-    { icon: "mdi:linkedin", href: "#" },
-    { icon: "mdi:twitter", href: "#" },
-    { icon: "mdi:facebook", href: "#" },
-    { icon: "mdi:instagram", href: "#" },
+    {
+      icon: "mdi:linkedin",
+      href: "https://www.linkedin.com/company/karanji-infotech-pvt-ltd/",
+    },
+    // { icon: "mdi:twitter", href: "#" },
+    // { icon: "mdi:facebook", href: "#" },
+    // { icon: "mdi:instagram", href: "#" },
   ];
 
   return (
-    <footer className="w-full max-w-[1580px] px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
+    <footer className="w-full max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
       {/* Top */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
         <Image
@@ -168,37 +171,44 @@ const Footer = () => {
           ))}
         </nav>
       </div>
-
       {/* Bottom */}
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-black/10">
-        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-          <div className="flex items-center gap-2">
-            <Icon icon="mdi:copyright" className="w-4 h-4 text-black/70" />
-            <span className="text-sm font-light font-outfit leading-relaxed tracking-wide text-black/80">
-              2025 Karanji. All rights reserved.
-            </span>
-          </div>
-          {["Privacy Policy", "Terms of Service", "Cookie Settings"].map(
-            (item) => (
-              <a
+      <div>
+        <p className="mt-auto font-light text-sm text-black-500">
+          The quantitative metrics presented here are based on research and
+          comparable implementations. These figures serve as directional
+          indicators of potential magnitude rather than guaranteed outcomes. The
+          actual impact may vary due to a multitude of factors.
+        </p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 ">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div className="flex items-center gap-2">
+              <Icon icon="mdi:copyright" className="w-4 h-4 text-black/70" />
+              <span className="text-sm font-light font-outfit leading-relaxed tracking-wide text-black/80">
+                2025 Karanji. All rights reserved.
+              </span>
+            </div>
+            {["Terms of Service"].map((item) => (
+              <Link
                 key={item}
-                href="#"
+                href="/terms-policies"
                 className="text-sm font-light font-outfit underline leading-relaxed tracking-wide text-black/80 hover:text-black transition-colors">
                 {item}
-              </a>
-            )
-          )}
-        </div>
+              </Link>
+            ))}
+          </div>
 
-        <div className="flex items-center gap-4">
-          {socialIcons.map((social, index) => (
-            <a
-              key={index}
-              href={social.href}
-              className="w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform text-black hover:text-gray-700">
-              <Icon icon={social.icon} className="w-5 h-5" />
-            </a>
-          ))}
+          <div className="flex items-center gap-4">
+            {socialIcons.map((social, index) => (
+              <a
+                key={index}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={social.href}
+                className="w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform text-black hover:text-gray-700">
+                <Icon icon={social.icon} className="size-8" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
