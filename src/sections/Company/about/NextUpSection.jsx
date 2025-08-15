@@ -2,24 +2,23 @@
 import React from "react";
 import NextUpCard from "./NextUpCard";
 import { P1 } from "@/components/CustomTags";
+
 const NextUpSection = ({ heading, title, description, cards }) => {
   const handleCardClick = (card) => {
     if (card.onClick) {
       card.onClick();
     }
-    // Default behavior could be navigation
-    console.log(`Clicked on ${card.title}`);
   };
 
   return (
     <div className="w-full">
-      <div className=" mx-auto">
+      <div className="mx-auto">
         {/* Section Heading */}
         <h3 className="text-black">{heading}</h3>
 
         {/* Title & Description */}
-        <div className="text-center  mx-auto mb-10">
-          <h2 className=" mb-4">{title}</h2>
+        <div className="text-center mx-auto mb-10">
+          <h2 className="mb-4">{title}</h2>
           <P1 className="text-black-950">{description}</P1>
         </div>
 
@@ -31,7 +30,8 @@ const NextUpSection = ({ heading, title, description, cards }) => {
               title={card.title}
               description={card.description}
               image={card.image}
-              onClick={() => handleCardClick(card)}
+              href={card.href} // Pass href prop for Link navigation
+              onClick={() => handleCardClick(card)} // Keep onClick for backward compatibility
             />
           ))}
         </div>

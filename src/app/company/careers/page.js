@@ -86,11 +86,7 @@ export default function careersPage() {
           <section id="open-roles">
             <CareersTable
               jobs={defaultCareers}
-              // Optional: open an external form/email instead of routing
-              // onViewRole={(job) =>
-              //   window.open(job.formLink ?? 'mailto:recruitment@karanji.com', '_blank')
-              // }
-              // Optional: change the detail page base path if you have role detail pages
+             
               detailBasePath="/company/careers"
             />
           </section>

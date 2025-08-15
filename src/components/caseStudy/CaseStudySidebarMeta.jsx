@@ -10,7 +10,7 @@ const CaseStudySidebarMeta = ({ domain, targetAudience }) => {
   }
 
   return (
-    <div className="mt-8 space-y-6 ml-2">
+    <div className="mt-4 space-y-6 ml-2">
       {/* Domain Section */}
       {domain && (
         <div>

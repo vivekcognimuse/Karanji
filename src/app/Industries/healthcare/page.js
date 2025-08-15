@@ -42,7 +42,7 @@ const industryData = {
   overviewTitle: "Overview", 
   overviewDescription: "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
   challengesTitle: "Critical Challenges",
-  image: "Images/industry-vr-healthcare.jpg", // Replace with your image path
+  image: "/Industries & its pages/Healthcare/Healthcare image.webp", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
@@ -326,7 +326,7 @@ const strategicUseCaseData = {
 export default async function HealthCare() {
   return (
     <div className="w-full mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
+      <HeroSection data={heroData} bgImage={"/Industries & its pages/Healthcare/Healthcare banner.webp"} />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
       <DigitalTransformation data={digitalTransformationData} />

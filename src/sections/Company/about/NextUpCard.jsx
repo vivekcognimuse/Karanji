@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { P3, P4 } from "@/components/CustomTags";
 
-const NextUpCard = ({ title, description, image, onClick }) => {
-  return (
-    <div
-      className="relative  rounded-3xl overflow-hidden cursor-pointer transition-transform hover:scale-105 card-gradient-border card-shadow"
-      onClick={onClick}
-    >
+const NextUpCard = ({ title, description, image, onClick, href }) => {
+  const CardContent = () => (
+    <div className="relative rounded-3xl overflow-hidden cursor-pointer transition-transform hover:scale-105 card-gradient-border card-shadow">
       {/* Content Container */}
       <div className="p-6 relative z-10 max-w-xs">
         {/* Header with Title and Arrow */}
@@ -70,6 +68,21 @@ const NextUpCard = ({ title, description, image, onClick }) => {
           -webkit-mask-composite: xor;
         }
       `}</style>
+    </div>
+  );
+
+  // If href is provided, wrap with Link, otherwise use onClick
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        <CardContent />
+      </Link>
+    );
+  }
+
+  return (
+    <div onClick={onClick}>
+      <CardContent />
     </div>
   );
 };
