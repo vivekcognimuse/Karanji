@@ -5,7 +5,7 @@ const IndustriesSection = ({ data }) => {
   const { title, description, industries } = data;
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 lg:px-10 py-16">
+    <section className="w-full  mx-auto px-4 lg:px-10 py-16">
       {/* Header Section - Title left 40%, Description right 60% */}
       <div className="mb-12 lg:mb-16">
         <div className="flex flex-col lg:flex-row w-full gap-6">
@@ -21,7 +21,7 @@ const IndustriesSection = ({ data }) => {
       </div>
 
       {/* Cards Grid - 2x2 layout */}
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {industries?.map((industry, index) => (
           <IndustryCard
             key={index}

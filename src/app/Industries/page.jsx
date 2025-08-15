@@ -23,8 +23,8 @@ const industriesData = {
     {
       title: "HealthCare",
       description: "Reimagining Healthcare",
-      icon: "/icons/healthcare.svg", // SVG icon path
-      image: "/industries/healthcare-stethoscope.jpg",
+      icon: "/Icons/Industies/fluent-mdl2_health.svg", // SVG icon path
+      image: "/Industries & its pages/Landing page/Healthcare card.webp",
       details: [
         "AI-Powered Clinical Intelligence",
         "Immersive XR/VR Training Platforms",
@@ -35,8 +35,8 @@ const industriesData = {
     {
       title: "Aviation",
       description: "Future-ready aviation.",
-      icon: "/icons/aviation.svg", // SVG icon path
-      image: "/industries/aviation-plane.jpg",
+      icon: "/Icons/Industies/mage_aeroplane.svg", // SVG icon path
+      image: "/Industries & its pages/Landing page/Aviation card .webp",
       details: [
         "Predictive Maintenance Solutions",
         "Flight Crew Training Simulations",
@@ -47,8 +47,8 @@ const industriesData = {
     {
       title: "Logistics",
       description: "Precision in Every Operation",
-      icon: "/icons/logistics.svg", // SVG icon path
-      image: "/industries/logistics-containers.jpg",
+      icon: "/Icons/Industies/streamline-ultimate_shipment-cargo-boat.svg", // SVG icon path
+      image: "/Industries & its pages/Landing page/Logistics card.webp",
       details: [
         "Supply Chain Optimization",
         "Warehouse Automation",
@@ -59,8 +59,8 @@ const industriesData = {
     {
       title: "Oil & Gas",
       description: "Driving Digital Intelligence in Energy",
-      icon: "/icons/oil-gas.svg", // SVG icon path
-      image: "/industries/oil-gas-facility.jpg",
+      icon: "/Icons/Industies/streamline-ultimate_gas-f.svg", // SVG icon path
+      image: "/Industries & its pages/Landing page/Oil and Gas card.webp",
       details: [
         "Equipment Monitoring Systems",
         "Safety Training & Compliance",
@@ -73,8 +73,11 @@ const industriesData = {
 
 export default async function IndustryLanding() {
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
+    <div className="w-full  mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      <HeroSection
+        data={heroData}
+        bgImage={"/Industries & its pages/Landing page/banner.webp"}
+      />
       <IndustriesSection data={industriesData} />
       <CTA data={ctaData} />
     </div>

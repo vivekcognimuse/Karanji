@@ -151,47 +151,59 @@ const CaseStudyPage = ({ data }) => {
         </div>
 
         {/* Content Section with Sidebar Layout */}
-        <div className="max-w-full mx-auto">
-          {/* Desktop and Large Tablets: Sidebar to the right (Absolute Position) */}
-          <div className="hidden xl:flex xl:gap-8 relative">
-            {/* Main Content */}
-            <div className="flex-1 max-w-6xl">
-              <div id="content" className="pr-6">
-                {groupedSections.map((section, idx) =>
-                  renderSection(section, idx)
-                )}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Desktop and Large Tablets: Sidebar Layout */}
+          <div className="hidden xl:block">
+            <div className="flex gap-8">
+              {/* Main Content */}
+              <div className="flex-1 min-w-0">
+                <div id="content">
+                  {groupedSections.map((section, idx) =>
+                    renderSection(section, idx)
+                  )}
+                </div>
               </div>
-            </div>
 
-            {/* Sidebar (Positioned to Right Corner) */}
-            <div className="absolute right-0 top-36 w-64 shrink-0">
-              <div className="sticky top-36">
-                {headings.length > 0 && (
-                  <ScrollSpySidebar headings={headings} />
-                )}
-                <CaseStudySidebarMeta
-                  domain={data.domain}
-                  targetAudience={data.targetAudience || []}
-                />
+              {/* Sticky Sidebar */}
+              <div className="w-64 flex-shrink-0">
+                <div className="sticky top-20 space-y-4">
+                  {headings.length > 0 && (
+                    <div>
+                      <ScrollSpySidebar headings={headings} />
+                    </div>
+                  )}
+                  <div>
+                    <CaseStudySidebarMeta
+                      domain={data.domain}
+                      targetAudience={data.targetAudience || []}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Mobile Content: Sidebar below content */}
           <div className="xl:hidden">
-            <div className="px-4">
+            <div id="content">
               {groupedSections.map((section, idx) =>
                 renderSection(section, idx)
               )}
             </div>
 
             {/* Mobile Sidebar (Below Content) */}
-            <div className="mt-8">
-              {headings.length > 0 && <ScrollSpySidebar headings={headings} />}
-              <CaseStudySidebarMeta
-                domain={data.domain}
-                targetAudience={data.targetAudience || []}
-              />
+            <div className="mt-8 space-y-6">
+              {headings.length > 0 && (
+                <div className=" rounded-lg p-4 shadow-sm">
+                  <ScrollSpySidebar headings={headings} />
+                </div>
+              )}
+              <div className=" rounded-lg p-4 shadow-sm">
+                <CaseStudySidebarMeta
+                  domain={data.domain}
+                  targetAudience={data.targetAudience || []}
+                />
+              </div>
             </div>
           </div>
         </div>

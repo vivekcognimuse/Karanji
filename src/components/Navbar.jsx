@@ -390,6 +390,7 @@ export default function Navbar() {
                 {item.subSections && activeDropdown === index && (
                   <div
 
+
                     className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown"
                     style={{ ...getDropdownPosition(index), minWidth: "760px" }}
                     role="menu"
@@ -447,6 +448,7 @@ export default function Navbar() {
                       </div>
 
 
+
                       <div className="w-1/2  space-y-2 py-2">
                         {activeSolution !== null &&
                           item.subSections[activeSolution]?.links.map(
@@ -484,6 +486,7 @@ export default function Navbar() {
                                         </p>
                                       </div>
 
+
                                     </div>
                                   </div>
                                 </div>
@@ -503,7 +506,9 @@ export default function Navbar() {
                     <div
                       className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-xl py-2 animate-slideDown"
 
+
                       style={getDropdownPosition(index)}
+
                       role="menu"
                     >
 
@@ -548,12 +553,14 @@ export default function Navbar() {
 
             {/* Get in Touch CTA */}
 
+
             <Link
               href="/contact"
               className="ml-4 px-6 py-2 bg-black text-white rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
               aria-label="Get in Touch"
             >
               Get in Touch
+
 
             </Link>
           </div>
@@ -737,12 +744,9 @@ export default function Navbar() {
 
             {/* Mobile Get in Touch CTA */}
 
-            <a
-              href="/contact"
-              className="block w-full mt-4 px-4 py-2 bg-black text-white text-center rounded-full text-xl font-medium hover:bg-gray-800 transition-colors duration-200"
-            >
-              Get in Touch
-            </a>
+            <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <Button className="">Get in Touch</Button>
+            </Link>
 
           </div>
         </div>
