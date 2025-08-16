@@ -213,7 +213,7 @@ const CTAData = {
   PrimaryButtonText: null,
   PrimaryButtonLink: null,
   SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/",
+  SecondaryButtonLink: "/contact",
 };
 
 const VfxAnimation = () => {

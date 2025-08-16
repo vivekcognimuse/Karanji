@@ -8,7 +8,6 @@ import AnalyticsMaturityModel from "@/sections/digital-learning/analytics/Mature
 import Results from "@/sections/digital-learning/analytics/Result";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
-import LMSLearning from "@/sections/digital-learning/LMSLearning";
 
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
@@ -94,10 +93,10 @@ const ctaData = {
   title: "Transform Your Corporate Learning Today",
   description:
     "Experience the power of a fully-customizable LMS that adapts to your organization’s unique needs",
-  PrimaryButtonText: "Take a Demo on K-nest LMS",
-  PrimaryButtonLink: "https://knestlms.com/try-demo",
+  PrimaryButtonText: null, //"Take a Demo on K-nest LMS"
+  PrimaryButtonLink: null, //"https://knestlms.com/try-demo"
   SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/",
+  SecondaryButtonLink: "/contact",
 };
 const learningChallenges = {
   title: "Learning Challenges",
