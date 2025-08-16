@@ -8,6 +8,7 @@ import VisionMission from "@/sections/Company/about/VisionMission";
 import ValuesSection from "@/sections/Company/about/ValuesSection";
 import JourneySection from "@/sections/Company/about/journeySection";
 import TimelineComponent from "@/sections/Company/about/TimelineComponent";
+import Head from "next/head";
 
 const heroData = {
   title: "Our Identity & Purpose",
@@ -172,6 +173,9 @@ export default function AboutUs() {
   return (
     <>
       <main className="">
+        <Head>
+          <meta name="robots" content="noindex, nofollow" />
+        </Head>
         <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
         <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
           <JourneySection
@@ -200,8 +204,7 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}
-        >
+          }}>
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

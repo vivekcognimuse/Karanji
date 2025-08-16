@@ -22,21 +22,25 @@ const ScrollVideoSequence = () => {
     const handleCanPlay = () => {
       console.log("Video can play");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadedData = () => {
       console.log("Video data loaded");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadedMetadata = () => {
       console.log("Video metadata loaded");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleError = (e) => {
       console.error("Video loading error:", e);
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadStart = () => {
@@ -54,6 +58,7 @@ const ScrollVideoSequence = () => {
     const timeoutId = setTimeout(() => {
       console.log("Loading timeout - forcing video ready state");
       setVideoLoaded(true);
+      setIsLoading(false);
     }, 3000); // 3 second timeout
 
     // Force load the video

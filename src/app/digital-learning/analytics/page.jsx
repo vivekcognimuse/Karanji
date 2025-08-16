@@ -8,6 +8,7 @@ import AnalyticsMaturityModel from "@/sections/digital-learning/analytics/Mature
 import Results from "@/sections/digital-learning/analytics/Result";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
+import Head from "next/head";
 
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
@@ -316,6 +317,10 @@ const howItWorks = {
 const ContentDesign = () => {
   return (
     <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection data={heroData} bgImage="/hero/1.Analytics banner .webp" />
       <LearningChallenges data={learningChallenges} />
       <div id="analytics-service-offerings">
@@ -336,11 +341,8 @@ const ContentDesign = () => {
         }}
       />
       <Methodology column={true} data={methodologyData} />
-
       <AnalyticsMaturityModel data={analyticsData} />
-
       <ImplementApproach data={implementApproachData} />
-
       <Deliverables data={deliverablesData} />
       <HowItWorks data={howItWorks} />
       <CTA data={ctaData} />

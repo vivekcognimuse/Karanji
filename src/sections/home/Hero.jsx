@@ -47,7 +47,7 @@ const HeroSection = ({ data }) => {
         </div>
       </div>
 
-      <div className="w-1/2 h-full -mt-8 flex justify-center items-center">
+      <div className="w-1/2 h-full hidden -mt-8 lg:flex justify-center items-center">
         <Spline
           scene="https://prod.spline.design/4dInLviYPsBE8Zqz/scene.splinecode"
           style={{

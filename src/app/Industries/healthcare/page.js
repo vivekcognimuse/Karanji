@@ -6,6 +6,7 @@ import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Methodology from "@/sections/Advisory/Methodology";
+import Head from "next/head";
 const heroData = {
   title: "Healthcare Transformation Solutions",
   subTitle:
@@ -378,6 +379,10 @@ const strategicFramework = {
 export default async function HealthCare() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection
         data={heroData}
         bgImage={"/Industries & its pages/Healthcare/Healthcare banner.webp"}
@@ -389,7 +394,10 @@ export default async function HealthCare() {
       </div>
       <Methodology data={strategicFramework} />
       <StrategicRoadmap data={strategicRoadmapData} />
-      <StrategicUseCase data={strategicUseCaseData} icon="/Industries & its pages/Healthcare/usecase" />
+      <StrategicUseCase
+        data={strategicUseCaseData}
+        icon="/Industries & its pages/Healthcare/usecase"
+      />
       <CTA data={ctaData} />
     </main>
   );

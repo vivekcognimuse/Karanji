@@ -24,7 +24,7 @@ const ScrollButton = ({ ctaText, ctaLink, variant = "primary" }) => {
     <div className="flex will-change-transform" data-reveal>
       <Button
         variant={variant}
-        className="mx-auto whitespace-nowrap"
+        className="w-full lg:w-fit lg:mx-auto  whitespace-nowrap"
         rightIcon={
           <Icon icon="material-symbols:arrow-down" className="w-6 h-6" />
         }

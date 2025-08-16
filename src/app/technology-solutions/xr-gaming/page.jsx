@@ -3,6 +3,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
+import Head from "next/head";
 
 const serviceOffering = {
   id: 4,
@@ -51,17 +52,18 @@ const XRGaming = async () => {
 
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection data={hero} />
-
       <div id="xr-service-offerings">
         <ServiceOfferings
           data={serviceOffering}
           icon={`/technologySolutions/xr-offering`}
         />
       </div>
-
       <Methodology data={methodology} />
-
       <SuccessStories data={successStories} />
     </main>
   );

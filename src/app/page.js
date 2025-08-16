@@ -4,6 +4,7 @@ import SuccessStoriesSection from "@/sections/home/Successtories";
 import ScrollImageSequence from "@/components/LandingAnimation";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServices from "@/sections/service/Service";
+import ScrollVideoSequence from "@/components/LandingAnimation";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
@@ -68,7 +69,7 @@ const technologyServicesData = {
         { text: "Learning Gamification" },
       ],
       ctaText: "Learn More",
-      ctaLink: "/technology-solution",
+      ctaLink: "/technology-solutions",
     },
     {
       id: 2,
@@ -115,7 +116,8 @@ const KaranjiLanding = () => {
           data={technologyServicesData}
         />
       </div>
-      <ScrollImageSequence />
+
+      <ScrollVideoSequence />
       <SuccessStories data={successStoriesData} />
     </main>
   );

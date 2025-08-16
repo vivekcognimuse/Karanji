@@ -1,6 +1,7 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/about/teamSections";
+import Head from "next/head";
 
 const heroData = {
   title: "Meet the Experts",
@@ -139,6 +140,10 @@ const teamSectionData = [
 export default async function teampage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection
         data={{
           ...heroData,

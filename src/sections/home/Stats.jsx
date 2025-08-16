@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const StatsSection = () => {
@@ -10,18 +11,19 @@ const StatsSection = () => {
 
   return (
     <section className="w-full">
-      <div className=" flex flex-col  lg:flex-row items-center justify-between  text-center px-4 lg:px-0">
+      <div className=" flex flex-col mt-16 lg:mt-0  lg:flex-row items-center justify-between gap-8  text-center px-4 lg:px-0">
         {stats.map((stat, index) =>
           index === 0 ? (
             <div
               key={index}
               className="w-full lg:w-80 text-center space-y-4 lg:space-y-6">
-              <p className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-medium font-sans bg-gradient-to-br from-[#9E87FF] via-[#6DBFFE] to-[#FF8F8F] text-transparent bg-clip-text">
-                18+
-              </p>
-              <p className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold font-outfit uppercase leading-7 sm:leading-8 md:leading-8 lg:leading-9 bg-gradient-to-br from-[#9E87FF] via-[#6DBFFE] to-[#FF8F8F] text-transparent bg-clip-text">
-                Years in Business
-              </p>
+              <Image
+                src="stat.svg"
+                alt="Stat Image"
+                width={100}
+                height={100}
+                className="mx-auto w-40 sm:w-48 md:w-56 lg:w-72  h-fit"
+              />
             </div>
           ) : (
             <div key={index} className="space-y-2">
