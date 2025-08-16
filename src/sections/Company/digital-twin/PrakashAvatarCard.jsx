@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
@@ -7,7 +6,10 @@ import { P3 } from "@/components/CustomTags";
 // Single AvatarCard component that takes props
 function AvatarCard({ avatar, delay = 0 }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
+  const [sdkLoaded, setSdkLoaded] = useState(false);
+  const [agent, setAgent] = useState(null);
+  const [error, setError] = useState(null);
+  const containerRef = useRef(null);
 
   const handleMouseEnter = () => {
     setIsFlipped(true);
@@ -17,54 +19,103 @@ function AvatarCard({ avatar, delay = 0 }) {
     setIsFlipped(false);
   };
 
-  // Load D-ID script when component mounts with delay
+  // Load D-ID SDK and initialize agent
   useEffect(() => {
-    if (!avatar.agentId) {
+    if (!avatar.agentId || !avatar.clientKey) {
       return;
     }
 
-    const timer = setTimeout(() => {
-      // Create a unique ID for this avatar's container
-      const containerId = `did-agent-${avatar.agentId}`;
+    let timeoutId;
+    let currentAgent = null;
 
-      // Check if script already exists for this agent
-      const existingScript = document.querySelector(
-        `script[data-agent-id="${avatar.agentId}"]`
-      );
+    const initializeAgent = async () => {
+      try {
+        // Check if SDK is already loaded
+        if (typeof window.DID === "undefined") {
+          // Load the SDK script
+          await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "https://agent.d-id.com/v2/index.js";
+            script.type = "module";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
 
-      if (!existingScript) {
-        const script = document.createElement("script");
-        script.type = "module";
-        script.src = "https://agent.d-id.com/v2/index.js";
-        script.setAttribute("data-mode", "full");
-        script.setAttribute("data-client-key", avatar.clientKey);
-        script.setAttribute("data-agent-id", avatar.agentId);
-        script.setAttribute("data-name", "did-agent");
-        script.setAttribute("data-monitor", "true");
-        script.setAttribute("data-target-id", containerId);
+        // Wait for SDK to be available
+        let attempts = 0;
+        while (typeof window.DID === "undefined" && attempts < 50) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+          attempts++;
+        }
 
-        script.onload = () => {
-          console.log(`D-ID agent loaded for ${avatar.name}`);
-          setScriptLoaded(true);
-        };
+        if (typeof window.DID === "undefined") {
+          throw new Error("D-ID SDK failed to load");
+        }
 
-        script.onerror = (error) => {
-          console.error(`Failed to load D-ID agent for ${avatar.name}:`, error);
-        };
+        setSdkLoaded(true);
 
-        document.body.appendChild(script);
-        console.log(
-          `Appending D-ID script for ${avatar.name} with container ID: ${containerId}`
+        // Initialize the agent with SDK
+        if (containerRef.current) {
+          const agentConfig = {
+            agentId: avatar.agentId,
+            clientKey: avatar.clientKey,
+            target: containerRef.current,
+            mode: "full",
+            monitor: true,
+            // Additional configuration options
+            ui: {
+              components: {
+                // Customize UI components if needed
+              },
+            },
+            // Event handlers
+            onReady: () => {
+              console.log(`D-ID agent ready for ${avatar.name}`);
+            },
+            onError: (error) => {
+              console.error(`D-ID agent error for ${avatar.name}:`, error);
+              setError(error);
+            },
+            onStatusChange: (status) => {
+              console.log(
+                `D-ID agent status changed for ${avatar.name}:`,
+                status
+              );
+            },
+          };
+
+          // Create the agent instance
+          currentAgent = window.DID.createAgent(agentConfig);
+          setAgent(currentAgent);
+
+          console.log(`D-ID agent initialized for ${avatar.name}`);
+        }
+      } catch (error) {
+        console.error(
+          `Failed to initialize D-ID agent for ${avatar.name}:`,
+          error
         );
-      } else {
-        console.log(`Script already exists for ${avatar.name}`);
-        setScriptLoaded(true);
+        setError(error);
       }
-    }, delay);
+    };
+
+    // Initialize with delay
+    timeoutId = setTimeout(initializeAgent, delay);
 
     // Cleanup function
     return () => {
-      clearTimeout(timer);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      if (currentAgent) {
+        try {
+          currentAgent.destroy();
+        } catch (e) {
+          console.warn("Error destroying agent:", e);
+        }
+      }
     };
   }, [avatar.agentId, avatar.clientKey, avatar.name, delay]);
 
@@ -105,15 +156,22 @@ function AvatarCard({ avatar, delay = 0 }) {
                 title={`${avatar.name} Digital Avatar`}
               />
             ) : avatar.agentId ? (
-              // Use D-ID agent container if agentId is provided
+              // Use D-ID SDK container if agentId is provided
               <div
-                id={`did-agent-${avatar.agentId}`}
+                ref={containerRef}
                 className="w-full h-full rounded-2xl border border-black-200 shadow-lg bg-white flex items-center justify-center"
                 style={{ minHeight: "350px" }}>
-                {/* This content will be replaced by D-ID agent */}
-                {!scriptLoaded && (
+                {/* This content will be replaced by D-ID SDK */}
+                {!sdkLoaded && !error && (
                   <div className="text-gray-400 text-sm animate-pulse">
                     Loading {avatar.name}...
+                  </div>
+                )}
+                {error && (
+                  <div className="text-red-400 text-sm text-center p-4">
+                    Failed to load {avatar.name}
+                    <br />
+                    <span className="text-xs">{error.message}</span>
                   </div>
                 )}
               </div>
