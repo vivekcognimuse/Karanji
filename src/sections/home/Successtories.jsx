@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import CaseStudyCard from "@/components/cards/CaseStudyCard";

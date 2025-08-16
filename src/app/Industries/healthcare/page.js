@@ -59,7 +59,7 @@ const industryData = {
     {
       id: 2,
 
-      icon: "/Industries & its pages/Healthcare/5.svg", 
+      icon: "/Industries & its pages/Healthcare/5.svg",
       title: "Financial Pressure",
 
       description:
@@ -166,7 +166,7 @@ const digitalTransformationData = {
   ],
 };
 const strategicRoadmapData = {
-  sectionTitle: "Strategic StrategicRoadmap for Healthcare Transformation",
+  sectionTitle: "Strategic Roadmap for Healthcare Transformation",
   sectionDescription:
     "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
   roadmapData: [

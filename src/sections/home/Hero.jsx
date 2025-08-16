@@ -18,26 +18,37 @@ const HeroSection = ({ data }) => {
             practical AI implementation.
           </P1>
         </div>
-
+        <div className="w-full lg:hidden lg:w-1/3">
+          <div className=" w-full  flex justify-center ">
+            <Image
+              src={logo || "/home/logo.webp"}
+              alt="Karanji Logo"
+              className=" w-[50vw] h-full aspect-auto lg:w-full "
+              width={500}
+              height={500}
+              priority
+            />
+          </div>
+        </div>
         {/* CTA Buttons */}
         <div className="flex   flex-col sm:flex-row gap-4">
           <Link href="/technology-solutions">
-            <Button className="">Explore Our Solutions</Button>
+            <Button className="w-full md:w-fit">Explore Our Solutions</Button>
           </Link>
           <Link href="/resources">
-            <Button variant="secondary" className="">
+            <Button variant="secondary" className="w-full md:w-fit">
               View Case Studies
             </Button>
           </Link>
         </div>
       </div>
 
-      <div className="w-full lg:w-1/3">
+      <div className="w-full hidden lg:block lg:w-1/3">
         <div className=" w-full h-96">
           <Image
             src={logo || "/home/logo.webp"}
             alt="Karanji Logo"
-            className=" "
+            className=" w-[50vw] md:w-full "
             width={500}
             height={500}
             priority

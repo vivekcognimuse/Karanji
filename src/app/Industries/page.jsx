@@ -13,7 +13,7 @@ const ctaData = {
   description:
     "Let’s collaborate to bring your next industrial innovation to life with AI, XR, & digital learning ",
   PrimaryButtonText: "Schedule a Consultation",
-  PrimaryButtonLink: "/",
+  PrimaryButtonLink: "/contact",
 };
 const industriesData = {
   title: "Purpose — Built for Complex Industries.",
@@ -75,7 +75,7 @@ const cards = [
     id: 33,
     title: "HealthCare",
 
-    image: "",
+    image: null,
     subTitle: "Reimagining Healthcare",
     hoverContent: [
       "Digital Twin Readiness Assessment",
