@@ -6,6 +6,7 @@ import { P2 } from "../CustomTags";
 import Link from "next/link";
 
 const TestimonialCard = ({ testimonial }) => {
+  console.log("Testimonial Data:", testimonial);
   return (
     <div className="rounded-3xl shadow-lg border max-w-5xl mx-auto border-black/20 p-4 sm:p-6 lg:p-8 bg-white">
       {testimonial?.tag && (
