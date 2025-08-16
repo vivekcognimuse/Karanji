@@ -3,6 +3,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
 import { P2 } from "../CustomTags";
+import Link from "next/link";
 
 const TestimonialCard = ({ testimonial }) => {
   return (
@@ -31,10 +32,12 @@ const TestimonialCard = ({ testimonial }) => {
       </div>
 
       <P2 className="text-black-500 mb-6">{testimonial?.description}</P2>
-      <div className="flex">
-        <Button className="ml-auto" variant="text">
-          {testimonial?.link || "Read Full CaseStudy"}
-        </Button>
+      <div className="flex justify-end">
+        <Link href={"/case-studies/" + (testimonial?.ctaLink || "")}>
+          <Button className="" variant="text">
+            {testimonial?.ctaText || "Read Full CaseStudy"}
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -1,211 +1,225 @@
-import React, { useEffect, useRef } from "react";
+"use client";
 
-const StickyVideoScroll = () => {
-  const videoRef = useRef(null);
+import React, { useRef, useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+const ScrollImageSequence = () => {
   const containerRef = useRef(null);
-  const textRefs = useRef([]);
+  const canvasRef = useRef(null);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const imagesRef = useRef([]);
+  const animationRef = useRef(null);
+
+  const frameCount = 480;
+
+  // Function to get current frame path
+  const currentFrame = (index) => `/animate/${index}.jpg`;
 
   useEffect(() => {
-    // Dynamically load GSAP and ScrollTrigger
-    const loadGSAP = async () => {
-      const gsapScript = document.createElement("script");
-      gsapScript.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
-      document.head.appendChild(gsapScript);
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
 
-      const scrollTriggerScript = document.createElement("script");
-      scrollTriggerScript.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js";
-      document.head.appendChild(scrollTriggerScript);
+    const context = canvas.getContext("2d");
 
-      // Wait for scripts to load
-      await new Promise((resolve) => {
-        let loaded = 0;
-        const checkLoaded = () => {
-          loaded++;
-          if (loaded === 2) resolve();
-        };
-        gsapScript.onload = checkLoaded;
-        scrollTriggerScript.onload = checkLoaded;
-      });
-
-      // Initialize GSAP animations after scripts are loaded
-      initializeAnimations();
+    // Set canvas size to window size minus navbar
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 80; // Account for 80px navbar
     };
 
-    const initializeAnimations = () => {
-      const gsap = window.gsap;
-      const ScrollTrigger = window.ScrollTrigger;
-      gsap.registerPlugin(ScrollTrigger);
+    setCanvasSize();
 
-      const video = videoRef.current;
-      const container = containerRef.current;
+    // Preload all images
+    const preloadImages = async () => {
+      const imagePromises = [];
 
-      if (!video || !container) return;
+      for (let i = 1; i <= frameCount; i++) {
+        const promise = new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = currentFrame(i);
 
-      // Ensure video metadata is loaded before accessing duration
-      video.addEventListener("loadedmetadata", () => {
-        console.log("Video duration:", video.duration); // Log the video duration
-        const videoDuration = video.duration;
+          img.onload = () => {
+            imagesRef.current[i - 1] = img;
+            const progress = Math.round((i / frameCount) * 100);
+            setLoadingProgress(progress);
+            resolve();
+          };
 
-        // Create ScrollTrigger for video playback control
-        ScrollTrigger.create({
-          trigger: container,
-          start: "top top",
-          end: "+=300%", // Adjust this value to control scroll length
-          pin: true,
-          scrub: 1, // This makes scroll position map directly to video time
-          onUpdate: (self) => {
-            // Update video time based on scroll progress
-            const progress = self.progress;
-            video.currentTime = videoDuration * progress;
-          },
-          onEnter: () => {
-            // Ensure video is ready to play when it enters the view
-            video
-              .play()
-              .then(() => {
-                video.pause(); // Pause immediately as we control via scroll
-              })
-              .catch((e) => console.log("Video play error:", e));
-          },
+          img.onerror = () => {
+            console.error(`Failed to load image: ${currentFrame(i)}`);
+            reject();
+          };
         });
 
-        // Animate overlay text elements using GSAP
-        textRefs.current.forEach((el, index) => {
-          if (el) {
-            gsap.fromTo(
-              el,
-              {
-                opacity: 0,
-                y: 50,
-                scale: 0.9,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                scrollTrigger: {
-                  trigger: container,
-                  start: `top+=${index * 25}% top`,
-                  end: `top+=${index * 25 + 20}% top`,
-                  scrub: 1,
-                  toggleActions: "play reverse play reverse",
-                },
-              }
-            );
-          }
-        });
-      });
-
-      // Clean up function to remove ScrollTriggers
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
-    };
-
-    loadGSAP();
-
-    // Cleanup
-    return () => {
-      const triggers = window.ScrollTrigger?.getAll();
-      if (triggers) {
-        triggers.forEach((trigger) => trigger.kill());
+        imagePromises.push(promise);
       }
+
+      try {
+        await Promise.all(imagePromises);
+        setIsLoading(false);
+        // Draw the first frame once all images are loaded
+        if (imagesRef.current[0]) {
+          drawImage(0);
+        }
+      } catch (error) {
+        console.error("Error loading images:", error);
+        setIsLoading(false);
+      }
+    };
+
+    // Function to draw image on canvas
+    const drawImage = (frameIndex) => {
+      if (!imagesRef.current[frameIndex] || !context) return;
+
+      const img = imagesRef.current[frameIndex];
+
+      // Clear canvas
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // CROP SETTINGS - Adjust these to remove borders from source images
+      const cropPixels = 0; // Change this to crop borders (e.g., 10 for 10px border)
+      // Or use percentage: const cropPercent = 0.02; // 2% crop from each side
+
+      // Calculate source image dimensions after cropping
+      const sourceX = cropPixels; // Start X position in source image
+      const sourceY = cropPixels; // Start Y position in source image
+      const sourceWidth = img.width - cropPixels * 2; // Width to grab from source
+      const sourceHeight = img.height - cropPixels * 2; // Height to grab from source
+
+      // SCALE FACTOR - Adjust this to control image size (0.5 = 50%, 0.7 = 70%, etc.)
+      const scaleFactor = 0.9; // Change this value to make images smaller/larger
+
+      // Calculate dimensions to maintain aspect ratio and FIT the image within canvas
+      const canvasAspect = canvas.width / canvas.height;
+      const imgAspect = sourceWidth / sourceHeight; // Use cropped dimensions for aspect ratio
+
+      let drawWidth, drawHeight, offsetX, offsetY;
+
+      if (canvasAspect > imgAspect) {
+        // Canvas is wider than image - fit by height
+        drawHeight = canvas.height * scaleFactor;
+        drawWidth = drawHeight * imgAspect;
+        offsetX = (canvas.width - drawWidth) / 2;
+        offsetY = (canvas.height - drawHeight) / 2;
+      } else {
+        // Canvas is taller than image - fit by width
+        drawWidth = canvas.width * scaleFactor;
+        drawHeight = drawWidth / imgAspect;
+        offsetX = (canvas.width - drawWidth) / 2;
+        offsetY = (canvas.height - drawHeight) / 2;
+      }
+
+      // Optional: Add a background color or gradient
+      // context.fillStyle = '#111111';
+      // context.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the image with cropping (9 parameters version of drawImage)
+      context.drawImage(
+        img,
+        sourceX,
+        sourceY,
+        sourceWidth,
+        sourceHeight, // Source rectangle (cropped)
+        offsetX,
+        offsetY,
+        drawWidth,
+        drawHeight // Destination rectangle
+      );
+    };
+
+    // Store drawImage function for GSAP animation
+    animationRef.current = { drawImage };
+
+    // Start preloading images
+    preloadImages();
+
+    // Handle window resize
+    const handleResize = () => {
+      setCanvasSize();
+      // Redraw current frame on resize
+      const trigger = ScrollTrigger.getById("imageSequence");
+      if (trigger) {
+        const currentProgress = trigger.progress || 0;
+        const frameIndex = Math.min(
+          frameCount - 1,
+          Math.floor(currentProgress * frameCount)
+        );
+        drawImage(frameIndex);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
+  // GSAP Animation with ScrollTrigger
+  useGSAP(
+    () => {
+      if (!isLoading && animationRef.current && containerRef.current) {
+        // Kill any existing ScrollTrigger with the same ID first
+        const existingTrigger = ScrollTrigger.getById("imageSequence");
+        if (existingTrigger) {
+          existingTrigger.kill();
+        }
+
+        // Create new timeline
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            id: "imageSequence",
+            trigger: containerRef.current,
+            start: "top top",
+            end: "+=1800%", // Increased from 400% to 800% for slower animation
+            pin: true,
+            scrub: 1, // Increased from 0.5 to 1 for smoother, slower scrubbing
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const frameIndex = Math.min(
+                frameCount - 1,
+                Math.floor(self.progress * (frameCount - 1))
+              );
+
+              if (animationRef.current?.drawImage) {
+                animationRef.current.drawImage(frameIndex);
+              }
+            },
+          },
+        });
+
+        // Cleanup function
+        return () => {
+          if (tl.scrollTrigger) {
+            tl.scrollTrigger.kill();
+          }
+          tl.kill();
+        };
+      }
+    },
+    { dependencies: [isLoading], scope: containerRef, revertOnUpdate: true }
+  );
+
   return (
-    <div className="min-h-screen bg-black">
-      {/* First Section - Hero */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
-        <div className="text-center text-white">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-            Welcome to Our Site
-          </h1>
-          <p className="text-xl text-gray-300">
-            Scroll down to experience the magic
-          </p>
-          <div className="mt-8 animate-bounce">
-            <svg
-              className="w-6 h-6 mx-auto text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </div>
-        </div>
+    <>
+      {/* Image Sequence Animation Section */}
+      <section ref={containerRef} className="relative h-screen pt-20">
+        <canvas
+          ref={canvasRef}
+          className="absolute top-20 left-0 w-full"
+          style={{ height: "calc(100vh - 80px)" }}
+        />
       </section>
-
-      {/* Second Section - Sticky Video */}
-      <section
-        ref={containerRef}
-        className="relative h-screen overflow-hidden bg-black">
-        {/* Video Element */}
-        <video
-          ref={videoRef}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          playsInline
-          muted
-          preload="auto">
-          <source src="/video.mp4" type="video/mp4" />
-          {/* Replace with your video path: "/path/to/your/video.mp4" */}
-        </video>
-
-        {/* Overlay Content (Optional) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="text-center text-white z-10">
-            <h2
-              ref={(el) => (textRefs.current[0] = el)}
-              className="text-5xl font-bold mb-4 drop-shadow-2xl">
-              Immersive Experience
-            </h2>
-            <p
-              ref={(el) => (textRefs.current[1] = el)}
-              className="text-xl drop-shadow-lg">
-              Controlled by your scroll
-            </p>
-          </div>
-        </div>
-
-        {/* Dark overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black bg-opacity-30 pointer-events-none"></div>
-      </section>
-
-      {/* Third Section - Continue scrolling */}
-      <section className="h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900">
-        <div className="text-center text-white max-w-3xl px-6">
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Continue Your Journey
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            The video section above was controlled entirely by your scroll. This
-            technique creates engaging, interactive experiences.
-          </p>
-          <button className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold hover:scale-105 transition-transform">
-            Explore More
-          </button>
-        </div>
-      </section>
-
-      {/* Fourth Section */}
-      <section className="h-screen flex items-center justify-center bg-gray-900">
-        <div className="text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">More Content Below</h2>
-          <p className="text-xl text-gray-400">
-            Keep scrolling to discover more...
-          </p>
-        </div>
-      </section>
-    </div>
+    </>
   );
 };
 
-export default StickyVideoScroll;
+export default ScrollImageSequence;

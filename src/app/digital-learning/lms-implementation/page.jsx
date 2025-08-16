@@ -260,7 +260,8 @@ const successStoriesData = {
       ],
       description:
         "AI-certification LMS by building a per-question JavaScript timer, rewriting score logic to store the highest attempt, and adjusting SCORM resume settings so learners can restart cleanly—delivering a smooth, certification-ready experience.",
-      link: "Read Full CaseStudy",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "11",
     },
     {
       title: "Automobile-EV Training Module",
@@ -270,7 +271,8 @@ const successStoriesData = {
       ],
       description:
         "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking.",
-      link: "Read Full CaseStudy",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "12",
     },
   ],
 };

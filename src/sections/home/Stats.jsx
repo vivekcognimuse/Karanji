@@ -23,6 +23,7 @@ const StatsSection = () => {
           {stats.map((stat, index) =>
             index === 0 ? (
               <div
+                key={index}
                 ref={yearsContainerRef}
                 className="w-full lg:w-80 text-center space-y-4 lg:space-y-6">
                 <p
