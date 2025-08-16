@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         className={`${albertSans.variable} ${outfit.variable}   antialiased`}>
         <Navbar />
         {/* <SmoothScrollWrapper> */}
-        <div className="bg-[url('/page/home.svg')]  bg-cover bg-right bg-no-repeat">
+        <div className="bg-[url('/page/home.svg')] pb-16 bg-cover bg-right bg-no-repeat">
           {children}
         </div>
         <Footer />

@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 
 // client-only, returns null, runs GSAP
 import HeroReveal from "@/components/animations/HeroReveal";
+import ScrollButton from "@/components/ScrollButton copy";
 
 export default function DigitalTwinHeroSection({ data, bgImage }) {
   const {
@@ -43,7 +44,13 @@ export default function DigitalTwinHeroSection({ data, bgImage }) {
 
         <div className="flex-center mt-8 gap-8">
           {PrimaryButtonText && PrimaryButtonLink && (
-            <Button href={PrimaryButtonLink}>{PrimaryButtonText}</Button>
+            <ScrollButton
+              ctaLink={PrimaryButtonLink}
+              ctaText={PrimaryButtonText}
+              variant="primary"
+              href={PrimaryButtonLink}>
+              {PrimaryButtonText}
+            </ScrollButton>
           )}
           {SecondaryButtonText && SecondaryButtonLink && (
             <Button href={SecondaryButtonLink} variant="secondary" className="">

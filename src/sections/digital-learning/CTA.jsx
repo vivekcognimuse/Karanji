@@ -14,7 +14,7 @@ const CTA = ({ className = "", data }) => {
   } = data || {};
 
   return (
-    <div className={`text-center pb-16 ${className}`}>
+    <div className={`text-center  ${className}`}>
       <h3>{title}</h3>
       <P2>{description}</P2>
       <div className="flex-center flex-col lg:flex-row mt-8 gap-8">

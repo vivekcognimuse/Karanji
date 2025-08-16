@@ -6,7 +6,7 @@ const heroData = {
   title: "Meet Our Digital Avatars",
   subTitle:
     "At Karanji, we've built intelligent clones of our team members to help you understand our services, explore solutions, & get real-time, personalized guidance - all while reflecting the style & expertise of our core team.",
-  PrimaryButtonLink: "/",
+  PrimaryButtonLink: "choose-avatar-section",
   PrimaryButtonText: "Talk to an Avatar Now",
 
   backgroundImage: "/path/to/your/hero-image.jpg",
@@ -94,7 +94,9 @@ export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <DigitalTwinHeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
-      <ChooseAvatarSection data={avatarData} />
+      <div id="choose-avatar-section">
+        <ChooseAvatarSection data={avatarData} />
+      </div>
       <RealImpactResults sectionData={sectionData} />
       <CTA data={ctaData} />
     </main>
