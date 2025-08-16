@@ -5,7 +5,7 @@ const IndustriesSection = ({ data, cards }) => {
   const { title, description } = data || {};
 
   return (
-    <section className="w-full bg-gradient-to-br from-white via-[#faf6ff] to-[#f3f7ff]">
+    <section className="w-full">
       <div className="mx-auto max-w-7xl px-4 lg:px-10 py-16 lg:py-20">
         {/* Header Section - Title left 40%, Description right 60% */}
         <div className="mb-12 lg:mb-16">

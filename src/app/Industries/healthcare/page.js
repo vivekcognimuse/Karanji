@@ -36,7 +36,7 @@ const ctaData = {
   description:
     " To know more about these cases or discuss any other requirement for transformation of Healthcare ",
   PrimaryButtonText: "Please Click here",
-  PrimaryButtonLink: "/",
+  PrimaryButtonLink: "/contact",
 };
 const industryData = {
   sectionTitle: "Industry Challenges & Priorities",
@@ -126,7 +126,7 @@ const digitalTransformationData = {
     {
       id: 1,
       title: "AI Leadership",
-      icon: "/Icons/Industries/Healthcare/181871881_ad886793-50ea-40d7-91fe-c9a4318f47c8 (1) 1.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/Ai.svg", // Replace with your icon path
       points: [
         "77% of leaders prioritize AI",
         "73% plan to use Generative AI",
@@ -136,7 +136,7 @@ const digitalTransformationData = {
     {
       id: 2,
       title: "XR/VR Revolution",
-      icon: "/Icons/Industries/Healthcare/vr-glasses_3646958 1.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/vr-glasses_3646958 1.svg", // Replace with your icon path
       points: [
         "68% medical schools use VR",
         "71% doctors prefer VR training",
@@ -146,7 +146,7 @@ const digitalTransformationData = {
     {
       id: 3,
       title: "Digital Learning",
-      icon: "Icons/learning-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/online-learning_18510398 1.svg", // Replace with your icon path
       points: [
         "Remote Acceleration",
         "AI personalizes training paths",
@@ -156,7 +156,7 @@ const digitalTransformationData = {
     {
       id: 4,
       title: "Patient Centric Care",
-      icon: "Icons/patient-care-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/target-user_16897971 1.svg", // Replace with your icon path
       points: [
         "Digital front doors",
         "$265B home care by 2025",
@@ -166,7 +166,7 @@ const digitalTransformationData = {
   ],
 };
 const strategicRoadmapData = {
-  sectionTitle: "Strategic StrategicRoadmap for Healthcare Transformation",
+  sectionTitle: "Strategic Roadmap for Healthcare Transformation",
   sectionDescription:
     "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
   roadmapData: [
