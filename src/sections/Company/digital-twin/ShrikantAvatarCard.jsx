@@ -1,28 +1,16 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P3 } from "@/components/CustomTags";
 
-export default function AvatarCardSrikant() {
-  // Srikant's data embedded directly in the component
-  const avatar = {
-    name: "Srikant",
-    role: "Solution Architect, Karanji",
-    image: "/Company/Digital Twins/Srikant Digital Twin.webp",
-    agentId: "v2_agt_e98VhldA",
-    clientKey:
-      "Z29vZ2xlLW9hdXRoMnwxMTI5OTgwMjkzOTg4OTUzMjg4MzA6RGdndlE0ZHJIUzB6SC1hLVZfckp6",
-    expertise: [
-      "Solves AI Implementation Challenges",
-      "Explore Industry Use Cases",
-      "Get Tailored Frameworks",
-      "Get Actionable Templates",
-    ],
-    ctaText: "Talk to Our Solution Architect",
-  };
-
+// Single AvatarCard component that takes props
+function AvatarCard({ avatar, delay = 0 }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const scriptLoadedRef = useRef(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [useIframe, setUseIframe] = useState(false);
+  const containerRef = useRef(null);
 
   const handleMouseEnter = () => {
     setIsFlipped(true);
@@ -32,71 +20,37 @@ export default function AvatarCardSrikant() {
     setIsFlipped(false);
   };
 
-  // Load D-ID script when component mounts
+  // Generate D-ID iframe URL from agent details
+  const generateIframeUrl = (agentId, clientKey) => {
+    // Use D-ID's hosted agent interface
+    return `https://agents.d-id.com/embed/${agentId}?key=${encodeURIComponent(
+      clientKey
+    )}&mode=chat`;
+  };
+
   useEffect(() => {
-    // Only load if we have an agentId and haven't loaded yet
-    if (!avatar.agentId || scriptLoadedRef.current) {
+    if (!avatar.agentId) {
+      setIsLoading(false);
       return;
     }
 
-    // Add a delay for the second avatar to avoid conflicts
-    const loadDelay = 2000; // 2 second delay for Srikant
+    // For D-ID agents, we'll use iframe approach to avoid CORS issues
     const timer = setTimeout(() => {
-      // Create a unique ID for this avatar's container
-      const containerId = `did-agent-${avatar.agentId}`;
-
-      // Check if script already exists for this agent
-      const existingScript = document.querySelector(
-        `script[data-agent-id="${avatar.agentId}"]`
-      );
-
-      if (!existingScript) {
-        const script = document.createElement("script");
-        script.type = "module";
-        script.src = "https://agent.d-id.com/v2/index.js";
-        script.setAttribute("data-mode", "full");
-        script.setAttribute("data-client-key", avatar.clientKey);
-        script.setAttribute("data-agent-id", avatar.agentId);
-        script.setAttribute("data-name", "did-agent");
-        script.setAttribute("data-monitor", "true");
-        script.setAttribute("data-target-id", containerId);
-
-        script.onload = () => {
-          console.log(`D-ID agent loaded for ${avatar.name}`);
-          scriptLoadedRef.current = true;
-        };
-
-        script.onerror = (error) => {
-          console.error(`Failed to load D-ID agent for ${avatar.name}:`, error);
-        };
-
-        document.body.appendChild(script);
-        console.log(
-          `Appending D-ID script for ${avatar.name} with container ID: ${containerId}`
-        );
-      } else {
-        console.log(`Script already exists for ${avatar.name}`);
-        scriptLoadedRef.current = true;
+      try {
+        setUseIframe(true);
+        setIsLoading(false);
+        console.log(`Using iframe for ${avatar.name}`);
+      } catch (err) {
+        console.error(`Failed to initialize ${avatar.name}:`, err);
+        setError(err.message);
+        setIsLoading(false);
       }
-    }, loadDelay);
+    }, delay);
 
-    // Cleanup function - only runs on unmount
     return () => {
       clearTimeout(timer);
-      // Only remove script if component is being unmounted
-      const scriptToRemove = document.querySelector(
-        `script[data-agent-id="${avatar.agentId}"]`
-      );
-      if (scriptToRemove && scriptToRemove.parentNode) {
-        try {
-          scriptToRemove.parentNode.removeChild(scriptToRemove);
-          scriptLoadedRef.current = false;
-        } catch (e) {
-          console.log(`Script already removed for ${avatar.name}`);
-        }
-      }
     };
-  }, [avatar.agentId, avatar.clientKey, avatar.name]);
+  }, [avatar.agentId, avatar.clientKey, avatar.name, delay]);
 
   return (
     <div
@@ -125,30 +79,59 @@ export default function AvatarCardSrikant() {
           {/* Avatar Container - Takes most of the card space */}
           <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
             {avatar.iframeUrl ? (
-              // Use direct iframe if URL is provided
+              // Use explicit iframe URL if provided
               <iframe
                 src={avatar.iframeUrl}
                 className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
                 frameBorder="0"
-                allow="microphone; camera"
+                allow="microphone; camera; autoplay"
                 allowFullScreen
                 title={`${avatar.name} Digital Avatar`}
               />
+            ) : avatar.agentId && useIframe ? (
+              // Use generated iframe URL for D-ID agents
+              <iframe
+                src={generateIframeUrl(avatar.agentId, avatar.clientKey)}
+                className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
+                frameBorder="0"
+                allow="microphone; camera; autoplay"
+                allowFullScreen
+                title={`${avatar.name} Digital Avatar`}
+                onLoad={() => {
+                  console.log(`Iframe loaded for ${avatar.name}`);
+                  setIsLoading(false);
+                }}
+                onError={(e) => {
+                  console.error(`Iframe failed to load for ${avatar.name}:`, e);
+                  setError("Failed to load avatar");
+                  setIsLoading(false);
+                }}
+              />
             ) : avatar.agentId ? (
-              // Use D-ID agent container if agentId is provided
+              // Loading/Error state for agents
               <div
-                id={`did-agent-${avatar.agentId}`}
+                ref={containerRef}
                 className="w-full h-full rounded-2xl border border-black-200 shadow-lg bg-white flex items-center justify-center"
                 style={{ minHeight: "350px" }}>
-                {/* This content will be replaced by D-ID agent */}
-                {!scriptLoadedRef.current && (
+                {isLoading && (
                   <div className="text-gray-400 text-sm animate-pulse">
                     Loading {avatar.name}...
                   </div>
                 )}
+                {error && (
+                  <div className="text-red-400 text-sm text-center p-4">
+                    <div>Failed to load {avatar.name}</div>
+                    <div className="text-xs mt-1">{error}</div>
+                    <button
+                      onClick={() => window.open(avatar.ctaLink, "_blank")}
+                      className="mt-2 text-blue-500 underline text-xs">
+                      Chat directly instead
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
-              // Fallback to image if neither iframe URL nor agentId is provided
+              // Fallback to image if no agent setup
               <Image
                 src={avatar.image}
                 alt={avatar.name}
@@ -200,12 +183,63 @@ export default function AvatarCardSrikant() {
           </div>
 
           <div className="relative z-10 mt-8 mx-auto">
-            <Button variant="secondary" size="sm" className="">
-              {avatar.ctaText || `Talk to ${avatar.name}`}
-            </Button>
+            <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
+              <Button variant="secondary" size="sm" className="">
+                {avatar.ctaText || `Talk to ${avatar.name}`}
+              </Button>
+            </a>
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+// Container component that manages both avatars
+export default function AvatarCardsContainer2() {
+  const avatarsData = [
+    {
+      name: "Prakash",
+      role: "CEO, Karanji",
+      image: "/Company/Digital Twins/Prakash digital twin.webp",
+      agentId: "v2_agt_BlxDCvda",
+      clientKey:
+        "YXV0aDB8NjgyYzc1ZGU4M2Y5YWU0YjM3YWJiNGNkOlVOWDF5UnZ3Mk9hZVg2bjJBbDViZw==",
+      expertise: [
+        "Know About the Company",
+        "Explore Our Services",
+        "How Karanji solves your problem",
+      ],
+      ctaText: "Talk to Our CEO",
+      ctaLink: "https://linkly.link/2BKPj",
+    },
+    {
+      name: "Srikant",
+      role: "Solution Architect, Karanji",
+      image: "/Company/Digital Twins/Srikant Digital Twin.webp",
+      agentId: "v2_agt_e98VhldA",
+      clientKey:
+        "Z29vZ2xlLW9hdXRoMnwxMTI5OTgwMjkzOTg4OTUzMjg4MzA6RGdndlE0ZHJIUzB6SC1hLVZfckp6",
+      expertise: [
+        "Solves AI Implementation Challenges",
+        "Explore Industry Use Cases",
+        "Get Tailored Frameworks",
+        "Get Actionable Templates",
+      ],
+      ctaText: "Talk to Our Solution Architect",
+      ctaLink: "https://2ly.link/28kzS",
+    },
+  ];
+
+  return (
+    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+      {avatarsData.map((avatar, index) => (
+        <AvatarCard
+          key={avatar.agentId}
+          avatar={avatar}
+          delay={index * 1000} // Reduced delay since we're using iframes
+        />
+      ))}
     </div>
   );
 }
