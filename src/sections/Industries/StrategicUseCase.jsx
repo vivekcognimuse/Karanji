@@ -82,6 +82,7 @@ const StrategicUseCase = ({ data, icon }) => {
                         alt={title}
                         width={40}
                         height={40}
+                        unoptimized
                         className="size-10"
                       />
                     </div>
