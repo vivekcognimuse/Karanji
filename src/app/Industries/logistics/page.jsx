@@ -338,7 +338,7 @@ export default async function Logistics() {
 
       <ServiceOfferings
         data={digitalOfferingsData}
-        icon="/entertainment/vfx/offering" // Update if using dynamic icons
+        icon="/Industries & its pages/Logistics/offering" // Update if using dynamic icons
       />
 
       <StrategicUseCase data={strategicUseCaseData} />

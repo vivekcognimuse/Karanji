@@ -128,7 +128,7 @@ const digitalOfferingsData = {
       description:
         "Digitizing retail & operations for better revenue & experience.",
       featured: false,
-      icon: "/Icons/airlines.svg",
+      icon: "/Industries & its pages/Aviation/airlines.svg",
       hoverContent: [
         { text: "Moving to modern retailing platforms" },
         { text: "Focusing on CX efficiency" },
@@ -140,7 +140,7 @@ const digitalOfferingsData = {
       description:
         "Digitally transforming operations with AI, biometrics, & smart infrastructure.",
       featured: false,
-      icon: "/Icons/airports.svg",
+      icon: "/Industries & its pages/Aviation/airport_10057815 1.svg",
       hoverContent: [
         { text: "Upgrading core operational systems to boost efficiency" },
         { text: "RFID for streamlined security, boarding & baggage handling" },
@@ -307,7 +307,7 @@ export default async function Aviation() {
 
       <ServiceOfferings
         data={digitalOfferingsData}
-        icon="/entertainment/vfx/offering" // Update if using dynamic icons
+        icon="/Industries & its pages/Aviation/offering" // Update if using dynamic icons
       />
 
       <StrategicUseCase data={strategicUseCaseData} />
