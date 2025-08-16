@@ -84,7 +84,7 @@ const cards = [
       "Business Case Development",
       "Roadmap Creation",
     ],
-    ctaLink: "/industries/healthcare",
+    ctaLink: "/Industries/healthcare",
     icon: "/Icons/Industries/fluent-mdl2_health.svg",
   },
   {
@@ -97,7 +97,7 @@ const cards = [
       "Flight Crew Training Simulations",
       "Safety Compliance Automation",
     ],
-    ctaLink: "/industries/aviation",
+    ctaLink: "/Industries/aviation",
     icon: "/Icons/Industries/mage_aeroplane.svg",
   },
   {
@@ -110,7 +110,7 @@ const cards = [
       "Warehouse Automation",
       "Real-time Tracking & Analytics",
     ],
-    ctaLink: "/industries/logistics",
+    ctaLink: "/Industries/logistics",
     icon: "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
   },
   {
@@ -123,7 +123,7 @@ const cards = [
       "Safety Training & Compliance",
       "Operational Efficiency Tools",
     ],
-    ctaLink: "/industries/oil-and-gas",
+    ctaLink: "/Industries/oil-and-gas",
     icon: "/Icons/Industries/Group.svg",
   },
 ];
