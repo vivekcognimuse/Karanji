@@ -389,7 +389,7 @@ export default async function HealthCare() {
       </div>
       <Methodology data={strategicFramework} />
       <StrategicRoadmap data={strategicRoadmapData} />
-      <StrategicUseCase data={strategicUseCaseData} />
+      <StrategicUseCase data={strategicUseCaseData} icon="/Industries & its pages/Healthcare/usecase" />
       <CTA data={ctaData} />
     </main>
   );

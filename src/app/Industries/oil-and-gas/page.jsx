@@ -232,25 +232,25 @@ const digitalTransformationData = {
     {
       id: 1,
       title: "Operational Technology",
-      icon: "Icons/operational-tech-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Oil and gas/Increase.svg", // Replace with your icon path
       points: ["Digital Twin", "Remote Operations", "Automation"],
     },
     {
       id: 2,
       title: "Workforce Solutions",
-      icon: "Icons/workforce-solutions-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Oil and gas/engagement_12182606 1.svg", // Replace with your icon path
       points: ["VR/AR Applications", "Knowledge Management", "Mobile Learning"],
     },
     {
       id: 3,
       title: "Data & Analytics",
-      icon: "Icons/data-analytics-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Oil and gas/Increase.svg", // Replace with your icon path
       points: ["Advanced Analytics", "Machine Learning", "Edge Computing"],
     },
     {
       id: 4,
       title: "Sustainability",
-      icon: "Icons/sustainability-icon.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Oil and gas/sustainable_17002269 1.svg", // Replace with your icon path
       points: ["Emissions Monitoring", "Energy Efficiency", "ESG Reporting"],
     },
   ],
@@ -268,7 +268,10 @@ export default async function Aviation() {
       <DigitalTransformation data={digitalTransformationData} />
       <StrategicPriorities data={strategicPrioritiesData} />
 
-      <StrategicUseCase data={strategicUseCaseData} />
+      <StrategicUseCase
+        data={strategicUseCaseData}
+        icon="/Industries & its pages/Oil and gas/usecase"
+      />
       <CTA data={ctaData} />
     </main>
   );
