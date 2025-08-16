@@ -62,7 +62,7 @@ const NAV_LINKS = [
             description: "Customizable, & seamlessly integrated learning.",
           },
           {
-            name: "Advanced Analytics",
+            name: "Advanced Learning Analytics",
             href: "/digital-learning/analytics",
             icon: "/nav/advanced-analytics.svg",
             description: "Actionable insights for better performance.",
@@ -103,6 +103,13 @@ const NAV_LINKS = [
     href: "/Industries",
     links: [
       {
+        name: "Oil & Gas",
+        href: "/Industries/oil-and-gas",
+        icon: "/nav/oil-gas.png",
+        description: "Fueling digital innovation & efficiency.",
+      },
+
+      {
         name: "Healthcare",
         href: "/Industries/healthcare",
         icon: "/nav/healthcare.png",
@@ -119,12 +126,6 @@ const NAV_LINKS = [
         href: "/Industries/logistics",
         icon: "/nav/logistics.png",
         description: "Streamlining supply chains with precision.",
-      },
-      {
-        name: "Oil & Gas",
-        href: "/Industries/oil-and-gas",
-        icon: "/nav/oil-gas.png",
-        description: "Fueling digital innovation & efficiency.",
       },
     ],
   },
@@ -154,7 +155,7 @@ const NAV_LINKS = [
         name: "Digital Twin",
         href: "/company/digital-twin",
         icon: "/nav/digital-twins-simulations.svg",
-        description: "Discover what it's like to work at Karanji.",
+        description: "Talk to our digital employees right now.",
       },
       {
         name: "Contact Us",
