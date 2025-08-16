@@ -398,7 +398,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="sticky bg-white top-0 z-[999] shadow-lg"
+      className="sticky bg-white py-1 top-0 z-[999] shadow-lg"
       role="navigation"
       aria-label="Main navigation flex">
       <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
@@ -408,7 +408,7 @@ export default function Navbar() {
             <Link href="/" aria-label="Karanji Home">
               <Image
                 src="/logo.svg"
-                className="h-12 w-fit"
+                className="h-11 w-fit"
                 alt="Logo"
                 width={100}
                 height={100}
@@ -575,7 +575,7 @@ export default function Navbar() {
                         <Link
                           key={linkIndex}
                           href={link.href}
-                          className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150 select-none
+                          className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF]  transition-colors duration-150 select-none
                           ${
                             isActive(link.href)
                               ? "text-black border-r-2 border-purple-600"

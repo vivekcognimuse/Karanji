@@ -136,7 +136,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-32 mt-16 lg:mt-32">
+    <footer className="w-full max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-32 mt-8 lg:mt-8">
       {/* Top */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
         <Image

@@ -1,0 +1,6 @@
+# robots.txt for blocking all crawlers
+
+User-agent: *
+Disallow: /
+
+# The above means all crawlers are blocked from all pages
