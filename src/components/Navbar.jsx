@@ -105,25 +105,25 @@ const NAV_LINKS = [
       {
         name: "Healthcare",
         href: "/Industries/healthcare",
-        icon: "/nav/healthcare.svg",
+        icon: "/nav/healthcare.png",
         description: "Empowering care with smart technology.",
       },
       {
         name: "Aviation",
         href: "/Industries/aviation",
-        icon: "/nav/aviation.svg",
+        icon: "/nav/aviation.png",
         description: "Transforming aviation with future-ready solutions.",
       },
       {
         name: "Logistics",
         href: "/Industries/logistics",
-        icon: "/nav/logistics.svg",
+        icon: "/nav/logistics.png",
         description: "Streamlining supply chains with precision.",
       },
       {
         name: "Oil & Gas",
         href: "/Industries/oil-and-gas",
-        icon: "/nav/oil-gas.svg",
+        icon: "/nav/oil-gas.png",
         description: "Fueling digital innovation & efficiency.",
       },
     ],
@@ -147,7 +147,7 @@ const NAV_LINKS = [
       {
         name: "Careers",
         href: "/company/careers",
-        icon: "/nav/careers.svg",
+        icon: "/nav/careers.png",
         description: "Join our team & make an impact.",
       },
       {
