@@ -4,6 +4,7 @@ import SuccessStories from "@/sections/Advisory/SuccessStories";
 import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import TechnologyServices from "@/sections/service/Service";
+import Head from "next/head";
 import React from "react";
 
 const heroData = {
