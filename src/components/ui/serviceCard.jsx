@@ -26,7 +26,7 @@ export const ServiceCard = memo(function ServiceCard({
             bgImage={bgImage}
             data={service}
             key={service.id || i}
-            index={i}
+            index={i || service.id}
             data-reveal
             image={service.image}
             data-reveal-dir={dirForIndex(i)}

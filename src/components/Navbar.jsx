@@ -100,9 +100,7 @@ const NAV_LINKS = [
   },
   {
     title: "Industries",
-
     href: "/Industries",
-
     links: [
       {
         name: "Healthcare",
@@ -110,7 +108,6 @@ const NAV_LINKS = [
         icon: "/nav/healthcare.svg",
         description: "Empowering care with smart technology.",
       },
-
       {
         name: "Aviation",
         href: "/Industries/aviation",
@@ -196,14 +193,17 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeSolution, setActiveSolution] = useState(0); // Changed to 0 to show Technology Solutions by default
+  const [activeSolution, setActiveSolution] = useState(0);
   const [mobileExpandedItems, setMobileExpandedItems] = useState({});
   const [currentPath, setCurrentPath] = useState("/");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [touchTimeout, setTouchTimeout] = useState(null);
 
   const navRef = useRef(null);
   const timeoutRef = useRef(null);
   const dropdownRefs = useRef({});
+  const touchStartRef = useRef(null);
+  const lastTouchRef = useRef(null);
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
@@ -214,25 +214,51 @@ export default function Navbar() {
     const handleEscape = (e) => {
       if (e.key === "Escape") {
         setActiveDropdown(null);
-        setActiveSolution(0); // Reset to default instead of null
+        setActiveSolution(0);
       }
     };
 
     const handleClickOutside = (e) => {
+      // Don't close on touch events to prevent premature closing
+      if (e.type === "touchstart") {
+        return;
+      }
+
       if (navRef.current && !navRef.current.contains(e.target)) {
         setActiveDropdown(null);
-        setActiveSolution(0); // Reset to default instead of null
+        setActiveSolution(0);
+      }
+    };
+
+    const handleTouchOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        // Small delay to prevent accidental closes
+        setTimeout(() => {
+          setActiveDropdown(null);
+          setActiveSolution(0);
+        }, 100);
       }
     };
 
     document.addEventListener("keydown", handleEscape);
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleTouchOutside);
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleTouchOutside);
     };
   }, []);
+
+  // Clear timeout on cleanup
+  useEffect(() => {
+    return () => {
+      if (touchTimeout) {
+        clearTimeout(touchTimeout);
+      }
+    };
+  }, [touchTimeout]);
 
   const handleMouseEnter = useCallback(
     (index) => {
@@ -240,7 +266,7 @@ export default function Navbar() {
         clearTimeout(timeoutRef.current);
         setActiveDropdown(index);
         if (index === 1) {
-          setActiveSolution(0); // Set to 0 when hovering Solutions
+          setActiveSolution(0);
         }
       }
     },
@@ -251,7 +277,7 @@ export default function Navbar() {
     if (!isTouchDevice && window.innerWidth >= 768) {
       timeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
-        setActiveSolution(0); // Reset to default instead of null
+        setActiveSolution(0);
       }, 150);
     }
   }, [isTouchDevice]);
@@ -266,11 +292,63 @@ export default function Navbar() {
     [isTouchDevice]
   );
 
-  const handleClick = (index) => {
+  // Enhanced touch handling for main nav items
+  const handleNavTouch = useCallback(
+    (e, index, item) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const now = Date.now();
+      const timeSinceLastTouch = now - (lastTouchRef.current || 0);
+
+      // If dropdown is already open for this item
+      if (activeDropdown === index) {
+        // Double tap detection (within 300ms)
+        if (timeSinceLastTouch < 300 && item.href && item.href !== "#") {
+          // Navigate on double tap
+          window.location.href = item.href;
+          return;
+        }
+
+        // Single tap - close dropdown
+        setActiveDropdown(null);
+        setActiveSolution(0);
+      } else {
+        // Open dropdown
+        setActiveDropdown(index);
+        if (index === 1) {
+          setActiveSolution(0);
+        }
+      }
+
+      lastTouchRef.current = now;
+    },
+    [activeDropdown]
+  );
+
+  // Touch handling for solution sections
+  const handleSolutionTouch = useCallback((e, sectionIndex) => {
+    e.stopPropagation();
+    setActiveSolution(sectionIndex);
+  }, []);
+
+  const handleClick = (e, index, item) => {
+    // For touch devices or mobile screens
     if (isTouchDevice || window.innerWidth < 768) {
+      // If item has dropdown content
+      if (item.links?.length > 0 || item.subSections?.length > 0) {
+        e.preventDefault();
+        handleNavTouch(e, index, item);
+      }
+      // Otherwise allow normal navigation
+    } else {
+      // Desktop behavior
+      if (!item.href || item.href === "#") {
+        e.preventDefault();
+      }
       setActiveDropdown(activeDropdown === index ? null : index);
       if (index === 1) {
-        setActiveSolution(0); // Set to 0 when clicking Solutions
+        setActiveSolution(0);
       }
     }
   };
@@ -301,10 +379,8 @@ export default function Navbar() {
     if (typeof window === "undefined") return {};
 
     if (index === 1) {
-      // Solutions mega menu - use CSS transform for smooth centering
       return {};
     } else {
-      // Regular dropdowns
       const item = dropdownRefs.current[index];
       if (!item) return {};
 
@@ -322,7 +398,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className=" sticky bg-white top-0 z-[999] shadow-lg"
+      className="sticky bg-white top-0 z-[999] shadow-lg"
       role="navigation"
       aria-label="Main navigation flex">
       <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
@@ -341,7 +417,6 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-
           <div className="hidden md:flex text-start md:items-center md:space-x-1">
             {NAV_LINKS.map((item, index) => (
               <div
@@ -349,22 +424,22 @@ export default function Navbar() {
                 className="relative text-nowrap"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                onTouchStart={(e) => {
+                  if (item.links?.length > 0 || item.subSections?.length > 0) {
+                    handleNavTouch(e, index, item);
+                  }
+                }}
                 ref={(el) => (dropdownRefs.current[index] = el)}>
                 <Link
                   href={item.href || "#"}
-                  onClick={(e) => {
-                    // Allow navigation for all items with href
-                    if (!item.href || item.href === "#") {
-                      e.preventDefault();
-                      handleClick(index);
-                    }
-                  }}
-                  className={`px-4 py-2  lg:text-xl  transition-colors duration-200 flex items-center gap-1
+                  onClick={(e) => handleClick(e, index, item)}
+                  className={`px-4 py-2 lg:text-xl transition-colors duration-200 flex items-center gap-1 select-none
                     ${
                       isSectionActive(item)
-                        ? "text-black "
+                        ? "text-black"
                         : "text-black/50 hover:text-black"
-                    }`}
+                    }
+                    ${isTouchDevice ? "touch-manipulation" : ""}`}
                   aria-expanded={activeDropdown === index}
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
@@ -385,7 +460,8 @@ export default function Navbar() {
                 {item.subSections && activeDropdown === index && (
                   <div
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown w-[790px]"
-                    role="menu">
+                    role="menu"
+                    onTouchStart={(e) => e.stopPropagation()}>
                     <div className="flex">
                       <div className="w-1/2 border-r border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
@@ -394,6 +470,9 @@ export default function Navbar() {
                             onMouseEnter={() =>
                               handleSolutionHover(sectionIndex)
                             }
+                            onTouchStart={(e) =>
+                              handleSolutionTouch(e, sectionIndex)
+                            }
                             className={`relative ${
                               activeSolution === sectionIndex
                                 ? "bg-[#F0E4FF]"
@@ -401,15 +480,16 @@ export default function Navbar() {
                             }`}>
                             <Link
                               href={section.href}
-                              className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group
+                              className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group select-none
                                 ${
                                   isActive(section.href) ||
                                   isParentActive(section.links)
                                     ? "border-r-2 border-purple-600"
                                     : ""
-                                }`}
+                                }
+                                ${isTouchDevice ? "touch-manipulation" : ""}`}
                               role="menuitem">
-                              <div className="flex gap-2 items-center justify-start">
+                              <div className="flex gap-2 items-center justify-start pointer-events-none">
                                 <Image
                                   src={section.icon}
                                   alt={section.name + " icon"}
@@ -441,14 +521,17 @@ export default function Navbar() {
                             return (
                               <Link key={linkIndex} href={link.href}>
                                 <div
-                                  className={`block px-4 py-2 hover:bg-[#F0E4FF] transition-colors duration-150
+                                  className={`block px-4 py-2 hover:bg-[#F0E4FF] transition-colors duration-150 select-none
                                     ${
                                       isActive(link.href)
                                         ? "border-r-2 border-purple-600"
                                         : ""
+                                    }
+                                    ${
+                                      isTouchDevice ? "touch-manipulation" : ""
                                     }`}
                                   role="menuitem">
-                                  <div className="flex gap-2 items-center justify-start">
+                                  <div className="flex gap-2 items-center justify-start pointer-events-none">
                                     <Image
                                       src={link.icon}
                                       alt={link.name + " icon"}
@@ -486,19 +569,21 @@ export default function Navbar() {
                   activeDropdown === index && (
                     <div
                       className="absolute top-full left-0 mt-1 w-[22rem] bg-white rounded-lg shadow-xl py-2 animate-slideDown"
-                      role="menu">
+                      role="menu"
+                      onTouchStart={(e) => e.stopPropagation()}>
                       {item.links.map((link, linkIndex) => (
                         <Link
                           key={linkIndex}
                           href={link.href}
-                          className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150
+                          className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF] transition-colors duration-150 select-none
                           ${
                             isActive(link.href)
                               ? "text-black border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
-                          }`}
+                          }
+                          ${isTouchDevice ? "touch-manipulation" : ""}`}
                           role="menuitem">
-                          <div className="flex gap-2 items-center justify-start">
+                          <div className="flex gap-2 items-center justify-start pointer-events-none">
                             <Image
                               src={link.icon}
                               alt={link.name + " icon"}
@@ -549,7 +634,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - unchanged */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-slideDown">
           <div className="px-2 pt-2 pb-3 space-y-1">
@@ -560,7 +645,6 @@ export default function Navbar() {
                   <Link
                     href={item.href || "#"}
                     onClick={(e) => {
-                      // For items with href and no sub-items, close the menu
                       if (
                         item.href &&
                         item.href !== "#" &&
@@ -568,9 +652,7 @@ export default function Navbar() {
                         !item.subSections?.length
                       ) {
                         setIsOpen(false);
-                      }
-                      // For items with sub-items, prevent navigation if clicking just to expand
-                      else if (
+                      } else if (
                         item.links?.length > 0 ||
                         item.subSections?.length > 0
                       ) {
@@ -579,7 +661,6 @@ export default function Navbar() {
                           item.href &&
                           item.href !== "#"
                         ) {
-                          // Allow navigation and close menu
                           setIsOpen(false);
                         } else {
                           e.preventDefault();
@@ -620,7 +701,7 @@ export default function Navbar() {
                         <div className="flex items-center justify-between">
                           <Link
                             href={section.href}
-                            onClick={() => setIsOpen(false)} // Close menu on click
+                            onClick={() => setIsOpen(false)}
                             className={`flex-1 px-3 py-2 lg:text-xl rounded-md
                               ${
                                 isActive(section.href) ||
@@ -664,7 +745,7 @@ export default function Navbar() {
                               <a
                                 key={linkIndex}
                                 href={link.href}
-                                onClick={() => setIsOpen(false)} // Close menu on click
+                                onClick={() => setIsOpen(false)}
                                 className={`block px-3 py-2 text-sm rounded-md
                                   ${
                                     isActive(link.href)
@@ -688,7 +769,7 @@ export default function Navbar() {
                       <a
                         key={linkIndex}
                         href={link.href}
-                        onClick={() => setIsOpen(false)} // Close menu on click
+                        onClick={() => setIsOpen(false)}
                         className={`block px-3 py-2 lg:text-xl rounded-md
                           ${
                             isActive(link.href)
@@ -725,6 +806,19 @@ export default function Navbar() {
 
         .animate-slideDown {
           animation: slideDown 0.2s ease-out;
+        }
+
+        /* Touch-specific styles */
+        .touch-manipulation {
+          touch-action: manipulation;
+        }
+
+        /* Increase touch target size on touch devices */
+        @media (pointer: coarse) {
+          .select-none {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+          }
         }
       `}</style>
     </nav>

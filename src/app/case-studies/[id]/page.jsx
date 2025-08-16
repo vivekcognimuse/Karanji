@@ -87,8 +87,9 @@
 //     </main>
 //   );
 // }
-import caseStudiesJson from "@/data/caseStudies.json"; // Ensure correct path to JSON file
+// Ensure correct path to JSON file
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
+import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { toPlainText, arrayifyList, splitCommaString } from "@/utils/ish";
 
@@ -97,7 +98,7 @@ const normalizeCaseStudy = (entry) => {
   const a = entry?.attributes ? entry.attributes : entry || {};
 
   // Static JSON-based downloadCta and image mapping by Slug
-  const staticData = caseStudiesJson.find((item) => item.slug === a.slug); // Use slug to find matching data
+  const staticData = caseStudies.find((item) => item.slug === a.slug); // Use slug to find matching data
 
   if (!staticData) {
     console.error(`No static data found for case study slug: ${a.slug}`);

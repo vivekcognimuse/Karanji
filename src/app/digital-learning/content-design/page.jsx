@@ -90,14 +90,15 @@ const successStoriesData = {
     "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
   cards: [
     {
-      title: "Gamified, Branching E-Learning Modules",
+      title: "Corporate Learning & Development Teams ",
       stats: [
-        { title: "70%", subTitle: "Quality Animations" },
-        { title: "High", subTitle: "Seamless Alignment" },
+        { title: "High", subTitle: "Quality Animations" },
+        { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
         "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
-      link: "Read Full CaseStudy",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "10",
     },
     {
       title: "Driving School & Training Module",
@@ -107,7 +108,8 @@ const successStoriesData = {
       ],
       description:
         "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
-      link: "Read Full CaseStudy",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "9",
     },
     {
       title: "Futuristic Digital Payments Training Module",
@@ -117,7 +119,8 @@ const successStoriesData = {
       ],
       description:
         "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
-      link: "Read Full CaseStudy",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "8",
     },
   ],
 };

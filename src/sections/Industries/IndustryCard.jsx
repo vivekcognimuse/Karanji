@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import { P3 } from "@/components/CustomTags";
+import { P2, P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
 
 const IndustryCard = ({ card, index }) => {
