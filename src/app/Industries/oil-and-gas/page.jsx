@@ -268,7 +268,10 @@ export default async function Aviation() {
       <DigitalTransformation data={digitalTransformationData} />
       <StrategicPriorities data={strategicPrioritiesData} />
 
-      <StrategicUseCase data={strategicUseCaseData} />
+      <StrategicUseCase
+        data={strategicUseCaseData}
+        icon="/Industries & its pages/Oil and gas/usecase"
+      />
       <CTA data={ctaData} />
     </main>
   );
