@@ -310,7 +310,10 @@ export default async function Aviation() {
         icon="/Industries & its pages/Aviation/offering" // Update if using dynamic icons
       />
 
-      <StrategicUseCase data={strategicUseCaseData} />
+      <StrategicUseCase
+        data={strategicUseCaseData}
+        icon="/Industries & its pages/Aviation/usecase"
+      />
       <CTA data={ctaData} />
     </main>
   );
