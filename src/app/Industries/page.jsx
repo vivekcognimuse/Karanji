@@ -23,7 +23,7 @@ const industriesData = {
     {
       title: "HealthCare",
       description: "Reimagining Healthcare",
-      icon: "/Icons/Industies/fluent-mdl2_health.svg", // SVG icon path
+      icon: "/Icons/Industries/fluent-mdl2_health.svg", // SVG icon path
       image: "/Industries & its pages/Landing page/Healthcare card.webp",
       details: [
         "AI-Powered Clinical Intelligence",
@@ -73,8 +73,8 @@ const industriesData = {
 const cards = [
   {
     id: 33,
-    title: "Consulting & Strategy",
-    description: "Foundations for impactful and scalable digital twin adoption",
+    title: "HealthCare",
+    description: "Reimagining Healthcare",
     hoverContent: [
       { id: 76, text: "Digital Twin Readiness Assessment" },
       { id: 77, text: "Business Case Development" },
