@@ -146,13 +146,9 @@ const IndustryCard = ({ card, index }) => {
                   </div>
                 ))}
                 <div className="flex justify-end mt-8">
-                  <Link href={ctaLink}>
-                    <a>
-                      <Button variant="secondary" size="sm">
-                        Learn More
-                      </Button>
-                    </a>
-                  </Link>
+                  <Button variant="secondary" size="sm" as="a" href={ctaLink}>
+                    Learn More
+                  </Button>
                 </div>
               </div>
             </div>
