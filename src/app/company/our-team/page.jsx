@@ -38,6 +38,7 @@ const teamSectionData = [
         brief:
           "Praveen has over 30 years of experience in program management & client engagement. As a co-founder of Novigo Solutions, he drives global growth & digital transformation.",
         image: "/Company/Team/Advisory leaders/Praveen Kumar Kalbavi.webp",
+        linkedin: "https://www.linkedin.com/in/praveen-kumar-kalbhavi-3908285",
       },
       {
         name: "Mohammed Hanif",
@@ -45,6 +46,7 @@ const teamSectionData = [
         brief:
           "Mohammed specializes in AI automation & business strategy to optimize processes. He plays a key role in expanding Novigo’s partnerships & driving client success.",
         image: "/Company/Team/Advisory leaders/Mohammed Hanif.webp",
+        linkedin: "https://www.linkedin.com/in/hanifkulai",
       },
       {
         name: "Shihab Kalandar",
@@ -52,6 +54,7 @@ const teamSectionData = [
         brief:
           "Shihab focuses on developing AI-driven solutions that help businesses transform & optimize operations for greater efficiency & productivity.",
         image: "/Company/Team/Advisory leaders/Shihab Kalandar.webp",
+        linkedin: "https://www.linkedin.com/in/shihab-kalandar-5228b315",
       },
       {
         name: "Mohammed Jarood",
@@ -59,6 +62,7 @@ const teamSectionData = [
         brief:
           "With deep expertise in Microsoft technologies, Mohammed co-founded Novigo Solutions to deliver innovative IT solutions to Fortune 1000 companies.",
         image: "/Company/Team/Advisory leaders/Mohammed Jarood.webp",
+        linkedin: "https://www.linkedin.com/in/mohammed-jarood-86024424",
       },
     ],
   },
@@ -66,7 +70,7 @@ const teamSectionData = [
     title: "Our Execution & Management Collective",
     description:
       "Our Execution & Management team turns strategy into reality, focusing on delivering seamless, AI-driven solutions & immersive learning experiences. From growth & strategy to operational excellence, our experts ensure projects are executed efficiently, driving innovation across industries & organizations.",
-    showTalkButton: true, // This section has the talk button
+
     members: [
       {
         name: "Krishna Prakash",
@@ -75,6 +79,8 @@ const teamSectionData = [
         brief:
           "Prakash's leadership focuses on transforming how businesses approach learning & technology.",
         image: "/Company/Team/Management collective/Krishna Prakash.webp",
+        linkedin: "https://www.linkedin.com/in/krishnaprakash-d-2374977/",
+        showTalkButton: true,
       },
       {
         name: "Ryan",
@@ -82,6 +88,8 @@ const teamSectionData = [
         brief:
           "Ryan accelerates business growth through strategic HR solutions & growth-driven technologies.",
         image: "/Company/Team/Management collective/Ryan.webp",
+        linkedin: "https://www.linkedin.com/in/ryan-l-5091389/",
+        showTalkButton: false,
       },
 
       {
@@ -91,6 +99,8 @@ const teamSectionData = [
         brief:
           "Vikram ensures operational excellence, focusing on technology integration & process optimization.",
         image: "/Company/Team/Management collective/Vikram Kemmai.webp",
+        linkedin: "https://www.linkedin.com/in/vikram-kemmai-086196108/",
+        showTalkButton: false,
       },
       {
         name: "Sandhya",
@@ -99,6 +109,8 @@ const teamSectionData = [
         brief:
           "Sandhya leads Generative AI solutions, delivering innovative AI-powered learning & transformation services.",
         image: "/Company/Team/Management collective/Sandhya.webp",
+        linkedin: "https://www.linkedin.com/in/sandhya-a-rao/",
+        showTalkButton: false,
       },
       {
         name: "Srikant",
@@ -107,6 +119,8 @@ const teamSectionData = [
         brief:
           "Srikant advises on AI strategies & implementation, helping businesses innovate & stay ahead of industry trends.",
         image: "/Company/Team/Management collective/Srikant.webp",
+        linkedin: "https://www.linkedin.com/in/srikantrajan/",
+        showTalkButton: true,
       },
       {
         name: "Sudhir Bhandarkar Bantwal",
@@ -115,6 +129,9 @@ const teamSectionData = [
           "Sudhir specializes in delivery transformation, leveraging technology to enhance business & customer experiences.",
         image:
           "/Company/Team/Management collective/Sudhir Bhandarkar Bantwal.webp",
+        linkedin:
+          "https://www.linkedin.com/in/sudhir-bhandarkar-bantwal-1287885/",
+        showTalkButton: false,
       },
     ],
   },

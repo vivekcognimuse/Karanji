@@ -81,14 +81,14 @@ const CaseStudyPage = ({ data }) => {
         );
       case "list":
         return (
-          <ul
+          <P3
             className="font-outfit text-lg font-light sm:text-xl list-disc pl-5 space-y-2 text-black-950/50 mb-4"
             key={idx}
           >
             {(section.items || []).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
-          </ul>
+          </P3>
         );
       case "quote_group":
         return (
@@ -117,7 +117,7 @@ const CaseStudyPage = ({ data }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain">
       <article>
         {/* Full Width Header */}
         <div className="mx-auto px-4 sm:px-6 lg:px-8">

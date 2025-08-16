@@ -28,7 +28,7 @@ const BlogPage = ({ blogs = [] }) => {
   if (!blogs.length) return null;
 
   return (
-    <div className="relative">
+    <div className="relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain">
       {blogs.map((blog) => (
         <article key={blog.id} className="mb-24">
           {/* Full Width Header */}
