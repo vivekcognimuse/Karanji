@@ -4,7 +4,7 @@ import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
 import Button from "@/components/ui/Button";
-
+import Link from "next/link";
 const IndustryCard = ({ card, index }) => {
   const cardRef = useRef(null);
   const frontContentRef = useRef(null);
@@ -85,7 +85,8 @@ const IndustryCard = ({ card, index }) => {
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
       data-reveal
-      data-reveal-dir="up">
+      data-reveal-dir="up"
+    >
       {/* Front Content - Default State */}
       <div ref={frontContentRef} className="relative z-10">
         <div className="mb-6 w-16 h-16 flex items-center justify-center">
@@ -120,7 +121,8 @@ const IndustryCard = ({ card, index }) => {
             background: "url('/gradients/offering-card-gradient.svg')",
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}>
+          }}
+        >
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex flex-col justify-between flex-1">
               <div>
@@ -144,9 +146,13 @@ const IndustryCard = ({ card, index }) => {
                   </div>
                 ))}
                 <div className="flex justify-end mt-8">
-                  <Button variant="secondary" size="sm">
-                    Learn More
-                  </Button>
+                  <Link href={ctaLink}>
+                    <a>
+                      <Button variant="secondary" size="sm">
+                        Learn More
+                      </Button>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

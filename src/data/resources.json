@@ -2,7 +2,7 @@
   {
     "type": "Case Study",
     "title": "3D AI Advertisement",
-    "image": "/caseStudies/Casestudy 3.webp",
+    "image": "/CaseStudyImages/1_3d_ai_advertisement.webp",
     "link": "/case-studies/1",
     "cta": "View Case Study",
     "domain": "Technology Solutions"
@@ -19,14 +19,14 @@
     "type": "Blog",
     "title": "Immersive Healthcare Education: Bridging the Skill Gap through VR",
     "image": "/blog/Casestudy 2.webp",
-    "link": "/blog-insights/",
+    "link": "/coming-soon",
     "cta": "Read Blog",
     "domain": "Blog"
   },
   {
     "type": "Case Study",
     "title": "Outbound Calling Agent",
-    "image": "/caseStudies/Casestudy 3.webp",
+    "image": "/CaseStudyImages/3_outbound_calling_agent_.webp",
     "link": "/case-studies/4",
     "cta": "View Case Study",
     "domain": "Technology Solutions"

@@ -69,7 +69,7 @@ const upcomingItems = [
     domain: "Digital Learning ",
   },
   {
-    title: "AI LMS",
+    title: "Foundation of artificial Intelligence",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/11",

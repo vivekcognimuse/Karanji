@@ -28,7 +28,8 @@ const IndustriesSection = ({ data, cards }) => {
               key={index}
               className={`h-full min-h-[320px] ${
                 index === 0 || index === 2 ? "ml-auto" : ""
-              }`}>
+              }`}
+            >
               <IndustryCard card={industry} />
             </div>
           ))}

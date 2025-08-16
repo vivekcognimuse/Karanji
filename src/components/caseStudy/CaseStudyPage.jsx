@@ -75,7 +75,13 @@ const CaseStudyPage = ({ data }) => {
         );
       case "text":
         return (
-          <P3 className="text-black-950/50 mb-4" key={idx}>
+          <P3 className=" mb-4" key={idx}>
+            {section.content}
+          </P3>
+        );
+      case "subtext":
+        return (
+          <P3 className="text-black-500 mb-4" key={idx}>
             {section.content}
           </P3>
         );

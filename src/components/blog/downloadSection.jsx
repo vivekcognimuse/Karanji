@@ -47,8 +47,14 @@ const DownloadSection = ({
           {encouragementNote && <P3 className="mt-1">{encouragementNote}</P3>}
         </div>
 
-        {/* Trigger the download on button click */}
-        <Button onClick={handleDownload}>{buttonLabel}</Button>
+        {/* Button is disabled and not clickable */}
+        <Button
+          onClick={handleDownload}
+          className="cursor-not-allowed"
+          disabled
+        >
+          {buttonLabel}
+        </Button>
       </div>
     </section>
   );

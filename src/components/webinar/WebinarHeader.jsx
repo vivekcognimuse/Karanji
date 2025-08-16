@@ -85,14 +85,14 @@ export default function WebinarHeader({ data, bgImage }) {
           {(buttons.register || buttons.preview) && (
             <div className="flex justify-center gap-4 flex-wrap">
               {buttons.register && (
-                <Button className="whitespace-nowrap">
+                <Button className="whitespace-nowrap cursor-not-allowed">
                   {buttons.register}
                 </Button>
               )}
               {buttons.preview && (
                 <Button
                   variant="secondary"
-                  className="bg-white text-black border border-black whitespace-nowrap"
+                  className="bg-white text-black border border-black whitespace-nowrap cursor-not-allowed"
                 >
                   {buttons.preview}
                 </Button>
