@@ -341,7 +341,10 @@ export default async function Logistics() {
         icon="/Industries & its pages/Logistics/offering" // Update if using dynamic icons
       />
 
-      <StrategicUseCase data={strategicUseCaseData} />
+      <StrategicUseCase
+        data={strategicUseCaseData}
+        icon="/Industries & its pages/Logistics/usecase"
+      />
       <CTA data={ctaData} />
     </main>
   );
