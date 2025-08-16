@@ -8,8 +8,7 @@ const heroData = {
     "At Karanji, we've built intelligent clones of our team members to help you understand our services, explore solutions, & get real-time, personalized guidance - all while reflecting the style & expertise of our core team.",
   PrimaryButtonLink: "/",
   PrimaryButtonText: "Talk to an Avatar Now",
-  SecondaryButtonLink: "/",
-  SecondaryButtonText: "Create your Avatar",
+
   backgroundImage: "/path/to/your/hero-image.jpg",
   stats: [
     {
@@ -35,7 +34,7 @@ const ctaData = {
   description:
     "Let’s collaborate to create a powerful digital avatar tailored to your business needs for maximum impact.",
   PrimaryButtonText: "Create your Avatar",
-  PrimaryButtonLink: "/",
+  PrimaryButtonLink: "/contact",
 };
 const avatarData = {
   title: "Choose Your Expert Avatar",
