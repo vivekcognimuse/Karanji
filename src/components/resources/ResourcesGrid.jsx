@@ -2,19 +2,22 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { P1 } from "../CustomTags";
+import { cn } from "@/lib/utils";
 
 // Card Component with background gradient applied individually
-const Card = ({ resource, colSpan }) => {
+const Card = ({ resource, className }) => {
   return (
     <Link
       href={resource.link}
-      className={`group relative col-span-12 md:col-span-${colSpan} rounded-xl overflow-hidden shadow hover:shadow-lg transition-all duration-300 hover:scale-[1.02]`}
+      className={cn(
+        "group relative rounded-xl overflow-hidden shadow hover:shadow-lg transition-all duration-300 hover:scale-[1.02]",
+        className // Apply the className directly passed in the parent
+      )}
       style={{
         background:
           "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
-      }}
-    >
-      <div className="relative w-full h-52 ">
+      }}>
+      <div className="relative w-full h-52">
         <Image
           src={resource.image}
           alt={resource.title}
@@ -27,7 +30,7 @@ const Card = ({ resource, colSpan }) => {
       </div>
 
       {/* Card content with gradient background */}
-      <div className="p-6 flex flex-col justify-between min-h-[130px] ">
+      <div className="p-6 flex flex-col justify-between min-h-[130px]">
         <P1 className="text-base mb-3 text-gray-800 line-clamp-2 group-hover:text-black-950 transition-colors">
           {resource.title}
         </P1>
@@ -53,14 +56,14 @@ const ResourcesGrid = ({ resources }) => {
     <div className="space-y-6">
       {/* First Row: Small (30%) + Large (70%) */}
       <div className="grid grid-cols-12 gap-6">
-        <Card resource={resources[0]} colSpan={5} />
-        <Card resource={resources[1]} colSpan={7} />
+        <Card resource={resources[0]} className="col-span-12 md:col-span-5" />
+        <Card resource={resources[1]} className="col-span-12 md:col-span-7" />
       </div>
 
       {/* Second Row: Large (70%) + Small (30%) - Reversed */}
       <div className="grid grid-cols-12 gap-6">
-        <Card resource={resources[2]} colSpan={7} />
-        <Card resource={resources[3]} colSpan={5} />
+        <Card resource={resources[2]} className="col-span-12 md:col-span-7" />
+        <Card resource={resources[3]} className="col-span-12 md:col-span-5" />
       </div>
     </div>
   );
