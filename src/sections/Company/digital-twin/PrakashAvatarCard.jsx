@@ -1,8 +1,8 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P3 } from "@/components/CustomTags";
-import Link from "next/link";
 
 // Single AvatarCard component that takes props
 function AvatarCard({ avatar, delay = 0 }) {

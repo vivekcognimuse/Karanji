@@ -22,9 +22,13 @@ const IndustriesSection = ({ data, cards }) => {
         </div>
 
         {/* Cards Grid - 2x2 layout, centered, equal height */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-stretch content-stretch max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center justify-center content-center max-w-5xl mx-auto">
           {cards?.map((industry, index) => (
-            <div key={index} className="h-full min-h-[320px]">
+            <div
+              key={index}
+              className={`h-full min-h-[320px] ${
+                index === 0 || index === 2 ? "ml-auto" : ""
+              }`}>
               <IndustryCard card={industry} />
             </div>
           ))}
