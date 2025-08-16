@@ -229,12 +229,12 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Digital Clones in Action Case Study",
       "intro": "See how AI-powered digital clones helped Karanji scale expertise, improve decision-making, and enhance client engagement-all while freeing up executive time for strategic work.",
-      "description": "Case Study 17 detailed description.",
+     
       "audienceNote": "If you’re in leadership enablement or AI-powered solutions, this case shows how digital twin technology can help organizations unlock their expertise for faster, more effective decision-making.",
-      "encouragementNote": "Use it, learn from it, and start your own impact story.",
+      
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/17_Digital_ Twins.webp",
     "pdfLink": "/Pdf downable/Digital Twins.pdf"
-  }
+}
 ]

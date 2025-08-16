@@ -81,14 +81,14 @@ const CaseStudyPage = ({ data }) => {
         );
       case "list":
         return (
-          <ul
+          <P3
             className="font-outfit text-lg font-light sm:text-xl list-disc pl-5 space-y-2 text-black-950/50 mb-4"
             key={idx}
           >
             {(section.items || []).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
-          </ul>
+          </P3>
         );
       case "quote_group":
         return (
