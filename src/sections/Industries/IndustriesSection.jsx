@@ -21,7 +21,7 @@ const IndustriesSection = ({ data, cards }) => {
       </div>
 
       {/* Cards Grid - 2x2 layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 justify-center gap-12 lg:gap-16">
         {cards?.map((industry, index) => (
           <IndustryCard card={industry} key={index} />
         ))}
