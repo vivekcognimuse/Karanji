@@ -88,6 +88,7 @@
 //   );
 // }
 //app/case-studies/[id]/page.jsx
+
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
 import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";
