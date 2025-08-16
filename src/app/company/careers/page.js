@@ -2,7 +2,10 @@
 import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
 // ⬇️ Import the careers table + default data
-import CareersTable, { defaultCareers } from "@/sections/Company/careers/CareersTable";
+import CareersTable, {
+  defaultCareers,
+} from "@/sections/Company/careers/CareersTable";
+import Head from "next/head";
 
 const teamData = {
   title: "Your Next Chapter Starts Here",
@@ -23,19 +26,22 @@ const cardsData = [
   {
     icon: "/Company/Team/icons/culture.svg",
     title: "Culture",
-    description: "We foster a collaborative environment built on trust & innovation.",
+    description:
+      "We foster a collaborative environment built on trust & innovation.",
     image: "/Company/Culture.webp",
   },
   {
     icon: "/Company/Team/icons/learning.svg",
     title: "Learning",
-    description: "Continuous development opportunities to foster personal growth.",
+    description:
+      "Continuous development opportunities to foster personal growth.",
     image: "/Company/Learning.webp",
   },
   {
     icon: "/Company/Team/icons/growth.svg",
     title: "Growth",
-    description: "Opportunities for advancement & career paths based on performance.",
+    description:
+      "Opportunities for advancement & career paths based on performance.",
     image: "/Company/growth.webp",
   },
 ];
@@ -45,21 +51,25 @@ const ctaData = {
   description:
     "Please send an email to recruitment@karanji.com with subject line as 'Application | Role Title' with your profile and interest, we are always on lookout for talent.",
   PrimaryButtonText: "Send us an Email",
-  PrimaryButtonLink: "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
+  PrimaryButtonLink:
+    "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
 };
 
 export default function careersPage() {
   return (
-  <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       {/* Wrapper for all components except the last CTA */}
-      <div 
+      <div
         className="p-10 my-auto rounded-[32px]"
         style={{
-          background: "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
+          background:
+            "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
           backdropFilter: "blur(28.100000381469727px)",
-          boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)"
-        }}
-      >
+          boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)",
+        }}>
         <div className="space-y-16 lg:space-y-32 ">
           <CTA
             data={teamData}
@@ -74,25 +84,24 @@ export default function careersPage() {
               lg:[&_.flex-center>a]:!px-7 lg:[&_.flex-center>a]:!py-[1.125rem] lg:[&_.flex-center>a]:!text-xl
             "
           />
-          
+
           {/* Why Work With Us */}
           <WhyWorkWithUsSection
             title={sectionData.title}
             description={sectionData.description}
             cards={cardsData}
           />
-          
+
           {/* Open Roles */}
           <section id="open-roles">
             <CareersTable
               jobs={defaultCareers}
-             
               detailBasePath="/company/careers"
             />
           </section>
         </div>
       </div>
-      
+
       {/* Final CTA - Outside the wrapper */}
       <CTA data={ctaData} />
     </main>

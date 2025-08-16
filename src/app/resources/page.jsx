@@ -8,21 +8,7 @@ const ResourcesPage = () => {
   return (
     <>
       <Head>
-        <title>What's New | Karanji</title>
-        <meta
-          name="description"
-          content="Explore the latest blogs, webinars, and case studies from Karanji on immersive learning and VR innovation."
-        />
-        <meta
-          name="keywords"
-          content="VR training, webinars, case studies, immersive learning, karanji resources"
-        />
-        <meta name="author" content="Karanji Team" />
-        <meta property="og:title" content="What's New | Karanji" />
-        <meta
-          property="og:description"
-          content="Latest updates including VR blogs, immersive webinars, and impactful case studies."
-        />
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
 
       <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

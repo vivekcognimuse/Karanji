@@ -6,6 +6,7 @@ import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
+import Head from "next/head";
 const heroData = {
   title: "Digital Evolution in Oil & Gas",
   subTitle:
@@ -259,15 +260,17 @@ const digitalTransformationData = {
 export default async function Aviation() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection
         data={heroData}
         bgImage={"/Industries & its pages/Oil and gas/Oil and gas banner.webp"}
       />
       <Industrychallenge data={industryData} />
-
       <DigitalTransformation data={digitalTransformationData} />
       <StrategicPriorities data={strategicPrioritiesData} />
-
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Oil and gas/usecase"

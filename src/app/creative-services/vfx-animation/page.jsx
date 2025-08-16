@@ -6,6 +6,7 @@ import ContentFormats from "@/sections/digital-learning/Content-Formats";
 import CTA from "@/sections/digital-learning/CTA";
 import Accordion from "@/sections/entertainment/Accordian";
 import ServiceOverview from "@/sections/entertainment/ServiceOverview";
+import Head from "next/head";
 import React from "react";
 
 // HERO SECTION
@@ -255,6 +256,10 @@ const CTAData = {
 const AudioPodcastProduction = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection data={heroData} bgImage="/hero/VFX banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <div id="vfx-service-offerings">

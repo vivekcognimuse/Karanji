@@ -2,6 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 // import QuoteSection from "@/sections/Company/about/quoteSection";
 
 import NextUpSection from "@/sections/Company/about/NextUpSection";
+import Head from "next/head";
 const heroData = {
   title: "Innovate. Design. Transform.",
 };
@@ -36,14 +37,16 @@ const cardsData = [
 export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection
         data={heroData}
         bgImage={"/Company/Animation/5.png"}
         bgOpacity={0.5}
       />
-
       {/* <QuoteSection title="Innovate. Design. Transform." /> */}
-
       <NextUpSection
         title={teamData.title}
         description={teamData.description}

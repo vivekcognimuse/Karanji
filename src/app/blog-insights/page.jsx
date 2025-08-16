@@ -2,6 +2,7 @@
 import BlogPage from "@/components/blog/BlogPage";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { toPlainText, arrayifyList, slugify, getMediaUrl } from "@/utils/ish";
+import Head from "next/head";
 
 // ---- static SEO for the listing page ----
 export const metadata = {
@@ -82,6 +83,9 @@ export default async function BlogInsights() {
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <BlogPage blogs={blogs} />
     </main>
   );

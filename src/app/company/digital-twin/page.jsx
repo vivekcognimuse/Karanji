@@ -2,6 +2,7 @@ import DigitalTwinHeroSection from "@/sections/Company/digital-twin/DigitalTwinH
 import CTA from "@/sections/digital-learning/CTA";
 import ChooseAvatarSection from "@/sections/Company/digital-twin/ChooseAvatarSection";
 import RealImpactResults from "@/sections/Company/digital-twin/RealImpactResults";
+import Head from "next/head";
 const heroData = {
   title: "Meet Our Digital Avatars",
   subTitle:
@@ -93,6 +94,9 @@ const sectionData = {
 export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <DigitalTwinHeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
       <div id="choose-avatar-section">
         <ChooseAvatarSection data={avatarData} />

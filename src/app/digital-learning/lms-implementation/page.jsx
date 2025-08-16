@@ -6,6 +6,7 @@ import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import LMSLearning from "@/sections/digital-learning/LMSLearning";
 import SwitchSection from "@/sections/digital-learning/SwitchSection";
 import { Tag } from "lucide-react";
+import Head from "next/head";
 
 const heroData = {
   title: "Elevate Your Corporate Learning with K-nest LMS",
@@ -280,6 +281,10 @@ const successStoriesData = {
 export default async function LMSImplementation() {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
       <div id="lms-services">
         <ServiceOfferings
@@ -287,9 +292,7 @@ export default async function LMSImplementation() {
           icon="/digital-learning/lms-discover"
         />
       </div>
-
       <LMSLearning data={lmsLearningData} />
-
       <LearningChallenges data={learningChallenges} />
       <SwitchSection data={switchSectionData} />
       <SuccessStories data={successStoriesData} />

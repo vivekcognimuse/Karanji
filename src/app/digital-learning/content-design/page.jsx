@@ -12,6 +12,7 @@ import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learnin
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
+import Head from "next/head";
 
 import React, { useState } from "react";
 
@@ -368,11 +369,14 @@ const ContentDesign = () => {
 
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
       </div>
-
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-2 mb-8">
         {tabs.map(({ key, buttonLabel }) => (

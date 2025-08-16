@@ -6,6 +6,7 @@ import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
+import Head from "next/head";
 const heroData = {
   title: "Driving Digital Transformation inGlobal Logistics",
   subTitle:
@@ -329,18 +330,20 @@ const strategicUseCaseData = {
 export default async function Logistics() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+      {" "}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <HeroSection
         data={heroData}
         bgImage={"/Industries & its pages/Logistics/Logistics banner.webp"}
       />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
-
       <ServiceOfferings
         data={digitalOfferingsData}
         icon="/Industries & its pages/Logistics/offering" // Update if using dynamic icons
       />
-
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Logistics/usecase"

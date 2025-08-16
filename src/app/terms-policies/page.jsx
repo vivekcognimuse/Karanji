@@ -122,7 +122,7 @@ const policyContent = {
       {
         id: "contact",
         title: "Contact",
-        content: "privacy@karanji.com",
+        content: "info@karanji.com",
       },
     ],
   },
@@ -138,7 +138,7 @@ const policyContent = {
         metadata: [
           "Effective Date: 14 Aug 2025",
           "Website: www.karanji.com",
-          "Company Name: Karanji",
+          // "Company Name: Karanji",
         ],
       },
       {
@@ -197,12 +197,12 @@ const policyContent = {
         id: "governing-law",
         title: "8. Governing law",
         content:
-          "These terms are governed by the laws of [Your Country/State], and disputes will be resolved in the courts of [Your City/Region].",
+          "These terms are governed by the laws of Karnataka, India, and disputes will be resolved in the courts of Mangalore, Karnataka, India.",
       },
       {
         id: "contact-us",
         title: "Contact us",
-        content: "privacy@karanji.com",
+        content: "info@karanji.com",
       },
     ],
   },
