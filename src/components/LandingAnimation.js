@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "./ui/Button";
 import Link from "next/link";
-import Image from "next/image";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -23,21 +22,25 @@ const ScrollVideoSequence = () => {
     const handleCanPlay = () => {
       console.log("Video can play");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadedData = () => {
       console.log("Video data loaded");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadedMetadata = () => {
       console.log("Video metadata loaded");
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleError = (e) => {
       console.error("Video loading error:", e);
       setVideoLoaded(true);
+      setIsLoading(false);
     };
 
     const handleLoadStart = () => {
@@ -55,6 +58,7 @@ const ScrollVideoSequence = () => {
     const timeoutId = setTimeout(() => {
       console.log("Loading timeout - forcing video ready state");
       setVideoLoaded(true);
+      setIsLoading(false);
     }, 3000); // 3 second timeout
 
     // Force load the video
@@ -165,18 +169,19 @@ const ScrollVideoSequence = () => {
 
   return (
     <>
-      <section ref={containerRef} className="relative hidden md:block h-screen">
+      <section ref={containerRef} className="relative h-screen">
         {!videoLoaded && (
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+              <p className="text-gray-600">Loading video...</p>
             </div>
           </div>
         )}
 
         <video
           ref={videoRef}
-          className={`absolute hidden sm: top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] object-contain z-0 ${
+          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] object-contain z-0 ${
             videoLoaded ? "opacity-100" : "opacity-0"
           } transition-opacity duration-500`}
           muted
@@ -186,15 +191,7 @@ const ScrollVideoSequence = () => {
           <source src="/output2.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
-        <div>
-          <Image
-            src="/mblVideo.svg"
-            alt="Mobile Video"
-            width={1217}
-            height={484}
-            className="w-full h-fit sm:hidden"
-          />
-        </div>
+
         <div
           id="ctaButton"
           className="absolute bottom-28 left-1/2 transform -translate-x-1/2 opacity-0 invisible z-20">
