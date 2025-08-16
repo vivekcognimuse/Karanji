@@ -86,7 +86,8 @@ const IndustryCard = ({ card, index }) => {
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
       data-reveal
-      data-reveal-dir="up">
+      data-reveal-dir="up"
+    >
       {/* Front Content - Default State */}
       <div ref={frontContentRef} className="relative z-10">
         <div className="mb-6 w-16 h-16 flex items-center justify-center">
@@ -107,7 +108,8 @@ const IndustryCard = ({ card, index }) => {
           alt={`${title} icon`}
           width={48}
           height={48}
-          className="object-contain w-full h-auto"
+          unoptimized
+          className="object-cover w-full h-auto"
         />
       </div>
 
@@ -120,7 +122,8 @@ const IndustryCard = ({ card, index }) => {
             background: "url('/gradients/offering-card-gradient.svg')",
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}>
+          }}
+        >
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex flex-col justify-between flex-1">
               <div>
