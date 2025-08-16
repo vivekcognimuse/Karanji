@@ -34,6 +34,7 @@ const Industrychallenge = ({ data }) => {
                   width={600}
                   height={400}
                   src={image}
+                  unoptimized
                   alt={imageAlt || "Industry  challenges"}
                   className="w-full h-full rounded-2xl object-cover"
                 />

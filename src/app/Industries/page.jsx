@@ -48,7 +48,7 @@ const industriesData = {
       title: "Logistics",
       description: "Precision in Every Operation",
       icon: "/Icons/Industies/streamline-ultimate_shipment-cargo-boat.svg", // SVG icon path
-      image: "/Industries & its pages/Landing page/Logistics card.webp",
+      img: "/Industries & its pages/Landing page/Logistics card.webp",
       details: [
         "Supply Chain Optimization",
         "Warehouse Automation",
@@ -75,7 +75,9 @@ const cards = [
     id: 33,
     title: "HealthCare",
 
-    image: null,
+
+    img: "/Industries & its pages/Landing page/Healthcare card.webp",
+
     subTitle: "Reimagining Healthcare",
     hoverContent: [
       "Digital Twin Readiness Assessment",
@@ -83,7 +85,46 @@ const cards = [
       "Roadmap Creation",
     ],
     ctaLink: "/industries/healthcare",
-    icon: null,
+    icon: "/Icons/Industries/fluent-mdl2_health.svg",
+  },
+  {
+    id: 34,
+    title: "Aviation",
+    img: "/Industries & its pages/Landing page/Aviation card .webp",
+    subTitle: "Future-ready aviation.",
+    hoverContent: [
+      "Predictive Maintenance Solutions",
+      "Flight Crew Training Simulations",
+      "Safety Compliance Automation",
+    ],
+    ctaLink: "/industries/aviation",
+    icon: "/Icons/Industries/mage_aeroplane.svg",
+  },
+  {
+    id: 35,
+    title: "Logistics",
+    img: "/Industries & its pages/Landing page/Logistics card.webp",
+    subTitle: "Precision in Every Operation",
+    hoverContent: [
+      "Supply Chain Optimization",
+      "Warehouse Automation",
+      "Real-time Tracking & Analytics",
+    ],
+    ctaLink: "/industries/logistics",
+    icon: "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
+  },
+  {
+    id: 36,
+    title: "Oil & Gas",
+    img: "/Industries & its pages/Landing page/Oil and Gas card.webp",
+    subTitle: "Driving Digital Intelligence in Energy",
+    hoverContent: [
+      "Equipment Monitoring Systems",
+      "Safety Training & Compliance",
+      "Operational Efficiency Tools",
+    ],
+    ctaLink: "/industries/oil-and-gas",
+    icon: "/Icons/Industries/Group.svg",
   },
 ];
 

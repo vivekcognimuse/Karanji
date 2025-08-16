@@ -1,6 +1,6 @@
 import { P2, P3, P4 } from "@/components/CustomTags";
 import React from "react";
-
+import Image from "next/image";
 const DigitalTransformation = ({ data }) => {
   const { sectionTitle, sectionSubtitle, digitalCards } = data;
 
@@ -18,16 +18,22 @@ const DigitalTransformation = ({ data }) => {
             className="bg-white rounded-xl shadow p-6 hover:shadow-md transition"
           >
             <div className="flex mb-4">
-              <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)]  rounded-full">
-                <img src={icon} alt={title} className="h-8 w-8 text-white" />
+              <div className="rounded-full">
+                <Image
+                  src={icon}
+                  alt={title}
+                  width={32}
+                  height={32}
+                  className="h-16 w-16 text-white"
+                />
               </div>
             </div>
             <h4 className=" mb-3 ">{title}</h4>
             <ul className="text-sm text-black-500 space-y-2">
               {points.map((point, idx) => (
-                <P4 key={idx} className="border-t pt-2">
+                <P3 key={idx} className="border-b border-black-200 pt-2">
                   {point}
-                </P4>
+                </P3>
               ))}
             </ul>
           </div>

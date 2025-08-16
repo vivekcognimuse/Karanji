@@ -32,7 +32,7 @@ const ctaData = {
   description:
     " To know more about these cases or discuss any other requirement for transformation of Logistics",
   PrimaryButtonText: "Please Click here",
-  PrimaryButtonLink: "/",
+  PrimaryButtonLink: "/contact",
 };
 const industryData = {
   sectionTitle: "Industry Challenges & Priorities",
@@ -40,33 +40,33 @@ const industryData = {
   overviewDescription:
     "The $12B logistics sector is growing but challenged by operational disruptions, tech fragmentation, & evolving regulatory demands. AI-driven learning & automation, supported by training software & eLearning platforms, are key to enabling agility & workforce readiness.",
   challengesTitle: "Top Challenges",
-  image: "/Images/industry-vr-healthcare.jpg", // Replace with your image path
+  image: "/Industries & its pages/Logistics/Logistics.webp", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
       id: 1,
-      icon: "Icons/user-md.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/supply-chain-management_18115730 1.svg", // Replace with your icon path
       title: "Supply Chain Disruptions & Cost Pressures",
       description:
         "Delays from trade tensions & shortages, plus rising fuel & tech upgrade costs.",
     },
     {
       id: 2,
-      icon: "Icons/microchip.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/sustainable_17002269 1.svg", // Replace with your icon path
       title: "Regulatory Complexity & Sustainability Demands",
       description:
         "Global emissions goals & shifting regulations raise compliance challenges.",
     },
     {
       id: 3,
-      icon: "Icons/microchip.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with your icon path
       title: "Workforce Shortages & Skills Gaps",
       description:
         "Limited talent & high turnover in critical roles hinder operations.",
     },
     {
       id: 4,
-      icon: "Icons/hospital.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with your icon path
       title: "Legacy Systems & Cybersecurity Risks",
       description:
         "Outdated tech reduces visibility & increases cyberattack exposure.",
@@ -329,7 +329,10 @@ const strategicUseCaseData = {
 export default async function Logistics() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
+      <HeroSection
+        data={heroData}
+        bgImage={"/Industries & its pages/Logistics/Logistics banner.webp"}
+      />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
 
