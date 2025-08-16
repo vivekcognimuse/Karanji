@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
@@ -40,24 +41,31 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-[url('/page/home.svg')] bg-cover   bg-right bg-no-repeat">
-      <div className="flex justify-center px-4 sm:px-8 items-center pt-[85px] min-h-screen">
-        <div className="bg-white/70 backdrop-blur-[30px] px-5 py-11 rounded-2xl max-w-5xl">
-          <p className="w-fit rounded-2xl mb-5 px-3 border border-black text-black text-lg font-normal">
+    <div className=" w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+      <div className="flex justify-center flex-col md:flex-row items-center pt-[85px] min-h-screen">
+        <div>
+          <Image
+            src="/coming-soon.svg"
+            alt="Home"
+            width={500}
+            height={500}
+            className="w-full"
+          />
+        </div>
+
+        <div className=" backdrop-blur-[30px] px-5 py-11 rounded-2xl max-w-5xl">
+          <p className="text-black/80 font-sans text-3xl lg:text-6xl font-normal mb-5">
             Coming Soon
           </p>
-          <p className="text-black/80 text-3xl lg:text-6xl font-normal mb-5">
-            Stay Tuned...
-          </p>
           <p className="text-black/80 text-lg lg:text-2xl font-light">
-            We're working hard behind the scenes to bring you an exciting new
-            experience. Stay tuned — you won't want to miss it!
+            We are in the final stages of development and we’ll be ready to
+            share something exciting with you soon.
           </p>
           <form onSubmit={handleSubmit} className="mt-8">
             <div className="flex flex-col md:flex-row gap-4">
-              <div className="w-full flex-center">
+              <div className="w-full flex justify-end">
                 <Link href="/">
-                  <Button type="submit" className="">
+                  <Button type="submit" className="px-1">
                     Got to Home
                   </Button>
                 </Link>

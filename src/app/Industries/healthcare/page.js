@@ -59,7 +59,7 @@ const industryData = {
     {
       id: 2,
 
-      icon: "/Industries & its pages/Healthcare/5.svg", 
+      icon: "/Industries & its pages/Healthcare/5.svg",
       title: "Financial Pressure",
 
       description:

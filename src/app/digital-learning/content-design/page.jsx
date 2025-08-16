@@ -222,7 +222,7 @@ const CTAData = {
   PrimaryButtonText: null, // Optional, if no primary button is needed
   PrimaryButtonLink: null, // Optional
   SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/",
+  SecondaryButtonLink: "/contact",
 };
 const contentFormatsData = {
   title: "Our Content Formats",

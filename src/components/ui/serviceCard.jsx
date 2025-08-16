@@ -26,7 +26,7 @@ export const ServiceCard = memo(function ServiceCard({
             bgImage={bgImage}
             data={service}
             key={service.id || i}
-            index={i || service.id}
+            index={i}
             data-reveal
             image={service.image}
             data-reveal-dir={dirForIndex(i)}
@@ -144,7 +144,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   ...props
 }) {
   const { title, description, list, ctaText, ctaLink, id } = data || {};
-
+  console.log("index of technology soliution:", index);
   return (
     <div
       {...props}

@@ -77,7 +77,7 @@ const ctaData = {
   PrimaryButtonText: "Take a Demo on K-nest LMS",
   PrimaryButtonLink: "https://knestlms.com/try-demo",
   SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/",
+  SecondaryButtonLink: "/contact",
 };
 const lmsLearningData = {
   title: "Addressing LMS Challenges with K-nest Solutions",

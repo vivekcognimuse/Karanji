@@ -31,8 +31,8 @@ export default function RootLayout({ children }) {
         {/* <SmoothScrollWrapper> */}
         <div className="bg-[url('/page/home.svg')]  bg-cover bg-right bg-no-repeat">
           {children}
-          <Footer />
         </div>
+        <Footer />
         {/* </SmoothScrollWrapper> */}
       </body>
     </html>
