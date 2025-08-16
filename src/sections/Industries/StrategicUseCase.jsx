@@ -72,7 +72,7 @@ const StrategicUseCase = ({ data, icon }) => {
               ) => (
                 <div
                   key={id}
-                  className="border border-black-200 rounded-lg p-4 shadow-sm hover:shadow-md transition"
+                  className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition "
                 >
                   <div className="flex items-center justify-between mb-2 text-sm font-semibold">
                     <div className="p-2 rounded-full">

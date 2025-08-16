@@ -15,7 +15,7 @@ const DigitalTransformation = ({ data }) => {
         {digitalCards.map(({ id, title, icon, points }) => (
           <div
             key={id}
-            className="bg-white rounded-xl shadow p-6 hover:shadow-md transition"
+            className="bg-white rounded-xl w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/Card default.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4  z-10 relative"
           >
             <div className="flex mb-4">
               <div className="rounded-full">
@@ -31,7 +31,7 @@ const DigitalTransformation = ({ data }) => {
             <h4 className=" mb-3 ">{title}</h4>
             <ul className="text-sm text-black-500 space-y-2">
               {points.map((point, idx) => (
-                <P3 key={idx} className="border-b border-black-200 pt-2">
+                <P3 key={idx} className="border-b border-black-200 pt-2 p-4">
                   {point}
                 </P3>
               ))}

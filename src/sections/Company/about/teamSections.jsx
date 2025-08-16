@@ -79,7 +79,8 @@ const TeamSection = ({ sections }) => {
                       company={member.company}
                       brief={member.brief}
                       image={member.image}
-                      showTalkButton={section.showTalkButton || false}
+                      linkedin={member.linkedin}
+                      showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
                       onConnect={() => handleConnect(member.name)}
                       onTalkToDigitalTwin={() =>
                         handleTalkToDigitalTwin(member.name)
@@ -92,6 +93,7 @@ const TeamSection = ({ sections }) => {
           </div>
         ))}
       </div>
+      {/* Mobile view, similar mapping */}
       <div className="block md:hidden">
         {sections.map((section, index) => (
           <div key={index} className="border-b border-gray-200 last:border-b-0">
@@ -137,7 +139,8 @@ const TeamSection = ({ sections }) => {
                       company={member.company}
                       brief={member.brief}
                       image={member.image}
-                      showTalkButton={section.showTalkButton || false}
+                      linkedin={member.linkedin}
+                      showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
                       onConnect={() => handleConnect(member.name)}
                       onTalkToDigitalTwin={() =>
                         handleTalkToDigitalTwin(member.name)
@@ -150,24 +153,6 @@ const TeamSection = ({ sections }) => {
           </div>
         ))}
       </div>
-      <style jsx>{`
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            max-height: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            max-height: 1000px;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
-      `}</style>
     </div>
   );
 };

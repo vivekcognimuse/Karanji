@@ -12,6 +12,7 @@ const MemberCard = ({
   onConnect,
   onTalkToDigitalTwin,
   showTalkButton = false,
+  linkedin,
 }) => {
   return (
     <div className="member-card rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 shadow-lg">
@@ -47,7 +48,7 @@ const MemberCard = ({
         {/* Action Buttons */}
         <div className="flex flex-col space-y-2 px-2 sm:px-0">
           <Button
-            onClick={onConnect}
+            onClick={() => window.open(linkedin, "_blank")}
             variant="secondary"
             size="sm"
             className="w-full sm:w-auto"
