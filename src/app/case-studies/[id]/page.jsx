@@ -87,7 +87,8 @@
 //     </main>
 //   );
 // }
-// Ensure correct path to JSON file
+//app/case-studies/[id]/page.jsx
+import caseStudiesJson from "@/data/caseStudies.json"; // Ensure correct path to JSON file
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
 import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";
@@ -105,6 +106,9 @@ const normalizeCaseStudy = (entry) => {
   }
 
   const downloadCta = staticData?.downloadCta || {};
+
+  // Ensure pdfLink is included here in the returned object
+  const pdfLink = staticData?.pdfLink || ""; // Fallback to empty string if pdfLink is not found
 
   // If the image path is relative (like '/CaseStudyImages/1_3d_ai_advertisement.webp')
   // directly use it, as Next.js will serve it from the /public folder.
@@ -144,6 +148,7 @@ const normalizeCaseStudy = (entry) => {
     image, // Using image from static data or fallback
     sections,
     downloadCta, // Using downloadCta from static data
+    pdfLink, // Make sure pdfLink is returned here
   };
 };
 

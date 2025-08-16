@@ -55,7 +55,7 @@ const Industrychallenge = ({ data }) => {
                         alt={title}
                         width={20}
                         height={20}
-                        className="text-xl text-white w-5 h-5"
+                        className="text-xl text-white w-12 h-12"
                       />
                     </div>
                     <h5 className="text-lg font-semibold text-black-800 mt-4">

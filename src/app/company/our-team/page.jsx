@@ -7,7 +7,7 @@ const heroData = {
   subTitle:
     "Driven by innovation & over 18 years of experience, our leadership team combines creativity, strategy, & technology to deliver transformative digital learning experiences & next-gen tech solutions.",
   ctaText: "Scroll down",
-  ctaLink: "/", // You can change this to the appropriate link for your services page
+  ctaLink: "team-section", // You can change this to the appropriate link for your services page
   linkIcon: "mdi:arrow-down", // Default icon for "Scroll down"
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
 };
@@ -17,7 +17,7 @@ const ctaData = {
   description:
     "Be part of a passionate group of innovators building impactful tech solutions & redefining digital learning. If you're driven by curiosity, creativity, and purpose-we'd love to hear from you.",
   PrimaryButtonText: "Explore Careers",
-  PrimaryButtonLink: "https://knestlms.com/try-demo",
+  PrimaryButtonLink: "/company/careers",
 };
 
 const teamData = {
@@ -130,8 +130,9 @@ export default async function teampage() {
         bgImage="/hero/team.png"
       />
       <CTA data={teamData} />
-      <TeamSections sections={teamSectionData} />
-
+      <div id="team-section">
+        <TeamSections sections={teamSectionData} />
+      </div>
       <CTA data={ctaData} />
     </main>
   );

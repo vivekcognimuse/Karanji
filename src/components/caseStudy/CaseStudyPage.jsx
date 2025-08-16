@@ -1,4 +1,3 @@
-"use client";
 import React, { useMemo } from "react";
 import ScrollSpySidebar from "../blog/ScrollSpySidebar";
 import DownloadSection from "../blog/downloadSection";
@@ -154,7 +153,7 @@ const CaseStudyPage = ({ data }) => {
         </div>
 
         {/* Content Section with Sidebar Layout */}
-        <div className="mx-auto ">
+        <div className="mx-auto">
           {/* Desktop and Large Tablets: Sidebar Layout */}
           <div className="hidden xl:block">
             <div className="flex gap-8">
@@ -197,11 +196,11 @@ const CaseStudyPage = ({ data }) => {
             {/* Mobile Sidebar (Below Content) */}
             <div className="mt-8 space-y-6">
               {headings.length > 0 && (
-                <div className=" rounded-lg p-4 shadow-sm">
+                <div className="rounded-lg p-4 shadow-sm">
                   <ScrollSpySidebar headings={headings} />
                 </div>
               )}
-              <div className=" rounded-lg p-4 shadow-sm">
+              <div className="rounded-lg p-4 shadow-sm">
                 <CaseStudySidebarMeta
                   domain={data.domain}
                   targetAudience={data.targetAudience || []}
@@ -213,7 +212,15 @@ const CaseStudyPage = ({ data }) => {
 
         {/* Full Width Download Section */}
         <div className="mx-auto mt-16">
-          <DownloadSection {...(data.downloadCta || {})} />
+          <DownloadSection
+            title={data.downloadCta.title}
+            intro={data.downloadCta.intro}
+            description={data.downloadCta.description}
+            audienceNote={data.downloadCta.audienceNote}
+            encouragementNote={data.downloadCta.encouragementNote}
+            buttonLabel={data.downloadCta.buttonLabel}
+            pdfLink={data.pdfLink}
+          />
         </div>
       </article>
     </div>

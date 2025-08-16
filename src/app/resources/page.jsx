@@ -35,7 +35,7 @@ const ResourcesPage = () => {
           </div>
 
           {/* Resources Grid */}
-          <section className="space-y-6">
+          <section className="space-y-6 pb-16">
             <ResourcesGrid resources={resourcesData} />
           </section>
 

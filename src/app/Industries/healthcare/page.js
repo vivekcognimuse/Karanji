@@ -50,7 +50,7 @@ const industryData = {
     {
       id: 1,
 
-      icon: "/Icons/fluent-mdl2_health.svg", 
+      icon: "/Industries & its pages/Healthcare/3.svg",
 
       title: "Workforce Crisis",
       description:
@@ -59,7 +59,7 @@ const industryData = {
     {
       id: 2,
 
-      icon: "/Icons/Industries/vr-glasses_3646958 1.svg", 
+      icon: "/Industries & its pages/Healthcare/5.svg", 
       title: "Financial Pressure",
 
       description:
@@ -67,14 +67,14 @@ const industryData = {
     },
     {
       id: 3,
-      icon: "/nav/about-us.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/7.svg", // Replace with your icon path
       title: "Technology Gaps",
       description:
         "180+ ransomware attacks, 137TB daily data, workflow inefficiencies.",
     },
     {
       id: 4,
-      icon: "/Icons/_x34_7_Maximize.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Healthcare/4.svg", // Replace with your icon path
       title: "Access Barriers",
       description:
         "26-day wait times, 4 in 10 can't afford care, cost-driven skipping.",
