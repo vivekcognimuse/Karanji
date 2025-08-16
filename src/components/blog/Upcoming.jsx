@@ -10,72 +10,84 @@ const upcomingItems = [
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/1",
+    domain: "Technology Solutions",
   },
   {
     title: "K Buddy AI Learning Companion",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/3",
+    domain: "Technology Solutions",
   },
   {
     title: "Outbound Calling Agent",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/4",
+    domain: "Technology Solutions",
   },
   {
     title: "Sign Language Bot (SignBot)",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/5",
+    domain: "Technology Solutions",
   },
   {
     title: "Teacher Empowerment System (TES)",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/6",
+    domain: "Technology Solutions",
   },
   {
     title: "Quality Month: Video Animation",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/7",
+    domain: "Entertainment Services",
   },
   {
     title: "Futuristic Digital Payments Training Module",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/8",
+    domain: "Digital Learning",
   },
   {
     title: "Driving School & Training Module",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/9",
+    domain: "Digital Learning ",
   },
   {
     title: "Ujjivan - Banking Sector, Corporate Learning & Development Teams",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/10",
+    domain: "Digital Learning ",
   },
   {
     title: "AI LMS",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/11",
+    domain: "Digital Learning ",
   },
   {
     title: "Automobile-EV Training Module",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/12",
+    domain: "Digital Learning ",
   },
   {
     title: "Elevating a One-Hour Podcast into a Visually Engaging Experience",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/13",
+    domain: "Entertainment Services ",
   },
   {
     title:
@@ -83,30 +95,35 @@ const upcomingItems = [
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/14",
+    domain: "Entertainment Services",
   },
   {
     title: "Convocation Day School Real Video Project",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/15",
+    domain: "Entertainment Services ",
   },
   {
     title: "Cybersecurity Awareness Game",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/16",
+    domain: "Technology Solutions",
   },
   {
     title: "VR Training for Electric Vehicle (EV)",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/17",
+    domain: "Technology Solutions",
   },
   {
     title: "Digital Twins",
     date: "06/08/2025", // Default date as no date was provided in the case study
     type: "Case Study",
     link: "/case-studies/18",
+    domain: "Technology Solutions",
   },
 ];
 
@@ -133,6 +150,9 @@ const Upcoming = () => {
                   {item.title}
                 </P2>
                 <div className="flex items-center gap-4 md:gap-6 shrink-0">
+                  <span className="text-gray-500 text-sm md:text-base">
+                    {item.domain}
+                  </span>
                   <span className="font-medium text-black-800 text-sm md:w-20">
                     {item.date}
                   </span>

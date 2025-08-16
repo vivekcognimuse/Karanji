@@ -10,7 +10,7 @@ const teamData = {
     "Build your career with us & help shape the future of [Industry/Field]. We value innovation, diversity, & collaborative growth.",
   SecondaryButtonText: "View Open Roles",
   // Scrolls to the roles section below
-  SecondaryButtonLink: "open-roles",
+  SecondaryButtonLink: "#open-roles",
 };
 
 const sectionData = {
@@ -53,7 +53,7 @@ export default function careersPage() {
   <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {/* Wrapper for all components except the last CTA */}
       <div 
-        className="p-10 rounded-[32px]"
+        className="p-10  rounded-[32px]"
         style={{
           background: "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
           backdropFilter: "blur(28.100000381469727px)",
