@@ -63,23 +63,23 @@ const Footer = () => {
     },
     {
       title: "Industries",
-      href: "/industries",
+      href: "/Industries",
       links: [
         {
           name: "Healthcare",
-          href: "/healthcare",
+          href: "/Industries/healthcare",
         },
         {
           name: "Aviation",
-          href: "/aviation",
+          href: "/Industries/aviation",
         },
         {
           name: "Logistics",
-          href: "/logistics",
+          href: "/Industries/logistics",
         },
         {
           name: "Oil & Gas",
-          href: "/oil-and-gas",
+          href: "/Industries/oil-and-gas",
         },
       ],
     },
@@ -94,6 +94,10 @@ const Footer = () => {
         {
           name: "Our Team",
           href: "/company/our-team",
+        },
+        {
+          name: "Digital Twin",
+          href: "/company/digital-twin",
         },
         {
           name: "Careers",
