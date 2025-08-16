@@ -13,7 +13,6 @@ const ScrollVideoSequence = () => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -22,25 +21,21 @@ const ScrollVideoSequence = () => {
     const handleCanPlay = () => {
       console.log("Video can play");
       setVideoLoaded(true);
-      setIsLoading(false);
     };
 
     const handleLoadedData = () => {
       console.log("Video data loaded");
       setVideoLoaded(true);
-      setIsLoading(false);
     };
 
     const handleLoadedMetadata = () => {
       console.log("Video metadata loaded");
       setVideoLoaded(true);
-      setIsLoading(false);
     };
 
     const handleError = (e) => {
       console.error("Video loading error:", e);
       setVideoLoaded(true);
-      setIsLoading(false);
     };
 
     const handleLoadStart = () => {
@@ -58,7 +53,6 @@ const ScrollVideoSequence = () => {
     const timeoutId = setTimeout(() => {
       console.log("Loading timeout - forcing video ready state");
       setVideoLoaded(true);
-      setIsLoading(false);
     }, 3000); // 3 second timeout
 
     // Force load the video
@@ -93,7 +87,6 @@ const ScrollVideoSequence = () => {
         end: "bottom 20%", // End when bottom of container is 20% down the viewport
         onEnter: () => {
           console.log("Video entering viewport - starting playback");
-          setIsInView(true);
           video.currentTime = 0;
 
           // Handle audio autoplay restrictions
@@ -111,7 +104,6 @@ const ScrollVideoSequence = () => {
         },
         onEnterBack: () => {
           console.log("Video re-entering viewport");
-          setIsInView(true);
           // Resume muted video playback
           const playPromise = video.play();
           if (playPromise !== undefined) {
@@ -124,7 +116,6 @@ const ScrollVideoSequence = () => {
           console.log("Video leaving viewport backwards");
           video.pause();
           video.currentTime = 0; // Reset to beginning when scrolling back up
-          setIsInView(false);
         },
       });
 
@@ -188,7 +179,7 @@ const ScrollVideoSequence = () => {
           playsInline
           preload="metadata"
           crossOrigin="anonymous">
-          <source src="/output2.webm" type="video/webm" />
+          <source src="/Scaled Animation.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
