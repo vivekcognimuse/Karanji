@@ -40,33 +40,33 @@ const industryData = {
   overviewDescription:
     "The global aviation industry stands at a critical inflection point as it approaches $1 trillion in annual revenues & 5 billion passengers by 2025. Despite this growth trajectory, the sector faces unprecedented challenges across operations, supply chains, workforce, technology, sustainability, & regulatory compliance—all while navigating volatile economic conditions that threaten already thin profit margins.",
   challengesTitle: "Top Challenges",
-  image: "/Images/industry-vr-healthcare.jpg", // Replace with your image path
+  image: "/Industries & its pages/Aviation/Aviation image.webp", // Replace with your image path
   imageAlt: "Healthcare professional using VR technology",
   challenges: [
     {
       id: 1,
-      icon: "Icons/user-md.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/performance_9202949 1.svg", // Replace with your icon path
       title: "Economic Pressure & Operational Bottlenecks",
       description:
         "Rising fuel costs, low margins, & outdated facilities disrupt operations.",
     },
     {
       id: 2,
-      icon: "Icons/microchip.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with your icon path
       title: "Supply Chain Disruptions & Workforce Shortages",
       description:
         "Parts delays & critical workforce gaps impact production & service.",
     },
     {
       id: 3,
-      icon: "Icons/microchip.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/sustainable_17002269 1.svg", // Replace with your icon path
       title: "Sustainability & Regulatory Pressure",
       description:
         "High SAF costs & complex global regulations increase compliance burdens.",
     },
     {
       id: 4,
-      icon: "Icons/hospital.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with your icon path
       title: "Technology Gaps & Cybersecurity Risks",
       description:
         "Outdated systems & rising cyberattacks expose aviation to major risks.",
@@ -120,15 +120,14 @@ const strategicPrioritiesData = {
   ],
 };
 const digitalOfferingsData = {
-  title: "Digital Adoption Overview",
-  tag: "Digital Transformation",
+  tag: "Digital Adoption",
   cards: [
     {
       title: "Airlines",
       subTitle: "",
       description:
         "Digitizing retail & operations for better revenue & experience.",
-      featured: true,
+      featured: false,
       icon: "/Icons/airlines.svg",
       hoverContent: [
         { text: "Moving to modern retailing platforms" },
@@ -299,7 +298,10 @@ const strategicUseCaseData = {
 export default async function Aviation() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage={"/hero/Avatars.webp"} />
+      <HeroSection
+        data={heroData}
+        bgImage={"/Industries & its pages/Aviation/aviation banner.webp"}
+      />
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
 
