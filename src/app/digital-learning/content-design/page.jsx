@@ -2,7 +2,7 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
+
 import ContentFormats from "@/sections/digital-learning/Content-Formats";
 import CTA from "@/sections/digital-learning/CTA";
 
@@ -99,6 +99,7 @@ const successStoriesData = {
         "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "10",
+      tag: "Digital Learning",
     },
     {
       title: "Driving School & Training Module",
@@ -110,6 +111,7 @@ const successStoriesData = {
         "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "9",
+      tag: "Digital Learning",
     },
     {
       title: "Futuristic Digital Payments Training Module",
@@ -121,6 +123,7 @@ const successStoriesData = {
         "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "8",
+      tag: "Digital Learning",
     },
   ],
 };
