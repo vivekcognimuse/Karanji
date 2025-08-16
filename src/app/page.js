@@ -58,7 +58,7 @@ const technologyServicesData = {
       title: "Technology Solutions",
       number: "01",
 
-      image: "/digital-learning/service/1.webp",
+      image: "/home/technology.jpg",
       description:
         "Transforming learning experiences through expert content design, development, & talent resources",
       list: [
@@ -74,7 +74,7 @@ const technologyServicesData = {
       id: 2,
       title: "Digital Learning",
       number: "02",
-      image: "/digital-learning/service/2.webp",
+      image: "/home/digital_learning.webp",
       description:
         "A fully customizable learning platform that adapts to your organization’s needs.",
       ctaText: "Learn More",
@@ -90,7 +90,7 @@ const technologyServicesData = {
       id: 3,
       title: "Creative Services",
       number: "03",
-      image: "/digital-learning/service/3.webp",
+      image: "/home/creative_services.webp",
       description:
         "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
       list: [

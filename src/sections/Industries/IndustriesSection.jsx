@@ -6,7 +6,7 @@ const IndustriesSection = ({ data, cards }) => {
 
   return (
     <section className="w-full">
-      <div className="mx-auto max-w-7xl px-4 lg:px-10 py-16 lg:py-20">
+      <div className="">
         {/* Header Section - Title left 40%, Description right 60% */}
         <div className="mb-12 lg:mb-16">
           <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-10">

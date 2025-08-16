@@ -286,15 +286,15 @@ const ContactPage = () => {
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-black/80 font-sans">
-                    Looking for digital learning solutions?
+                    Your Technology Translation Partner
                   </h3>
                 </div>
                 <div className="flex flex-col gap-6">
                   <p className="text-black/80 text-lg sm:text-xl font-normal font-['Outfit'] tracking-wide">
-                    We're your one-stop destination! With our expertise in
-                    various authoring tools, game development platforms, and AR,
-                    VR, and MR technologies, we create engaging and innovative
-                    learning content tailored to your needs.
+                    Bridging creative storytelling, immersive technologies, and
+                    artificial intelligence (AI) innovation—Karanji is the your
+                    one stop integrated partner for next-generation
+                    digital experiences.
                   </p>
                   <p className="text-black/50 text-lg sm:text-xl font-light font-['Outfit'] tracking-wide">
                     Get in touch today and let's bring your ideas to life!
