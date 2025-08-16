@@ -1,9 +1,9 @@
-"use client";
-
 import React, { useRef, useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +18,6 @@ const ScrollImageSequence = () => {
 
   const frameCount = 480;
 
-  // Function to get current frame path
   const currentFrame = (index) => `/animate/${index}.jpg`;
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const ScrollImageSequence = () => {
 
     const context = canvas.getContext("2d");
 
-    // Set canvas size to window size minus navbar
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight - 80; // Account for 80px navbar
@@ -36,7 +34,6 @@ const ScrollImageSequence = () => {
 
     setCanvasSize();
 
-    // Preload all images
     const preloadImages = async () => {
       const imagePromises = [];
 
@@ -64,7 +61,6 @@ const ScrollImageSequence = () => {
       try {
         await Promise.all(imagePromises);
         setIsLoading(false);
-        // Draw the first frame once all images are loaded
         if (imagesRef.current[0]) {
           drawImage(0);
         }
@@ -74,76 +70,56 @@ const ScrollImageSequence = () => {
       }
     };
 
-    // Function to draw image on canvas
     const drawImage = (frameIndex) => {
       if (!imagesRef.current[frameIndex] || !context) return;
 
       const img = imagesRef.current[frameIndex];
-
-      // Clear canvas
       context.clearRect(0, 0, canvas.width, canvas.height);
 
-      // CROP SETTINGS - Adjust these to remove borders from source images
-      const cropPixels = 0; // Change this to crop borders (e.g., 10 for 10px border)
-      // Or use percentage: const cropPercent = 0.02; // 2% crop from each side
+      const cropPixels = 0; // No crop
+      const sourceX = cropPixels;
+      const sourceY = cropPixels;
+      const sourceWidth = img.width - cropPixels * 2;
+      const sourceHeight = img.height - cropPixels * 2;
 
-      // Calculate source image dimensions after cropping
-      const sourceX = cropPixels; // Start X position in source image
-      const sourceY = cropPixels; // Start Y position in source image
-      const sourceWidth = img.width - cropPixels * 2; // Width to grab from source
-      const sourceHeight = img.height - cropPixels * 2; // Height to grab from source
+      const scaleFactor = 0.9;
 
-      // SCALE FACTOR - Adjust this to control image size (0.5 = 50%, 0.7 = 70%, etc.)
-      const scaleFactor = 0.9; // Change this value to make images smaller/larger
-
-      // Calculate dimensions to maintain aspect ratio and FIT the image within canvas
       const canvasAspect = canvas.width / canvas.height;
-      const imgAspect = sourceWidth / sourceHeight; // Use cropped dimensions for aspect ratio
+      const imgAspect = sourceWidth / sourceHeight;
 
       let drawWidth, drawHeight, offsetX, offsetY;
 
       if (canvasAspect > imgAspect) {
-        // Canvas is wider than image - fit by height
         drawHeight = canvas.height * scaleFactor;
         drawWidth = drawHeight * imgAspect;
         offsetX = (canvas.width - drawWidth) / 2;
         offsetY = (canvas.height - drawHeight) / 2;
       } else {
-        // Canvas is taller than image - fit by width
         drawWidth = canvas.width * scaleFactor;
         drawHeight = drawWidth / imgAspect;
         offsetX = (canvas.width - drawWidth) / 2;
         offsetY = (canvas.height - drawHeight) / 2;
       }
 
-      // Optional: Add a background color or gradient
-      // context.fillStyle = '#111111';
-      // context.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw the image with cropping (9 parameters version of drawImage)
       context.drawImage(
         img,
         sourceX,
         sourceY,
         sourceWidth,
-        sourceHeight, // Source rectangle (cropped)
+        sourceHeight,
         offsetX,
         offsetY,
         drawWidth,
-        drawHeight // Destination rectangle
+        drawHeight
       );
     };
 
-    // Store drawImage function for GSAP animation
     animationRef.current = { drawImage };
 
-    // Start preloading images
     preloadImages();
 
-    // Handle window resize
     const handleResize = () => {
       setCanvasSize();
-      // Redraw current frame on resize
       const trigger = ScrollTrigger.getById("imageSequence");
       if (trigger) {
         const currentProgress = trigger.progress || 0;
@@ -162,25 +138,22 @@ const ScrollImageSequence = () => {
     };
   }, []);
 
-  // GSAP Animation with ScrollTrigger
   useGSAP(
     () => {
       if (!isLoading && animationRef.current && containerRef.current) {
-        // Kill any existing ScrollTrigger with the same ID first
         const existingTrigger = ScrollTrigger.getById("imageSequence");
         if (existingTrigger) {
           existingTrigger.kill();
         }
 
-        // Create new timeline
         const tl = gsap.timeline({
           scrollTrigger: {
             id: "imageSequence",
             trigger: containerRef.current,
             start: "top top",
-            end: "+=1800%", // Increased from 400% to 800% for slower animation
+            end: "+=1800%",
             pin: true,
-            scrub: 1, // Increased from 0.5 to 1 for smoother, slower scrubbing
+            scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -192,11 +165,20 @@ const ScrollImageSequence = () => {
               if (animationRef.current?.drawImage) {
                 animationRef.current.drawImage(frameIndex);
               }
+
+              // Show CTA button after frame 470
+              const ctaButton = document.getElementById("ctaButton");
+              if (ctaButton) {
+                if (frameIndex >= 470) {
+                  gsap.to(ctaButton, { opacity: 1, visibility: "visible" });
+                } else {
+                  gsap.to(ctaButton, { opacity: 0, visibility: "hidden" });
+                }
+              }
             },
           },
         });
 
-        // Cleanup function
         return () => {
           if (tl.scrollTrigger) {
             tl.scrollTrigger.kill();
@@ -210,13 +192,19 @@ const ScrollImageSequence = () => {
 
   return (
     <>
-      {/* Image Sequence Animation Section */}
       <section ref={containerRef} className="relative h-screen pt-20">
         <canvas
           ref={canvasRef}
-          className="absolute top-20 left-0 w-full"
+          className="absolute top-20 left-0 w-full z-0"
           style={{ height: "calc(100vh - 80px)" }}
         />
+        <div
+          id="ctaButton"
+          className="absolute bottom-28 left-1/2 transform -translate-x-1/2 opacity-0 visibility-hidden">
+          <a target="_blank" href="https://linkly.link/2BKPj">
+            <Button>Talk to our CEO Now</Button>
+          </a>
+        </div>
       </section>
     </>
   );

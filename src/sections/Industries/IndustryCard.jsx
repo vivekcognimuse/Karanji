@@ -3,12 +3,14 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { P2, P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
+import Button from "@/components/ui/Button";
 
 const IndustryCard = ({ card, index }) => {
   const cardRef = useRef(null);
   const frontContentRef = useRef(null);
   const backContentRef = useRef(null);
-
+  const { icon, title, subTitle, hoverContent, img, ctaText, ctaLink, list } =
+    card;
   useEffect(() => {
     const cardElement = cardRef.current;
     const frontContent = frontContentRef.current;
@@ -74,9 +76,6 @@ const IndustryCard = ({ card, index }) => {
     }
   }, [card.hoverContent]);
 
-  // Get hover content, fallback to null if not available
-  const hoverContent = card.hoverContent;
-
   return (
     <div
       ref={cardRef}
@@ -87,22 +86,29 @@ const IndustryCard = ({ card, index }) => {
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
       data-reveal
-      data-reveal-dir="up"
-    >
+      data-reveal-dir="up">
       {/* Front Content - Default State */}
       <div ref={frontContentRef} className="relative z-10">
         <div className="mb-6 w-16 h-16 flex items-center justify-center">
           <Image
-            src={`/technologySolutions/digital-offering/${index + 1}.svg`}
-            alt={`${card.title} icon`}
+            src={icon}
+            alt={`${title} icon`}
             width={48}
             height={48}
             className="object-contain"
           />
         </div>
 
-        <h4 className="mb-4">{card.title}</h4>
-        <P2 className="text-gray-600 ">{card.description}</P2>
+        <h4 className="mb-4">{title}</h4>
+        <P2 className="text-gray-600 ">{}</P2>
+
+        <Image
+          src={img}
+          alt={`${title} icon`}
+          width={48}
+          height={48}
+          className="object-contain w-full h-auto"
+        />
       </div>
 
       {/* Back Content - Hover State */}
@@ -114,26 +120,34 @@ const IndustryCard = ({ card, index }) => {
             background: "url('/gradients/offering-card-gradient.svg')",
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}
-        >
+          }}>
           <div className="rounded-xl p-6 h-full flex flex-col">
-            <div className="space-y-8 flex-1">
-              {hoverContent.map((item, idx) => (
-                <div key={idx} className="items-start">
-                  <P3 className="text-gray-700">{item.text}</P3>
-                  <hr className="mt-2 w-full text-black-200" />
+            <div className="space-y-8 flex flex-col justify-between flex-1">
+              <div>
+                <div className="mb-6 w-16 h-16 flex items-center ">
+                  <Image
+                    src={icon}
+                    alt={`${title} icon`}
+                    width={48}
+                    height={48}
+                    className="object-contain"
+                  />
                 </div>
-              ))}
-            </div>
-            <div className="mt-auto flex justify-start">
-              <div className="w-16 h-16 flex items-center justify-center">
-                <Image
-                  src={`/technologySolutions/digital-offering/${index + 1}.svg`}
-                  alt={`${card.title} icon`}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
+                <h4 className="mb-4">{title}</h4>
+                <P2 className="text-gray-600 ">{}</P2>
+              </div>
+              <div>
+                {hoverContent.map((item, idx) => (
+                  <div key={idx} className="items-start">
+                    <P3 className="text-gray-700">{item}</P3>
+                    <hr className="mt-2 w-full text-black-200" />
+                  </div>
+                ))}
+                <div className="flex justify-end mt-8">
+                  <Button variant="secondary" size="sm">
+                    Learn More
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

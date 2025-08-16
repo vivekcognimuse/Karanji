@@ -88,7 +88,7 @@
 //   );
 // }
 //app/case-studies/[id]/page.jsx
-import caseStudiesJson from "@/data/caseStudies.json"; // Ensure correct path to JSON file
+
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
 import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";

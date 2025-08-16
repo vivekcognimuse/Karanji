@@ -74,46 +74,15 @@ const cards = [
   {
     id: 33,
     title: "HealthCare",
-    description: "Reimagining Healthcare",
+
+    image: "",
+    subTitle: "Reimagining Healthcare",
     hoverContent: [
-      { id: 76, text: "Digital Twin Readiness Assessment" },
-      { id: 77, text: "Business Case Development" },
-      { id: 78, text: "Roadmap Creation" },
+      "Digital Twin Readiness Assessment",
+      "Business Case Development",
+      "Roadmap Creation",
     ],
-    icon: null,
-  },
-  {
-    id: 34,
-    title: "Design & Architecture",
-    description: "Blueprints for connected, scalable twin systems",
-    hoverContent: [
-      { id: 79, text: "Solution Architecture" },
-      { id: 80, text: "Modeling & Simulation Design" },
-      { id: 81, text: "Data Strategy" },
-    ],
-    icon: null,
-  },
-  {
-    id: 35,
-    title: "Data Integration & IoT Connectivity",
-    description: "Seamless integration for real-time digital twin connectivity",
-    hoverContent: [
-      { id: 82, text: "Sensor & Device Integration" },
-      { id: 83, text: "Legacy System Integration" },
-      { id: 84, text: "Cloud & Edge Connectivity" },
-    ],
-    icon: null,
-  },
-  {
-    id: 36,
-    title: "Smart Development & Interfaces",
-    description:
-      "Smart development, Immersive interfaces for virtual precision",
-    hoverContent: [
-      { id: 85, text: "Digital Twin Model Development" },
-      { id: 86, text: "User Interface & Visualization" },
-      { id: 87, text: "Simulation & Analytics" },
-    ],
+    ctaLink: "/industries/healthcare",
     icon: null,
   },
 ];
