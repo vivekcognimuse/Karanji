@@ -1,121 +1,209 @@
-// Alternative approach: Load D-ID from CDN with proper error handling
-
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P3 } from "@/components/CustomTags";
 
-// Single AvatarCard component
-function AvatarCard({ avatar, delay = 0, sdkReady = false }) {
+// Global agent manager to handle multiple agents sequentially
+class AgentManagerSingleton {
+  constructor() {
+    this.currentAgent = null;
+    this.agentQueue = new Map();
+    this.isInitializing = false;
+  }
+
+  async initializeAgent(agentData, callbacks) {
+    // If an agent is already active, disconnect it first
+    if (this.currentAgent) {
+      try {
+        await this.currentAgent.disconnect();
+        console.log("Previous agent disconnected");
+      } catch (e) {
+        console.warn("Error disconnecting previous agent:", e);
+      }
+      this.currentAgent = null;
+    }
+
+    // Prevent multiple simultaneous initializations
+    if (this.isInitializing) {
+      console.log("Agent initialization already in progress, queuing...");
+      return null;
+    }
+
+    this.isInitializing = true;
+
+    try {
+      if (!window.DID) {
+        throw new Error("D-ID SDK not loaded");
+      }
+
+      const streamOptions = {
+        compatibilityMode: "auto",
+        streamWarmup: true,
+        outputResolution: 512,
+      };
+
+      const agentManager = await window.DID.createAgentManager(
+        agentData.agentId,
+        {
+          auth: {
+            type: "key",
+            clientKey: agentData.clientKey,
+          },
+          callbacks,
+          streamOptions,
+        }
+      );
+
+      this.currentAgent = agentManager;
+      await agentManager.connect();
+
+      console.log(`Agent ${agentData.name} initialized successfully`);
+      return agentManager;
+    } catch (error) {
+      console.error(`Failed to initialize agent ${agentData.name}:`, error);
+      throw error;
+    } finally {
+      this.isInitializing = false;
+    }
+  }
+
+  async switchToAgent(agentData, callbacks) {
+    return this.initializeAgent(agentData, callbacks);
+  }
+
+  getCurrentAgent() {
+    return this.currentAgent;
+  }
+
+  async cleanup() {
+    if (this.currentAgent) {
+      try {
+        await this.currentAgent.disconnect();
+      } catch (e) {
+        console.warn("Error during cleanup:", e);
+      }
+      this.currentAgent = null;
+    }
+  }
+}
+
+// Global singleton instance
+const globalAgentManager = new AgentManagerSingleton();
+
+// Individual Avatar Card Component
+function AvatarCard({ avatar, isActive, onActivate }) {
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [agentManager, setAgentManager] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState(null);
-  const containerRef = useRef(null);
-  const agentManagerRef = useRef(null);
+  const videoRef = useRef(null);
+  const srcObjectRef = useRef(null);
 
   const handleMouseEnter = () => setIsFlipped(true);
   const handleMouseLeave = () => setIsFlipped(false);
 
+  // Initialize agent when this card becomes active
   useEffect(() => {
-    if (!avatar.agentId || !sdkReady) {
-      if (!avatar.agentId) setIsLoading(false);
-      return;
+    if (isActive && !agentManager && avatar.agentId) {
+      initializeThisAgent();
+    } else if (!isActive && agentManager) {
+      // Clean up when no longer active
+      setAgentManager(null);
+      setIsConnected(false);
+      setIsLoading(false);
     }
+  }, [isActive, avatar.agentId]);
 
-    let timeoutId;
+  const initializeThisAgent = async () => {
+    if (!avatar.agentId) return;
 
-    const initializeAgent = async () => {
-      try {
-        await new Promise((resolve) => {
-          timeoutId = setTimeout(resolve, delay);
-        });
+    setIsLoading(true);
+    setError(null);
 
-        // Check if D-ID SDK is loaded and available
-        if (
-          typeof window === "undefined" ||
-          !window.DID ||
-          !window.DID.createAgentManager
-        ) {
-          throw new Error("D-ID SDK not properly loaded");
-        }
-
-        console.log(`Initializing D-ID agent for ${avatar.name}...`);
-
-        const agentManager = await window.DID.createAgentManager(
-          avatar.agentId,
-          {
-            auth: {
-              type: "key",
-              clientKey: avatar.clientKey,
-            },
-            callbacks: {
-              onAgentReady: () => {
-                console.log(`Agent ${avatar.name} is ready`);
-                setIsLoading(false);
-              },
-              onError: (error) => {
-                console.error(`Agent ${avatar.name} error:`, error);
-                setError(error.message || "Agent initialization failed");
-                setIsLoading(false);
-              },
-              onConnectionStateChange: (state) => {
-                console.log(`Agent ${avatar.name} connection state:`, state);
-              },
-            },
-            streamOptions: {
-              compatibilityMode: "auto",
-              streamWarmup: true,
-            },
+    try {
+      const callbacks = {
+        onSrcObjectReady: (srcObject) => {
+          console.log(`onSrcObjectReady for ${avatar.name}:`, srcObject);
+          if (videoRef.current && srcObject) {
+            videoRef.current.srcObject = srcObject;
+            srcObjectRef.current = srcObject;
           }
-        );
+          return srcObject;
+        },
 
-        agentManagerRef.current = agentManager;
+        onVideoStateChange: (state) => {
+          console.log(`${avatar.name} video state:`, state);
+          if (videoRef.current) {
+            if (state === "STOP") {
+              videoRef.current.srcObject = undefined;
+              if (agentManager?.agent?.presenter?.idle_video) {
+                videoRef.current.src = agentManager.agent.presenter.idle_video;
+              }
+            } else {
+              videoRef.current.src = "";
+              videoRef.current.srcObject = srcObjectRef.current;
+            }
+          }
+        },
 
-        // Connect the agent
-        await agentManager.connect();
+        onConnectionStateChange: (state) => {
+          console.log(`${avatar.name} connection state:`, state);
+          if (state === "connected") {
+            setIsConnected(true);
+            setIsLoading(false);
+          } else if (state === "disconnected" || state === "closed") {
+            setIsConnected(false);
+          } else if (state === "fail") {
+            setError(`Connection failed for ${avatar.name}`);
+            setIsLoading(false);
+          }
+        },
 
-        // If there's a video element from the agent, append it to container
-        if (containerRef.current && agentManager.videoElement) {
-          containerRef.current.innerHTML = "";
-          containerRef.current.appendChild(agentManager.videoElement);
-          agentManager.videoElement.style.width = "100%";
-          agentManager.videoElement.style.height = "100%";
-          agentManager.videoElement.style.objectFit = "cover";
-          agentManager.videoElement.style.borderRadius = "1rem";
-        }
+        onNewMessage: (messages, type) => {
+          console.log(`${avatar.name} new message:`, messages, type);
+        },
 
-        console.log(`D-ID agent successfully initialized for ${avatar.name}`);
-      } catch (err) {
-        console.error(
-          `Failed to initialize D-ID agent for ${avatar.name}:`,
-          err
-        );
-        setError(err.message || "Failed to initialize agent");
-        setIsLoading(false);
-      }
-    };
+        onError: (error, errorData) => {
+          console.error(`${avatar.name} error:`, error, errorData);
+          setError(error.message || error);
+          setIsLoading(false);
+        },
+      };
 
-    initializeAgent();
+      const manager = await globalAgentManager.initializeAgent(
+        avatar,
+        callbacks
+      );
+      setAgentManager(manager);
+    } catch (err) {
+      console.error(`Failed to initialize ${avatar.name}:`, err);
+      setError(err.message || "Failed to initialize agent");
+      setIsLoading(false);
+    }
+  };
 
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (agentManagerRef.current) {
-        try {
-          agentManagerRef.current.disconnect?.();
-          agentManagerRef.current.destroy?.();
-        } catch (e) {
-          console.warn("Error during cleanup:", e);
-        }
-      }
-    };
-  }, [avatar.agentId, avatar.clientKey, avatar.name, delay, sdkReady]);
+  const handleCardClick = () => {
+    if (!isActive) {
+      onActivate(avatar.agentId);
+    }
+  };
+
+  const handleStartChat = () => {
+    if (agentManager && isConnected) {
+      agentManager.chat("Hello! How can you help me today?");
+    }
+  };
 
   return (
     <div
-      className="relative w-[318px] h-[482px] cursor-pointer flex-shrink-0"
+      className={`relative w-[318px] h-[482px] cursor-pointer flex-shrink-0 transition-all duration-300 ${
+        isActive ? "ring-2 ring-blue-500 ring-opacity-50" : ""
+      }`}
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+      onClick={handleCardClick}>
       <div
         className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
           isFlipped ? "rotate-y-180" : ""
@@ -125,49 +213,107 @@ function AvatarCard({ avatar, delay = 0, sdkReady = false }) {
         <div
           className="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden"
           style={{ backfaceVisibility: "hidden" }}>
-          {/* Online Status */}
-          <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>Online</span>
+          {/* Status Indicator */}
+          <div className="absolute top-6 right-6 flex items-center gap-2 text-sm font-medium z-10">
+            <div
+              className={`w-2 h-2 rounded-full ${
+                isActive && isConnected
+                  ? "bg-green-500"
+                  : isActive && isLoading
+                  ? "bg-yellow-500 animate-pulse"
+                  : "bg-gray-400"
+              }`}></div>
+            <span
+              className={
+                isActive && isConnected
+                  ? "text-green-500"
+                  : isActive && isLoading
+                  ? "text-yellow-500"
+                  : "text-gray-500"
+              }>
+              {isActive && isConnected
+                ? "Online"
+                : isActive && isLoading
+                ? "Loading..."
+                : "Click to Activate"}
+            </span>
           </div>
 
           {/* Avatar Container */}
-          <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
-            {avatar.iframeUrl ? (
-              <iframe
-                src={avatar.iframeUrl}
-                className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
-                frameBorder="0"
-                allow="microphone; camera"
-                allowFullScreen
-                title={`${avatar.name} Digital Avatar`}
-              />
-            ) : avatar.agentId ? (
-              <div
-                ref={containerRef}
-                className="w-full h-full rounded-2xl border border-black-200 shadow-lg bg-white flex items-center justify-center"
-                style={{ minHeight: "350px" }}>
-                {isLoading && (
-                  <div className="text-gray-400 text-sm animate-pulse">
-                    Loading {avatar.name}...
+          <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50 relative">
+            {isActive && avatar.agentId ? (
+              <>
+                {/* Video element for active agent */}
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover rounded-xl"
+                  autoPlay
+                  muted
+                  playsInline
+                  style={{ display: !isLoading && !error ? "block" : "none" }}
+                />
+
+                {/* Loading/Error overlay */}
+                {(isLoading || error) && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-50 rounded-xl">
+                    {isLoading && (
+                      <div className="text-gray-400 text-sm animate-pulse">
+                        Activating {avatar.name}...
+                      </div>
+                    )}
+                    {error && (
+                      <div className="text-red-400 text-sm text-center p-4">
+                        <div>Failed to load {avatar.name}</div>
+                        <div className="text-xs mt-1">{error}</div>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(avatar.ctaLink, "_blank");
+                          }}
+                          className="mt-2 text-blue-500 underline text-xs">
+                          Chat directly instead
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
-                {error && (
-                  <div className="text-red-400 text-sm text-center p-4">
-                    <div>Failed to load {avatar.name}</div>
-                    <div className="text-xs mt-1">{error}</div>
+
+                {/* Chat button for active connected agent */}
+                {isConnected && !isLoading && !error && (
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleStartChat();
+                      }}
+                      className="w-full bg-blue-500 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
+                      Start Chat
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              // Static image for inactive agents
+              <div className="relative w-full h-full">
+                <Image
+                  src={avatar.image}
+                  alt={avatar.name}
+                  width={280}
+                  height={350}
+                  className="w-full h-full object-cover rounded-xl object-center"
+                  style={{ objectPosition: "center 20%" }}
+                />
+                {/* Overlay for non-active cards */}
+                {!isActive && (
+                  <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center rounded-xl">
+                    <div className="bg-white bg-opacity-90 px-4 py-2 rounded-lg">
+                      <span className="text-sm font-medium">
+                        Click to Activate
+                      </span>
+                    </div>
                   </div>
                 )}
               </div>
-            ) : (
-              <Image
-                src={avatar.image}
-                alt={avatar.name}
-                width={280}
-                height={350}
-                className="w-full h-full object-cover rounded-2xl border border-black-200 shadow-lg object-center"
-                style={{ objectPosition: "center 20%" }}
-              />
             )}
           </div>
 
@@ -210,7 +356,7 @@ function AvatarCard({ avatar, delay = 0, sdkReady = false }) {
           </div>
 
           <div className="relative z-10 mt-8 mx-auto">
-            <a target="_blank" href={avatar.ctaLink}>
+            <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
               <Button variant="secondary" size="sm">
                 {avatar.ctaText || `Talk to ${avatar.name}`}
               </Button>
@@ -222,75 +368,42 @@ function AvatarCard({ avatar, delay = 0, sdkReady = false }) {
   );
 }
 
-// Container component
+// Main Container Component
 export default function AvatarCardsContainer() {
-  const [sdkReady, setSdkReady] = useState(false);
-  const [sdkError, setSdkError] = useState(null);
+  const [sdkLoaded, setSdkLoaded] = useState(false);
+  const [activeAgentId, setActiveAgentId] = useState(null);
 
+  // Load D-ID SDK
   useEffect(() => {
-    const loadDIDSDK = async () => {
+    const loadSDK = async () => {
       try {
-        // Check if already loaded
-        if (window.DID && window.DID.createAgentManager) {
-          setSdkReady(true);
+        if (window.DID) {
+          setSdkLoaded(true);
           return;
         }
 
-        console.log("Loading D-ID SDK...");
-
-        // Try multiple CDN sources
-        const cdnUrls = [
-          "https://unpkg.com/@d-id/client-sdk@latest/dist/index.umd.js",
-          "https://cdn.jsdelivr.net/npm/@d-id/client-sdk@latest/dist/index.umd.js",
-        ];
-
-        let loaded = false;
-
-        for (const url of cdnUrls) {
-          if (loaded) break;
-
-          try {
-            await new Promise((resolve, reject) => {
-              const script = document.createElement("script");
-              script.src = url;
-              script.async = true;
-
-              script.onload = () => {
-                console.log(`D-ID SDK loaded from: ${url}`);
-
-                // Check if SDK is properly available
-                if (window.DID && window.DID.createAgentManager) {
-                  setSdkReady(true);
-                  loaded = true;
-                  resolve();
-                } else {
-                  reject(new Error("SDK loaded but not available"));
-                }
-              };
-
-              script.onerror = () => {
-                reject(new Error(`Failed to load from ${url}`));
-              };
-
-              document.head.appendChild(script);
-            });
-          } catch (error) {
-            console.warn(`Failed to load SDK from ${url}:`, error);
-            if (url === cdnUrls[cdnUrls.length - 1]) {
-              throw error;
-            }
-          }
-        }
+        const DID = await import("@d-id/client-sdk");
+        window.DID = DID;
+        setSdkLoaded(true);
+        console.log("D-ID SDK loaded successfully");
       } catch (error) {
-        console.error("Failed to load D-ID SDK from all sources:", error);
-        setSdkError(
-          "Failed to load D-ID SDK. Please check your internet connection."
-        );
+        console.error("Failed to load D-ID SDK:", error);
       }
     };
 
-    loadDIDSDK();
+    loadSDK();
   }, []);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      globalAgentManager.cleanup();
+    };
+  }, []);
+
+  const handleActivateAgent = (agentId) => {
+    setActiveAgentId(agentId);
+  };
 
   const avatarsData = [
     {
@@ -326,30 +439,34 @@ export default function AvatarCardsContainer() {
     },
   ];
 
-  if (sdkError) {
+  if (!sdkLoaded) {
     return (
       <div className="flex justify-center items-center p-8">
-        <div className="text-red-500 text-center">
-          <div>Failed to load D-ID SDK</div>
-          <div className="text-sm mt-1">{sdkError}</div>
-          <div className="text-xs mt-2 text-gray-500">
-            Falling back to static images...
-          </div>
+        <div className="text-gray-500 text-sm animate-pulse">
+          Loading D-ID SDK...
         </div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
-      {avatarsData.map((avatar, index) => (
-        <AvatarCard
-          key={avatar.agentId}
-          avatar={avatar}
-          delay={index * 2000}
-          sdkReady={sdkReady}
-        />
-      ))}
+    <div className="flex flex-col gap-6">
+      {/* Instructions */}
+      <div className="text-center text-sm text-gray-600">
+        Click on an avatar to activate and interact with the agent
+      </div>
+
+      {/* Avatar Cards */}
+      <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+        {avatarsData.map((avatar) => (
+          <AvatarCard
+            key={avatar.agentId}
+            avatar={avatar}
+            isActive={activeAgentId === avatar.agentId}
+            onActivate={handleActivateAgent}
+          />
+        ))}
+      </div>
     </div>
   );
 }
