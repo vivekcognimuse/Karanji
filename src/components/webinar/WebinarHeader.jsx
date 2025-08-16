@@ -102,9 +102,10 @@ export default function WebinarHeader({ data, bgImage }) {
         </div>
 
         {/* Event Details Section - Following HeroSection stats pattern */}
+        {/* Event Details Section - Following HeroSection stats pattern */}
         {(data?.date || data?.time || data?.location) && (
           <div className="w-full my-8 sm:my-12 lg:my-16 px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
               {/* Date */}
               {data?.date && (
                 <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
@@ -112,7 +113,7 @@ export default function WebinarHeader({ data, bgImage }) {
                     <img
                       src="/Icons/Calendar.svg"
                       alt="Calendar"
-                      className="w-6 h-6"
+                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
                     />
                   </div>
                   <div className="text-left min-w-0">
@@ -135,7 +136,7 @@ export default function WebinarHeader({ data, bgImage }) {
                     <img
                       src="/Icons/Clock.svg"
                       alt="Time"
-                      className="w-6 h-6"
+                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
                     />
                   </div>
                   <div className="text-left min-w-0">
@@ -158,7 +159,7 @@ export default function WebinarHeader({ data, bgImage }) {
                     <img
                       src="/Icons/weui_location-outlined.svg"
                       alt="Location"
-                      className="w-6 h-6"
+                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
                     />
                   </div>
                   <div className="text-left min-w-0">

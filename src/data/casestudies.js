@@ -234,6 +234,7 @@ export const caseStudies = [
       "encouragementNote": "Use it, learn from it, and start your own impact story.",
       "buttonLabel": "Download Full Case Study"
     },
-    "image": "/CaseStudyImages/17_Digital_Twins.webp"
+    "image": "/CaseStudyImages/17_Digital_ Twins.webp",
+    "pdfLink": "/Pdf downable/Digital Twins.pdf"
   }
 ]
