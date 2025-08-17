@@ -133,58 +133,41 @@ const StrategicPriorities = ({ data }) => {
         </div>
 
         {/* Mobile Layout - Shown only on Mobile */}
-        <div className="block md:hidden space-y-8">
-          {/* Top row carousel */}
-          {topRowCards && topRowCards.length > 0 && (
-            <div>
-              {topRowCards.length === 1 ? (
-                // Single card - no carousel needed
-                <div className="px-4">
-                  <PriorityCard card={topRowCards[0]} />
-                </div>
-              ) : (
-                // Multiple cards - use carousel
-                <CarouselContainer
-                  key={`top-row-${topRowCards.length}`}
-                  autoPlay={true}
-                  autoPlayInterval={5000}
-                  showDots={true}
-                  showArrows={false}
-                  className="w-full"
-                >
-                  {topRowCards.map((card) => (
-                    <PriorityCard key={card.id} card={card} />
-                  ))}
-                </CarouselContainer>
-              )}
-            </div>
-          )}
+        <div className="block md:hidden">
+          {(() => {
+            // Combine all cards into a single array
+            const allCards = [
+              ...(topRowCards || []),
+              ...(bottomRowCards || []),
+            ];
 
-          {/* Bottom row carousel */}
-          {bottomRowCards && bottomRowCards.length > 0 && (
-            <div>
-              {bottomRowCards.length === 1 ? (
-                // Single card - no carousel needed
+            if (allCards.length === 0) return null;
+
+            if (allCards.length === 1) {
+              // Single card - no carousel needed
+              return (
                 <div className="px-4">
-                  <PriorityCard card={bottomRowCards[0]} />
+                  <PriorityCard card={allCards[0]} />
                 </div>
-              ) : (
-                // Multiple cards - use carousel
-                <CarouselContainer
-                  key={`bottom-row-${bottomRowCards.length}`}
-                  autoPlay={true}
-                  autoPlayInterval={5500}
-                  showDots={true}
-                  showArrows={false}
-                  className="w-full"
-                >
-                  {bottomRowCards.map((card) => (
-                    <PriorityCard key={card.id} card={card} />
-                  ))}
-                </CarouselContainer>
-              )}
-            </div>
-          )}
+              );
+            }
+
+            // Multiple cards - use single carousel
+            return (
+              <CarouselContainer
+                key={`all-cards-${allCards.length}`}
+                autoPlay={true}
+                autoPlayInterval={5000}
+                showDots={true}
+                showArrows={false}
+                className="w-full"
+              >
+                {allCards.map((card) => (
+                  <PriorityCard key={card.id} card={card} />
+                ))}
+              </CarouselContainer>
+            );
+          })()}
         </div>
       </div>
     </section>
