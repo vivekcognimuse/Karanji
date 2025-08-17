@@ -10,14 +10,16 @@ import OfferingCard from "@/components/ui/OfferingCard";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 
 const DigitalTwinOfferings = ({ className = "", data }) => {
-  const { title, subTitle, list, ctaCard, cards } = data || {};
+  const { title, subTitle, bottomtext, list, ctaCard, icon, cards } =
+    data || {};
   console.log("DigitalTwinOfferings data:", data);
   return (
     <section
       className={cn("py-16", className)}
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="max-w-[1580px] mx-auto">
         <div className="text-left mb-12">
           <h3 className=" text-gray-900 mb-6" data-reveal data-reveal-dir="up">
@@ -28,50 +30,60 @@ const DigitalTwinOfferings = ({ className = "", data }) => {
           </P2>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2">
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
-              {list?.map((service, index) => (
-                <P3
-                  key={index}
-                  className="flex items-start"
-                  data-reveal
-                  data-reveal-dir="up">
-                  <span className="text-black-400 mr-3 mt-1">{index + 1}.</span>
-                  <span className="text-black-400">{service.text}</span>
-                </P3>
-              ))}
+        {list && (
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <div className="lg:col-span-2">
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
+                {list?.map((service, index) => (
+                  <P3
+                    key={index}
+                    className="flex items-start"
+                    data-reveal
+                    data-reveal-dir="up"
+                  >
+                    <span className="text-black-400 mr-3 mt-1">
+                      {index + 1}.
+                    </span>
+                    <span className="text-black-400">{service.text}</span>
+                  </P3>
+                ))}
+              </div>
+            </div>
+
+            <div
+              className="bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat border border-black-300 shadow-lg rounded-2xl p-8 text-center"
+              data-reveal
+              data-reveal-dir="up"
+            >
+              <p className="text-gray-900 text-lg mb-6">{ctaCard.title}</p>
+              <Link href={ctaCard.ctaLink} className="w-auto">
+                <Button className="">{ctaCard.ctaText}</Button>
+              </Link>
             </div>
           </div>
-
-          <div
-            className="bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat border border-black-300 shadow-lg rounded-2xl p-8 text-center"
-            data-reveal
-            data-reveal-dir="up">
-            <p className="text-gray-900 text-lg mb-6">{ctaCard.title}</p>
-            <Link href={ctaCard.ctaLink} className="w-auto">
-              <Button className="">{ctaCard.ctaText}</Button>
-            </Link>
-          </div>
-        </div>
-
+        )}
         <div className=" hidden lg:block">
           <MultiCardCarousel>
             {cards.map((card, index) => (
-              <OfferingCard key={index} card={card} index={index} />
+              <OfferingCard icon={icon} key={index} card={card} index={index} />
             ))}
           </MultiCardCarousel>{" "}
         </div>
         <div className="lg:hidden">
           <CarouselContainer>
             {cards.map((card, index) => (
-              <OfferingCard key={index} card={card} index={index} />
+              <OfferingCard icon={icon} key={index} card={card} index={index} />
             ))}
           </CarouselContainer>
         </div>
       </div>
 
       <SectionReveal />
+      {bottomtext && (
+        <P2 className="mt-12 " data-reveal data-reveal-dir="up">
+          {bottomtext}
+        </P2>
+      )}
     </section>
   );
 };
