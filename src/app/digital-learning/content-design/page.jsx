@@ -1,4 +1,6 @@
 "use client";
+import { P2 } from "@/components/CustomTags";
+import Button from "@/components/ui/Button";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -363,10 +365,11 @@ const customELearningSolutionDeepDive = {
   cta: {
     text: "Need something totally ready to deploy?",
     buttonText: "View Ready Solutions & Resources",
+    buttonLink: "/resources",
   },
 };
 const ContentDesign = () => {
-  const [activeTab, setActiveTab] = useState("ready");
+  const [activeTab, setActiveTab] = useState("custom");
 
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -402,6 +405,9 @@ const ContentDesign = () => {
           <>
             <Methodology column={true} data={methodologyData} />
             <ContentFormats data={contentFormatsData} />
+            <ELearningCustomELearningSolutionDeepDive
+              data={customELearningSolutionDeepDive}
+            />
           </>
         ) : (
           <>
@@ -412,9 +418,12 @@ const ContentDesign = () => {
             />
           </>
         )}
-        <ELearningCustomELearningSolutionDeepDive
-          data={customELearningSolutionDeepDive}
-        />
+        {/* <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+          <P2 className=" ">{customELearningSolutionDeepDive.cta.text}</P2>
+          <Button size="sm" variant="secondary" className="">
+            {customELearningSolutionDeepDive.cta.buttonText}
+          </Button>
+        </div> */}
       </div>
       <SuccessStories data={successStoriesData} />
       <CTA data={CTAData} />
