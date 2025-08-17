@@ -3,9 +3,6 @@ import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
-import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
-import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
-import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 const heroData = {
