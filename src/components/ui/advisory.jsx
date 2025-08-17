@@ -126,11 +126,11 @@ export const MethodologyStep = memo(function MethodologyStep({
 
           <div>
             {tags && (
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex  gap-4 flex-wrap">
                 {tags.map((tag, index) => (
                   <P3
                     key={index}
-                    className="rounded-full text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
+                    className="rounded-full bg-white/40 text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
                     {tag}
                   </P3>
                 ))}

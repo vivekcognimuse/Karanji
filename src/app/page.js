@@ -5,6 +5,7 @@ import ScrollImageSequence from "@/components/LandingAnimation";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServices from "@/sections/service/Service";
 import ScrollVideoSequence from "@/components/LandingAnimation";
+import TechnologyServicesHome from "@/sections/service/Service copy";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
@@ -111,7 +112,7 @@ const KaranjiLanding = () => {
       <HeroSection />
       <StatsSection />
       <div id="our-services" className="mt-16 lg:mt-32">
-        <TechnologyServices
+        <TechnologyServicesHome
           bgImage="/technologySolutions/gradient.svg"
           data={technologyServicesData}
         />

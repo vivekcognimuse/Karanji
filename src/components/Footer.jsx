@@ -2,7 +2,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
-import { P5 } from "./CustomTags";
+import { P4, P5 } from "./CustomTags";
 import Image from "next/image";
 
 const Footer = () => {
@@ -140,7 +140,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full  max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-32 mt-8 lg:mt-16">
+    <footer className="w-full  max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-12 mt-8 lg:mt-16">
       {/* Top */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
         <Image
@@ -156,17 +156,17 @@ const Footer = () => {
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-4   mb-4 min-w-0">
               <Link href={section.href}>
-                <P5 className="text-black cursor-pointer hover:underline break-words">
+                <P4 className="text-black cursor-pointer hover:underline break-words">
                   {section.title}
-                </P5>
+                </P4>
               </Link>
-              <ul className="space-y-2">
+              <ul className="space-y-4 mt-4">
                 {section.links.map((link) => (
                   <li key={link.name} className="min-w-0">
                     <Link
                       href={link.href}
                       className="text-black hover:underline font-normal font-outfit leading-relaxed tracking-wide break-words">
-                      <P5 className="break-words">{link.name}</P5>
+                      <P4 className="break-words">{link.name}</P4>
                     </Link>
                   </li>
                 ))}
@@ -177,7 +177,7 @@ const Footer = () => {
       </div>
       {/* Bottom */}
       <div>
-        <p className="mt-auto font-light text-sm text-black-500">
+        <p className="font-light text-sm text-black-500">
           The quantitative metrics presented here are based on research and
           comparable implementations. These figures serve as directional
           indicators of potential magnitude rather than guaranteed outcomes. The
