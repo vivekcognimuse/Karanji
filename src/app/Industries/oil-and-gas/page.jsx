@@ -3,8 +3,6 @@ import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
-import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
-import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 const heroData = {

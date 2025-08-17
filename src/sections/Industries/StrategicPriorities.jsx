@@ -88,33 +88,37 @@ const StrategicPriorities = ({ data }) => {
         {businessPrioritiesTitle && (
           <h4 className="mb-16 text-lg">{businessPrioritiesTitle}</h4>
         )}
+        <div className="px-24">
+          {/* Top row */}
+          {topRowCards && topRowCards.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {topRowCards.map((card) => (
+                <div
+                  key={card.id}
+                  className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
+                >
+                  {renderCardContent(card)}
+                </div>
+              ))}
+            </div>
+          )}
 
-        {/* Top row */}
-        {topRowCards && topRowCards.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {topRowCards.map((card) => (
-              <div
-                key={card.id}
-                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full">
-                {renderCardContent(card)}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Bottom row */}
-        {bottomRowCards && bottomRowCards.length > 0 && (
-          <div
-            className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}>
-            {bottomRowCards.map((card) => (
-              <div
-                key={card.id}
-                className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full">
-                {renderCardContent(card)}
-              </div>
-            ))}
-          </div>
-        )}
+          {/* Bottom row */}
+          {bottomRowCards && bottomRowCards.length > 0 && (
+            <div
+              className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}
+            >
+              {bottomRowCards.map((card) => (
+                <div
+                  key={card.id}
+                  className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
+                >
+                  {renderCardContent(card)}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
