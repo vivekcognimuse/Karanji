@@ -56,7 +56,7 @@ const XRGaming = async () => {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <HeroSection data={hero} />
+      <HeroSection bgImage="/hero/XR-Gaming.webp" data={hero} />
       <div id="xr-service-offerings">
         <ServiceOfferings
           data={serviceOffering}
