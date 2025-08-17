@@ -1,6 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
-import Industrychallenge from "@/sections/Industries/IndustryChallenge";
+import Industrychallenge from "@/sections/digital-learning/analytics/Deliverables";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
@@ -34,36 +34,31 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  sectionTitle: "Industry Challenges & Landscape",
-  overviewTitle: "Overview",
-  overviewDescription:
+  title: "Industry Challenges & Landscape",
+  tag: "Overview",
+  subTitle:
     "The oil & gas sector is undergoing rapid disruption from price volatility & environmental pressures to workforce & infrastructure challenges. To stay competitive, companies are turning to digital solutions like AI-driven maintenance, emissions tracking, & immersive training. The future of energy is data-powered, automated, & built for resilience.",
-  challengesTitle: "Top Challenges",
-  image: "/Industries & its pages/Oil and gas/Oil and gas image image.webp", // Replace with your image path
-  imageAlt: "Oil and gas workers on site",
-  challenges: [
+  heroImage: "/Industries & its pages/Oil and gas/Oil and gas image image.webp",
+  featureHeader: "Top Challenges",
+  features: [
     {
-      id: 1,
       icon: "/Industries & its pages/Aviation/regulation_15546710 1.svg", // Replace with appropriate icon path
       title: "Market Dynamics",
       description:
         "Price volatility, market divergence, & supply chain pressures.",
     },
     {
-      id: 2,
       icon: "/Industries & its pages/Aviation/stock-market_9610148 1.svg", // Replace with appropriate icon path
       title: "Regulatory Environment",
       description:
         "Emissions regulations, policy uncertainty, and ESG requirements.",
     },
     {
-      id: 3,
       icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with appropriate icon path
       title: "Workforce Challenges",
       description: "Demographic shifts, skill gaps, and safety imperatives.",
     },
     {
-      id: 4,
       icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with appropriate icon path
       title: "Cybersecurity Threats",
       description: "Threaten systems, requiring stronger protection.",

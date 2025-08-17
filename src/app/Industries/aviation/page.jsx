@@ -1,6 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
-import Industrychallenge from "@/sections/Industries/IndustryChallenge";
+import Industrychallenge from "@/sections/digital-learning/analytics/Deliverables";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
@@ -34,37 +34,32 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  sectionTitle: "Industry Challenges & Priorities",
-  overviewTitle: "Overview",
-  overviewDescription:
+  title: "Industry Challenges & Priorities",
+  tag: "Overview",
+  subTitle:
     "The global aviation industry stands at a critical inflection point as it approaches $1 trillion in annual revenues & 5 billion passengers by 2025. Despite this growth trajectory, the sector faces unprecedented challenges across operations, supply chains, workforce, technology, sustainability, & regulatory compliance—all while navigating volatile economic conditions that threaten already thin profit margins.",
-  challengesTitle: "Top Challenges",
-  image: "/Industries & its pages/Aviation/Aviation image.webp", // Replace with your image path
-  imageAlt: "Healthcare professional using VR technology",
-  challenges: [
+  featureHeader: "Top Challenges",
+  heroImage: "/Industries & its pages/Aviation/Aviation image.webp", // Replace with your image path
+  features: [
     {
-      id: 1,
       icon: "/Industries & its pages/Aviation/performance_9202949 1.svg", // Replace with your icon path
       title: "Economic Pressure & Operational Bottlenecks",
       description:
         "Rising fuel costs, low margins, & outdated facilities disrupt operations.",
     },
     {
-      id: 2,
       icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with your icon path
       title: "Supply Chain Disruptions & Workforce Shortages",
       description:
         "Parts delays & critical workforce gaps impact production & service.",
     },
     {
-      id: 3,
       icon: "/Industries & its pages/Aviation/sustainable_17002269 1.svg", // Replace with your icon path
       title: "Sustainability & Regulatory Pressure",
       description:
         "High SAF costs & complex global regulations increase compliance burdens.",
     },
     {
-      id: 4,
       icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with your icon path
       title: "Technology Gaps & Cybersecurity Risks",
       description:

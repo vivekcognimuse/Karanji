@@ -1,6 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
-import Industrychallenge from "@/sections/Industries/IndustryChallenge";
+import Industrychallenge from "@/sections/digital-learning/analytics/Deliverables";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
@@ -40,41 +40,32 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  sectionTitle: "Industry Challenges & Priorities",
-  overviewTitle: "Overview",
-  overviewDescription:
+  title: "Industry Challenges & Priorities",
+  tag: "Overview",
+  subTitle:
     "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
-  challengesTitle: "Critical Challenges",
-  image: "/Industries & its pages/Healthcare/Healthcare image.webp",
-  imageAlt: "Healthcare professional using VR technology",
-  challenges: [
+  featureHeader: "Critical Challenges",
+  heroImage: "/Industries & its pages/Healthcare/Healthcare image.webp",
+  features: [
     {
-      id: 1,
-
       icon: "/Industries & its pages/Healthcare/3.svg",
-
       title: "Workforce Crisis",
       description:
         "100K+ critical worker shortage by 2028, 50% burnout rate persists.",
     },
     {
-      id: 2,
-
       icon: "/Industries & its pages/Healthcare/5.svg",
       title: "Financial Pressure",
-
       description:
         "8% cost increases, 2% operating margins, $100B underpayment gap.",
     },
     {
-      id: 3,
       icon: "/Industries & its pages/Healthcare/7.svg", // Replace with your icon path
       title: "Technology Gaps",
       description:
         "180+ ransomware attacks, 137TB daily data, workflow inefficiencies.",
     },
     {
-      id: 4,
       icon: "/Industries & its pages/Healthcare/4.svg", // Replace with your icon path
       title: "Access Barriers",
       description:
