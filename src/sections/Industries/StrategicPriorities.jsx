@@ -95,7 +95,7 @@ const StrategicPriorities = ({ data }) => {
               {topRowCards.map((card) => (
                 <div
                   key={card.id}
-                  className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
+                  className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
                 >
                   {renderCardContent(card)}
                 </div>
@@ -111,7 +111,7 @@ const StrategicPriorities = ({ data }) => {
               {bottomRowCards.map((card) => (
                 <div
                   key={card.id}
-                  className="bg-white rounded-xl border border-gray-300 shadow-md p-6 text-center w-full"
+                  className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
                 >
                   {renderCardContent(card)}
                 </div>
