@@ -374,7 +374,7 @@ const ContentDesign = () => {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <HeroSection data={heroData} />
+      <HeroSection bgImage="/hero/content-design.webp" data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
       </div>

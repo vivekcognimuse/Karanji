@@ -62,7 +62,7 @@ export default function HeroSection({ data, bgImage }) {
                     {card.number}
                   </div>
                   <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg uppercase leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
-                    {card.text}
+                    {card.text || card.subText}
                   </p>
                 </div>
               );
