@@ -1,4 +1,5 @@
 import { P2, P3 } from "@/components/CustomTags";
+import CarouselContainer from "@/components/animations/Carousal";
 import React from "react";
 
 const StrategicPriorities = ({ data }) => {
@@ -24,7 +25,7 @@ const StrategicPriorities = ({ data }) => {
 
         {/* Subtitle/description for services portfolio */}
         {isServicesPortfolio && subTitle && (
-          <P3 className=" text-black-500 mb-6">{subTitle}</P3>
+          <P3 className="text-black-500 mb-6">{subTitle}</P3>
         )}
 
         {/* Primary value/number display */}
@@ -41,11 +42,11 @@ const StrategicPriorities = ({ data }) => {
 
         {/* For non-services portfolio: Subtitle after title */}
         {!isServicesPortfolio && subTitle && (
-          <P3 className=" text-black-500">{subTitle}</P3>
+          <P3 className="text-black-500">{subTitle}</P3>
         )}
 
         {/* Metric (for services portfolio use case) */}
-        {metric && <P3 className=" text-black-500 font-medium">{metric}</P3>}
+        {metric && <P3 className="text-black-500 font-medium">{metric}</P3>}
 
         {/* Additional description */}
         {description && (
@@ -54,6 +55,15 @@ const StrategicPriorities = ({ data }) => {
       </>
     );
   };
+
+  // Individual priority card component for carousel
+  const PriorityCard = ({ card }) => (
+    <div className="w-full px-4">
+      <div className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full h-full">
+        {renderCardContent(card)}
+      </div>
+    </div>
+  );
 
   // Determine grid layout for bottom row based on number of cards
   const getBottomRowGridCols = () => {
@@ -74,7 +84,7 @@ const StrategicPriorities = ({ data }) => {
   };
 
   return (
-    <section className="py-12 ">
+    <section className="">
       <div className="mx-auto space-y-6">
         {/* Section Title */}
         {sectionTitle && <h3 className="mb-4">{sectionTitle}</h3>}
@@ -88,7 +98,9 @@ const StrategicPriorities = ({ data }) => {
         {businessPrioritiesTitle && (
           <h4 className="mb-16 text-lg">{businessPrioritiesTitle}</h4>
         )}
-        <div className="px-24">
+
+        {/* Desktop Layout - Hidden on Mobile */}
+        <div className="hidden md:block px-24">
           {/* Top row */}
           {topRowCards && topRowCards.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -116,6 +128,61 @@ const StrategicPriorities = ({ data }) => {
                   {renderCardContent(card)}
                 </div>
               ))}
+            </div>
+          )}
+        </div>
+
+        {/* Mobile Layout - Shown only on Mobile */}
+        <div className="block md:hidden space-y-8">
+          {/* Top row carousel */}
+          {topRowCards && topRowCards.length > 0 && (
+            <div>
+              {topRowCards.length === 1 ? (
+                // Single card - no carousel needed
+                <div className="px-4">
+                  <PriorityCard card={topRowCards[0]} />
+                </div>
+              ) : (
+                // Multiple cards - use carousel
+                <CarouselContainer
+                  key={`top-row-${topRowCards.length}`}
+                  autoPlay={true}
+                  autoPlayInterval={5000}
+                  showDots={true}
+                  showArrows={false}
+                  className="w-full"
+                >
+                  {topRowCards.map((card) => (
+                    <PriorityCard key={card.id} card={card} />
+                  ))}
+                </CarouselContainer>
+              )}
+            </div>
+          )}
+
+          {/* Bottom row carousel */}
+          {bottomRowCards && bottomRowCards.length > 0 && (
+            <div>
+              {bottomRowCards.length === 1 ? (
+                // Single card - no carousel needed
+                <div className="px-4">
+                  <PriorityCard card={bottomRowCards[0]} />
+                </div>
+              ) : (
+                // Multiple cards - use carousel
+                <CarouselContainer
+                  key={`bottom-row-${bottomRowCards.length}`}
+                  autoPlay={true}
+                  autoPlayInterval={5500}
+                  showDots={true}
+                  showArrows={false}
+                  className="w-full"
+                >
+                  {bottomRowCards.map((card) => (
+                    <PriorityCard key={card.id} card={card} />
+                  ))}
+                </CarouselContainer>
+              )}
             </div>
           )}
         </div>
