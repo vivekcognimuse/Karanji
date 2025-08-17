@@ -19,12 +19,12 @@ const StrategicRoadmap = ({ data }) => {
 
               {intro && <P3 className=" text-black-500 mb-2">{intro}</P3>}
 
-              <ul className=" text-gray-700 list-disc list-inside space-y-1">
+              <ul className=" text-black-700 px-2 list-disc list-inside space-y-1">
                 {points.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}
               </ul>
-              <P3 className="mt-4  font-medium text-gray-900">{note}</P3>
+              <P3 className="mt-4  font-medium text-black-900">{note}</P3>
             </div>
           ))}
         </div>

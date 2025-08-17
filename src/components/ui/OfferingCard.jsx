@@ -4,7 +4,8 @@ import Image from "next/image";
 import { P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
 
-const OfferingCard = ({ card, index }) => {
+const OfferingCard = ({ card, index, icon }) => {
+  // Adding `icon` prop here
   const cardRef = useRef(null);
   const frontContentRef = useRef(null);
   const backContentRef = useRef(null);
@@ -77,6 +78,12 @@ const OfferingCard = ({ card, index }) => {
   // Get hover content, fallback to null if not available
   const hoverContent = card.hoverContent;
 
+  // Determine the icon source, using the passed `icon` prop if available, otherwise fallback to default
+  const iconSrc = icon
+    ? `${icon}/${index + 1}.svg` // If `icon` is passed as a prop, use that path
+    : `/technologySolutions/digital-offering/${index + 1}.svg`; // Default fallback
+  console.log("Icon Source:", icon);
+
   return (
     <div
       ref={cardRef}
@@ -87,12 +94,13 @@ const OfferingCard = ({ card, index }) => {
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
       data-reveal
-      data-reveal-dir="up">
+      data-reveal-dir="up"
+    >
       {/* Front Content - Default State */}
       <div ref={frontContentRef} className="relative z-10">
         <div className="mb-6 w-16 h-16 flex items-center justify-center">
           <Image
-            src={`/technologySolutions/digital-offering/${index + 1}.svg`}
+            src={iconSrc} // Use the iconSrc determined above
             alt={`${card.title} icon`}
             width={48}
             height={48}
@@ -113,7 +121,8 @@ const OfferingCard = ({ card, index }) => {
             background: "url('/gradients/offering-card-gradient.svg')",
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}>
+          }}
+        >
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex-1">
               {hoverContent.map((item, idx) => (
@@ -126,7 +135,7 @@ const OfferingCard = ({ card, index }) => {
             <div className="mt-auto flex justify-start">
               <div className="w-16 h-16 flex items-center justify-center">
                 <Image
-                  src={`/technologySolutions/digital-offering/${index + 1}.svg`}
+                  src={iconSrc} // Same for back content if hover content is available
                   alt={`${card.title} icon`}
                   width={48}
                   height={48}

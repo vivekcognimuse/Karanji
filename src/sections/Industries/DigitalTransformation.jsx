@@ -11,7 +11,7 @@ const DigitalTransformation = ({ data }) => {
         <P2 className="mt-2">{sectionSubtitle}</P2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6  mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 mx-auto">
         {digitalCards.map(({ id, title, icon, points }) => (
           <div
             key={id}

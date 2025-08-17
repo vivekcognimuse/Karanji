@@ -2,9 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
-import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
-import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
-import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
+import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 const heroData = {
@@ -12,7 +10,7 @@ const heroData = {
   subTitle:
     "Experience how AI, immersive tech, & smart systems are reshaping aviation—boosting efficiency, enhancing passenger satisfaction, & achieving sustainability goals.",
   ctaText: "Explore the Strategic Priorities",
-  ctaLink: "/industries",
+  ctaLink: "strategic-priorities",
   stats: [
     {
       text: "Reduction in AOG time",
@@ -121,15 +119,15 @@ const strategicPrioritiesData = {
   ],
 };
 const digitalOfferingsData = {
-  tag: "Digital Adoption",
+  title: "Digital Adoption",
+  icon: "/Industries & its pages/Aviation/offering",
   cards: [
     {
       title: "Airlines",
-      subTitle: "",
+
       description:
         "Digitizing retail & operations for better revenue & experience.",
-      featured: false,
-      icon: "/Industries & its pages/Aviation/airlines.svg",
+
       hoverContent: [
         { text: "Moving to modern retailing platforms" },
         { text: "Focusing on CX efficiency" },
@@ -137,11 +135,8 @@ const digitalOfferingsData = {
     },
     {
       title: "Airports",
-      subTitle: "",
       description:
         "Digitally transforming operations with AI, biometrics, & smart infrastructure.",
-      featured: false,
-      icon: "/Industries & its pages/Aviation/airport_10057815 1.svg",
       hoverContent: [
         { text: "Upgrading core operational systems to boost efficiency" },
         { text: "RFID for streamlined security, boarding & baggage handling" },
@@ -149,11 +144,8 @@ const digitalOfferingsData = {
     },
     {
       title: "Aircraft Manufacturers & MROs",
-      subTitle: "",
       description:
         "Adopting tech to boost design, maintenance, & supply chains.",
-      featured: false,
-      icon: "/Icons/aircraft-manufacturers.svg",
       hoverContent: [
         { text: "Digital twins & predictive maintenance" },
         { text: "AI tools & advanced analytics for improved performance" },
@@ -308,11 +300,10 @@ export default async function Aviation() {
         bgImage={"/Industries & its pages/Aviation/aviation banner.webp"}
       />
       <Industrychallenge data={industryData} />
-      <StrategicPriorities data={strategicPrioritiesData} />
-      <ServiceOfferings
-        data={digitalOfferingsData}
-        icon="/Industries & its pages/Aviation/offering" // Update if using dynamic icons
-      />
+      <div id="strategic-priorities">
+        <StrategicPriorities data={strategicPrioritiesData} />
+      </div>
+      <DigitalTwinOfferings data={digitalOfferingsData} />
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Aviation/usecase"

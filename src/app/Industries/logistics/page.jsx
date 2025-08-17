@@ -2,9 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/Industries/IndustryChallenge";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
-import DigitalAdoption from "@/sections/Industries/DigitalAdoption";
-import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
-import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
+import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 const heroData = {
@@ -12,7 +10,7 @@ const heroData = {
   subTitle:
     "From AI-driven compliance & training software to predictive maintenance & digital twins for operations-empower your workforce & streamline logistics.",
   ctaText: "Explore the Strategic Priorities",
-  ctaLink: "/industries",
+  ctaLink: "strategic-priorities",
   stats: [
     {
       text: "Reduction in processing time",
@@ -115,31 +113,28 @@ const strategicPrioritiesData = {
     },
   ],
 };
-const digitalOfferingsData = {
+const offering = {
   title: "Digital Adoption",
-  description:
-    "Regional digital adoption patterns reveal diverse priorities: North America & Europe lead in analytics & sustainability tech, Asia Pacific accelerates smart port & IoT adoption, while the Middle East & Africa focus on infrastructure modernization & blockchain for trade efficiency.",
-  tag: "Digital Transformation",
+  bottomtext:
+    "Regional digital adoption patterns reveal diverse priorities : North America & Europe lead in analytics & sustainability tech, Asia Pacific accelerates smart port & IoT adoption, while the Middle East & Africa focus on infrastructure modernization & blockchain for trade efficiency.",
+  ctaCard: {},
+  icon: "/Industries & its pages/Logistics/offering",
   cards: [
     {
       title: "AI & Advanced Analytics",
       description:
         "AI streamlines operations with predictive tools & document automation.",
-      featured: true,
-      icon: "/Icons/ai-analytics.svg",
       hoverContent: [
         { text: "65% of carriers use predictive maintenance" },
         { text: "40% are testing generative AI for customs documentation" },
       ],
-      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png", // Update this path to your front image
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png",
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
     },
     {
       title: "IoT & Connected Devices",
       description:
         "IoT enables real-time asset tracking & operational insights.",
-      featured: false,
-      icon: "/Icons/iot-devices.svg",
       hoverContent: [
         {
           text: "IoT enables real-time asset tracking & operational insights.",
@@ -147,60 +142,52 @@ const digitalOfferingsData = {
         { text: "GPS, RFID, & sensors are widely implemented" },
         { text: "Telematics supports smarter fleet management" },
       ],
-      frontImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png", // Update this path to your front image
-      hoverImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png",
+      hoverImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png",
     },
     {
       title: "Digital Twins & Simulation",
       description:
         "Digital twins reduce congestion & support operational simulations.",
-      featured: false,
-      icon: "/Icons/digital-twins.svg",
       hoverContent: [
         {
           text: "Digital twins reduce congestion & support operational simulations.",
         },
       ],
-      frontImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png", // Update this path to your front image
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png",
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
     },
     {
       title: "Blockchain Technology",
       description:
         "Blockchain enhances compliance, traceability, & secure documentation.",
-      featured: false,
-      icon: "/Icons/blockchain.svg",
       hoverContent: [
         {
           text: "Blockchain enhances compliance, traceability, & secure documentation.",
         },
       ],
-      frontImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your front image
-      hoverImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
+      hoverImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png",
     },
     {
       title: "Cloud Computing",
       description: "Cloud solutions enable scalable, flexible operations.",
-      featured: false,
-      icon: "/Icons/cloud.svg",
       hoverContent: [
         { text: "Cloud adoption accelerates digital transformation" },
         { text: "90% of logistics companies use cloud services" },
       ],
-      frontImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png", // Update this path to your front image
-      hoverImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png",
+      hoverImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png",
     },
     {
       title: "Immersive Technologies",
       description: "VR/AR enhance training & operational support.",
-      featured: false,
-      icon: "/Icons/immersive.svg",
       hoverContent: [
         { text: "VR/AR enhance training & operational support." },
         { text: "72% of firms use VR for logistics training" },
       ],
-      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png", // Update this path to your front image
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png", // Update this path to your hover/back image
+      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png",
+      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
     },
   ],
 };
@@ -339,11 +326,10 @@ export default async function Logistics() {
         bgImage={"/Industries & its pages/Logistics/Logistics banner.webp"}
       />
       <Industrychallenge data={industryData} />
-      <StrategicPriorities data={strategicPrioritiesData} />
-      <ServiceOfferings
-        data={digitalOfferingsData}
-        icon="/Industries & its pages/Logistics/offering" // Update if using dynamic icons
-      />
+      <div id="strategic-priorities">
+        <StrategicPriorities data={strategicPrioritiesData} />
+      </div>
+      <DigitalTwinOfferings data={offering} />
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Logistics/usecase"
