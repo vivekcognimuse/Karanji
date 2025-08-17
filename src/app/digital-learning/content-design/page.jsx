@@ -132,23 +132,22 @@ const successStoriesData = {
 // digitalTwinData.js
 
 export const digitalTwinData = {
-  title: "Our Digital Twin Offerings",
-  subTitle:
-    "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation.",
+  title: "Categories",
+
   list: [
-    { text: "Consulting & Strategy" },
-    { text: "Design & Architecture" },
-    { text: "Data Integration & IoT Connectivity" },
-    { text: "Development & Implementation" },
-    { text: "Deployment & Integration" },
-    { text: "Monitoring & Maintenance" },
+    { text: "Leadership & Management" },
+    { text: "Compliance & Regulatory" },
+    { text: "Soft Skills & Communication" },
+    { text: "Industry-Specific Training" },
+    { text: "Technical & IT Skills" },
+    { text: "Onboarding & Orientation" },
     { text: "Training & Change Management" },
     { text: "Continuous Improvement & Innovation" },
   ],
   ctaCard: {
     title: "Get expert guidance tailored to your goals.",
     ctaText: "Talk to our Digital Avatars",
-    ctaLink: "/coming-soon", // You can update this with the actual link
+    ctaLink: "/company/digital-twin", // You can update this with the actual link
   },
   cards: [
     {
@@ -365,7 +364,7 @@ const customELearningSolutionDeepDive = {
   },
 };
 const ContentDesign = () => {
-  const [activeTab, setActiveTab] = useState("custom");
+  const [activeTab, setActiveTab] = useState("ready");
 
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -383,7 +382,7 @@ const ContentDesign = () => {
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
               activeTab === key
                 ? "bg-[#F0B8B8] text-gray-800"
                 : "bg-white text-gray-600 hover:bg-pink-100"
@@ -408,10 +407,10 @@ const ContentDesign = () => {
             <DigitalTwinOfferings data={digitalTwinData} />
           </>
         )}
+        <ELearningCustomELearningSolutionDeepDive
+          data={customELearningSolutionDeepDive}
+        />
       </div>
-      <ELearningCustomELearningSolutionDeepDive
-        data={customELearningSolutionDeepDive}
-      />
       <SuccessStories data={successStoriesData} />
       <CTA data={CTAData} />
     </div>

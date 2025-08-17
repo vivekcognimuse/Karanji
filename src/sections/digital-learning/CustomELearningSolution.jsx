@@ -34,7 +34,7 @@ export default function CustomELearningSolution({ data, activeTab }) {
           <div className="flex flex-wrap gap-3 lg:gap-6">
             {tabData.stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-black-500 bg-white px-4 sm:px-6 border border-black-200 py-2 rounded-full text-xs sm:text-sm">
+                <div className="text-black-500 bg-white/50 px-4 sm:px-6 border border-black-200 py-2 rounded-full text-xs sm:text-sm">
                   {stat.title}
                 </div>
               </div>
