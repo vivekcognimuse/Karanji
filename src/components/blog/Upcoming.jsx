@@ -132,10 +132,10 @@ const Upcoming = () => {
     <div className="bg-gradient-to-br from-white via-purple-50 to-blue-50 p-8 rounded-2xl border border-purple-100 shadow-sm">
       <div className="flex justify-between items-center mb-6">
         <h4 className="text-2xl text-black-950">Upcoming</h4>
-        <SlidersHorizontal
+        {/* <SlidersHorizontal
           size={18}
           className="text-gray-500 hover:text-black-950 cursor-pointer transition-colors"
-        />
+        /> */}
       </div>
 
       <div className="space-y-0">

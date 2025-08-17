@@ -1,6 +1,6 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
-import Industrychallenge from "@/sections/Industries/IndustryChallenge";
+import Industrychallenge from "@/sections/digital-learning/analytics/Deliverables";
 import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
@@ -34,37 +34,32 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  sectionTitle: "Industry Challenges & Priorities",
-  overviewTitle: "Overview",
-  overviewDescription:
+  title: "Industry Challenges & Priorities",
+  tag: "Overview",
+  subTitle:
     "The $12B logistics sector is growing but challenged by operational disruptions, tech fragmentation, & evolving regulatory demands. AI-driven learning & automation, supported by training software & eLearning platforms, are key to enabling agility & workforce readiness.",
-  challengesTitle: "Top Challenges",
-  image: "/Industries & its pages/Logistics/Logistics.webp", // Replace with your image path
-  imageAlt: "Healthcare professional using VR technology",
-  challenges: [
+  featureHeader: "Top Challenges",
+  heroImage: "/Industries & its pages/Logistics/Logistics.webp", // Replace with your image path
+  features: [
     {
-      id: 1,
       icon: "/Industries & its pages/Aviation/supply-chain-management_18115730 1.svg", // Replace with your icon path
       title: "Supply Chain Disruptions & Cost Pressures",
       description:
         "Delays from trade tensions & shortages, plus rising fuel & tech upgrade costs.",
     },
     {
-      id: 2,
       icon: "/Industries & its pages/Aviation/sustainable_17002269 1.svg", // Replace with your icon path
       title: "Regulatory Complexity & Sustainability Demands",
       description:
         "Global emissions goals & shifting regulations raise compliance challenges.",
     },
     {
-      id: 3,
       icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with your icon path
       title: "Workforce Shortages & Skills Gaps",
       description:
         "Limited talent & high turnover in critical roles hinder operations.",
     },
     {
-      id: 4,
       icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with your icon path
       title: "Legacy Systems & Cybersecurity Risks",
       description:
