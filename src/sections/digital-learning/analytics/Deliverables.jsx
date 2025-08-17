@@ -1,12 +1,21 @@
-import { P3 } from "@/components/CustomTags";
+import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
 const Deliverables = ({ data }) => {
-  const { heroImage, features } = data;
+  const { heroImage, features, title, subTitle } = data;
 
   return (
     <div className="">
+      <div className="mb-8 lg:mb-16">
+        <h3 className=" mb-4 " data-reveal data-reveal-dir="up">
+          {title}
+        </h3>
+
+        <P2 className=" text-black mb-16  " data-reveal data-reveal-dir="up">
+          {subTitle}
+        </P2>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Side - Hero Image */}
         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-red-700 to-red-500">

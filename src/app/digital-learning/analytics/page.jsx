@@ -234,6 +234,8 @@ const analyticsData = {
   ],
 };
 const deliverablesData = {
+  title: "Key Outcomes & Deliverables",
+  subTitle: "What Learning Analytics Delivers",
   heroImage: "/digital-learning/analytics/deliverables.webp", // Replace with your actual image path
   features: [
     {
