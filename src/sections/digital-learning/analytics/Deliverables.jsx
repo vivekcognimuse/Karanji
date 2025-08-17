@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const Deliverables = ({ data }) => {
-  const { heroImage, features, title, subTitle } = data;
+  const { heroImage, features, title, tag, subTitle } = data;
 
   return (
     <div className="">
@@ -11,10 +11,10 @@ const Deliverables = ({ data }) => {
         <h3 className=" mb-4 " data-reveal data-reveal-dir="up">
           {title}
         </h3>
-
-        <P2 className=" text-black mb-16  " data-reveal data-reveal-dir="up">
+        {tag && <P2 className="mb-4 lg:mb-6 text-black">{tag}</P2>}
+        <h4 className=" text-black mb-16" data-reveal data-reveal-dir="up">
           {subTitle}
-        </P2>
+        </h4>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Side - Hero Image */}

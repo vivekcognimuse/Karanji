@@ -99,7 +99,7 @@ const teamSectionData = [
         company: "Operations",
         brief:
           "Vikram ensures operational excellence, focusing on technology integration & process optimization.",
-        image: "/Company/Team/Management-collective/Vikram-Kemmai.webp",
+        image: "/Company/Team/Management-collective/Vikram-kemmai.webp",
         linkedin: "https://www.linkedin.com/in/vikram-kemmai-086196108/",
         showTalkButton: false,
       },
