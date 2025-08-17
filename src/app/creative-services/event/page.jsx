@@ -15,7 +15,17 @@ const heroData = {
   ctaText: "Explore Our Services",
   ctaLink: "event-service-offerings", // Adjust as necessary
   backgroundImage: null, // No visible background image
-  stats: [], // Omit if none are shown
+  stats: [
+    {
+      subText: "Virtual & Hybrid Event Expertise",
+    },
+    {
+      subText: "Scalable for Any Event Size",
+    },
+    {
+      subText: "Client-Centered Approach",
+    },
+  ], // Omit if none are shown
 };
 
 const serviceOverview = {

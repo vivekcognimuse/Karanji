@@ -145,9 +145,11 @@ export const digitalTwinData = {
     { text: "Continuous Improvement & Innovation" },
   ],
   ctaCard: {
-    title: "Get expert guidance tailored to your goals.",
-    ctaText: "Talk to our Digital Avatars",
-    ctaLink: "/company/digital-twin", // You can update this with the actual link
+    title: "Extensive Library of Ready-to-Use Content.",
+    subTitle:
+      "Covering multiple industries & skill areas-from compliance to technical training, everything you need in one place",
+    ctaText: "Request content catalog",
+    ctaLink: "/contact", // You can update this with the actual link
   },
   cards: [
     {
@@ -372,7 +374,7 @@ const ContentDesign = () => {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <HeroSection data={heroData} />
+      <HeroSection bgImage="/hero/content-design.webp" data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
       </div>
@@ -404,7 +406,10 @@ const ContentDesign = () => {
         ) : (
           <>
             <Advantages data={ADVANTAGES_CONTENT} />
-            <DigitalTwinOfferings data={digitalTwinData} />
+            <DigitalTwinOfferings
+              CtaClassName="lg:-mt-24"
+              data={digitalTwinData}
+            />
           </>
         )}
         <ELearningCustomELearningSolutionDeepDive
