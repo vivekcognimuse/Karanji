@@ -119,7 +119,7 @@ const Footer = () => {
         },
         {
           name: "Blog & Insights",
-          href: "/blog-insights",
+          href: "/coming-soon",
         },
         {
           name: "Webinars",

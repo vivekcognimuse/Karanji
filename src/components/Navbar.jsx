@@ -177,7 +177,7 @@ const NAV_LINKS = [
       },
       {
         name: "Blog & Insights",
-        href: "/blog-insights",
+        href: "/coming-soon",
         icon: "/nav/blog-insights.svg",
         description: "Stay informed with the latest trends & insights.",
       },
