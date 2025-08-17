@@ -3,6 +3,7 @@ import { P1, P2, P3 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 /**
@@ -73,9 +74,11 @@ export default function ELearningSolutions({ data }) {
       {/* CTA */}
       <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
         <P2 className=" ">{cta.text}</P2>
-        <Button size="sm" variant="secondary" className="">
-          {cta.buttonText}
-        </Button>
+        <Link href={cta.buttonLink || "/resources"}>
+          <Button size="sm" variant="secondary" className="">
+            {cta.buttonText}
+          </Button>
+        </Link>
       </div>
     </section>
   );
