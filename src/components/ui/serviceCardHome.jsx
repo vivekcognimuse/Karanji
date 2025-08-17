@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 
 import CarouselContainer from "../animations/Carousal";
 import { P1 } from "../CustomTags";
+import Link from "next/link";
 
 export const ServiceCardHome = memo(function ServiceCard({
   cards = [],
@@ -141,48 +142,50 @@ const SingleServiceCard = memo(function SingleServiceCard({
   const { title, description, list, ctaText, ctaLink, id } = data || {};
   console.log("index of technology soliution:", index);
   return (
-    <div
-      {...props}
-      className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
-      {/* Background layer with CSS transitions */}
-      <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
+    <Link href={ctaLink}>
+      <div
+        {...props}
+        className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
+        {/* Background layer with CSS transitions */}
+        <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
-      <div className="relative h-full w-full px-8 py-8">
-        {/* Background Image - hidden on hover */}
-        <div
-          className="absolute z-0 bottom-0  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0  transition-opacity duration-300"
-          style={{ backgroundImage: `url('${bgImage}')` }}>
-          <Image
-            src={image || `/technologySolutions/card${index + 1}.webp`}
-            alt={title}
-            width={180}
-            unoptimized
-            height={220}
-            className="object-contain object-bottom  w-full h-full"
-          />
-        </div>
-
-        {/* Default Content */}
-        <div className="default-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-100  transition-all duration-300 ease-in-out">
-          <div>
-            <h4 className="text-slate-800 text-xl md:text-2xl font-semibold leading-tight mb-4">
-              {title}
-            </h4>
+        <div className="relative h-full w-full px-8 py-8">
+          {/* Background Image - hidden on hover */}
+          <div
+            className="absolute z-0 bottom-0  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0  transition-opacity duration-300"
+            style={{ backgroundImage: `url('${bgImage}')` }}>
+            <Image
+              src={image || `/technologySolutions/card${index + 1}.webp`}
+              alt={title}
+              width={180}
+              unoptimized
+              height={220}
+              className="object-cover object-bottom  w-full h-full"
+            />
           </div>
 
-          <div className="flex justify-end items-center gap-2.5">
-            <P1 className="text-white">{index + 1}</P1>
-            <button className="w-12 h-12 p-2 rounded-full border-2 border-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
-              <Icon
-                icon="pepicons-pencil:arrow-up-right"
-                className="size-6 text-white/80"
-              />
-            </button>
-          </div>
-        </div>
+          {/* Default Content */}
+          <div className="default-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-100  transition-all duration-300 ease-in-out">
+            <div>
+              <h4 className="text-slate-800 text-xl md:text-2xl font-semibold leading-tight mb-4">
+                {title}
+              </h4>
+            </div>
 
-        {/* Hover Content */}
+            <div className="flex justify-end items-center gap-2.5">
+              <P1 className="text-white">{index + 1}</P1>
+              <div className="w-12 h-12 p-2 rounded-full border-2 border-white/80 flex items-center justify-center transition-colors">
+                <Icon
+                  icon="pepicons-pencil:arrow-up-right"
+                  className="size-6 text-white/80"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Hover Content */}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 });

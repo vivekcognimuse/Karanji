@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 const Deliverables = ({ data }) => {
+
   const { heroImage, features, title, tag, subTitle, featureHeader } = data;
 
   // Individual feature card component for carousel
@@ -28,14 +29,17 @@ const Deliverables = ({ data }) => {
     </div>
   );
 
+
   return (
     <div className="">
       <div className="mb-8 lg:mb-16">
         <h3 className="mb-4" data-reveal data-reveal-dir="up">
           {title}
         </h3>
+
         {tag && <h4 className="mb-4 lg:mb-6 text-black">{tag}</h4>}
         <h4 className="text-black mb-16" data-reveal data-reveal-dir="up">
+
           {subTitle}
         </h4>
       </div>
