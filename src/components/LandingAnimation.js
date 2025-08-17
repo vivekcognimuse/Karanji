@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,186 +12,254 @@ gsap.registerPlugin(ScrollTrigger);
 const ScrollVideoSequence = () => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoState, setVideoState] = useState({
+    loaded: false,
+    error: false,
+    progress: 0,
+  });
+  const [showCTA, setShowCTA] = useState(false);
+  const scrollTriggerRef = useRef(null);
 
+  // Optimized video loading with better error handling
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleCanPlay = () => {
-      console.log("Video can play");
-      setVideoLoaded(true);
+    let isComponentMounted = true;
+    let loadTimeout;
+
+    const updateState = (updates) => {
+      if (isComponentMounted) {
+        setVideoState((prev) => ({ ...prev, ...updates }));
+      }
     };
 
-    const handleLoadedData = () => {
-      console.log("Video data loaded");
-      setVideoLoaded(true);
-    };
-
-    const handleLoadedMetadata = () => {
-      console.log("Video metadata loaded");
-      setVideoLoaded(true);
+    // Single handler for successful load events
+    const handleLoaded = () => {
+      clearTimeout(loadTimeout);
+      updateState({ loaded: true, error: false });
+      console.log("Video successfully loaded");
     };
 
     const handleError = (e) => {
+      clearTimeout(loadTimeout);
+      updateState({ loaded: true, error: true });
       console.error("Video loading error:", e);
-      setVideoLoaded(true);
     };
 
-    const handleLoadStart = () => {
-      console.log("Video load started");
+    const handleProgress = (e) => {
+      if (e.lengthComputable) {
+        const progress = (e.loaded / e.total) * 100;
+        updateState({ progress });
+      }
     };
 
-    // Add multiple event listeners for better coverage
-    video.addEventListener("loadstart", handleLoadStart);
-    video.addEventListener("loadedmetadata", handleLoadedMetadata);
-    video.addEventListener("loadeddata", handleLoadedData);
-    video.addEventListener("canplay", handleCanPlay);
+    // Set up event listeners
+    video.addEventListener("canplaythrough", handleLoaded);
     video.addEventListener("error", handleError);
+    video.addEventListener("progress", handleProgress);
 
-    // Fallback timeout to remove loading state
-    const timeoutId = setTimeout(() => {
-      console.log("Loading timeout - forcing video ready state");
-      setVideoLoaded(true);
-    }, 3000); // 3 second timeout
+    // More aggressive loading strategy
+    loadTimeout = setTimeout(() => {
+      if (!videoState.loaded) {
+        console.log("Force loading video after timeout");
+        updateState({ loaded: true });
+      }
+    }, 5000);
 
-    // Force load the video
+    // Preload video more aggressively
+    video.preload = "auto";
     video.load();
 
     return () => {
-      video.removeEventListener("loadstart", handleLoadStart);
-      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
-      video.removeEventListener("loadeddata", handleLoadedData);
-      video.removeEventListener("canplay", handleCanPlay);
+      isComponentMounted = false;
+      clearTimeout(loadTimeout);
+      video.removeEventListener("canplaythrough", handleLoaded);
       video.removeEventListener("error", handleError);
-      clearTimeout(timeoutId);
+      video.removeEventListener("progress", handleProgress);
     };
   }, []);
 
+  // Handle video playback with better error recovery
+  const playVideo = useCallback(async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    try {
+      // Reset if needed
+      if (video.ended) {
+        video.currentTime = 0;
+      }
+
+      await video.play();
+      console.log("Video playing successfully");
+    } catch (error) {
+      console.log("Autoplay prevented, attempting muted playback:", error);
+      video.muted = true;
+      try {
+        await video.play();
+      } catch (retryError) {
+        console.error("Failed to play video even when muted:", retryError);
+      }
+    }
+  }, []);
+
+  const pauseVideo = useCallback(() => {
+    const video = videoRef.current;
+    if (video && !video.paused) {
+      video.pause();
+    }
+  }, []);
+
+  // GSAP ScrollTrigger setup
   useGSAP(
     () => {
-      if (!videoLoaded || !containerRef.current || !videoRef.current) return;
+      if (
+        !videoState.loaded ||
+        videoState.error ||
+        !containerRef.current ||
+        !videoRef.current
+      )
+        return;
 
       const video = videoRef.current;
       const container = containerRef.current;
 
-      const existingTrigger = ScrollTrigger.getById("videoSequence");
-      if (existingTrigger) {
-        existingTrigger.kill();
+      // Clean up existing triggers
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
       }
 
-      ScrollTrigger.create({
-        id: "videoSequence",
+      scrollTriggerRef.current = ScrollTrigger.create({
         trigger: container,
-        start: "top 80%", // Trigger when top of container is 80% down the viewport
-        end: "bottom 20%", // End when bottom of container is 20% down the viewport
+        start: "top 80%",
+        end: "bottom 20%",
         onEnter: () => {
-          console.log("Video entering viewport - starting playback");
+          console.log("Video entering viewport");
           video.currentTime = 0;
-
-          // Handle audio autoplay restrictions
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.log("Autoplay prevented:", error);
-            });
-          }
+          playVideo();
         },
         onLeave: () => {
-          console.log("Video left viewport - staying at end");
-          // Keep video at current position when leaving
-          video.pause();
+          console.log("Video leaving viewport");
+          pauseVideo();
         },
         onEnterBack: () => {
           console.log("Video re-entering viewport");
-          // Resume muted video playback
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch((error) => {
-              console.log("Autoplay failed:", error);
-            });
-          }
+          playVideo();
         },
         onLeaveBack: () => {
           console.log("Video leaving viewport backwards");
-          video.pause();
-          video.currentTime = 0; // Reset to beginning when scrolling back up
+          pauseVideo();
+          video.currentTime = 0;
         },
       });
 
-      // Handle video end event to show CTA
-      const handleVideoEnd = () => {
-        console.log("Video finished playing");
-        const ctaButton = document.getElementById("ctaButton");
-        if (ctaButton) {
-          gsap.fromTo(
-            ctaButton,
-            { opacity: 0, visibility: "hidden", y: 20 },
-            { opacity: 1, visibility: "visible", y: 0, duration: 1 }
-          );
-        }
-      };
-
-      // Handle video time update to manage CTA visibility
+      // Handle video progress for CTA
       const handleTimeUpdate = () => {
-        const ctaButton = document.getElementById("ctaButton");
-        if (ctaButton && video.duration) {
-          // Show CTA in last 10% of video
-          if (video.currentTime / video.duration > 0.9) {
-            gsap.to(ctaButton, { opacity: 1, visibility: "visible" });
-          } else {
-            gsap.to(ctaButton, { opacity: 0, visibility: "hidden" });
-          }
+        if (video.duration) {
+          const progress = video.currentTime / video.duration;
+          setShowCTA(progress > 0.9);
         }
       };
 
-      video.addEventListener("ended", handleVideoEnd);
+      const handleVideoEnd = () => {
+        console.log("Video ended");
+        setShowCTA(true);
+      };
+
       video.addEventListener("timeupdate", handleTimeUpdate);
+      video.addEventListener("ended", handleVideoEnd);
 
       return () => {
-        const trigger = ScrollTrigger.getById("videoSequence");
-        if (trigger) trigger.kill();
-        video.removeEventListener("ended", handleVideoEnd);
+        if (scrollTriggerRef.current) {
+          scrollTriggerRef.current.kill();
+        }
         video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.removeEventListener("ended", handleVideoEnd);
       };
     },
-    { dependencies: [videoLoaded], scope: containerRef, revertOnUpdate: true }
+    {
+      dependencies: [
+        videoState.loaded,
+        videoState.error,
+        playVideo,
+        pauseVideo,
+      ],
+      scope: containerRef,
+    }
   );
 
-  return (
-    <>
-      <section ref={containerRef} className="relative h-screen">
-        {!videoLoaded && (
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-              <p className="text-gray-600">Loading video...</p>
-            </div>
-          </div>
-        )}
+  // CTA animation
+  useEffect(() => {
+    const ctaButton = document.getElementById("ctaButton");
+    if (!ctaButton) return;
 
+    if (showCTA) {
+      gsap.to(ctaButton, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to(ctaButton, {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+      });
+    }
+  }, [showCTA]);
+
+  return (
+    <section
+      ref={containerRef}
+      className="lg:min-h-screen flex flex-col items-center justify-center py-8">
+      {/* Loading state with progress */}
+      {/* {!videoState.loaded && !videoState.error && (
+        <div className="absolute inset-0 flex items-center justify-center z-10 bg-white/80">
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p className="text-gray-600 mb-2">Loading video...</p>
+            {videoState.progress > 0 && (
+              <div className="w-48 h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-blue-500 transition-all duration-300"
+                  style={{ width: `${videoState.progress}%` }}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      )} */}
+
+      {/* Video container - no absolute positioning */}
+      <div className="w-full max-w-[90vw] mx-auto">
         <video
           ref={videoRef}
-          className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] object-contain z-0 ${
-            videoLoaded ? "opacity-100" : "opacity-0"
+          className={`w-full h-auto ${
+            videoState.loaded && !videoState.error ? "opacity-100" : "opacity-0"
           } transition-opacity duration-500`}
           muted
           playsInline
-          preload="metadata"
-          crossOrigin="anonymous">
+          preload="auto"
+          poster="/video-poster.jpg" // Add a poster image for better UX
+        >
           <source src="/Scaled Animation.webm" type="video/webm" />
+          <source src="/Scaled Animation.mp4" type="video/mp4" />{" "}
+          {/* Fallback format */}
           Your browser does not support the video tag.
         </video>
 
+        {/* CTA Button - positioned below video */}
         <div
           id="ctaButton"
-          className="absolute bottom-28 left-1/2 transform -translate-x-1/2 opacity-0 invisible z-20">
+          className="mt-8 text-center opacity-0 translate-y-5">
           <Link href="/company/digital-twin">
             <Button>Talk to our CEO Now</Button>
           </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

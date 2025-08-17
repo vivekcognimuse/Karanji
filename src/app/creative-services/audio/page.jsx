@@ -16,7 +16,17 @@ const heroData = {
   linkText: "Explore Our Services",
   linkHref: "/", // adjust as needed
   backgroundImage: null, // only include if there's a background image provided
-  stats: [], // omitted since the image shows no stats
+  stats: [
+    {
+      subText: "END-to-END podcast production",
+    },
+    {
+      subText: "immersive audio mixing",
+    },
+    {
+      subText: "professional voice-over services",
+    },
+  ], // omitted since the image shows no stats
 };
 const serviceOverview = {
   title: "Service overview",

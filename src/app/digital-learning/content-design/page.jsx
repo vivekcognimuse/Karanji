@@ -1,4 +1,6 @@
 "use client";
+import { P2 } from "@/components/CustomTags";
+import Button from "@/components/ui/Button";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -132,23 +134,24 @@ const successStoriesData = {
 // digitalTwinData.js
 
 export const digitalTwinData = {
-  title: "Our Digital Twin Offerings",
-  subTitle:
-    "From initial concept to real-world impact, we help you harness Digital Twin technology to drive efficiency, resilience, and innovation.",
+  title: "Categories",
+
   list: [
-    { text: "Consulting & Strategy" },
-    { text: "Design & Architecture" },
-    { text: "Data Integration & IoT Connectivity" },
-    { text: "Development & Implementation" },
-    { text: "Deployment & Integration" },
-    { text: "Monitoring & Maintenance" },
+    { text: "Leadership & Management" },
+    { text: "Compliance & Regulatory" },
+    { text: "Soft Skills & Communication" },
+    { text: "Industry-Specific Training" },
+    { text: "Technical & IT Skills" },
+    { text: "Onboarding & Orientation" },
     { text: "Training & Change Management" },
     { text: "Continuous Improvement & Innovation" },
   ],
   ctaCard: {
-    title: "Get expert guidance tailored to your goals.",
-    ctaText: "Talk to our Digital Avatars",
-    ctaLink: "/coming-soon", // You can update this with the actual link
+    title: "Extensive Library of Ready-to-Use Content.",
+    subTitle:
+      "Covering multiple industries & skill areas-from compliance to technical training, everything you need in one place",
+    ctaText: "Request content catalog",
+    ctaLink: "/contact", // You can update this with the actual link
   },
   cards: [
     {
@@ -362,6 +365,7 @@ const customELearningSolutionDeepDive = {
   cta: {
     text: "Need something totally ready to deploy?",
     buttonText: "View Ready Solutions & Resources",
+    buttonLink: "/resources",
   },
 };
 const ContentDesign = () => {
@@ -373,7 +377,7 @@ const ContentDesign = () => {
       <Head>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
-      <HeroSection data={heroData} />
+      <HeroSection bgImage="/hero/content-design.webp" data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
       </div>
@@ -383,7 +387,7 @@ const ContentDesign = () => {
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
               activeTab === key
                 ? "bg-[#F0B8B8] text-gray-800"
                 : "bg-white text-gray-600 hover:bg-pink-100"
@@ -401,17 +405,26 @@ const ContentDesign = () => {
           <>
             <Methodology column={true} data={methodologyData} />
             <ContentFormats data={contentFormatsData} />
+            <ELearningCustomELearningSolutionDeepDive
+              data={customELearningSolutionDeepDive}
+            />
           </>
         ) : (
           <>
             <Advantages data={ADVANTAGES_CONTENT} />
-            <DigitalTwinOfferings data={digitalTwinData} />
+            <DigitalTwinOfferings
+              CtaClassName="lg:-mt-24"
+              data={digitalTwinData}
+            />
           </>
         )}
+        {/* <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+          <P2 className=" ">{customELearningSolutionDeepDive.cta.text}</P2>
+          <Button size="sm" variant="secondary" className="">
+            {customELearningSolutionDeepDive.cta.buttonText}
+          </Button>
+        </div> */}
       </div>
-      <ELearningCustomELearningSolutionDeepDive
-        data={customELearningSolutionDeepDive}
-      />
       <SuccessStories data={successStoriesData} />
       <CTA data={CTAData} />
     </div>

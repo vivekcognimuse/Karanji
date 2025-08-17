@@ -1,13 +1,14 @@
 import { P2 } from "@/components/CustomTags";
 import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
 import SectionReveal from "@/components/animations/sectionReveal"; // <- client
+import { cn } from "@/lib/utils";
 
-export default function TechnologyAdvantage({ data }) {
+export default function TechnologyAdvantage({ data, className = "" }) {
   const { title, subTitle, ctaCard, cards = [] } = data;
 
   return (
     <section
-      className="space-y-8 md:space-y-16"
+      className={cn("space-y-8 md:space-y-16", className)}
       data-reveal-amount="0.3" // 30% of section in view to start
       data-reveal-duration="0.5" // per-item duration
       data-reveal-stagger="0.12" // delay between items

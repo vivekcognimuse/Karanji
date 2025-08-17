@@ -10,9 +10,9 @@ const HeroSection = ({ data }) => {
   const { title, Subtitles, cta1_text, cta1_link, cta2_text, cta2_link, logo } =
     data || {};
   return (
-    <section className=" min-h-[calc(100vh-5rem)] pt-20  flex flex-col lg:flex-row items-start gap-8">
-      <div className="flex-1  space-y-8">
-        <div className="space-y-4">
+    <section className=" min-h-[calc(100vh-5rem)] items-center flex flex-col lg:flex-row  gap-8">
+      <div className="flex-1   lg:-mt-20 space-y-8">
+        <div className="space-y-4 ">
           <h1 className="">Let’s Bring Your Vision to Life</h1>
           <P1 className="">
             We help organizations solve complex business challenges through the
@@ -47,7 +47,7 @@ const HeroSection = ({ data }) => {
         </div>
       </div>
 
-      <div className="w-1/2 h-full hidden -mt-8 lg:flex justify-center items-center">
+      <div className="w-1/2 h-full hidden -mt-16 lg:flex justify-center items-center">
         <Spline
           scene="https://prod.spline.design/4dInLviYPsBE8Zqz/scene.splinecode"
           style={{

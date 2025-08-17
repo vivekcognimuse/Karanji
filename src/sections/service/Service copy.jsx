@@ -1,6 +1,6 @@
 import { P2 } from "@/components/CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal";
-import { ServiceCard } from "@/components/ui/serviceCard";
+import { ServiceCardHome } from "@/components/ui/serviceCardHome";
 
 export default function TechnologyServicesHome({ data, image, bgImage }) {
   const { title, description, cards = [] } = data || {};
@@ -29,7 +29,7 @@ export default function TechnologyServicesHome({ data, image, bgImage }) {
         </div>
       </div>
 
-      <ServiceCard bgImage={bgImage} cards={cards} image={image} />
+      <ServiceCardHome bgImage={bgImage} cards={cards} image={image} />
 
       <SectionReveal />
     </section>

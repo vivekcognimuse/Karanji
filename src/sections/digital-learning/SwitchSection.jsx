@@ -13,7 +13,7 @@ const SwitchSection = ({ data }) => {
   return (
     <div className="px-4 md:px-8 lg:px-16 py-8">
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-16">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -21,10 +21,10 @@ const SwitchSection = ({ data }) => {
               setActiveTab(tab);
               setActiveAccordion(0);
             }}
-            className={`px-4 py-2 rounded-full border text-sm md:text-base transition ${
+            className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
               activeTab === tab
-                ? "bg-pink-200 text-black"
-                : "bg-white border-gray-300"
+                ? "bg-[#F0B8B8] text-gray-800"
+                : "bg-white text-gray-600 hover:bg-pink-100"
             }`}>
             {tab}
           </button>
@@ -60,11 +60,11 @@ const SwitchSection = ({ data }) => {
                   {section.tags.length > 0 && (
                     <div className="flex flex-wrap max-w-sm gap-2 mt-3">
                       {section.tags.map((tag, i) => (
-                        <span
+                        <P3
                           key={i}
-                          className="bg-black-100 w-fit px-6 py-2 rounded-full text-sm text-black-500">
+                          className="bg-white/50 w-fit border border-black-200 px-6 py-2 rounded-full  text-black-500">
                           {tag}
-                        </span>
+                        </P3>
                       ))}
                     </div>
                   )}

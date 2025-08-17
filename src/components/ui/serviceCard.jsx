@@ -42,7 +42,7 @@ export const ServiceCard = memo(function ServiceCard({
           className="w-full">
           {cards.map((service, i) => (
             <SingleServiceCard
-              key={service?.id ?? i}
+              key={i}
               data={service}
               index={i}
               data-reveal
@@ -161,8 +161,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
             src={image || `/technologySolutions/card${index + 1}.webp`}
             alt={title}
             width={180}
+            height={180}
             unoptimized
-            height={220}
             className="object-contain object-bottom  w-full h-full"
           />
         </div>
@@ -176,6 +176,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
           </div>
 
           <div className="flex justify-end items-center gap-2.5">
+            {" "}
+            <P1 className="">{index + 1}</P1>
             <button className="w-12 h-12 p-2 rounded-full border-2 border-slate-400 backdrop-blur-sm flex items-center justify-center hover:bg-slate-100 transition-colors">
               <Icon
                 icon="pepicons-pencil:arrow-up-right"
@@ -186,6 +188,34 @@ const SingleServiceCard = memo(function SingleServiceCard({
         </div>
 
         {/* Hover Content */}
+        <div className="hover-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-300 ease-in-out delay-100 group-hover:delay-100">
+          <div className="flex-1">
+            {description && (
+              <P1 className="text-black-800 mb-6">{description}</P1>
+            )}
+
+            {/* Features list - 2 columns for better use of space */}
+            {list && list.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-6">
+                {list.map((item) => (
+                  <div
+                    key={item.id}
+                    className=" border-b  border-black-200 pb-4 p-3">
+                    <P4 className="text-black-500 ">{item.text}</P4>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-end items-end">
+            {ctaText && ctaLink && (
+              <Link href={ctaLink}>
+                <Button className="">{ctaText}</Button>
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

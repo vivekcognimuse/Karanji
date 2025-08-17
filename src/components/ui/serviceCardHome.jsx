@@ -1,11 +1,11 @@
 "use client";
 import { memo } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 import { Icon } from "@iconify/react";
-import Button from "./Button";
-import { P1, P3, P4 } from "../CustomTags";
+
 import CarouselContainer from "../animations/Carousal";
+import { P1 } from "../CustomTags";
 
 export const ServiceCardHome = memo(function ServiceCard({
   cards = [],
@@ -18,7 +18,7 @@ export const ServiceCardHome = memo(function ServiceCard({
 
   return (
     <div
-      className="service-cards-container  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
+      className="service-cards-container px-4  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
       {...props}>
       <div className="hidden justify-between gap-8 lg:flex">
         {cards.map((service, i) => (
@@ -53,14 +53,10 @@ export const ServiceCardHome = memo(function ServiceCard({
         </CarouselContainer>
       </div>
       <style jsx global>{`
-        /* Container for service cards to handle sibling width changes */
-        .service-cards-container {
-          /* Container styles handled by Tailwind classes above */
-        }
-
-        /* Default width and scale transition for all cards */
+        /* Default styles for the card */
         .single-service-card {
-          transition: transform 0.3s ease-out;
+          transition: width 0.5s ease-out, z-index 0s,
+            transform 0.3s ease-in-out;
           width: 350px; /* Default width for mobile */
         }
 
@@ -71,18 +67,65 @@ export const ServiceCardHome = memo(function ServiceCard({
           }
         }
 
-        /* Scale effect on hover instead of width changes */
+        /* Apply scale transition during hover */
         .single-service-card:hover {
-          transform: scale(1.05);
-          z-index: 20;
+          transform: scale(1.05); /* Slight scale-up effect */
+          z-index: 10; /* Ensure the hovered card stays on top */
         }
 
-        /* Blur animations only during transitions */
-        .default-content {
+        /* Ensure the backdrop blur effect on the button stays when hovered */
+        .single-service-card .default-content {
           transition: opacity 0.3s ease-in-out, filter 0.15s ease-in-out;
         }
 
+        /* Keep the backdrop filter effect for the button visible */
+        .single-service-card .group-hover\\:opacity-100 {
+          opacity: 1;
+        }
+
+        .single-service-card .group-hover\\:opacity-0 {
+          opacity: 0;
+        }
+
+        /* Apply the blur effect to the button only */
+        .single-service-card .hover-content {
+          filter: blur(1px);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+            filter 0.15s ease-in-out;
+        }
+
+        /* Maintain the blur on hover for the button */
+        .single-service-card .hover-content:hover {
+          filter: none;
+        }
+
+        /* Ensure hover effects apply to the button's backdrop blur */
+        .single-service-card:hover .default-content {
+          filter: blur(1px);
+          transition: opacity 0.3s ease-in-out, filter 0.15s ease-in-out;
+        }
+
+        .single-service-card:hover .hover-content {
+          filter: blur(1px);
+          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+            filter 0.15s ease-in-out;
+        }
+
         /* Additional CSS for more reliable hover detection */
+        @media (hover: hover) {
+          .single-service-card:hover .group-hover\\:opacity-100 {
+            opacity: 1;
+          }
+          .single-service-card:hover .group-hover\\:opacity-0 {
+            opacity: 0;
+          }
+          .single-service-card:hover .group-hover\\:scale-100 {
+            transform: scale(1);
+          }
+          .single-service-card:hover .group-hover\\:bg-white\\/95 {
+            background-color: rgba(255, 255, 255, 0.95);
+          }
+        }
       `}</style>
     </div>
   );
@@ -97,18 +140,17 @@ const SingleServiceCard = memo(function SingleServiceCard({
 }) {
   const { title, description, list, ctaText, ctaLink, id } = data || {};
   console.log("index of technology soliution:", index);
-
-  const CardContent = (
+  return (
     <div
       {...props}
-      className="single-service-card relative h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group cursor-pointer">
+      className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
       {/* Background layer with CSS transitions */}
       <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
 
       <div className="relative h-full w-full px-8 py-8">
         {/* Background Image - hidden on hover */}
         <div
-          className="absolute z-0 bottom-0  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 transition-opacity duration-300"
+          className="absolute z-0 bottom-0  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0  transition-opacity duration-300"
           style={{ backgroundImage: `url('${bgImage}')` }}>
           <Image
             src={image || `/technologySolutions/card${index + 1}.webp`}
@@ -116,7 +158,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
             width={180}
             unoptimized
             height={220}
-            className="object-cover object-left w-full h-full"
+            className="object-contain object-bottom  w-full h-full"
           />
         </div>
 
@@ -129,10 +171,11 @@ const SingleServiceCard = memo(function SingleServiceCard({
           </div>
 
           <div className="flex justify-end items-center gap-2.5">
-            <button className="w-12 h-12 p-2 rounded-full border-2 border-white  cursor-pointer flex items-center justify-center  transition-colors">
+            <P1 className="text-white">{index + 1}</P1>
+            <button className="w-12 h-12 p-2 rounded-full border-2 border-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors">
               <Icon
                 icon="pepicons-pencil:arrow-up-right"
-                className="size-6 text-white"
+                className="size-6 text-white/80"
               />
             </button>
           </div>
@@ -141,14 +184,5 @@ const SingleServiceCard = memo(function SingleServiceCard({
         {/* Hover Content */}
       </div>
     </div>
-  );
-
-  // Wrap in Link if ctaLink exists, otherwise return the card as is
-  return ctaLink ? (
-    <Link href={ctaLink} className="block">
-      {CardContent}
-    </Link>
-  ) : (
-    CardContent
   );
 });

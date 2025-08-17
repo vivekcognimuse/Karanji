@@ -19,7 +19,7 @@ export default async function TechnologySolution() {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <HeroSection data={hero} bgImage="/hero/TechnologySolutions.webp" />
-      <TechnologyAdvantage data={technologyAdvantage} />
+      <TechnologyAdvantage data={technologyAdvantage} className="lg:-mt-16" />
       <div id="technology-solutions">
         <TechnologyServices
           bgImage="/technologySolutions/gradient.svg"
