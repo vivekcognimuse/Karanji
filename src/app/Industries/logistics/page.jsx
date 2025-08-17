@@ -12,7 +12,7 @@ const heroData = {
   subTitle:
     "From AI-driven compliance & training software to predictive maintenance & digital twins for operations-empower your workforce & streamline logistics.",
   ctaText: "Explore the Strategic Priorities",
-  ctaLink: "/industries",
+  ctaLink: "strategic-priorities",
   stats: [
     {
       text: "Reduction in processing time",
@@ -339,7 +339,9 @@ export default async function Logistics() {
         bgImage={"/Industries & its pages/Logistics/Logistics banner.webp"}
       />
       <Industrychallenge data={industryData} />
-      <StrategicPriorities data={strategicPrioritiesData} />
+      <div id="strategic-priorities">
+        <StrategicPriorities data={strategicPrioritiesData} />
+      </div>
       <ServiceOfferings
         data={digitalOfferingsData}
         icon="/Industries & its pages/Logistics/offering" // Update if using dynamic icons

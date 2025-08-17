@@ -10,9 +10,9 @@ import Head from "next/head";
 const heroData = {
   title: "Digital Evolution in Oil & Gas",
   subTitle:
-    "EAccelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, & Resilience Across the Energy Value Chain",
+    "Accelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, & Resilience Across the Energy Value Chain",
   ctaText: "Explore the Transformation Landscape",
-  ctaLink: "/industries",
+  ctaLink: "digital-transformation",
   stats: [
     {
       text: "Equipment Uptime",
@@ -269,7 +269,9 @@ export default async function Aviation() {
         bgImage={"/Industries & its pages/Oil and gas/Oil and gas banner.webp"}
       />
       <Industrychallenge data={industryData} />
-      <DigitalTransformation data={digitalTransformationData} />
+      <div id="digital-transformation">
+        <DigitalTransformation data={digitalTransformationData} />
+      </div>
       <StrategicPriorities data={strategicPrioritiesData} />
       <StrategicUseCase
         data={strategicUseCaseData}

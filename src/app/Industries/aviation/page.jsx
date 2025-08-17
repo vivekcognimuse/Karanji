@@ -12,7 +12,7 @@ const heroData = {
   subTitle:
     "Experience how AI, immersive tech, & smart systems are reshaping aviation—boosting efficiency, enhancing passenger satisfaction, & achieving sustainability goals.",
   ctaText: "Explore the Strategic Priorities",
-  ctaLink: "/industries",
+  ctaLink: "strategic-priorities",
   stats: [
     {
       text: "Reduction in AOG time",
@@ -308,7 +308,9 @@ export default async function Aviation() {
         bgImage={"/Industries & its pages/Aviation/aviation banner.webp"}
       />
       <Industrychallenge data={industryData} />
-      <StrategicPriorities data={strategicPrioritiesData} />
+      <div id="strategic-priorities">
+        <StrategicPriorities data={strategicPrioritiesData} />
+      </div>
       <ServiceOfferings
         data={digitalOfferingsData}
         icon="/Industries & its pages/Aviation/offering" // Update if using dynamic icons
