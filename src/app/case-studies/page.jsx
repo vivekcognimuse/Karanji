@@ -2,8 +2,6 @@
 import { fetchFromStrapi } from "@/lib/strapi";
 import { notFound, redirect } from "next/navigation";
 
-export const revalidate = 60;
-
 export default async function CaseStudiesIndex() {
   // Change to `publishedAt:asc` if you want the *earliest* instead of latest.
   const list = await fetchFromStrapi(
