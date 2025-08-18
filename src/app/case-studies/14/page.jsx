@@ -8,7 +8,7 @@ const STRAPI_BASE_URL = "https://275cbcb80c6c.ngrok-free.app/api";
 const SLUG = "14";
 
 export const revalidate = 60;
-
+export const dynamic = "force-static";
 export default async function CaseStudyDetail() {
   let data;
   try {

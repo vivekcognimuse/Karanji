@@ -67,7 +67,7 @@ export const revalidate = 60;
 export default async function CaseStudyDetail({ params }) {
   const p = await params; // Next.js 15
   const slug = p.slug ?? p.id;
-  console.log("slugggggggggggggggggggggggg:", slug);
+  console.log("slug:", slug);
   const data = await fetchFromStrapi(
     `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
     { populate: "*" },

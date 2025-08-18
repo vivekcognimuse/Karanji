@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 // ---- Config ----
 const STRAPI_BASE_URL = "https://275cbcb80c6c.ngrok-free.app/api";
-const SLUG = "6";
+const SLUG = "18";
 export const dynamic = "force-static";
 export const revalidate = 60;
 

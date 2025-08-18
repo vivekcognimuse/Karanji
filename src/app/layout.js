@@ -19,7 +19,32 @@ const outfit = Outfit({
 
 export const metadata = {
   title: "Karanji",
-  description: "Karanji - Your Partner in Digital Transformation",
+  description: "Your Technology Translation Partner",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/",
+    siteName: "Karanji",
+    title: "Karanji - Your Technology Translation Partner",
+    description:
+      "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
+    images: [
+      {
+        url: "https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/meta.png",
+        width: 1200,
+        height: 630,
+        alt: "Karanji",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karanji - Your Technology Translation Partner",
+    description:
+      "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
+    images: ["https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/meta.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
