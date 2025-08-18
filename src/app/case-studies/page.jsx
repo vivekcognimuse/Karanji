@@ -8,7 +8,7 @@ export default async function CaseStudiesIndex() {
   // Change to `publishedAt:asc` if you want the *earliest* instead of latest.
   const list = await fetchFromStrapi(
     "case-studies?sort=publishedAt:desc&pagination[pageSize]=1",
-    { populate: "" },
+    { populate: "*" },
     "https://275cbcb80c6c.ngrok-free.app/api"
   );
 
