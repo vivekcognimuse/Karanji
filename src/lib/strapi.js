@@ -24,7 +24,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   if (revalidate !== undefined) {
     fetchOptions.next = { revalidate };
   }
-
+  console.log("Fetching from Strapi:", url.toString(), fetchOptions);
   try {
     const res = await fetch(url.toString(), fetchOptions);
 

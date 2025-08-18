@@ -1,6 +1,6 @@
 // app/case-studies/page.jsx
 import { fetchFromStrapi } from "@/lib/strapi";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 export const revalidate = 60;
 
@@ -14,7 +14,7 @@ export default async function CaseStudiesIndex() {
 
   const first = Array.isArray(list) ? list[0] : null;
   if (!first) {
-    return <main className="p-10">No case studies published yet.</main>;
+    return notFound();
   }
 
   const slug = first.attributes?.slug || first.slug || String(first.id);
