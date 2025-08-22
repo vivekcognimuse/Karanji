@@ -58,13 +58,13 @@ export const ServiceCardHome = memo(function ServiceCard({
         .single-service-card {
           transition: width 0.5s ease-out, z-index 0s,
             transform 0.3s ease-in-out;
-          width: 350px; /* Default width for mobile */
+          width: 280px; /* Default width for mobile */
         }
 
         /* Desktop widths */
         @media (min-width: 1024px) {
           .single-service-card {
-            width: 450px; /* Default width for desktop */
+            width: 375px; /* Default width for desktop */
           }
         }
 
@@ -89,27 +89,10 @@ export const ServiceCardHome = memo(function ServiceCard({
         }
 
         /* Apply the blur effect to the button only */
-        .single-service-card .hover-content {
-          filter: blur(1px);
-          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-            filter 0.15s ease-in-out;
-        }
 
         /* Maintain the blur on hover for the button */
         .single-service-card .hover-content:hover {
           filter: none;
-        }
-
-        /* Ensure hover effects apply to the button's backdrop blur */
-        .single-service-card:hover .default-content {
-          filter: blur(1px);
-          transition: opacity 0.3s ease-in-out, filter 0.15s ease-in-out;
-        }
-
-        .single-service-card:hover .hover-content {
-          filter: blur(1px);
-          transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-            filter 0.15s ease-in-out;
         }
 
         /* Additional CSS for more reliable hover detection */
@@ -145,9 +128,9 @@ const SingleServiceCard = memo(function SingleServiceCard({
     <Link href={ctaLink}>
       <div
         {...props}
-        className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 backdrop-blur-sm group">
+        className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 group">
         {/* Background layer with CSS transitions */}
-        <div className="absolute inset-0 rounded-[32px] backdrop-blur-sm  transition-all duration-300 ease-in-out" />
+        <div className="absolute inset-0 rounded-[32px]  transition-all duration-300 ease-in-out" />
 
         <div className="relative h-full w-full px-8 py-8">
           {/* Background Image - hidden on hover */}

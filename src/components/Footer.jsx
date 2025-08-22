@@ -16,12 +16,12 @@ const Footer = () => {
           href: "/technology-solutions/ai-advisory",
         },
         {
-          name: "Digital Twins & Simulations",
-          href: "/technology-solutions/digital-twins",
-        },
-        {
           name: "XR & Gaming Solutions",
           href: "/technology-solutions/xr-gaming",
+        },
+        {
+          name: "Digital Twins & Simulations",
+          href: "/technology-solutions/digital-twins",
         },
       ],
     },
@@ -38,7 +38,7 @@ const Footer = () => {
           href: "/digital-learning/lms-implementation",
         },
         {
-          name: "Advanced Analytics",
+          name: "Advanced Learning Analytics",
           href: "/digital-learning/analytics",
         },
       ],
@@ -66,6 +66,10 @@ const Footer = () => {
       href: "/Industries",
       links: [
         {
+          name: "Oil & Gas",
+          href: "/Industries/oil-and-gas",
+        },
+        {
           name: "Healthcare",
           href: "/Industries/healthcare",
         },
@@ -76,10 +80,6 @@ const Footer = () => {
         {
           name: "Logistics",
           href: "/Industries/logistics",
-        },
-        {
-          name: "Oil & Gas",
-          href: "/Industries/oil-and-gas",
         },
       ],
     },
@@ -96,12 +96,12 @@ const Footer = () => {
           href: "/company/our-team",
         },
         {
-          name: "Digital Twin",
-          href: "/company/digital-twin",
-        },
-        {
           name: "Careers",
           href: "/company/careers",
+        },
+        {
+          name: "Digital Twin",
+          href: "/company/digital-twin",
         },
         {
           name: "Contact",
@@ -156,7 +156,7 @@ const Footer = () => {
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-4   mb-4 min-w-0">
               <Link href={section.href}>
-                <P4 className="text-black cursor-pointer hover:underline break-words">
+                <P4 className=" lg:text-2xl font-medium cursor-pointer hover:underline break-words">
                   {section.title}
                 </P4>
               </Link>

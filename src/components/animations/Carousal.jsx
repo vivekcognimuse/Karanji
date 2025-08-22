@@ -442,7 +442,7 @@ const CarouselContainer = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       {/* Carousel Container */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-x-hidden">
         <div
           ref={carouselRef}
           className="relative w-full touch-pan-y"

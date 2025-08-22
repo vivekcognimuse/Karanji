@@ -24,14 +24,14 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/",
+    url: "https://karanji.com/",
     siteName: "Karanji",
     title: "Karanji - Your Technology Translation Partner",
     description:
       "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
     images: [
       {
-        url: "https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/meta.png",
+        url: "https://karanji.com/meta.png",
         width: 1200,
         height: 630,
         alt: "Karanji",
@@ -43,7 +43,7 @@ export const metadata = {
     title: "Karanji - Your Technology Translation Partner",
     description:
       "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
-    images: ["https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/meta.png"],
+    images: ["https://karanji.com/meta.png"],
   },
 };
 
