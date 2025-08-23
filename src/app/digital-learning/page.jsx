@@ -1,10 +1,10 @@
+import Head from "next/head";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import TechnologyServices from "@/sections/service/Service";
-import Head from "next/head";
 import React from "react";
 
 const heroData = {
@@ -30,8 +30,6 @@ const heroData = {
   ],
 };
 
-// technologyServicesData.js
-
 const technologyServicesData = {
   title: "Our Digital Learning Services",
   description:
@@ -41,7 +39,6 @@ const technologyServicesData = {
       id: 1,
       title: "Content Design & Development",
       number: "01",
-
       image: "/digital-learning/service/1.webp",
       description:
         "Transforming learning experiences through expert content design, development, & talent resources",
@@ -89,8 +86,6 @@ const technologyServicesData = {
   ],
 };
 
-// methodologyData.js
-
 const methodologyData = {
   title: "Our Proven Methodology",
   subTitle:
@@ -133,7 +128,6 @@ const methodologyData = {
     },
   ],
 };
-// successStoriesData.js
 
 const successStoriesData = {
   title: "Entertainment Services Success Stories",
@@ -157,11 +151,7 @@ const successStoriesData = {
 
 const DigitalLearning = () => {
   return (
-    <div className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
-      {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
+    <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/digital-Learning.webp" />
       <div id="digital-learning-solutions">
         <TechnologyServices
@@ -171,8 +161,8 @@ const DigitalLearning = () => {
       </div>
       <EcoSystem />
       <ConsultancyFramework />
-      <Methodology column={true} data={methodologyData} />{" "}
-      {/* <SuccessStories data={successStoriesData} /> */}
+      <Methodology column={true} data={methodologyData} />
+      <SuccessStories data={successStoriesData} />
     </div>
   );
 };

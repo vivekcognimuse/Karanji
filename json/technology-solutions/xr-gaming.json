@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": "XR & Gaming Solutions",
+    "subTitle": "Transforming business operations with immersive XR & Gaming solutions that drive engagement, efficiency, & measurable outcomes.",
+    "ctaText": "Explore Our Approach",
+    "ctaLink": "xr-service-offerings",
+    "bgImage": null,
+    "stats": [
+      {
+        "number": "30%",
+        "text": "COST REDUCTION"
+      },
+      {
+        "number": "90%",
+        "text": "Learner Retention Through VR"
+      },
+      {
+        "number": "40%",
+        "text": "FASTER ONBOARDING"
+      },
+      {
+        "number": "25%",
+        "text": "Efficiency IMPROVEMENT"
+      }
+    ]
+  },
+  "serviceOffering": {
+    "title": "Our XR & Gaming Offerings",
+    "cards": [
+      {
+        "title": "VR/AR Experience Development",
+        "description": "Custom immersive experiences across platforms"
+      },
+      {
+        "title": "Interactive Training Simulations",
+        "description": "Realistic simulations to boost skills & safety"
+      },
+      {
+        "title": "Game based learning experiences",
+        "description": "Enhanced learner retention through game-based eLearning modules"
+      }
+    ]
+  },
+  "methodology": {
+    "title": "Our Methodology & Technical Architecture",
+    "subTitle": "A user-focused process to deliver impactful immersive experiences.",
+    "list": [
+      {
+        "title": "Discover",
+        "description": "Identify requirements & opportunities"
+      },
+      {
+        "title": "Design",
+        "description": "Create engaging user experiences"
+      },
+      {
+        "title": "Develop",
+        "description": "Build & refine prototypes"
+      },
+      {
+        "title": "Testing",
+        "description": "Validate & optimize usability"
+      }
+    ]
+  },
+  "successStories": {
+    "title": "Use Cases & Success Stories",
+    "description": "Discover real-world impact as our immersive solutions transform operations across industries",
+    "cards": [
+      {
+        "title": "Cybersecurity Awareness Game",
+        "description": "An interactive, browser-based cybersecurity awareness game that uses scenario-driven mini-games and light sci-fi storytelling to teach real-world threats (phishing, weak passwords, unsafe remote work, delayed updates).",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "16",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "100%",
+            "subTitle": "Client Satisfaction"
+          },
+          {
+            "title": "Ontime",
+            "subTitle": "Delivery"
+          }
+        ]
+      },
+      {
+        "title": "VR Training for Electric Vehicle (EV)",
+        "description": "Immersive VR training for EV technicians-built in Unity for Oculus Quest 2-covering EV parts identification, charging SOPs, and safe MSD handling with guided, interactive practice and in-headset assessments.",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "17",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "Realistic",
+            "subTitle": "Simulation"
+          },
+          {
+            "title": "Ontime",
+            "subTitle": "Delivery"
+          }
+        ]
+      }
+    ]
+  }
+}

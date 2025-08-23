@@ -7,6 +7,8 @@ import TechnologyServices from "@/sections/service/Service";
 import ScrollVideoSequence from "@/components/LandingAnimation";
 import TechnologyServicesHome from "@/sections/service/Service copy";
 import LogoStoryAnimation from "@/components/LandingAnimation";
+import { GetLeftContent } from "@/sections/home/LeftContent";
+import { GetRightContent } from "@/sections/home/RightContent";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
@@ -118,6 +120,8 @@ const KaranjiLanding = () => {
           data={technologyServicesData}
         />
       </div>
+      <GetLeftContent stage={1} />
+      <GetRightContent />
       <LogoStoryAnimation />
       {/* <ScrollVideoSequence /> */}
       <SuccessStories data={successStoriesData} />

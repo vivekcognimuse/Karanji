@@ -205,8 +205,6 @@ const successStoriesData = {
   ],
 };
 
-// METHODOLOGY
-
 // FAQ ACCORDION
 const accordionData = {
   title: "Frequently Asked Questions",

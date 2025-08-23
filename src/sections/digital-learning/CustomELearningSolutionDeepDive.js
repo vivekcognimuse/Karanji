@@ -5,54 +5,54 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
-/**
- * ELearningSolutions – pixel-aligned Tailwind component matching the provided mock.
- * No motion libs; images supplied via the data prop.
- *
- * Props shape expected:
- * {
- *   title, subTitle,
- *   level1: { label, title, imageSrc, imageAlt },
- *   level2: { label, title, badge, badgeIcon, imageSrc, imageAlt },
- *   cta: { text, buttonText }
- * }
- */
 export default function ELearningSolutions({ data }) {
   const { title, subTitle, level1, level2, cta, cards } = data;
 
   return (
-    <section className="relative isolate">
+    <section
+      data-reveal-amount="0.25"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12"
+      className="relative isolate">
       {/* Header */}
-      <div className="mb-16">
+      <div
+        className="mb-16 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
         <h3 className="mb-4">{title}</h3>
-        <P2 className="">{subTitle}</P2>
+        <P2>{subTitle}</P2>
       </div>
 
       {/* Cards */}
-      <div className=" w-full  md:min-w-lg  gap-8 mx-auto px-6">
+      <div
+        className="w-full md:min-w-lg gap-8 mx-auto px-6 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
         <MultiCardCarousel>
           {cards.map((card, index) => {
             const { subTitle, description, videoSrc, imageSrc, alt } = card;
 
             return (
-              <div key={index} className="flex flex-wrap gap-4 justify-center">
-                <div
-                  key={index}
-                  className="bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col">
+              <div
+                key={index}
+                className="flex flex-wrap gap-4 justify-center opacity-0 will-change-transform"
+                data-reveal
+                data-reveal-dir="up">
+                <div className="bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col">
                   <P1 className="w-fit rounded-full py-2 border border-black-200 mb-4 px-6">
                     {subTitle}
                   </P1>
                   <P3 className="mb-8 flex-grow">{description}</P3>
-                  <div className="relative mt-auto aspect-auto border rounded-2xl overflow-hidden flex items-end  w-auto flex-grow">
+                  <div className="relative mt-auto aspect-auto border rounded-2xl overflow-hidden flex items-end w-auto flex-grow">
                     <Image
                       src={imageSrc}
                       alt={alt || description}
                       width={500}
                       height={310}
-                      className="w-full   "
+                      className="w-full"
                     />
-
                     <a
                       href={videoSrc}
                       target="_blank"
@@ -68,18 +68,25 @@ export default function ELearningSolutions({ data }) {
                 </div>
               </div>
             );
-          })}{" "}
+          })}
         </MultiCardCarousel>
       </div>
+
       {/* CTA */}
-      <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
-        <P2 className=" ">{cta.text}</P2>
+      <div
+        className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
+        <P2>{cta.text}</P2>
         <Link href={cta.buttonLink || "/resources"}>
           <Button size="sm" variant="secondary" className="">
             {cta.buttonText}
           </Button>
         </Link>
       </div>
+
+      {/* Run the animation for this section */}
+      <SectionReveal />
     </section>
   );
 }

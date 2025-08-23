@@ -86,11 +86,8 @@ body {
 }
 
 /* Headings (Albert Sans) */
-h1 {
-  @apply font-sans text-black  leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)]  font-normal;
-}
 
-h2 {
+h1 {
   @apply font-sans text-4xl sm:text-5xl lg:text-[4rem] text-black font-normal mb-4;
 }
 

@@ -133,7 +133,7 @@ const successStoriesData = {
 
 // digitalTwinData.js
 
-export const digitalTwinData = {
+const digitalTwinData = {
   title: "Categories",
 
   list: [
@@ -293,7 +293,6 @@ const learningChallenges = {
   ],
 };
 
-// Example usage:
 const eLearning = {
   tabs: {
     custom: {

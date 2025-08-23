@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { P3 } from "@/components/CustomTags";
-
-// Combined data + tabs into one object
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const SwitchSection = ({ data }) => {
   const { tabs, content } = data;
@@ -11,9 +10,16 @@ const SwitchSection = ({ data }) => {
   const [activeAccordion, setActiveAccordion] = useState(0);
 
   return (
-    <div className="px-4 md:px-8 lg:px-16 py-8">
+    <section
+      data-reveal-amount="0.25"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12"
+      className="px-4 md:px-8 lg:px-16 py-8">
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-3 mb-16">
+      <div
+        className="flex flex-wrap justify-center gap-3 mb-16 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -34,7 +40,10 @@ const SwitchSection = ({ data }) => {
       {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Image Column */}
-        <div>
+        <div
+          className="opacity-0 will-change-transform"
+          data-reveal
+          data-reveal-dir="up">
           <Image
             src={content[activeTab].sections[activeAccordion].image}
             alt={activeTab}
@@ -45,7 +54,10 @@ const SwitchSection = ({ data }) => {
         </div>
 
         {/* Text Column */}
-        <div>
+        <div
+          className="opacity-0 will-change-transform"
+          data-reveal
+          data-reveal-dir="up">
           {content[activeTab].sections.map((section, idx) => (
             <div
               key={idx}
@@ -62,7 +74,7 @@ const SwitchSection = ({ data }) => {
                       {section.tags.map((tag, i) => (
                         <P3
                           key={i}
-                          className="bg-white/50 w-fit border border-black-200 px-6 py-2 rounded-full  text-black-500">
+                          className="bg-white/50 w-fit border border-black-200 px-6 py-2 rounded-full text-black-500">
                           {tag}
                         </P3>
                       ))}
@@ -74,7 +86,10 @@ const SwitchSection = ({ data }) => {
           ))}
         </div>
       </div>
-    </div>
+
+      {/* Run the animation for this section */}
+      <SectionReveal />
+    </section>
   );
 };
 

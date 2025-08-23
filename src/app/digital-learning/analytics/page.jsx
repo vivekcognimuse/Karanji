@@ -33,33 +33,7 @@ const heroData = {
     },
   ],
 };
-const lmsLearningData = {
-  title: "Addressing LMS Challenges with K-nest Solutions",
-  description:
-    "Overcome common learning management system hurdles with intuitive navigation, easy content organization, advanced assessments, and simplified user management.",
-  cards: [
-    {
-      title: "Common LMS Challenges",
-      image: "/digital-learning/analytics/learning/1.svg", // Replace with actual image path if available
-      description: [
-        "Complex navigation frustrates learners",
-        "Difficult content organization",
-        "Limited assessment capabilities",
-        "Poor user management systems",
-      ],
-    },
-    {
-      title: "The K-nest Solution",
-      image: "/digital-learning/analytics/learning/1.svg", // Replace with actual image path if available
-      description: [
-        "Guided navigation ensures smooth progression",
-        "Easy-to-structure and organize content",
-        "Comprehensive tools to track progress",
-        "Efficient management with streamlined controls",
-      ],
-    },
-  ],
-};
+
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
   subTitle:

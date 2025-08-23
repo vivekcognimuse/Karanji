@@ -1,8 +1,6 @@
 import React from "react";
-
+import Head from "next/head"; // Import Next.js Head component
 import { P1 } from "@/components/CustomTags";
-
-// client-only, returns null, runs GSAP
 import HeroReveal from "@/components/animations/HeroReveal";
 import ScrollButton from "@/components/ScrollButton";
 
@@ -15,7 +13,27 @@ export default function HeroSection({ data, bgImage }) {
     stats,
     backgroundImage,
   } = data;
-  console.log("HeroSection data:", data);
+
+  // Create JSON-LD schema for Hero Section
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description: subTitle || "Explore end-to-end digital learning solutions.",
+    url: "https://yourwebsite.com/digital-learning", // Update with actual URL
+    image: bgImage,
+    mainEntityOfPage: "https://yourwebsite.com/digital-learning",
+    headline: title,
+    author: {
+      "@type": "Organization",
+      name: "Your Company Name",
+    },
+    stats: stats?.map((stat) => ({
+      "@type": "QuantitativeValue",
+      value: stat.number,
+      name: stat.text || stat.subText,
+    })),
+  };
 
   return (
     <section
@@ -24,13 +42,18 @@ export default function HeroSection({ data, bgImage }) {
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}>
+      {/* Inject JSON-LD in the <head> */}
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(jsonLdData)}</script>
+      </Head>
+
       <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center  max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
-          <h2
+          <h1
             className="text-center opacity-0 will-change-transform"
             data-reveal>
             {title}
-          </h2>
+          </h1>
 
           {subTitle && (
             <P1

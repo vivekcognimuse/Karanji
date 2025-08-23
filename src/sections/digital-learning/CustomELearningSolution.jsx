@@ -2,17 +2,25 @@
 import { P2, P3 } from "@/components/CustomTags";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 export default function CustomELearningSolution({ data, activeTab }) {
   const tabs = data.tabs;
   const tabData = tabs[activeTab];
 
   return (
-    <div className="">
+    <section
+      data-reveal-amount="0.25"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12"
+      className="">
       {/* Content Area */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
         {/* Image Section */}
-        <div className="flex-shrink-0 lg:col-span-5">
+        <div
+          className="flex-shrink-0 lg:col-span-5 opacity-0 will-change-transform"
+          data-reveal
+          data-reveal-dir="up">
           <Image
             src={tabData.img}
             alt={tabData.title}
@@ -24,7 +32,10 @@ export default function CustomELearningSolution({ data, activeTab }) {
         </div>
 
         {/* Text Content */}
-        <div className="flex-1 lg:col-span-7">
+        <div
+          className="flex-1 lg:col-span-7 opacity-0 will-change-transform"
+          data-reveal
+          data-reveal-dir="up">
           <P2 className="mb-3 lg:mb-4 text-lg sm:text-xl lg:text-2xl">
             {tabData.title}
           </P2>
@@ -33,7 +44,11 @@ export default function CustomELearningSolution({ data, activeTab }) {
           </P3>
           <div className="flex flex-wrap gap-3 lg:gap-6">
             {tabData.stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div
+                key={index}
+                className="text-center opacity-0 will-change-transform"
+                data-reveal
+                data-reveal-dir="up">
                 <div className="text-black-500 bg-white/50 px-4 sm:px-6 border border-black-200 py-2 rounded-full text-xs sm:text-sm">
                   {stat.title}
                 </div>
@@ -44,7 +59,10 @@ export default function CustomELearningSolution({ data, activeTab }) {
       </div>
 
       {/* Level indicator */}
-      <div className="lg:flex hidden justify-center lg:justify-end mt-4">
+      <div
+        className="lg:flex hidden justify-center lg:justify-end mt-4 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
         <div className="flex items-center gap-1 text-xs sm:text-sm text-gray-500">
           <Icon
             icon="iconamoon:mouse"
@@ -53,6 +71,9 @@ export default function CustomELearningSolution({ data, activeTab }) {
           <span>Scroll</span>
         </div>
       </div>
-    </div>
+
+      {/* Run the animation for this section only */}
+      <SectionReveal />
+    </section>
   );
 }

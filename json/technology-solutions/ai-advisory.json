@@ -1,0 +1,174 @@
+{
+  "hero": {
+    "title": "AI Advisory & Implementation",
+    "subTitle": "As a leading artificial intelligence consulting firm, we specialize in creating custom strategies that generate results-measurable, scalable and built for the real world.",
+    "ctaText": "Explore Our Offerings",
+    "ctaLink": "ai-service-offerings",
+    "bgImage": null,
+    "stats": []
+  },
+  "serviceOffering": {
+    "title": "Our AI Service Offerings",
+    "subTitle": "From high-level strategy to tactical execution & operational implementation, we guide you through every aspect of your AI journey.",
+    "cards": [
+      {
+        "title": "Strategy",
+        "subTitle": "Strong Foundation",
+        "description": "Our intelligence consulting experts start with readiness assessments, opportunity identification, & a strategic AI roadmap-building a strong foundation tailored to your business goals."
+      },
+      {
+        "title": "Tactical",
+        "subTitle": "Fast Growth",
+        "description": "We develop custom artificial intelligence prototypes and proof-of-concepts, enabling fast growth, accelerating innovation, and delivering real-world impact early in your journey."
+      },
+      {
+        "title": "Operational",
+        "subTitle": "Reap Benefits",
+        "description": "With deep AI experience in professional services, we manage deployment, integration, change management, and optimization-ensuring your initiatives scale and deliver lasting impact."
+      }
+    ]
+  },
+  "methodology": {
+    "title": "Our Proven Methodology",
+    "subTitle": "We combine cutting-edge tech with business acumen to build AI-powered business solutions that perform.",
+    "list": [
+      {
+        "title": "Discover",
+        "description": "Identify high-value use cases & stakeholder needs."
+      },
+      {
+        "title": "Assess",
+        "description": "Evaluate data readiness & technical infrastructure."
+      },
+      {
+        "title": "Design",
+        "description": "Architect tailored AI solutions with UX in mind."
+      },
+      {
+        "title": "Prototype",
+        "description": "Build, test, & refine MVPs for validation."
+      },
+      {
+        "title": "Implement",
+        "description": "Identify high-value use cases & stakeholder needs."
+      },
+      {
+        "title": "Optimize",
+        "description": "Continuously monitor, measure, & improve outcomes."
+      }
+    ]
+  },
+  "industryExpertise": {
+    "title": "Industry-Specific Expertise in AI Consulting",
+    "subTitle": "Tailored approaches that address unique challenges in diverse sectors.",
+    "cards": [
+      {
+        "title": "Healthcare",
+        "description": "From predictive analytics to patient management solutions that enhance outcomes."
+      },
+      {
+        "title": "Manufacturing",
+        "description": "Optimize production, quality control, & supply chain management with AI."
+      },
+      {
+        "title": "Financial Services",
+        "description": "Enhance risk management, detect fraud, & improve customer personalization."
+      },
+      {
+        "title": "Technology",
+        "description": "Drive innovation through AI-powered product development & operational efficiency."
+      }
+    ]
+  },
+  "successStories": {
+    "title": "Use Cases & Success Stories",
+    "description": "Discover real-world impact as our immersive solutions transform operations across industries",
+    "cards": [
+      {
+        "title": "3D AI Advertisement",
+        "description": "We scripted and produced a full 3D AI-generated ad with a human avatar and custom voice, delivered end-to-end in just four working days-solving tight budget and timeline constraints for a leading agriculture company in India",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "1",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "+45%",
+            "subTitle": "Team Skill Growth"
+          },
+          {
+            "title": "+100%",
+            "subTitle": "Client Satisfaction"
+          }
+        ]
+      },
+      {
+        "title": "K buddy AI Learning Companion",
+        "description": "AI-powered learning companion for the education sector that offers instant explanations, quiz generation, and personalized assessments through a voice/text chatbot, with full deployment completed in three months",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "3",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "60%",
+            "subTitle": "Increased After-hours engagement"
+          },
+          {
+            "title": "35%",
+            "subTitle": "Improved Student Satisfaction"
+          }
+        ]
+      },
+      {
+        "title": "Outbound Calling Agent",
+        "description": "An automated outbound calling agent for EdTech sales teams that places voice calls at set intervals, logs every interaction centrally, and gives managers a dashboard for activation and oversight.",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "4",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "60%",
+            "subTitle": "Reduced Manual Workload"
+          },
+          {
+            "title": "40%",
+            "subTitle": "Improved Lead Response Rate"
+          }
+        ]
+      },
+      {
+        "title": "Sign Language Bot (SignBot)",
+        "description": "AI tool that converts text into sign language by retrieving and stitching pre-recorded sign clips using SBERT-based semantic similarity and exact phrase matching.",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "5",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "Reduced",
+            "subTitle": "Content creation time"
+          },
+          {
+            "title": "Better",
+            "subTitle": "Engagement"
+          }
+        ]
+      },
+      {
+        "title": "Teacher Empowerment System (TES)",
+        "description": "AI-powered teacher assistant that cuts prep time by up to 50% through syllabus-aligned resource curation, auto-generated quizzes, and smart teaching suggestions-already deployed in 10 schools.",
+        "ctaText": "Read Full CaseStudy",
+        "ctaLink": "6",
+        "tag": "Technology Solutions",
+        "stats": [
+          {
+            "title": "40-50%",
+            "subTitle": "Reduced Preparation Time"
+          },
+          {
+            "title": "30%",
+            "subTitle": "Increased Interactive Sessions"
+          }
+        ]
+      }
+    ]
+  }
+}

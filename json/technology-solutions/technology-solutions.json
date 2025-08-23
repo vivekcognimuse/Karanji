@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "title": "Transform Your Business with Future-Ready Technology in the World of AI",
+    "subTitle": "Empower your business with intelligent, immersive solutions tailored for today’s dynamic digital landscape. Stay ahead in the world of AI with technologies that drive meaningful, measurable change.",
+    "ctaText": "Explore Our Technology Solutions",
+    "ctaLink": "technology-solutions",
+    "bgImage": null,
+    "stats": []
+  },
+  "technologyAdvantage": {
+    "title": "The Karanji Technology Advantage",
+    "subTitle": "Our approach combines strategic insight with hands-on implementation. We specialize in integrating artificial intelligence consulting, XR/VR/AR experiences, & digital twin technologies to help you optimize operations, improve efficiencies, accelerate digital transformation. Rooted in the evolution of AI & shaped by today’s realities-from AI policy to limited memory AI-we bring future-ready solutions that align with your long-term vision.",
+    "cards": [
+      {
+        "title": "Outcome-Driven Methodology",
+        "description": "Focused on delivering clear, measurable results."
+      },
+      {
+        "title": "Integrated Capabilities",
+        "description": "Seamless synergy across AI, XR, & digital twins."
+      },
+      {
+        "title": "Expert Leadership",
+        "description": "Hands-on advisory & implementation from industry veterans"
+      },
+      {
+        "title": "Scalable Solutions",
+        "description": "Tailored approaches that grow with your business."
+      }
+    ],
+    "ctaCard": {
+      "title": "Not sure how AI-ready your business is?",
+      "subTitle": "Take our quick diagnostic to benchmark your AI maturity & unlock tailored insights",
+      "ctaText": "Take the AI Diagnostic Now",
+      "ctaLink": "https://qcdbnvxe.manus.space/"
+    }
+  },
+  "technologyService": {
+    "title": "Our Technology Services",
+    "description": "Explore a full spectrum of technology services crafted to drive innovation & operational excellence.",
+    "cards": [
+      {
+        "title": "AI Advisory & Implementation",
+        "description": "Empower your business with tailored AI strategies - from maturity assessments & customized roadmaps to actionable AI solutions that drive growth.",
+        "ctaText": "Learn More",
+        "ctaLink": "/technology-solutions/ai-advisory",
+        "list": [
+          { "text": "AI strategy & roadmap development" },
+          { "text": "Comprehensive AI maturity assessments" },
+          { "text": "Custom AI-driven applications" },
+          { "text": "Data strategy & analytics" }
+        ]
+      },
+      {
+        "title": "XR & Gaming Solutions",
+        "description": "Engage & inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys",
+        "ctaText": "Learn More",
+        "ctaLink": "/technology-solutions/xr-gaming",
+        "list": [
+          { "text": "Immersive VR training experiences" },
+          { "text": "Augmented reality learning modules" },
+          { "text": "Interactive gaming & simulation applications" },
+          { "text": "Dynamic mixed reality experiences" }
+        ]
+      },
+      {
+        "title": "Digital twins & Simulations",
+        "description": "Revolutionize your operational insights through digital replicas & interactive simulations that provide real-time data visualization & predictive analytics.",
+        "ctaText": "Learn More",
+        "ctaLink": "/technology-solutions/digital-twins",
+        "list": [
+          { "text": "Virtual replicas of physical environments" },
+          { "text": "Interactive 3D Simulations" },
+          { "text": "Predictive analytics integration" },
+          { "text": "Process optimization modeling" }
+        ]
+      }
+    ],
+    "successStories": {
+      "title": "Technology Implementation Success Stories",
+      "description": "Real-world examples demonstrate the tangible benefits of our technology solutions. Explore case studies showcasing measurable improvements across industries.",
+      "cards": [
+        {
+          "title": "3D AI Advertisement",
+          "description": "We scripted and produced a full 3D AI-generated ad with a human avatar and custom voice, delivered end-to-end in just four working days-solving tight budget and timeline constraints for a leading agriculture company in India",
+          "tag": "Technology Solutions",
+          "stats": [
+            { "title": "+45%", "subTitle": "Team Skill Growth" },
+            { "title": "+100%", "subTitle": "Client Satisfaction" }
+          ]
+        },
+        {
+          "title": "K buddy AI Learning Companion",
+          "description": "AI-powered learning companion for the education sector that offers instant explanations, quiz generation, and personalized assessments through a voice/text chatbot, with full deployment completed in three months",
+          "ctaText": "Read Full CaseStudy",
+          "ctaLink": "/",
+          "tag": "Technology Solutions",
+          "stats": [
+            {
+              "title": "60%",
+              "subTitle": "Increased After-hours engagement"
+            },
+            { "title": "35%", "subTitle": "Improved Student Satisfaction" }
+          ]
+        },
+        {
+          "title": "Outbound Calling Agent",
+          "description": "An automated outbound calling agent for EdTech sales teams that places voice calls at set intervals, logs every interaction centrally, and gives managers a dashboard for activation and oversight. Outbound Calling Agent",
+          "ctaText": "Read Full CaseStudy",
+          "ctaLink": "/",
+          "tag": "Technology Solutions",
+          "stats": [
+            { "title": "60%", "subTitle": "Reduced Manual Workload" },
+            { "title": "40%", "subTitle": "Improved Lead Response Rate" }
+          ]
+        },
+        {
+          "title": "Sign Language Bot (SignBot)",
+          "description": "AI tool that converts text into sign language by retrieving and stitching pre-recorded sign clips using SBERT-based semantic similarity and exact phrase matching.",
+          "ctaText": "Read Full CaseStudy",
+          "ctaLink": "/",
+          "tag": "Technology Solutions",
+          "stats": [
+            { "title": "Reduced", "subTitle": "Content creation time" },
+            { "title": "Better", "subTitle": "Engagement" }
+          ]
+        },
+        {
+          "title": "Teacher Empowerment System (TES)",
+          "description": "AI-powered teacher assistant that cuts prep time by up to 50% through syllabus-aligned resource curation, auto-generated quizzes, and smart teaching suggestions-already deployed in 10 schools.",
+          "ctaText": "Read Full CaseStudy",
+          "ctaLink": "/",
+          "tag": "Technology Solutions",
+          "stats": [
+            { "title": "40-50%", "subTitle": "Reduced Preparation Time" },
+            { "title": "30%", "subTitle": "Increased Interactive Sessions" }
+          ]
+        }
+      ]
+    }
+  }
+}

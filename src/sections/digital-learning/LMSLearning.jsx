@@ -1,20 +1,36 @@
 import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const LMSLearning = ({ data }) => {
   const { title, description, cards } = data || {};
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <P2>{description}</P2>
+    <section
+      data-reveal-amount="0.25"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
+      {/* Header */}
+      <div
+        className="opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
+        <h3>{title}</h3>
+        <P2>{description}</P2>
+      </div>
 
-      <div className="flex-center flex-col lg:flex-row gap-8">
+      {/* Cards Section */}
+      <div
+        className="flex-center flex-col lg:flex-row gap-8 opacity-0 will-change-transform"
+        data-reveal
+        data-reveal-dir="up">
         {cards.map((card, index) => (
           <div
             key={index}
-            className="bg-[#FFE5E5] mt-8 space-y-8 p-5 rounded-2xl">
+            className="bg-[#FFE5E5] mt-8 space-y-8 p-5 rounded-2xl opacity-0 will-change-transform"
+            data-reveal
+            data-reveal-dir="up">
             {card.image && (
               <Image
                 src={card.image}
@@ -36,7 +52,10 @@ const LMSLearning = ({ data }) => {
           </div>
         ))}
       </div>
-    </div>
+
+      {/* Run the animation for this section */}
+      <SectionReveal />
+    </section>
   );
 };
 
