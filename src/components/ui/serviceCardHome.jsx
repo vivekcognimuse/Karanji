@@ -165,6 +165,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
               </div>
             </div>
           </div>
+
+          {/* Hover Content */}
         </div>
       </div>
     </Link>

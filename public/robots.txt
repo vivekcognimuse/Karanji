@@ -1,9 +1,6 @@
-# *
+# robots.txt for blocking all crawlers
+
 User-agent: *
-Allow: /
+Disallow: /
 
-# Host
-Host: https://karanji.com
-
-# Sitemaps
-Sitemap: https://karanji.com/sitemap.xml
+# The above means all crawlers are blocked from all pages

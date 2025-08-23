@@ -13,9 +13,7 @@ const HeroSection = ({ data }) => {
     <section className=" min-h-[calc(100vh-5rem)] items-center pb-32 flex flex-col lg:flex-row  gap-8">
       <div className="flex-1   lg:-mt-20 space-y-8">
         <div className="space-y-4 ">
-          <h1 className="font-sans text-black  leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)]  font-normal">
-            Let’s Bring Your Vision to Life
-          </h1>
+          <h1 className="">Let’s Bring Your Vision to Life</h1>
           <P1 className="">
             We help organizations solve complex business challenges through the
             strategic integration of digital learning, immersive experiences, &

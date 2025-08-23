@@ -1,5 +1,4 @@
 "use client";
-import SectionReveal from "@/components/animations/sectionReveal";
 import { P1, P2, P3 } from "@/components/CustomTags";
 import { Icon } from "@iconify/react";
 import React from "react";
@@ -9,57 +8,40 @@ const Accordion = ({ data }) => {
 
   return (
     <>
-      <section
-        data-reveal-amount="0.25"
-        data-reveal-duration="0.5"
-        data-reveal-stagger="0.12">
-        <div className="">
-          {/* Header */}
-          <div
-            className="mb-16 opacity-0 will-change-transform"
-            data-reveal
-            data-reveal-dir="up">
-            <h3 className="mb-4">{title}</h3>
-            {subTitle && <P2>{subTitle}</P2>}
-          </div>
-
-          {/* Accordion Items */}
-          <div
-            className="space-y-4 opacity-0 will-change-transform"
-            data-reveal
-            data-reveal-dir="up">
-            {questions.map((item, index) => (
-              <details
-                key={index}
-                className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
-                <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
-                  <P1 className="text-gray-900   md:text-base pr-4">
-                    {item.question}
-                  </P1>
-
-                  {/* Custom Chevron */}
-                  <div className="accordion-chevron flex-shrink-0 w-5 h-5 text-gray-500">
-                    <Icon
-                      icon="heroicons:chevron-up"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </summary>
-
-                {/* Answer Content with Grid Animation */}
-                <div className="accordion-content border-t border-black-200">
-                  <div className="accordion-inner p-4 ">
-                    <P3 className="text-black-800">{item.answer}</P3>
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
+      <div className="">
+        {/* Header */}
+        <div className="mb-16">
+          <h3 className=" mb-4">{title}</h3>
+          {subTitle && <P2 className="">{subTitle}</P2>}
         </div>
 
-        {/* Run the animation for this section */}
-        <SectionReveal />
-      </section>
+        {/* Accordion Items */}
+        <div className="space-y-4">
+          {questions.map((item, index) => (
+            <details
+              key={index}
+              className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
+              <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
+                <P1 className="text-gray-900   md:text-base pr-4">
+                  {item.question}
+                </P1>
+
+                {/* Custom Chevron */}
+                <div className="accordion-chevron flex-shrink-0 w-5 h-5 text-gray-500">
+                  <Icon icon="heroicons:chevron-up" className="w-full h-full" />
+                </div>
+              </summary>
+
+              {/* Answer Content with Grid Animation */}
+              <div className="accordion-content border-t border-black-200">
+                <div className="accordion-inner p-4 ">
+                  <P3 className="text-black-800">{item.answer}</P3>
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
 
       <style jsx>{`
         /* Remove default details markers */

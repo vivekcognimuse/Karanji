@@ -2,17 +2,14 @@ import { P2, P3 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import Image from "next/image";
 import React from "react";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const Deliverables = ({ data }) => {
+
   const { heroImage, features, title, tag, subTitle, featureHeader } = data;
 
   // Individual feature card component for carousel
   const FeatureCard = ({ feature }) => (
-    <div
-      className="w-full px-4 opacity-0 will-change-transform"
-      data-reveal
-      data-reveal-dir="up">
+    <div className="w-full px-4">
       <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 h-full">
         {/* Icon */}
         <div className="w-12 h-12 flex items-center justify-center mb-4">
@@ -32,43 +29,24 @@ const Deliverables = ({ data }) => {
     </div>
   );
 
+
   return (
-    <section
-      data-reveal-amount="0.25"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="">
       <div className="mb-8 lg:mb-16">
-        <h3
-          className="mb-4 opacity-0 will-change-transform"
-          data-reveal
-          data-reveal-dir="up">
+        <h3 className="mb-4" data-reveal data-reveal-dir="up">
           {title}
         </h3>
 
-        {tag && (
-          <h4
-            className="mb-4 lg:mb-6 text-black opacity-0 will-change-transform"
-            data-reveal
-            data-reveal-dir="up">
-            {tag}
-          </h4>
-        )}
+        {tag && <h4 className="mb-4 lg:mb-6 text-black">{tag}</h4>}
+        <h4 className="text-black mb-16" data-reveal data-reveal-dir="up">
 
-        <h4
-          className="text-black mb-16 opacity-0 will-change-transform"
-          data-reveal
-          data-reveal-dir="up">
           {subTitle}
         </h4>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Side - Hero Image */}
-        <div
-          className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-red-700 to-red-500 opacity-0 will-change-transform"
-          data-reveal
-          data-reveal-dir="up">
+        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-red-700 to-red-500">
           <Image
             src={heroImage}
             alt="Student learning with laptop"
@@ -81,22 +59,13 @@ const Deliverables = ({ data }) => {
         {/* Right Side - Features */}
         <div>
           {featureHeader && (
-            <h4
-              className="text-black mb-16 opacity-0 will-change-transform"
-              data-reveal
-              data-reveal-dir="up">
-              {featureHeader}
-            </h4>
+            <h4 className="text-black mb-16">{featureHeader}</h4>
           )}
 
           {/* Desktop Grid - Hidden on Mobile */}
           <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
             {features.map((feature, index) => (
-              <div
-                key={index}
-                className="space-y-3 opacity-0 will-change-transform"
-                data-reveal
-                data-reveal-dir="up">
+              <div key={index} className="space-y-3">
                 {/* Icon */}
                 <div className="w-12 h-12 flex items-center justify-center">
                   <Image
@@ -134,7 +103,8 @@ const Deliverables = ({ data }) => {
                     autoPlayInterval={5500}
                     showDots={true}
                     showArrows={false}
-                    className="w-full">
+                    className="w-full"
+                  >
                     {features.map((feature, index) => (
                       <FeatureCard key={index} feature={feature} />
                     ))}
@@ -145,10 +115,7 @@ const Deliverables = ({ data }) => {
           </div>
         </div>
       </div>
-
-      {/* run the animation for this section only */}
-      <SectionReveal />
-    </section>
+    </div>
   );
 };
 
