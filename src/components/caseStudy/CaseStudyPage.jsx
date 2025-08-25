@@ -5,7 +5,7 @@ import DownloadSection from "../blog/downloadSection";
 import QuoteBlock from "../blog/QuoteBlock";
 import { P1, P3 } from "../CustomTags";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import SectionReveal from "@/components/animations/sectionReveal";
 
 const slugify = (s) =>
   (s || "")
@@ -64,7 +64,7 @@ const CaseStudyPage = ({ data }) => {
             className="mt-10 mb-4 scroll-mt-24"
             key={idx}
             data-reveal
-            data-reveal-dir="up" // Added reveal animation
+            data-reveal-dir="up"
           >
             {section.content}
           </h4>
@@ -87,7 +87,8 @@ const CaseStudyPage = ({ data }) => {
             className="text-black-500 mb-4"
             key={idx}
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             {section.content}
           </P3>
         );
@@ -97,7 +98,8 @@ const CaseStudyPage = ({ data }) => {
             className="font-outfit text-lg font-light sm:text-xl list-disc pl-5 space-y-2 text-black-950/50 mb-4"
             key={idx}
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             {(section.items || []).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -109,7 +111,8 @@ const CaseStudyPage = ({ data }) => {
             key={idx}
             className="relative mb-6 p-6"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             <div
               className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
               style={{
@@ -151,14 +154,16 @@ const CaseStudyPage = ({ data }) => {
             <P1
               className="text-black-500 text-base mb-4"
               data-reveal
-              data-reveal-dir="up">
+              data-reveal-dir="up"
+            >
               {data.description}
             </P1>
             <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
               {(data.tags || []).map((tag, idx) => (
                 <span
                   key={idx}
-                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1">
+                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1"
+                >
                   {tag}
                 </span>
               ))}
@@ -192,6 +197,19 @@ const CaseStudyPage = ({ data }) => {
                   {groupedSections.map((section, idx) =>
                     renderSection(section, idx)
                   )}
+
+                  {/* Download Section within the main content area */}
+                  <div data-reveal data-reveal-dir="up">
+                    <DownloadSection
+                      title={data.downloadCta.title}
+                      intro={data.downloadCta.intro}
+                      description={data.downloadCta.description}
+                      audienceNote={data.downloadCta.audienceNote}
+                      encouragementNote={data.downloadCta.encouragementNote}
+                      buttonLabel={data.downloadCta.buttonLabel}
+                      pdfLink={data.pdfLink}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -216,6 +234,19 @@ const CaseStudyPage = ({ data }) => {
               )}
             </div>
 
+            {/* Download Section for mobile - full width */}
+            <div data-reveal data-reveal-dir="up">
+              <DownloadSection
+                title={data.downloadCta.title}
+                intro={data.downloadCta.intro}
+                description={data.downloadCta.description}
+                audienceNote={data.downloadCta.audienceNote}
+                encouragementNote={data.downloadCta.encouragementNote}
+                buttonLabel={data.downloadCta.buttonLabel}
+                pdfLink={data.pdfLink}
+              />
+            </div>
+
             {/* Mobile Sidebar (Below Content) */}
             <div className="mt-8 space-y-6">
               {headings.length > 0 && (
@@ -225,19 +256,6 @@ const CaseStudyPage = ({ data }) => {
               )}
             </div>
           </div>
-        </div>
-
-        {/* Full Width Download Section */}
-        <div className="mx-auto mt-16">
-          <DownloadSection
-            title={data.downloadCta.title}
-            intro={data.downloadCta.intro}
-            description={data.downloadCta.description}
-            audienceNote={data.downloadCta.audienceNote}
-            encouragementNote={data.downloadCta.encouragementNote}
-            buttonLabel={data.downloadCta.buttonLabel}
-            pdfLink={data.pdfLink}
-          />
         </div>
       </article>
 
