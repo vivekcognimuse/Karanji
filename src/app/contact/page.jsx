@@ -273,9 +273,6 @@ const ContactPage = () => {
     <>
       <div className="pt-20 w-full py-8 bg-gradient-to-br from-indigo-100 via-blue-200 to-red-100 flex flex-col items-center overflow-hidden min-h-screen">
         {" "}
-        <Head>
-          <meta name="robots" content="noindex, nofollow" />
-        </Head>
         <main className="w-full max-w-[1580px] overflow-hidden p-4 lg:p-10 flex flex-col gap-8">
           <header className="flex justify-between items-center">
             <h4 className="text-black/40 text-xl font-normal font-sans">

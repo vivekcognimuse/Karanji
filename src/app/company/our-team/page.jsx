@@ -139,10 +139,13 @@ import { fetchFromStrapi } from "@/lib/strapi";
 //   },
 // ];
 
-const data = await fetchFromStrapi("our-team");
+const data = await fetchFromStrapi(
+  "our-team",
+  { populate: "*" },
+  "https://calm-joy-61798b158b.strapiapp.com/api"
+);
 if (!data) {
   console.error("No data object provided for our-team.");
-  return null; // Or return a fallback UI component
 }
 console.log("our team data:", data);
 const { heroData, ctaData, teamData, teamSectionData } = data || {};
@@ -150,9 +153,6 @@ export default async function teampage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection data={heroData} bgImage="/hero/team.png" />
       <CTA data={teamData} />
       <div id="team-section">

@@ -43,9 +43,6 @@ const Page = () => {
 
   return (
     <div className=" w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <div className="flex justify-center flex-col md:flex-row items-center pt-[85px] min-h-screen">
         <div>
           <Image

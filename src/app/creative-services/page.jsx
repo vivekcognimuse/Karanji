@@ -155,9 +155,6 @@ const Entertainment = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection data={heroData} bgImage="/hero/entertainment.webp" />
       <div id="entertainment-services">
         <EntertainmentServices data={entertainmentServices} />

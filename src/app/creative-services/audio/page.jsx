@@ -236,9 +236,6 @@ const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <ServiceOfferings

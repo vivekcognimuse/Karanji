@@ -4,7 +4,7 @@ import { fetchFromStrapi } from "@/lib/strapi";
 import { notFound } from "next/navigation";
 
 // ---- Config ----
-const STRAPI_BASE_URL = "https://275cbcb80c6c.ngrok-free.app/api";
+const STRAPI_BASE_URL = "https://calm-joy-61798b158b.strapiapp.com/api";
 const SLUG = "11";
 export const dynamic = "force-static";
 

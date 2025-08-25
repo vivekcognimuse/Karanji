@@ -58,9 +58,6 @@ const XRGaming = async () => {
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection bgImage="/hero/XR-Gaming.webp" data={hero} />
       <div id="xr-service-offerings">
         <ServiceOfferings
