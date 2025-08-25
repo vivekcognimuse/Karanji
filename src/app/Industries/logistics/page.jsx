@@ -308,7 +308,12 @@ const strategicUseCaseData = {
     },
   ],
 };
-
+const metadata = {
+  title:
+    "Logistics Digital Transformation: AI, Predictive Maintenance & Workforce Training Solutions",
+  description:
+    "Drive digital transformation in logistics with AI-powered compliance, predictive maintenance, and immersive workforce training. Streamline operations, reduce costs, and enhance efficiency.",
+};
 export default async function Logistics() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

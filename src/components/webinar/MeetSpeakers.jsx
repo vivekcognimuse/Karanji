@@ -1,6 +1,6 @@
 //components/webinar/MeetSpeakers.jsx
 import { P2 } from "../CustomTags";
-
+import Image from "next/image";
 export default function MeetSpeakers({ speakers }) {
   return (
     <section className="py-20 px-6">
@@ -14,7 +14,10 @@ export default function MeetSpeakers({ speakers }) {
               className="hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <div className="mb-6">
-                <img
+                <Image
+                  height={80}
+                  width={80}
+                  unoptimized
                   src={speaker.image}
                   alt={speaker.name}
                   className="w-full h-full object-contain"

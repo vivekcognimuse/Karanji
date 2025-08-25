@@ -1,7 +1,7 @@
 "use client";
 import { P2, P3 } from "@/components/CustomTags";
 import React, { useState } from "react";
-
+import Image from "next/image";
 const DigitalAdoption = ({ data }) => {
   const { sectionTitle, sectionDescription, digitalCards } = data;
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,7 +41,9 @@ const DigitalAdoption = ({ data }) => {
               >
                 <div className="flex mb-4">
                   <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full">
-                    <img
+                    <Image
+                      height={40}
+                      width={40}
                       src={icon}
                       alt={title}
                       className="h-6 w-6 text-white"
@@ -64,7 +66,9 @@ const DigitalAdoption = ({ data }) => {
                   </div>
                   <div className="flex justify-start">
                     <div className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] p-2 rounded-full">
-                      <img
+                      <Image
+                        height={40}
+                        width={40}
                         src={icon}
                         alt={title}
                         className="h-6 w-6 text-white"

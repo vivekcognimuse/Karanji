@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "@/components/CustomTags";
-
+import Image from "next/image";
 export default function CareerDetails({
   // header/meta
   title,
@@ -45,9 +45,12 @@ export default function CareerDetails({
             href={backHref}
             className="inline-flex items-center gap-2 text-black/70 hover:text-black"
           >
-            <img
+            <Image
+              height={20}
+              width={20}
               src="/hero/carbon_return.svg"
               alt="Return"
+              unoptimized
               className="w-5 h-5"
             />
             <span>Return to Careers</span>

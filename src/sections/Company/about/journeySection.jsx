@@ -2,14 +2,14 @@
 import React from "react";
 import { P2, P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
-
+import Image from "next/image";
 const JourneySection = ({ data = {} }) => {
   const {
     title = "",
     subTitle = "",
     currentYear = "",
     currentYearDescription = "",
-    nextYear = "",
+
     yearDescription = "",
     buttonText = "Continue",
     iconSrc = "",
@@ -49,20 +49,6 @@ const JourneySection = ({ data = {} }) => {
         >
           {currentYear}
         </div>
-
-        {/* Next Year positioned at right edge, same baseline */}
-        <div
-          className="absolute right-2 md:right-0 top-1 md:top-0 text-gray-400 leading-none"
-          style={{
-            fontFamily: "Inria Serif",
-            fontWeight: 700,
-            fontSize: "clamp(28px, 6vw, 64px)", // smaller min on phones
-            lineHeight: "1",
-            letterSpacing: "-0.05em",
-          }}
-        >
-          {nextYear}
-        </div>
       </div>
 
       {/* Current Year Description (Centered) */}
@@ -92,7 +78,10 @@ const JourneySection = ({ data = {} }) => {
                        w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
           >
             {iconSrc ? (
-              <img
+              <Image
+                height={40}
+                width={40}
+                unoptimized
                 src={iconSrc}
                 alt={iconAlt}
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"

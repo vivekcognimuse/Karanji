@@ -1,24 +1,26 @@
 "use client";
 import React from "react";
 import VisionCard from "./VisionCard";
-
+import Image from "next/image";
 // Local icon components
 const VisionIcon = () => (
-  <img
+  <Image
     src="/Icons/visionicon.svg"
     alt="Vision Icon"
     width="48"
     height="48"
+    unoptimized
     className="w-12 h-12"
   />
 );
 
 const MissionIcon = () => (
-  <img
+  <Image
     src="/Icons/missionicon.svg"
     alt="Mission Icon"
     width="48"
     height="48"
+    unoptimized
     className="w-12 h-12"
   />
 );

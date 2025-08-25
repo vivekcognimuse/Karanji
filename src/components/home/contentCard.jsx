@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 export const ContentCard = ({ badge, title, description, actionText }) => {
   return (
     <div className="p-2  w-full">
@@ -13,7 +13,8 @@ export const ContentCard = ({ badge, title, description, actionText }) => {
       {actionText && (
         <a
           href="#"
-          className="text-xl text-black-700 hover:underline mt-4 inline-block">
+          className="text-xl text-black-700 hover:underline mt-4 inline-block"
+        >
           {actionText}
         </a>
       )}
@@ -37,9 +38,11 @@ export const RightContentCard = ({
         </p>
       </div>
       <div className="w-full h-48 overflow-hidden">
-        <img
+        <Image
           src={imageSrc}
           alt={title}
+          height={400}
+          width={400}
           className="w-full h-full object-cover"
         />
       </div>
@@ -49,7 +52,8 @@ export const RightContentCard = ({
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          viewBox="0 0 24 24">
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

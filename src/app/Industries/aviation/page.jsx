@@ -282,7 +282,12 @@ const strategicUseCaseData = {
     },
   ],
 };
-
+const metadata = {
+  title:
+    "Aviation Transformation Solutions: AI, XR & Predictive Maintenance for Airlines",
+  description:
+    "Transform aviation operations with AI, XR, and predictive maintenance solutions. Boost efficiency, enhance passenger experience, and achieve sustainability goals with innovative technology.",
+};
 export default async function Aviation() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

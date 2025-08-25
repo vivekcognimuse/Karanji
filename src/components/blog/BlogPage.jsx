@@ -5,7 +5,7 @@ import SectionRenderer from "./SectionRenderer";
 import ScrollSpySidebar from "./ScrollSpySidebar";
 import DownloadSection from "./downloadSection";
 import NewsletterSubscribe from "./NewsletterSubscribe";
-
+import Image from "next/image";
 const BlogPage = ({ blogs = [] }) => {
   const first = blogs[0];
 
@@ -44,10 +44,12 @@ const BlogPage = ({ blogs = [] }) => {
 
           {/* Full Width Hero Image */}
           <div className="mx-auto">
-            <img
+            <Image
               id="hero-image"
               src="/blog/Casestudy%202.webp"
               alt={blog.title}
+              height={600}
+              width={800}
               className="w-full rounded-2xl my-6"
             />
           </div>

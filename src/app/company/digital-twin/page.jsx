@@ -65,7 +65,7 @@ const avatarData = {
         "Get Actionable Templates",
       ],
       ctaText: "Talk to Our Solution Architect",
-      ctaLink: "https://2ly.link/28kzS ",
+      ctaLink: "https://2ly.link/28kzS",
     },
   ],
 };

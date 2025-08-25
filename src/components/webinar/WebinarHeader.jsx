@@ -1,7 +1,7 @@
 import { P1 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { toPlainText } from "@/utils/ish";
-
+import Image from "next/image";
 export default function WebinarHeader({ data, bgImage }) {
   const buttons = Array.isArray(data?.buttons)
     ? data.buttons[0] ?? {}
@@ -110,7 +110,10 @@ export default function WebinarHeader({ data, bgImage }) {
               {data?.date && (
                 <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img
+                    <Image
+                      height={40}
+                      width={40}
+                      unoptimized
                       src="/Icons/Calendar.svg"
                       alt="Calendar"
                       className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
@@ -133,7 +136,10 @@ export default function WebinarHeader({ data, bgImage }) {
               {data?.time && (
                 <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
                   <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img
+                    <Image
+                      unoptimized
+                      height={40}
+                      width={40}
                       src="/Icons/Clock.svg"
                       alt="Time"
                       className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
@@ -156,7 +162,10 @@ export default function WebinarHeader({ data, bgImage }) {
               {data?.location && (
                 <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img
+                    <Image
+                      height={40}
+                      width={40}
+                      unoptimized
                       src="/Icons/weui_location-outlined.svg"
                       alt="Location"
                       className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
