@@ -2,21 +2,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import { P3 } from "@/components/CustomTags";
+import { P3, P4 } from "@/components/CustomTags";
 
 // Single AvatarCard component with iFrame isolation
-function AvatarCard({ avatar }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function AvatarCard({ avatar, description }) {
   const [agentLoaded, setAgentLoaded] = useState(false);
   const [showAgent, setShowAgent] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsFlipped(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsFlipped(false);
-  };
 
   // Listen for messages from iframe
   useEffect(() => {
@@ -58,104 +49,71 @@ function AvatarCard({ avatar }) {
   }, []);
 
   return (
-    <div
-      className="relative w-[318px] h-[482px] cursor-pointer flex-shrink-0"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
-      <div
-        className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
-          isFlipped ? "rotate-y-180" : ""
-        }`}
-        style={{
-          transformStyle: "preserve-3d",
-        }}>
-        {/* Front Face */}
-        <div
-          className="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden"
-          style={{
-            backfaceVisibility: "hidden",
-          }}>
-          {/* Online Status */}
-          <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>{agentLoaded ? "Online" : "Loading..."}</span>
-          </div>
+    <div className="relative w-1/2 flex-shrink-0">
+      <div className="relative w-full h-full rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden">
+        {/* Online Status */}
+        <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
+          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+          <span>{agentLoaded ? "Online" : "Loading..."}</span>
+        </div>
 
-          {/* Avatar Container */}
-          <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
-            {showAgent && avatar.iframeFile ? (
-              // Use iframe with isolated HTML file
-              <iframe
-                src={avatar.iframeFile}
-                className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
-                frameBorder="0"
-                allow="microphone; camera"
-                allowFullScreen
-                title={`${avatar.name} Digital Avatar`}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups"
-              />
-            ) : (
-              // Fallback to image while loading
-              <div className="relative w-full h-full">
-                <Image
-                  src={avatar.image}
-                  alt={avatar.name}
-                  width={280}
-                  height={350}
-                  className="w-full h-full object-cover rounded-2xl border border-black-200 shadow-lg object-center"
-                  style={{ objectPosition: "center 20%" }}
-                />
-                {!showAgent && (
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="text-white text-sm animate-pulse">
-                      Initializing {avatar.name}...
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Avatar Info */}
-          <div className="px-6 py-5 flex items-center justify-between bg-white">
-            <div className="flex-1">
-              <h4 className="text-xl font-semibold text-gray-900 mb-1 leading-tight">
-                {avatar.name}
-              </h4>
-              <p className="text-gray-600 text-sm font-normal">{avatar.role}</p>
-            </div>
-            <div className="w-6 h-6 flex-shrink-0 ml-4">
+        {/* Avatar Container */}
+        <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
+          {showAgent && avatar.iframeFile ? (
+            // Use iframe with isolated HTML file
+            <iframe
+              src={avatar.iframeFile}
+              className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
+              frameBorder="0"
+              allow="microphone; camera"
+              allowFullScreen
+              title={`${avatar.name} Digital Avatar`}
+              sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups"
+            />
+          ) : (
+            // Fallback to image while loading
+            <div className="relative w-full h-full">
               <Image
-                src="/Icons/clarity_arrow-line.svg"
-                alt="Arrow"
-                width={24}
-                height={24}
-                className="w-full h-full opacity-60"
+                src={avatar.image}
+                alt={avatar.name}
+                width={280}
+                height={350}
+                className="w-full h-full object-cover rounded-2xl border border-black-200 shadow-lg object-center"
+                style={{ objectPosition: "center 20%" }}
               />
+              {!showAgent && (
+                <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <div className="text-white text-sm animate-pulse">
+                    Initializing {avatar.name}...
+                  </div>
+                </div>
+              )}
             </div>
+          )}
+        </div>
+
+        {/* Avatar Info */}
+        <div className="px-6 py-5 flex items-start justify-between bg-white">
+          <div className="flex-1">
+            <h4 className="">{avatar.name}</h4>
+            <p className="text-black-600  font-normal mb-3">{avatar.role}</p>
+            <P4 className="">{description}</P4>
+          </div>
+          <div className="w-6 h-6 flex-shrink-0 ml-4">
+            <Image
+              src="/Icons/clarity_arrow-line.svg"
+              alt="Arrow"
+              width={24}
+              height={24}
+              className="w-full h-full opacity-60"
+            />
           </div>
         </div>
 
-        {/* Back Face */}
-        <div
-          className="absolute inset-0 w-full h-full backface-hidden rounded-3xl shadow-sm border border-gray-100 p-8 flex flex-col justify-between rotate-y-180"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}>
-          <div className="relative z-10 flex-1 flex flex-col justify-start space-y-4 pt-4">
-            {avatar.expertise?.map((item, index) => (
-              <React.Fragment key={index}>
-                <P3 className="text-black-500">{item}</P3>
-                {index < avatar.expertise.length - 1 && (
-                  <div className="border-t border-gray-400/30" />
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          <div className="relative z-10 mt-8 mx-auto">
-            <a target="_blank" href={avatar.ctaLink}>
+        {/* CTA Section */}
+        <div className="px-6 pb-6">
+          <div className="text-center">
+            <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
               <Button variant="secondary" size="sm">
                 {avatar.ctaText || `Talk to ${avatar.name}`}
               </Button>
@@ -173,6 +131,8 @@ export default function ChooseAvatarSection() {
     {
       name: "Prakash",
       role: "CEO, Karanji",
+      description:
+        "Our CEO Prakash's clone handles company introductions, explains our services, and discusses how Karanji can solve business challenges—all while keeping Prakash's unique conversational style. This innovation helped Prakash reclaim 30% of his weekly calendar and boosted engagement with potential partners.",
       image: "/Company/Digital Twins/Prakash digital twin.webp",
       iframeFile: "/avatars/prakash-avatar.html", // Path to isolated HTML file
       expertise: [
@@ -183,21 +143,10 @@ export default function ChooseAvatarSection() {
       ctaText: "Talk to Our CEO",
       ctaLink: "https://linkly.link/2BKPj",
     },
-    {
-      name: "Prakash",
-      role: "CEO, Karanji",
-      image: "/Company/Digital Twins/Prakash digital twin.webp",
-      iframeFile: "/avatars/prakash-avatar.html", // Path to isolated HTML file
-      expertise: [
-        "Know About the Company",
-        "Explore Our Services",
-        "How Karanji solves your problem",
-      ],
-      ctaText: "Talk to Our CEO",
-      ctaLink: "https://linkly.link/2BKPj",
-    },
+
     {
       name: "Srikant",
+      description: `At Karanji, we created Srikant's (our Solution Architect) clone to help our team tackle AI implementation challenges for clients in Aviation, Healthcare, Oil & Gas, Logistics, and Education. You can ask Srikant real-world questions like, "How can a mid-sized healthcare provider automate customer service while ensuring compliance?" and get customized frameworks, templates, and examples. Srikant's clone cut our solutioning TAT by 50%.`,
       role: "Solution Architect, Karanji",
       image: "/Company/Digital Twins/Srikant Digital Twin.webp",
       iframeFile: "/avatars/srikant-avatar.html", // Path to isolated HTML file
@@ -215,7 +164,11 @@ export default function ChooseAvatarSection() {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
-        <AvatarCard key={avatar.name} avatar={avatar} />
+        <AvatarCard
+          key={avatar.name}
+          description={avatar.description}
+          avatar={avatar}
+        />
       ))}
     </div>
   );

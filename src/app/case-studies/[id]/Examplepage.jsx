@@ -69,7 +69,7 @@
 //   const data = await fetchFromStrapi(
 //     `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
 //     { populate: "*" },
-//     "https://275cbcb80c6c.ngrok-free.app/api"
+//     "https://calm-joy-61798b158b.strapiapp.com/api"
 //   );
 
 //   const entry = Array.isArray(data) ? data[0] : null;

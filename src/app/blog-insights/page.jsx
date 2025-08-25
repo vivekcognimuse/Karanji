@@ -75,15 +75,12 @@ export default async function BlogInsights() {
   const data = await fetchFromStrapi(
     "blogs",
     { populate: "*" },
-    "https://275cbcb80c6c.ngrok-free.app/api"
+    "https://calm-joy-61798b158b.strapiapp.com/api"
   );
   const blogs = (Array.isArray(data) ? data : []).map(normalizeBlog);
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <BlogPage blogs={blogs} />
     </main>
   );

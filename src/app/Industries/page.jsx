@@ -82,9 +82,6 @@ export default async function IndustryLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection
         data={heroData}
         bgImage="/Industries & its pages/Landing page/banner.webp"
