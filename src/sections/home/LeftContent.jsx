@@ -41,11 +41,13 @@ export const GetLeftContent = (stage) => {
         {content.title}
       </h3>
       <p className="text-black/70 text-xl font-normal">{content.description}</p>
-      <Link href={content.buttonLink}>
-        <Button variant="text" className="px-0">
-          View Solutions
-        </Button>
-      </Link>
+      <div className="flex justify-start items-start">
+        <Link href={content.buttonLink}>
+          <Button variant="text" className="px-0 -ml-5">
+            View Solutions
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 };

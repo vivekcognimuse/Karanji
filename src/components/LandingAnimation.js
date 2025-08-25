@@ -23,9 +23,12 @@ const LogoStoryAnimation = () => {
   const rightContentRef = useRef(null);
   const finalLogoRef = useRef(null);
   const progressBarRef = useRef(null);
+  const headingRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const [leftContent, setLeftContent] = useState(null);
   const [rightContent, setRightContent] = useState(null);
+  const [currentStage, setCurrentStage] = useState(1); // Track current stage
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -39,6 +42,8 @@ const LogoStoryAnimation = () => {
     const rightContentElem = rightContentRef.current;
     const finalLogo = finalLogoRef.current;
     const progressBar = progressBarRef.current;
+    const heading = headingRef.current;
+    const button = buttonRef.current;
 
     if (
       !container ||
@@ -48,14 +53,17 @@ const LogoStoryAnimation = () => {
       !section3 ||
       !leftContentElem ||
       !rightContentElem ||
-      !finalLogo
+      !finalLogo ||
+      !heading ||
+      !button
     ) {
       return;
     }
 
-    // Set initial content for stage 1 (but keep hidden initially)
+    // Set initial content for stage 1
     setLeftContent(GetLeftContent(1));
     setRightContent(GetRightContent(1));
+    setCurrentStage(1);
 
     // Clear any existing ScrollTriggers
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -79,6 +87,21 @@ const LogoStoryAnimation = () => {
       opacity: 0,
       scale: 0.7,
       rotation: -360,
+    });
+
+    // HIDE HEADING AND BUTTON INITIALLY
+    gsap.set(heading, {
+      opacity: 0,
+      y: 50,
+      scale: 0.9,
+      visibility: "hidden",
+    });
+
+    gsap.set(button, {
+      opacity: 0,
+      y: 30,
+      scale: 0.9,
+      visibility: "hidden",
     });
 
     // ALL SECTIONS VISIBLE AT START
@@ -105,6 +128,12 @@ const LogoStoryAnimation = () => {
 
     // Stage 1: Section 2 hides, left and right content (1) appear
     mainTL
+      .call(() => {
+        // Ensure content 1 is set
+        setLeftContent(GetLeftContent(1));
+        setRightContent(GetRightContent(1));
+        setCurrentStage(1);
+      })
       .to(section2, {
         duration: 0.3,
         opacity: 0,
@@ -122,7 +151,7 @@ const LogoStoryAnimation = () => {
         "-=0.2"
       )
 
-      // Stage 2: Section 2 reappears, left and right content hide
+      // Stage 2: Section 2 reappears, left and right content hide (still content 1)
       .to(
         [leftContentElem, rightContentElem],
         {
@@ -155,12 +184,15 @@ const LogoStoryAnimation = () => {
         "+=0.3"
       )
       .call(() => {
+        // Update to content 2
         setLeftContent(GetLeftContent(2));
         setRightContent(GetRightContent(2));
+        setCurrentStage(2);
         // Reset position for new content
         gsap.set([leftContentElem, rightContentElem], {
           x: (index, target) => (target === leftContentElem ? -120 : 120),
           scale: 1,
+          opacity: 0,
           rotationY: (index, target) => (target === leftContentElem ? -20 : 20),
         });
       })
@@ -174,10 +206,10 @@ const LogoStoryAnimation = () => {
           duration: 0.6,
           ease: "back.out(1.2)",
         },
-        "-=0.2"
+        "+=0.1"
       )
 
-      // Stage 4: Section 1 reappears, left and right content hide
+      // Stage 4: Section 1 reappears, left and right content hide (still content 2)
       .to(
         [leftContentElem, rightContentElem],
         {
@@ -210,12 +242,15 @@ const LogoStoryAnimation = () => {
         "+=0.3"
       )
       .call(() => {
+        // Update to content 3
         setLeftContent(GetLeftContent(3));
         setRightContent(GetRightContent(3));
+        setCurrentStage(3);
         // Reset position for new content
         gsap.set([leftContentElem, rightContentElem], {
           x: (index, target) => (target === leftContentElem ? -120 : 120),
           scale: 1,
+          opacity: 0,
           rotationY: (index, target) => (target === leftContentElem ? -20 : 20),
         });
       })
@@ -229,7 +264,7 @@ const LogoStoryAnimation = () => {
           duration: 0.6,
           ease: "back.out(1.2)",
         },
-        "-=0.2"
+        "+=0.1"
       )
 
       // Stage 6: Section 3 reappears (all sections unified), left and right content hide, logo spins
@@ -295,7 +330,78 @@ const LogoStoryAnimation = () => {
           ease: "back.out(1.4)",
         },
         "-=0.4"
-      );
+      )
+
+      // Stage 8: Beautiful reveal of heading and button
+      .set([heading, button], {
+        visibility: "visible",
+      })
+      .fromTo(
+        heading,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.9,
+          filter: "blur(10px)",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 1,
+          ease: "expo.out",
+        },
+        "-=0.3"
+      )
+      .to(
+        heading,
+        {
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        "-=0.5"
+      )
+      .to(
+        heading,
+        {
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.3"
+      )
+      .fromTo(
+        button,
+        {
+          opacity: 0,
+          y: 30,
+          scale: 0.8,
+          rotationX: -90,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          rotationX: 0,
+          duration: 0.8,
+          ease: "back.out(2)",
+        },
+        "-=1.2"
+      )
+      .to(
+        button,
+        {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "power2.inOut",
+        },
+        "-=0.2"
+      )
+      .to(button, {
+        scale: 1,
+        duration: 0.3,
+        ease: "elastic.out(1, 0.5)",
+      });
 
     const updateProgressBar = (progress) => {
       if (progressBar) {
@@ -315,40 +421,47 @@ const LogoStoryAnimation = () => {
     };
   }, []);
 
+  // Debug: Log current stage
+  useEffect(() => {
+    console.log("Current Stage:", currentStage);
+  }, [currentStage]);
+
   return (
     <div>
       <div
         ref={containerRef}
-        className="h-screen pt-20   flex items-center justify-between relative overflow-hidden">
-        <div className="absolute inset-0  overflow-hidden pointer-events-none"></div>
-
-        <div ref={leftContentRef} className="   max-w-80 z-20">
-          {leftContent} {/* Render dynamic left content */}
+        className="h-screen pt-20 flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
+        <div className="flex w-full justify-between">
+          <div ref={leftContentRef} className="max-w-96 z-20">
+            {leftContent}
+          </div>
+          <div className="flex items-center mx-auto justify-center relative z-10">
+            <PieChartLogo
+              logoRef={logoRef}
+              section1Ref={section1Ref}
+              section2Ref={section2Ref}
+              section3Ref={section3Ref}
+            />
+            <FinalLogo finalLogoRef={finalLogoRef} />
+          </div>
+          <div ref={rightContentRef} className="z-20 max-w-96">
+            {rightContent}
+          </div>
         </div>
-
-        <div className="flex items-center  justify-center relative z-10">
-          <PieChartLogo
-            logoRef={logoRef}
-            section1Ref={section1Ref}
-            section2Ref={section2Ref}
-            section3Ref={section3Ref}
-          />
-          <FinalLogo finalLogoRef={finalLogoRef} />
-        </div>
-
-        <div ref={rightContentRef} className="   z-20">
-          {rightContent} {/* Render dynamic right content */}
-        </div>
-      </div>
-
-      <div className=" flex  items-center justify-center relative overflow-hidden">
         <div className="text-center space-y-8 w-full px-8">
-          <h3 className="text-center w-full justify-start text-black text-6xl font-normal">
+          <h3
+            ref={headingRef}
+            className="text-center w-full justify-start text-black text-6xl font-normal">
             Innovate.Design.Transform
           </h3>
-          <Button className="">Talk to an Expert</Button>
+          <div ref={buttonRef}>
+            <Button className="">Talk to an Expert</Button>
+          </div>
         </div>
       </div>
+
+      <div className="flex items-center justify-center relative overflow-hidden"></div>
     </div>
   );
 };

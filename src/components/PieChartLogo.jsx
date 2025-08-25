@@ -28,7 +28,7 @@ const PieChartLogo = ({ logoRef, section2Ref, section3Ref, section1Ref }) => {
           />{" "}
         </g>
 
-        <g ref={section3Ref}>
+        <g ref={section1Ref}>
           <path
             d="M212.766 241.379V341.549C181.101 335.252 141.365 324.861 115.288 277.628C89.2112 230.396 94.7991 185.998 109.079 158.918L203.177 223.215C209.177 227.314 212.766 234.112 212.766 241.379Z"
             fill="url(#paint1_linear_759_16)"
@@ -41,7 +41,7 @@ const PieChartLogo = ({ logoRef, section2Ref, section3Ref, section1Ref }) => {
             fill="black"
           />{" "}
         </g>
-        <g ref={section1Ref}>
+        <g ref={section3Ref}>
           <path
             d="M326.429 141.036L235.23 203.135C227.76 208.221 217.93 208.133 210.48 202.914L172.499 176.306L122.16 141.039C141.582 114.902 170.065 88.4534 222.839 88.4534C275.614 88.4533 306.251 119.623 326.429 141.036Z"
             fill="url(#paint2_linear_759_16)"

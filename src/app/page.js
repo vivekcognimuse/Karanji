@@ -109,21 +109,25 @@ const technologyServicesData = {
 };
 const KaranjiLanding = () => {
   return (
-    <main className="w-full max-w-[1580px] mx-auto px-4 lg:p-10 ">
-      <HeroSection />
-      <StatsSection />
-      <div id="our-services" className="mt-16 lg:hidden lg:mt-32">
-        <TechnologyServicesHome
-          bgImage="/technologySolutions/gradient.svg"
-          data={technologyServicesData}
-        />
-      </div>
-      <div className="hidden md:block">
-        <LogoStoryAnimation />
-      </div>
-      {/* <ScrollVideoSequence /> */}
-      <SuccessStories data={successStoriesData} />
-    </main>
+    <div className="bg-[url('/page/home.svg')] bg-cover bg-right bg-no-repeat">
+      <main className="w-full max-w-[1580px]  mx-auto px-4 lg:p-10 ">
+        <HeroSection />
+        <StatsSection />
+        <div id="our-services" className="mt-16  lg:mt-32">
+          <div className="lg:hidden">
+            <TechnologyServicesHome
+              bgImage="/technologySolutions/gradient.svg"
+              data={technologyServicesData}
+            />
+          </div>
+          <div className="hidden md:block">
+            <LogoStoryAnimation />
+          </div>
+        </div>
+        {/* <ScrollVideoSequence /> */}
+        <SuccessStories data={successStoriesData} />
+      </main>
+    </div>
   );
 };
 
