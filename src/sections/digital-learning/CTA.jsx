@@ -1,9 +1,20 @@
+"use client";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const CTA = ({ className = "", data }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    query: "",
+  });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const {
     title,
     description,
@@ -11,27 +22,232 @@ const CTA = ({ className = "", data }) => {
     PrimaryButtonLink,
     SecondaryButtonText,
     SecondaryButtonLink,
+    // New props for popup
+    popupTitle = "Join the Journey",
+    popupSubtitle = "Share your details and discover how Karanji can support your goals.",
   } = data || {};
 
+  // Validation function
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.query.trim()) {
+      newErrors.query = "Please tell us how we can help you";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Show thank you message
+      setShowThankYou(true);
+
+      // Reset form
+      setFormData({ name: "", email: "", query: "" });
+      setErrors({});
+
+      // Close popup after 3 seconds
+      setTimeout(() => {
+        setShowThankYou(false);
+        setIsPopupOpen(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Close popup
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    setShowThankYou(false);
+    setFormData({ name: "", email: "", query: "" });
+    setErrors({});
+  };
+
+  // Open popup when primary button is clicked
+  const handlePrimaryButtonClick = (e) => {
+    e.preventDefault();
+    setIsPopupOpen(true);
+  };
+
   return (
-    <div className={`text-center  ${className}`}>
-      <h3>{title}</h3>
-      <P2>{description}</P2>
-      <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
-        {PrimaryButtonText && PrimaryButtonLink && (
-          <Link href={PrimaryButtonLink}>
-            <Button href={PrimaryButtonLink}>{PrimaryButtonText}</Button>
-          </Link>
-        )}
-        {SecondaryButtonText && SecondaryButtonLink && (
-          <Link href={SecondaryButtonLink}>
-            <Button href={SecondaryButtonLink} variant="secondary" className="">
-              {SecondaryButtonText}
+    <>
+      <div className={`text-center ${className}`}>
+        <h3>{title}</h3>
+        <P2>{description}</P2>
+        <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
+          {PrimaryButtonText && (
+            <Button onClick={handlePrimaryButtonClick}>
+              {PrimaryButtonText}
             </Button>
-          </Link>
-        )}
+          )}
+          {SecondaryButtonText && SecondaryButtonLink && (
+            <Link href={SecondaryButtonLink}>
+              <Button href={SecondaryButtonLink} variant="secondary">
+                {SecondaryButtonText}
+              </Button>
+            </Link>
+          )}
+        </div>
       </div>
-    </div>
+
+      {/* Popup Overlay */}
+      {isPopupOpen && (
+        <div className="fixed inset-0 bg-black/10 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
+          <div className="bg-gradient-to-br from-purple-100 to-blue-100 flex flex-col justify-center max-h-[90vh] rounded-3xl min-h-[60vh] max-w-xl w-full mx-4 p-8 relative">
+            {/* Close Button */}
+            <button
+              onClick={closePopup}
+              className="absolute top-6 cursor-pointer right-6 text-black-600 hover:text-gray-800 text-4xl font-light"
+              type="button">
+              ×
+            </button>
+
+            {showThankYou ? (
+              // Thank You Message
+              <div className="text-center py-8">
+                <div className="mb-6">
+                  <p className="text-black/80  font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-8">
+                    Thank you for your interest.
+                  </p>
+                  <p className="text-black/80 text-xl font-normal  mb-8">
+                    Our team will review your message and respond within 48
+                    hours.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              // Form
+              <>
+                <p className="text-black/80  font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-4">
+                  {popupTitle}
+                </p>
+                <p className="text-black/80 text-xl font-normal  mb-4">
+                  {popupSubtitle}
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Name Field */}
+                  <div>
+                    <label className="text-black/80 text-lg font-normal mb-2">
+                      Name*
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Alex"
+                      className={`w-full px-0 py-3 bg-transparent border-0 border-b-2 ${
+                        errors.name ? "border-red-500" : "border-gray-400"
+                      } focus:border-blue-500 focus:outline-none transition-colors`}
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    )}
+                  </div>
+
+                  {/* Email Field */}
+                  <div>
+                    <label className="text-black/80 text-lg font-normal mb-2">
+                      Email*
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="alex@meta.com"
+                      className={`w-full px-0 py-3 bg-transparent border-0 border-b-2 ${
+                        errors.email ? "border-red-500" : "border-gray-400"
+                      } focus:border-blue-500 focus:outline-none transition-colors`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Query Field */}
+                  <div>
+                    <label className="text-black/80 text-lg font-normal mb-2">
+                      How can we help you?*
+                    </label>
+                    <textarea
+                      name="query"
+                      value={formData.query}
+                      onChange={handleInputChange}
+                      placeholder="Your query, interest, or discussion point"
+                      rows={2}
+                      className={`w-full px-0 py-3 bg-transparent border-0 border-b-2 ${
+                        errors.query ? "border-red-500" : "border-gray-400"
+                      } focus:border-blue-500 focus:outline-none transition-colors resize-none`}
+                    />
+                    {errors.query && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.query}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-black text-white py-4 rounded-full font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ">
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

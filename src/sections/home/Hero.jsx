@@ -10,7 +10,7 @@ const HeroSection = ({ data }) => {
   const { title, Subtitles, cta1_text, cta1_link, cta2_text, cta2_link, logo } =
     data || {};
   return (
-    <section className=" min-h-[calc(100vh-5rem)] items-center flex flex-col lg:flex-row  gap-8">
+    <section className=" min-h-[calc(100vh-5rem)] items-center pb-32 flex flex-col lg:flex-row  gap-8">
       <div className="flex-1   lg:-mt-20 space-y-8">
         <div className="space-y-4 ">
           <h1 className="">Let’s Bring Your Vision to Life</h1>

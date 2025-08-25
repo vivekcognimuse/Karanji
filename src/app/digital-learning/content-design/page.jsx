@@ -368,15 +368,19 @@ const customELearningSolutionDeepDive = {
     buttonLink: "/resources",
   },
 };
+
+// export const metadata = {
+//   title:
+//     "Content Design & Development Solutions | Custom eLearning & Instructional Design",
+//   description:
+//     "Transform learning with expert content design & development. From custom eLearning modules and microlearning to gamification and localization, we create engaging training solutions.",
+// };
 const ContentDesign = () => {
   const [activeTab, setActiveTab] = useState("custom");
 
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection bgImage="/hero/content-design.webp" data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
