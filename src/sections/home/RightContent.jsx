@@ -5,7 +5,7 @@ import Link from "next/link";
 const contentDataRight = {
   1: {
     title: "Story Driven VR/AR Experiences",
-    link: "/",
+    link: "/technology-solutions",
     bgImage: "/home/4a4b75f1bb78bb49dedd9594cf6151ba117329c3.png",
     description: (
       <span>
@@ -16,7 +16,7 @@ const contentDataRight = {
   },
   2: {
     title: "Adaptive & Personalized Learning",
-    link: "/",
+    link: "/digital-learning",
     bgImage: "/home/68ca4dd5e9e1ae775f7ba7bc8669ce2063c77d1f.png",
     description: (
       <span>
@@ -27,7 +27,7 @@ const contentDataRight = {
   },
   3: {
     title: "Intelligent Simulations & Real Time Analytics",
-    link: "/",
+    link: "/creative-services",
     bgImage: "/home/5d900e531beab307f837ab2fe6f6ea7976fb7b0f.png",
     description: (
       <span>
