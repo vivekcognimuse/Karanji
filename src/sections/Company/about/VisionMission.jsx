@@ -1,8 +1,8 @@
-// VisionMission.jsx
 "use client";
 import React from "react";
 import VisionCard from "./VisionCard";
-// Icon Components using external SVG files
+
+// Local icon components
 const VisionIcon = () => (
   <img
     src="/Icons/visionicon.svg"
@@ -23,24 +23,25 @@ const MissionIcon = () => (
   />
 );
 
-const VisionMission = () => {
+const VisionMission = ({ data }) => {
+  const { visionTitle, visionDescription, missionTitle, missionDescription } =
+    data;
+
   const visionData = {
     icon: <VisionIcon />,
-    title: "Vision",
-    description:
-      "To be the global leader in creative design and emerging technologies, transforming how people learn, engage, and work efficiently.",
+    title: visionTitle,
+    description: visionDescription,
   };
 
   const missionData = {
     icon: <MissionIcon />,
-    title: "Mission",
-    description:
-      "We create immersive experiences using extended reality, AI and creative design to help organizations improve training, entertainment, and business performance in today's digital world.",
+    title: missionTitle,
+    description: missionDescription,
   };
 
   return (
     <section className="py-12 px-4">
-      <div className=" mx-auto">
+      <div className="mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
           <VisionCard {...visionData} />
           <VisionCard {...missionData} />

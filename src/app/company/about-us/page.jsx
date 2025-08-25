@@ -126,6 +126,45 @@ const timelineData = [
     iconSrc: "/Icons/year25icon.svg",
   },
 ];
+const quoteData = {
+  title: "Innovate. Design. Transform.",
+};
+const visionMissionData = {
+  visionTitle: "Vision",
+  visionDescription:
+    "To be the global leader in creative design and emerging technologies, transforming how people learn, engage, and work efficiently.",
+  missionTitle: "Mission",
+  missionDescription:
+    "We create immersive experiences using extended reality, AI and creative design to help organizations improve training, entertainment, and business performance in today's digital world.",
+};
+const valuesData = [
+  {
+    icon: "/Company/about/hugeicons_ai-innovation-03.svg",
+    title: "Continuous innovation",
+    description: "Leading with new ideas in design, AI, and XR.",
+  },
+  {
+    icon: "/Company/about/carbon_collaborate.svg",
+    title: "Empowerment",
+    description: "Helping people grow through immersive tech.",
+  },
+  {
+    icon: "/Company/about/arcticons_s-trust.svg",
+    title: "Impact",
+    description: "Transforming how the world learns and works.",
+    isFullWidth: true,
+  },
+  {
+    icon: "/Company/about/pepicons-pencil_stars.svg",
+    title: "Agility",
+    description: "Adapting fast to emerging trends and needs.",
+  },
+  {
+    icon: "/Company/about/emojione-monotone_world-map.svg",
+    title: "Integrity",
+    description: "Building trust through vision, honesty & progress.",
+  },
+];
 
 export default function AboutUs() {
   const [showTimeline, setShowTimeline] = useState(false);
@@ -185,11 +224,12 @@ export default function AboutUs() {
             }}
           />
           <div id="vision-mission">
-            <VisionMission />
+            <VisionMission data={visionMissionData} />
           </div>
-          <ValuesSection />
+
+          <ValuesSection data={valuesData} />
           <NextUpSection heading="Next Up" cards={cardsData} />
-          <QuoteSection title="Innovate. Design. Transform." />
+          <QuoteSection data={quoteData} />
         </div>
       </main>
 
