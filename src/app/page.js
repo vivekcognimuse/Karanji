@@ -121,10 +121,10 @@ const KaranjiLanding = () => {
               data={technologyServicesData}
             />
           </div>
-          <LogoAnimation />
-          {/* <div className="hidden md:block">
+
+          <div className="hidden md:block">
             <LogoStoryAnimation />
-          </div> */}
+          </div>
         </div>
         {/* <ScrollVideoSequence /> */}
         <SuccessStories data={successStoriesData} />

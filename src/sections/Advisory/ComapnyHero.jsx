@@ -19,6 +19,7 @@ export default function HeroSection({ data, bgImage }) {
         backgroundImage: `url('${bgImage}')`,
       }}>
       <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center  max-w-[1580px] lg:mx-auto">
+        <LogoAnimation />
         <div className="space-y-3 sm:space-y-4">
           <h2
             className="text-center opacity-0 will-change-transform"

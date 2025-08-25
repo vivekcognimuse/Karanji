@@ -1,4 +1,4 @@
-import HeroSection from "@/sections/Advisory/Hero";
+import HeroSection from "@/sections/Advisory/ComapnyHero";
 // import QuoteSection from "@/sections/Company/about/quoteSection";
 import { fetchFromStrapi } from "@/lib/strapi";
 import NextUpSection from "@/sections/Company/about/NextUpSection";

@@ -328,7 +328,7 @@ const LogoStoryAnimation = () => {
           scale: 1,
           rotation: 360,
           duration: 0.8,
-          ease: "back.out(1.4)",
+          ease: "power2.in",
         },
         "-=0.4"
       )
