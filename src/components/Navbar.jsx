@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "./ui/Button";
+import { usePathname } from "next/navigation"; // Add this import
 
 const NAV_LINKS = [
   {
@@ -196,7 +197,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSolution, setActiveSolution] = useState(0);
   const [mobileExpandedItems, setMobileExpandedItems] = useState({});
-  const [currentPath, setCurrentPath] = useState("/");
+  const pathname = usePathname(); // Use Next.js navigation hook
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [touchTimeout, setTouchTimeout] = useState(null);
 
@@ -206,8 +207,118 @@ export default function Navbar() {
   const touchStartRef = useRef(null);
   const lastTouchRef = useRef(null);
 
+  // Helper function to check if a path is active
+  const isActive = (href) => pathname === href;
+
+  // Helper function to check if any child link is active
+  const isParentActive = (links) =>
+    links?.some(
+      (link) => pathname === link.href || pathname.startsWith(link.href + "/")
+    );
+
+  // Helper function to check if a section is active (including all nested children)
+  const isSectionActive = (item) => {
+    // Check direct href match
+    if (
+      item.href &&
+      (pathname === item.href || pathname.startsWith(item.href + "/"))
+    ) {
+      return true;
+    }
+
+    // Check if any direct links are active
+    if (item.links && isParentActive(item.links)) {
+      return true;
+    }
+
+    // Check if any subsections or their children are active
+    if (item.subSections) {
+      return item.subSections.some((section) => {
+        // Check section href
+        if (
+          pathname === section.href ||
+          pathname.startsWith(section.href + "/")
+        ) {
+          return true;
+        }
+        // Check section's links
+        if (section.links) {
+          return section.links.some(
+            (link) =>
+              pathname === link.href || pathname.startsWith(link.href + "/")
+          );
+        }
+        return false;
+      });
+    }
+
+    return false;
+  };
+
+  // Find and set the active solution section on mount and path change
   useEffect(() => {
-    setCurrentPath(window.location.pathname);
+    // Only for Solutions dropdown (index 1)
+    const solutionsItem = NAV_LINKS[1];
+    if (solutionsItem.subSections) {
+      const activeIndex = solutionsItem.subSections.findIndex((section) => {
+        // Check if section or any of its links are active
+        if (
+          pathname === section.href ||
+          pathname.startsWith(section.href + "/")
+        ) {
+          return true;
+        }
+        if (section.links) {
+          return section.links.some(
+            (link) =>
+              pathname === link.href || pathname.startsWith(link.href + "/")
+          );
+        }
+        return false;
+      });
+
+      if (activeIndex !== -1) {
+        setActiveSolution(activeIndex);
+      }
+    }
+  }, [pathname]);
+
+  // Auto-expand mobile menu items based on active route
+  useEffect(() => {
+    const expandedItems = {};
+
+    NAV_LINKS.forEach((item, index) => {
+      if (isSectionActive(item)) {
+        expandedItems[`main-${index}`] = true;
+
+        // For solutions, also expand the active subsection
+        if (item.subSections) {
+          item.subSections.forEach((section, sectionIndex) => {
+            if (
+              pathname === section.href ||
+              pathname.startsWith(section.href + "/")
+            ) {
+              expandedItems[`section-${index}-${sectionIndex}`] = true;
+            }
+            if (section.links) {
+              section.links.forEach((link) => {
+                if (
+                  pathname === link.href ||
+                  pathname.startsWith(link.href + "/")
+                ) {
+                  expandedItems[`section-${index}-${sectionIndex}`] = true;
+                }
+              });
+            }
+          });
+        }
+      }
+    });
+
+    setMobileExpandedItems(expandedItems);
+  }, [pathname]);
+
+  useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
   }, []);
 
@@ -227,7 +338,26 @@ export default function Navbar() {
 
       if (navRef.current && !navRef.current.contains(e.target)) {
         setActiveDropdown(null);
-        setActiveSolution(0);
+        // Reset to active solution based on current path
+        const solutionsItem = NAV_LINKS[1];
+        if (solutionsItem.subSections) {
+          const activeIndex = solutionsItem.subSections.findIndex((section) => {
+            if (
+              pathname === section.href ||
+              pathname.startsWith(section.href + "/")
+            ) {
+              return true;
+            }
+            if (section.links) {
+              return section.links.some(
+                (link) =>
+                  pathname === link.href || pathname.startsWith(link.href + "/")
+              );
+            }
+            return false;
+          });
+          setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+        }
       }
     };
 
@@ -236,7 +366,29 @@ export default function Navbar() {
         // Small delay to prevent accidental closes
         setTimeout(() => {
           setActiveDropdown(null);
-          setActiveSolution(0);
+          // Reset to active solution based on current path
+          const solutionsItem = NAV_LINKS[1];
+          if (solutionsItem.subSections) {
+            const activeIndex = solutionsItem.subSections.findIndex(
+              (section) => {
+                if (
+                  pathname === section.href ||
+                  pathname.startsWith(section.href + "/")
+                ) {
+                  return true;
+                }
+                if (section.links) {
+                  return section.links.some(
+                    (link) =>
+                      pathname === link.href ||
+                      pathname.startsWith(link.href + "/")
+                  );
+                }
+                return false;
+              }
+            );
+            setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+          }
         }, 100);
       }
     };
@@ -250,7 +402,7 @@ export default function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("touchstart", handleTouchOutside);
     };
-  }, []);
+  }, [pathname]);
 
   // Clear timeout on cleanup
   useEffect(() => {
@@ -267,21 +419,62 @@ export default function Navbar() {
         clearTimeout(timeoutRef.current);
         setActiveDropdown(index);
         if (index === 1) {
-          setActiveSolution(0);
+          // Set to the active solution or default to 0
+          const solutionsItem = NAV_LINKS[1];
+          if (solutionsItem.subSections) {
+            const activeIndex = solutionsItem.subSections.findIndex(
+              (section) => {
+                if (
+                  pathname === section.href ||
+                  pathname.startsWith(section.href + "/")
+                ) {
+                  return true;
+                }
+                if (section.links) {
+                  return section.links.some(
+                    (link) =>
+                      pathname === link.href ||
+                      pathname.startsWith(link.href + "/")
+                  );
+                }
+                return false;
+              }
+            );
+            setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+          }
         }
       }
     },
-    [isTouchDevice]
+    [isTouchDevice, pathname]
   );
 
   const handleMouseLeave = useCallback(() => {
     if (!isTouchDevice && window.innerWidth >= 768) {
       timeoutRef.current = setTimeout(() => {
         setActiveDropdown(null);
-        setActiveSolution(0);
+        // Keep the active solution based on current path
+        const solutionsItem = NAV_LINKS[1];
+        if (solutionsItem.subSections) {
+          const activeIndex = solutionsItem.subSections.findIndex((section) => {
+            if (
+              pathname === section.href ||
+              pathname.startsWith(section.href + "/")
+            ) {
+              return true;
+            }
+            if (section.links) {
+              return section.links.some(
+                (link) =>
+                  pathname === link.href || pathname.startsWith(link.href + "/")
+              );
+            }
+            return false;
+          });
+          setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+        }
       }, 150);
     }
-  }, [isTouchDevice]);
+  }, [isTouchDevice, pathname]);
 
   const handleSolutionHover = useCallback(
     (index) => {
@@ -313,18 +506,64 @@ export default function Navbar() {
 
         // Single tap - close dropdown
         setActiveDropdown(null);
-        setActiveSolution(0);
+        // Reset to active solution
+        if (index === 1) {
+          const solutionsItem = NAV_LINKS[1];
+          if (solutionsItem.subSections) {
+            const activeIndex = solutionsItem.subSections.findIndex(
+              (section) => {
+                if (
+                  pathname === section.href ||
+                  pathname.startsWith(section.href + "/")
+                ) {
+                  return true;
+                }
+                if (section.links) {
+                  return section.links.some(
+                    (link) =>
+                      pathname === link.href ||
+                      pathname.startsWith(link.href + "/")
+                  );
+                }
+                return false;
+              }
+            );
+            setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+          }
+        }
       } else {
         // Open dropdown
         setActiveDropdown(index);
         if (index === 1) {
-          setActiveSolution(0);
+          // Set to the active solution or default to 0
+          const solutionsItem = NAV_LINKS[1];
+          if (solutionsItem.subSections) {
+            const activeIndex = solutionsItem.subSections.findIndex(
+              (section) => {
+                if (
+                  pathname === section.href ||
+                  pathname.startsWith(section.href + "/")
+                ) {
+                  return true;
+                }
+                if (section.links) {
+                  return section.links.some(
+                    (link) =>
+                      pathname === link.href ||
+                      pathname.startsWith(link.href + "/")
+                  );
+                }
+                return false;
+              }
+            );
+            setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+          }
         }
       }
 
       lastTouchRef.current = now;
     },
-    [activeDropdown]
+    [activeDropdown, pathname]
   );
 
   // Touch handling for solution sections
@@ -349,7 +588,26 @@ export default function Navbar() {
       }
       setActiveDropdown(activeDropdown === index ? null : index);
       if (index === 1) {
-        setActiveSolution(0);
+        // Set to the active solution or default to 0
+        const solutionsItem = NAV_LINKS[1];
+        if (solutionsItem.subSections) {
+          const activeIndex = solutionsItem.subSections.findIndex((section) => {
+            if (
+              pathname === section.href ||
+              pathname.startsWith(section.href + "/")
+            ) {
+              return true;
+            }
+            if (section.links) {
+              return section.links.some(
+                (link) =>
+                  pathname === link.href || pathname.startsWith(link.href + "/")
+              );
+            }
+            return false;
+          });
+          setActiveSolution(activeIndex !== -1 ? activeIndex : 0);
+        }
       }
     }
   };
@@ -359,21 +617,6 @@ export default function Navbar() {
       ...prev,
       [key]: !prev[key],
     }));
-  };
-
-  const isActive = (href) => currentPath === href;
-  const isParentActive = (links) =>
-    links?.some((link) => currentPath === link.href);
-  const isSectionActive = (item) => {
-    if (item.href && currentPath === item.href) return true;
-    if (item.links && isParentActive(item.links)) return true;
-    if (item.subSections) {
-      return item.subSections.some(
-        (section) =>
-          currentPath === section.href || isParentActive(section.links)
-      );
-    }
-    return false;
   };
 
   const getDropdownPosition = (index) => {
@@ -483,8 +726,14 @@ export default function Navbar() {
                               href={section.href}
                               className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group select-none
                                 ${
-                                  isActive(section.href) ||
-                                  isParentActive(section.links)
+                                  pathname === section.href ||
+                                  pathname.startsWith(section.href + "/") ||
+                                  (section.links &&
+                                    section.links.some(
+                                      (link) =>
+                                        pathname === link.href ||
+                                        pathname.startsWith(link.href + "/")
+                                    ))
                                     ? "border-r-2 border-purple-600"
                                     : ""
                                 }
@@ -493,11 +742,18 @@ export default function Navbar() {
                               <div className="flex gap-2 items-center justify-start pointer-events-none">
                                 <Image
                                   src={section.icon}
-                                  alt={section.name + " icon"}
+                                  alt={section.title + " icon"}
                                   width={40}
                                   height={40}
                                   className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
-                                    isActive(section.href)
+                                    pathname === section.href ||
+                                    pathname.startsWith(section.href + "/") ||
+                                    (section.links &&
+                                      section.links.some(
+                                        (link) =>
+                                          pathname === link.href ||
+                                          pathname.startsWith(link.href + "/")
+                                      ))
                                       ? "opacity-100"
                                       : "opacity-60"
                                   }`}
@@ -524,7 +780,8 @@ export default function Navbar() {
                                 <div
                                   className={`block px-4 py-2 hover:bg-[#F0E4FF] transition-colors duration-150 select-none
                                     ${
-                                      isActive(link.href)
+                                      pathname === link.href ||
+                                      pathname.startsWith(link.href + "/")
                                         ? "border-r-2 border-purple-600"
                                         : ""
                                     }
@@ -540,7 +797,8 @@ export default function Navbar() {
                                       height={40}
                                       unoptimized
                                       className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
-                                        isActive(link.href)
+                                        pathname === link.href ||
+                                        pathname.startsWith(link.href + "/")
                                           ? "opacity-100"
                                           : "opacity-60"
                                       }`}
@@ -578,7 +836,8 @@ export default function Navbar() {
                           href={link.href}
                           className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF]  transition-colors duration-150 select-none
                           ${
-                            isActive(link.href)
+                            pathname === link.href ||
+                            pathname.startsWith(link.href + "/")
                               ? "text-black border-r-2 border-purple-600"
                               : "text-gray-700 hover:text-black"
                           }
@@ -592,7 +851,8 @@ export default function Navbar() {
                               height={40}
                               unoptimized
                               className={`rounded-full size-9 group-hover:opacity-100 transition-opacity duration-200 ${
-                                isActive(link.href)
+                                pathname === link.href ||
+                                pathname.startsWith(link.href + "/")
                                   ? "opacity-100"
                                   : "opacity-60"
                               }`}
@@ -635,7 +895,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation - unchanged */}
+      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-slideDown">
           <div className="px-2 pt-2 pb-3 space-y-1">

@@ -69,10 +69,6 @@ export const ServiceCardHome = memo(function ServiceCard({
         }
 
         /* Apply scale transition during hover */
-        .single-service-card:hover {
-          transform: scale(1.05); /* Slight scale-up effect */
-          z-index: 10; /* Ensure the hovered card stays on top */
-        }
 
         /* Ensure the backdrop blur effect on the button stays when hovered */
         .single-service-card .default-content {
@@ -156,7 +152,6 @@ const SingleServiceCard = memo(function SingleServiceCard({
             </div>
 
             <div className="flex justify-end items-center gap-2.5">
-              <P1 className="text-white">{index + 1}</P1>
               <div className="w-12 h-12 p-2 rounded-full border-2 border-white/80 flex items-center justify-center transition-colors">
                 <Icon
                   icon="pepicons-pencil:arrow-up-right"

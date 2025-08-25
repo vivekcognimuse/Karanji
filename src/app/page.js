@@ -112,13 +112,15 @@ const KaranjiLanding = () => {
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:p-10 ">
       <HeroSection />
       <StatsSection />
-      <div id="our-services" className="mt-16 lg:mt-32">
+      <div id="our-services" className="mt-16 lg:hidden lg:mt-32">
         <TechnologyServicesHome
           bgImage="/technologySolutions/gradient.svg"
           data={technologyServicesData}
         />
       </div>
-      <LogoStoryAnimation />
+      <div className="hidden md:block">
+        <LogoStoryAnimation />
+      </div>
       {/* <ScrollVideoSequence /> */}
       <SuccessStories data={successStoriesData} />
     </main>
