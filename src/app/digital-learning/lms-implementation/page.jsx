@@ -277,7 +277,12 @@ const successStoriesData = {
     },
   ],
 };
-
+export const metadata = {
+  title:
+    "K-nest LMS: Customizable Corporate Learning Platform | SCORM Compliant & Cloud-Based",
+  description:
+    "Elevate corporate training with K-nest LMS—a fully customizable, SCORM-compliant learning platform. Features multilingual support, SSO, and flexible cloud-based or on-premise deployment.",
+};
 export default async function LMSImplementation() {
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">

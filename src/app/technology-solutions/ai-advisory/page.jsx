@@ -6,6 +6,12 @@ import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import Head from "next/head";
 
+export const metadata = {
+  title:
+    "AI Consulting, XR & Digital Twin Solutions | Future-Ready Technology Services",
+  description:
+    "Transform your business with our AI consulting, XR/VR experiences, and digital twin technology. Drive innovation, optimize operations, and accelerate digital transformation.",
+};
 export default async function AIAdvisoryPage() {
   const data = await fetchFromStrapi("ai-advisory");
   if (!data) {

@@ -7,7 +7,12 @@ import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import { fetchFromStrapi } from "@/lib/strapi";
 import Head from "next/head";
-
+export const metadata = {
+  title:
+    "End-to-End Digital Learning Solutions: Custom eLearning, LMS & Analytics",
+  description:
+    "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
+};
 const DigitalTwins = async () => {
   const data = await fetchFromStrapi("twin");
   if (!data) {

@@ -253,6 +253,13 @@ const CTAData = {
   SecondaryButtonLink: "/contact",
 };
 
+export const metadata = {
+  title:
+    "Entertainment Production Services: Professional VFX, Audio & Event Production",
+  description:
+    "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
+};
+
 const AudioPodcastProduction = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

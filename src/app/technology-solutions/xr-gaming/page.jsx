@@ -4,7 +4,12 @@ import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import Head from "next/head";
-
+export const metadata = {
+  title:
+    "XR & Gaming Solutions | Immersive VR/AR Training & Game-Based Learning",
+  description:
+    "Transform operations with our XR & gaming solutions. Featuring immersive VR/AR experiences, interactive training simulations, and game-based learning for 90% retention rates.",
+};
 const serviceOffering = {
   id: 4,
   title: "Our XR & Gaming Offerings",

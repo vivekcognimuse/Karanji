@@ -225,6 +225,13 @@ const CTAData = {
   SecondaryButtonLink: "/contact",
 };
 
+export const metadata = {
+  title:
+    "Professional Audio & Podcast Production Services | Studio-Quality Sound",
+  description:
+    "Elevate your audio with our professional podcast studio rental and recording services. Featuring state-of-the-art equipment, sound-treated rooms, and full production support for podcasts and voice-overs.",
+};
+
 const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

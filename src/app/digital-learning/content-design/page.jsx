@@ -368,6 +368,13 @@ const customELearningSolutionDeepDive = {
     buttonLink: "/resources",
   },
 };
+
+export const metadata = {
+  title:
+    "Content Design & Development Solutions | Custom eLearning & Instructional Design",
+  description:
+    "Transform learning with expert content design & development. From custom eLearning modules and microlearning to gamification and localization, we create engaging training solutions.",
+};
 const ContentDesign = () => {
   const [activeTab, setActiveTab] = useState("custom");
 

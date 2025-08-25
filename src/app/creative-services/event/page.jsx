@@ -227,6 +227,13 @@ const CTAData = {
   SecondaryButtonLink: "/contact",
 };
 
+export const metadata = {
+  title:
+    "Professional Event Production & Management Services | Live, Virtual & Hybrid Events",
+  description:
+    "Expert event production and management for live, virtual, and hybrid events. From stage design and tech rental to seamless execution, we deliver memorable experiences.",
+};
+
 const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
