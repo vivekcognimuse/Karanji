@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 
 import Navbar from "@/components/Navbar";
+import CookieNotification from "@/components/CookieNotification";
 
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
@@ -57,6 +58,7 @@ export default function RootLayout({ children }) {
         <div className="] pb-16 ">{children}</div>
         <Footer />
         {/* </SmoothScrollWrapper> */}
+        <CookieNotification />
       </body>
     </html>
   );

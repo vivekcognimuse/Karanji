@@ -37,13 +37,13 @@ const CookieNotification = () => {
   return (
     show && (
       <div className="fixed bottom-10 inset-x-0 z-[9999] flex w-full justify-center">
-        <div className=" bg-hover max-w-[1480px]  w-full   bg-yellow lg:p-4 lg:flex items-center justify-between p-3 pb-2 mx-4 rounded-lg shadow-lg">
+        <div className=" bg-hover max-w-[1480px]  w-full   bg-[#BAABFC] lg:p-4 lg:flex items-center justify-between p-3 pb-2 mx-4 rounded-lg shadow-lg">
           <div className="sm:mb-0  mb-2 lg:flex  items-center flex-1">
-            <p className="lg:text-right lg:ml-3 font-medium text-center ">
+            <p className="lg:text-right lg:ml-3  text-center ">
               This site uses cookies for personalization and analytics. You can
               read about our cookie policy{" "}
               <Link
-                href="/cookie-policy"
+                href="/terms-policies"
                 className="hover:underline text-blue-900">
                 here.
               </Link>
@@ -52,15 +52,15 @@ const CookieNotification = () => {
           <div className=" lg:gap-8 lg:my-0 flex justify-center gap-4 my-4">
             <button
               onClick={handleClick}
-              className="hover:bg-gray-200 flex items-center justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-transparent rounded-md shadow-sm">
-              Accept
+              className="hover:bg-gray-200 flex items-center font-sans cursor-pointer justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-transparent rounded-md shadow-sm">
+              Close
             </button>
 
-            <button
+            {/* <button
               onClick={handleCancel}
-              className="hover:bg-gray-200 flex items-center justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-transparent rounded-md shadow-sm">
+              className="hover:bg-gray-200 flex items-center font-sans cursor-pointer justify-center px-4 py-2 text-sm font-medium text-black bg-white border border-transparent rounded-md shadow-sm">
               Reject
-            </button>
+            </button> */}
           </div>
         </div>{" "}
       </div>
