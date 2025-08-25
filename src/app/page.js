@@ -7,6 +7,7 @@ import TechnologyServices from "@/sections/service/Service";
 import ScrollVideoSequence from "@/components/LandingAnimation";
 import TechnologyServicesHome from "@/sections/service/Service copy";
 import LogoStoryAnimation from "@/components/LandingAnimation";
+import LogoAnimation from "@/components/LogoAnimation";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
@@ -120,9 +121,10 @@ const KaranjiLanding = () => {
               data={technologyServicesData}
             />
           </div>
-          <div className="hidden md:block">
+          <LogoAnimation />
+          {/* <div className="hidden md:block">
             <LogoStoryAnimation />
-          </div>
+          </div> */}
         </div>
         {/* <ScrollVideoSequence /> */}
         <SuccessStories data={successStoriesData} />
