@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ValueCard from "./ValueCard";
+
 const ValuesSection = () => {
   const valuesData = [
     {
@@ -32,35 +33,51 @@ const ValuesSection = () => {
   ];
 
   return (
-    <section className="values-section py-5 px-4 rounded-2xl shadow-xl">
-      <div className=" mx-auto ">
+    <section className="values-section py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 rounded-2xl shadow-xl">
+      <div className="mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <div className="mb-4">
             <img
               src="/Company/about/values_16257068 1.svg"
               alt="Values Icon"
               width="48"
               height="48"
-              className="w-12 h-12 mx-auto"
+              className="w-10 h-10 sm:w-12 sm:h-12 mx-auto"
             />
           </div>
-          <h4 className="text-black-950 text-2xl mb-3">Values</h4>
+          <h4 className="text-black-950 text-xl sm:text-2xl lg:text-3xl mb-3 font-semibold">
+            Values
+          </h4>
           <div className="w-full h-px bg-gray-300 mx-auto"></div>
         </div>
 
-        {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* First Row - Two cards */}
-          <ValueCard {...valuesData[0]} />
-          <ValueCard {...valuesData[1]} />
+        {/* Values Grid - Mobile First Approach */}
+        <div className="space-y-4 sm:space-y-0">
+          {/* Mobile: Stack all cards vertically */}
+          <div className="block sm:hidden space-y-4">
+            {valuesData.map((value, index) => (
+              <ValueCard key={index} {...value} />
+            ))}
+          </div>
 
-          {/* Second Row - One full-width card */}
-          <ValueCard {...valuesData[2]} />
+          {/* Tablet and Desktop: Custom grid layout */}
+          <div className="hidden sm:block">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6">
+              {/* First Row - Two cards */}
+              <ValueCard {...valuesData[0]} />
+              <ValueCard {...valuesData[1]} />
 
-          {/* Third Row - Two cards */}
-          <ValueCard {...valuesData[3]} />
-          <ValueCard {...valuesData[4]} />
+              {/* Second Row - Full-width card spans both columns */}
+              <div className="sm:col-span-2">
+                <ValueCard {...valuesData[2]} />
+              </div>
+
+              {/* Third Row - Two cards */}
+              <ValueCard {...valuesData[3]} />
+              <ValueCard {...valuesData[4]} />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -72,6 +89,14 @@ const ValuesSection = () => {
             rgba(229, 215, 226, 0.3) 52.52%,
             rgba(206, 220, 255, 0.3) 96.87%
           );
+        }
+
+        /* Ensure proper spacing on very small devices */
+        @media (max-width: 320px) {
+          .values-section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
         }
       `}</style>
     </section>

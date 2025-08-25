@@ -1,0 +1,71 @@
+{
+  "card": {
+    "title": "K-Buddy AI Learning Companion",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "After-hours engagement",
+        "number": "60% increase"
+      },
+      {
+        "text": "Student satisfaction",
+        "number": "35% improved"
+      }
+    ],
+    "description": "AI-powered learning companion for the education sector that offers instant explanations, quiz generation, and personalized assessments through a voice/text chatbot, with full deployment completed in three months."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Case Study Summary",
+      "text": "K-Buddy is an AI chatbot for an India-based education client that delivers personalized support across Learn, Practice, and Assessment via a voice/text interface integrated into the learning platform. Built in three months with document indexing and instant explanations, it cut query resolution time by 70%, increased student satisfaction by 35%, and boosted after-hours engagement by 60%-showcasing how AI chatbots and eLearning solutions scale real-time, contextual help."
+    },
+    "client": {
+      "industry": "Education",
+      "location": "India"
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Lack of scalable, interactive AI learning tools to support students with contextual, real-time learning assistance and assessment."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Deliver AI chatbots for personalized academic support. Enhance student engagement and reduce dependency on human intervention using flexible eLearning solutions."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Voice/text-enabled chatbot interface for modern learning platforms.",
+      "details": [
+        "Upload and index documents (PDFs, PPTs, etc.)",
+        "Learn: Instant concept explanations, summaries, and examples",
+        "Practice: Quiz generation and doubt-solving",
+        "Assessment: Personalized tests and performance feedback"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Chatbot trained and tested; full deployment in 3 months."
+    },
+    "results": {
+      "title": "Results",
+      "text": "Student query resolution time decreased by 70%",
+      "details": [
+        "Student satisfaction improved by 35% (based on feedback forms)",
+        "24/7 availability led to a 60% increase in after-hours engagement",
+        "Over 50% of students reported better understanding through AI-guided interactions"
+      ]
+    },
+    "testimonial": {
+      "quote": "\"K-Buddy makes studying so much easier. I can ask questions anytime and get clear answers without waiting for help.\"",
+      "author": "Riya Sharma, Undergraduate Student"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "K-Buddy shows how AI chatbots-embedded within eLearning solutions and learning platforms-can personalize learning through features like Learn, Practice, and Assessment, significantly improving engagement, understanding, and efficiency."
+    }
+  },
+  "cta": {
+    "title": "Access K-Buddy AI Chatbot Case Study",
+    "description": "Discover how AI chatbots and eLearning solutions scale personalized support, boosting student engagement and understanding in real-time. If you're in education technology or student support, this case shows how AI-powered learning solutions can transform study experiences and outcomes.",
+    "buttonText": "Download Full Case Study"
+  }
+}

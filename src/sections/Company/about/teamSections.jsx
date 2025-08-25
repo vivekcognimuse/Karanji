@@ -4,7 +4,7 @@ import { P3 } from "@/components/CustomTags";
 import MemberCard from "./MemberCard";
 import CarouselContainer from "@/components/animations/Carousal";
 
-const TeamSection = ({ sections }) => {
+const TeamSection = ({ sections = [] }) => {
   const [expandedSection, setExpandedSection] = useState(null);
 
   const toggleSection = (index) => {
@@ -25,7 +25,7 @@ const TeamSection = ({ sections }) => {
     <div className="w-full">
       {/* Desktop view - separate boxes */}
       <div className="hidden md:block space-y-4">
-        {sections.map((section, index) => (
+        {(sections || []).map((section, index) => (
           <div
             key={index}
             className="rounded-2xl px-4"
@@ -105,7 +105,7 @@ const TeamSection = ({ sections }) => {
           showArrows={false}
           className=""
         >
-          {sections.map((section, index) => (
+          {(sections || []).map((section, index) => (
             <div key={index} className="border border-gray-200 rounded-lg mx-4">
               <button
                 className="w-full py-6 px-4 text-left focus:outline-none"

@@ -1,0 +1,69 @@
+{
+  "card": {
+    "title": "Outbound Calling Agent",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "Reduced Manual Workload",
+        "number": "60%"
+      },
+      {
+        "text": "Improved Lead Response Rate",
+        "number": "40%"
+      }
+    ],
+    "description": "An automated outbound calling agent for EdTech sales teams that places voice calls at set intervals, logs every interaction centrally, and gives managers a dashboard for activation and oversight."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Case Study Summary",
+      "text": "We built an outbound calling agent for sales and education teams-an AI-powered business solutions approach that automates follow-ups and centralizes activity. Built on chatbots, it initiates calls on schedule and keeps every interaction traceable."
+    },
+    "client": {
+      "industry": "Sales Teams & Telemarketers, EdTech & Coaching Institutes",
+      "location": "India"
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Too much time spent on manual calling leads. High cost of hiring and managing call staff. No single place to track or monitor call activity."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Automate calling leads at regular intervals. Cut down manual work and reduce costs. Offer full visibility and control through a dashboard."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Agent makes voice calls at customizable time intervals.",
+      "details": [
+        "Logs all activity with summaries in a central place",
+        "Dashboard to manage activation, intervals, and view logs",
+        "Adds to our proven chatbot use cases for outbound sales"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "1.5-week development sprint: Integrated the agent with Google Sheets. Configured the agent to automatically initiate calls at defined time intervals. Designed controls for activation, retry rules, and audit logs-unlike typical customer service chatbots, this agent is proactive and traceable."
+    },
+    "results": {
+      "title": "Results",
+      "text": "Manual call workload will reduce by 60%",
+      "details": [
+        "Lead response rate will improve by 40%",
+        "All calls will be 100% traceable through detailed logs"
+      ]
+    },
+    "testimonial": {
+      "quote": "\"This bot will change how we handle our outreach. Our team will become faster and more focused.\"",
+      "author": "Ankit Verma, Head of Sales"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "A well-designed outbound calling bot reduces manual effort, increases lead engagement, and drives measurable growth with minimal operational overhead."
+    }
+  },
+  "cta": {
+    "title": "Access Outbound Calling Agent Story",
+    "description": "See how inside-sales teams automate follow-ups, simplify logging, and gain real control with a proactive calling agent. If you’re in sales or EdTech, this case shows what’s possible with AI computer solutions for outreach and team efficiency.",
+    "buttonText": "Download Full Case Study"
+  }
+}

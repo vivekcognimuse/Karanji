@@ -1,0 +1,66 @@
+{
+  "card": {
+    "title": "3D AI Advertisement",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "Lower production cost",
+        "number": "80%"
+      },
+      {
+        "text": "High engagement",
+        "number": "Across digital channels"
+      }
+    ],
+    "description": "We scripted and produced a full 3D AI-generated ad with a human avatar and custom voice, delivered end-to-end in just four working days-solving tight budget and timeline constraints for a leading agriculture company in India."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Case Study Summary",
+      "text": "An Indian agriculture brand needed a fast, affordable alternative to a traditional ad shoot. We produced a full 3D AI-generated video featuring an AI human avatar, built with AI creative tools and an end-to-end production services pipeline delivered in four days."
+    },
+    "client": {
+      "industry": "Agriculture",
+      "location": "India",
+      "description": "A leading agriculture company in India, focused on innovative and sustainable farming solutions."
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Traditional ad shoot was out of budget, with limited time and resources for production."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Deliver an engaging ad campaign quickly and affordably, without compromising quality-leveraging our integrated services."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Scripted and produced a 3D AI-generated video using AI creative tools.",
+      "details": [
+        "AI-generated human avatar",
+        "Custom voice synthesis and animation"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Produced a full 3D AI-generated video-complete with scriptwriting, avatar creation, voice cloning, animation, and post-production-delivered within 4 working days via an end-to-end AI driven pipeline."
+    },
+    "results": {
+      "title": "Results",
+      "text": "80% lower production cost",
+      "details": "High engagement across digital channels"
+    },
+    "testimonial": {
+      "quote": "\"We didn’t think a full ad was possible within our budget - this was game-changing.\"",
+      "author": "Marketing Head, Deepika"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "3D AI video is the future: fast, cost-effective, and production-quality ready-an AI-powered business solution built for speed and scale."
+    }
+  },
+  "cta": {
+    "title": "Access AI-Generated Ad Campaign Case Study",
+    "description": "See how we used AI creative tools to create a high-quality, 3D AI video in just four days - delivering a game-changing solution for fast, affordable ad production. If you’re in marketing or creative production, this case demonstrates how AI-powered production services can revolutionize ad creation.",
+    "buttonText": "Download Full Case Study"
+  }
+}

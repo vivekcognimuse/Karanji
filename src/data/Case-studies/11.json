@@ -1,0 +1,77 @@
+{
+  "card": {
+    "title": "Automobile-EV Training Module",
+    "tag": "Digital Learning",
+    "stats": [
+      {
+        "text": "EV",
+        "number": "Modules"
+      },
+      {
+        "text": "High",
+        "number": "Quality"
+      }
+    ],
+    "description": "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking."
+  },
+  "caseStudyPage": {
+    "clientProfile": {
+      "industry": "Automotive",
+      "location": "India",
+      "description": "A car company seeking custom electric vehicle (EV) training content for its workforce."
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Compressing 10 hours of content into 7-minute microlearning modules while keeping a logical flow and retaining core concepts."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Explain how 5G enables V2X communication in EVs and its current and future applications.",
+      "details": [
+        "Describe how regenerative braking in EVs recovers energy, including its efficiency, battery impact, and regulations."
+      ]
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Collaborated with domain experts to structure and simplify complex topics.",
+      "details": [
+        "Developed interactive micro-lessons using visual storytelling, original and licensed multimedia (including 3D animations and filmed content).",
+        "Integrated simulations and animations to enhance learning."
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Cross-functional teams (design, media, automotive) ensured subject accuracy and engaging, interactive content.",
+      "details": [
+        "Structured content from basic to advanced levels, validated by experts to ensure clarity.",
+        "Used training management systems to streamline development and monitor learner progress."
+      ]
+    },
+    "results": {
+      "title": "Results",
+      "text": "Delivered foundational EV modules that simplified complex topics like V2X and 5G.",
+      "details": [
+        "Engaged learners through interactive, visually rich content, approved by subject experts.",
+        "Ensured all media assets were original or licensed to meet compliance standards.",
+        "Overcame technical and creative challenges, earning strong client praise for clarity, creativity, and timely delivery."
+      ]
+    },
+    "testimonial": {
+      "quote": "\"Working with Karanji was a game-changer. Despite tight deadlines, shifting from e-learning to microlearning midway, and tackling complex topics like V2X and 5G, they delivered with clarity and creativity. They made the content easy to understand, sourced great visuals without any copyright worries, and turned challenges into a smooth, successful project. We’re truly impressed!\"",
+      "author": "Client Representative"
+    },
+    "keyTakeaways": {
+      "title": "Key Takeaways",
+      "text": "Proactive multimedia planning ensures high-quality, compliant content.",
+      "details": [
+        "Cross-disciplinary collaboration simplifies complex technical topics.",
+        "Anticipating tech challenges early and involving experts ensures clarity and accuracy."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Access Automobile-EV Training Module: Micro-learning Case Study",
+    "description": "See how we turned complex EV concepts into quick, interactive micro-lessons for the automotive industry. If you're in automotive training or e-learning development, this case shows how eLearning solutions can streamline complex content into digestible modules.",
+    "buttonText": "Download Full Case Study"
+  }
+}

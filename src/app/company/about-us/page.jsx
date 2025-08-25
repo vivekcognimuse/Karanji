@@ -60,7 +60,7 @@ const timelineData = [
     iconSrc: "/Icons/year07icon.svg",
   },
   {
-    year: "2007-'10",
+    year: "2007-10",
     yearDescription:
       "We built a bridge between traditional training & cutting-edge technology.",
     title: "Building the Bridge Between Traditional & Modern Learning",
@@ -69,7 +69,7 @@ const timelineData = [
     iconSrc: "/Icons/year08icon.svg",
   },
   {
-    year: "2010-'13",
+    year: "2010-13",
     yearDescription:
       "Our first big break came with Infosys - the first validation of our ideas.",
     title: "Growing the Foundation – First Major Client: Infosys",
@@ -78,9 +78,9 @@ const timelineData = [
     iconSrc: "/Icons/year13icon.svg",
   },
   {
-    year: "2014-'16",
+    year: "2014-16",
     yearDescription:
-      "2014-’16 marked a leap into the future with Virtual Reality & Augmented Reality.",
+      "2014-16 marked a leap into the future with Virtual Reality & Augmented Reality.",
     title: "The Big Leap - Entering Virtual Reality & Augmented Reality",
     description:
       "Karanji made a strategic decision to integrate VR & AR into their learning design, which would revolutionize training & learning processes.",
@@ -204,7 +204,8 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}>
+          }}
+        >
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

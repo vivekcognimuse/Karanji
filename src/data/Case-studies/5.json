@@ -1,0 +1,67 @@
+{
+  "card": {
+    "title": "Teacher Empowerment System (TES)",
+    "tag": "Technology solutions",
+    "stats": [
+      {
+        "text": "Preparation time",
+        "number": "40–50% Reduced"
+      },
+      {
+        "text": "Interactive sessions",
+        "number": "30% Increased"
+      }
+    ],
+    "description": "AI-powered teacher assistant that cuts prep time by up to 50% through syllabus-aligned resource curation, auto-generated quizzes, and smart teaching suggestions-already deployed in 10 schools."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Case Study Summary",
+      "text": "TES is an AI assistant for Karnataka schools that curates syllabus-aligned resources, generates quizzes and summaries, and suggests teaching methods-delivered as E-learning solutions that plug neatly into existing learning platforms."
+    },
+    "client": {
+      "industry": "Government & Private Schools (Grades 1–12)",
+      "location": "Karnataka, India"
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Teachers spend excessive time preparing teaching materials and searching for resources, leaving less time for interactive classroom engagement and personalized student support."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Reduce teachers’ content preparation time by 50%. Enhance teaching quality through AI-driven curated resources and exercises aligned with modern learning and development solutions. Improve student engagement and learning outcomes."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "AI-powered curation of syllabus-aligned educational resources.",
+      "details": [
+        "Automatic generation of quizzes, exercises, and summaries",
+        "Smart teaching method suggestions tailored to class needs"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Initial launch in 10 schools using TES dashboard. TES integrates with school systems and learning management systems, enabling easy PDF or print exports. Integration of local language support and syllabus mapping."
+    },
+    "results": {
+      "title": "Results (Expected/Projected)",
+      "text": "Teacher preparation time is reduced by 40–50%. Improved classroom engagement, with 30% more interactive sessions.",
+      "details": [
+        "Teachers report higher satisfaction and increased focus on student learning."
+      ]
+    },
+    "testimonial": {
+      "quote": "\"TES transformed how we plan lessons. We now spend less time preparing content and more time interacting with students.\"",
+      "author": "Anita K., Grade 8 Teacher"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "AI-powered teacher assistants like TES can drastically improve teaching efficiency, helping educators focus on what matters most—student learning and engagement."
+    }
+  },
+  "cta": {
+    "title": "Access Teacher Empowerment System (TES) Story",
+    "description": "See how schools streamline lesson planning, generate quizzes, and support diverse classrooms with an AI-driven assistant. If you’re training students from Grade 1-12, this case study shows what’s possible with a training management system approach to day-to-day teaching.",
+    "buttonText": "Download Full Case Study"
+  }
+}

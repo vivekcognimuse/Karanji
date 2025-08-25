@@ -6,7 +6,7 @@ import Head from "next/head";
 const heroData = {
   title: "Meet Our Digital Avatars",
   subTitle:
-    "At Karanji, we've built intelligent clones of our team members to help you understand our services, explore solutions, & get real-time, personalized guidance - all while reflecting the style & expertise of our core team.",
+    "At Karanji, we’ve built intelligent digital avatars of our team members to help you understand our services, explore solutions, and receive real-time personalized guidance, while reflecting the style and expertise of our core team.",
   PrimaryButtonLink: "choose-avatar-section",
   PrimaryButtonText: "Talk to an Avatar Now",
 
@@ -26,7 +26,7 @@ const heroData = {
     },
     {
       text: "24/7",
-      subText: "Available online",
+      subText: "Available Online",
     },
   ],
 };
@@ -38,9 +38,9 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const avatarData = {
-  title: "Choose Your Expert Avatar",
+  title: "Choose Our Expert Avatar",
   description:
-    "Each avatar brings unique expertise & can assist with different aspects of your business transformation",
+    "Each avatar brings unique expertise and supports different aspects of business transformation.",
   avatars: [
     {
       name: "Prakash",
@@ -49,7 +49,7 @@ const avatarData = {
       expertise: [
         "Know About the Company",
         "Explore Our Services",
-        "How Karanji solves your problem",
+        "How Karanji Solves Your Problem",
       ],
       ctaText: "Talk to Our CEO",
       ctaLink: "https://linkly.link/2BKPj",
@@ -82,12 +82,12 @@ const sectionData = {
     {
       title: "Engagement Increase",
       subTitle:
-        "Increased client interaction without scaling team load or compromising quality",
+        "Increased client interaction without scaling team load or compromising quality.",
     },
     {
       title: "24/7 Problem Solving",
       subTitle:
-        "Helps our team understand & solve AI implementation challenges continuously",
+        "Helps our team understand & solve AI implementation challenges continuously.",
     },
   ],
 };

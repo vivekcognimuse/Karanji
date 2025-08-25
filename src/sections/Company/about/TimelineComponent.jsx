@@ -115,7 +115,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
       >
         {/* Header */}
         <div className="mx-auto w-full px-6 sm:px-12">
-          <div className="flex items-center gap-3 mb-2 w-fit">
+          <div className="flex items-center gap-3 py-2 w-fit">
             <Button
               className="text-black-500"
               variant="text"
@@ -296,7 +296,7 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
 
           {/* Step Title */}
           <div className="text-center">
-            <h3 className="text-black-800 max-w-4xl mx-auto">
+            <h3 className="text-black-800 max-w-5xl mx-auto">
               {currentStep.title}
             </h3>
           </div>

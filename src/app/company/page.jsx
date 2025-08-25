@@ -1,39 +1,39 @@
 import HeroSection from "@/sections/Advisory/Hero";
 // import QuoteSection from "@/sections/Company/about/quoteSection";
-
+import { fetchFromStrapi } from "@/lib/strapi";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
 import Head from "next/head";
-const heroData = {
-  title: "Innovate. Design. Transform.",
-};
-const teamData = {
-  title: "Our Story, Our People, Your Future",
-  description:
-    "Discover the heart of Karanji - the values & mission that define who we are, the talented team driving our success, & the vision that inspires everything we do. Explore how innovation, collaboration, & purpose shape our journey.",
-};
-const cardsData = [
-  {
-    title: "About Us",
-    description:
-      "Our journey of innovation through technology, learning, & creativity",
-    image: "/Company/Landing page/About us.webp",
-    href: "/company/about-us",
-  },
-  {
-    title: "Our Team",
-    description:
-      "Meet the minds shaping the future of immersive tech & storytelling",
-    image: "/Company/Landing page/Our Team.webp",
-    href: "/company/our-team",
-  },
-  {
-    title: "Career",
-    description:
-      "Build your career at the crossroads of AI, creativity, & impact",
-    image: "/Company/Landing page/Career.webp",
-    href: "/company/careers",
-  },
-];
+
+// const cardsData = [
+//   {
+//     title: "About Us",
+//     description:
+//       "Our journey of innovation through technology, learning, & creativity",
+//     image: "/Company/Landing page/About us.webp",
+//     href: "/company/about-us",
+//   },
+//   {
+//     title: "Our Team",
+//     description:
+//       "Meet the minds shaping the future of immersive tech & storytelling",
+//     image: "/Company/Landing page/Our Team.webp",
+//     href: "/company/our-team",
+//   },
+//   {
+//     title: "Career",
+//     description:
+//       "Build your career at the crossroads of AI, creativity, & impact",
+//     image: "/Company/Landing page/Career.webp",
+//     href: "/company/careers",
+//   },
+// ];
+const data = await fetchFromStrapi("company-landing");
+if (!data) {
+  console.error("No data object provided for HeroSection.");
+  return null; // Or return a fallback UI component
+}
+console.log("company landing data:", data);
+const { heroData, cardsData, teamData } = data || {};
 export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
@@ -48,8 +48,8 @@ export default async function companyLanding() {
       />
       {/* <QuoteSection title="Innovate. Design. Transform." /> */}
       <NextUpSection
-        title={teamData.title}
-        description={teamData.description}
+        title={teamData?.title}
+        description={teamData?.description}
         cards={cardsData}
       />
     </main>

@@ -1,0 +1,122 @@
+{
+  "heroData": {
+    "title": "Transform Your Industry with Us",
+    "subTitle": "From predictive maintenance to automated workflows, our AI tools help teams in Healthcare, Aviation, Logistics, & Oil & Gas work smarter, safer, & faster.",
+    "ctaText": "See Industry Solutions",
+    "ctaLink": "industries-section"
+  },
+  "ctaData": {
+    "title": "Ready to lead the future?",
+    "description": "Let’s collaborate to bring your next industrial innovation to life with AI, XR, & digital learning ",
+    "PrimaryButtonText": "Schedule a Consultation",
+    "PrimaryButtonLink": "/contact"
+  },
+  "industriesData": {
+    "title": "Purpose — Built for Complex Industries.",
+    "description": "We partner with organizations in Healthcare, Aviation, Logistics, & Oil & Gas to solve their most pressing operational challenges from reducing downtime & paperwork to improving safety, speed, & compliance. Each solution is tailored to real-world workflows, helping teams work smarter & scale faster.",
+    "industries": [
+      {
+        "title": "HealthCare",
+        "description": "Reimagining Healthcare",
+        "icon": "/Icons/Industries/fluent-mdl2_health.svg",
+        "image": "/Industries & its pages/Landing page/Healthcare card.webp",
+        "details": [
+          "AI-Powered Clinical Intelligence",
+          "Immersive XR/VR Training Platforms",
+          "Digital Learning & Patient Engagement"
+        ],
+        "buttonText": "Learn More"
+      },
+      {
+        "title": "Aviation",
+        "description": "Future-ready aviation.",
+        "icon": "/Icons/Industries/mage_aeroplane.svg",
+        "image": "/Industries & its pages/Landing page/Aviation card .webp",
+        "details": [
+          "Predictive Maintenance Solutions",
+          "Flight Crew Training Simulations",
+          "Safety Compliance Automation"
+        ],
+        "buttonText": "Learn More"
+      },
+      {
+        "title": "Logistics",
+        "description": "Precision in Every Operation",
+        "icon": "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
+        "image": "/Industries & its pages/Landing page/Logistics card.webp",
+        "details": [
+          "Supply Chain Optimization",
+          "Warehouse Automation",
+          "Real-time Tracking & Analytics"
+        ],
+        "buttonText": "Learn More"
+      },
+      {
+        "title": "Oil & Gas",
+        "description": "Driving Digital Intelligence in Energy",
+        "icon": "/Icons/Industries/streamline-ultimate_gas-f.svg",
+        "image": "/Industries & its pages/Landing page/Oil and Gas card.webp",
+        "details": [
+          "Equipment Monitoring Systems",
+          "Safety Training & Compliance",
+          "Operational Efficiency Tools"
+        ],
+        "buttonText": "Learn More"
+      }
+    ]
+  },
+  "cards": [
+    {
+      "id": 33,
+      "title": "HealthCare",
+      "image": "/Industries & its pages/Landing page/Healthcare card.webp",
+      "subTitle": "Reimagining Healthcare",
+      "hoverContent": [
+        "Digital Twin Readiness Assessment",
+        "Business Case Development",
+        "Roadmap Creation"
+      ],
+      "ctaLink": "/Industries/healthcare",
+      "icon": "/Icons/Industries/fluent-mdl2_health.svg"
+    },
+    {
+      "id": 34,
+      "title": "Aviation",
+      "image": "/Industries & its pages/Landing page/Aviation card .webp",
+      "subTitle": "Future-ready aviation.",
+      "hoverContent": [
+        "Predictive Maintenance Solutions",
+        "Flight Crew Training Simulations",
+        "Safety Compliance Automation"
+      ],
+      "ctaLink": "/Industries/aviation",
+      "icon": "/Icons/Industries/mage_aeroplane.svg"
+    },
+    {
+      "id": 35,
+      "title": "Logistics",
+      "image": "/Industries & its pages/Landing page/Logistics card.webp",
+      "subTitle": "Precision in Every Operation",
+      "hoverContent": [
+        "Supply Chain Optimization",
+        "Warehouse Automation",
+        "Real-time Tracking & Analytics"
+      ],
+      "ctaLink": "/Industries/logistics",
+      "icon": "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg"
+    },
+    {
+      "id": 36,
+      "title": "Oil & Gas",
+      "image": "/Industries & its pages/Landing page/Oil and Gas card.webp",
+      "subTitle": "Driving Digital Intelligence in Energy",
+      "hoverContent": [
+        "Equipment Monitoring Systems",
+        "Safety Training & Compliance",
+        "Operational Efficiency Tools"
+      ],
+      "ctaLink": "/Industries/oil-and-gas",
+      "icon": "/Icons/Industries/Group.svg"
+    }
+  ]
+}

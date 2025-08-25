@@ -10,7 +10,7 @@ import Head from "next/head";
 const teamData = {
   title: "Your Next Chapter Starts Here",
   description:
-    "Build your career with us & help shape the future of [Industry/Field]. We value innovation, diversity, & collaborative growth.",
+    "Build your career with us and help shape the future of [Industry/Field]. We value innovation, diversity, and collaborative growth.",
   SecondaryButtonText: "View Open Roles",
   // Scrolls to the roles section below
   SecondaryButtonLink: "#open-roles",
@@ -49,7 +49,7 @@ const cardsData = [
 const ctaData = {
   title: "Don't see a role that fits?",
   description:
-    "Please send an email to recruitment@karanji.com with subject line as 'Application | Role Title' with your profile and interest, we are always on lookout for talent.",
+    "We’d love to hear from you! Send us an email at recruitment@karanji.com with the subject line ‘Application | Role Title’, along with your profile and areas of interest. We’re always on the lookout for exceptional talent to join our team.",
   PrimaryButtonText: "Send us an Email",
   PrimaryButtonLink:
     "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",

@@ -1,0 +1,69 @@
+{
+  "card": {
+    "title": "Sign Language Bot (SignBot)",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "Content creation time",
+        "number": "Reduced"
+      },
+      {
+        "text": "Engagement",
+        "number": "Better"
+      }
+    ],
+    "description": "AI tool that converts text into sign language by retrieving and stitching pre-recorded sign clips using SBERT-based semantic similarity and exact phrase matching."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Case Study Summary",
+      "text": "SignBot converts text into sign language using SBERT-based matching and a curated clip library, then stitches signs into fluid sentences for web and mobile. Designed for eLearning solutions and modern learning platforms, it helps schools, NGOs, and support teams make digital experiences truly accessible-without relying on on-call interpreters."
+    },
+    "client": {
+      "industry": "Educational Institutions, Accessibility NGOs, Hearing Impaired Communities",
+      "location": "India"
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "Bridging the communication gap for hearing-impaired individuals using sign language often requires trained interpreters, which are not always readily available. Additionally, converting textual or spoken content into sign language in real time is resource-intensive and expensive."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Provide an automated, accurate conversion of text into sign language. Reduce reliance on human interpreters for basic content translation. Improve accessibility and inclusivity in education, training, and customer support."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Develop an AI application integrated with SBERT-based semantic similarity and exact phrase matching for sign video retrieval.",
+      "details": [
+        "Build a sign clip library with pre-recorded sign language videos",
+        "Implement real-time matching and concatenation for dynamic sentence generation",
+        "Broadening accessible chatbot use cases in education and support"
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Optimize the backend to process and concatenate sign clips in seconds per input sentence. Use semantic similarity to ensure fallback when exact sentence matches are unavailable, increasing coverage and accuracy. Deploy the final frontend solution with an interactive interface accessible on desktop and mobile devices."
+    },
+    "expectedResults": {
+      "title": "Expected Results",
+      "text": "Reduce time for sign language content creation compared to manual methods.",
+      "details": [
+        "Improve accessibility for hearing-impaired users, leading to better engagement and inclusivity.",
+        "Enable educational institutions and NGOs to reach a wider audience without needing dedicated interpreters for every session."
+      ]
+    },
+    "testimonial": {
+      "quote": "\"This solution is expected to significantly improve communication for hearing-impaired learners and will be simple to use. It is anticipated to make digital training sessions much more inclusive.\"",
+      "author": "Ria, Project Manager"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "AI-assisted sign language bots can make digital content accessible, inclusive, and cost-effective, ensuring equal communication opportunities for the hearing-impaired community."
+    }
+  },
+  "cta": {
+    "title": "Access Sign Language Bot (SignBot) Story",
+    "description": "See how a unified sign-clip library, SBERT matching, and real-time stitching make text-to-sign translation practical for education and accessibility teams. If you’re in education, NGOs, or customer support, this case shows what’s possible with AI-powered business solutions for inclusive communication.",
+    "buttonText": "Download Full Case Study"
+  }
+}

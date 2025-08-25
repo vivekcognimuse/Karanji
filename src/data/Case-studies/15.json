@@ -1,0 +1,89 @@
+{
+  "card": {
+    "title": "Cybersecurity Awareness Game",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "Interactive",
+        "number": "12 Mini-Games"
+      },
+      {
+        "text": "On time",
+        "number": "Delivery"
+      }
+    ],
+    "description": "An interactive, browser-based cybersecurity awareness game that uses scenario-driven mini-games and light sci-fi storytelling to teach real-world threats (phishing, weak passwords, unsafe remote work, delayed updates)."
+  },
+  "caseStudyPage": {
+    "overview": {
+      "title": "Overview",
+      "text": "In response to the growing need for engaging and effective cybersecurity training, we developed an interactive web-based game designed to educate employees about key cyber threats through immersive, scenario-driven gameplay."
+    },
+    "objective": {
+      "title": "Objective",
+      "text": "To transform traditional cybersecurity education into an engaging experience that promotes long-term retention and behavioral change, using interactivity, humor, and challenge-based learning."
+    },
+    "targetAudience": {
+      "title": "Target Audience",
+      "text": "Global workforce across departments and regions, new joiners, existing employees requiring cybersecurity refreshers, and non-technical staff needing practical awareness of evolving cyber threats."
+    },
+    "problemStatement": {
+      "title": "Problem Statement",
+      "text": "Conventional training methods-such as static e-learning modules or webinars-often fail to capture attention or inspire proactive cybersecurity behaviors. Employees found the content too dry, technical, or disconnected from real-life scenarios. This created vulnerabilities such as weak password practices, poor email hygiene, misuse of public Wi-Fi, unsafe remote work habits, delay in software updates and patching, and lack of awareness of insider threats."
+    },
+    "solution": {
+      "title": "Solution Provided",
+      "text": "We created a browser-based interactive experience where users explore a virtual cyber-themed world divided into multiple levels, each addressing a specific cybersecurity concept. The learning is delivered through mini-games, which simulate real-world threat scenarios in a fun and memorable way.",
+      "keyFeatures": [
+        "Three Themed Worlds: Represent escalating complexity of cybersecurity awareness-from foundational practices to advanced threat response.",
+        "12 Interactive Mini-Games: Each level focuses on one core cybersecurity threat (e.g., phishing, ransomware, password cracking, remote access safety).",
+        "Humorous NPC Scenarios: Characters demonstrate common workplace mistakes, allowing players to identify and correct them.",
+        "End-of-World Challenges: Each world concludes with a high-stakes challenge to reinforce cumulative learning in a gamified format."
+      ]
+    },
+    "gameplayExperience": {
+      "title": "Gameplay Experience (High-Level Description)",
+      "details": [
+        "Exploration: Navigate through digital landscapes, interact with in-game characters, and uncover hidden threats.",
+        "Mini-Games: Short, focused activities like identifying phishing emails, creating strong passwords, securing remote systems, and more.",
+        "Combat Mechanics (Gamified): Use metaphorical tools such as guns, shields, blockers, and scanners to neutralize digital threats.",
+        "Progression: Players earn points, unlock new areas, and gain in-game rewards as they master each concept."
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Platform: WebGL",
+      "details": [
+        "Duration: Each session lasts ~30–40 minutes with save/resume functionality.",
+        "Scalable Deployment: Accessible globally via browser; suitable for desktop and mobile.",
+        "Language Support: Designed with future multilingual rollout in mind."
+      ]
+    },
+    "engagementAndRewards": {
+      "title": "Engagement and Rewards",
+      "details": [
+        "Built-in leaderboards to promote friendly competition.",
+        "Badges and Certificates awarded for completing challenges.",
+        "Opportunities for group play and internal gamified campaigns."
+      ]
+    },
+    "results": {
+      "title": "Results",
+      "text": "Increased participation and voluntary engagement with cybersecurity training.",
+      "details": [
+        "Improved retention of critical security practices.",
+        "Positive user feedback for making learning 'fun, interactive, and relatable'.",
+        "Enhanced organizational resilience against common cyber threats."
+      ]
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "text": "This gamified training initiative proved that cybersecurity learning doesn't have to be dry or intimidating. By combining real-world concepts with sci-fi storytelling and interactive mini-games, we successfully created a scalable, enjoyable, and impactful learning solution for the modern workforce."
+    }
+  },
+  "cta": {
+    "title": "Access Cybersecurity Awareness Game Story",
+    "description": "See how we transformed cybersecurity education from dry to dynamic, using gamified learning and interactive mini-games to engage employees and reinforce critical security practices. If you’re in corporate training or IT security, this case shows how cybersecurity eLearning solutions can be fun, impactful, and scalable for global teams.",
+    "buttonText": "Download Full Case Study"
+  }
+}
