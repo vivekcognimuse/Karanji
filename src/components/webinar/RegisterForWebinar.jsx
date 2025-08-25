@@ -1,13 +1,18 @@
-//components/webinar/RegisterForWebinar.jsx
+"use client";
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "../CustomTags";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 export default function RegisterForWebinar({ data }) {
   return (
-    <section className="py-20">
-      <div className=" mx-auto ">
-        {/* Title and Description Above */}
-        <div className=" mb-16">
+    <section
+      className="py-20"
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
+      <div className="mx-auto">
+        {/* Title and Description with Reveal Animation */}
+        <div className="mb-16" data-reveal data-reveal-dir="up">
           <h3 className="text-4xl font-bold text-gray-900 mb-4">
             {data.title}
           </h3>
@@ -15,12 +20,19 @@ export default function RegisterForWebinar({ data }) {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-          {/* Left Column */}
-          <div className="flex flex-col justify-between space-y-8">
-            {/* Features List */}
+          {/* Left Column with Reveal Animation */}
+          <div
+            className="flex flex-col justify-between space-y-8"
+            data-reveal
+            data-reveal-dir="up">
+            {/* Features List with Reveal Animation */}
             <div className="space-y-6">
               {data.features.map((feature, idx) => (
-                <div key={idx} className="space-y-2">
+                <div
+                  key={idx}
+                  className="space-y-2"
+                  data-reveal
+                  data-reveal-dir="up">
                   <h4 className="text-xl font-semibold text-gray-900">
                     {feature.title}
                   </h4>
@@ -29,10 +41,13 @@ export default function RegisterForWebinar({ data }) {
               ))}
             </div>
 
-            {/* Register for Free Box */}
-            <div className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl">
+            {/* Register for Free Box with Reveal Animation */}
+            <div
+              className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl"
+              data-reveal
+              data-reveal-dir="up">
               <div className="text-center">
-                <h5 className="  text-black-950 mb-4">REGISTER FOR FREE</h5>
+                <h5 className="text-black-950 mb-4">REGISTER FOR FREE</h5>
                 <P3 className="text-black-700 text-lg ">
                   Transform Your Workforce with Karanji’s Virtual Engine
                   Workshop Today
@@ -41,10 +56,10 @@ export default function RegisterForWebinar({ data }) {
             </div>
           </div>
 
-          {/* Right Column - Form */}
-          <div className="pl-12 flex flex-col">
+          {/* Right Column - Form with Reveal Animation */}
+          <div className="pl-12 flex flex-col" data-reveal data-reveal-dir="up">
             <form className="space-y-6 flex-grow flex flex-col">
-              <div>
+              <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
                   Name *
                 </label>
@@ -55,7 +70,7 @@ export default function RegisterForWebinar({ data }) {
                 />
               </div>
 
-              <div>
+              <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
                   Company *
                 </label>
@@ -66,7 +81,7 @@ export default function RegisterForWebinar({ data }) {
                 />
               </div>
 
-              <div>
+              <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
                   Email *
                 </label>
@@ -77,7 +92,7 @@ export default function RegisterForWebinar({ data }) {
                 />
               </div>
 
-              <div className="flex-grow">
+              <div className="flex-grow" data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
                   Phone Number *
                 </label>
@@ -95,6 +110,9 @@ export default function RegisterForWebinar({ data }) {
           </div>
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 }

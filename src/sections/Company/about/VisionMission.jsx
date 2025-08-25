@@ -2,6 +2,8 @@
 import React from "react";
 import VisionCard from "./VisionCard";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+
 // Local icon components
 const VisionIcon = () => (
   <Image
@@ -42,13 +44,22 @@ const VisionMission = ({ data }) => {
   };
 
   return (
-    <section className="py-12 px-4">
+    <section
+      className="py-12 px-4"
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
-          <VisionCard {...visionData} />
-          <VisionCard {...missionData} />
+          {/* Vision Card */}
+          <VisionCard {...visionData} data-reveal data-reveal-dir="up" />
+          {/* Mission Card */}
+          <VisionCard {...missionData} data-reveal data-reveal-dir="up" />
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 };

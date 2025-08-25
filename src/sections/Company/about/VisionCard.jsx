@@ -1,11 +1,14 @@
-// VisionCard.jsx
 "use client";
 import { P3 } from "@/components/CustomTags";
 import React from "react";
 
 const VisionCard = ({ icon, title, description }) => {
   return (
-    <div className="vision-card rounded-2xl p-6 flex-1">
+    <div
+      className="vision-card rounded-2xl p-6 flex-1"
+      data-reveal
+      data-reveal-dir="up" // Apply the animation (from bottom)
+    >
       {/* Icon */}
       <div className="mb-6">
         <div className="w-12 h-12 flex items-center justify-center">{icon}</div>

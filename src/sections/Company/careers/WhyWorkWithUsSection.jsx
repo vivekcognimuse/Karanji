@@ -1,11 +1,16 @@
+"use client";
 import React from "react";
 import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+
 // Reusable Card Component
 const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
   return (
     <div
       className={`relative overflow-hidden rounded-[16px] max-w-xs shadow-lg ${className}`}
+      data-reveal
+      data-reveal-dir="up" // Added reveal direction
     >
       {/* Background and border */}
       <div
@@ -13,8 +18,7 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
         style={{
           background:
             "linear-gradient(90deg, rgba(255, 209, 193, 0.2) 28.11%, rgba(206, 220, 255, 0.2) 70.88%)",
-        }}
-      >
+        }}>
         {/* Gradient border overlay */}
         <div
           className="absolute inset-0 rounded-[16px] pointer-events-none"
@@ -72,10 +76,14 @@ const WhyWorkWithUsSection = ({
   className = "",
 }) => {
   return (
-    <section className={` ${className}`}>
+    <section
+      className={` ${className}`}
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8" data-reveal data-reveal-dir="up">
           <h4 className=" text-black-800 mb-8">{title}</h4>
           <P3 className="text-black-950 mx-auto">{description}</P3>
         </div>
@@ -98,11 +106,16 @@ const WhyWorkWithUsSection = ({
                 image={card.image}
                 className="transform hover:scale-105 transition-transform duration-300"
                 style={{ transform: scatter }}
+                data-reveal
+                data-reveal-dir="up" // Apply the animation to each card
               />
             );
           })}
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 };

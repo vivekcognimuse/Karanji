@@ -2,6 +2,7 @@ import { P2, P3, P4 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import React from "react";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const DigitalTransformation = ({ data }) => {
   const { sectionTitle, sectionSubtitle, digitalCards } = data;
@@ -11,7 +12,7 @@ const DigitalTransformation = ({ data }) => {
     const { id, title, icon, points } = card;
 
     return (
-      <div className="w-full px-4 md:px-0">
+      <div className="w-full px-4 md:px-0" data-reveal data-reveal-dir="up">
         <div className="bg-white rounded-xl w-full max-w-[20rem] mx-auto border border-black/10 bg-[url('/gradients/Card default.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative h-full">
           <div className="flex mb-4">
             <div className="rounded-full">
@@ -38,10 +39,17 @@ const DigitalTransformation = ({ data }) => {
   };
 
   return (
-    <section className="">
+    <section
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="mx-auto text-left mb-16">
-        <h3 className="">{sectionTitle}</h3>
-        <P2 className="mt-2">{sectionSubtitle}</P2>
+        <h3 className="mb-4" data-reveal data-reveal-dir="up">
+          {sectionTitle}
+        </h3>
+        <P2 className="mt-2" data-reveal data-reveal-dir="up">
+          {sectionSubtitle}
+        </P2>
       </div>
 
       {/* Desktop Grid - Hidden on Mobile */}
@@ -50,7 +58,8 @@ const DigitalTransformation = ({ data }) => {
           <div
             key={id}
             className="bg-white rounded-xl w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/Card default.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
-          >
+            data-reveal
+            data-reveal-dir="up">
             <div className="flex mb-4">
               <div className="rounded-full">
                 <Image
@@ -91,8 +100,7 @@ const DigitalTransformation = ({ data }) => {
                 autoPlayInterval={6000}
                 showDots={true}
                 showArrows={false}
-                className="w-full"
-              >
+                className="w-full">
                 {digitalCards.map((card) => (
                   <DigitalCard key={card.id} card={card} />
                 ))}
@@ -101,6 +109,9 @@ const DigitalTransformation = ({ data }) => {
           </>
         )}
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 };

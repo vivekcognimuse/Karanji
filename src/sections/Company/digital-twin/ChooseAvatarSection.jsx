@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P3, P4 } from "@/components/CustomTags";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 // Single AvatarCard component with iFrame isolation
 function AvatarCard({ avatar, description }) {
@@ -12,9 +13,6 @@ function AvatarCard({ avatar, description }) {
   // Listen for messages from iframe
   useEffect(() => {
     const handleMessage = (event) => {
-      // Verify origin if needed for security
-      // if (event.origin !== window.location.origin) return;
-
       if (
         event.data.type === "agent-loaded" &&
         event.data.agent === avatar.name.toLowerCase()
@@ -49,7 +47,11 @@ function AvatarCard({ avatar, description }) {
   }, []);
 
   return (
-    <div className="relative w-1/2 flex-shrink-0">
+    <div
+      className="relative w-1/2 flex-shrink-0"
+      data-reveal
+      data-reveal-dir="up" // Add data-reveal for animation
+    >
       <div className="relative w-full h-full rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden">
         {/* Online Status */}
         <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
@@ -60,7 +62,6 @@ function AvatarCard({ avatar, description }) {
         {/* Avatar Container */}
         <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
           {showAgent && avatar.iframeFile ? (
-            // Use iframe with isolated HTML file
             <iframe
               src={avatar.iframeFile}
               className="w-full h-full rounded-2xl border border-black-200 shadow-lg"
@@ -71,7 +72,6 @@ function AvatarCard({ avatar, description }) {
               sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups"
             />
           ) : (
-            // Fallback to image while loading
             <div className="relative w-full h-full">
               <Image
                 src={avatar.image}
@@ -143,7 +143,6 @@ export default function ChooseAvatarSection() {
       ctaText: "Talk to Our CEO",
       ctaLink: "https://linkly.link/2BKPj",
     },
-
     {
       name: "Srikant",
       description: `At Karanji, we created Srikant's (our Solution Architect) clone to help our team tackle AI implementation challenges for clients in Aviation, Healthcare, Oil & Gas, Logistics, and Education. You can ask Srikant real-world questions like, "How can a mid-sized healthcare provider automate customer service while ensuring compliance?" and get customized frameworks, templates, and examples. Srikant's clone cut our solutioning TAT by 50%.`,
@@ -170,6 +169,8 @@ export default function ChooseAvatarSection() {
           avatar={avatar}
         />
       ))}
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </div>
   );
 }

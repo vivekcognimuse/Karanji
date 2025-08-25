@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { P3 } from "@/components/CustomTags";
 import MemberCard from "./MemberCard";
 import CarouselContainer from "@/components/animations/Carousal";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const TeamSection = ({ sections = [] }) => {
   const [expandedSection, setExpandedSection] = useState(null);
@@ -33,11 +34,11 @@ const TeamSection = ({ sections = [] }) => {
               background:
                 "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
             }}
-          >
+            data-reveal
+            data-reveal-dir="up">
             <button
               className="w-full py-12 text-left focus:outline-none"
-              onClick={() => toggleSection(index)}
-            >
+              onClick={() => toggleSection(index)}>
               <div className="flex items-start pr-4 ">
                 <div className="flex-1">
                   <h3 className="font-normal text-black mb-4 leading-tight">
@@ -58,8 +59,7 @@ const TeamSection = ({ sections = [] }) => {
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                    stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -104,14 +104,12 @@ const TeamSection = ({ sections = [] }) => {
           autoPlay={false}
           showDots={true}
           showArrows={false}
-          className=""
-        >
+          className="">
           {(sections || []).map((section, index) => (
             <div key={index} className="border border-gray-200 rounded-lg mx-4">
               <button
                 className="w-full py-6 px-4 text-left focus:outline-none"
-                onClick={() => toggleSection(index)}
-              >
+                onClick={() => toggleSection(index)}>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <h3 className="font-normal text-black leading-tight pr-4 text-xl">
@@ -123,8 +121,7 @@ const TeamSection = ({ sections = [] }) => {
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
+                      stroke="currentColor">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -165,6 +162,9 @@ const TeamSection = ({ sections = [] }) => {
           ))}
         </CarouselContainer>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </div>
   );
 };

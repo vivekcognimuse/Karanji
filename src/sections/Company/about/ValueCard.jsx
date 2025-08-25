@@ -2,12 +2,15 @@
 import React from "react";
 import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
+
 const ValueCard = ({ icon, title, description, isFullWidth = false }) => {
   return (
     <div
       className={`value-card rounded-lg p-6 ${
         isFullWidth ? "col-span-2 text-center" : ""
       }`}
+      data-reveal
+      data-reveal-dir="up" // Add data-reveal and direction for animation
     >
       {/* Icon */}
       <div className={`mb-4${isFullWidth ? " flex justify-center" : ""}`}>
@@ -71,4 +74,5 @@ const ValueCard = ({ icon, title, description, isFullWidth = false }) => {
     </div>
   );
 };
+
 export default ValueCard;
