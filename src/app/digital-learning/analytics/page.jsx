@@ -91,13 +91,13 @@ const serviceOfferingsData = {
   ],
 };
 const ctaData = {
-  title: "Transform Your Corporate Learning Today",
+  title: "Ready to Transform Learning Outcomes?",
   description:
-    "Experience the power of a fully-customizable LMS that adapts to your organization’s unique needs",
-  PrimaryButtonText: null, //"Take a Demo on K-nest LMS"
-  PrimaryButtonLink: null, //"https://knestlms.com/try-demo"
-  SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/contact",
+    "Let our analytics experts help you enhance learning effectiveness through data-driven insights & personalized experiences.",
+  PrimaryButtonText: "Schedule a Consultation", //"Take a Demo on K-nest LMS"
+  PrimaryButtonLink: "/contact", //"https://knestlms.com/try-demo"
+  SecondaryButtonText: null,
+  SecondaryButtonLink: null,
 };
 const learningChallenges = {
   title: "Learning Challenges",

@@ -226,10 +226,10 @@ const CTAData = {
   title: "Looking to Enrich Your Learning Content",
   description:
     "Partner with our experts to craft impactful, learner-centric content through innovative design, agile development, and scalable talent support.",
-  PrimaryButtonText: null, // Optional, if no primary button is needed
-  PrimaryButtonLink: null, // Optional
-  SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/contact",
+  PrimaryButtonText: "Schedule a Consultation", // Optional, if no primary button is needed
+  PrimaryButtonLink: "/contact", // Optional
+  // SecondaryButtonText: "Schedule a Consultation",
+  // SecondaryButtonLink: "/contact",
 };
 const contentFormatsData = {
   title: "Our Content Formats",

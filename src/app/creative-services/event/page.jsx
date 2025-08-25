@@ -221,10 +221,10 @@ const CTAData = {
   title: "Ready to create an unforgettable event ?",
   description:
     "Let’s bring your vision to life with expert coordination—from creative design to flawless execution.",
-  PrimaryButtonText: null,
-  PrimaryButtonLink: null,
-  SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/contact",
+  PrimaryButtonText: "Schedule a Consultation",
+  PrimaryButtonLink: "/contact",
+  SecondaryButtonText: null,
+  SecondaryButtonLink: null,
 };
 
 export const metadata = {

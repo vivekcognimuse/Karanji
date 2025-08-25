@@ -120,15 +120,13 @@ const CTA = ({ className = "", data }) => {
         <P2>{description}</P2>
         <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
           {PrimaryButtonText && (
-            <Button onClick={handlePrimaryButtonClick}>
+            <Button variant="secondary" onClick={handlePrimaryButtonClick}>
               {PrimaryButtonText}
             </Button>
           )}
           {SecondaryButtonText && SecondaryButtonLink && (
             <Link href={SecondaryButtonLink}>
-              <Button href={SecondaryButtonLink} variant="secondary">
-                {SecondaryButtonText}
-              </Button>
+              <Button href={SecondaryButtonLink}>{SecondaryButtonText}</Button>
             </Link>
           )}
         </div>

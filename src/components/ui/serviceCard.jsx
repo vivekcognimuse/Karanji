@@ -25,7 +25,7 @@ export const ServiceCard = memo(function ServiceCard({
           <SingleServiceCard
             bgImage={bgImage}
             data={service}
-            key={service.id || i}
+            key={i}
             index={i}
             data-reveal
             image={service.image}
