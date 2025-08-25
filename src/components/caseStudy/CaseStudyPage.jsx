@@ -180,12 +180,12 @@ const CaseStudyPage = ({ data }) => {
                       <ScrollSpySidebar headings={headings} />
                     </div>
                   )}
-                  <div>
+                  {/* <div>
                     <CaseStudySidebarMeta
                       domain={data.domain}
                       targetAudience={data.targetAudience || []}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -206,12 +206,12 @@ const CaseStudyPage = ({ data }) => {
                   <ScrollSpySidebar headings={headings} />
                 </div>
               )}
-              <div className="rounded-lg p-4 shadow-sm">
+              {/* <div className="rounded-lg p-4 shadow-sm">
                 <CaseStudySidebarMeta
                   domain={data.domain}
                   targetAudience={data.targetAudience || []}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

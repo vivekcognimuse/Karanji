@@ -18,7 +18,7 @@ const NextUpCard = ({ title, description, image, onClick, href }) => {
               unoptimized
               src="/Icons/arrowupicon.svg"
               alt="Arrow"
-              className="w-12 h-12"
+              className="w-12 h-12 object-cover"
             />
           </div>
         </div>
