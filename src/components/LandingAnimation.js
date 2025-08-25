@@ -7,6 +7,7 @@ import FinalLogo from "./FinalLogo";
 import Button from "./ui/Button";
 import { GetLeftContent } from "@/sections/home/LeftContent";
 import { GetRightContent } from "@/sections/home/RightContent";
+import Link from "next/link";
 
 // Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
@@ -456,7 +457,9 @@ const LogoStoryAnimation = () => {
             Innovate.Design.Transform
           </h3>
           <div ref={buttonRef}>
-            <Button className="">Talk to an Expert</Button>
+            <Link href="/company/digital-twin">
+              <Button className="">Talk to an Expert</Button>
+            </Link>
           </div>
         </div>
       </div>
