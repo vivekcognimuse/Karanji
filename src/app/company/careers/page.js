@@ -58,9 +58,6 @@ const ctaData = {
 export default function careersPage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       {/* Wrapper for all components except the last CTA */}
       <div
         className="p-10 my-auto rounded-[32px]"

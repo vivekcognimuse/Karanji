@@ -316,13 +316,17 @@ const howItWorks = {
     description: "Learners are evaluated at entry",
   },
 };
+
+export const metadata = {
+  title:
+    "Advanced Learning Analytics: Data-Driven Insights for Personalized Learning & Outcomes",
+  description:
+    "Transform learning outcomes with advanced analytics. Gain actionable insights, forecast learner success, and deliver personalized experiences through data-driven decision-making",
+};
 const ContentDesign = () => {
   return (
     <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection data={heroData} bgImage="/hero/1.Analytics banner .webp" />
       <LearningChallenges data={learningChallenges} />
       <div id="analytics-service-offerings">

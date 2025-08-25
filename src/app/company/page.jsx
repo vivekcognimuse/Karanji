@@ -27,21 +27,20 @@ import Head from "next/head";
 //     href: "/company/careers",
 //   },
 // ];
-
+const data = await fetchFromStrapi(
+  "company-landing",
+  { populate: "*" },
+  "https://calm-joy-61798b158b.strapiapp.com/api"
+);
+if (!data) {
+  console.error("No data object provided for HeroSection.");
+}
+console.log("company landing data:", data);
+const { heroData, cardsData, teamData } = data || {};
 export default async function companyLanding() {
-  const data = await fetchFromStrapi("company-landing");
-  if (!data) {
-    console.error("No data object provided for HeroSection.");
-    return null; // Or return a fallback UI component
-  }
-  console.log("company landing data:", data);
-  const { heroData, cardsData, teamData } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection
         data={heroData}
         bgImage={"/Company/Animation/5.png"}

@@ -6,6 +6,12 @@ import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import Head from "next/head";
 
+export const metadata = {
+  title:
+    "AI Consulting, XR & Digital Twin Solutions | Future-Ready Technology Services",
+  description:
+    "Transform your business with our AI consulting, XR/VR experiences, and digital twin technology. Drive innovation, optimize operations, and accelerate digital transformation.",
+};
 export default async function AIAdvisoryPage() {
   const data = await fetchFromStrapi("ai-advisory");
   if (!data) {
@@ -23,9 +29,6 @@ export default async function AIAdvisoryPage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
-        <meta name="robots" content="noindex, nofollow" />
-      </Head>
       <HeroSection data={hero} bgImage="/hero/AI advisory.webp" />
       <div id="ai-service-offerings">
         <ServiceOfferings

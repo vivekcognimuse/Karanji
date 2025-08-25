@@ -87,7 +87,7 @@ body {
 
 /* Headings (Albert Sans) */
 h1 {
-  @apply font-sans text-black  leading-tight text-5xl  sm:text-6xl lg:text-8xl  font-normal;
+  @apply font-sans text-black  leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)]  font-normal;
 }
 
 h2 {
@@ -143,4 +143,27 @@ h5 {
       transparent 83%
     );
   background-blend-mode: overlay, normal, normal, normal;
+}
+
+@media (hover: hover) {
+  .single-service-card:hover .hover-content {
+    filter: none;
+  }
+
+  /* Optional: If you have specific hover classes that need to be enforced */
+  .single-service-card:hover .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+
+  .single-service-card:hover .group-hover\:opacity-0 {
+    opacity: 0 !important;
+  }
+
+  .single-service-card:hover .group-hover\:scale-100 {
+    transform: scale(1) !important;
+  }
+
+  .single-service-card:hover .group-hover\:bg-white\/95 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
 }

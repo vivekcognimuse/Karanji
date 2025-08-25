@@ -1,7 +1,7 @@
 export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   baseUrl =
     baseUrl ||
-    "https://calm-joy-61798b158b.strapiapp.com/api" ||
+    "https://5d8e3945d355.ngrok-free.app/api" ||
     process.env.STRAPI_API_URL;
 
   if (!baseUrl) {
@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Default populate
-    revalidate = 60, // No revalidate by default (pure SSG)
+    revalidate = 3600, // No revalidate by default (pure SSG)
   } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
@@ -24,7 +24,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   if (revalidate !== undefined) {
     fetchOptions.next = { revalidate };
   }
-
+  console.log("Fetching from Strapi:", url.toString(), fetchOptions);
   try {
     const res = await fetch(url.toString(), fetchOptions);
 
