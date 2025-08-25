@@ -1,6 +1,7 @@
 import { P2, P3 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import React from "react";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const StrategicPriorities = ({ data }) => {
   const {
@@ -58,7 +59,7 @@ const StrategicPriorities = ({ data }) => {
 
   // Individual priority card component for carousel
   const PriorityCard = ({ card }) => (
-    <div className="w-full px-4">
+    <div className="w-full px-4" data-reveal data-reveal-dir="up">
       <div className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full h-full">
         {renderCardContent(card)}
       </div>
@@ -84,19 +85,30 @@ const StrategicPriorities = ({ data }) => {
   };
 
   return (
-    <section className="">
+    <section
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="mx-auto space-y-6">
         {/* Section Title */}
-        {sectionTitle && <h3 className="mb-4">{sectionTitle}</h3>}
+        {sectionTitle && (
+          <h3 className="mb-4" data-reveal data-reveal-dir="up">
+            {sectionTitle}
+          </h3>
+        )}
 
         {/* Section Description - only show if provided */}
         {sectionDescription && (
-          <P2 className="text-gray-600 mb-12">{sectionDescription}</P2>
+          <P2 className="text-gray-600 mb-12" data-reveal data-reveal-dir="up">
+            {sectionDescription}
+          </P2>
         )}
 
         {/* Business Priorities Title - only show if provided */}
         {businessPrioritiesTitle && (
-          <h4 className="mb-16 text-lg">{businessPrioritiesTitle}</h4>
+          <h4 className="mb-16 text-lg" data-reveal data-reveal-dir="up">
+            {businessPrioritiesTitle}
+          </h4>
         )}
 
         {/* Desktop Layout - Hidden on Mobile */}
@@ -108,7 +120,8 @@ const StrategicPriorities = ({ data }) => {
                 <div
                   key={card.id}
                   className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
-                >
+                  data-reveal
+                  data-reveal-dir="up">
                   {renderCardContent(card)}
                 </div>
               ))}
@@ -118,13 +131,13 @@ const StrategicPriorities = ({ data }) => {
           {/* Bottom row */}
           {bottomRowCards && bottomRowCards.length > 0 && (
             <div
-              className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}
-            >
+              className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}>
               {bottomRowCards.map((card) => (
                 <div
                   key={card.id}
                   className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
-                >
+                  data-reveal
+                  data-reveal-dir="up">
                   {renderCardContent(card)}
                 </div>
               ))}
@@ -160,8 +173,7 @@ const StrategicPriorities = ({ data }) => {
                 autoPlayInterval={5000}
                 showDots={true}
                 showArrows={false}
-                className="w-full"
-              >
+                className="w-full">
                 {allCards.map((card) => (
                   <PriorityCard key={card.id} card={card} />
                 ))}
@@ -170,6 +182,9 @@ const StrategicPriorities = ({ data }) => {
           })()}
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 };

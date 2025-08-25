@@ -3,6 +3,7 @@ import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import React, { useState } from "react";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const CTA = ({ className = "", data }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -115,22 +116,42 @@ const CTA = ({ className = "", data }) => {
 
   return (
     <>
-      <div className={`text-center ${className}`}>
-        <h3>{title}</h3>
-        <P2>{description}</P2>
+      <section
+        className={`text-center ${className}`}
+        data-reveal-amount="0.3"
+        data-reveal-duration="0.5"
+        data-reveal-stagger="0.12">
+        <h3 data-reveal data-reveal-dir="up">
+          {title}
+        </h3>
+        <P2 data-reveal data-reveal-dir="up">
+          {description}
+        </P2>
         <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
           {PrimaryButtonText && (
-            <Button variant="secondary" onClick={handlePrimaryButtonClick}>
+            <Button
+              variant="secondary"
+              onClick={handlePrimaryButtonClick}
+              data-reveal
+              data-reveal-dir="up">
               {PrimaryButtonText}
             </Button>
           )}
           {SecondaryButtonText && SecondaryButtonLink && (
             <Link href={SecondaryButtonLink}>
-              <Button href={SecondaryButtonLink}>{SecondaryButtonText}</Button>
+              <Button
+                href={SecondaryButtonLink}
+                data-reveal
+                data-reveal-dir="up">
+                {SecondaryButtonText}
+              </Button>
             </Link>
           )}
         </div>
-      </div>
+
+        {/* Include SectionReveal for triggering the animations */}
+        <SectionReveal />
+      </section>
 
       {/* Popup Overlay */}
       {isPopupOpen && (
@@ -148,10 +169,10 @@ const CTA = ({ className = "", data }) => {
               // Thank You Message
               <div className="text-center py-8">
                 <div className="mb-6">
-                  <p className="text-black/80  font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-8">
+                  <p className="text-black/80 font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-8">
                     Thank you for your interest.
                   </p>
-                  <p className="text-black/80 text-xl font-normal  mb-8">
+                  <p className="text-black/80 text-xl font-normal mb-8">
                     Our team will review your message and respond within 48
                     hours.
                   </p>
@@ -160,10 +181,10 @@ const CTA = ({ className = "", data }) => {
             ) : (
               // Form
               <>
-                <p className="text-black/80  font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-4">
+                <p className="text-black/80 font-sans text-2xl lg:text-5xl font-medium mb-4 lg:mb-4">
                   {popupTitle}
                 </p>
-                <p className="text-black/80 text-xl font-normal  mb-4">
+                <p className="text-black/80 text-xl font-normal mb-4">
                   {popupSubtitle}
                 </p>
 

@@ -1,9 +1,9 @@
 "use client";
-
 import { useMemo, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { P3, P4 } from "@/components/CustomTags";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 /** -------------------- Default Data (from the JD PDF) -------------------- */
 export const defaultCareers = [
@@ -161,8 +161,7 @@ export default function CareersTable({
                           "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
                       }
                     : undefined
-                }
-              >
+                }>
                 {c.name}
               </Button>
             ))}
@@ -178,8 +177,7 @@ export default function CareersTable({
             onClick={() => setFilterOpen(true)}
             className="flex items-center justify-between px-4 py-2 rounded-full text-black text-lg w-full cursor-pointer bg-white/70"
             aria-haspopup="dialog"
-            aria-expanded={filterOpen}
-          >
+            aria-expanded={filterOpen}>
             <span className="font-light text-xl py-1 px-1">
               {
                 (
@@ -194,15 +192,25 @@ export default function CareersTable({
 
         {/* Table Header */}
         <div className="hidden lg:grid grid-cols-6 px-4 pb-3 text-sm tracking-wide text-black/70 border-b border-black-900">
-          <P3 className="col-span-2">ROLE</P3>
-          <P3>TYPE</P3>
-          <P3>LOCATION</P3>
-          <P3>EXPERIENCE</P3>
-          <P3 className="text-right">DESCRIPTION</P3>
+          <P3 className="col-span-2" data-reveal data-reveal-dir="up">
+            ROLE
+          </P3>
+          <P3 data-reveal data-reveal-dir="up">
+            TYPE
+          </P3>
+          <P3 data-reveal data-reveal-dir="up">
+            LOCATION
+          </P3>
+          <P3 data-reveal data-reveal-dir="up">
+            EXPERIENCE
+          </P3>
+          <P3 className="text-right" data-reveal data-reveal-dir="up">
+            DESCRIPTION
+          </P3>
         </div>
 
         {/* Rows */}
-        <div className="min-h-[200px]">
+        <div className="min-h-[200px]" data-reveal data-reveal-dir="up">
           {filteredJobs.length === 0 ? (
             <div className="py-10 text-center text-gray-500">
               No open positions found in this category.
@@ -213,8 +221,7 @@ export default function CareersTable({
                 <div
                   key={job.id}
                   className="border-b border-black-200 cursor-pointer group"
-                  onClick={() => handleView(job)}
-                >
+                  onClick={() => handleView(job)}>
                   <div className="text-black/80 group-hover:text-white text-base lg:text-xl font-normal py-6 lg:py-8 px-4 group-hover:bg-black transition-colors duration-150">
                     {/* Desktop */}
                     <div className="hidden lg:grid grid-cols-6 items-center">
@@ -241,8 +248,7 @@ export default function CareersTable({
                             e.stopPropagation();
                             handleView(job);
                           }}
-                          aria-label={`View role: ${job.title}`}
-                        >
+                          aria-label={`View role: ${job.title}`}>
                           View Role
                         </Button>
                       </div>
@@ -261,8 +267,7 @@ export default function CareersTable({
                           onClick={(e) => {
                             e.stopPropagation();
                             handleView(job);
-                          }}
-                        >
+                          }}>
                           View Role
                         </Button>
                       </div>
@@ -282,18 +287,15 @@ export default function CareersTable({
           role="dialog"
           aria-modal="true"
           aria-label="Select category filter"
-          onClick={() => setFilterOpen(false)}
-        >
+          onClick={() => setFilterOpen(false)}>
           <div
             className="rounded-2xl bg-white w-full max-w-md overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center p-4">
               <h3 className="text-lg font-medium">Select Category</h3>
               <button
                 className="px-3 py-1 rounded-lg bg-black text-white"
-                onClick={() => setFilterOpen(false)}
-              >
+                onClick={() => setFilterOpen(false)}>
                 Close
               </button>
             </div>
@@ -309,8 +311,7 @@ export default function CareersTable({
                     selectedCategory === c.id
                       ? "bg-black text-white"
                       : "bg-gray-100 text-black"
-                  }`}
-                >
+                  }`}>
                   {c.name}{" "}
                   <span className="text-black/50">
                     ({c.id === "all" ? jobs.length : c.count})
@@ -321,6 +322,7 @@ export default function CareersTable({
           </div>
         </div>
       )}
+      <SectionReveal />
     </div>
   );
 }

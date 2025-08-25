@@ -1,12 +1,18 @@
-//components/webinar/WebinarAgenda.jsx
+"use client";
 import { P2, P3, P4 } from "@/components/CustomTags";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+
 export default function WebinarAgenda({ agenda }) {
   return (
-    <section className="py-16 px-6">
+    <section
+      className="py-16 px-6"
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="max-w-[1580px] mx-auto">
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-12" data-reveal data-reveal-dir="up">
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {agenda.title}
           </h3>
@@ -15,20 +21,27 @@ export default function WebinarAgenda({ agenda }) {
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Timeline Section */}
-          <div className="lg:col-span-2 relative">
+          <div
+            className="lg:col-span-2 relative"
+            data-reveal
+            data-reveal-dir="up">
             {/* Continuous Timeline Line */}
             <div className="absolute left-1 top-6 bottom-0 w-0.5 bg-black"></div>
 
             <div className="space-y-12">
               {agenda.sessions.map((session, index) => (
-                <div key={index} className="relative flex gap-6">
+                <div
+                  key={index}
+                  className="relative flex gap-6"
+                  data-reveal
+                  data-reveal-dir="up">
                   {/* Timeline Dot */}
                   <div className="relative z-10">
                     {/* Black Dot */}
                     <div className="w-3 h-3 bg-black rounded-full flex-shrink-0 mt-1"></div>
                   </div>
 
-                  {/* Clock Icon Circle - separate from timeline */}
+                  {/* Clock Icon Circle */}
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-b from-[#FFCFCF] to-[#D3C9FF] rounded-xl flex items-center justify-center">
                       <Image
@@ -55,7 +68,7 @@ export default function WebinarAgenda({ agenda }) {
                     </div>
 
                     {/* Title */}
-                    <h4 className="text-xl  text-gray-900 mb-3">
+                    <h4 className="text-xl text-gray-900 mb-3">
                       {session.title}
                     </h4>
 
@@ -81,7 +94,10 @@ export default function WebinarAgenda({ agenda }) {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:sticky lg:top-8 lg:self-start">
+          <div
+            className="lg:sticky lg:top-8 lg:self-start"
+            data-reveal
+            data-reveal-dir="up">
             <div className="bg-gradient-to-br from-[#F9DCDC] to-[#BAABFC] rounded-2xl p-6">
               {/* Header */}
               <div className="text-center mb-6">
@@ -96,7 +112,11 @@ export default function WebinarAgenda({ agenda }) {
                 {agenda.takeaways.slice(0, 4).map((takeaway, index) => {
                   const parts = takeaway.split(" – ");
                   return (
-                    <div key={index} className="flex items-start gap-3">
+                    <div
+                      key={index}
+                      className="flex items-start gap-3"
+                      data-reveal
+                      data-reveal-dir="up">
                       <div className="flex-shrink-0 mt-0.5">
                         <Image
                           height={40}
@@ -145,6 +165,9 @@ export default function WebinarAgenda({ agenda }) {
           </div>
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 }

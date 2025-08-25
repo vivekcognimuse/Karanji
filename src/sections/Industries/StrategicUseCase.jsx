@@ -5,6 +5,7 @@ import CarouselContainer from "@/components/animations/Carousal";
 import FilterDropdown from "@/components/ui/filter";
 import React, { useState } from "react";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const StrategicUseCase = ({ data, icon }) => {
   const {
@@ -44,7 +45,7 @@ const StrategicUseCase = ({ data, icon }) => {
     } = card;
 
     return (
-      <div className="w-full px-2 md:px-0">
+      <div className="w-full px-2 md:px-0" data-reveal data-reveal-dir="up">
         <div className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition h-full bg-white">
           <div className="flex items-center justify-between mb-2 text-sm font-semibold">
             <div className="p-2 rounded-full">
@@ -77,10 +78,25 @@ const StrategicUseCase = ({ data, icon }) => {
   };
 
   return (
-    <section className="py-16 px-6">
+    <section
+      className="py-16 px-6"
+      data-reveal-amount="0.3"
+      data-reveal-duration="0.5"
+      data-reveal-stagger="0.12">
       <div className="mx-auto">
-        <h3 className="mb-2">{sectionTitle}</h3>
-        <P2 className="mb-8">{sectionDescription}</P2>
+        {/* Section Title */}
+        {sectionTitle && (
+          <h3 className="mb-2" data-reveal data-reveal-dir="up">
+            {sectionTitle}
+          </h3>
+        )}
+
+        {/* Section Description - only show if provided */}
+        {sectionDescription && (
+          <P2 className="mb-8" data-reveal data-reveal-dir="up">
+            {sectionDescription}
+          </P2>
+        )}
 
         {/* Filter Buttons */}
         <div className="mb-10">
@@ -97,7 +113,8 @@ const StrategicUseCase = ({ data, icon }) => {
                     ? "bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] text-white px-4 py-2 rounded-full text-sm"
                     : "px-4 py-2 rounded-full text-sm"
                 }
-              >
+                data-reveal
+                data-reveal-dir="up">
                 {button.label}
               </Button>
             ))}
@@ -110,8 +127,7 @@ const StrategicUseCase = ({ data, icon }) => {
               showSelectedInButton={true}
               buttonText="Filter Categories"
               position="left"
-              className="w-full max-w-xs"
-            >
+              className="w-full max-w-xs">
               {filterButtons.map((button, idx) => (
                 <button
                   key={idx}
@@ -121,7 +137,8 @@ const StrategicUseCase = ({ data, icon }) => {
                       ? "bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] text-white font-medium"
                       : "text-gray-700"
                   }`}
-                >
+                  data-reveal
+                  data-reveal-dir="up">
                   {button.label}
                 </button>
               ))}
@@ -138,7 +155,8 @@ const StrategicUseCase = ({ data, icon }) => {
                 <div
                   key={card.id}
                   className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
-                >
+                  data-reveal
+                  data-reveal-dir="up">
                   <div className="flex items-center justify-between mb-2 text-sm font-semibold">
                     <div className="p-2 rounded-full">
                       <Image
@@ -177,8 +195,7 @@ const StrategicUseCase = ({ data, icon }) => {
                 autoPlayInterval={6000}
                 showDots={true}
                 showArrows={false}
-                className="w-full"
-              >
+                className="w-full">
                 {filteredCards.map((card, index) => (
                   <UseCaseCard
                     key={card.id}
@@ -196,6 +213,9 @@ const StrategicUseCase = ({ data, icon }) => {
           </div>
         )}
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </section>
   );
 };

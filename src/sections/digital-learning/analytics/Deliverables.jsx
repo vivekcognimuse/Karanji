@@ -2,6 +2,7 @@ import { P2, P3 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import Image from "next/image";
 import React from "react";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const Deliverables = ({ data }) => {
   const { heroImage, features, title, tag, subTitle, featureHeader } = data;
@@ -29,8 +30,13 @@ const Deliverables = ({ data }) => {
   );
 
   return (
-    <div className="">
-      <div className="mb-8 lg:mb-16">
+    <div>
+      {/* Main Content Section */}
+      <div
+        className="mb-8 lg:mb-16"
+        data-reveal-amount="0.3"
+        data-reveal-duration="0.5"
+        data-reveal-stagger="0.12">
         <h3 className="mb-4" data-reveal data-reveal-dir="up">
           {title}
         </h3>
@@ -43,7 +49,10 @@ const Deliverables = ({ data }) => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Side - Hero Image */}
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-red-700 to-red-500">
+        <div
+          className="relative rounded-2xl overflow-hidden "
+          data-reveal
+          data-reveal-dir="left">
           <Image
             src={heroImage}
             alt="Student learning with laptop"
@@ -56,13 +65,19 @@ const Deliverables = ({ data }) => {
         {/* Right Side - Features */}
         <div>
           {featureHeader && (
-            <h4 className="text-black mb-16">{featureHeader}</h4>
+            <h4 className="text-black mb-16" data-reveal data-reveal-dir="up">
+              {featureHeader}
+            </h4>
           )}
 
           {/* Desktop Grid - Hidden on Mobile */}
           <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="space-y-3">
+              <div
+                key={index}
+                className="space-y-3"
+                data-reveal
+                data-reveal-dir="up">
                 {/* Icon */}
                 <div className="w-12 h-12 flex items-center justify-center">
                   <Image
@@ -111,6 +126,9 @@ const Deliverables = ({ data }) => {
           </div>
         </div>
       </div>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </div>
   );
 };

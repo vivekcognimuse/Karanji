@@ -1,10 +1,12 @@
+"use client";
 import React, { useMemo } from "react";
 import ScrollSpySidebar from "../blog/ScrollSpySidebar";
 import DownloadSection from "../blog/downloadSection";
 import QuoteBlock from "../blog/QuoteBlock";
-import CaseStudySidebarMeta from "./CaseStudySidebarMeta";
 import { P1, P3 } from "../CustomTags";
 import Image from "next/image";
+import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+
 const slugify = (s) =>
   (s || "")
     .toLowerCase()
@@ -32,7 +34,6 @@ const CaseStudyPage = ({ data }) => {
       if (section.type === "quote") {
         currentQuoteGroup.push(section);
       } else {
-        // If we have accumulated quotes, add them as a group
         if (currentQuoteGroup.length > 0) {
           grouped.push({
             type: "quote_group",
@@ -44,7 +45,6 @@ const CaseStudyPage = ({ data }) => {
       }
     });
 
-    // Don't forget the last quote group if sections end with quotes
     if (currentQuoteGroup.length > 0) {
       grouped.push({
         type: "quote_group",
@@ -63,25 +63,31 @@ const CaseStudyPage = ({ data }) => {
             id={slugify(section.content)}
             className="mt-10 mb-4 scroll-mt-24"
             key={idx}
+            data-reveal
+            data-reveal-dir="up" // Added reveal animation
           >
             {section.content}
           </h4>
         );
       case "subheading":
         return (
-          <h5 className="mt-6 mb-2" key={idx}>
+          <h5 className="mt-6 mb-2" key={idx} data-reveal data-reveal-dir="up">
             {section.content}
           </h5>
         );
       case "text":
         return (
-          <P3 className=" mb-4" key={idx}>
+          <P3 className=" mb-4" key={idx} data-reveal data-reveal-dir="up">
             {section.content}
           </P3>
         );
       case "subtext":
         return (
-          <P3 className="text-black-500 mb-4" key={idx}>
+          <P3
+            className="text-black-500 mb-4"
+            key={idx}
+            data-reveal
+            data-reveal-dir="up">
             {section.content}
           </P3>
         );
@@ -90,7 +96,8 @@ const CaseStudyPage = ({ data }) => {
           <P3
             className="font-outfit text-lg font-light sm:text-xl list-disc pl-5 space-y-2 text-black-950/50 mb-4"
             key={idx}
-          >
+            data-reveal
+            data-reveal-dir="up">
             {(section.items || []).map((item, index) => (
               <li key={index}>{item}</li>
             ))}
@@ -98,7 +105,11 @@ const CaseStudyPage = ({ data }) => {
         );
       case "quote_group":
         return (
-          <div key={idx} className="relative mb-6 p-6">
+          <div
+            key={idx}
+            className="relative mb-6 p-6"
+            data-reveal
+            data-reveal-dir="up">
             <div
               className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
               style={{
@@ -115,8 +126,14 @@ const CaseStudyPage = ({ data }) => {
           </div>
         );
       case "quote":
-        // This case should not occur with grouping, but keeping as fallback
-        return <QuoteBlock quote={section.content} key={idx} />;
+        return (
+          <QuoteBlock
+            quote={section.content}
+            key={idx}
+            data-reveal
+            data-reveal-dir="up"
+          />
+        );
       default:
         return null;
     }
@@ -128,16 +145,20 @@ const CaseStudyPage = ({ data }) => {
         {/* Full Width Header */}
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-10">
-            <h2 className="mt-20 mb-4">{data.title}</h2>
-            <P1 className="text-black-500 text-base mb-4">
+            <h2 className="mt-20 mb-4" data-reveal data-reveal-dir="up">
+              {data.title}
+            </h2>
+            <P1
+              className="text-black-500 text-base mb-4"
+              data-reveal
+              data-reveal-dir="up">
               {data.description}
             </P1>
             <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
               {(data.tags || []).map((tag, idx) => (
                 <span
                   key={idx}
-                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1"
-                >
+                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1">
                   {tag}
                 </span>
               ))}
@@ -155,6 +176,8 @@ const CaseStudyPage = ({ data }) => {
             height={600}
             unoptimized
             className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
+            data-reveal
+            data-reveal-dir="up"
           />
         </div>
 
@@ -180,12 +203,6 @@ const CaseStudyPage = ({ data }) => {
                       <ScrollSpySidebar headings={headings} />
                     </div>
                   )}
-                  {/* <div>
-                    <CaseStudySidebarMeta
-                      domain={data.domain}
-                      targetAudience={data.targetAudience || []}
-                    />
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -206,12 +223,6 @@ const CaseStudyPage = ({ data }) => {
                   <ScrollSpySidebar headings={headings} />
                 </div>
               )}
-              {/* <div className="rounded-lg p-4 shadow-sm">
-                <CaseStudySidebarMeta
-                  domain={data.domain}
-                  targetAudience={data.targetAudience || []}
-                />
-              </div> */}
             </div>
           </div>
         </div>
@@ -229,6 +240,9 @@ const CaseStudyPage = ({ data }) => {
           />
         </div>
       </article>
+
+      {/* Include SectionReveal to trigger the animations */}
+      <SectionReveal />
     </div>
   );
 };

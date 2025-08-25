@@ -5,6 +5,7 @@ import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
+import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
 const heroData = {
   title: "Digital Evolution in Oil & Gas",
   subTitle:
@@ -263,7 +264,7 @@ export default async function Aviation() {
         data={heroData}
         bgImage={"/Industries & its pages/Oil and gas/Oil and gas banner.webp"}
       />
-      <Industrychallenge data={industryData} />
+      <Deliverables data={industryData} />
       <div id="digital-transformation">
         <DigitalTransformation data={digitalTransformationData} />
       </div>

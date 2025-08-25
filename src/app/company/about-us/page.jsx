@@ -226,7 +226,7 @@ export default function AboutUs() {
 
           <ValuesSection data={valuesData} />
           <NextUpSection heading="Next Up" cards={cardsData} />
-          <QuoteSection data={quoteData} />
+          <QuoteSection title={quoteData.title} />
         </div>
       </main>
 
