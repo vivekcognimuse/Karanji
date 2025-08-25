@@ -83,6 +83,7 @@ const TeamSection = ({ sections = [] }) => {
                       brief={member.brief}
                       image={member.image}
                       linkedin={member.linkedin}
+                      twinlink={member.twinlink}
                       showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
                       onConnect={() => handleConnect(member.name)}
                       onTalkToDigitalTwin={() =>

@@ -366,12 +366,20 @@ const strategicFramework = {
     },
   ],
 };
-
+const metadata = {
+  title:
+    "Healthcare Transformation Solutions: AI, XR & Digital Learning for Modern Healthcare",
+  description:
+  "Transform healthcare with AI, XR, and digital learning solutions. Address workforce gaps, reduce costs, and enhance patient engagement through immersive and intelligent technologies.",
+};
 export default async function HealthCare() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <Head>
+       <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* You can add more meta tags if needed */}
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <HeroSection

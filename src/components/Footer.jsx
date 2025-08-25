@@ -123,7 +123,7 @@ const Footer = () => {
         },
         {
           name: "Webinars",
-          href: "/webinar",
+          href: "/coming-soon",
         },
       ],
     },
@@ -165,7 +165,8 @@ const Footer = () => {
                   <li key={link.name} className="min-w-0">
                     <Link
                       href={link.href}
-                      className="text-black hover:underline font-normal font-outfit leading-relaxed tracking-wide break-words">
+                      className="text-black hover:underline font-normal font-outfit leading-relaxed tracking-wide break-words"
+                    >
                       <P4 className="break-words">{link.name}</P4>
                     </Link>
                   </li>
@@ -195,7 +196,8 @@ const Footer = () => {
               <Link
                 key={item}
                 href="/terms-policies"
-                className="text-sm font-light font-outfit underline leading-relaxed tracking-wide text-black/80 hover:text-black transition-colors">
+                className="text-sm font-light font-outfit underline leading-relaxed tracking-wide text-black/80 hover:text-black transition-colors"
+              >
                 {item}
               </Link>
             ))}
@@ -208,7 +210,8 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={social.href}
-                className="w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform text-black hover:text-gray-700">
+                className="w-8 h-8 flex items-center justify-center hover:scale-110 transition-transform text-black hover:text-gray-700"
+              >
                 <Icon icon={social.icon} className="size-8" />
               </a>
             ))}

@@ -13,6 +13,7 @@ const MemberCard = ({
   onTalkToDigitalTwin,
   showTalkButton = false,
   linkedin,
+  twinlink,
 }) => {
   return (
     <div className="member-card rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 shadow-lg">
@@ -55,15 +56,22 @@ const MemberCard = ({
           >
             Connect with {name.split(" ")[0]}
           </Button>
-          {showTalkButton && (
-            <Button
-              onClick={onTalkToDigitalTwin}
-              variant="secondary"
-              size="sm"
-              className="w-full sm:w-auto"
+          {showTalkButton && twinlink && (
+            <a
+              href={twinlink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full" // Make anchor tag a block-level element and take full width
             >
-              Talk to My Digital Twin
-            </Button>
+              <Button
+                onClick={onTalkToDigitalTwin}
+                variant="secondary"
+                size="sm"
+                className="w-full" // Ensure the button takes full width
+              >
+                Talk to My Digital Twin
+              </Button>
+            </a>
           )}
         </div>
       </div>

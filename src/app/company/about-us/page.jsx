@@ -41,7 +41,7 @@ const journeyData = {
   currentYear: "2007",
   currentYearDescription:
     "A seed was planted in 2007 with a goal to change the future of learning.",
-  nextYear: "2008",
+
   yearDescription:
     "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, & innovation in learning technology.",
   buttonText: "Continue the Journey",

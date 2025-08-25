@@ -9,7 +9,7 @@ const JourneySection = ({ data = {} }) => {
     subTitle = "",
     currentYear = "",
     currentYearDescription = "",
-    nextYear = "",
+
     yearDescription = "",
     buttonText = "Continue",
     iconSrc = "",
@@ -48,20 +48,6 @@ const JourneySection = ({ data = {} }) => {
           }}
         >
           {currentYear}
-        </div>
-
-        {/* Next Year positioned at right edge, same baseline */}
-        <div
-          className="absolute right-2 md:right-0 top-1 md:top-0 text-gray-400 leading-none"
-          style={{
-            fontFamily: "Inria Serif",
-            fontWeight: 700,
-            fontSize: "clamp(28px, 6vw, 64px)", // smaller min on phones
-            lineHeight: "1",
-            letterSpacing: "-0.05em",
-          }}
-        >
-          {nextYear}
         </div>
       </div>
 

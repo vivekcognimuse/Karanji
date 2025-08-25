@@ -249,12 +249,20 @@ const digitalTransformationData = {
     },
   ],
 };
-
+const metadata = {
+  title:
+    "Digital Transformation in Oil & Gas: AI, Predictive Maintenance & VR Training Solutions",
+  description:
+    "Accelerate digital transformation in Oil & Gas with AI-driven predictive maintenance, VR safety training, and digital twin solutions. Boost operational excellence, reduce costs, and enhance efficiency.",
+};
 export default async function Aviation() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
       <Head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* You can add more meta tags if needed */}
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <HeroSection

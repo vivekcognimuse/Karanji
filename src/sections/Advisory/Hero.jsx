@@ -7,14 +7,7 @@ import HeroReveal from "@/components/animations/HeroReveal";
 import ScrollButton from "@/components/ScrollButton";
 
 export default function HeroSection({ data, bgImage }) {
-  const {
-    title = data?.title || "",
-    ctaText,
-    ctaLink,
-    subTitle,
-    stats,
-    backgroundImage,
-  } = data;
+  const { title, ctaText, ctaLink, subTitle, stats, backgroundImage } = data;
   console.log("HeroSection data:", data);
 
   return (
