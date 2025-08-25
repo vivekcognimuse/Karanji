@@ -32,8 +32,8 @@ const HeroSection = ({ data }) => {
   }, []);
 
   return (
-    <section className="min-h-[calc(100vh-5rem)] items-center pb-32 flex flex-col lg:flex-row gap-8">
-      <div className="flex-1 lg:-mt-20 space-y-8">
+    <section className="lg:min-h-[calc(100vh-5rem)] items-center pb-10 lg:pb-32 flex flex-col lg:flex-row gap-8">
+      <div className="flex-1 mt-16 lg:-mt-20 space-y-8">
         <div className="space-y-4">
           <h1 className="">Let's Bring Your Vision to Life</h1>
           <P1 className="">
@@ -55,7 +55,7 @@ const HeroSection = ({ data }) => {
           </div>
         </div>
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
           <ScrollButton
             variant="primary"
             ctaLink="our-services"

@@ -247,10 +247,10 @@ const CTAData = {
   title: "Ready to create a professional audio content ?",
   description:
     "Let’s discuss your project. Whether launching a podcast or requiring sound design, our team is ready to deliver results.",
-  PrimaryButtonText: null,
-  PrimaryButtonLink: null,
-  SecondaryButtonText: "Schedule a Consultation",
-  SecondaryButtonLink: "/contact",
+  PrimaryButtonText: "Schedule a Consultation",
+  PrimaryButtonLink: "/contact",
+  SecondaryButtonText: null,
+  SecondaryButtonLink: null,
 };
 
 export const metadata = {

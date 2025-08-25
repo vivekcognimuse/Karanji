@@ -8,6 +8,7 @@ import SectionReveal from "@/components/animations/sectionReveal";
 import CarouselContainer from "@/components/animations/Carousal";
 import OfferingCard from "@/components/ui/OfferingCard";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
+import { AIAssessmentCard } from "@/components/ui/Ai-assesment";
 
 const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
   const { title, subTitle, bottomtext, list, ctaCard, icon, cards } =
@@ -50,7 +51,7 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
               </div>
             </div>
 
-            <div
+            {/* <div
               className={cn(
                 "bg-[url('/gradients/offering-card-gradient.svg')] max-w-xl col-span-6 lg:col-end-12 bg-contain bg-bottom bg-no-repeat border border-black-300 shadow-lg rounded-2xl p-8 text-center",
                 CtaClassName
@@ -62,7 +63,8 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
               <Link href={ctaCard.ctaLink} className="w-auto">
                 <Button className="">{ctaCard.ctaText}</Button>
               </Link>
-            </div>
+            </div> */}
+            <AIAssessmentCard className="max-w-xl" data={ctaCard} />
           </div>
         )}
         <div className=" hidden lg:block">
@@ -81,12 +83,12 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
         </div>
       </div>
 
-      <SectionReveal />
       {bottomtext && (
         <P2 className="mt-12 " data-reveal data-reveal-dir="up">
           {bottomtext}
         </P2>
       )}
+      <SectionReveal />
     </section>
   );
 };

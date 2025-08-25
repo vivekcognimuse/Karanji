@@ -661,7 +661,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex text-start md:items-center md:space-x-1">
+          <div className="hidden lg:flex text-start lg:items-center lg:space-x-1">
             {NAV_LINKS.map((item, index) => (
               <div
                 key={index}
@@ -880,7 +880,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-black hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
@@ -897,7 +897,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 animate-slideDown">
+        <div className="lg:hidden bg-white border-t border-gray-200 animate-slideDown">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {NAV_LINKS.map((item, index) => (
               <div key={index}>

@@ -1,7 +1,8 @@
 import { P2 } from "@/components/CustomTags";
-import { AIAssessmentCard, FeatureCard } from "@/components/ui/Service";
+import { FeatureCard } from "@/components/ui/Service";
 import SectionReveal from "@/components/animations/sectionReveal"; // <- client
 import { cn } from "@/lib/utils";
+import { AIAssessmentCard } from "@/components/ui/Ai-assesment";
 
 export default function TechnologyAdvantage({ data, className = "" }) {
   const { title, subTitle, ctaCard, cards = [] } = data;

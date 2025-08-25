@@ -176,7 +176,7 @@ const DigitalLearning = () => {
       <EcoSystem />
       <ConsultancyFramework />
       <Methodology column={true} data={methodologyData} />{" "}
-      {/* <SuccessStories data={successStoriesData} /> */}
+      <SuccessStories data={successStoriesData} />
     </div>
   );
 };

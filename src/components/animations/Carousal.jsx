@@ -469,7 +469,7 @@ const CarouselContainer = ({
 
         {/* Navigation Arrows */}
         {showArrows && totalSlides > 1 && (
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <button
               onClick={goToPrevious}
               className="absolute -left-0 top-1/2 -translate-y-1/2 z-10 bg-gradient from-[#D3C9FF] via-[#DCF0FF] to-[#FFCFCF]  rounded-full p-3 shadow-lg cursor-pointer transition-colors"
