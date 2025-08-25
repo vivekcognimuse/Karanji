@@ -183,19 +183,7 @@ export default function ChooseAvatarSection() {
       ctaText: "Talk to Our CEO",
       ctaLink: "https://linkly.link/2BKPj",
     },
-    {
-      name: "Prakash",
-      role: "CEO, Karanji",
-      image: "/Company/Digital Twins/Prakash digital twin.webp",
-      iframeFile: "/avatars/prakash-avatar.html", // Path to isolated HTML file
-      expertise: [
-        "Know About the Company",
-        "Explore Our Services",
-        "How Karanji solves your problem",
-      ],
-      ctaText: "Talk to Our CEO",
-      ctaLink: "https://linkly.link/2BKPj",
-    },
+
     {
       name: "Srikant",
       role: "Solution Architect, Karanji",
