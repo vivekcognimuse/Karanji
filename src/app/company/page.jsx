@@ -1,5 +1,5 @@
 import HeroSection from "@/sections/Advisory/ComapnyHero";
-// import QuoteSection from "@/sections/Company/about/quoteSection";
+import QuoteSection from "@/sections/Company/about/quoteSection";
 import { fetchFromStrapi } from "@/lib/strapi";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
 import Head from "next/head";
@@ -41,12 +41,8 @@ export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection
-        data={heroData}
-        bgImage={"/Company/Animation/5.png"}
-        bgOpacity={0.5}
-      />
-      {/* <QuoteSection title="Innovate. Design. Transform." /> */}
+      <HeroSection data={heroData} />
+      <QuoteSection title="Innovate. Design. Transform." />
       <NextUpSection
         title={teamData?.title}
         description={teamData?.description}

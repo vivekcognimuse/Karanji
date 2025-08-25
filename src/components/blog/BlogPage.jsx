@@ -50,6 +50,7 @@ const BlogPage = ({ blogs = [] }) => {
               alt={blog.title}
               height={600}
               width={800}
+              unoptimized
               className="w-full rounded-2xl my-6"
             />
           </div>

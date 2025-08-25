@@ -8,6 +8,22 @@
     "domain": "Technology Solutions"
   },
   {
+    "type": "Case Study",
+    "title": "K buddy AI Learning Companion",
+    "image": "/CaseStudyImages/_2_k_buddy_ai_learning_companion.webp",
+    "link": "/case-studies/3",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+    {
+    "type": "Case Study",
+    "title": "Outbound Calling Agent",
+    "image": "/CaseStudyImages/3_outbound_calling_agent_.webp",
+    "link": "/case-studies/4",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
     "type": "Webinar",  
     "title": "Future of Automotive Engineering Training",
     "image": "/caseStudies/Casestudy 1.webp",
@@ -25,10 +41,10 @@
   },
   {
     "type": "Case Study",
-    "title": "Outbound Calling Agent",
-    "image": "/CaseStudyImages/3_outbound_calling_agent_.webp",
-    "link": "/case-studies/4",
+    "title": "Futuristic Digital Payments Training Module",
+    "image": "/CaseStudyImages/7_futuristic_digital_payments_training_module.webp",
+    "link": "/case-studies/8",
     "cta": "View Case Study",
-    "domain": "Technology Solutions"
+    "domain": "Digital Learning"
   }
 ]

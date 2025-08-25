@@ -16,13 +16,14 @@ const Card = ({ resource, className }) => {
       style={{
         background:
           "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
-      }}>
+      }}
+    >
       <div className="relative w-full h-52">
         <Image
           src={resource.image}
           alt={resource.title}
           fill
-          className="object-cover aspect-square group-hover:scale-105 transition-transform duration-300"
+          className="object-cover object-center aspect-square group-hover:scale-105 transition-transform duration-300"
         />
         <span className="absolute top-3 left-3 bg-white/90 text-black-950 text-xs px-3 py-1 rounded-full font-medium">
           {resource.domain}
@@ -52,19 +53,62 @@ const Card = ({ resource, className }) => {
 };
 
 const ResourcesGrid = ({ resources }) => {
+  // Group resources into pairs for rows
+  const createRows = () => {
+    const rows = [];
+    for (let i = 0; i < resources.length; i += 2) {
+      const pair = resources.slice(i, i + 2);
+      rows.push(pair);
+    }
+    return rows;
+  };
+
+  const rows = createRows();
+
   return (
     <div className="space-y-6">
-      {/* First Row: Small (30%) + Large (70%) */}
-      <div className="grid grid-cols-12 gap-6">
-        <Card resource={resources[0]} className="col-span-12 md:col-span-5" />
-        <Card resource={resources[1]} className="col-span-12 md:col-span-7" />
-      </div>
+      {rows.map((row, rowIndex) => {
+        const isEvenRow = rowIndex % 2 === 0;
 
-      {/* Second Row: Large (70%) + Small (30%) - Reversed */}
-      <div className="grid grid-cols-12 gap-6">
-        <Card resource={resources[2]} className="col-span-12 md:col-span-7" />
-        <Card resource={resources[3]} className="col-span-12 md:col-span-5" />
-      </div>
+        return (
+          <div key={rowIndex} className="grid grid-cols-12 gap-6">
+            {row.length === 2 ? (
+              // Full row with two cards
+              isEvenRow ? (
+                // Even rows: Small (30%) + Large (70%)
+                <>
+                  <Card
+                    resource={row[0]}
+                    className="col-span-12 md:col-span-5"
+                  />
+                  <Card
+                    resource={row[1]}
+                    className="col-span-12 md:col-span-7"
+                  />
+                </>
+              ) : (
+                // Odd rows: Large (70%) + Small (30%) - Reversed
+                <>
+                  <Card
+                    resource={row[0]}
+                    className="col-span-12 md:col-span-7"
+                  />
+                  <Card
+                    resource={row[1]}
+                    className="col-span-12 md:col-span-5"
+                  />
+                </>
+              )
+            ) : (
+              // Single card in the last row (if odd number of resources)
+              <Card
+                resource={row[0]}
+                className="col-span-12 md:col-span-6 md:col-start-4"
+              />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };

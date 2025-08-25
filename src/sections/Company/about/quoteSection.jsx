@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 const QuoteSection = ({ title }) => {
   return (
-    <div className="w-full py-16 md:py-24">
+    <div className="w-full pb-24 md:pb-28">
       <div className="mx-auto px-4 md:px-8">
         {/* Quote Icon */}
         <div className="mb-8">
