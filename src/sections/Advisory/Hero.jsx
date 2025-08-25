@@ -49,7 +49,7 @@ export default function HeroSection({ data, bgImage }) {
       </div>
 
       {stats?.length > 0 && (
-        <div className="w-full pb-24 px-4 sm:px-6">
+        <div className="w-full hidden lg:block pb-24 px-4 sm:px-6">
           <div className={`gap-4 flex flex-col lg:justify-center lg:flex-row`}>
             {stats.map((card, index) => {
               const isThreeCards = stats.length === 3;

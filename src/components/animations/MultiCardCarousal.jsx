@@ -9,7 +9,7 @@ const MultiCardCarousel = ({
   autoPlayInterval = 5000,
   className = "",
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentScrollX, setCurrentScrollX] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [visibleCards, setVisibleCards] = useState(4);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -41,12 +41,52 @@ const MultiCardCarousel = ({
     }
   }, []);
 
+  // Get card visibility information
+  const getCardVisibility = useCallback(() => {
+    if (!scrollContainerRef.current || !carouselRef.current) return [];
+
+    const containerRect = carouselRef.current.getBoundingClientRect();
+    const cards = scrollContainerRef.current.querySelectorAll(".carousel-card");
+    const cardVisibility = [];
+
+    cards.forEach((card, index) => {
+      const cardRect = card.getBoundingClientRect();
+      const cardLeft = cardRect.left - containerRect.left;
+      const cardRight = cardRect.right - containerRect.left;
+
+      const isFullyVisible = cardLeft >= 0 && cardRight <= containerRect.width;
+      const isPartiallyVisible =
+        cardLeft < containerRect.width && cardRight > 0 && !isFullyVisible;
+      const isVisible = cardLeft < containerRect.width && cardRight > 0;
+
+      cardVisibility.push({
+        index,
+        card,
+        isFullyVisible,
+        isPartiallyVisible,
+        isVisible,
+        cardLeft,
+        cardRight,
+        cardWidth: cardRect.width,
+      });
+    });
+
+    return cardVisibility;
+  }, []);
+
   // Update navigation button states
   const updateNavigationState = useCallback(() => {
-    const maxIndex = Math.max(0, totalCards - visibleCards);
-    setCanScrollLeft(currentIndex > 0);
-    setCanScrollRight(currentIndex < maxIndex);
-  }, [currentIndex, totalCards, visibleCards]);
+    if (!scrollContainerRef.current || !carouselRef.current) return;
+
+    const containerWidth = carouselRef.current.offsetWidth;
+    const scrollWidth = scrollContainerRef.current.scrollWidth;
+
+    // Check if we can scroll left (not at the beginning)
+    setCanScrollLeft(currentScrollX > 0);
+
+    // Check if we can scroll right (not at the end)
+    setCanScrollRight(currentScrollX < scrollWidth - containerWidth - 1);
+  }, [currentScrollX]);
 
   // Initialize and handle resize
   useEffect(() => {
@@ -67,29 +107,25 @@ const MultiCardCarousel = ({
   }, [updateNavigationState]);
 
   // Scroll animation function
-  const scrollToIndex = useCallback(
-    (targetIndex) => {
+  const scrollToPosition = useCallback(
+    (targetX) => {
       if (!scrollContainerRef.current || isAnimating) return;
 
       setIsAnimating(true);
 
-      // Calculate scroll position
-      // Each card width + gap, but we need to account for the actual card width
-      const firstCard =
-        scrollContainerRef.current.querySelector(".carousel-card");
-      if (!firstCard) return;
-
-      const cardWidth = firstCard.offsetWidth;
-      const gap = 32; // 32px gap
-      const scrollDistance = targetIndex * (cardWidth + gap);
+      // Ensure we don't scroll beyond boundaries
+      const containerWidth = carouselRef.current.offsetWidth;
+      const scrollWidth = scrollContainerRef.current.scrollWidth;
+      const maxScroll = Math.max(0, scrollWidth - containerWidth);
+      const finalX = Math.max(0, Math.min(targetX, maxScroll));
 
       gsap.to(scrollContainerRef.current, {
-        x: -scrollDistance,
+        x: -finalX,
         duration: 0.6,
         ease: "power2.inOut",
         onComplete: () => {
           setIsAnimating(false);
-          setCurrentIndex(targetIndex);
+          setCurrentScrollX(finalX);
         },
       });
     },
@@ -100,37 +136,116 @@ const MultiCardCarousel = ({
   const goToNext = useCallback(() => {
     if (isAnimating || !canScrollRight) return;
 
-    // Scroll by (visible cards - 1) or remaining cards, whichever is smaller
-    const scrollAmount = Math.min(
-      visibleCards - 1,
-      totalCards - currentIndex - visibleCards
-    );
-    const nextIndex = Math.min(
-      currentIndex + scrollAmount,
-      totalCards - visibleCards
-    );
+    const cardVisibility = getCardVisibility();
+    if (cardVisibility.length === 0) return;
 
-    scrollToIndex(nextIndex);
-    setLastInteraction(Date.now());
+    // Find the first partially visible card on the right
+    let targetCard = null;
+    for (const cardInfo of cardVisibility) {
+      if (
+        cardInfo.isPartiallyVisible &&
+        cardInfo.cardRight > carouselRef.current.offsetWidth
+      ) {
+        targetCard = cardInfo;
+        break;
+      }
+    }
+
+    // If no partially visible card on the right, find the first completely hidden card
+    if (!targetCard) {
+      for (const cardInfo of cardVisibility) {
+        if (cardInfo.cardLeft >= carouselRef.current.offsetWidth) {
+          targetCard = cardInfo;
+          break;
+        }
+      }
+    }
+
+    if (targetCard) {
+      // Calculate scroll position to make this card the first visible card
+      const gap = 32; // 32px gap
+      const targetScrollX = currentScrollX + targetCard.cardLeft;
+
+      scrollToPosition(targetScrollX);
+      setLastInteraction(Date.now());
+    }
   }, [
-    currentIndex,
-    totalCards,
-    visibleCards,
+    currentScrollX,
     canScrollRight,
-    scrollToIndex,
     isAnimating,
+    getCardVisibility,
+    scrollToPosition,
   ]);
 
   const goToPrevious = useCallback(() => {
     if (isAnimating || !canScrollLeft) return;
 
-    // Scroll by (visible cards - 1) or to beginning, whichever is appropriate
-    const scrollAmount = Math.min(visibleCards - 1, currentIndex);
-    const prevIndex = Math.max(currentIndex - scrollAmount, 0);
+    const cardVisibility = getCardVisibility();
+    if (cardVisibility.length === 0) return;
 
-    scrollToIndex(prevIndex);
-    setLastInteraction(Date.now());
-  }, [currentIndex, visibleCards, canScrollLeft, scrollToIndex, isAnimating]);
+    const containerWidth = carouselRef.current.offsetWidth;
+
+    // Find the first partially visible card on the left
+    let targetCard = null;
+    for (let i = 0; i < cardVisibility.length; i++) {
+      const cardInfo = cardVisibility[i];
+      if (cardInfo.isPartiallyVisible && cardInfo.cardLeft < 0) {
+        targetCard = cardInfo;
+        break;
+      }
+    }
+
+    if (targetCard) {
+      // Calculate scroll position to make this card the last fully visible card
+      // Position it so its right edge aligns with the container's right edge
+      const targetScrollX = Math.max(
+        0,
+        currentScrollX + targetCard.cardRight - containerWidth
+      );
+
+      scrollToPosition(targetScrollX);
+      setLastInteraction(Date.now());
+    } else {
+      // If no partially visible card on the left, scroll back by container width worth of cards
+      // Find cards that would fit in one viewport width going backwards
+      let scrollDistance = 0;
+      let accumulatedWidth = 0;
+
+      // Find the first visible card
+      let firstVisibleIndex = -1;
+      for (let i = 0; i < cardVisibility.length; i++) {
+        if (cardVisibility[i].isVisible && cardVisibility[i].cardLeft >= 0) {
+          firstVisibleIndex = i;
+          break;
+        }
+      }
+
+      if (firstVisibleIndex > 0) {
+        // Go backwards and accumulate cards until we fill a viewport
+        for (let i = firstVisibleIndex - 1; i >= 0; i--) {
+          const cardWidth = cardVisibility[i].cardWidth + 32; // card width + gap
+          if (accumulatedWidth + cardWidth <= containerWidth) {
+            scrollDistance += cardWidth;
+            accumulatedWidth += cardWidth;
+          } else {
+            // This card would overflow, so include it partially to fill the viewport
+            scrollDistance += cardWidth;
+            break;
+          }
+        }
+
+        const targetScrollX = Math.max(0, currentScrollX - scrollDistance);
+        scrollToPosition(targetScrollX);
+        setLastInteraction(Date.now());
+      }
+    }
+  }, [
+    currentScrollX,
+    canScrollLeft,
+    isAnimating,
+    getCardVisibility,
+    scrollToPosition,
+  ]);
 
   // Auto-play functionality
   useEffect(() => {
@@ -142,20 +257,11 @@ const MultiCardCarousel = ({
 
       if (timeSinceLastInteraction >= autoPlayInterval && !isAnimating) {
         if (canScrollRight) {
-          setLastInteraction(now);
-          const scrollAmount = Math.min(
-            visibleCards - 1,
-            totalCards - currentIndex - visibleCards
-          );
-          const nextIndex = Math.min(
-            currentIndex + scrollAmount,
-            totalCards - visibleCards
-          );
-          scrollToIndex(nextIndex);
+          goToNext();
         } else {
           // Reset to beginning when reached the end
           setLastInteraction(now);
-          scrollToIndex(0);
+          scrollToPosition(0);
         }
       }
     }, 1000);
@@ -166,11 +272,11 @@ const MultiCardCarousel = ({
     autoPlayInterval,
     totalCards,
     visibleCards,
-    currentIndex,
     lastInteraction,
     isAnimating,
     canScrollRight,
-    scrollToIndex,
+    goToNext,
+    scrollToPosition,
   ]);
 
   // Pause auto-play on hover

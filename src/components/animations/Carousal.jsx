@@ -448,7 +448,7 @@ const CarouselContainer = ({
           className="relative w-full touch-pan-y"
           style={{
             height:
-              containerHeight === "auto" ? "auto" : `${containerHeight}px`,
+              containerHeight === "auto" ? "auto" : `${containerHeight + 10}px`,
           }}
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
@@ -460,7 +460,7 @@ const CarouselContainer = ({
           {React.Children.map(children, (child, index) => (
             <div
               key={index}
-              className="carousel-slide  flex justify-center absolute top-0 left-0 w-full select-none"
+              className="carousel-slide  h-fit flex justify-center overflow-hidden absolute top-0 left-0 w-full select-none"
               style={{ cursor: isDragging ? "grabbing" : "grab" }}>
               {child}
             </div>

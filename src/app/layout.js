@@ -19,7 +19,32 @@ const outfit = Outfit({
 
 export const metadata = {
   title: "Karanji",
-  description: "Karanji - Your Partner in Digital Transformation",
+  description: "Your Technology Translation Partner",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://karanji.com/",
+    siteName: "Karanji",
+    title: "Karanji - Your Technology Translation Partner",
+    description:
+      "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
+    images: [
+      {
+        url: "https://karanji.com/meta.png",
+        width: 1200,
+        height: 630,
+        alt: "Karanji",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karanji - Your Technology Translation Partner",
+    description:
+      "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
+    images: ["https://karanji.com/meta.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -29,9 +54,7 @@ export default function RootLayout({ children }) {
         className={`${albertSans.variable} ${outfit.variable}   antialiased`}>
         <Navbar />
         {/* <SmoothScrollWrapper> */}
-        <div className="bg-[url('/page/home.svg')] pb-16 bg-cover bg-right bg-no-repeat">
-          {children}
-        </div>
+        <div className="] pb-16 ">{children}</div>
         <Footer />
         {/* </SmoothScrollWrapper> */}
       </body>

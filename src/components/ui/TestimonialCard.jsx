@@ -8,7 +8,7 @@ import Link from "next/link";
 const TestimonialCard = ({ testimonial }) => {
   console.log("Testimonial Data:", testimonial);
   return (
-    <div className="rounded-3xl shadow-lg border max-w-5xl mx-auto border-black/20 p-4 sm:p-6 lg:p-8 bg-white">
+    <div className="rounded-3xl shadow-lg border max-w-5xl mx-auto border-black/20 p-4 mb-4 sm:p-6 lg:p-8 bg-white">
       {testimonial?.tag && (
         <span className="ml-auto border text-sm border-black-500 rounded-[5px] py-0.5 bg-gradient-to-r bg-clip-text text-transparent from-[#5254CB] to-[#FF942F] px-1 block w-fit mb-4">
           {testimonial.tag}

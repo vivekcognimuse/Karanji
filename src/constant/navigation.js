@@ -1,175 +1,211 @@
-export const navigationData = {
-  Home: {
+export const NAV_LINKS = [
+  {
+    title: "Home",
     href: "/",
-    subItems: [],
+    links: [],
+    description:
+      "Welcome to our homepage, where you can explore our services and solutions.",
   },
-  Solutions: {
-    subItems: [
+  {
+    title: "Solutions",
+    subSections: [
       {
-        icon: "mdi:brain",
         title: "Technology Solutions",
-        description: "Artificial Intelligence and Machine Learning solutions",
         href: "/technology-solutions",
-        subItems: [
+        icon: "/nav/technology-solutions.svg",
+        description: "Innovative technology for your digital needs.",
+        links: [
           {
-            title: "AI Advisory & Implementation",
+            name: "AI Advisory & Implementation",
             href: "/technology-solutions/ai-advisory",
-            description: "Strategic AI consulting and implementation",
+            icon: "/nav/ai-advisory-implementation.svg",
+            description: "Implement AI to drive smarter decisions.",
           },
           {
-            title: "XR & Gaming Solutions",
+            name: "XR & Gaming Solutions",
             href: "/technology-solutions/xr-gaming",
-            description: "Extended Reality and Gaming development",
+            icon: "/nav/xr-gaming-solutions.svg",
+            description: "Transform your business with immersive XR.",
           },
           {
-            title: "Digital Twins & Simulations",
+            name: "Digital Twins & Simulations",
             href: "/technology-solutions/digital-twins",
-            description: "Digital twin technology and simulations",
+            icon: "/nav/digital-twins-simulations.svg",
+            description: "Optimize operations with virtual simulations.",
           },
         ],
       },
       {
-        icon: "mdi:school",
         title: "Digital Learning",
-        description: "Comprehensive digital learning solutions",
         href: "/digital-learning",
-        subItems: [
+        icon: "/nav/digital-learning.svg",
+        description:
+          "Empowering businesses through cutting-edge digital learning.",
+        links: [
           {
-            title: "Content Design & Development",
+            name: "Content Design & Development",
             href: "/digital-learning/content-design",
-            description: "Custom content design and development",
+            icon: "/nav/content-design-development.svg",
+            description: "Tailored content & expert-led learning.",
           },
           {
-            title: "Microlearning & Gamification",
-            href: "/digital-learning/microlearning",
-            description: "Bite-sized learning with gamification",
-          },
-          {
-            title: "Interactive Implementation & Support",
-            href: "/digital-learning/interactive-support",
-            description: "Implementation and ongoing support",
-          },
-          {
-            title: "LMS Implementation",
+            name: "Learning Management Systems",
             href: "/digital-learning/lms-implementation",
-            description: "Learning Management System setup",
+            icon: "/nav/learning-management-systems.svg",
+            description: "Customizable, & seamlessly integrated learning.",
+          },
+          {
+            name: "Advanced Learning Analytics",
+            href: "/digital-learning/analytics",
+            icon: "/nav/advanced-analytics.svg",
+            description: "Actionable insights for better performance.",
           },
         ],
       },
       {
-        icon: "mdi:palette",
         title: "Creative Services",
-        description: "Creative and multimedia services",
         href: "/creative-services",
-        subItems: [
+        icon: "/nav/creative-services.svg",
+        description:
+          "Bringing your ideas to life with creativity & innovation.",
+        links: [
           {
-            title: "VFX & Animation",
-            href: "/vfx-animation",
-            description: "Visual effects and animation services",
+            name: "VFX & Animation Services",
+            href: "/creative-services/vfx-animation",
+            icon: "/nav/vfx-animation-services.svg",
+            description: "Stunning visual effects and animations.",
           },
           {
-            title: "Event Production",
-            href: "/event-production",
-            description: "Complete event production services",
+            name: "Audio & Podcast Production",
+            href: "/creative-services/audio",
+            icon: "/nav/audio-podcast-production.svg",
+            description: "Professional audio and podcast solutions.",
           },
           {
-            title: "Audio & Podcast Services",
-            href: "/audio-podcast",
-            description: "Audio production and podcast services",
-          },
-        ],
-      },
-    ],
-  },
-  Industries: {
-    subItems: [
-      {
-        icon: "mdi:medical-bag",
-        title: "Healthcare & Pharmaceuticals",
-        description: "Healthcare technology solutions",
-        href: "/healthcare-pharma",
-        subItems: [
-          {
-            title: "Manufacturing & Automotive",
-            href: "/manufacturing-automotive",
-            description: "Industrial and automotive solutions",
-          },
-          {
-            title: "Financial Services",
-            href: "/financial-services",
-            description: "Fintech and banking solutions",
-          },
-          {
-            title: "Technology & Telecom",
-            href: "/tech-telecom",
-            description: "Technology and telecommunications",
-          },
-          {
-            title: "Energy & Utilities",
-            href: "/energy-utilities",
-            description: "Energy and utility solutions",
-          },
-          {
-            title: "Retail & E-Commerce",
-            href: "/retail-ecommerce",
-            description: "Retail and e-commerce platforms",
+            name: "Event Production & Management",
+            href: "/creative-services/event",
+            icon: "/nav/event-production-management.svg",
+            description: "Transform your events with expert management.",
           },
         ],
       },
     ],
   },
-  Resources: {
-    subItems: [
+  {
+    title: "Industries",
+    href: "/Industries",
+    links: [
       {
-        icon: "mdi:file-document",
-        title: "Case Studies",
-        description: "Real-world success stories",
-        href: "/case-studies",
-        subItems: [
-          {
-            title: "Blog & Insights",
-            href: "/blog-insights",
-            description: "Industry insights and trends",
-          },
-          {
-            title: "Whitepapers & Guides",
-            href: "/whitepapers-guides",
-            description: "In-depth research and guides",
-          },
-          {
-            title: "Events & Webinars",
-            href: "/events-webinars",
-            description: "Educational events and webinars",
-          },
-        ],
+        name: "Oil & Gas",
+        href: "/Industries/oil-and-gas",
+        icon: "/nav/oil-gas.png",
+        description: "Fueling digital innovation & efficiency.",
+      },
+
+      {
+        name: "Healthcare",
+        href: "/Industries/healthcare",
+        icon: "/nav/healthcare.png",
+        description: "Empowering care with smart technology.",
+      },
+      {
+        name: "Aviation",
+        href: "/Industries/aviation",
+        icon: "/nav/aviation.png",
+        description: "Transforming aviation with future-ready solutions.",
+      },
+      {
+        name: "Logistics",
+        href: "/Industries/logistics",
+        icon: "/nav/logistics.png",
+        description: "Streamlining supply chains with precision.",
       },
     ],
   },
-  Company: {
-    subItems: [
+  {
+    title: "Company",
+    href: "/company",
+    links: [
       {
-        icon: "mdi:account-group",
-        title: "About Us",
-        description: "Learn about our company",
+        name: "About Us",
         href: "/company/about-us",
-        subItems: [
-          {
-            title: "Our Team",
-            href: "/company/our-team",
-            description: "Meet our talented team",
-          },
-          {
-            title: "Careers",
-            href: "/company/careers",
-            description: "Join our growing team",
-          },
-          {
-            title: "Contact Us",
-            href: "/contact-us",
-            description: "Get in touch with us",
-          },
-        ],
+        icon: "/nav/about-us.svg",
+        description: "Our vision & mission guide everything we do.",
+      },
+      {
+        name: "Our Team",
+        href: "/company/our-team",
+        icon: "/nav/our-team.svg",
+        description: "Meet the experts driving innovation & success.",
+      },
+      {
+        name: "Careers",
+        href: "/company/careers",
+        icon: "/nav/careers.png",
+        description: "Join our team & make an impact.",
+      },
+      {
+        name: "Digital Twin",
+        href: "/company/digital-twin",
+        icon: "/nav/digital-twins-simulations.svg",
+        description: "Talk to our digital employees right now.",
+      },
+      {
+        name: "Contact Us",
+        href: "/contact",
+        icon: "/nav/contact-us.svg",
+        description: "Get in touch for inquiries & support.",
       },
     ],
   },
+  {
+    title: "Resources",
+    href: "/resources",
+    links: [
+      {
+        name: "Case Studies",
+        href: "/case-studies",
+        icon: "/nav/case-studies.svg",
+        description: "Explore real-world solutions & success stories.",
+      },
+      {
+        name: "Blog & Insights",
+        href: "/coming-soon",
+        icon: "/nav/blog-insights.svg",
+        description: "Stay informed with the latest trends & insights.",
+      },
+      {
+        name: "Webinars",
+        href: "/webinar",
+        icon: "/nav/webinars.svg",
+        description: "Join us for insightful webinars & events.",
+      },
+    ],
+  },
+];
+// Utility function to adapt data to Navbar format
+export const getNavLinks = () => {
+  return sharedLinks.map((section) => ({
+    title: section.title,
+    href: section.href,
+    description: `Explore ${section.title} services.`,
+    subSections: section.links.map((link) => ({
+      name: link.name,
+      href: link.href,
+      icon: `/nav/${link.name.toLowerCase().replace(/\s+/g, "-")}.svg`, // Assuming icons are named this way
+      description: `Learn more about ${link.name}`,
+    })),
+  }));
+};
+
+// Utility function to adapt data to Footer format
+export const getFooterLinks = () => {
+  return sharedLinks.map((section) => ({
+    title: section.title,
+    href: section.href,
+    links: section.links.map((link) => ({
+      name: link.name,
+      href: link.href,
+    })),
+  }));
 };

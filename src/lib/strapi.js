@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Default populate
-    revalidate = 60, // No revalidate by default (pure SSG)
+    revalidate = 3600, // No revalidate by default (pure SSG)
   } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
@@ -24,7 +24,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   if (revalidate !== undefined) {
     fetchOptions.next = { revalidate };
   }
-
+  console.log("Fetching from Strapi:", url.toString(), fetchOptions);
   try {
     const res = await fetch(url.toString(), fetchOptions);
 

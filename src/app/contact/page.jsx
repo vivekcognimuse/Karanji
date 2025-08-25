@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/ui/Button";
 import { useContactForm } from "@/hooks/contactform";
+
 import { Icon } from "@iconify/react";
 import Head from "next/head";
 import React from "react";
@@ -9,9 +10,6 @@ import React from "react";
 const FormInput = ({
   label,
   name,
-  value,
-  onChange,
-  onBlur,
   error,
   touched,
   placeholder,
@@ -20,10 +18,15 @@ const FormInput = ({
   disabled = false,
   maxLength,
   ariaDescribedBy,
+  register,
+  watch,
 }) => {
   const inputId = `input-${name}`;
   const errorId = `${name}-error`;
   const helpId = `${name}-help`;
+
+  // Get current value from watch
+  const value = watch(name) || "";
 
   return (
     <div className="flex w-full flex-col gap-2">
@@ -41,11 +44,7 @@ const FormInput = ({
       <div className="relative">
         <input
           id={inputId}
-          name={name}
           type={type}
-          value={value}
-          onChange={(e) => onChange(name, e.target.value)}
-          onBlur={() => onBlur(name)}
           placeholder={placeholder}
           required={required}
           disabled={disabled}
@@ -55,6 +54,7 @@ const FormInput = ({
             ariaDescribedBy || ""
           } ${helpId}`.trim()}
           aria-required={required}
+          {...register(name)}
           className={`w-full py-2 border-b ${
             error && touched
               ? "border-red-500 bg-red-50/20"
@@ -92,9 +92,6 @@ const FormInput = ({
 const FormTextarea = ({
   label,
   name,
-  value,
-  onChange,
-  onBlur,
   error,
   touched,
   placeholder,
@@ -102,10 +99,15 @@ const FormTextarea = ({
   disabled = false,
   maxLength = 2000,
   rows = 4,
+  register,
+  watch,
 }) => {
   const inputId = `textarea-${name}`;
   const errorId = `${name}-error`;
   const helpId = `${name}-help`;
+
+  // Get current value from watch
+  const value = watch(name) || "";
 
   return (
     <div className="flex flex-1 w-full flex-col gap-2">
@@ -123,10 +125,6 @@ const FormTextarea = ({
       <div className="relative">
         <textarea
           id={inputId}
-          name={name}
-          value={value}
-          onChange={(e) => onChange(name, e.target.value)}
-          onBlur={() => onBlur(name)}
           placeholder={placeholder}
           required={required}
           disabled={disabled}
@@ -135,6 +133,7 @@ const FormTextarea = ({
           aria-invalid={error ? "true" : "false"}
           aria-describedby={`${error ? errorId : ""} ${helpId}`.trim()}
           aria-required={required}
+          {...register(name)}
           className={`w-full py-2 border-b ${
             error && touched
               ? "border-red-500 bg-red-50/20"
@@ -144,11 +143,20 @@ const FormTextarea = ({
           } bg-transparent text-black/80 text-sm font-normal font-['Outfit'] leading-loose tracking-wide placeholder:text-black/30 focus:outline-none focus:border-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed resize-none`}
         />
 
+        {/* Character count for longer fields - show when getting close to limit */}
+        {maxLength && value.length > maxLength * 0.8 && (
+          <div
+            id={helpId}
+            className="absolute top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']">
+            {value.length}/{maxLength} characters
+          </div>
+        )}
+
         {/* Error message */}
         {error && touched && (
           <div
             id={errorId}
-            className="absolute top-full mt-6 text-red-500 text-sm font-normal font-['Outfit']"
+            className="absolute top-full mt-1 text-red-500 text-sm font-normal font-['Outfit']"
             role="alert"
             aria-live="polite">
             {error}
@@ -216,9 +224,7 @@ const ThankYouPopup = ({ isOpen, onClose }) => {
         {/* Footer */}
         <div className="px-8 pb-8">
           <Button type="button" onClick={onClose} className="w-full">
-            <span className="text-white text-lg font-normal font-['Outfit']">
-              Close
-            </span>
+            <span className=" text-lg font-normal font-['Outfit']">Close</span>
           </Button>
         </div>
       </div>
@@ -231,23 +237,14 @@ const ContactPage = () => {
   const [showThankYou, setShowThankYou] = React.useState(false);
 
   const {
-    formData,
-    errors,
-    touched,
+    register,
+    formState: { errors, touchedFields },
+    watch,
+    handleSubmit,
     isSubmitting,
     submitStatus,
-    formState,
-    handleChange,
-    handleBlur,
-    handleSubmit,
     resetForm,
   } = useContactForm({
-    apiEndpoint: "/api/contact",
-    enableRateLimit: true,
-    maxAttempts: 5,
-    autoSave: true,
-    validateOnChange: true,
-    validateOnBlur: true,
     onSuccess: (result, data) => {
       console.log("Form submitted successfully:", { result, data });
       setShowThankYou(true);
@@ -269,6 +266,7 @@ const ContactPage = () => {
 
   const handleCloseThankYou = () => {
     setShowThankYou(false);
+    resetForm(); // Reset form after closing thank you popup
   };
 
   return (
@@ -298,8 +296,8 @@ const ContactPage = () => {
                   <p className="text-black/80 text-lg sm:text-xl font-normal font-['Outfit'] tracking-wide">
                     Bridging creative storytelling, immersive technologies, and
                     artificial intelligence (AI) innovation—Karanji is the your
-                    one stop integrated partner for next-generation
-                    digital experiences.
+                    one stop integrated partner for next-generation digital
+                    experiences.
                   </p>
                   <p className="text-black/50 text-lg sm:text-xl font-light font-['Outfit'] tracking-wide">
                     Get in touch today and let's bring your ideas to life!
@@ -314,6 +312,7 @@ const ContactPage = () => {
                       key={social.name}
                       href={social.href}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="w-6 h-6 relative overflow-hidden hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-black/20 transition-opacity"
                       aria-label={`Follow us on ${social.name}`}>
                       <Icon icon={social.icon} className="size-6" />
@@ -341,17 +340,16 @@ const ContactPage = () => {
 
             {/* Right Form Section */}
             <div className="w-full lg:w-[494px] flex flex-col gap-8">
-              <div className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-8">
                   <div className="flex flex-col gap-8">
                     <FormInput
                       label="Name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      error={errors.name}
-                      touched={touched.name}
+                      register={register}
+                      watch={watch}
+                      error={errors.name?.message}
+                      touched={touchedFields.name}
                       placeholder="Enter your full name"
                       maxLength={50}
                       disabled={isSubmitting}
@@ -360,11 +358,10 @@ const ContactPage = () => {
                     <FormInput
                       label="Company"
                       name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      error={errors.company}
-                      touched={touched.company}
+                      register={register}
+                      watch={watch}
+                      error={errors.company?.message}
+                      touched={touchedFields.company}
                       placeholder="Enter your company name"
                       maxLength={100}
                       disabled={isSubmitting}
@@ -375,11 +372,10 @@ const ContactPage = () => {
                     label="Email"
                     name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={errors.email}
-                    touched={touched.email}
+                    register={register}
+                    watch={watch}
+                    error={errors.email?.message}
+                    touched={touchedFields.email}
                     placeholder="Enter your email address"
                     maxLength={254}
                     disabled={isSubmitting}
@@ -388,11 +384,10 @@ const ContactPage = () => {
                   <FormTextarea
                     label="Tell us more about your project"
                     name="project"
-                    value={formData.project}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={errors.project}
-                    touched={touched.project}
+                    register={register}
+                    watch={watch}
+                    error={errors.project?.message}
+                    touched={touchedFields.project}
                     placeholder="Describe your project requirements, timeline, and any specific technologies you're interested in..."
                     maxLength={2000}
                     rows={2}
@@ -402,13 +397,12 @@ const ContactPage = () => {
 
                 <div className="mt-10 flex flex-col gap-2">
                   <Button
-                    type="button"
-                    onClick={handleSubmit}
+                    type="submit"
+                    disabled={isSubmitting}
                     aria-describedby="submit-help">
-                    <span className="text-white text-xl font-normal font-['Outfit']">
+                    <span className="">
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
-                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                           Submitting...
                         </span>
                       ) : (
@@ -426,7 +420,7 @@ const ContactPage = () => {
                 </div>
 
                 <ErrorMessage status={submitStatus} />
-              </div>
+              </form>
             </div>
           </div>
         </main>
