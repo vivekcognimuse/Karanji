@@ -1,13 +1,20 @@
 "use client";
 import React from "react";
-
+import Image from "next/image";
 const QuoteSection = ({ title }) => {
   return (
     <div className="w-full py-16 md:py-24">
       <div className="mx-auto px-4 md:px-8">
         {/* Quote Icon */}
         <div className="mb-8">
-          <img src="/Icons/ph_quotes.svg" alt="Quote" className="w-14 h-14" />
+          <Image
+            height={40}
+            width={40}
+            src="/Icons/ph_quotes.svg"
+            alt="Quote"
+            unoptimized
+            className="w-14 h-14"
+          />
         </div>
 
         {/* Main Heading */}

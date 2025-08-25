@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { P3 } from "@/components/CustomTags";
-
+import Image from "next/image";
 const ValueCard = ({ icon, title, description, isFullWidth = false }) => {
   return (
     <div
@@ -11,11 +11,12 @@ const ValueCard = ({ icon, title, description, isFullWidth = false }) => {
     >
       {/* Icon */}
       <div className={`mb-4${isFullWidth ? " flex justify-center" : ""}`}>
-        <img
+        <Image
           src={icon}
           alt={`${title} Icon`}
           width="32"
           height="32"
+          unoptimized
           className=" "
         />
       </div>

@@ -1,6 +1,6 @@
 //components/webinar/WebinarAgenda.jsx
 import { P2, P3, P4 } from "@/components/CustomTags";
-
+import Image from "next/image";
 export default function WebinarAgenda({ agenda }) {
   return (
     <section className="py-16 px-6">
@@ -31,7 +31,10 @@ export default function WebinarAgenda({ agenda }) {
                   {/* Clock Icon Circle - separate from timeline */}
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-gradient-to-b from-[#FFCFCF] to-[#D3C9FF] rounded-xl flex items-center justify-center">
-                      <img
+                      <Image
+                        height={40}
+                        width={40}
+                        unoptimized
                         src="/Icons/Clock-1.svg"
                         alt="Clock"
                         className="w-6 h-6"
@@ -95,7 +98,9 @@ export default function WebinarAgenda({ agenda }) {
                   return (
                     <div key={index} className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-0.5">
-                        <img
+                        <Image
+                          height={40}
+                          width={40}
                           src="/Icons/Check box.svg"
                           alt="Check"
                           className="w-6 h-6"
@@ -120,7 +125,9 @@ export default function WebinarAgenda({ agenda }) {
               <div className="pt-6 border-t border-purple-200">
                 <div className="bg-white rounded-xl p-6 text-center">
                   <div className="flex justify-center mb-4">
-                    <img
+                    <Image
+                      height={40}
+                      width={40}
                       src="/Icons/ph_certificate-light.svg"
                       alt="Certificate"
                       className="w-16 h-16"

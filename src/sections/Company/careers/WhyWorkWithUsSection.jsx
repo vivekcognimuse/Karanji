@@ -1,6 +1,6 @@
 import React from "react";
 import { P3 } from "@/components/CustomTags";
-
+import Image from "next/image";
 // Reusable Card Component
 const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
   return (
@@ -33,7 +33,9 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
         <div className="relative z-10">
           {/* Icon and Title in same line */}
           <div className="mb-4 flex items-center gap-3">
-            <img
+            <Image
+              height={40}
+              width={40}
               src={icon}
               alt={`${title} icon`}
               className="w-12 h-12 object-contain"
@@ -48,7 +50,9 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
         {/* Main Image - Outside content div to ignore padding */}
         {image && (
           <div className="mt-4 -mx-6 -mb-6">
-            <img
+            <Image
+              height={400}
+              width={400}
               src={image}
               alt={`${title} illustration`}
               className="w-full h-56 object-cover object-bottom rounded-b-[16px]"

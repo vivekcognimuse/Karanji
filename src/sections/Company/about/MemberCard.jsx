@@ -2,7 +2,7 @@
 import React from "react";
 import { P1, P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
-
+import Image from "next/image";
 const MemberCard = ({
   name,
   role,
@@ -20,7 +20,14 @@ const MemberCard = ({
       {/* Profile Image */}
       <div className="flex-shrink-0 mx-auto sm:mx-0">
         <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-white rounded-2xl overflow-hidden shadow-md">
-          <img src={image} alt={name} className="w-full h-full object-cover" />
+          <Image
+            src={image}
+            alt={name}
+            height={400}
+            width={400}
+            unoptimized
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
 

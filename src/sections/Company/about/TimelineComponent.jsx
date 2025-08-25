@@ -284,8 +284,11 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
             <div className="flex justify-center">
               <div className="flex items-center justify-center w-16 h-16 rounded-full relative bg-black-50 z-10">
                 {currentStep.iconSrc && (
-                  <img
+                  <Image
+                    height={40}
+                    width={40}
                     src={currentStep.iconSrc}
+                    unoptimized
                     alt="Timeline icon"
                     className="w-16 h-16"
                   />

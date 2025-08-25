@@ -2,7 +2,7 @@
 import React from "react";
 import { P2, P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
-
+import Image from "next/image";
 const JourneySection = ({ data = {} }) => {
   const {
     title = "",
@@ -78,7 +78,10 @@ const JourneySection = ({ data = {} }) => {
                        w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16"
           >
             {iconSrc ? (
-              <img
+              <Image
+                height={40}
+                width={40}
+                unoptimized
                 src={iconSrc}
                 alt={iconAlt}
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"

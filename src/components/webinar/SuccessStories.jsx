@@ -1,6 +1,6 @@
 //components/webinar/SuccessStories.jsx
 import { P2, P3 } from "../CustomTags";
-
+import Image from "next/image";
 export default function SuccessStories({ stories }) {
   return (
     <section className="py-20">
@@ -24,7 +24,10 @@ export default function SuccessStories({ stories }) {
 
               {/* Large gradient quotation mark */}
               <div className="mb-4">
-                <img
+                <Image
+                  height={100}
+                  width={100}
+                  unoptimized
                   src="/Icons/ph_quotes.svg"
                   alt="Quote"
                   className="w-12 h-10"
@@ -38,7 +41,10 @@ export default function SuccessStories({ stories }) {
 
               {/* Author section - this will be pushed to bottom */}
               <div className="flex items-center gap-4 mt-auto">
-                <img
+                <Image
+                  height={80}
+                  width={80}
+                  unoptimized
                   src={story.image}
                   alt={story.author}
                   className="w-12 h-12 rounded-xl object-cover"

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { P3, P4 } from "@/components/CustomTags";
-
+import Image from "next/image";
 const NextUpCard = ({ title, description, image, onClick, href }) => {
   const CardContent = () => (
     <div className="relative rounded-3xl overflow-hidden cursor-pointer transition-transform hover:scale-105 card-gradient-border card-shadow">
@@ -12,7 +12,10 @@ const NextUpCard = ({ title, description, image, onClick, href }) => {
         <div className="flex items-start justify-between mb-4">
           <h4 className="text-black pr-4">{title}</h4>
           <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center">
-            <img
+            <Image
+              height={400}
+              width={400}
+              unoptimized
               src="/Icons/arrowupicon.svg"
               alt="Arrow"
               className="w-12 h-12"
@@ -26,7 +29,10 @@ const NextUpCard = ({ title, description, image, onClick, href }) => {
 
       {/* Image */}
       <div className="relative h-56 overflow-hidden">
-        <img
+        <Image
+          height={400}
+          width={400}
+          unoptimized
           src={image}
           alt={title}
           className="w-full h-full object-cover object-bottom"

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ValueCard from "./ValueCard";
-
+import Image from "next/image";
 const ValuesSection = ({ data }) => {
   const valuesData = data ?? [
     // optional fallback (can remove if you want it strict)
@@ -18,11 +18,12 @@ const ValuesSection = ({ data }) => {
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <div className="mb-4">
-            <img
+            <Image
               src="/Company/about/values_16257068 1.svg"
               alt="Values Icon"
               width="48"
               height="48"
+              unoptimized
               className="w-10 h-10 sm:w-12 sm:h-12 mx-auto"
             />
           </div>
