@@ -7,21 +7,21 @@ const contentData = {
     description:
       "Leverages narrative immersion to engage learners emotionally & cognitively within virtual environments.",
 
-    buttonLink: "/",
+    buttonLink: "/technology-solutions",
   },
   2: {
     title: "Adaptive Personalized Learnings",
     description:
       "Learners follow optimized paths powered by intelligent systems tailored to their unique goals & pace.",
 
-    buttonLink: "/",
+    buttonLink: "/digital-learning",
   },
   3: {
     title: "Intelligent Simulations & Forecasts",
     description:
       "Blends experiential learning with AI-driven insights to drive measurable performance & learning outcomes.",
 
-    buttonLink: "/",
+    buttonLink: "/creative-services",
   },
 };
 

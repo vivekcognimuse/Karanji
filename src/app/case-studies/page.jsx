@@ -6,11 +6,7 @@ export default async function CaseStudiesIndex() {
   // Change to `publishedAt:asc` if you want the *earliest* instead of latest.
   const list = await fetchFromStrapi(
     "case-studies?sort=publishedAt:desc&pagination[pageSize]=1",
-<<<<<<< HEAD
-    { populate: "" },
-=======
     { populate: "*" },
->>>>>>> dev
     "https://calm-joy-61798b158b.strapiapp.com/api"
   );
 
