@@ -1,0 +1,80 @@
+{
+  "card": {
+    "title": "VR Training for Electric Vehicle (EV)",
+    "tag": "Technology solutions",
+    "stats": [
+      {
+        "text": "Realistic",
+        "number": "Simulation"
+      },
+      {
+        "text": "On time",
+        "number": "Delivery"
+      }
+    ],
+    "description": "Immersive VR training for EV technicians-built in Unity for Oculus Quest 2-covering EV parts identification, charging SOPs, and safe MSD handling with guided, interactive practice and in-headset assessments."
+  },
+  "caseStudyPage": {
+    "objective": {
+      "title": "Objective",
+      "text": "To upskill service technicians and employees by offering immersive, hands-on training on Electric Vehicle (EV) systems, charging procedures, and manual service disconnection using VR technology."
+    },
+    "useCase": {
+      "title": "Use Case",
+      "text": "With the introduction of EV trucks in their product lineup, the client identified a critical need to train its workforce on EV parts and components, Standard Operating Procedures (SOP) for vehicle charging, and safe handling of Manual Service Disconnectors (MSD) during maintenance."
+    },
+    "targetAudience": {
+      "title": "Target Audience",
+      "text": "EV Service Technicians, Workshop Staff, Internal Employees involved in EV manufacturing and servicing."
+    },
+    "problemStatement": {
+      "title": "Problem Statement",
+      "text": "As Electric Vehicles are a new domain for many technicians and workers, there was a noticeable knowledge gap in the following areas: Identifying EV-specific components in the vehicle, Understanding and performing the correct vehicle charging process, and Knowing how to safely remove and reinsert the Manual Service Disconnect (MSD) during service or emergency. Conventional classroom or video-based training proved insufficient for building the necessary hands-on understanding."
+    },
+    "solutionProvided": {
+      "title": "Solution Provided",
+      "text": "We developed three interactive Virtual Reality (VR) training modules, designed to simulate real-life scenarios using a highly realistic virtual EV truck model. Each module was tailored to a critical aspect of EV servicing.",
+      "modules": [
+        {
+          "title": "Module 1: EV Parts Identification",
+          "description": "A full 3D EV truck model with interactive hotspots where technicians explore EV components (e.g., battery pack, inverter, electric motor), with audio and text-based information pop-ups for each part."
+        },
+        {
+          "title": "Module 2: Charging SOP (Standard Operating Procedure)",
+          "description": "Step-by-step guided experience at a virtual EV charging station, where the learner is guided through the correct process to safely charge the vehicle. Interactive elements reinforce each step of the SOP."
+        },
+        {
+          "title": "Module 3: Manual Service Disconnector (MSD)",
+          "description": "Hands-on VR experience simulating the removal and reinsertion of the MSD. Users perform tasks such as PPE checks, disconnecting high voltage, and refitting post-service, reinforcing safety and procedural accuracy."
+        }
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Developed using Unity 3D and Oculus Quest 2 devices, the VR training was delivered through standalone VR headsets, suitable for deployment in training centers or regional workshops. Built-in assessments and guided instructions were included in each module.",
+      "features": [
+        "Interactive hotspots",
+        "Guided task flow",
+        "Voice instructions",
+        "Haptic feedback"
+      ]
+    },
+    "results": {
+      "title": "Results",
+      "text": "The VR training led to enhanced engagement and knowledge retention among technicians. There was a significant reduction in errors during real-life EV servicing and charging, boosted employee confidence, and improved safety awareness. Positive feedback was received from training participants and supervisors, setting a new standard for scalable, immersive training across EV initiatives."
+    },
+    "keyHighlights": {
+      "title": "Key Highlights",
+      "text": "First-of-its-kind immersive EV training solution in the Indian commercial vehicle industry. The realistic simulation helped bridge the experiential learning gap. The solution was portable and scalable for regional training rollouts."
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "text": "By embracing Virtual Reality as a training tool, we successfully addressed a critical skills gap in EV servicing. This innovative approach not only streamlined technician onboarding but also ensured safe and efficient EV operations across its service network."
+    }
+  },
+  "cta": {
+    "title": "Access VR Training for Electric Vehicles Case Study",
+    "description": "See how VR technology transformed EV training for service technicians and employees, creating realistic, hands-on learning experiences that boosted engagement and safety awareness. If you’re in automotive training or corporate learning, this case shows how immersive VR training solutions can drive efficiency and performance.",
+    "buttonText": "Download Full Case Study"
+  }
+}

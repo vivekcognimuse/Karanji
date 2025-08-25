@@ -1,0 +1,83 @@
+{
+  "card": {
+    "title": "DIGITAL TWINS",
+    "tag": "Technology Solutions",
+    "stats": [
+      {
+        "text": "Reduced Turn Around Time",
+        "number": "50%"
+      },
+      {
+        "text": "Freed up Weekly Calendar",
+        "number": "30%"
+      }
+    ],
+    "description": "We created digital clones of Karanji’s CEO and Solution Architect, enabling them to scale their expertise and improve accessibility without compromising on the personal touch."
+  },
+  "caseStudyPage": {
+    "theSituation": {
+      "title": "The Situation",
+      "text": "Karanji's leadership team was spending over 15 hours each week on repetitive conversations. The CEO handled the same company introductions and service explanations multiple times daily. The Solution Architect repeated similar consultations about AI implementation across different sectors. Both executives answered identical questions from potential clients, partners, and internal teams week after week."
+    },
+    "theChallenge": {
+      "title": "The Challenge",
+      "text": "Karanji needed to scale its leadership availability while preserving the authentic expertise and communication style of their executives. Generic chatbots or FAQ documents wouldn't work. Clients expected personalized, industry-specific insights—whether healthcare, aviation, or logistics. The organization faced four specific obstacles:"
+    },
+    "obstacles": [
+      "Initial client consultations required senior leadership involvement but followed predictable patterns.",
+      "Internal teams needed consistent access to executive guidance without scheduling delays.",
+      "The company operated across multiple languages and time zones.",
+      "Every hour spent on routine questions meant less time for strategic initiatives and specialized client work."
+    ],
+    "ourSolution": {
+      "title": "Our Solution",
+      "text": "Karanji created digital clones of their CEO and Solution Architect. These are not simple chatbots or automated response systems—they’re sophisticated digital representations trained on actual video and audio from the executives themselves.",
+      "ceoClone": {
+        "title": "CEO’s Digital Clone",
+        "description": "Handles company introductions, explains service offerings, and discusses potential solutions for business challenges. It maintains Prakash’s conversational style and business perspective in every interaction."
+      },
+      "solutionArchitectClone": {
+        "title": "Solution Architect’s Clone",
+        "description": "Provides specialized guidance on AI implementation, answers complex questions, and generates customized frameworks and actionable templates based on real project experience across various sectors (aviation, healthcare, logistics, etc.)."
+      },
+      "languages": {
+        "title": "Languages Supported",
+        "description": "Both clones operate in 32 languages, including regional ones like Arabic, Afrikaans, and French. Users can type or speak their questions and receive immediate, contextual responses at any time of day."
+      }
+    },
+    "howWeDidIt": {
+      "title": "How We Did It",
+      "steps": [
+        "Data Collection: The team gathered video and audio recordings of both executives in various professional contexts, including client meetings, internal discussions, and presentations.",
+        "Analysis: Communication patterns, common questions, and response frameworks used by each executive were analyzed to identify the core knowledge areas and conversation flows that needed replication.",
+        "Training: The digital clones were trained using this data while preserving each executive’s unique perspective and expertise. Sector-specific knowledge bases were built for industries like healthcare, aviation, logistics, and others.",
+        "Quality Assurance: Real-world scenarios from past client interactions were tested to refine responses, ensuring the digital clones could handle complex, multi-part questions with the same depth as the original executives.",
+        "Integration: The final step integrated the clones into accessible platforms where clients and team members could interact through voice or text interfaces."
+      ]
+    },
+    "impact": {
+      "title": "Impact at a Glance",
+      "details": [
+        "Prakash’s CEO clone freed up 30% of his weekly calendar, focusing more on strategic partnerships and business development.",
+        "Srikant’s Solution Architect clone reduced solution development turnaround time by 50%, giving teams immediate answers to technical questions.",
+        "Client engagement increased as potential partners could explore solutions instantly without scheduling constraints.",
+        "Internal teams reported faster decision-making with 24/7 access to executive-level guidance.",
+        "New employee onboarding became more consistent and efficient, with every new hire receiving the same high-quality introduction to company processes and values, regardless of when they joined or which office they worked from.",
+        "The multilingual capability opened new opportunities in regional markets where language barriers previously slowed business development."
+      ]
+    },
+    "keyHighlights": {
+      "title": "Key Highlights",
+      "text": "First-of-its-kind immersive EV training solution in the Indian commercial vehicle industry. Realistic simulation helped bridge the experiential learning gap. Portable and scalable solution for regional training rollouts."
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "text": "By embracing Digital Twin technology, we successfully addressed a critical skills gap in executive knowledge delivery. This approach not only streamlined decision-making but also ensured faster and more efficient execution of business operations, improving client and team engagement."
+    }
+  },
+  "cta": {
+    "title": "Access Digital Clones in Action Case Study",
+    "description": "See how AI-powered digital clones helped Karanji scale expertise, improve decision-making, and enhance client engagement—all while freeing up executive time for strategic work. If you’re in leadership enablement or AI-powered solutions, this case shows how digital twin technology can help organizations unlock their expertise for faster, more effective decision-making.",
+    "buttonText": "Download Full Case Study"
+  }
+}

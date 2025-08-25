@@ -60,7 +60,7 @@ const timelineData = [
     iconSrc: "/Icons/year07icon.svg",
   },
   {
-    year: "2007-'10",
+    year: "2007-10",
     yearDescription:
       "We built a bridge between traditional training & cutting-edge technology.",
     title: "Building the Bridge Between Traditional & Modern Learning",
@@ -69,7 +69,7 @@ const timelineData = [
     iconSrc: "/Icons/year08icon.svg",
   },
   {
-    year: "2010-'13",
+    year: "2010-13",
     yearDescription:
       "Our first big break came with Infosys - the first validation of our ideas.",
     title: "Growing the Foundation – First Major Client: Infosys",
@@ -78,9 +78,9 @@ const timelineData = [
     iconSrc: "/Icons/year13icon.svg",
   },
   {
-    year: "2014-'16",
+    year: "2014-16",
     yearDescription:
-      "2014-’16 marked a leap into the future with Virtual Reality & Augmented Reality.",
+      "2014-16 marked a leap into the future with Virtual Reality & Augmented Reality.",
     title: "The Big Leap - Entering Virtual Reality & Augmented Reality",
     description:
       "Karanji made a strategic decision to integrate VR & AR into their learning design, which would revolutionize training & learning processes.",
@@ -124,6 +124,45 @@ const timelineData = [
     description:
       "In 2025, Karanji embraced a new visual identity to match its evolved mission. What began as a digital learning company now leads the way in AI, VR, AR and creative technology. This rebrand marks our transformation into a comprehensive technology services partner, helping businesses across industries create meaningful, human-centered digital experiences.",
     iconSrc: "/Icons/year25icon.svg",
+  },
+];
+const quoteData = {
+  title: "Innovate. Design. Transform.",
+};
+const visionMissionData = {
+  visionTitle: "Vision",
+  visionDescription:
+    "To be the global leader in creative design and emerging technologies, transforming how people learn, engage, and work efficiently.",
+  missionTitle: "Mission",
+  missionDescription:
+    "We create immersive experiences using extended reality, AI and creative design to help organizations improve training, entertainment, and business performance in today's digital world.",
+};
+const valuesData = [
+  {
+    icon: "/Company/about/hugeicons_ai-innovation-03.svg",
+    title: "Continuous innovation",
+    description: "Leading with new ideas in design, AI, and XR.",
+  },
+  {
+    icon: "/Company/about/carbon_collaborate.svg",
+    title: "Empowerment",
+    description: "Helping people grow through immersive tech.",
+  },
+  {
+    icon: "/Company/about/arcticons_s-trust.svg",
+    title: "Impact",
+    description: "Transforming how the world learns and works.",
+    isFullWidth: true,
+  },
+  {
+    icon: "/Company/about/pepicons-pencil_stars.svg",
+    title: "Agility",
+    description: "Adapting fast to emerging trends and needs.",
+  },
+  {
+    icon: "/Company/about/emojione-monotone_world-map.svg",
+    title: "Integrity",
+    description: "Building trust through vision, honesty & progress.",
   },
 ];
 
@@ -185,11 +224,12 @@ export default function AboutUs() {
             }}
           />
           <div id="vision-mission">
-            <VisionMission />
+            <VisionMission data={visionMissionData} />
           </div>
-          <ValuesSection />
+
+          <ValuesSection data={valuesData} />
           <NextUpSection heading="Next Up" cards={cardsData} />
-          <QuoteSection title="Innovate. Design. Transform." />
+          <QuoteSection data={quoteData} />
         </div>
       </main>
 
@@ -204,7 +244,8 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}>
+          }}
+        >
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

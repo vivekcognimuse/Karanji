@@ -1,0 +1,38 @@
+{
+  "teamData": {
+    "title": "Your Next Chapter Starts Here",
+    "description": "Build your career with us and help shape the future of [Industry/Field]. We value innovation, diversity, and collaborative growth.",
+    "SecondaryButtonText": "View Open Roles",
+    "SecondaryButtonLink": "#open-roles"
+  },
+  "sectionData": {
+    "title": "Why Work With Us?",
+    "description": "Join a company where creativity meets cutting-edge technology. At Karanji, we blend innovation, collaboration, & personal growth to shape the future of learning, entertainment, & AI-driven solutions. We're not just building products – we're building meaningful experiences, & it all starts with our people."
+  },
+  "cardsData": [
+    {
+      "icon": "/Company/Team/icons/culture.svg",
+      "title": "Culture",
+      "description": "We foster a collaborative environment built on trust & innovation.",
+      "image": "/Company/Culture.webp"
+    },
+    {
+      "icon": "/Company/Team/icons/learning.svg",
+      "title": "Learning",
+      "description": "Continuous development opportunities to foster personal growth.",
+      "image": "/Company/Learning.webp"
+    },
+    {
+      "icon": "/Company/Team/icons/growth.svg",
+      "title": "Growth",
+      "description": "Opportunities for advancement & career paths based on performance.",
+      "image": "/Company/growth.webp"
+    }
+  ],
+  "ctaData": {
+    "title": "Don't see a role that fits?",
+    "description": "Please send an email to recruitment@karanji.com with subject line as 'Application | Role Title' with your profile and interest, we are always on lookout for talent.",
+    "PrimaryButtonText": "Send us an Email",
+    "PrimaryButtonLink": "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "card": {
+    "title": "From Real Footage to On-Screen Evidence: Bringing a Murder Mystery Scene to Life",
+    "tag": "Entertainment Services",
+    "stats": [
+      {
+        "text": "Tight Deadline Met",
+        "number": "0"
+      },
+      {
+        "text": "Bugs in Final Delivery",
+        "number": "0"
+      }
+    ],
+    "description": "We composited client-provided murder footage onto a moving phone screen using Mocha AE planar tracking, matching motion, angle, and lighting for a realistic 'video-on-phone' effect-shot with a green screen and replaced in post."
+  },
+  "caseStudyPage": {
+    "client": {
+      "industry": "Entertainment – YouTube & Streaming Platforms",
+      "description": "Movie and Short Video Production Company",
+      "date": "2024"
+    },
+    "theSituation": {
+      "title": "The Situation",
+      "text": "The client was producing an episode for a YouTube crime series. The story featured a murder at a resort, where a girl was killed by her friend. During the investigation, one of the characters had a phone with a video that captured the murder. The video needed to be shown playing on the phone screen during a heated argument scene. The footage of the murder was provided by the client, and our job was to make it look like it was playing on the phone during the investigation scene."
+    },
+    "theChallenge": {
+      "title": "The Challenge",
+      "text": "The main challenge was to insert the provided murder video onto the phone screen shown in the investigation video. Since this was a video inside another video, it had to look real. We used a green screen on the phone during filming and later had to replace it with the actual murder footage. The phone was moving slightly in the shot, so we had to make sure the inserted video matched the phone’s movement and lighting to make it look natural."
+    },
+    "solution": {
+      "title": "Our Solution",
+      "text": "We tested tracking using After Effects’ built-in 'Track Motion' feature and tried using 'Mocha AE.' Mocha AE gave us better results for this kind of screen replacement, so we went ahead with it. Our task was to place the murder footage on the phone and make it fit with the motion, angle, and lighting of the scene so it looked like it was playing during the conversation."
+    },
+    "howWeDidIt": {
+      "title": "How We Did It",
+      "details": [
+        "Used a green screen to prepare the phone screen for replacement",
+        "Chose Mocha AE for accurate screen tracking",
+        "Inserted the murder video on the phone screen",
+        "Matched lighting and angles for a realistic look",
+        "Trained team members on Mocha AE for faster execution",
+        "Delivered on a tight deadline"
+      ]
+    },
+    "impact": {
+      "title": "Impact at a Glance",
+      "details": [
+        "Seamless Video Tracking",
+        "Realistic Playback on Phone",
+        "Tight Deadline Met",
+        "0 Bugs in Final Delivery"
+      ]
+    },
+    "clientPerspective": {
+      "quote": "\"The final video looked exactly how we imagined. The murder scene on the phone looked real, and the whole video was clean. We had no bugs, and everything was delivered on time.\"",
+      "author": "Creative Head, Production Company"
+    },
+    "whatsNext": {
+      "title": "What’s Next?",
+      "text": "We are now preparing to work on animation projects, which include simulating object movement using tools like After Effects and Houdini."
+    }
+  },
+  "cta": {
+    "title": "Access 'From Dull to Dynamic' Crime Scene Integration Story",
+    "description": "See how Mocha AE tracked the murder video onto a moving phone screen to create a seamless, realistic effect for this crime series. If you’re in video production or post-production, this case shows how video post-production services can bring critical evidence scenes to life with precise tracking and real-time editing.",
+    "buttonText": "Download Full Case Study"
+  }
+}
+ 

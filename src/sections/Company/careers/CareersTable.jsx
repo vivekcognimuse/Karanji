@@ -18,7 +18,8 @@ export const defaultCareers = [
   {
     id: 2,
     title: "GenAI Developer – Interns",
-    type: "Full-time | WFO | Internship (6 months)",
+    type: "Full-time | WFO ",
+    duration: "Internship (6 months)",
     location: "Mangalore",
     experience: "Freshers",
     category: "AI & Technology",
@@ -218,7 +219,17 @@ export default function CareersTable({
                     {/* Desktop */}
                     <div className="hidden lg:grid grid-cols-6 items-center">
                       <P4 className="col-span-2">{job.title}</P4>
-                      <P4>{job.type}</P4>
+                      <P4>
+                        {job.type}
+                        {job.duration ? (
+                          <>
+                            <br />
+                            <span className="text-black/60">
+                              {job.duration}
+                            </span>
+                          </>
+                        ) : null}
+                      </P4>
                       <P4>{job.location}</P4>
                       <P4>{job.experience}</P4>
                       <div className="flex justify-end">

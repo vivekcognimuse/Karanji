@@ -20,56 +20,6 @@ const industriesData = {
   title: "Purpose — Built for Complex Industries.",
   description:
     "We partner with organizations in Healthcare, Aviation, Logistics, & Oil & Gas to solve their most pressing operational challenges from reducing downtime & paperwork to improving safety, speed, & compliance. Each solution is tailored to real-world workflows, helping teams work smarter & scale faster.",
-  industries: [
-    {
-      title: "HealthCare",
-      description: "Reimagining Healthcare",
-      icon: "/Icons/Industries/fluent-mdl2_health.svg", // SVG icon path
-      image: "/Industries & its pages/Landing page/Healthcare card.webp",
-      details: [
-        "AI-Powered Clinical Intelligence",
-        "Immersive XR/VR Training Platforms",
-        "Digital Learning & Patient Engagement",
-      ],
-      buttonText: "Learn More",
-    },
-    {
-      title: "Aviation",
-      description: "Future-ready aviation.",
-      icon: "/Icons/Industies/mage_aeroplane.svg", // SVG icon path
-      image: "/Industries & its pages/Landing page/Aviation card .webp",
-      details: [
-        "Predictive Maintenance Solutions",
-        "Flight Crew Training Simulations",
-        "Safety Compliance Automation",
-      ],
-      buttonText: "Learn More",
-    },
-    {
-      title: "Logistics",
-      description: "Precision in Every Operation",
-      icon: "/Icons/Industies/streamline-ultimate_shipment-cargo-boat.svg", // SVG icon path
-      img: "/Industries & its pages/Landing page/Logistics card.webp",
-      details: [
-        "Supply Chain Optimization",
-        "Warehouse Automation",
-        "Real-time Tracking & Analytics",
-      ],
-      buttonText: "Learn More",
-    },
-    {
-      title: "Oil & Gas",
-      description: "Driving Digital Intelligence in Energy",
-      icon: "/Icons/Industies/streamline-ultimate_gas-f.svg", // SVG icon path
-      image: "/Industries & its pages/Landing page/Oil and Gas card.webp",
-      details: [
-        "Equipment Monitoring Systems",
-        "Safety Training & Compliance",
-        "Operational Efficiency Tools",
-      ],
-      buttonText: "Learn More",
-    },
-  ],
 };
 const cards = [
   {

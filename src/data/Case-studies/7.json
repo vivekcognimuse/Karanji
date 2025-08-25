@@ -1,0 +1,75 @@
+{
+  "card": {
+    "title": "Futuristic Digital Payments Training Module",
+    "tag": "Digital Learning",
+    "stats": [
+      {
+        "text": "Narrative",
+        "number": "Clear"
+      },
+      {
+        "text": "Design",
+        "number": "Futuristic"
+      }
+    ],
+    "description": "A futuristic training module for a global digital-payments leader-an interactive experience that blends storytelling, simulations, and high-tech visuals."
+  },
+  "caseStudyPage": {
+    "summary": {
+      "title": "Short Summary",
+      "text": "We built a futuristic training module for a global digital-payments leader-an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms, it helps stakeholders grasp the 'why' and the 'how' of next-gen payments."
+    },
+    "clientProfile": {
+      "industry": "Fintech / Digital Payments",
+      "location": "India",
+      "description": "A global leader in digital payments, offering secure and innovative solutions that redefine the financial services ecosystem."
+    },
+    "businessChallenge": {
+      "title": "Business Challenge",
+      "text": "The client sought an immersive e-learning experience to introduce a high-performance payment platform and show how it tackles latency, transaction volume, and scalability-while reinforcing an innovation-first brand."
+    },
+    "objectives": {
+      "title": "Objectives",
+      "text": "Elevate brand perception through an impactful digital learning experience. Educate stakeholders on platform features, workflows, and real-world benefits. Demonstrate how modern payment infrastructure addresses evolving banking challenges with a future-ready learning design."
+    },
+    "solutionOverview": {
+      "title": "Solution Overview",
+      "text": "Conducted deep research on the platform’s technical capabilities and strategic value from a high-level brief.",
+      "details": [
+        "Translated insights into a highly visual experience using animations, UI simulations, and a sleek, next-gen aesthetic.",
+        "Combined narrative flow with interactivity to improve clarity and engagement."
+      ]
+    },
+    "implementationDetails": {
+      "title": "Implementation Details",
+      "text": "Expanded a product brochure into a structured, interactive module crafted by instructional designers and developers.",
+      "details": [
+        "Used high-tech design cues-AI assistants, robotic motifs, holographic UI layers, motion-rich navigation-to simplify complex ideas.",
+        "Packaged for enterprise rollout with LMS support to slot cleanly into existing learning management systems."
+      ]
+    },
+    "keyResults": {
+      "title": "Key Results",
+      "text": "A polished learning asset suited to both technical and non-technical audiences.",
+      "details": [
+        "Strong client response to the futuristic design and clear narrative.",
+        "Tight alignment with product positioning through immersive learning.",
+        "Interactive walkthroughs that explain features and workflows effectively.",
+        "A standout digital asset that reinforced innovation and led to further modules."
+      ]
+    },
+    "keyLearnings": {
+      "title": "Key Learnings",
+      "text": "Creative storytelling makes abstract tech intuitive.",
+      "details": [
+        "Visual innovation (robotic characters, holographic effects) boosts recall and brand fit.",
+        "Cross-functional collaboration transforms marketing source material into an instructional product."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Access Futuristic Digital Payments Training Module Story",
+    "description": "See how simulations, holographic UI, and narrative design turn payment infrastructure into a clear, engaging learning experience. If you lead enablement in fintech or banking, this case shows how a modern training management system approach can accelerate product understanding-within broader AI-powered business solutions roadmaps.",
+    "buttonText": "Download Full Case Study"
+  }
+}
