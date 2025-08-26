@@ -22,7 +22,7 @@
   "ctaData": {
     "title": "Ready to power the future of oil & gas?",
     "description": "To know more about these cases or discuss any other requirement for transformation of Oil & gas",
-    "PrimaryButtonText": "Please Click here",
+    "PrimaryButtonText": "Start Your Transformation",
     "PrimaryButtonLink": "/contact"
   },
   "industryData": {
@@ -204,7 +204,11 @@
         "id": 2,
         "title": "Workforce Solutions",
         "icon": "/Industries & its pages/Oil and gas/engagement_12182606 1.svg",
-        "points": ["VR/AR Applications", "Knowledge Management", "Mobile Learning"]
+        "points": [
+          "VR/AR Applications",
+          "Knowledge Management",
+          "Mobile Learning"
+        ]
       },
       {
         "id": 3,

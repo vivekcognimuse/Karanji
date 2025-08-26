@@ -36,7 +36,7 @@ const ctaData = {
   title: "Ready to lead the future of healthcare?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Healthcare ",
-  PrimaryButtonText: "Please Click here",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
