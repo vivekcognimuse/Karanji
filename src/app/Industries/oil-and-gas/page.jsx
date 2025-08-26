@@ -250,7 +250,7 @@ const digitalTransformationData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Digital Transformation in Oil & Gas: AI, Predictive Maintenance & VR Training Solutions",
   description:

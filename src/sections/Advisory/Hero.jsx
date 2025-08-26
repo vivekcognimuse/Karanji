@@ -27,11 +27,11 @@ export default function HeroSection({ data, bgImage }) {
       }}>
       <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center  max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
-          <h2
-            className="text-center opacity-0 will-change-transform"
+          <h1
+            className="font-sans text-4xl sm:text-5xl lg:text-[4rem] text-black font-normal mb-4 text-center opacity-0 will-change-transform"
             data-reveal>
             {title}
-          </h2>
+          </h1>
 
           {subTitle && (
             <P1

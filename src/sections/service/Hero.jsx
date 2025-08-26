@@ -18,7 +18,7 @@ export default function HeroSection(data) {
       }}>
       <div className="flex-1 text-center lg:text-left space-y-8">
         <div className="space-y-4">
-          <h1 className="text-black text-center leading-tight text-6xl font-normal">
+          <h1 className="font-sans text-4xl sm:text-5xl lg:text-[4rem] text-black font-normal mb-4">
             {heroData.title}
           </h1>
           <p className="text-black text-2xl font-normal text-center leading-9 tracking-wide">
