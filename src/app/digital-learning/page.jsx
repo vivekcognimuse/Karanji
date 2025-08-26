@@ -149,7 +149,30 @@ const successStoriesData = {
       ],
       description:
         "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals and a motion graphics hook to elevate the content, making it more engaging and visually compelling.",
-      link: "Read Full CaseStudy", // optional field if your component uses this
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "11",
+    },
+    {
+      title: "AI-Certification LMS",
+      stats: [
+        { title: "+90%", subTitle: "Optimized Time Controls" },
+        { title: "100%", subTitle: "Seamless LMS Integration" },
+      ],
+      description:
+        "AI-certification LMS by building a per-question JavaScript timer, rewriting score logic to store the highest attempt, and adjusting SCORM resume settings so learners can restart cleanly—delivering a smooth, certification-ready experience.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "11",
+    },
+    {
+      title: "Automobile-EV Training Module",
+      stats: [
+        { title: "75%", subTitle: "Cross Team Synergy" },
+        { title: "85%", subTitle: "Increased Learner Engagement" },
+      ],
+      description:
+        "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "12",
     },
     // Add more testimonial data objects as required
   ],
