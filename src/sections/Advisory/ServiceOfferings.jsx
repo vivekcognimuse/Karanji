@@ -48,7 +48,7 @@ export default function ServiceOfferings({
         <div
           className={cn(
             heightDifference
-              ? "hidden lg:flex flex-wrap w-full justify-center gap-6 lg:gap-8" // No items-end, use justify-center for proper horizontal centering
+              ? "hidden lg:flex flex-wrap items-end w-full justify-center gap-6 lg:gap-8" // No items-end, use justify-center for proper horizontal centering
               : `lg:grid grid-cols-1 justify-center gap-6 ${
                   cards.length === 3
                     ? "lg:grid-cols-3"

@@ -3,6 +3,7 @@ import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
+import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 
 import ContentFormats from "@/sections/digital-learning/Content-Formats";
@@ -153,32 +154,7 @@ export const digitalTwinData = {
     ctaText: "Request content catalog",
     ctaLink: "/contact", // You can update this with the actual link
   },
-  cards: [
-    {
-      icon: "/Icons/Consulting.svg", // Provide correct paths to your icons
-      title: "Consulting & Strategy",
-      description:
-        "Foundations for impactful and scalable digital twin adoption",
-    },
-    {
-      icon: "/Icons/Design.svg", // Provide correct paths to your icons
-      title: "Design & Architecture",
-      description:
-        "Blueprints for intelligent, connected, scalable twin systems",
-    },
-    {
-      icon: "/Icons/Data.svg", // Provide correct paths to your icons
-      title: "Data Integration & IoT Connectivity",
-      description:
-        "Seamless integration for real-time digital twin connectivity",
-    },
-    {
-      icon: "/Icons/Development.svg", // Provide correct paths to your icons
-      title: "Development & Implementation",
-      description:
-        "Smart development, immersive interfaces for virtual precision",
-    },
-  ],
+  cards: [],
 };
 const ADVANTAGES_CONTENT = {
   title: "Content library",
@@ -223,7 +199,7 @@ const ADVANTAGES_CONTENT = {
   ],
 };
 const CTAData = {
-  title: "Looking to Enrich Your Learning Content",
+  title: "Looking to Enrich Your Learning Content?",
   description:
     "Partner with our experts to craft impactful, learner-centric content through innovative design, agile development, and scalable talent support.",
   PrimaryButtonText: "Schedule a Consultation", // Optional, if no primary button is needed
@@ -281,13 +257,13 @@ const learningChallenges = {
     {
       title: "Custom Content Solutions",
       description:
-        "Customized training content, ensuring engaging, high-quality, & culturally relevant materials",
+        "Customized training content, ensuring engaging, high-quality, & culturally relevant materials.",
       icon: null,
     },
     {
       title: "Ready Solutions & Resources",
       description:
-        "Accelerate learning with customizable, expert content, compatible with LMS platforms",
+        "Accelerate learning with customizable, expert content, compatible with LMS platforms.",
       icon: null,
     },
   ],
@@ -365,8 +341,49 @@ const customELearningSolutionDeepDive = {
   cta: {
     text: "Need something totally ready to deploy?",
     buttonText: "View Ready Solutions & Resources",
-    buttonLink: "/resources",
+    buttonLink: "solutions-and-resources",
   },
+};
+
+const serviceOfferingsData = {
+  title: "Talent Augmentation  ",
+  subTitle:
+    "Enhance your learning initiatives with our skilled professionals. We provide flexible talent solutions to support your training needs.",
+
+  cards: [
+    {
+      title: "Learning Experts",
+      subTitle: "",
+      description:
+        "Skilled professionals who design, develop, & analyze effective learning experiences.",
+      featured: true,
+      icon: "/digital-learning/content-design/content-design/talent/1.svg",
+    },
+    {
+      title: "Trainers Network",
+      subTitle: "",
+      description:
+        "Certified trainers for virtual, in-person, technical, soft skills, & leadership training.",
+      featured: false,
+      icon: "/digital-learning/content-design/content-design/talent/2.svg",
+    },
+    {
+      title: "SME expertise",
+      subTitle: "",
+      description:
+        "Specialists with deep industry, domain, & technical expertise.",
+      featured: false,
+      icon: "/digital-learning/content-design/content-design/talent/3.svg",
+    },
+    {
+      title: "Talent solutions",
+      subTitle: "",
+      description:
+        "Flexible delivery models tailored to your needs-from projects to managed teams.",
+      featured: false,
+      icon: "/digital-learning/content-design/content-design/talent/4.svg",
+    },
+  ],
 };
 
 // export const metadata = {
@@ -377,16 +394,32 @@ const customELearningSolutionDeepDive = {
 // };
 const ContentDesign = () => {
   const [activeTab, setActiveTab] = useState("custom");
+  const handleScrollToSection = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
 
+    if (targetElement) {
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth", // Smooth scroll
+      });
+    }
+  };
   return (
     <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection bgImage="/hero/content-design.webp" data={heroData} />
+      <HeroSection bgImage="/hero/Content-design.webp" data={heroData} />
       <div id="e-learning-solutions">
         <LearningChallenges data={learningChallenges} />
       </div>
       {/* Toggle Buttons */}
-      <div className="flex justify-center gap-2 mb-8">
+      <div
+        id="solutions-and-resources"
+        className="flex justify-center gap-2 mb-8">
         {tabs.map(({ key, buttonLabel }) => (
           <button
             key={key}
@@ -419,7 +452,24 @@ const ContentDesign = () => {
             <DigitalTwinOfferings
               CtaClassName="lg:-mt-24"
               data={digitalTwinData}
+            />{" "}
+            <ServiceOfferings
+              data={serviceOfferingsData}
+              icon="/digital-learning/lms-discover"
             />
+            <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+              <P2 className=" ">Looking for something more tailored?</P2>
+
+              <Button
+                onClick={() =>
+                  handleScrollToSection(event, "solutions-and-resources")
+                }
+                size="sm"
+                variant="secondary"
+                className="">
+                View Custom Content Solutions
+              </Button>
+            </div>
           </>
         )}
         {/* <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">

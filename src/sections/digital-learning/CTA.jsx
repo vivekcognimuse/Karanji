@@ -92,7 +92,7 @@ const CTA = ({ className = "", data }) => {
       setTimeout(() => {
         setShowThankYou(false);
         setIsPopupOpen(false);
-      }, 3000);
+      }, 7000);
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {

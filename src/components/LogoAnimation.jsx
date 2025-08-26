@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import PieChartLogo from "./PieChartLogo2";
 import FinalLogo from "./FinalLogo";
 
@@ -17,6 +18,7 @@ const LogoAnimation = () => {
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
   const finalLogoRef = useRef(null);
+  const quoteContentRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -27,6 +29,7 @@ const LogoAnimation = () => {
     const section2 = section2Ref.current;
     const section3 = section3Ref.current;
     const finalLogo = finalLogoRef.current;
+    const quoteContent = quoteContentRef.current;
 
     if (
       !container ||
@@ -34,7 +37,8 @@ const LogoAnimation = () => {
       !section1 ||
       !section2 ||
       !section3 ||
-      !finalLogo
+      !finalLogo ||
+      !quoteContent
     ) {
       return;
     }
@@ -47,6 +51,12 @@ const LogoAnimation = () => {
       opacity: 0,
       scale: 0.7,
       rotation: -360,
+    });
+
+    // Initial state for quote content - hidden
+    gsap.set(quoteContent, {
+      opacity: 0,
+      y: 50,
     });
 
     // INITIAL STATE: Only section 3 visible, others hidden
@@ -136,6 +146,18 @@ const LogoAnimation = () => {
           ease: "back.out(1.4)",
         },
         "-=0.4"
+      )
+
+      // Stage 5: Show quote content after logo animation completes
+      .to(
+        quoteContent,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        "+=0.2"
       );
 
     // Refresh ScrollTrigger after setup
@@ -150,9 +172,11 @@ const LogoAnimation = () => {
     <div>
       <div
         ref={containerRef}
-        className="h-screen flex items-center justify-center relative overflow-hidden">
+        className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
-        <div className="flex items-center justify-center relative z-10">
+
+        {/* Logo Animation Section */}
+        <div className="flex items-center justify-center relative z-10 flex-1">
           <PieChartLogo
             logoRef={logoRef}
             section1Ref={section1Ref}
@@ -160,6 +184,30 @@ const LogoAnimation = () => {
             section3Ref={section3Ref}
           />
           <FinalLogo finalLogoRef={finalLogoRef} />
+        </div>
+
+        {/* Quote Content - appears after logo animation */}
+        <div ref={quoteContentRef} className="w-full pb-24 md:pb-28">
+          <div className="mx-auto px-4 md:px-8">
+            {/* Quote Icon */}
+            <div className="mb-8 flex justify-start">
+              <Image
+                height={40}
+                width={40}
+                src="/Icons/ph_quotes.svg"
+                alt="Quote"
+                unoptimized
+                className="w-14 h-14"
+              />
+            </div>
+
+            {/* Main Heading */}
+            <div className="text-center">
+              <h2 className="text-black text-nowrap">
+                Innovate. Design. Transform.
+              </h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>

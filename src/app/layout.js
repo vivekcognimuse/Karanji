@@ -56,7 +56,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {/* <SmoothScrollWrapper> */}
         <div className="] pb-16 ">{children}</div>
-        <Footer />
+        {/* <Footer /> */}
         {/* </SmoothScrollWrapper> */}
         <CookieNotification />
       </body>

@@ -176,17 +176,6 @@ const methodologyData = {
         "Systems for feedback & improvement",
       ],
     },
-    {
-      title: "Localization",
-      description:
-        "We translate and culturally adapt content with voice-overs and rigorous quality checks for a seamless global learning experience.",
-      tags: [
-        "Translation to multiple languages",
-        "Cultural adaptation",
-        "Voice-over and audio production",
-        "Quality assurance",
-      ],
-    },
   ],
 };
 const analyticsData = {
