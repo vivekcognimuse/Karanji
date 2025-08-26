@@ -62,7 +62,7 @@ export default function WebinarHeader({ data, bgImage }) {
 
   return (
     <section
-      className="relative bg-no-repeat  bg-center bg-cover"
+      className="relative bg-no-repeat flex flex-col h-fit pt-16 lg:pt-0 md:min-h-[calc(100vh-80px)] bg-top bg-cover"
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}

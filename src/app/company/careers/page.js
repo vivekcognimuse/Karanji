@@ -50,8 +50,8 @@ const ctaData = {
   title: "Don't see a role that fits?",
   description:
     "We’d love to hear from you! Send us an email at recruitment@karanji.com with the subject line ‘Application | Role Title’, along with your profile and areas of interest. We’re always on the lookout for exceptional talent to join our team.",
-  PrimaryButtonText: "Send us an Email",
-  PrimaryButtonLink:
+  SecondaryButtonText: "Send us an Email",
+  SecondaryButtonLink:
     "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
 };
 
@@ -60,7 +60,7 @@ export default function careersPage() {
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {/* Wrapper for all components except the last CTA */}
       <div
-        className="p-10 my-auto rounded-[32px]"
+        className="p-10 mb-30 my-auto rounded-[32px]"
         style={{
           background:
             "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",

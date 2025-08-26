@@ -17,8 +17,8 @@ const ctaData = {
   title: "Join Our Team",
   description:
     "Be part of a passionate group of innovators building impactful tech solutions & redefining digital learning. If you're driven by curiosity, creativity, and purpose-we'd love to hear from you.",
-  PrimaryButtonText: "Explore Careers",
-  PrimaryButtonLink: "/company/careers",
+  SecondaryButtonText: "Explore Careers",
+  SecondaryButtonLink: "/company/careers",
 };
 
 const teamData = {
@@ -145,6 +145,7 @@ export default async function teampage() {
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
       <HeroSection data={heroData} bgImage="/hero/team.png" />
+      <CTA data={teamData} />
       <div id="team-section">
         <TeamSections sections={teamSectionData} />
       </div>

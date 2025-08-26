@@ -18,7 +18,8 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
         style={{
           background:
             "linear-gradient(90deg, rgba(255, 209, 193, 0.2) 28.11%, rgba(206, 220, 255, 0.2) 70.88%)",
-        }}>
+        }}
+      >
         {/* Gradient border overlay */}
         <div
           className="absolute inset-0 rounded-[16px] pointer-events-none"
@@ -44,9 +45,7 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
               alt={`${title} icon`}
               className="w-12 h-12 object-contain"
             />
-            <h4 className="text-xl font-semibold text-gray-900 mb-0">
-              {title}
-            </h4>
+            <h4>{title}</h4>
           </div>
           {/* Description */}
           <P3 className="text-gray-700 leading-relaxed mb-4">{description}</P3>
@@ -80,7 +79,8 @@ const WhyWorkWithUsSection = ({
       className={` ${className}`}
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8" data-reveal data-reveal-dir="up">
