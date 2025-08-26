@@ -49,7 +49,10 @@ export default async function AIAdvisoryPage() {
         />
       </div>
       <Methodology data={methodology} />
-      <IndustryExpertise data={industryExpertise} />
+      <IndustryExpertise
+        data={industryExpertise}
+        icon={`/technologySolutions/ai-industry`}
+      />
       <CTA data={CTAData} />
       <SuccessStories data={successStories} />
     </main>
