@@ -4,7 +4,18 @@ import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
+import CTA from "@/sections/digital-learning/CTA";
 import Head from "next/head";
+
+const CTAData = {
+  title: "Transform Your Industry with Tailored Approach",
+  description:
+    "Discover how our solutions address the unique challenges in your industry.",
+  PrimaryButtonText: null,
+  PrimaryButtonLink: null,
+  SecondaryButtonText: "Explore Industry Solutions",
+  SecondaryButtonLink: "/Industries",
+};
 
 export const metadata = {
   title:
@@ -39,6 +50,7 @@ export default async function AIAdvisoryPage() {
       </div>
       <Methodology data={methodology} />
       <IndustryExpertise data={industryExpertise} />
+      <CTA data={CTAData} />
       <SuccessStories data={successStories} />
     </main>
   );

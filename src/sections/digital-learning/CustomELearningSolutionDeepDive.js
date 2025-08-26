@@ -1,3 +1,4 @@
+"use client";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 import { P1, P2, P3 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
@@ -20,7 +21,21 @@ import React from "react";
  */
 export default function ELearningSolutions({ data }) {
   const { title, subTitle, level1, level2, cta, cards } = data;
+  const handleScrollToSection = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
 
+    if (targetElement) {
+      const targetPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth", // Smooth scroll
+      });
+    }
+  };
   return (
     <section className="relative isolate">
       {/* Header */}
@@ -74,11 +89,14 @@ export default function ELearningSolutions({ data }) {
       {/* CTA */}
       <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
         <P2 className=" ">{cta.text}</P2>
-        <Link href={cta.buttonLink || "/resources"}>
-          <Button size="sm" variant="secondary" className="">
-            {cta.buttonText}
-          </Button>
-        </Link>
+
+        <Button
+          onClick={() => handleScrollToSection(event, cta.buttonLink)}
+          size="sm"
+          variant="secondary"
+          className="">
+          {cta.buttonText}
+        </Button>
       </div>
     </section>
   );

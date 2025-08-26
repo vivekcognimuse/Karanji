@@ -1,5 +1,5 @@
 import CarouselContainer from "@/components/animations/Carousal";
-import { P2 } from "@/components/CustomTags";
+import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
@@ -34,14 +34,14 @@ const EntertainmentServices = ({ data }) => {
 
               {/* Title */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                <h5 className=" font-semibold text-gray-800 mb-4">
                   {service.title}
-                </h3>
+                </h5>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed">
+                <P3 className="text-gray-600 leading-relaxed">
                   {service.description}
-                </p>
+                </P3>
               </div>
             </div>
           ))}
@@ -65,14 +65,14 @@ const EntertainmentServices = ({ data }) => {
 
                 {/* Title */}
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                  <h5 className=" font-semibold text-gray-800 mb-4">
                     {service.title}
-                  </h3>
+                  </h5>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed">
+                  <P3 className="text-gray-600 leading-relaxed">
                     {service.description}
-                  </p>
+                  </P3>
                 </div>
               </div>
             ))}

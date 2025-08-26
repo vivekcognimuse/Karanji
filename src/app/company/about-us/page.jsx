@@ -213,7 +213,7 @@ export default function AboutUs() {
     <>
       <main className="">
         <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
-        <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+        <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 mt-16 lg:mt-32 lg:space-y-32">
           <JourneySection
             data={{
               ...journeyData,

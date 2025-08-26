@@ -53,9 +53,9 @@ const serviceOverview = {
 
 const serviceOfferingsData = {
   title: "Our Services Offerings",
-  description:
+  subTitle:
     "Create exceptional events powered by technology & expert planning. Our team ensures every critical element runs smoothly while you connect with your audience.",
-  tag: "Event Services",
+
   cards: [
     {
       title: "Live event production & management",
@@ -124,7 +124,7 @@ const methodologyData = {
 const contentFormatsData = {
   title: "Our Event Technology",
   description:
-    "Industry‑standard tools like H‑Acoustics, Martin Lighting, & Blackmagic gear. We use modern equipment to ensure performance, reliability, & quality.",
+    "Industry‑standard tools like L‑Acoustics, Martin Lighting, & Blackmagic gear. We use modern equipment to ensure performance, reliability, & quality.",
   image: null,
   content: [
     {

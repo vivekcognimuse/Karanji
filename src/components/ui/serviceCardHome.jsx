@@ -114,17 +114,17 @@ export const ServiceCardHome = memo(function ServiceCard({
 const SingleServiceCard = memo(function SingleServiceCard({
   data,
   index,
-  image,
+
   bgImage,
   ...props
 }) {
-  const { title, description, list, ctaText, ctaLink, id } = data || {};
-  console.log("index of technology soliution:", index);
+  const { title, description, list, ctaText, ctaLink, image } = data || {};
+  console.log("index of technology soliution:", image);
   return (
     <Link href={ctaLink}>
       <div
         {...props}
-        className="single-service-card relative  cursor-pointer  h-[580px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 group">
+        className="single-service-card relative  cursor-pointer min-w-[80vw] h-[480px] md:h-[540px] rounded-[32px] shadow-lg border border-[#D3CAFD] overflow-hidden z-10 group">
         {/* Background layer with CSS transitions */}
         <div className="absolute inset-0 rounded-[32px]  transition-all duration-300 ease-in-out" />
 
