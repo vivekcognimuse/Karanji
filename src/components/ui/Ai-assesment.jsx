@@ -60,7 +60,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
             </div>
             <div className="flex justify-center">
               <Button onClick={handleButtonClick}>
-                {ctaText || "Start Assessment"}
+                {ctaText === "/" ? "Take the AI Diagnostic Now" : ctaText}
               </Button>
             </div>
           </>
