@@ -19,41 +19,73 @@ const HeroSection = ({ data }) => {
   } = data || {};
 
   const videoRef = useRef(null);
+  const mobileVideoRef = useRef(null);
 
   useEffect(() => {
-    // Disable right-click context menu on video
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        return false;
-      });
-    }
+    // Disable right-click context menu on videos
+    const videos = [videoRef.current, mobileVideoRef.current].filter(Boolean);
+
+    videos.forEach((video) => {
+      if (video) {
+        video.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          return false;
+        });
+      }
+    });
   }, []);
 
   return (
     <section className="lg:min-h-[calc(100vh-5rem)] items-center pb-10 lg:pb-32 flex flex-col lg:flex-row gap-8">
       <div className="flex-1 mt-16 lg:-mt-20 space-y-8">
         <div className="space-y-4">
-          <h1 className="">Let's Bring Your Vision to Life</h1>
+          <h1 className="font-sans text-black  leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)]  font-normal">
+            Let's Bring Your Vision to Life
+          </h1>
           <P1 className="">
             We help organizations solve complex business challenges through the
             strategic integration of digital learning, immersive experiences, &
             practical AI implementation.
           </P1>
         </div>
-        <div className="w-full lg:hidden lg:w-1/3">
-          <div className="w-full flex justify-center">
-            <Image
-              src={logo || "/home/logo.webp"}
-              alt="Karanji Logo"
-              className="w-[50vw] h-full aspect-auto lg:w-full"
-              width={500}
-              height={500}
-              priority
+
+        {/* Mobile Video - shown only on mobile */}
+        <div className="w-full lg:hidden">
+          <div className="relative w-full aspect-video rounded-lg">
+            {/* Overlay to prevent interaction */}
+            <div
+              className="absolute inset-0 z-10 cursor-default"
+              style={{
+                backgroundColor: "transparent",
+                pointerEvents: "auto",
+              }}
+              onContextMenu={(e) => e.preventDefault()}
             />
+
+            {/* Mobile Video element */}
+            <video
+              ref={mobileVideoRef}
+              className="w-full h-full object-contain rounded-lg"
+              autoPlay
+              muted
+              playsInline
+              controlsList="nodownload nofullscreen noremoteplayback"
+              disablePictureInPicture
+              onContextMenu={(e) => e.preventDefault()}
+              style={{
+                pointerEvents: "none",
+                userSelect: "none",
+                WebkitUserSelect: "none",
+                MozUserSelect: "none",
+                msUserSelect: "none",
+              }}>
+              <source src={"/output.webm"} type="video/webm" />
+              <source src={"/output.mp4"} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
+
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
           <ScrollButton
@@ -69,6 +101,7 @@ const HeroSection = ({ data }) => {
         </div>
       </div>
 
+      {/* Desktop Video */}
       <div className="w-1/2 h-full hidden -mt-16 lg:flex justify-center items-center">
         <div className="relative w-full h-[600px] max-w-[600px] overflow-hidden rounded-lg">
           {/* Overlay to prevent interaction */}
@@ -81,7 +114,7 @@ const HeroSection = ({ data }) => {
             onContextMenu={(e) => e.preventDefault()}
           />
 
-          {/* Video element */}
+          {/* Desktop Video element */}
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -98,7 +131,8 @@ const HeroSection = ({ data }) => {
               MozUserSelect: "none",
               msUserSelect: "none",
             }}>
-            <source src={"/output.webm"} type="video/mp4" />
+            <source src={"/output.webm"} type="video/webm" />
+            <source src={"/output.mp4"} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -122,7 +156,7 @@ const HeroSection = ({ data }) => {
           display: none !important;
         }
 
-        video::-webkit-media-controls-start-playback-button {
+        video::-webkit-media-controls-start-playbook-button {
           display: none !important;
         }
       `}</style>

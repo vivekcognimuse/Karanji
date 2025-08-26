@@ -3,7 +3,6 @@ import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import React, { useState } from "react";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const CTA = ({ className = "", data }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -92,7 +91,7 @@ const CTA = ({ className = "", data }) => {
       setTimeout(() => {
         setShowThankYou(false);
         setIsPopupOpen(false);
-      }, 3000);
+      }, 7000);
     } catch (error) {
       console.error("Form submission error:", error);
     } finally {
@@ -116,41 +115,21 @@ const CTA = ({ className = "", data }) => {
 
   return (
     <>
-      <section
-        className={`text-center ${className}`}
-        data-reveal-amount="0.3"
-        data-reveal-duration="0.5"
-        data-reveal-stagger="0.12">
-        <h3 data-reveal data-reveal-dir="up">
-          {title}
-        </h3>
-        <P2 data-reveal data-reveal-dir="up">
-          {description}
-        </P2>
+      <section className={`text-center ${className}`}>
+        <h3>{title}</h3>
+        <P2>{description}</P2>
         <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
           {PrimaryButtonText && (
-            <Button
-              variant="secondary"
-              onClick={handlePrimaryButtonClick}
-              data-reveal
-              data-reveal-dir="up">
+            <Button variant="secondary" onClick={handlePrimaryButtonClick}>
               {PrimaryButtonText}
             </Button>
           )}
           {SecondaryButtonText && SecondaryButtonLink && (
             <Link href={SecondaryButtonLink}>
-              <Button
-                href={SecondaryButtonLink}
-                data-reveal
-                data-reveal-dir="up">
-                {SecondaryButtonText}
-              </Button>
+              <Button href={SecondaryButtonLink}>{SecondaryButtonText}</Button>
             </Link>
           )}
         </div>
-
-        {/* Include SectionReveal for triggering the animations */}
-        <SectionReveal />
       </section>
 
       {/* Popup Overlay */}

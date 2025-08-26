@@ -30,7 +30,7 @@ const ctaData = {
   title: "Ready to lead the future of Aviation?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Aviation",
-  PrimaryButtonText: "Please Click here",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -282,7 +282,7 @@ const strategicUseCaseData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Aviation Transformation Solutions: AI, XR & Predictive Maintenance for Airlines",
   description:

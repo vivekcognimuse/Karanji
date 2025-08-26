@@ -176,36 +176,10 @@ export const NAV_LINKS = [
       },
       {
         name: "Webinars",
-        href: "/webinar",
+        href: "/coming-soon",
         icon: "/nav/webinars.svg",
         description: "Join us for insightful webinars & events.",
       },
     ],
   },
 ];
-// Utility function to adapt data to Navbar format
-export const getNavLinks = () => {
-  return sharedLinks.map((section) => ({
-    title: section.title,
-    href: section.href,
-    description: `Explore ${section.title} services.`,
-    subSections: section.links.map((link) => ({
-      name: link.name,
-      href: link.href,
-      icon: `/nav/${link.name.toLowerCase().replace(/\s+/g, "-")}.svg`, // Assuming icons are named this way
-      description: `Learn more about ${link.name}`,
-    })),
-  }));
-};
-
-// Utility function to adapt data to Footer format
-export const getFooterLinks = () => {
-  return sharedLinks.map((section) => ({
-    title: section.title,
-    href: section.href,
-    links: section.links.map((link) => ({
-      name: link.name,
-      href: link.href,
-    })),
-  }));
-};

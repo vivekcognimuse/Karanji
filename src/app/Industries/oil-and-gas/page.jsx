@@ -23,7 +23,7 @@ const heroData = {
     },
     {
       text: "Faster Competency",
-      number: "40%%",
+      number: "40%",
     },
   ],
 };
@@ -31,7 +31,7 @@ const ctaData = {
   title: "Ready to power the future of oil & gas?",
   description:
     "  To know more about these cases or discuss any other requirement for transformation of Oil & gas",
-  PrimaryButtonText: "Please Click here",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -250,7 +250,7 @@ const digitalTransformationData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Digital Transformation in Oil & Gas: AI, Predictive Maintenance & VR Training Solutions",
   description:

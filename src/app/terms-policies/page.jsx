@@ -309,7 +309,7 @@ const policyContent = {
         content:
           "We welcome feedback on the accessibility of Karanji. If you encounter difficulties or have suggestions for improvement, please contact us:",
         footer:
-          "accessibility@karanji.com\n\nWe aim to respond to accessibility-related inquiries within [X business days] and will do our best to address any issues promptly.",
+          "info@karanji.com\n\nWe aim to respond to accessibility-related inquiries shortly and will do our best to address any issues promptly.",
       },
     ],
   },

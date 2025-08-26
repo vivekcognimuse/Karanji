@@ -18,9 +18,10 @@ const StatsSection = () => {
               key={index}
               className="w-full lg:w-80 text-center space-y-4 lg:space-y-6">
               <Image
-                src="stat.svg"
+                src="/stat.svg"
                 alt="Stat Image"
                 width={100}
+                unoptimized
                 height={100}
                 className="mx-auto w-40 sm:w-48 md:w-56 lg:w-72  h-fit"
               />

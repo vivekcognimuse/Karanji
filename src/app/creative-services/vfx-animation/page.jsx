@@ -62,9 +62,9 @@ const serviceOverview = {
 // SERVICE OFFERINGS
 const serviceOfferingsData = {
   title: "Our Service Offerings",
-  description:
+  subTitle:
     "Transform your vision with professional VFX & animation. Our team delivers end-to-end solutions across film, television, advertising, & digital media to elevate your project.",
-  tag: "Entertainment Services",
+
   cards: [
     {
       title: "Rotoscoping services",
@@ -211,42 +211,41 @@ const successStoriesData = {
 const accordionData = {
   title: "Frequently Asked Questions",
   subTitle:
-    "Find quick guidance on pricing, timelines, equipment needs, remote recording, & distribution support.",
+    "Find answers to common questions about VFX pricing, timelines, rotoscoping, & remote collaboration. ",
   questions: [
     {
-      question: "How much does professional podcast production cost?",
+      question: "What is rotoscoping in VFX & when is it necessary?",
       answer:
-        "Costs vary based on project scope & complexity. Simple edits have lower rates, while full production—editing, mixing & direction—are quoted based on deliverables. Contact us for a custom estimate.",
+        "Rotoscoping is the process of creating precise masks to separate elements in footage frame-by-frame. It's essential when elements need to be isolated for effects application, color correction, or integration with other visual elements.",
     },
     {
-      question: "What equipment do I need to record a professional podcast?",
+      question: "How much does professional VFX & animation typically cost?",
       answer:
-        "We provide studio-grade equipment during sessions. For remote setups, we recommend a quality mic, pop filter, and a quiet, treated room. We guide remote guest setups as needed.",
+        "VFX pricing depends on project complexity, timeline, & specific requirements. Simple rotoscoping may start at X per frame, while complex compositing & CGI work is typically quoted based on the full scope. Contact us for a customized quote tailored to your project needs.",
     },
     {
-      question: "How long does it take to produce a podcast episode?",
+      question: "What information do you need to provide for a VFX quote?",
       answer:
-        "Turnaround depends on length and complexity. Typically, a 30‑minute episode takes 2–5 business days from recording through revisions and final delivery.",
+        "To provide an accurate quote, we typically need: footage samples or storyboards, detailed description of required effects, project timeline, output format requirements, & any specific technical considerations. The more details you provide, the more precise our estimate will be.",
     },
     {
-      question:
-        "Can you help distribute my podcast to platforms like Spotify & Apple Podcasts?",
+      question: "What information do you need to provide for a VFX quote?",
       answer:
-        "Yes—we assist with distribution, formatting, metadata, and uploading to all major platforms for smooth publishing.",
+        "Timelines vary based on complexity & scope. Simple rotoscoping might be completed in days, while complex compositing & CGI could take weeks. We work closely with clients to establish realistic schedules & can adjust team size for urgent deadlines when possible.",
     },
     {
-      question: "Do you offer remote recording options for podcast guests?",
+      question: "What information do you need to provide for a VFX quote?",
       answer:
-        "Absolutely—we support remote guest recording via high-quality virtual tools while our engineers ensure optimal audio capture and support throughout.",
+        "We work with clients globally through efficient remote collaboration. For complex shoots requiring on-set VFX supervision, our team can travel to your location to ensure all necessary elements are captured correctly, optimizing the post-production process.",
     },
   ],
 };
 
 // CTA SECTION
 const CTAData = {
-  title: "Ready to create a professional audio content ?",
+  title: "Ready to elevate your project with professional VFX ?",
   description:
-    "Let’s discuss your project. Whether launching a podcast or requiring sound design, our team is ready to deliver results.",
+    "Contact our team today to discuss your visual effects & animation needs.",
   PrimaryButtonText: "Schedule a Consultation",
   PrimaryButtonLink: "/contact",
   SecondaryButtonText: null,

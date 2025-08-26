@@ -22,7 +22,7 @@
   "ctaData": {
     "title": "Ready to lead the future of Aviation?",
     "description": "To know more about these cases or discuss any other requirement for transformation of Aviation",
-    "PrimaryButtonText": "Please Click here",
+    "PrimaryButtonText": "Start Your Transformation",
     "PrimaryButtonLink": "/contact"
   },
   "industryData": {
@@ -110,7 +110,9 @@
         "description": "Digitally transforming operations with AI, biometrics, & smart infrastructure.",
         "hoverContent": [
           { "text": "Upgrading core operational systems to boost efficiency" },
-          { "text": "RFID for streamlined security, boarding & baggage handling" }
+          {
+            "text": "RFID for streamlined security, boarding & baggage handling"
+          }
         ]
       },
       {

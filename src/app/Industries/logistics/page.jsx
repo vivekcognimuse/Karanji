@@ -30,7 +30,7 @@ const ctaData = {
   title: "Ready to transform the future of logistics?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Logistics",
-  PrimaryButtonText: "Please Click here",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -308,7 +308,7 @@ const strategicUseCaseData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Logistics Digital Transformation: AI, Predictive Maintenance & Workforce Training Solutions",
   description:

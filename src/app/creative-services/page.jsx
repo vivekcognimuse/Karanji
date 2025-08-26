@@ -132,16 +132,45 @@ const successStoriesData = {
     "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, & drive engagement across entertainment platforms.",
   cards: [
     {
-      title: "One-Hour Podcast into a Visual Experience",
+      title: "Bringing a Murder Mystery Scene to Life",
       stats: [
-        { title: "+100%", subTitle: "Improved Video Clarity" },
-        { title: "30–sec", subTitle: "Hook Developed Proactively" },
+        { title: "70%", subTitle: "Innovation" },
+        { title: "0 bugs", subTitle: "Final Delivery" },
       ],
       description:
-        "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals & motion graphics hook to elevate the content, making it more engaging & visually compelling.",
+        "We composited client-provided murder footage onto a moving phone screen using Mocha AE planar tracking, matching motion, angle, and lighting for a realistic “video-on-phone” effect—shot with a green screen and replaced in post.",
       link: "Read Full CaseStudy",
     },
-    // Add more testimonial data objects as required
+    {
+      title: "Quality Month: Video Animation",
+      stats: [
+        { title: "On time", subTitle: "Delivery" },
+        { title: "100%", subTitle: "In-house Dubbing" },
+      ],
+      description:
+        "A culturally resonant animated VSB series for an automotive company’s Quality Month, told in a Panchayat-style narrative with custom Kannada voiceovers to mirror employees and values.",
+      link: "Read Full CaseStudy",
+    },
+    {
+      title: "One-Hour Podcast into a Visually Engaging Experience",
+      stats: [
+        { title: "+100%", subTitle: "Improved Video Quality" },
+        { title: "1 week", subTitle: "Project Completion" },
+      ],
+      description:
+        "A one-hour, low-quality video-call podcast (Senior Director × bestselling author) was turned into a visually engaging piece for a global IT services provider—covering innovation, resilience, and storytelling.",
+      link: "Read Full CaseStudy",
+    },
+    {
+      title: "Convocation Day School Real Video Project",
+      stats: [
+        { title: "95%", subTitle: "Engaging" },
+        { title: "100%", subTitle: "Client Satisfaction" },
+      ],
+      description:
+        "A three-day, end-to-end convocation video for a school, produced via rapid scripting/storyboarding, in-school filming, and smart use of stock footage to showcase the institution during the ceremony.",
+      link: "Read Full CaseStudy",
+    },
   ],
 };
 

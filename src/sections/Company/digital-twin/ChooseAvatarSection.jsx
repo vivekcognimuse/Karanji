@@ -48,19 +48,24 @@ function AvatarCard({ avatar, description }) {
 
   return (
     <div
-      className="relative w-1/2 flex-shrink-0"
+      className="relative w-full mx-auto md:mx-0 max-w-md lg:w-1/2 flex-shrink-0"
       data-reveal
       data-reveal-dir="up" // Add data-reveal for animation
     >
-      <div className="relative w-full h-full rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden">
+      <div className="relative w-full h-full rounded-2xl p-3 border border-black-100  shadow-sm overflow-hidden">
         {/* Online Status */}
-        <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
-          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span>{agentLoaded ? "Online" : "Loading..."}</span>
+        <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
+          <Image
+            src="/logo.svg"
+            alt="karanji Logo"
+            width={40}
+            height={10}
+            className="h-6 w-fit"
+          />
         </div>
 
         {/* Avatar Container */}
-        <div className="w-full h-[350px] rounded-xl overflow-hidden bg-gray-50">
+        <div className="w-full h-[350px] rounded-xl overflow-hidden ">
           {showAgent && avatar.iframeFile ? (
             <iframe
               src={avatar.iframeFile}
@@ -78,7 +83,7 @@ function AvatarCard({ avatar, description }) {
                 alt={avatar.name}
                 width={280}
                 height={350}
-                className="w-full h-full object-cover rounded-2xl border border-black-200 shadow-lg object-center"
+                className="w-full h-full object-contain rounded-2xl border border-black-200 shadow-lg object-center"
                 style={{ objectPosition: "center 20%" }}
               />
               {!showAgent && (
@@ -161,7 +166,7 @@ export default function ChooseAvatarSection() {
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+    <div className="flex flex-col md:flex-row justify-center  items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
         <AvatarCard
           key={avatar.name}

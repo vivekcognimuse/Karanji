@@ -142,16 +142,63 @@ const successStoriesData = {
     "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
   cards: [
     {
-      title: "One-Hour Podcast into a Visual Experience",
+      title: "Corporate Learning & Development Teams ",
       stats: [
-        { title: "+100%", subTitle: "Improved Video Clarity" },
-        { title: "30–sec", subTitle: "Hook Developed Proactively" },
+        { title: "High", subTitle: "Quality Animations" },
+        { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
-        "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals and a motion graphics hook to elevate the content, making it more engaging and visually compelling.",
-      link: "Read Full CaseStudy", // optional field if your component uses this
+        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "10",
+      tag: "Digital Learning",
     },
-    // Add more testimonial data objects as required
+    {
+      title: "Driving School & Training Module",
+      stats: [
+        { title: "6", subTitle: "Crafted Modules" },
+        { title: "100%", subTitle: "Client Satisfaction" },
+      ],
+      description:
+        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "9",
+      tag: "Digital Learning",
+    },
+    {
+      title: "Futuristic Digital Payments Training Module",
+      stats: [
+        { title: "80%", subTitle: "Completion Efficiency" },
+        { title: "+90%", subTitle: "Learner Engagement" },
+      ],
+      description:
+        "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "8",
+      tag: "Digital Learning",
+    },
+    {
+      title: "AI-Certification LMS",
+      stats: [
+        { title: "+90%", subTitle: "Optimized Time Controls" },
+        { title: "100%", subTitle: "Seamless LMS Integration" },
+      ],
+      description:
+        "AI-certification LMS by building a per-question JavaScript timer, rewriting score logic to store the highest attempt, and adjusting SCORM resume settings so learners can restart cleanly—delivering a smooth, certification-ready experience.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "11",
+    },
+    {
+      title: "Automobile-EV Training Module",
+      stats: [
+        { title: "75%", subTitle: "Cross Team Synergy" },
+        { title: "85%", subTitle: "Increased Learner Engagement" },
+      ],
+      description:
+        "An EV microlearning program that compresses 10 hours of complex content into 7-minute lessons for an automotive workforce, clarifying topics like 5G-enabled V2X and regenerative braking.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "12",
+    },
   ],
 };
 

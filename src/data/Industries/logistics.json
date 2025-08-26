@@ -22,7 +22,7 @@
   "ctaData": {
     "title": "Ready to transform the future of logistics?",
     "description": "To know more about these cases or discuss any other requirement for transformation of Logistics",
-    "PrimaryButtonText": "Please Click here",
+    "PrimaryButtonText": "Start Your Transformation",
     "PrimaryButtonLink": "/contact"
   },
   "industryData": {
@@ -108,7 +108,9 @@
         "title": "IoT & Connected Devices",
         "description": "IoT enables real-time asset tracking & operational insights.",
         "hoverContent": [
-          { "text": "IoT enables real-time asset tracking & operational insights." },
+          {
+            "text": "IoT enables real-time asset tracking & operational insights."
+          },
           { "text": "GPS, RFID, & sensors are widely implemented" },
           { "text": "Telematics supports smarter fleet management" }
         ],
@@ -119,7 +121,9 @@
         "title": "Digital Twins & Simulation",
         "description": "Digital twins reduce congestion & support operational simulations.",
         "hoverContent": [
-          { "text": "Digital twins reduce congestion & support operational simulations." }
+          {
+            "text": "Digital twins reduce congestion & support operational simulations."
+          }
         ],
         "frontImage": "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png",
         "hoverImage": "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png"
@@ -128,7 +132,9 @@
         "title": "Blockchain Technology",
         "description": "Blockchain enhances compliance, traceability, & secure documentation.",
         "hoverContent": [
-          { "text": "Blockchain enhances compliance, traceability, & secure documentation." }
+          {
+            "text": "Blockchain enhances compliance, traceability, & secure documentation."
+          }
         ],
         "frontImage": "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
         "hoverImage": "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png"

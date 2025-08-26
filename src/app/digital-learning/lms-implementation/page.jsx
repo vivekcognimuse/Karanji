@@ -121,7 +121,7 @@ const learningChallenges = {
     {
       title: "Content Management",
       description:
-        "Powerful tools to organize & deliver diverse learning materials",
+        "Powerful tools to organize & deliver diverse learning materials.",
       icon: "/digital-learning/lms-learning/2.svg", // Optional SVG icon as string
     },
     {
@@ -183,7 +183,7 @@ const switchSectionData = {
         {
           title: "Course Structure",
           image:
-            "/digital-learning/switchSection/Content Management/Course Structure.webp",
+            "/digital-learning/switchSection/Content management/Course Structure.webp",
           content:
             "Organize & structure your courses with an intuitive hierarchy, supports various file types including SCORM for easy management.",
           tags: ["Hierarchical structure", "SCORM support"],
@@ -191,7 +191,7 @@ const switchSectionData = {
         {
           title: "Assessment Tools",
           image:
-            "/digital-learning/switchSection/Content Management/Assessment Tools.webp",
+            "/digital-learning/switchSection/Content management/Assessment Tools.webp",
           content:
             "Track learner progress with built-in assessments, tailored question difficulty, & precise grading, providing valuable insights, reports.",
           tags: ["Built-in assessments", "Coaching reports", "Precise grading"],
@@ -199,7 +199,7 @@ const switchSectionData = {
         {
           title: "Certification",
           image:
-            "/digital-learning/switchSection/Content Management/Certification.webp",
+            "/digital-learning/switchSection/Content management/Certification.webp",
           content:
             "Celebrate learner achievements with customizable certificates & badges, all featuring your company’s branding & detailed grades",
           tags: ["Custom certificates", "Badges", "Grades", "Credentials"],

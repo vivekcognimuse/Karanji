@@ -42,7 +42,6 @@ export default async function companyLanding() {
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
       <HeroSection data={heroData} />
-      <QuoteSection title="Innovate. Design. Transform." />
       <NextUpSection
         title={teamData?.title}
         description={teamData?.description}

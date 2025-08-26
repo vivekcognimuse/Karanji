@@ -13,8 +13,8 @@ const heroData = {
   title: "Professional Audio Podcast & Production",
   subTitle:
     "Studio-quality sound that elevates your content & engages audiences",
-  linkText: "Explore Our Services",
-  linkHref: "/", // adjust as needed
+  ctaText: "Explore Our Services",
+  ctaLink: "audio-service-offerings", // adjust as needed
   backgroundImage: null, // only include if there's a background image provided
   stats: [
     {
@@ -53,7 +53,7 @@ const serviceOverview = {
 const serviceOfferingsData = {
   title: "Our Services Offerings",
   subTitle:
-    "Captivate Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal-clear sound with creative storytelling for podcasts, voice-overs, & commercial media..",
+    "Captivate Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal-clear sound with creative storytelling for podcasts, voice-overs, & commercial media.",
 
   cards: [
     {
@@ -238,10 +238,9 @@ const VfxAnimation = () => {
       {" "}
       <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
-      <ServiceOfferings
-        data={serviceOfferingsData}
-        icon="/entertainment/vfx/offering"
-      />{" "}
+      <div id="audio-service-offerings">
+        <ServiceOfferings data={serviceOfferingsData} icon="/audio/icons" />{" "}
+      </div>
       <Methodology data={methodologyData} />
       <ContentFormats data={contentFormatsData} />{" "}
       <SuccessStories data={successStoriesData} />

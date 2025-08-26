@@ -35,8 +35,8 @@ const heroData = {
 const ctaData = {
   title: "Ready to lead the future of healthcare?",
   description:
-    "To know more about these cases or discuss any other requirement for transformation of Healthcare ",
-  PrimaryButtonText: "Please Click here",
+    " To know more about these cases or discuss any other requirement for transformation of Healthcare ",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -366,7 +366,12 @@ const strategicFramework = {
     },
   ],
 };
-
+export const metadata = {
+  title:
+    "Healthcare Transformation Solutions: AI, XR & Digital Learning for Modern Healthcare",
+  description:
+    "Transform healthcare with AI, XR, and digital learning solutions. Address workforce gaps, reduce costs, and enhance patient engagement through immersive and intelligent technologies.",
+};
 export default async function HealthCare() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
