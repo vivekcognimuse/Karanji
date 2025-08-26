@@ -176,7 +176,7 @@ const strategicRoadmapData = {
     {
       title: "Medium–Term Priorities",
       timeframe: "(6–18 months)",
-      intro: "Exp& into broader solutions:",
+      intro: "Expand into broader solutions:",
       points: [
         "Learning management systems (LMS)",
         "Clinical decision support AI",
@@ -319,7 +319,7 @@ const strategicUseCaseData = {
     {
       id: 11,
       icon: "Icons/gamepad.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
+      category: "Digital Learning",
       title: "Gamified Learning",
       description:
         "Traditional training underperforms; gamified learning boosts engagement, retention, & clinical outcomes.",
@@ -329,7 +329,7 @@ const strategicUseCaseData = {
     {
       id: 12,
       icon: "Icons/vr-cardboard.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
+      category: "Digital Learning",
       title: "Virtual Skills Laboratory",
       description:
         "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural & patient training.",

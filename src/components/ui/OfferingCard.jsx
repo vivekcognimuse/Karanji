@@ -97,21 +97,29 @@ const OfferingCard = ({ card, index, icon }) => {
       data-reveal-dir="up"
     >
       {/* Front Content - Default State */}
-      <div ref={frontContentRef} className="relative z-10">
-        <div className="mb-6 w-16 h-16 flex items-center justify-center">
-          <Image
-            src={iconSrc} // Use the iconSrc determined above
-            alt={`${card.title} icon`}
-            width={48}
-            height={48}
-            className="object-contain"
-          />
+      <div ref={frontContentRef} className="relative z-10 flex flex-col h-full">
+        {/* Top section */}
+        <div className="flex-none">
+          <div className="mb-6 w-16 h-16 flex items-center justify-center">
+            <Image
+              src={iconSrc}
+              alt={`${card.title} icon`}
+              width={48}
+              height={48}
+              className="object-contain"
+            />
+          </div>
+          <h4 className="mb-4">{card.title}</h4>
         </div>
 
-        <h4 className="mb-4">{card.title}</h4>
-        <P3 className="text-gray-600 leading-relaxed">{card.description}</P3>
-      </div>
+        {/* Flexible spacer */}
+        <div className="flex-grow"></div>
 
+        {/* Bottom section */}
+        <div className="flex-none">
+          <P3 className="text-gray-600 leading-relaxed">{card.description}</P3>
+        </div>
+      </div>
       {/* Back Content - Hover State */}
       {hoverContent ? (
         <div
