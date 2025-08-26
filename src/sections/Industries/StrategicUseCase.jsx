@@ -59,7 +59,15 @@ const StrategicUseCase = ({ data, icon }) => {
                 className="size-10"
               />
             </div>
-            <P5 className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] bg-clip-text text-transparent border border-gray-300 px-2 py-1 rounded-sm">
+            <P5
+              className="bg-clip-text text-transparent border border-gray-300 px-2 py-1 rounded-sm"
+              style={{
+                background:
+                  "linear-gradient(90deg, #5254CB 100%, #FF942F 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
               {category}
             </P5>
           </div>
@@ -82,7 +90,8 @@ const StrategicUseCase = ({ data, icon }) => {
       className="py-16 px-6"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto">
         {/* Section Title */}
         {sectionTitle && (
@@ -114,7 +123,8 @@ const StrategicUseCase = ({ data, icon }) => {
                     : "px-4 py-2 rounded-full text-sm"
                 }
                 data-reveal
-                data-reveal-dir="up">
+                data-reveal-dir="up"
+              >
                 {button.label}
               </Button>
             ))}
@@ -127,7 +137,8 @@ const StrategicUseCase = ({ data, icon }) => {
               showSelectedInButton={true}
               buttonText="Filter Categories"
               position="left"
-              className="w-full max-w-xs">
+              className="w-full max-w-xs"
+            >
               {filterButtons.map((button, idx) => (
                 <button
                   key={idx}
@@ -138,7 +149,8 @@ const StrategicUseCase = ({ data, icon }) => {
                       : "text-gray-700"
                   }`}
                   data-reveal
-                  data-reveal-dir="up">
+                  data-reveal-dir="up"
+                >
                   {button.label}
                 </button>
               ))}
@@ -156,7 +168,8 @@ const StrategicUseCase = ({ data, icon }) => {
                   key={card.id}
                   className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
                   data-reveal
-                  data-reveal-dir="up">
+                  data-reveal-dir="up"
+                >
                   <div className="flex items-center justify-between mb-2 text-sm font-semibold">
                     <div className="p-2 rounded-full">
                       <Image
@@ -195,7 +208,8 @@ const StrategicUseCase = ({ data, icon }) => {
                 autoPlayInterval={6000}
                 showDots={true}
                 showArrows={false}
-                className="w-full">
+                className="w-full"
+              >
                 {filteredCards.map((card, index) => (
                   <UseCaseCard
                     key={card.id}

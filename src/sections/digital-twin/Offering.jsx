@@ -19,7 +19,8 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
       className={cn("", className)}
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="max-w-[1580px] mx-auto">
         <div className="text-left mb-12">
           <h3 className=" text-gray-900 mb-6" data-reveal data-reveal-dir="up">
@@ -41,7 +42,8 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
                     key={index}
                     className="flex items-start"
                     data-reveal
-                    data-reveal-dir="up">
+                    data-reveal-dir="up"
+                  >
                     <span className="text-black-400 mr-3 mt-1">
                       {index + 1}.
                     </span>

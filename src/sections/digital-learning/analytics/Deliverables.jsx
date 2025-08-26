@@ -36,7 +36,8 @@ const Deliverables = ({ data }) => {
         className="mb-8 lg:mb-16"
         data-reveal-amount="0.3"
         data-reveal-duration="0.5"
-        data-reveal-stagger="0.12">
+        data-reveal-stagger="0.12"
+      >
         <h3 className="mb-4" data-reveal data-reveal-dir="up">
           {title}
         </h3>
@@ -52,7 +53,8 @@ const Deliverables = ({ data }) => {
         <div
           className="relative rounded-2xl overflow-hidden "
           data-reveal
-          data-reveal-dir="left">
+          data-reveal-dir="left"
+        >
           <Image
             src={heroImage}
             alt="Student learning with laptop"
@@ -77,7 +79,8 @@ const Deliverables = ({ data }) => {
                 key={index}
                 className="space-y-3"
                 data-reveal
-                data-reveal-dir="up">
+                data-reveal-dir="up"
+              >
                 {/* Icon */}
                 <div className="w-12 h-12 flex items-center justify-center">
                   <Image
@@ -115,7 +118,8 @@ const Deliverables = ({ data }) => {
                     autoPlayInterval={5500}
                     showDots={true}
                     showArrows={false}
-                    className="w-full">
+                    className="w-full"
+                  >
                     {features.map((feature, index) => (
                       <FeatureCard key={index} feature={feature} />
                     ))}
