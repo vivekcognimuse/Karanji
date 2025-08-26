@@ -23,7 +23,7 @@ const heroData = {
     },
     {
       text: "Faster Competency",
-      number: "40%%",
+      number: "40%",
     },
   ],
 };

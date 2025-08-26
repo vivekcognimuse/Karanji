@@ -42,9 +42,9 @@ const Deliverables = ({ data }) => {
         </h3>
 
         {tag && <h4 className="mb-4 lg:mb-6 text-black">{tag}</h4>}
-        <h4 className="text-black mb-16" data-reveal data-reveal-dir="up">
+        <P2 className="text-black mb-16" data-reveal data-reveal-dir="up">
           {subTitle}
-        </h4>
+        </P2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">

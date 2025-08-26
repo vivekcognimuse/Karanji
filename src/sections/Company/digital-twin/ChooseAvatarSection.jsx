@@ -54,9 +54,8 @@ function AvatarCard({ avatar, description }) {
     >
       <div className="relative w-full h-full rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden">
         {/* Online Status */}
-        <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
-          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-          <span>{agentLoaded ? "Online" : "Loading..."}</span>
+        <div className="absolute top-6 left-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
+          <Image src="/logo.svg" width={40} height={10} className="h-6 w-fit" />
         </div>
 
         {/* Avatar Container */}
