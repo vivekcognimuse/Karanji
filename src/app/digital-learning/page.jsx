@@ -142,15 +142,40 @@ const successStoriesData = {
     "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
   cards: [
     {
-      title: "One-Hour Podcast into a Visual Experience",
+      title: "Corporate Learning & Development Teams ",
       stats: [
-        { title: "+100%", subTitle: "Improved Video Clarity" },
-        { title: "30–sec", subTitle: "Hook Developed Proactively" },
+        { title: "High", subTitle: "Quality Animations" },
+        { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
-        "We enhanced a raw one-hour podcast with AI-driven upgrades, adding dynamic visuals and a motion graphics hook to elevate the content, making it more engaging and visually compelling.",
+        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
       ctaText: "Read Full CaseStudy",
-      ctaLink: "11",
+      ctaLink: "10",
+      tag: "Digital Learning",
+    },
+    {
+      title: "Driving School & Training Module",
+      stats: [
+        { title: "6", subTitle: "Crafted Modules" },
+        { title: "100%", subTitle: "Client Satisfaction" },
+      ],
+      description:
+        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "9",
+      tag: "Digital Learning",
+    },
+    {
+      title: "Futuristic Digital Payments Training Module",
+      stats: [
+        { title: "80%", subTitle: "Completion Efficiency" },
+        { title: "+90%", subTitle: "Learner Engagement" },
+      ],
+      description:
+        "A futuristic training module for a global digital-payments leader—an interactive experience that blends storytelling, simulations, and high-tech visuals. Delivered as eLearning solutions that run smoothly across enterprise learning platforms.",
+      ctaText: "Read Full CaseStudy",
+      ctaLink: "8",
+      tag: "Digital Learning",
     },
     {
       title: "AI-Certification LMS",
@@ -174,7 +199,6 @@ const successStoriesData = {
       ctaText: "Read Full CaseStudy",
       ctaLink: "12",
     },
-    // Add more testimonial data objects as required
   ],
 };
 
