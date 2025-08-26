@@ -53,7 +53,10 @@ const DigitalTwins = async () => {
         <DigitalTwinOfferings data={offering} />
       </div>
       <Methodology data={methodology} />
-      <IndustryExpertise data={industryExpertise} />
+      <IndustryExpertise
+        data={industryExpertise}
+        icon={`/technologySolutions/digital-offering`}
+      />
       <CTA data={CTAData} />
       <SuccessStories data={successStories} />
     </main>

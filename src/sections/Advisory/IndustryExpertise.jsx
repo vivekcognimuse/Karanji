@@ -4,7 +4,7 @@ import { P3 } from "@/components/CustomTags";
 import { IndustryCard } from "@/components/ui/advisory";
 import SectionReveal from "@/components/animations/sectionReveal";
 
-const IndustryExpertise = ({ data }) => {
+const IndustryExpertise = ({ data, icon }) => {
   const { title, subTitle, cards } = data || {};
 
   return (
@@ -35,7 +35,7 @@ const IndustryExpertise = ({ data }) => {
               <IndustryCard
                 title={industry.title}
                 description={industry.description}
-                icon={`/technologySolutions/ai-industry/${index + 1}.svg`}
+                icon={`${icon}/${index + 1}.svg`}
                 altTag={industry.altTag}
               />
             </div>

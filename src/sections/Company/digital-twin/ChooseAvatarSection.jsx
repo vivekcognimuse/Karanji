@@ -48,7 +48,7 @@ function AvatarCard({ avatar, description }) {
 
   return (
     <div
-      className="relative w-1/2 flex-shrink-0"
+      className="relative w-full mx-auto md:mx-0 max-w-md lg:w-1/2 flex-shrink-0"
       data-reveal
       data-reveal-dir="up" // Add data-reveal for animation
     >
@@ -166,7 +166,7 @@ export default function ChooseAvatarSection() {
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+    <div className="flex flex-col md:flex-row justify-center  items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
         <AvatarCard
           key={avatar.name}
