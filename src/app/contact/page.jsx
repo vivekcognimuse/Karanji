@@ -280,9 +280,9 @@ const ContactPage = () => {
             </h4>
           </header>
 
-          <div className="flex flex-col flex-1  lg:flex-row lg:justify-center lg:items-start gap-8 lg:gap-32">
+          <div className="flex flex-col flex-1  lg:flex-row lg:justify-center lg:items-stretch gap-8 lg:gap-32">
             {/* Left Content Section */}
-            <div className="flex-1  h-full flex flex-col justify-between">
+            <div className="flex-1  h-full flex flex-col  justify-between">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-black/80 font-sans">
@@ -302,7 +302,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <footer className="flex  mt-16 flex-col gap-4">
+              <footer className="hidden lg:flex  mt-16 flex-col gap-4">
                 <div className="flex items-center gap-4">
                   {socialIcons.map((social) => (
                     <a
@@ -419,6 +419,38 @@ const ContactPage = () => {
                 <ErrorMessage status={submitStatus} />
               </form>
             </div>
+
+            <footer className="lg:hidden  mt-16 flex-col gap-4">
+              <div className="flex items-center gap-4">
+                {socialIcons.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-6 h-6 relative overflow-hidden hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-black/20 transition-opacity"
+                    aria-label={`Follow us on ${social.name}`}>
+                    <Icon icon={social.icon} className="size-6" />
+                  </a>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                {locations.map((location, index) => (
+                  <React.Fragment key={location}>
+                    <span className="text-black/80 text-sm font-normal font-['Outfit'] leading-loose tracking-wide">
+                      {location}
+                    </span>
+                    {index < locations.length - 1 && (
+                      <span
+                        className="text-black/80 text-xs font-normal font-['Inter']"
+                        aria-hidden="true">
+                        |
+                      </span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </footer>
           </div>
         </main>
       </div>

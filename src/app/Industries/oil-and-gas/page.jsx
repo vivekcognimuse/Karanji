@@ -31,7 +31,7 @@ const ctaData = {
   title: "Ready to power the future of oil & gas?",
   description:
     "  To know more about these cases or discuss any other requirement for transformation of Oil & gas",
-  PrimaryButtonText: "Please Click here",
+  PrimaryButtonText: "Start Your Transformation",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
