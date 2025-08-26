@@ -19,8 +19,9 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Karanji",
-  description: "Your Technology Translation Partner",
+  title: "Karanji - Your Technology Translation Partner",
+  description:
+    "Bridging creative storytelling, immersive technologies, and artificial intelligence (AI) innovation—Karanji is your one stop integrated partner for next-generation digital experiences.",
 
   openGraph: {
     type: "website",

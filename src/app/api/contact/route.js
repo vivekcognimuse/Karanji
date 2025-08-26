@@ -90,46 +90,46 @@ export async function POST(request) {
     });
 
     // Optional: Send confirmation email to the user
-    await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL,
-      to: [email],
-      subject: "Thank you for contacting us!",
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-            .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>Thank you for reaching out!</h1>
-            </div>
-            <div class="content">
-              <p>Hi ${name},</p>
-              
-              <p>Thank you for contacting us about your digital learning project. We've received your inquiry and will get back to you within 24 hours.</p>
-              
-              <p><strong>Your message:</strong></p>
-              <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea; margin: 15px 0;">
-                ${project}
-              </div>
-              
-              <p>We're excited to learn more about your project and discuss how we can help bring your digital learning vision to life.</p>
-              
-              <p>Best regards,<br>
-              The Karanji Infotech Team</p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
-    });
+    // await resend.emails.send({
+    //   from: process.env.RESEND_FROM_EMAIL,
+    //   to: [email],
+    //   subject: "Thank you for contacting us!",
+    //   html: `
+    //     <!DOCTYPE html>
+    //     <html>
+    //     <head>
+    //       <style>
+    //         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    //         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    //         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+    //         .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+    //       </style>
+    //     </head>
+    //     <body>
+    //       <div class="container">
+    //         <div class="header">
+    //           <h1>Thank you for reaching out!</h1>
+    //         </div>
+    //         <div class="content">
+    //           <p>Hi ${name},</p>
+
+    //           <p>Thank you for contacting us about your digital learning project. We've received your inquiry and will get back to you within 24 hours.</p>
+
+    //           <p><strong>Your message:</strong></p>
+    //           <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea; margin: 15px 0;">
+    //             ${project}
+    //           </div>
+
+    //           <p>We're excited to learn more about your project and discuss how we can help bring your digital learning vision to life.</p>
+
+    //           <p>Best regards,<br>
+    //           The Karanji Infotech Team</p>
+    //         </div>
+    //       </div>
+    //     </body>
+    //     </html>
+    //   `,
+    // });
 
     return NextResponse.json(
       {
