@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: 
+
+# Sitemap location
+Sitemap: https://https://dev-sandesh.dt5w0pu4wi82o.amplifyapp.com/sitemap.xml

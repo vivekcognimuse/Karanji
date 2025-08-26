@@ -176,7 +176,7 @@ export const NAV_LINKS = [
       },
       {
         name: "Webinars",
-        href: "/webinar",
+        href: "/coming-soon",
         icon: "/nav/webinars.svg",
         description: "Join us for insightful webinars & events.",
       },

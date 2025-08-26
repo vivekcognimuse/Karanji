@@ -6,8 +6,8 @@ const FinalLogo = ({ finalLogoRef }) => {
       ref={finalLogoRef}
       className="absolute inset-0 flex items-center justify-center">
       <svg
-        width="249"
-        height="248"
+        width="309"
+        height="308"
         viewBox="0 0 249 248"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">

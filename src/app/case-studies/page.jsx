@@ -1,20 +1,39 @@
-// app/case-studies/page.jsx
-import { fetchFromStrapi } from "@/lib/strapi";
-import { notFound, redirect } from "next/navigation";
+import React from "react";
+import Head from "next/head";
+import ResourcesGrid from "@/components/resources/ResourcesGrid";
+import Upcoming from "@/components/blog/Upcoming";
+import resourcesData from "@/data/resources.json"; // Import the static resources JSON
 
-export default async function CaseStudiesIndex() {
-  // Change to `publishedAt:asc` if you want the *earliest* instead of latest.
-  const list = await fetchFromStrapi(
-    "case-studies?sort=publishedAt:desc&pagination[pageSize]=1",
-    { populate: "*" },
-    "https://calm-joy-61798b158b.strapiapp.com/api"
+const ResourcesPage = () => {
+  // Filter the resources to only include Case Studies
+  const filteredResources = resourcesData.filter(
+    (resource) => resource.type === "Case Study"
   );
 
-  const first = Array.isArray(list) ? list[0] : null;
-  if (!first) {
-    return notFound();
-  }
+  return (
+    <>
+      <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+        <div>
+          {/* Header Section */}
+          <div className="space-y-4 pt-10">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              What's New?
+            </h2>
+          </div>
 
-  const slug = first.attributes?.slug || first.slug || String(first.id);
-  redirect(`/case-studies/${encodeURIComponent(slug)}`);
-}
+          {/* Resources Grid */}
+          <section className="space-y-6 pb-16">
+            <ResourcesGrid resources={filteredResources} />
+          </section>
+
+          {/* Upcoming Section */}
+          <section className="space-y-6">
+            <Upcoming />
+          </section>
+        </div>
+      </main>
+    </>
+  );
+};
+
+export default ResourcesPage;

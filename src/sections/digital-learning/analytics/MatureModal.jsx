@@ -9,9 +9,9 @@ const AnalyticsMaturityModel = ({ data }) => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Title Section */}
       <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           {title}
-        </h1>
+        </h2>
         <p className="text-base sm:text-lg text-gray-600 max-w-6xl">
           {subTitle}
         </p>

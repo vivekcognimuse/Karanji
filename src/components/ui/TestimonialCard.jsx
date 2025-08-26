@@ -35,7 +35,12 @@ const TestimonialCard = ({ testimonial }) => {
       <P2 className="text-black-500 mb-6">{testimonial?.description}</P2>
       <div className="flex justify-end">
         <Link href={"/case-studies/" + (testimonial?.ctaLink || "")}>
-          <Button className="" variant="text">
+          <Button
+            rightIcon={
+              <Icon icon="tabler:arrow-up-right" size={20} className="size-5" />
+            }
+            className=""
+            variant="text">
             {testimonial?.ctaText || "Read Full CaseStudy"}
           </Button>
         </Link>

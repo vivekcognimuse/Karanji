@@ -23,7 +23,7 @@ const heroData = {
     },
     {
       text: "Faster Competency",
-      number: "40%%",
+      number: "40%",
     },
   ],
 };
@@ -250,7 +250,7 @@ const digitalTransformationData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Digital Transformation in Oil & Gas: AI, Predictive Maintenance & VR Training Solutions",
   description:

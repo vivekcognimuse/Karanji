@@ -308,7 +308,7 @@ const strategicUseCaseData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Logistics Digital Transformation: AI, Predictive Maintenance & Workforce Training Solutions",
   description:

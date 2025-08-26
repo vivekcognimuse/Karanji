@@ -282,7 +282,7 @@ const strategicUseCaseData = {
     },
   ],
 };
-const metadata = {
+export const metadata = {
   title:
     "Aviation Transformation Solutions: AI, XR & Predictive Maintenance for Airlines",
   description:
