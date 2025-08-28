@@ -172,7 +172,8 @@ const LogoAnimation = () => {
     <div>
       <div
         ref={containerRef}
-        className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
+        className="h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      >
         <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
         {/* Logo Animation Section */}
@@ -202,10 +203,8 @@ const LogoAnimation = () => {
             </div>
 
             {/* Main Heading */}
-            <div className="text-center">
-              <h2 className="text-black text-nowrap">
-                Innovate. Design. Transform.
-              </h2>
+            <div className="text-center md:text-nowrap">
+              <h2 className="">Innovate. Design. Transform.</h2>
             </div>
           </div>
         </div>
