@@ -86,17 +86,19 @@ export default async function TechnologySolution() {
   };
 
   return (
-    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32 ">
       {/* No need for <Head> for static metadata */}
       <HeroSection data={hero} bgImage="/hero/TechnologySolutions.webp" />
-      <TechnologyAdvantage data={technologyAdvantage} className="lg:-mt-16" />
-      <div id="technology-solutions">
-        <TechnologyServices
-          bgImage="/technologySolutions/gradient.svg"
-          data={technologyService}
-        />
+      <div className="space-y-16 lg:space-y-32">
+        <TechnologyAdvantage data={technologyAdvantage} className="lg:-mt-16" />
+        <div id="technology-solutions">
+          <TechnologyServices
+            bgImage="/technologySolutions/gradient.svg"
+            data={technologyService}
+          />
+        </div>
+        <SuccessStories data={successStoriesData} />
       </div>
-      <SuccessStories data={successStoriesData} />
       {/* <ResourcesSection /> */}
     </main>
   );

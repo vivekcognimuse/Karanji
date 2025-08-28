@@ -3,28 +3,42 @@
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
 import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";
-import { toPlainText, arrayifyList, splitCommaString } from "@/utils/ish";
+import {
+  getMediaUrl,
+  toPlainText,
+  arrayifyList,
+  splitCommaString,
+} from "@/utils/ish";
 
+// Normalize Strapi v5 -> your JSON shape that CaseStudyPage expects
 // Normalize Strapi v5 -> your JSON shape that CaseStudyPage expects
 const normalizeCaseStudy = (entry) => {
   const a = entry?.attributes ? entry.attributes : entry || {};
 
-  // Static JSON-based downloadCta and image mapping by Slug
-  const staticData = caseStudies.find((item) => item.slug === a.slug); // Use slug to find matching data
+  // Static JSON-based downloadCta mapping by Slug (keeping this for downloadCta only)
+  const staticData = caseStudies.find((item) => item.slug === a.slug);
 
   if (!staticData) {
     console.error(`No static data found for case study slug: ${a.slug}`);
   }
 
   const downloadCta = staticData?.downloadCta || {};
+  const pdfLink = staticData?.pdfLink || "";
 
-  // Ensure pdfLink is included here in the returned object
-  const pdfLink = staticData?.pdfLink || ""; // Fallback to empty string if pdfLink is not found
+  // Get image from Strapi first, fallback to static data, then default
+  let image = "/CaseStudyImages/default-image.webp"; // default fallback
 
-  // If the image path is relative (like '/CaseStudyImages/1_3d_ai_advertisement.webp')
-  // directly use it, as Next.js will serve it from the /public folder.
-  const image =
-    staticData?.image || a.image || "/CaseStudyImages/default-image.webp"; // fallback to a default image
+  // Check if Strapi has an image
+  if (a.image) {
+    // Handle different possible Strapi image structures
+    const strapiImageUrl = getMediaUrl(a.image);
+    if (strapiImageUrl) {
+      image = strapiImageUrl;
+    }
+  } else if (staticData?.image) {
+    // Fallback to static data image if no Strapi image
+    image = staticData.image;
+  }
 
   const sections = Array.isArray(a.sections)
     ? a.sections
@@ -56,10 +70,10 @@ const normalizeCaseStudy = (entry) => {
     tags: splitCommaString(a.tags),
     domain: a.domain || "",
     targetAudience: splitCommaString(a.targetAudience),
-    image, // Using image from static data or fallback
+    image, // Now using Strapi image with fallbacks
     sections,
-    downloadCta, // Using downloadCta from static data
-    pdfLink, // Make sure pdfLink is returned here
+    downloadCta,
+    pdfLink,
   };
 };
 

@@ -272,19 +272,21 @@ export default async function Aviation() {
         data={heroData}
         bgImage={"/Industries & its pages/Oil and gas/Oil and gas banner.webp"}
       />
-      <Deliverables data={industryData} />
-      <div id="digital-transformation">
-        <DigitalTransformation
-          data={digitalTransformationData}
-          bgImage="/service-offering/industry/default.svg"
+      <div className="space-y-16 lg:space-y-32">
+        <Deliverables data={industryData} />
+        <div id="digital-transformation">
+          <DigitalTransformation
+            data={digitalTransformationData}
+            bgImage="/service-offering/industry/default.svg"
+          />
+        </div>
+        <StrategicPriorities data={strategicPrioritiesData} />
+        <StrategicUseCase
+          data={strategicUseCaseData}
+          icon="/Industries & its pages/Oil and gas/usecase"
         />
+        <CTA data={ctaData} />
       </div>
-      <StrategicPriorities data={strategicPrioritiesData} />
-      <StrategicUseCase
-        data={strategicUseCaseData}
-        icon="/Industries & its pages/Oil and gas/usecase"
-      />
-      <CTA data={ctaData} />
     </main>
   );
 }

@@ -26,9 +26,9 @@ const VisionCard = ({ icon, title, description }) => {
         .vision-card {
           background: linear-gradient(
             83.18deg,
-            #d3c9ff 0%,
-            #dcf0ff 50%,
-            #ffcfcf 100%
+            rgba(211, 201, 255, 0.5) 0%,
+            rgba(220, 240, 255, 0.5) 50%,
+            rgba(255, 207, 207, 0.5) 100%
           );
           border: 1px solid rgba(255, 255, 255, 0.2);
           backdrop-filter: blur(10px);

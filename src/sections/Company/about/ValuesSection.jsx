@@ -2,7 +2,8 @@
 import React from "react";
 import ValueCard from "./ValueCard";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import SectionReveal from "@/components/animations/sectionReveal";
+import CarouselContainer from "@/components/animations/Carousal";
 
 const ValuesSection = ({ data }) => {
   const valuesData = data ?? [
@@ -19,7 +20,8 @@ const ValuesSection = ({ data }) => {
       className="values-section py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 rounded-2xl shadow-xl"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
@@ -36,27 +38,38 @@ const ValuesSection = ({ data }) => {
           <h4
             className="text-black-950 text-xl sm:text-2xl lg:text-3xl mb-3 font-semibold"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             Values
           </h4>
           <div
             className="w-full h-px bg-gray-300 mx-auto"
             data-reveal
-            data-reveal-dir="up"></div>
+            data-reveal-dir="up"
+          ></div>
         </div>
 
-        {/* Values Grid */}
+        {/* Values Content */}
         <div className="space-y-4 sm:space-y-0">
           {/* Mobile */}
-          <div className="block sm:hidden space-y-4">
-            {valuesData.map((value, index) => (
-              <ValueCard
-                key={index}
-                {...value}
-                data-reveal
-                data-reveal-dir="up"
-              />
-            ))}
+          <div className="block sm:hidden">
+            {/* Carousel for all cards */}
+            <CarouselContainer
+              autoPlay={true}
+              autoPlayInterval={5000}
+              showDots={true}
+              showArrows={false}
+            >
+              {valuesData.map((value, index) => (
+                <ValueCard
+                  key={index}
+                  {...value}
+                  isFullWidth={false}
+                  data-reveal
+                  data-reveal-dir="up"
+                />
+              ))}
+            </CarouselContainer>
           </div>
 
           {/* Tablet/Desktop */}

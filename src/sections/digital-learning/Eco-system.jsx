@@ -18,10 +18,11 @@ const EcoSystem = () => {
           width={1062}
         />
       </div>
-      <div className="md:hidden flex justify-center">
+      <div className="md:hidden  flex justify-center">
         <Image
           src="/digital-learning/ecosystemMbl.svg"
           alt="ecosystem visualisation"
+          className="w-full max-w-[60vw]"
           height={196}
           width={1062}
         />

@@ -56,18 +56,20 @@ const XRGaming = async () => {
   const { hero, methodology, successStories } = data || {};
 
   return (
-    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32 ">
       {" "}
       <HeroSection bgImage="/hero/XR-Gaming.webp" data={hero} />
-      <div id="xr-service-offerings">
-        <ServiceOfferings
-          bgImage="/service-offering/ai-advisory/default.svg"
-          data={serviceOffering}
-          icon={`/technologySolutions/xr-offering`}
-        />
+      <div className="space-y-16 lg:space-y-32">
+        <div id="xr-service-offerings">
+          <ServiceOfferings
+            bgImage="/service-offering/ai-advisory/default.svg"
+            data={serviceOffering}
+            icon={`/technologySolutions/xr-offering`}
+          />
+        </div>
+        <Methodology data={methodology} />
+        <SuccessStories data={successStories} />
       </div>
-      <Methodology data={methodology} />
-      <SuccessStories data={successStories} />
     </main>
   );
 };
