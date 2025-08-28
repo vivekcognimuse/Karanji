@@ -21,7 +21,7 @@ export default function HeroSection({ data, bgImage }) {
   return (
     <section
       id="hero-section"
-      className={`relative bg-no-repeat flex flex-col h-fit pt-16 lg:pt-0 md:min-h-[calc(100vh-80px)] bg-top bg-contain`}
+      className={`relative  bg-no-repeat flex flex-col h-fit pt-16 lg:pt-0 md:min-h-[calc(100vh-80px)] bg-top bg-contain`}
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}>

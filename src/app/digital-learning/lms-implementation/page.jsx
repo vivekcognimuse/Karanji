@@ -285,21 +285,23 @@ export const metadata = {
 };
 export default async function LMSImplementation() {
   return (
-    <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10  space-y-16 lg:space-y-32">
       {" "}
       <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
-      <div id="lms-services">
-        <ServiceOfferings
-          bgImage="/service-offering/digital-learning/default.svg"
-          data={serviceOfferingsData}
-          icon="/digital-learning/lms-discover"
-        />
+      <div className="space-y-16 lg:space-y-32">
+        <div id="lms-services">
+          <ServiceOfferings
+            bgImage="/service-offering/digital-learning/default.svg"
+            data={serviceOfferingsData}
+            icon="/digital-learning/lms-discover"
+          />
+        </div>
+        <LMSLearning data={lmsLearningData} />
+        <LearningChallenges data={learningChallenges} />
+        <SwitchSection data={switchSectionData} />
+        <SuccessStories data={successStoriesData} />
+        <CTA data={ctaData} />
       </div>
-      <LMSLearning data={lmsLearningData} />
-      <LearningChallenges data={learningChallenges} />
-      <SwitchSection data={switchSectionData} />
-      <SuccessStories data={successStoriesData} />
-      <CTA data={ctaData} />
-    </div>
+    </main>
   );
 }

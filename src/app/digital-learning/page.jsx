@@ -211,20 +211,22 @@ export const metadata = {
 
 const DigitalLearning = () => {
   return (
-    <div className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
       <HeroSection data={heroData} bgImage="/hero/digital-Learning.webp" />
-      <div id="digital-learning-solutions">
-        <TechnologyServices
-          data={technologyServicesData}
-          bgImage="/digital-learning/service/bg.svg"
-        />
+      <div className="space-y-16 lg:space-y-32">
+        <div id="digital-learning-solutions">
+          <TechnologyServices
+            data={technologyServicesData}
+            bgImage="/digital-learning/service/bg.svg"
+          />
+        </div>
+        <EcoSystem />
+        <ConsultancyFramework />
+        <Methodology column={true} data={methodologyData} />{" "}
+        <SuccessStories data={successStoriesData} />
       </div>
-      <EcoSystem />
-      <ConsultancyFramework />
-      <Methodology column={true} data={methodologyData} />{" "}
-      <SuccessStories data={successStoriesData} />
-    </div>
+    </main>
   );
 };
 

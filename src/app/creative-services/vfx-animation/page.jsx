@@ -261,23 +261,24 @@ export const metadata = {
 
 const AudioPodcastProduction = () => {
   return (
-    <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      {" "}
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10  space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/VFX banner.webp" />
-      <ServiceOverview data={serviceOverview} />
-      <div id="vfx-service-offerings">
-        <ServiceOfferings
-          data={serviceOfferingsData}
-          bgImage="/service-offering/creative/default.svg"
-          icon="/entertainment/vfx/offering" // Update if using dynamic icons
-        />
+      <div className="space-y-16 lg:space-y-32">
+        <ServiceOverview data={serviceOverview} />
+        <div id="vfx-service-offerings">
+          <ServiceOfferings
+            data={serviceOfferingsData}
+            bgImage="/service-offering/creative/default.svg"
+            icon="/entertainment/vfx/offering" // Update if using dynamic icons
+          />
+        </div>
+        <Methodology data={methodologyData} />
+        <ContentFormats data={contentFormatsData} />
+        <SuccessStories data={successStoriesData} />
+        <Accordion data={accordionData} />
+        <CTA data={CTAData} />
       </div>
-      <Methodology data={methodologyData} />
-      <ContentFormats data={contentFormatsData} />
-      <SuccessStories data={successStoriesData} />
-      <Accordion data={accordionData} />
-      <CTA data={CTAData} />
-    </div>
+    </main>
   );
 };
 

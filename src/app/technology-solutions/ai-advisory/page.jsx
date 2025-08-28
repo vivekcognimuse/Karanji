@@ -38,23 +38,25 @@ export default async function AIAdvisoryPage() {
     industryExpertise,
   } = data || {};
   return (
-    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32 ">
       {" "}
       <HeroSection data={hero} bgImage="/hero/AI advisory.webp" />
-      <div id="ai-service-offerings">
-        <ServiceOfferings
-          data={serviceOffering}
-          heightDifference={true}
-          icon={`/advisory/offering`}
+      <div className="space-y-16 lg:space-y-32">
+        <div id="ai-service-offerings" className="">
+          <ServiceOfferings
+            data={serviceOffering}
+            heightDifference={true}
+            icon={`/advisory/offering`}
+          />
+        </div>
+        <Methodology data={methodology} />
+        <IndustryExpertise
+          data={industryExpertise}
+          icon={`/technologySolutions/ai-industry`}
         />
+        <CTA data={CTAData} />
+        <SuccessStories data={successStories} />
       </div>
-      <Methodology data={methodology} />
-      <IndustryExpertise
-        data={industryExpertise}
-        icon={`/technologySolutions/ai-industry`}
-      />
-      <CTA data={CTAData} />
-      <SuccessStories data={successStories} />
     </main>
   );
 }

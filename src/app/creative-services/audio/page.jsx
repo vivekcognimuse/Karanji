@@ -234,23 +234,24 @@ export const metadata = {
 
 const VfxAnimation = () => {
   return (
-    <div className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      {" "}
+    <main className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
-      <ServiceOverview data={serviceOverview} />
-      <div id="audio-service-offerings">
-        <ServiceOfferings
-          data={serviceOfferingsData}
-          icon="/audio/icons"
-          bgImage="/service-offering/creative/default.svg"
-        />{" "}
+      <div className="space-y-16 lg:space-y-32">
+        <ServiceOverview data={serviceOverview} />
+        <div id="audio-service-offerings">
+          <ServiceOfferings
+            data={serviceOfferingsData}
+            icon="/audio/icons"
+            bgImage="/service-offering/creative/default.svg"
+          />{" "}
+        </div>
+        <Methodology data={methodologyData} />
+        <ContentFormats data={contentFormatsData} />{" "}
+        <SuccessStories data={successStoriesData} />
+        <Accordion data={accordionData} />
+        <CTA data={CTAData} />
       </div>
-      <Methodology data={methodologyData} />
-      <ContentFormats data={contentFormatsData} />{" "}
-      <SuccessStories data={successStoriesData} />
-      <Accordion data={accordionData} />
-      <CTA data={CTAData} />
-    </div>
+    </main>
   );
 };
 

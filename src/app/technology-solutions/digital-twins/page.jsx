@@ -42,27 +42,29 @@ const DigitalTwins = async () => {
   console.log("digital twins data:", data);
 
   return (
-    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32 ">
       {" "}
       <HeroSection
         data={hero}
         bgImage="/hero/Digital Twins & Simulations.webp"
       />
-      <Advantages data={advantages} />
-      <div id="digital-twin-offerings">
-        <DigitalTwinOfferings
-          data={offering}
-          bgImage="/service-offering/digital-twin/default.svg"
-          bgImageHover="/service-offering/digital-twin/hover.svg"
+      <div className="space-y-16 lg:space-y-32">
+        <Advantages data={advantages} />
+        <div id="digital-twin-offerings">
+          <DigitalTwinOfferings
+            data={offering}
+            bgImage="/service-offering/digital-twin/default.svg"
+            bgImageHover="/service-offering/digital-twin/hover.svg"
+          />
+        </div>
+        <Methodology data={methodology} />
+        <IndustryExpertise
+          data={industryExpertise}
+          icon={`/technologySolutions/digital-offering`}
         />
+        <CTA data={CTAData} />
+        <SuccessStories data={successStories} />
       </div>
-      <Methodology data={methodology} />
-      <IndustryExpertise
-        data={industryExpertise}
-        icon={`/technologySolutions/digital-offering`}
-      />
-      <CTA data={CTAData} />
-      <SuccessStories data={successStories} />
     </main>
   );
 };
