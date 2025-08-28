@@ -61,6 +61,7 @@ const XRGaming = async () => {
       <HeroSection bgImage="/hero/XR-Gaming.webp" data={hero} />
       <div id="xr-service-offerings">
         <ServiceOfferings
+          bgImage="/service-offering/ai-advisory/default.svg"
           data={serviceOffering}
           icon={`/technologySolutions/xr-offering`}
         />

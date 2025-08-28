@@ -321,6 +321,7 @@ const ContentDesign = () => {
       <div id="analytics-service-offerings">
         <ServiceOfferings
           className="w-fit mx-auto"
+          bgImage="/service-offering/digital-learning/default.svg"
           data={serviceOfferingsData}
           icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
         />

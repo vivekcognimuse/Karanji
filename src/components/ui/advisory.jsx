@@ -41,6 +41,7 @@ export const ServiceCard = memo(function ServiceCard({
   description = "...",
   featured,
   index,
+  bgImage,
   currentIndex,
   heightDifference = false,
   icon,
@@ -53,12 +54,15 @@ export const ServiceCard = memo(function ServiceCard({
   const dynamicHeight = heightDifference
     ? `calc(420px + ${index * 70}px)`
     : "450px";
-
+  console.log("bg image", bgImage);
   return (
     <div
       {...props}
-      className={`w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/offering-card-gradient.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4  z-0 relative ${className}`}
+      className={`w-full max-w-[20rem] border border-black/10 bg-white  bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4  z-0 relative ${className}`}
       style={{
+        backgroundImage: heightDifference
+          ? `url('/service-offering/ai-advisory/${index + 1}.svg')`
+          : `url('${bgImage}')`,
         height: heightDifference ? dynamicHeight : "auto",
         minHeight: heightDifference ? dynamicHeight : "350px",
         flexShrink: 0, // Prevent flex container from shrinking this item

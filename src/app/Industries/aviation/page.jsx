@@ -300,7 +300,11 @@ export default async function Aviation() {
       <div id="strategic-priorities">
         <StrategicPriorities data={strategicPrioritiesData} />
       </div>
-      <DigitalTwinOfferings data={digitalOfferingsData} />
+      <DigitalTwinOfferings
+        data={digitalOfferingsData}
+        // bgImageHover="/service-offering/industry/hover.svg"
+        bgImage="/service-offering/industry/default.svg"
+      />
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Aviation/usecase"
