@@ -19,7 +19,7 @@ import React from "react";
  *   cta: { text, buttonText }
  * }
  */
-export default function ELearningSolutions({ data }) {
+export default function ELearningSolutions({ data, setActiveTab }) {
   const { title, subTitle, level1, level2, cta, cards } = data;
   const handleScrollToSection = (e, targetId) => {
     e.preventDefault();
@@ -35,6 +35,8 @@ export default function ELearningSolutions({ data }) {
         behavior: "smooth", // Smooth scroll
       });
     }
+
+    setActiveTab("ready");
   };
   return (
     <section className="relative isolate">
