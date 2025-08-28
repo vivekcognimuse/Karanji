@@ -383,7 +383,10 @@ export default async function HealthCare() {
       <Industrychallenge data={industryData} />
       <StrategicPriorities data={strategicPrioritiesData} />
       <div id="digital-transformation-landscape">
-        <DigitalTransformation data={digitalTransformationData} />
+       <DigitalTransformation 
+  data={digitalTransformationData}  
+  bgImage="/gradients/Card default.svg"
+/>
       </div>
       <Methodology data={strategicFramework} />
       <StrategicRoadmap data={strategicRoadmapData} />

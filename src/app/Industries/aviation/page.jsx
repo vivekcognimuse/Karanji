@@ -303,7 +303,8 @@ export default async function Aviation() {
       <DigitalTwinOfferings
         data={digitalOfferingsData}
         // bgImageHover="/service-offering/industry/hover.svg"
-        bgImage="/service-offering/industry/default.svg"
+        bgImage="/gradients/Card default.svg"
+        bgImageHover="/gradients/Card on hover.svg"
       />
       <StrategicUseCase
         data={strategicUseCaseData}
