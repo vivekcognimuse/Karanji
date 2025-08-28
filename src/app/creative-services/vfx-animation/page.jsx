@@ -268,6 +268,7 @@ const AudioPodcastProduction = () => {
       <div id="vfx-service-offerings">
         <ServiceOfferings
           data={serviceOfferingsData}
+          bgImage="/service-offering/creative/default.svg"
           icon="/entertainment/vfx/offering" // Update if using dynamic icons
         />
       </div>

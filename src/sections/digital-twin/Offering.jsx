@@ -10,7 +10,14 @@ import OfferingCard from "@/components/ui/OfferingCard";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 import { AIAssessmentCard } from "@/components/ui/Ai-assesment";
 
-const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
+const DigitalTwinOfferings = ({
+  CtaClassName = "",
+  className = "",
+  data,
+  bgImageHover,
+  bgImageCard,
+  bgImage,
+}) => {
   const { title, subTitle, bottomtext, list, ctaCard, icon, cards } =
     data || {};
   console.log("DigitalTwinOfferings data:", data);
@@ -19,8 +26,7 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
       className={cn("", className)}
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+      data-reveal-stagger="0.12">
       <div className="max-w-[1580px] mx-auto">
         <div className="text-left mb-12">
           <h3 className=" text-gray-900 mb-6" data-reveal data-reveal-dir="up">
@@ -42,8 +48,7 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
                     key={index}
                     className="flex items-start"
                     data-reveal
-                    data-reveal-dir="up"
-                  >
+                    data-reveal-dir="up">
                     <span className="text-black-400 mr-3 mt-1">
                       {index + 1}.
                     </span>
@@ -66,20 +71,55 @@ const DigitalTwinOfferings = ({ CtaClassName = "", className = "", data }) => {
                 <Button className="">{ctaCard.ctaText}</Button>
               </Link>
             </div> */}
-            <AIAssessmentCard className="max-w-xl" data={ctaCard} />
+            <AIAssessmentCard
+              bgImage={bgImageCard}
+              className="max-w-xl"
+              data={ctaCard}
+            />
           </div>
         )}
-        <div className=" hidden lg:block">
-          <MultiCardCarousel>
-            {cards.map((card, index) => (
-              <OfferingCard icon={icon} key={index} card={card} index={index} />
-            ))}
-          </MultiCardCarousel>{" "}
+
+        <div className="hidden lg:block">
+          {cards.length === 3 ? (
+            <div className="w-full flex gap-8 justify-center">
+              {cards.map((card, index) => (
+                <OfferingCard
+                  icon={icon}
+                  bgImage={bgImage}
+                  key={index}
+                  bgImageHover={bgImageHover}
+                  card={card}
+                  index={index}
+                />
+              ))}
+            </div>
+          ) : (
+            <MultiCardCarousel>
+              {cards.map((card, index) => (
+                <OfferingCard
+                  icon={icon}
+                  bgImage={bgImage}
+                  key={index}
+                  bgImageHover={bgImageHover}
+                  card={card}
+                  index={index}
+                />
+              ))}
+            </MultiCardCarousel>
+          )}
         </div>
+
         <div className="lg:hidden">
           <CarouselContainer>
             {cards.map((card, index) => (
-              <OfferingCard icon={icon} key={index} card={card} index={index} />
+              <OfferingCard
+                icon={icon}
+                bgImage={bgImage}
+                bgImageHover={bgImageHover}
+                key={index}
+                card={card}
+                index={index}
+              />
             ))}
           </CarouselContainer>
         </div>

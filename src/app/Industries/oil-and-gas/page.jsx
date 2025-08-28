@@ -274,7 +274,10 @@ export default async function Aviation() {
       />
       <Deliverables data={industryData} />
       <div id="digital-transformation">
-        <DigitalTransformation data={digitalTransformationData} />
+        <DigitalTransformation
+          data={digitalTransformationData}
+          bgImage="/service-offering/industry/default.svg"
+        />
       </div>
       <StrategicPriorities data={strategicPrioritiesData} />
       <StrategicUseCase
