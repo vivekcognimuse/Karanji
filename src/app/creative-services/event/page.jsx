@@ -243,6 +243,7 @@ const VfxAnimation = () => {
       <div id="event-service-offerings">
         <ServiceOfferings
           data={serviceOfferingsData}
+          bgImage="/service-offering/creative/default.svg"
           icon="/entertainment/vfx/offering"
         />{" "}
       </div>

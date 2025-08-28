@@ -239,7 +239,11 @@ const VfxAnimation = () => {
       <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <div id="audio-service-offerings">
-        <ServiceOfferings data={serviceOfferingsData} icon="/audio/icons" />{" "}
+        <ServiceOfferings
+          data={serviceOfferingsData}
+          icon="/audio/icons"
+          bgImage="/service-offering/creative/default.svg"
+        />{" "}
       </div>
       <Methodology data={methodologyData} />
       <ContentFormats data={contentFormatsData} />{" "}

@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 export const AIAssessmentCard = memo(function AIAssessmentCard({
   data,
+  bgImage = "",
   className = "",
 }) {
   const { title, subTitle, ctaLink, ctaText } = data || {};
@@ -43,13 +44,18 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
   const handleBack = () => {
     setShowForm(false);
   };
-
+  console.log("bg Image card", bgImage);
   return (
     <div
       className={cn(
-        "w-full bg-[url(/solutions/assessmentCard-bg.svg)]   flex items-center justify-center  bg-no-repeat bg-cover bg-top rounded-2xl border border-black/20 p-8 overflow-hidden",
+        "w-full   flex items-center justify-center   bg-no-repeat bg-cover bg-top rounded-2xl border bg-white/80 border-black/20 p-8 overflow-hidden",
         className
-      )}>
+      )}
+      style={{
+        backgroundImage: bgImage
+          ? `url('${bgImage}')`
+          : "url(/solutions/assessmentCard-bg.svg)",
+      }}>
       <div className="w-full max-w-md space-y-8">
         {!showForm ? (
           // Initial state - matching your original design

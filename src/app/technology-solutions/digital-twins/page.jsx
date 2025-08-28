@@ -50,7 +50,11 @@ const DigitalTwins = async () => {
       />
       <Advantages data={advantages} />
       <div id="digital-twin-offerings">
-        <DigitalTwinOfferings data={offering} />
+        <DigitalTwinOfferings
+          data={offering}
+          bgImage="/service-offering/digital-twin/default.svg"
+          bgImageHover="/service-offering/digital-twin/hover.svg"
+        />
       </div>
       <Methodology data={methodology} />
       <IndustryExpertise

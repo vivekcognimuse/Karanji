@@ -451,10 +451,12 @@ const ContentDesign = () => {
             <Advantages data={ADVANTAGES_CONTENT} />
             <DigitalTwinOfferings
               CtaClassName="lg:-mt-24"
+              bgImageCard="/service-offering/digital-learning/content-catalogue.svg"
               data={digitalTwinData}
             />{" "}
             <ServiceOfferings
               data={serviceOfferingsData}
+              bgImage="/service-offering/digital-learning/default.svg"
               icon="/digital-learning/lms-discover"
             />
             <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
