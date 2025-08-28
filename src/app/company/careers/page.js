@@ -54,7 +54,11 @@ const ctaData = {
   SecondaryButtonLink:
     "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
 };
-
+export const metadata = {
+  title: "Careers at Karanji: Join Our AI, VR & Digital Learning Innovation Team",
+  description:
+    "Build your career with Karanji's innovative team. Explore opportunities in AI development, VR programming, instructional design, and shape the future of technology and learning.",
+}
 export default function careersPage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-10 space-y-16 lg:space-y-32">

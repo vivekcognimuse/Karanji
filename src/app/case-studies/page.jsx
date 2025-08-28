@@ -3,7 +3,12 @@ import Head from "next/head";
 import ResourcesGrid from "@/components/resources/ResourcesGrid";
 import Upcoming from "@/components/blog/Upcoming";
 import resourcesData from "@/data/resources.json"; // Import the static resources JSON
-
+export const metadata = {
+  title:
+    "Karanji Case Studies: Real-World AI, VR & Digital Learning Success Stories",
+  description:
+    "Explore Karanji's case studies showcasing real-world success in AI, VR, and digital learning. See how our solutions drive measurable results across industries.",
+};
 const ResourcesPage = () => {
   // Filter the resources to only include Case Studies
   const filteredResources = resourcesData.filter(

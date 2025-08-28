@@ -30,7 +30,7 @@ const ctaData = {
   title: "Ready to lead the future of Aviation?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Aviation",
-  PrimaryButtonText: "Start Your Transformation",
+  PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -303,7 +303,8 @@ export default async function Aviation() {
       <DigitalTwinOfferings
         data={digitalOfferingsData}
         // bgImageHover="/service-offering/industry/hover.svg"
-        bgImage="/service-offering/industry/default.svg"
+        bgImage="/gradients/Card default.svg"
+        bgImageHover="/gradients/Card on hover.svg"
       />
       <StrategicUseCase
         data={strategicUseCaseData}

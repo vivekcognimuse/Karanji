@@ -4,8 +4,11 @@ import React from "react";
 import Image from "next/image";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
-const DigitalTransformation = ({ data }) => {
+const DigitalTransformation = ({ data, bgImage }) => {
   const { sectionTitle, sectionSubtitle, digitalCards } = data;
+
+  // Default background image fallback
+  const backgroundImage = bgImage || "/gradients/Card default.svg";
 
   // Individual digital transformation card component
   const DigitalCard = ({ card }) => {
@@ -13,7 +16,12 @@ const DigitalTransformation = ({ data }) => {
 
     return (
       <div className="w-full px-4 md:px-0" data-reveal data-reveal-dir="up">
-        <div className="bg-white rounded-xl w-full max-w-[20rem] mx-auto border border-black/10 bg-[url('/gradients/Card default.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative h-full">
+        <div
+          className="bg-white rounded-xl w-full max-w-[20rem] mx-auto border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative h-full"
+          style={{
+            backgroundImage: `url('${backgroundImage}')`,
+          }}
+        >
           <div className="flex mb-4">
             <div className="rounded-full">
               <Image
@@ -42,7 +50,8 @@ const DigitalTransformation = ({ data }) => {
     <section
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto text-left mb-16">
         <h3 className="mb-4" data-reveal data-reveal-dir="up">
           {sectionTitle}
@@ -57,9 +66,13 @@ const DigitalTransformation = ({ data }) => {
         {digitalCards.map(({ id, title, icon, points }) => (
           <div
             key={id}
-            className="bg-white rounded-xl w-full max-w-[20rem] border border-black/10 bg-[url('/gradients/Card default.svg')] bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
+            className="bg-white rounded-xl w-full max-w-[20rem] border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
+            style={{
+              backgroundImage: `url('${backgroundImage}')`,
+            }}
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             <div className="flex mb-4">
               <div className="rounded-full">
                 <Image
@@ -100,7 +113,8 @@ const DigitalTransformation = ({ data }) => {
                 autoPlayInterval={6000}
                 showDots={true}
                 showArrows={false}
-                className="w-full">
+                className="w-full"
+              >
                 {digitalCards.map((card) => (
                   <DigitalCard key={card.id} card={card} />
                 ))}
