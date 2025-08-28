@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export default function ServiceOfferings({
   heightDifference,
   className,
+  bgImage,
   data,
   icon,
 }) {
@@ -66,6 +67,7 @@ export default function ServiceOfferings({
               description={service.description}
               featured={service.featured}
               index={index}
+              bgImage={bgImage}
               heightDifference={heightDifference}
               icon={`${icon}/${index + 1}.svg`}
               // reveal
@@ -85,6 +87,7 @@ export default function ServiceOfferings({
                 description={service.description}
                 featured={service.featured}
                 index={i}
+                bgImage={bgImage}
                 heightDifference={heightDifference}
                 icon={`${icon}/${i + 1}.svg`}
                 // reveal

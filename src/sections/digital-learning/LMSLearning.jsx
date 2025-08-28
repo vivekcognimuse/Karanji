@@ -10,11 +10,11 @@ const LMSLearning = ({ data }) => {
       <h3>{title}</h3>
       <P2>{description}</P2>
 
-      <div className="flex-center flex-col lg:flex-row gap-8">
+      <div className="justify-center lg:items-start flex flex-col w-full   lg:flex-row gap-4  md:gap-8">
         {cards.map((card, index) => (
           <div
             key={index}
-            className="bg-[#FFE5E5] mt-8 space-y-8 p-5 rounded-2xl">
+            className="bg-[#FFE5E5] flex-1 max-w-lg mt-8 space-y-8 p-5 rounded-2xl">
             {card.image && (
               <Image
                 src={card.image}

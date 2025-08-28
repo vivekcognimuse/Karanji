@@ -111,7 +111,7 @@ export const careersDetails = [
   {
     title: "Instructional Designer",
     category: "Learning & Content Development",
-    location: "Bangalore (Remote)",
+    location: "Bangalore",
     workModel: "Remote",
     employmentType: "Full-time",
     experience: "5–8 years",

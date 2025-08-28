@@ -187,6 +187,14 @@ const strategicUseCaseData = {
     },
     {
       id: 7,
+      icon: "Icons/ai-icon.svg",
+      category: "AI Implementation",
+      title: "ESG Performance Analytics & Reporting",
+      description:
+        "Reduces ESG reporting time from 6 weeks to 2 days using AI-powered automation & data pipelines.",
+    },
+    {
+      id: 8,
       icon: "Icons/immersive-tech-icon.svg", // Replace with appropriate icon path
       category: "Immersive Tech & Digital Learning",
       title: "VR Safety Training Simulations",
@@ -194,7 +202,7 @@ const strategicUseCaseData = {
         "Increases retention by 28% & speeds competency by 40% with immersive, scenario-based simulations.",
     },
     {
-      id: 8,
+      id: 9,
       icon: "Icons/immersive-tech-icon.svg",
       category: "Immersive Tech & Digital Learning",
       title: "Peer Learning Video Platform",
@@ -202,7 +210,7 @@ const strategicUseCaseData = {
         "Accelerates onboarding & preserves expertise through AI-tagged training videos & avatar-based learning.",
     },
     {
-      id: 9,
+      id: 10,
       icon: "Icons/immersive-tech-icon.svg",
       category: "Immersive Tech & Digital Learning",
       title: "Collaborative Virtual Design Environment",
@@ -210,7 +218,7 @@ const strategicUseCaseData = {
         "Reduces design rework & speeds iteration using real-time VR collaboration & simulation tools.",
     },
     {
-      id: 10,
+      id: 11,
       icon: "Icons/immersive-tech-icon.svg",
       category: "Immersive Tech & Digital Learning",
       title: "Augmented Reality Maintenance Support",
@@ -266,7 +274,10 @@ export default async function Aviation() {
       />
       <Deliverables data={industryData} />
       <div id="digital-transformation">
-        <DigitalTransformation data={digitalTransformationData} />
+        <DigitalTransformation
+          data={digitalTransformationData}
+          bgImage="/service-offering/industry/default.svg"
+        />
       </div>
       <StrategicPriorities data={strategicPrioritiesData} />
       <StrategicUseCase

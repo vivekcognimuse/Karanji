@@ -4,7 +4,7 @@ import Image from "next/image";
 import { P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
 
-const OfferingCard = ({ card, index, icon }) => {
+const OfferingCard = ({ card, index, icon, bgImage, bgImageHover }) => {
   // Adding `icon` prop here
   const cardRef = useRef(null);
   const frontContentRef = useRef(null);
@@ -87,42 +87,50 @@ const OfferingCard = ({ card, index, icon }) => {
   return (
     <div
       ref={cardRef}
-      className="relative rounded-2xl flex flex-col p-4 bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
+      className="relative rounded-2xl flex flex-col bg-white  bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
       style={{
         minHeight: "380px",
         maxWidth: "320px", // Set max width of the card to 320px
-        background: `url('/gradients/offering-card-gradient.svg')`,
+        backgroundImage: `url('${bgImage}')`,
       }}
       data-reveal
-      data-reveal-dir="up"
-    >
+      data-reveal-dir="up">
       {/* Front Content - Default State */}
-      <div ref={frontContentRef} className="relative z-10">
-        <div className="mb-6 w-16 h-16 flex items-center justify-center">
-          <Image
-            src={iconSrc} // Use the iconSrc determined above
-            alt={`${card.title} icon`}
-            width={48}
-            height={48}
-            className="object-contain"
-          />
+      <div
+        ref={frontContentRef}
+        className="relative z-10 p-4 flex flex-col h-full">
+        {/* Top section */}
+        <div className="flex-none">
+          <div className="mb-6 w-16 h-16 flex items-center justify-center">
+            <Image
+              src={iconSrc}
+              alt={`${card.title} icon`}
+              width={48}
+              height={48}
+              className="object-contain"
+            />
+          </div>
+          <h4 className="mb-4">{card.title}</h4>
         </div>
 
-        <h4 className="mb-4">{card.title}</h4>
-        <P3 className="text-gray-600 leading-relaxed">{card.description}</P3>
-      </div>
+        {/* Flexible spacer */}
+        <div className="flex-grow"></div>
 
+        {/* Bottom section */}
+        <div className="flex-none">
+          <P3 className="text-gray-600 leading-relaxed">{card.description}</P3>
+        </div>
+      </div>
       {/* Back Content - Hover State */}
       {hoverContent ? (
         <div
           ref={backContentRef}
-          className="absolute inset-0 flex flex-col z-0"
+          className="absolute bg-white inset-0 flex flex-col z-0"
           style={{
-            background: "url('/gradients/offering-card-gradient.svg')",
+            backgroundImage: `url('${bgImageHover ?? bgImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}
-        >
+          }}>
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex-1">
               {hoverContent.map((item, idx) => (

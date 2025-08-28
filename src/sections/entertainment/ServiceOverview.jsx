@@ -27,20 +27,21 @@ const ServiceOverview = ({ data }) => {
       {/* Subtitle */}
       <h4 className="mb-16">{subTitle}</h4>
 
-      <div className="grid  grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className=" flex flex-col-reverse lg:grid    grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Content Section */}
-        <div className="space-y-6  col-span-5 my-auto">
+        <div className="space-y-6  lg:col-span-5 my-auto">
           <P2 className="mb-6 text=[#010101]">{description}</P2>
           <P3 className="text-black-500">{feature}</P3>
         </div>
 
         {/* Right Image Section */}
-        <div className="relative col-span-7  rounded-2xl overflow-hidden shadow-2xl h-full ">
+        <div className="relative lg:col-span-7  rounded-2xl overflow-hidden shadow-2xl h-full ">
           <Image
             src={images[currentIndex].src}
+            width={772}
+            height={334}
             alt={images[currentIndex].alt}
             className="w-full h-full aspect-[772/334] object-cover"
-            fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
           />
         </div>

@@ -146,7 +146,7 @@ const CaseStudyPage = ({ data }) => {
     <div className="relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain">
       <article>
         {/* Full Width Header */}
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto">
           <header className="mb-10">
             <h2 className="mt-20 mb-4" data-reveal data-reveal-dir="up">
               {data.title}

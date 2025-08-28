@@ -42,7 +42,7 @@ export const ServiceCard = memo(function ServiceCard({
           className="w-full">
           {cards.map((service, i) => (
             <SingleServiceCard
-              key={i}
+              key={i + service.title}
               data={service}
               index={i}
               data-reveal
@@ -197,10 +197,8 @@ const SingleServiceCard = memo(function SingleServiceCard({
             {/* Features list - 2 columns for better use of space */}
             {list && list.length > 0 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-6">
-                {list.map((item) => (
-                  <div
-                    key={item.id}
-                    className=" border-b  border-black-200 pb-4 p-3">
+                {list.map((item, i) => (
+                  <div key={i} className=" border-b  border-black-200 pb-4 p-3">
                     <P4 className="text-black-500 ">{item.text}</P4>
                   </div>
                 ))}

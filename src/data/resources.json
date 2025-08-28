@@ -41,6 +41,22 @@
   },
   {
     "type": "Case Study",
+    "title": "Sign Language Bot (SignBot)",
+    "image": "/CaseStudyImages/4_sign_language_bot_signbot_.webp",
+    "link": "/case-studies/5",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
+    "type": "Case Study",
+    "title": "Teacher Empowerment System (TES) ",
+    "image": "/CaseStudyImages/5_teacher_empowerment_system_tes_.webp",
+    "link": "/case-studies/6",
+    "cta": "View Case Study",
+    "domain": "Technology solutions"
+  },
+  {
+    "type": "Case Study",
     "title": "Futuristic Digital Payments Training Module",
     "image": "/CaseStudyImages/7_futuristic_digital_payments_training_module.webp",
     "link": "/case-studies/8",

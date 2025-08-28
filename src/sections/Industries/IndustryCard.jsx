@@ -80,15 +80,16 @@ const IndustryCard = ({ card, index }) => {
       ref={cardRef}
       className="relative rounded-2xl flex flex-col p-4 bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
       style={{
-        minHeight: "300px",
+        Height: "300px",
         maxWidth: "320px", // Set max width of the card to 320px
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
       data-reveal
-      data-reveal-dir="up">
+      data-reveal-dir="up"
+    >
       {/* Front Content - Default State */}
-      <div ref={frontContentRef} className="relative z-10">
-        <div className="mb-6 w-16 h-16 flex items-center justify-center">
+      <div ref={frontContentRef} className="relative z-10 flex flex-col h-full">
+        <div className="mb-4 w-16 h-16 flex items-center justify-center">
           <Image
             src={icon}
             alt={`${title} icon`}
@@ -98,8 +99,10 @@ const IndustryCard = ({ card, index }) => {
           />
         </div>
 
-        <h4 className="mb-4">{title}</h4>
-        <P2 className="text-gray-600 ">{}</P2>
+        <h4 className="mb-2">{title}</h4>
+        <div className="h-1">
+          <P2 className="text-gray-600 line-clamp-2">{subTitle}</P2>
+        </div>
 
         <Image
           src={img}
@@ -120,7 +123,8 @@ const IndustryCard = ({ card, index }) => {
             background: "url('/gradients/offering-card-gradient.svg')",
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}>
+          }}
+        >
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex flex-col justify-between flex-1">
               <div>

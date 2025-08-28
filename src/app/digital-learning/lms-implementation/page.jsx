@@ -290,6 +290,7 @@ export default async function LMSImplementation() {
       <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
       <div id="lms-services">
         <ServiceOfferings
+          bgImage="/service-offering/digital-learning/default.svg"
           data={serviceOfferingsData}
           icon="/digital-learning/lms-discover"
         />

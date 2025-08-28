@@ -326,7 +326,11 @@ export default async function Logistics() {
       <div id="strategic-priorities">
         <StrategicPriorities data={strategicPrioritiesData} />
       </div>
-      <DigitalTwinOfferings data={offering} />
+      <DigitalTwinOfferings
+        data={offering}
+        // bgImageHover="/service-offering/industry/hover.svg"
+        bgImage="/service-offering/industry/default.svg"
+      />
       <StrategicUseCase
         data={strategicUseCaseData}
         icon="/Industries & its pages/Logistics/usecase"
