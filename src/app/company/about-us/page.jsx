@@ -241,7 +241,8 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}>
+          }}
+        >
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}
