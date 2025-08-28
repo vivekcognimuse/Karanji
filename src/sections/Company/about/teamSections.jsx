@@ -2,11 +2,10 @@
 import React, { useState } from "react";
 import { P3 } from "@/components/CustomTags";
 import MemberCard from "./MemberCard";
-import CarouselContainer from "@/components/animations/Carousal";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 const TeamSection = ({ sections = [] }) => {
-  const [expandedSection, setExpandedSection] = useState(null);
+  const [expandedSection, setExpandedSection] = useState(0); // First accordion expanded by default
 
   const toggleSection = (index) => {
     setExpandedSection(expandedSection === index ? null : index);
@@ -35,10 +34,12 @@ const TeamSection = ({ sections = [] }) => {
                 "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
             }}
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             <button
               className="w-full py-12 text-left focus:outline-none"
-              onClick={() => toggleSection(index)}>
+              onClick={() => toggleSection(index)}
+            >
               <div className="flex items-start pr-4 ">
                 <div className="flex-1">
                   <h3 className="font-normal text-black mb-4 leading-tight">
@@ -59,7 +60,8 @@ const TeamSection = ({ sections = [] }) => {
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor">
+                    stroke="currentColor"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -100,67 +102,63 @@ const TeamSection = ({ sections = [] }) => {
 
       {/* Mobile view - separate boxes with spacing */}
       <div className="block md:hidden space-y-4">
-        <CarouselContainer
-          autoPlay={false}
-          showDots={true}
-          showArrows={false}
-          className="">
-          {(sections || []).map((section, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg mx-4">
-              <button
-                className="w-full py-6 px-4 text-left focus:outline-none"
-                onClick={() => toggleSection(index)}>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-normal text-black leading-tight pr-4 text-xl">
-                      {section.title}
-                    </h3>
-                    <svg
-                      className={`w-6 h-6 text-black-950 transform transition-transform duration-200 flex-shrink-0 ${
-                        expandedSection === index ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </div>
-                  <P3 className="text-gray-600 leading-relaxed">
-                    {section.description}
-                  </P3>
+        {(sections || []).map((section, index) => (
+          <div key={index} className="border border-gray-200 rounded-lg mx-4">
+            <button
+              className="w-full py-6 px-4 text-left focus:outline-none"
+              onClick={() => toggleSection(index)}
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-normal text-black leading-tight pr-4 text-xl">
+                    {section.title}
+                  </h3>
+                  <svg
+                    className={`w-6 h-6 text-black-950 transform transition-transform duration-200 flex-shrink-0 ${
+                      expandedSection === index ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
                 </div>
-              </button>
+                <P3 className="text-gray-600 leading-relaxed">
+                  {section.description}
+                </P3>
+              </div>
+            </button>
 
-              {expandedSection === index && section.members && (
-                <div className="px-4 pb-6 animate-slideDown">
-                  <div className="space-y-4 mt-6">
-                    {section.members.map((member, memberIndex) => (
-                      <MemberCard
-                        key={memberIndex}
-                        name={member.name}
-                        role={member.role}
-                        company={member.company}
-                        brief={member.brief}
-                        image={member.image}
-                        linkedin={member.linkedin}
-                        showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
-                        onConnect={() => handleConnect(member.name)}
-                        onTalkToDigitalTwin={() =>
-                          handleTalkToDigitalTwin(member.name)
-                        }
-                      />
-                    ))}
-                  </div>
+            {expandedSection === index && section.members && (
+              <div className="px-4 pb-6 animate-slideDown">
+                <div className="space-y-4 mt-6">
+                  {section.members.map((member, memberIndex) => (
+                    <MemberCard
+                      key={memberIndex}
+                      name={member.name}
+                      role={member.role}
+                      company={member.company}
+                      brief={member.brief}
+                      image={member.image}
+                      linkedin={member.linkedin}
+                      showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
+                      onConnect={() => handleConnect(member.name)}
+                      onTalkToDigitalTwin={() =>
+                        handleTalkToDigitalTwin(member.name)
+                      }
+                    />
+                  ))}
                 </div>
-              )}
-            </div>
-          ))}
-        </CarouselContainer>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
       {/* Include SectionReveal to trigger the animations */}
