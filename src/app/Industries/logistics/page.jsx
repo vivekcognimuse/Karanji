@@ -30,7 +30,7 @@ const ctaData = {
   title: "Ready to transform the future of logistics?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Logistics",
-  PrimaryButtonText: "Start Your Transformation",
+  PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {

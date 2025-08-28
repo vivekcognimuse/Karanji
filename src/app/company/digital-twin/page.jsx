@@ -91,6 +91,12 @@ const sectionData = {
     },
   ],
 };
+export const metadata = {
+  title:
+    "Meet Our Digital Avatars: AI-Powered Clones for 24/7 Customer Support & Guidance",
+  description:
+    "Experience Karanji's digital avatars—AI-powered clones of our experts offering multilingual, 24/7 support. Explore services, get personalized guidance, and enhance engagement.",
+};
 export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

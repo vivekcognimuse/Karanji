@@ -78,13 +78,6 @@ const cards = [
   },
 ];
 
-// export const metadata = {
-//   title:
-//     "AI Consulting, XR & Digital Twin Solutions | Future-Ready Technology Services",
-//   description:
-//     "Transform your business with our AI consulting, XR/VR experiences, and digital twin technology. Drive innovation, optimize operations, and accelerate digital transformation.",
-// };
-
 export default async function IndustryLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

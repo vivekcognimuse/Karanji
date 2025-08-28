@@ -177,7 +177,7 @@ const LogoAnimation = () => {
         <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
         {/* Logo Animation Section */}
-        <div className="flex items-center justify-center relative z-10 flex-1">
+        <div className="flex items-center justify-center relative z-10 flex-1 md:pt-28">
           <PieChartLogo
             logoRef={logoRef}
             section1Ref={section1Ref}
@@ -203,8 +203,10 @@ const LogoAnimation = () => {
             </div>
 
             {/* Main Heading */}
-            <div className="text-center md:text-nowrap">
-              <h2 className="">Innovate. Design. Transform.</h2>
+            <div className="text-center">
+              <h2 className="text-black text-nowrap">
+                Innovate. Design. Transform.
+              </h2>
             </div>
           </div>
         </div>
