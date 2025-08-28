@@ -139,7 +139,12 @@ const teamSectionData = [
     ],
   },
 ];
-
+export const metadata = {
+  title:
+    "Meet Our Experts: Karanji's AI, VR & Digital Learning Leadership Team",
+  description:
+    "Meet Karanji's expert team of AI, VR and digital learning professionals. With 18+ years of experience, our leaders deliver transformative technology solutions and immersive learning experiences.",
+};
 export default async function teampage() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

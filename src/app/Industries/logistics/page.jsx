@@ -30,7 +30,7 @@ const ctaData = {
   title: "Ready to transform the future of logistics?",
   description:
     " To know more about these cases or discuss any other requirement for transformation of Logistics",
-  PrimaryButtonText: "Start Your Transformation",
+  PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -123,8 +123,8 @@ const offering = {
         { text: "65% of carriers use predictive maintenance" },
         { text: "40% are testing generative AI for customs documentation" },
       ],
-      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png",
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
     {
       title: "IoT & Connected Devices",
@@ -137,8 +137,8 @@ const offering = {
         { text: "GPS, RFID, & sensors are widely implemented" },
         { text: "Telematics supports smarter fleet management" },
       ],
-      frontImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png",
-      hoverImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
     {
       title: "Digital Twins & Simulation",
@@ -149,8 +149,8 @@ const offering = {
           text: "Digital twins reduce congestion & support operational simulations.",
         },
       ],
-      frontImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png",
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
     {
       title: "Blockchain Technology",
@@ -161,8 +161,8 @@ const offering = {
           text: "Blockchain enhances compliance, traceability, & secure documentation.",
         },
       ],
-      frontImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
-      hoverImage: "/mnt/data/4f1c5fa3-2adf-4a3e-8499-2f8a2fa14b94.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
     {
       title: "Cloud Computing",
@@ -171,8 +171,8 @@ const offering = {
         { text: "Cloud adoption accelerates digital transformation" },
         { text: "90% of logistics companies use cloud services" },
       ],
-      frontImage: "/mnt/data/18a5f56d-971b-4ca2-a716-55ba39f08209.png",
-      hoverImage: "/mnt/data/4b8b0721-8565-4e3d-a886-3f4774554843.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
     {
       title: "Immersive Technologies",
@@ -181,8 +181,8 @@ const offering = {
         { text: "VR/AR enhance training & operational support." },
         { text: "72% of firms use VR for logistics training" },
       ],
-      frontImage: "/mnt/data/0354547c-4967-4b4c-b603-4b7494b33b71.png",
-      hoverImage: "/mnt/data/6398b2cb-8645-4e61-95aa-762ecd7cc6cc.png",
+      frontImage: "/gradients/Card default.svg",
+      hoverImage: "/gradients/Card on hover.svg",
     },
   ],
 };
@@ -328,7 +328,8 @@ export default async function Logistics() {
       <DigitalTwinOfferings
         data={offering}
         // bgImageHover="/service-offering/industry/hover.svg"
-        bgImage="/service-offering/industry/default.svg"
+        bgImage="/gradients/Card default.svg"
+        bgImageHover="/gradients/Card on hover.svg"
       />
       <StrategicUseCase
         data={strategicUseCaseData}
