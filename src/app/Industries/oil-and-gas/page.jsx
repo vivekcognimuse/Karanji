@@ -31,7 +31,7 @@ const ctaData = {
   title: "Ready to power the future of oil & gas?",
   description:
     "  To know more about these cases or discuss any other requirement for transformation of Oil & gas",
-  PrimaryButtonText: "Start Your Transformation",
+  PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
@@ -260,7 +260,7 @@ const digitalTransformationData = {
 };
 export const metadata = {
   title:
-    "Digital Transformation in Oil & Gas: AI, Predictive Maintenance & VR Training Solutions",
+    "Oil & Gas Digital Transformation: AI, VR Training & Predictive Maintenance Solutions",
   description:
     "Accelerate digital transformation in Oil & Gas with AI-driven predictive maintenance, VR safety training, and digital twin solutions. Boost operational excellence, reduce costs, and enhance efficiency.",
 };

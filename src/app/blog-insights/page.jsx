@@ -6,17 +6,9 @@ import Head from "next/head";
 
 // ---- static SEO for the listing page ----
 export const metadata = {
-  title: "Immersive Healthcare VR Training | Karanji Case Study",
+  title: "Karanji Blog: Insights on AI, VR & Digital Learning Innovation",
   description:
-    "Discover how immersive VR training bridged healthcare skill gaps across dialysis, lab, and patient care with Karanji's innovative solution.",
-  keywords: "VR healthcare training, Karanji, medical skill gap, case study",
-  authors: [{ name: "Karanji Team" }],
-  openGraph: {
-    title: "Immersive Healthcare Education with VR Training",
-    description:
-      "How VR training helped a multinational company bridge skill gaps in healthcare.",
-    type: "website",
-  },
+    "Explore the Karanji blog for expert insights on AI, VR, digital learning, and emerging technology trends. Stay updated with cutting-edge strategies and industry innovations.",
 };
 
 // Flatten Strapi v5 entries into your old JSON shape
