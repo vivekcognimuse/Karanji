@@ -15,7 +15,6 @@ import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learnin
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
-import Head from "next/head";
 
 import React, { useState } from "react";
 
@@ -223,7 +222,7 @@ const contentFormatsData = {
       src: "/digital-learning/content-format/2.svg",
     },
     {
-      description: "Short Learning",
+      description: "ILT/VLT",
       src: "/digital-learning/content-format/3.svg",
     },
     { description: "Videos", src: "/digital-learning/content-format/4.svg" },
@@ -443,6 +442,7 @@ const ContentDesign = () => {
             <Methodology column={true} data={methodologyData} />
             <ContentFormats data={contentFormatsData} />
             <ELearningCustomELearningSolutionDeepDive
+              setActiveTab={setActiveTab}
               data={customELearningSolutionDeepDive}
             />
           </>
@@ -463,9 +463,10 @@ const ContentDesign = () => {
               <P2 className=" ">Looking for something more tailored?</P2>
 
               <Button
-                onClick={() =>
-                  handleScrollToSection(event, "solutions-and-resources")
-                }
+                onClick={() => {
+                  handleScrollToSection(event, "solutions-and-resources");
+                  setActiveTab("custom");
+                }}
                 size="sm"
                 variant="secondary"
                 className="">

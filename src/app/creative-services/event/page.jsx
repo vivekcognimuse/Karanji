@@ -238,7 +238,7 @@ const VfxAnimation = () => {
   return (
     <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
+      <HeroSection data={heroData} bgImage="/hero/Event-banner.webp" />
       <ServiceOverview data={serviceOverview} />
       <div id="event-service-offerings">
         <ServiceOfferings
