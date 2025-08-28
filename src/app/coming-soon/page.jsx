@@ -42,8 +42,8 @@ const Page = () => {
   };
 
   return (
-    <div className=" w-full   max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
-      <div className="flex justify-center flex-col md:flex-row items-center pt-[85px] min-h-screen">
+    <div className=" w-full max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
+      <div className="flex justify-center flex-col md:flex-row items-center  md:min-h-[calc(100vh-80px)]">
         <div>
           <Image
             src="/coming-soon.svg"

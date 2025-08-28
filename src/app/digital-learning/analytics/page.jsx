@@ -314,9 +314,9 @@ export const metadata = {
 };
 const ContentDesign = () => {
   return (
-    <div className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection data={heroData} bgImage="/hero/1.Analytics banner .webp" />
+      <HeroSection data={heroData} bgImage="/hero/Analytics-banner.webp" />
       <LearningChallenges data={learningChallenges} />
       <div id="analytics-service-offerings">
         <ServiceOfferings
@@ -342,7 +342,7 @@ const ContentDesign = () => {
       <Deliverables data={deliverablesData} />
       <HowItWorks data={howItWorks} />
       <CTA data={ctaData} />
-    </div>
+    </main>
   );
 };
 

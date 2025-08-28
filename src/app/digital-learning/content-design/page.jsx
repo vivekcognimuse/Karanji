@@ -409,82 +409,84 @@ const ContentDesign = () => {
     }
   };
   return (
-    <div className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32 ">
       {" "}
       <HeroSection bgImage="/hero/Content-design.webp" data={heroData} />
-      <div id="e-learning-solutions">
-        <LearningChallenges data={learningChallenges} />
-      </div>
-      {/* Toggle Buttons */}
-      <div
-        id="solutions-and-resources"
-        className="flex justify-center gap-2 mb-8">
-        {tabs.map(({ key, buttonLabel }) => (
-          <button
-            key={key}
-            onClick={() => setActiveTab(key)}
-            className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
-              activeTab === key
-                ? "bg-[#F0B8B8] text-gray-800"
-                : "bg-white text-gray-600 hover:bg-pink-100"
-            }`}>
-            {buttonLabel}
-          </button>
-        ))}
-      </div>
-      <div className="p-8 bg-[#FCE8E8] border border-black-200 space-y-16 lg:space-y-32 rounded-2xl">
-        {/* Tab Content */}
-        <CustomELearningSolution data={eLearning} activeTab={activeTab} />
+      <div className="space-y-16 lg:space-y-32">
+        <div id="e-learning-solutions">
+          <LearningChallenges data={learningChallenges} />
+        </div>
+        {/* Toggle Buttons */}
+        <div
+          id="solutions-and-resources"
+          className="flex justify-center gap-2 mb-8">
+          {tabs.map(({ key, buttonLabel }) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
+                activeTab === key
+                  ? "bg-[#F0B8B8] text-gray-800"
+                  : "bg-white text-gray-600 hover:bg-pink-100"
+              }`}>
+              {buttonLabel}
+            </button>
+          ))}
+        </div>
+        <div className="p-8 bg-[#FCE8E8] border border-black-200 space-y-16 lg:space-y-32 rounded-2xl">
+          {/* Tab Content */}
+          <CustomELearningSolution data={eLearning} activeTab={activeTab} />
 
-        {/* Conditional Content */}
-        {activeTab === "custom" ? (
-          <>
-            <Methodology column={true} data={methodologyData} />
-            <ContentFormats data={contentFormatsData} />
-            <ELearningCustomELearningSolutionDeepDive
-              setActiveTab={setActiveTab}
-              data={customELearningSolutionDeepDive}
-            />
-          </>
-        ) : (
-          <>
-            <Advantages data={ADVANTAGES_CONTENT} />
-            <DigitalTwinOfferings
-              CtaClassName="lg:-mt-24"
-              bgImageCard="/service-offering/digital-learning/content-catalogue.svg"
-              data={digitalTwinData}
-            />{" "}
-            <ServiceOfferings
-              data={serviceOfferingsData}
-              bgImage="/service-offering/digital-learning/default.svg"
-              icon="/digital-learning/lms-discover"
-            />
-            <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
-              <P2 className=" ">Looking for something more tailored?</P2>
+          {/* Conditional Content */}
+          {activeTab === "custom" ? (
+            <>
+              <Methodology column={true} data={methodologyData} />
+              <ContentFormats data={contentFormatsData} />
+              <ELearningCustomELearningSolutionDeepDive
+                setActiveTab={setActiveTab}
+                data={customELearningSolutionDeepDive}
+              />
+            </>
+          ) : (
+            <>
+              <Advantages data={ADVANTAGES_CONTENT} />
+              <DigitalTwinOfferings
+                CtaClassName="lg:-mt-24"
+                bgImageCard="/service-offering/digital-learning/content-catalogue.svg"
+                data={digitalTwinData}
+              />{" "}
+              <ServiceOfferings
+                data={serviceOfferingsData}
+                bgImage="/service-offering/digital-learning/default.svg"
+                icon="/digital-learning/lms-discover"
+              />
+              <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+                <P2 className=" ">Looking for something more tailored?</P2>
 
-              <Button
-                onClick={() => {
-                  handleScrollToSection(event, "solutions-and-resources");
-                  setActiveTab("custom");
-                }}
-                size="sm"
-                variant="secondary"
-                className="">
-                View Custom Content Solutions
-              </Button>
-            </div>
-          </>
-        )}
-        {/* <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+                <Button
+                  onClick={() => {
+                    handleScrollToSection(event, "solutions-and-resources");
+                    setActiveTab("custom");
+                  }}
+                  size="sm"
+                  variant="secondary"
+                  className="">
+                  View Custom Content Solutions
+                </Button>
+              </div>
+            </>
+          )}
+          {/* <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
           <P2 className=" ">{customELearningSolutionDeepDive.cta.text}</P2>
           <Button size="sm" variant="secondary" className="">
             {customELearningSolutionDeepDive.cta.buttonText}
           </Button>
         </div> */}
+        </div>
+        <SuccessStories data={successStoriesData} />
+        <CTA data={CTAData} />
       </div>
-      <SuccessStories data={successStoriesData} />
-      <CTA data={CTAData} />
-    </div>
+    </main>
   );
 };
 

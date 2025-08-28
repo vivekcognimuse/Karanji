@@ -93,10 +93,12 @@ export default async function IndustryLanding() {
         data={heroData}
         bgImage="/Industries & its pages/Landing page/banner.webp"
       />
-      <div id="industries-section">
-        <IndustriesSection cards={cards} data={industriesData} />
+      <div className="space-y-16 lg:space-y-32">
+        <div id="industries-section">
+          <IndustriesSection cards={cards} data={industriesData} />
+        </div>
+        <CTA data={ctaData} />
       </div>
-      <CTA data={ctaData} />
     </main>
   );
 }
