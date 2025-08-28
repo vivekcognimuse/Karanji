@@ -48,11 +48,11 @@ function AvatarCard({ avatar, description }) {
 
   return (
     <div
-      className="relative w-full mx-auto md:mx-0 max-w-md lg:w-1/2 flex-shrink-0"
+      className="relative w-full mx-auto md:mx-0  lg:w-1/2 flex-shrink-0"
       data-reveal
       data-reveal-dir="up" // Add data-reveal for animation
     >
-      <div className="relative w-full h-full rounded-2xl p-3 border border-black-100  shadow-sm overflow-hidden">
+      <div className="relative flex flex-col w-full h-full rounded-2xl p-3 border border-black-100  shadow-sm overflow-hidden">
         {/* Online Status */}
         <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
           <Image
@@ -98,25 +98,16 @@ function AvatarCard({ avatar, description }) {
         </div>
 
         {/* Avatar Info */}
-        <div className="px-6 py-5 flex items-start justify-between bg-white">
+        <div className="px-6 py-5 flex items-start justify-between ">
           <div className="flex-1">
             <h4 className="">{avatar.name}</h4>
             <p className="text-black-600  font-normal mb-3">{avatar.role}</p>
             <P4 className="">{description}</P4>
           </div>
-          <div className="w-6 h-6 flex-shrink-0 ml-4">
-            <Image
-              src="/Icons/clarity_arrow-line.svg"
-              alt="Arrow"
-              width={24}
-              height={24}
-              className="w-full h-full opacity-60"
-            />
-          </div>
         </div>
 
         {/* CTA Section */}
-        <div className="px-6 pb-6">
+        <div className="px-6 mt-auto pb-6">
           <div className="text-center">
             <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
               <Button variant="secondary" size="sm">
@@ -166,7 +157,7 @@ export default function ChooseAvatarSection() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center  items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+    <div className="flex flex-col md:flex-row justify-center   items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
         <AvatarCard
           key={avatar.name}
