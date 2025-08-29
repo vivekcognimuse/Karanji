@@ -53,7 +53,7 @@ const JourneySection = ({ data = {} }) => {
           data-reveal-dir="up"
         >
           <Image
-            src="/journey.svg"
+            src="/Desktop-infographic.svg"
             alt="Description of the image"
             width={945}
             height={410}
