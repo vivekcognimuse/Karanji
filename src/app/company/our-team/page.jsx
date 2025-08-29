@@ -86,7 +86,7 @@ const teamSectionData = [
       },
       {
         name: "Ryan Lobo",
-        role: "Senior Director - Growth & Strategy & Human Resources",
+        role: "Senior Director - Growth, Strategy & Human Resources",
         brief:
           "Ryan accelerates business growth through strategic HR solutions & growth-driven technologies.",
         image: "/Company/Team/Management-collective/Ryan.webp",

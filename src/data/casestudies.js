@@ -18,8 +18,8 @@ export const caseStudies = [
     "slug": "3",
     "downloadCta": {
       "title": "Access K-Buddy AI Chatbot Case Study",
-      "intro": "Discover how AI chatbots and eLearning solutions scale personalized support, boosting student engagement and understanding in real-time.",
-  "audienceNote": "If you're in education technology or student support, this case shows how AI-powered learning solutions can transform study experiences and outcomes.",
+      "intro": "Discover how AI chatbots and eLearning solution scale personalized support, boosting student engagement and understanding in real-time.",
+  "audienceNote": "If you're in education technology or student support, this case demonstrates how AI-powered learning solution can transform study experiences and outcomes.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/_2_k_buddy_ai_learning_companion.webp",
@@ -31,7 +31,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Outbound Calling Agent Story",
       "intro": "See how inside-sales teams automate follow-ups, simplify logging, and gain real control with a proactive calling agent.",
-  "audienceNote": "If you’re in sales or EdTech, this case shows what’s possible with AI computer solutions for outreach and team efficiency.",
+  "audienceNote": "If you’re in sales or EdTech, this case demonstrates what’s possible with AI computer solution for outreach and team efficiency.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/3_outbound_calling_agent_.webp",
@@ -43,7 +43,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Sign Language Bot (SignBot) Story",
       "intro": "See how a unified sign-clip library, SBERT matching, and real-time stitching make text-to-sign translation practical for education and accessibility teams.",
-  "audienceNote": "If you’re in education, NGOs, or customer support, this case shows what’s possible with AI-powered business solutions for inclusive communication.",
+  "audienceNote": "If you’re in education, NGOs, or customer support, this case demonstrates what’s possible with AI-powered business solution for inclusive communication.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/4_sign_language_bot_signbot_.webp",
@@ -55,7 +55,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Teacher Empowerment System (TES) Story",
       "intro": "See how schools streamline lesson planning, generate quizzes, and support diverse classrooms with an AI-driven assistant.",
-  "audienceNote": "If you’re training students from Grade 1-12, this case study shows what’s possible with a training management system approach to day-to-day teaching.",
+  "audienceNote": "If you’re training students from Grade 1-12, this case study demonstrates what’s possible with a training management system approach to day-to-day teaching.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/5_teacher_empowerment_system_tes_.webp",
@@ -67,7 +67,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Quality Month: Video Animation Story",
       "intro": "See how culturally rooted storytelling, local voice acting, and character-driven narratives can bring internal campaigns to life.",
-  "audienceNote": "If you manage corporate communications or learning initiatives, this case shows what’s possible with tailored animation and on-the-ground collaboration.",
+  "audienceNote": "If you manage corporate communications or learning initiatives, this case demonstrates what’s possible with tailored animation and on-the-ground collaboration.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/6_quality_month_video_animation_.webp",
@@ -79,7 +79,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Futuristic Digital Payments Training Module Story",
       "intro": "See how simulations, holographic UI, and narrative design turn payment infrastructure into a clear, engaging learning experience.",
-  "audienceNote": "If you lead enablement in fintech or banking, this case shows how a modern training management system approach can accelerate product understanding-within broader AI-powered business solutions roadmaps.",
+  "audienceNote": "If you lead enablement in fintech or banking, this case demonstrates how a modern training management system approach can accelerate product understanding within broader AI-powered business solution roadmaps.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/7_futuristic_digital_payments_training_module.webp",
@@ -91,7 +91,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Driving School & Training Module Story",
       "intro": "See how scenario design, simulator alignment, and role-based modules create job-ready training for managers and instructors.",
-  "audienceNote": "If you run an automotive academy or safety initiative, this case shows how eLearning solutions can translate real-world driving demands into clear, scalable instruction.",
+  "audienceNote": "If you run an automotive academy or safety initiative, this case demonstrates how eLearning solution can translate real-world driving demands into clear, scalable instruction.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/8_driving_school_training_module_.webp",
@@ -114,7 +114,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Foundations of Artificial Intelligence: ",
       "intro": "LMS Implementations Story",
-      "audienceNote": "See how engineered timers, scoring, and SCORM behavior create a reliable AI-certification journey that scales within broader AI-powered business solutions.",
+      "audienceNote": "See how engineered timers, scoring, and SCORM behavior create a reliable AI-certification journey that scales within broader AI-powered business solution.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/10_foundation_of_artificial_intelligence_lms.webp",
@@ -126,7 +126,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Automobile-EV Training Module: Micro-learning Case Study",
       "intro": "See how we turned complex EV concepts into quick, interactive micro-lessons for the automotive industry.",
-  "audienceNote": "If you're in automotive training or e-learning development, this case shows how eLearning solutions can streamline complex content into digestible modules.",
+  "audienceNote": "If you're in automotive training or e-learning development, this case demonstrates how eLearning solution can streamline complex content into digestible modules.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/11_automobile_ev_training_module.webp",
@@ -150,7 +150,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access “From Dull to Dynamic” Crime Scene Integration Story",
       "intro": "See how Mocha AE tracked the murder video onto a moving phone screen to create a seamless, realistic effect for this crime series.",
-  "audienceNote": "If you’re in video production or post-production, this case shows how video post-production services can bring critical evidence scenes to life with precise tracking and real-time editing.",
+  "audienceNote": "If you’re in video production or post-production, this case demonstrates how video post-production services can bring critical evidence scenes to life with precise tracking and real-time editing.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/13_from_real_footage_to_on_screen_evidence_bringing_a_murder_mystery_scene_to_life_.webp",
@@ -162,7 +162,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Convocation Day Video Story",
       "intro": "See how quick scripting, spot editing, and stock footage created an impactful video under tight timelines.",
-  "audienceNote": "If you’re in event production or school branding, this case shows how rapid production techniques can tell powerful stories, even with limited resources.",
+  "audienceNote": "If you’re in event production or school branding, this case demonstrates how rapid production techniques can tell powerful stories, even with limited resources.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/14_convocation_day_school_real_video_project_.webp",
@@ -174,7 +174,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Cybersecurity Awareness Game Story",
       "intro": "See how we transformed cybersecurity education from dry to dynamic, using gamified learning and interactive mini-games to engage employees and reinforce critical security practices.",
-  "audienceNote": "If you’re in corporate training or IT security, this case shows how cybersecurity eLearning solutions can be fun, impactful, and scalable for global teams.",
+  "audienceNote": "If you’re in corporate training or IT security, this case demonstrates how cybersecurity eLearning solution can be fun, impactful, and scalable for global teams.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/15_cybersecurity_awareness_game_.webp",
@@ -186,7 +186,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access VR Training for Electric Vehicles Case Study",
       "intro": "See how VR technology transformed EV training for service technicians and employees, creating realistic, hands-on learning experiences that boosted engagement and safety awareness.",
-  "audienceNote": "If you’re in automotive training or corporate learning, this case shows how immersive VR training solutions can drive efficiency and performance.",
+  "audienceNote": "If you’re in automotive training or corporate learning, this case demonstrates how immersive VR training solution can drive efficiency and performance.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/16. VR Training for Electric Vehicle (EV).webp",
@@ -199,7 +199,7 @@ export const caseStudies = [
       "title": "Access Digital Clones in Action Case Study",
       "intro": "See how AI-powered digital clones helped Karanji scale expertise, improve decision-making, and enhance client engagement-all while freeing up executive time for strategic work.",
      
-      "audienceNote": "If you’re in leadership enablement or AI-powered solutions, this case shows how digital twin technology can help organizations unlock their expertise for faster, more effective decision-making.",
+      "audienceNote": "If you’re in leadership enablement or AI-powered solution, this case demonstrates how digital twin technology can help organizations unlock their expertise for faster, more effective decision-making.",
       
       "buttonLabel": "Download Full Case Study"
     },

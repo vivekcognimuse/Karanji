@@ -23,14 +23,16 @@ const JourneySection = ({ data = {} }) => {
       className="w-full  flex flex-col  justify-center"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto ">
         {/* Section Heading */}
         <div className="flex flex-col lg:flex-row lg:gap-x-8 justify-between">
           <h3
             className="text-black lg:min-w-lg"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             Redefining the Future: Karanji’s Journey
           </h3>
           <P4 className="text-black-800">
@@ -48,7 +50,8 @@ const JourneySection = ({ data = {} }) => {
         <div
           className="text-center mb-8 mx-auto max-w-5xl w-fit my-16"
           data-reveal
-          data-reveal-dir="up">
+          data-reveal-dir="up"
+        >
           <Image
             src="/journey.svg"
             alt="Description of the image"
@@ -65,7 +68,8 @@ const JourneySection = ({ data = {} }) => {
             size="md"
             onClick={onContinueJourney}
             className="w-full sm:w-auto"
-            aria-label={buttonText}>
+            aria-label={buttonText}
+          >
             {buttonText}
           </Button>
         </div>

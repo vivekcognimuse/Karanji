@@ -140,7 +140,8 @@ const CTA = ({ className = "", data }) => {
             <button
               onClick={closePopup}
               className="absolute top-6 cursor-pointer right-6 text-black-600 hover:text-gray-800 text-4xl font-light"
-              type="button">
+              type="button"
+            >
               ×
             </button>
 
@@ -171,7 +172,7 @@ const CTA = ({ className = "", data }) => {
                   {/* Name Field */}
                   <div>
                     <label className="text-black/80 text-lg font-normal mb-2">
-                      Name*
+                      Name<span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -191,7 +192,7 @@ const CTA = ({ className = "", data }) => {
                   {/* Email Field */}
                   <div>
                     <label className="text-black/80 text-lg font-normal mb-2">
-                      Email*
+                      Email<span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -213,7 +214,8 @@ const CTA = ({ className = "", data }) => {
                   {/* Query Field */}
                   <div>
                     <label className="text-black/80 text-lg font-normal mb-2">
-                      How can we help you?*
+                      How can we help you?
+                      <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       name="query"
@@ -236,7 +238,8 @@ const CTA = ({ className = "", data }) => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-black text-white py-4 rounded-full font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ">
+                    className="w-full bg-black text-white py-4 rounded-full font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed "
+                  >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
