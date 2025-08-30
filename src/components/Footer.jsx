@@ -104,7 +104,7 @@ const Footer = () => {
           href: "/company/digital-twin",
         },
         {
-          name: "Contact",
+          name: "Contact Us",
           href: "/contact",
         },
       ],
