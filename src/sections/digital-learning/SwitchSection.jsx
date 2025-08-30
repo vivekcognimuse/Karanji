@@ -25,7 +25,8 @@ const SwitchSection = ({ data }) => {
               activeTab === tab
                 ? "bg-[#F0B8B8] text-gray-800"
                 : "bg-white text-gray-600 hover:bg-pink-100"
-            }`}>
+            }`}
+          >
             {tab}
           </button>
         ))}
@@ -52,7 +53,8 @@ const SwitchSection = ({ data }) => {
               className={`cursor-pointer border-l-4 pl-4 py-3 mb-4 transition ${
                 activeAccordion === idx ? "border-pink-400" : "border-black-200"
               }`}
-              onClick={() => setActiveAccordion(idx)}>
+              onClick={() => setActiveAccordion(idx)}
+            >
               <h5>{section.title}</h5>
               {activeAccordion === idx && (
                 <>
@@ -62,7 +64,8 @@ const SwitchSection = ({ data }) => {
                       {section.tags.map((tag, i) => (
                         <P3
                           key={i}
-                          className="bg-white/50 w-fit border border-black-200 px-6 py-2 rounded-full  text-black-500">
+                          className="bg-white/50 w-fit border border-black-200 px-6 py-2 rounded-full  text-black-500 cursor-default"
+                        >
                           {tag}
                         </P3>
                       ))}

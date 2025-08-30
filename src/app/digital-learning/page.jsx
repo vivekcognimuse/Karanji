@@ -46,7 +46,7 @@ const technologyServicesData = {
 
       image: "/digital-learning/service/1.webp",
       description:
-        "Transforming learning experiences through expert content design, development, & talent resources",
+        "Transforming learning experiences through expert content design, development, & talent resources.",
       list: [
         { text: "Custom eLearning modules" },
         { text: "Microlearning formats" },
@@ -78,7 +78,7 @@ const technologyServicesData = {
       number: "03",
       image: "/digital-learning/service/3.webp",
       description:
-        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences.",
       list: [
         { text: "Learning Data Management" },
         { text: "Custom Dashboards" },

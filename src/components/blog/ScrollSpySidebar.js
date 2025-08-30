@@ -88,7 +88,7 @@ const ScrollSpySidebar = ({ headings }) => {
             <button
               key={h.id}
               onClick={() => scrollTo(h.id)}
-              className={`text-left text-sm transition-colors leading-8 break-words ${
+              className={`text-left text-sm transition-colors p-1.5 break-words ${
                 h.id === activeId
                   ? "text-black-950"
                   : "text-black-950/50 hover:text-black-950 cursor-pointer"

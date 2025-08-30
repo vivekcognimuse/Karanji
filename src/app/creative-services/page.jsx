@@ -9,7 +9,7 @@ const heroData = {
   title:
     "Elevate your content with professional entertainment production services",
   subTitle:
-    "From stunning visual effects to immersive audio experiences & dynamic event coverage-bringing your vision to life",
+    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life",
   ctaText: "Explore Our Services",
   ctaLink: "entertainment-services", // You can change this to the appropriate link for your services page
 
@@ -32,13 +32,13 @@ const heroData = {
 const entertainmentServices = {
   title: "The Advantage of choosing our entertainment services",
   subTitle:
-    "We offer a full range of solutions, from VFX & animation to audio production & live event coverage, using industry expertise & cutting-edge technology to bring your vision to life.",
+    "We offer a full range of solutions, from VFX and animation to audio production and live event coverage, using industry expertise and cutting-edge technology to bring your vision to life.",
   services: [
     {
       icon: "/entertainment/entertainment-advantage/1.svg",
       title: "End-to-end solutions",
       description:
-        "Seamless integration of all creative & production elements from concept to delivery.",
+        "Seamless integration of all creative and production elements from concept to delivery.",
     },
     {
       icon: "/entertainment/entertainment-advantage/2.svg",
@@ -50,13 +50,13 @@ const entertainmentServices = {
       icon: "/entertainment/entertainment-advantage/3.svg",
       title: "Custom Approach",
       description:
-        "Tailored production solutions to meet your specific creative & technical requirements.",
+        "Tailored production solutions to meet your specific creative and technical requirements.",
     },
     {
       icon: "/entertainment/entertainment-advantage/4.svg",
       title: "Cutting-edge technology",
       description:
-        "State-of-the-art equipment & software for premium quality & innovative services.",
+        "State-of-the-art equipment and software for premium quality and innovative services.",
     },
     {
       icon: "/entertainment/entertainment-advantage/5.svg",
@@ -96,7 +96,7 @@ const technologyServices = {
       id: 2,
       title: "Audio & Podcast",
       description:
-        "Professional sound design & podcast production that captures the essence of your message. From recording to post-production, we ensure clarity, quality, and creativity.",
+        "Professional sound design and podcast production that captures the essence of your message. From recording to post-production, we ensure clarity, quality, and creativity.",
       list: [
         { id: 201, text: "Podcast Recording" },
         { id: 202, text: "Audio Editing & Mixing" },
@@ -129,7 +129,7 @@ const successStoriesData = {
   title: "Entertainment Services Success Stories",
   tag: "Entertainment Services",
   description:
-    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, & drive engagement across entertainment platforms.",
+    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
   cards: [
     {
       title: "Bringing a Murder Mystery Scene to Life",
@@ -176,7 +176,7 @@ const successStoriesData = {
 
 export const metadata = {
   title:
-    "Entertainment Production Services: Professional VFX, Audio & Event Production",
+    "Entertainment Production Services: Professional VFX, Audio and Event Production",
   description:
     "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
 };
