@@ -1,9 +1,11 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
+import Accordion from "@/sections/digital-learning/Accordian";
 import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import TechnologyServices from "@/sections/service/Service";
+import { Icon } from "lucide-react";
 import Head from "next/head";
 import React from "react";
 
@@ -209,6 +211,49 @@ export const metadata = {
     "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
 };
 
+const consultancyFramework = [
+  {
+    icon: "",
+    title: "Understanding Complex Training Landscape",
+    description: [
+      "Analysis: Gap & maturity level assessment",
+      "Engagement: Surveys, workshops, interviews",
+      "Feedback: Employee & customer insights",
+      "Outcome: Identified needs & opportunities",
+    ],
+  },
+  {
+    icon: "",
+    title: "Measuring, Monitoring, & Improving",
+    description: [
+      "Analysis: Define KPIs & baseline",
+      "Engagement: AI-based dashboards & monitoring",
+      "Feedback: Insights from learners & stakeholders",
+      "Outcome: Continuous improvement plan",
+    ],
+  },
+  {
+    icon: "",
+    title: "Mapping Training Needs to Right Strategy",
+    description: [
+      "Analysis: Strategy alignment with training needs",
+      "Engagement: Development of training programs",
+      "Feedback: Budget, ROI, timeline, recommendations",
+      "Outcome: Strategic plan for addressing gaps",
+    ],
+  },
+  {
+    icon: "",
+    title: "Integrating Technology, Processes, Systems",
+    description: [
+      "Analysis: Evaluation of current systems, workflows",
+      "Engagement: Implementation of technologies, methods",
+      "Feedback: Insights from trainers & SMEs",
+      "Outcome: A connected, efficient training ecosystem",
+    ],
+  },
+];
+
 const DigitalLearning = () => {
   return (
     <main className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -223,6 +268,7 @@ const DigitalLearning = () => {
         </div>
         <EcoSystem />
         <ConsultancyFramework />
+        <Accordion data={consultancyFramework} />
         <Methodology column={true} data={methodologyData} />{" "}
         <SuccessStories data={successStoriesData} />
       </div>
