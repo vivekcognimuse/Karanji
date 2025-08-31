@@ -48,8 +48,6 @@ export const ServiceCard = memo(function ServiceCard({
   className = "",
   ...props
 }) {
-  const isActive = index === currentIndex;
-
   // Calculate the height based on index when heightDifference is true
   const dynamicHeight = heightDifference
     ? `calc(420px + ${index * 70}px)`
@@ -68,20 +66,18 @@ export const ServiceCard = memo(function ServiceCard({
         flexShrink: 0, // Prevent flex container from shrinking this item
       }}>
       <div
-        className={`relative z-10 flex flex-col h-full ${
-          featured || isActive ? "lg:scale-105 z-10" : "lg:hover:blur-none"
-        } transition-all duration-300 hover:scale-105`}>
+        className={`relative z-10 flex flex-col h-full  transition-all duration-300 hover:scale-105`}>
         {/* Top Section */}
         <div className="flex flex-col gap-4">
           <div className="flex justify-start items-center">
             {icon ? (
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg">
+              <div className="w-15 h-15 flex items-center justify-center rounded-lg">
                 <Image
                   src={icon}
                   alt=""
                   width={40}
                   height={40}
-                  className="size-10"
+                  className="size-14"
                 />
               </div>
             ) : (

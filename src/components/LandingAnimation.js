@@ -29,7 +29,7 @@ const LogoStoryAnimation = () => {
 
   const [leftContent, setLeftContent] = useState(null);
   const [rightContent, setRightContent] = useState(null);
-  const [currentStage, setCurrentStage] = useState(1); // Track current stage
+  const [currentStage, setCurrentStage] = useState(1);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -69,7 +69,7 @@ const LogoStoryAnimation = () => {
     // Clear any existing ScrollTriggers
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    // Initial state setup - LEFT AND RIGHT CONTENT HIDDEN
+    // Initial state setup
     gsap.set(leftContentElem, {
       opacity: 0,
       x: -120,
@@ -90,7 +90,6 @@ const LogoStoryAnimation = () => {
       rotation: -360,
     });
 
-    // HIDE HEADING AND BUTTON INITIALLY
     gsap.set(heading, {
       opacity: 0,
       y: 50,
@@ -105,18 +104,18 @@ const LogoStoryAnimation = () => {
       visibility: "hidden",
     });
 
-    // ALL SECTIONS VISIBLE AT START
     gsap.set([section1, section2, section3], {
       filter: "drop-shadow(0 0 10px rgba(0,0,0,0.1))",
       opacity: 1,
     });
 
+    // Create the main timeline
     const mainTL = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: "+=4000",
-        scrub: 1,
+        end: "+=8000",
+        scrub: 0.3, // Lower value = slower max speed, higher value = faster
         pin: true,
         anticipatePin: 1,
         pinSpacing: true,
@@ -126,15 +125,13 @@ const LogoStoryAnimation = () => {
         },
       },
     });
-
-    // Stage 1: Section 2 hides, left and right content (1) appear
     mainTL
       .call(() => {
-        // Ensure content 1 is set
         setLeftContent(GetLeftContent(1));
         setRightContent(GetRightContent(1));
         setCurrentStage(1);
       })
+      // Stage 1: Section 2 hides, left and right content (1) appear
       .to(section2, {
         duration: 0.3,
         opacity: 0,
@@ -151,8 +148,7 @@ const LogoStoryAnimation = () => {
         },
         "-=0.2"
       )
-
-      // Stage 2: Section 2 reappears, left and right content hide (still content 1)
+      // Stage 2: Section 2 reappears, left and right content hide
       .to(
         [leftContentElem, rightContentElem],
         {
@@ -173,7 +169,6 @@ const LogoStoryAnimation = () => {
         },
         "-=0.4"
       )
-
       // Stage 3: Section 1 hides, left and right content (2) appear
       .to(
         section1,
@@ -185,11 +180,9 @@ const LogoStoryAnimation = () => {
         "+=0.3"
       )
       .call(() => {
-        // Update to content 2
         setLeftContent(GetLeftContent(2));
         setRightContent(GetRightContent(2));
         setCurrentStage(2);
-        // Reset position for new content
         gsap.set([leftContentElem, rightContentElem], {
           x: (index, target) => (target === leftContentElem ? -120 : 120),
           scale: 1,
@@ -209,8 +202,7 @@ const LogoStoryAnimation = () => {
         },
         "+=0.1"
       )
-
-      // Stage 4: Section 1 reappears, left and right content hide (still content 2)
+      // Stage 4: Section 1 reappears, left and right content hide
       .to(
         [leftContentElem, rightContentElem],
         {
@@ -231,7 +223,6 @@ const LogoStoryAnimation = () => {
         },
         "-=0.4"
       )
-
       // Stage 5: Section 3 hides, left and right content (3) appear
       .to(
         section3,
@@ -243,11 +234,9 @@ const LogoStoryAnimation = () => {
         "+=0.3"
       )
       .call(() => {
-        // Update to content 3
         setLeftContent(GetLeftContent(3));
         setRightContent(GetRightContent(3));
         setCurrentStage(3);
-        // Reset position for new content
         gsap.set([leftContentElem, rightContentElem], {
           x: (index, target) => (target === leftContentElem ? -120 : 120),
           scale: 1,
@@ -267,8 +256,7 @@ const LogoStoryAnimation = () => {
         },
         "+=0.1"
       )
-
-      // Stage 6: Section 3 reappears (all sections unified), left and right content hide, logo spins
+      // Stage 6: Final unification
       .to(
         [leftContentElem, rightContentElem],
         {
@@ -308,7 +296,6 @@ const LogoStoryAnimation = () => {
         },
         "-=0.4"
       )
-
       // Stage 7: Final logo transition
       .to(
         logo,
@@ -332,8 +319,7 @@ const LogoStoryAnimation = () => {
         },
         "-=0.4"
       )
-
-      // Stage 8: Beautiful reveal of heading and button
+      // Stage 8: Heading and button reveal
       .set([heading, button], {
         visibility: "visible",
       })
@@ -355,22 +341,6 @@ const LogoStoryAnimation = () => {
         },
         "-=0.3"
       )
-      .to(
-        heading,
-        {
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "-=0.5"
-      )
-      .to(
-        heading,
-        {
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      )
       .fromTo(
         button,
         {
@@ -387,7 +357,7 @@ const LogoStoryAnimation = () => {
           duration: 0.8,
           ease: "back.out(2)",
         },
-        "-=1.2"
+        "-=0.8"
       )
       .to(
         button,

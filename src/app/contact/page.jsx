@@ -68,8 +68,7 @@ const FormInput = ({
         {maxLength && value.length > maxLength * 0.8 && (
           <div
             id={helpId}
-            className="absolute top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']"
-          >
+            className="absolute top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']">
             {value.length}/{maxLength} characters
           </div>
         )}
@@ -80,8 +79,7 @@ const FormInput = ({
             id={errorId}
             className="absolute top-full mt-1 text-red-500 text-sm font-normal font-['Outfit']"
             role="alert"
-            aria-live="polite"
-          >
+            aria-live="polite">
             {error}
           </div>
         )}
@@ -149,8 +147,7 @@ const FormTextarea = ({
         {maxLength && value.length > maxLength * 0.8 && (
           <div
             id={helpId}
-            className="absolute top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']"
-          >
+            className=" top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']">
             {value.length}/{maxLength} characters
           </div>
         )}
@@ -161,8 +158,7 @@ const FormTextarea = ({
             id={errorId}
             className="absolute top-full mt-1 text-red-500 text-sm font-normal font-['Outfit']"
             role="alert"
-            aria-live="polite"
-          >
+            aria-live="polite">
             {error}
           </div>
         )}
@@ -179,8 +175,7 @@ const ErrorMessage = ({ status }) => {
     <div
       className="mt-4 p-4 rounded-md border bg-red-50 border-red-200 text-red-800"
       role="alert"
-      aria-live="polite"
-    >
+      aria-live="polite">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 mt-0.5">
           <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
@@ -319,8 +314,7 @@ const ContactPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-6 h-6 relative overflow-hidden hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-black/20 transition-opacity"
-                      aria-label={`Follow us on ${social.name}`}
-                    >
+                      aria-label={`Follow us on ${social.name}`}>
                       <Icon icon={social.icon} className="size-6" />
                     </a>
                   ))}
@@ -334,8 +328,7 @@ const ContactPage = () => {
                       {index < locations.length - 1 && (
                         <span
                           className="text-black/80 text-xs font-normal font-['Inter']"
-                          aria-hidden="true"
-                        >
+                          aria-hidden="true">
                           |
                         </span>
                       )}
@@ -396,7 +389,7 @@ const ContactPage = () => {
                     error={errors.project?.message}
                     touched={touchedFields.project}
                     placeholder="Describe your project requirements, timeline, and any specific technologies you're interested in..."
-                    maxLength={2000}
+                    maxLength={500}
                     rows={2}
                     disabled={isSubmitting}
                   />
@@ -406,8 +399,7 @@ const ContactPage = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    aria-describedby="submit-help"
-                  >
+                    aria-describedby="submit-help">
                     <span className="">
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
@@ -422,8 +414,7 @@ const ContactPage = () => {
                   {/* Form state information */}
                   <div
                     id="submit-help"
-                    className="text-xs text-black/60 font-normal font-['Outfit']"
-                  >
+                    className="text-xs text-black/60 font-normal font-['Outfit']">
                     {/* Form help text can go here if needed */}
                   </div>
                 </div>
@@ -441,8 +432,7 @@ const ContactPage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-6 h-6 relative overflow-hidden hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-black/20 transition-opacity"
-                    aria-label={`Follow us on ${social.name}`}
-                  >
+                    aria-label={`Follow us on ${social.name}`}>
                     <Icon icon={social.icon} className="size-6" />
                   </a>
                 ))}
@@ -456,8 +446,7 @@ const ContactPage = () => {
                     {index < locations.length - 1 && (
                       <span
                         className="text-black/80 text-xs font-normal font-['Inter']"
-                        aria-hidden="true"
-                      >
+                        aria-hidden="true">
                         |
                       </span>
                     )}

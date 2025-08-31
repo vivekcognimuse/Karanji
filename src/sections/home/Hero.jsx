@@ -44,7 +44,7 @@ const HeroSection = ({ data }) => {
           </h1>
           <P1 className="">
             We help organizations solve complex business challenges through the
-            strategic integration of digital learning, immersive experiences, &
+            strategic integration of digital learning, immersive experiences and
             practical AI implementation.
           </P1>
         </div>

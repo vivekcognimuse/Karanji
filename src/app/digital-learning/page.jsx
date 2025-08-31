@@ -138,10 +138,10 @@ const methodologyData = {
 // successStoriesData.js
 
 const successStoriesData = {
-  title: "Entertainment Services Success Stories",
+  title: "Digital Learning Success Stories",
   tag: "technology Solutions",
   description:
-    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
+    "Real-world examples highlight the impact of our digital learning solutions. Explore case studies showcasing enhanced learner engagement, improved training efficiency, and measurable performance growth across organizations.",
   cards: [
     {
       title: "Corporate Learning & Development Teams ",
@@ -213,7 +213,7 @@ export const metadata = {
 
 const consultancyFramework = [
   {
-    icon: "",
+    icon: "/digital-learning/accordian/1.svg",
     title: "Understanding Complex Training Landscape",
     description: [
       "Analysis: Gap & maturity level assessment",
@@ -223,7 +223,7 @@ const consultancyFramework = [
     ],
   },
   {
-    icon: "",
+    icon: "/digital-learning/accordian/2.svg",
     title: "Measuring, Monitoring, & Improving",
     description: [
       "Analysis: Define KPIs & baseline",
@@ -233,7 +233,7 @@ const consultancyFramework = [
     ],
   },
   {
-    icon: "",
+    icon: "/digital-learning/accordian/3.svg",
     title: "Mapping Training Needs to Right Strategy",
     description: [
       "Analysis: Strategy alignment with training needs",
@@ -243,7 +243,7 @@ const consultancyFramework = [
     ],
   },
   {
-    icon: "",
+    icon: "/digital-learning/accordian/4.svg",
     title: "Integrating Technology, Processes, Systems",
     description: [
       "Analysis: Evaluation of current systems, workflows",
@@ -267,8 +267,7 @@ const DigitalLearning = () => {
           />
         </div>
         <EcoSystem />
-        <ConsultancyFramework />
-        <Accordion data={consultancyFramework} />
+        <ConsultancyFramework data={consultancyFramework} />
         <Methodology column={true} data={methodologyData} />{" "}
         <SuccessStories data={successStoriesData} />
       </div>
