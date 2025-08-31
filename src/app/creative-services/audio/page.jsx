@@ -227,7 +227,7 @@ const CTAData = {
 
 export const metadata = {
   title:
-    "Professional Audio & Podcast Production Services | Studio-Quality Sound",
+    "Professional Audio and Podcast Production Services | Studio-Quality Sound",
   description:
     "Elevate your audio with our professional podcast studio rental and recording services. Featuring state-of-the-art equipment, sound-treated rooms, and full production support for podcasts and voice-overs.",
 };

@@ -34,7 +34,7 @@ const heroData = {
 const serviceOfferingsData = {
   title: "Discover the Benefits of K-nest LMS",
   description:
-    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
+    "Learning analytics involves collecting and analyzing data about learners and their learning environments to improve outcomes.",
   Tag: "Who Benefits",
   cards: [
     {
@@ -110,7 +110,7 @@ const lmsLearningData = {
 const learningChallenges = {
   title: "A Comprehensive Learning Platform",
   subTitle:
-    " K-nest LMS offers everything you need to create, deliver, & measure effective learning experiences.",
+    " K-nest LMS offers everything you need to create, deliver, and measure effective learning experiences.",
   challenges: [
     {
       title: "Learning Experience",
@@ -121,13 +121,13 @@ const learningChallenges = {
     {
       title: "Content Management",
       description:
-        "Powerful tools to organize & deliver diverse learning materials.",
+        "Powerful tools to organize and deliver diverse learning materials.",
       icon: "/digital-learning/lms-learning/2.svg", // Optional SVG icon as string
     },
     {
-      title: "Administration & Analytics",
+      title: "Administration and Analytics",
       description:
-        "Robust backend systems for management, tracking, & optimization.",
+        "Robust backend systems for management, tracking, and optimization.",
       icon: "/digital-learning/lms-learning/3.svg",
     },
   ],
@@ -136,7 +136,7 @@ const switchSectionData = {
   tabs: [
     "Learning Experience",
     "Content Management",
-    "Administration & Reporting",
+    "Administration and Reporting",
   ],
   content: {
     "Learning Experience": {
@@ -146,21 +146,21 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Learning experience/Course Navigation.webp",
           content:
-            "With K-nest LMS, navigating through training content is easy & effortless, providing a seamless learning experience.",
+            "With K-nest LMS, navigating through training content is easy and effortless, providing a seamless learning experience.",
           tags: [
             "CYU quizzes for comprehension",
-            "Access Active & Completed courses",
+            "Access Active and Completed courses",
           ],
         },
         {
-          title: "Gamification & Engagement",
+          title: "Gamification and Engagement",
           image:
-            "/digital-learning/switchSection/Learning experience/Gamification & Engagement (1).webp",
+            "/digital-learning/switchSection/Learning experience/Gamification and Engagement (1).webp",
           content:
-            "Gamification & leaderboards inspire achievement & healthy competition, motivating learners to perform their best",
+            "Gamification and leaderboards inspire achievement and healthy competition, motivating learners to perform their best",
           tags: [
             "Custom badges",
-            "Leaderboards & points",
+            "Leaderboards and points",
             "Social learning tools",
           ],
         },
@@ -169,7 +169,7 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Learning experience/Mobile Learning (1).webp",
           content:
-            "The K-nest MobiTute Mobile App, you can learn anytime & anywhere, putting education right in the palm of your hand",
+            "The K-nest MobiTute Mobile App, you can learn anytime and anywhere, putting education right in the palm of your hand",
           tags: [
             "Offline access",
             "Mobile assessments",
@@ -185,7 +185,7 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Content management/Course Structure.webp",
           content:
-            "Organize & structure your courses with an intuitive hierarchy, supports various file types including SCORM for easy management.",
+            "Organize and structure your courses with an intuitive hierarchy, supports various file types including SCORM for easy management.",
           tags: ["Hierarchical structure", "SCORM support"],
         },
         {
@@ -193,7 +193,7 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Content management/Assessment Tools.webp",
           content:
-            "Track learner progress with built-in assessments, tailored question difficulty, & precise grading, providing valuable insights, reports.",
+            "Track learner progress with built-in assessments, tailored question difficulty, and precise grading, providing valuable insights, reports.",
           tags: ["Built-in assessments", "Coaching reports", "Precise grading"],
         },
         {
@@ -201,19 +201,19 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Content management/Certification.webp",
           content:
-            "Celebrate learner achievements with customizable certificates & badges, all featuring your company’s branding & detailed grades",
+            "Celebrate learner achievements with customizable certificates and badges, all featuring your company’s branding and detailed grades",
           tags: ["Custom certificates", "Badges", "Grades", "Credentials"],
         },
       ],
     },
-    "Administration & Reporting": {
+    "Administration and Reporting": {
       sections: [
         {
           title: "User Management",
           image:
             "/digital-learning/switchSection/Administration and supporting/User Management.png",
           content:
-            "Manage users & groups easily with bulk operations & HRMS integration, including single sign-on for seamless access.",
+            "Manage users and groups easily with bulk operations and HRMS integration, including single sign-on for seamless access.",
           tags: [
             "Effortless user creation",
             "Bulk operations",
@@ -221,11 +221,11 @@ const switchSectionData = {
           ],
         },
         {
-          title: "Reporting & Analytics",
+          title: "Reporting and Analytics",
           image:
-            "/digital-learning/switchSection/Administration and supporting/Reporting & Analytics.webp",
+            "/digital-learning/switchSection/Administration and supporting/Reporting and Analytics.webp",
           content:
-            "Get valuable insights into your training efforts with performance tracking, activity monitoring, & customizable reports.",
+            "Get valuable insights into your training efforts with performance tracking, activity monitoring, and customizable reports.",
           tags: [
             "Performance tracking",
             "Activity monitoring",
@@ -237,7 +237,7 @@ const switchSectionData = {
           image:
             "/digital-learning/switchSection/Administration and supporting/System Administration.png",
           content:
-            "Take full control of your training environment with reusable course components, bulk assessments, & automated reminders.",
+            "Take full control of your training environment with reusable course components, bulk assessments, and automated reminders.",
           tags: [
             "Reusable components",
             "Automated notifications",
@@ -279,7 +279,7 @@ const successStoriesData = {
 };
 export const metadata = {
   title:
-    "K-nest LMS: Customizable Corporate Learning Platform | SCORM Compliant & Cloud-Based",
+    "K-nest LMS: Customizable Corporate Learning Platform | SCORM Compliant and Cloud-Based",
   description:
     "Elevate corporate training with K-nest LMS—a fully customizable, SCORM-compliant learning platform. Features multilingual support, SSO, and flexible cloud-based or on-premise deployment.",
 };

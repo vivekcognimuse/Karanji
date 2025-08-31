@@ -19,13 +19,13 @@ const heroData = {
       subText: "End-to-End Solutions",
     },
     {
-      subText: "Expertise & Customization",
+      subText: "Expertise and Customization",
     },
     {
       subText: "Cutting-Edge Technology",
     },
     {
-      subText: "Collaborative & Reliable",
+      subText: "Collaborative and Reliable",
     },
   ],
 };
@@ -68,14 +68,14 @@ const entertainmentServices = {
       icon: "/entertainment/entertainment-advantage/6.svg",
       title: "Delivery Excellence",
       description:
-        "Reliable on-time delivery with uncompromising quality & client satisfaction.",
+        "Reliable on-time delivery with uncompromising quality and client satisfaction.",
     },
   ],
 };
 
 const technologyServices = {
   description:
-    "We offer expert, tailored production solutions with cutting-edge technology for seamless execution & exceptional results.",
+    "We offer expert, tailored production solutions with cutting-edge technology for seamless execution and exceptional results.",
   cards: [
     {
       id: 1,
@@ -94,13 +94,13 @@ const technologyServices = {
     },
     {
       id: 2,
-      title: "Audio & Podcast",
+      title: "Audio and Podcast",
       description:
         "Professional sound design and podcast production that captures the essence of your message. From recording to post-production, we ensure clarity, quality, and creativity.",
       list: [
         { id: 201, text: "Podcast Recording" },
-        { id: 202, text: "Audio Editing & Mixing" },
-        { id: 203, text: "Voiceovers & Narration" },
+        { id: 202, text: "Audio Editing and Mixing" },
+        { id: 203, text: "Voiceovers and Narration" },
         { id: 204, text: "Sound Design" },
       ],
       ctaText: "Learn More",
