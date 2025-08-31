@@ -15,7 +15,7 @@ const successStoriesData = {
     "Discover the significant impact of Karanji’s innovative solutions. Our metrics showcase how we drive efficiency and savings for our clients. Join us in transforming challenges into opportunities for growth.",
   cards: [
     {
-      title: "Corporate Learning & Development Teams ",
+      title: "Corporate Learning and Development Teams ",
       stats: [
         { title: "High", subTitle: "Quality Animations" },
         { title: "70%", subTitle: "Seamless Alignment" },

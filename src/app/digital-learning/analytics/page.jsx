@@ -13,7 +13,7 @@ import Head from "next/head";
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
   subTitle:
-    "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+    "Make data-driven decisions to enhance learner success through actionable insights and personalized experiences",
   ctaText: "Explore Our Approach",
   ctaLink: "analytics-service-offerings", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
@@ -63,20 +63,22 @@ const lmsLearningData = {
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
   subTitle:
+
     "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
+
   tag: "Who Benefits",
   cards: [
     {
       title: "Learners",
       subTitle: "",
-      description: "Get more personalized & effective learning experiences",
+      description: "Get more personalized and effective learning experiences",
       featured: true,
       icon: "/Icons/BuiltGroundUp.svg",
     },
     {
       title: "Instructors",
       subTitle: "",
-      description: "Can tailor content & support to each learner’s needs",
+      description: "Can tailor content and support to each learner’s needs",
       featured: false,
       icon: "/Icons/FlexibleDeployment.svg",
     },
@@ -84,7 +86,7 @@ const serviceOfferingsData = {
       title: "Organizations",
       subTitle: "",
       description:
-        "Gain insights to better allocate resources & reach the right audiences",
+        "Gain insights to better allocate resources and reach the right audiences",
       featured: false,
       icon: "/Icons/ValuePricing.svg",
     },
@@ -93,7 +95,7 @@ const serviceOfferingsData = {
 const ctaData = {
   title: "Ready to Transform Learning Outcomes?",
   description:
-    "Let our analytics experts help you enhance learning effectiveness through data-driven insights & personalized experiences.",
+    "Let our analytics experts help you enhance learning effectiveness through data-driven insights and personalized experiences.",
   PrimaryButtonText: "Schedule a Consultation", //"Take a Demo on K-nest LMS"
   PrimaryButtonLink: "/contact", //"https://knestlms.com/try-demo"
   SecondaryButtonText: null,
@@ -123,13 +125,13 @@ const learningChallenges = {
     },
   ],
   description:
-    "These challenges directly affect learning providers, instructors & trainers, & learners-limiting the effectiveness, personalization, & outcomes of learning experiences across the board.",
+    "These challenges directly affect learning providers, instructors and trainers, and learners-limiting the effectiveness, personalization, and outcomes of learning experiences across the board.",
 };
 
 const methodologyData = {
   title: "Our Analytics Approach",
   subTitle:
-    "Turning learner data into measurable growth through personalized profiles & targeted interventions.",
+    "Turning learner data into measurable growth through personalized profiles and targeted interventions.",
   list: [
     {
       title: "Define Successful Outcomes",
@@ -146,7 +148,7 @@ const methodologyData = {
         </>
       ),
       tags: [
-        "Skill development & real-world application",
+        "Skill development and real-world application",
         "Career or professional advancement",
         "Performance improvement",
         "Goal achievement rates",
@@ -168,12 +170,12 @@ const methodologyData = {
         "Learning styles",
         "Prior knowledge",
         "Motivation drivers",
-        "Personal goals & aspirations",
-        "Content quality & relevance",
-        "Engagement & participation",
-        "Learning activities & paths",
+        "Personal goals and aspirations",
+        "Content quality and relevance",
+        "Engagement and participation",
+        "Learning activities and paths",
         "Support mechanisms",
-        "Systems for feedback & improvement",
+        "Systems for feedback and improvement",
       ],
     },
   ],
@@ -181,15 +183,15 @@ const methodologyData = {
 const analyticsData = {
   title: "Analytics Maturity Model",
   subTitle:
-    "From tracking progress to predicting outcomes, & optimizing learning paths—empowering data-driven decisions at every stage.",
+    "From tracking progress to predicting outcomes, and optimizing learning paths—empowering data-driven decisions at every stage.",
   stairImage: "/digital-learning/analytics/matureModal.svg", // Replace with your actual image path
   stages: [
     {
       title: "Describe",
       question: "What is happening?",
       points: [
-        "Measurement of completion & engagement",
-        "Data exploration & integration",
+        "Measurement of completion and engagement",
+        "Data exploration and integration",
         "Multi-dimensional dashboards",
       ],
     },
@@ -197,9 +199,9 @@ const analyticsData = {
       title: "Diagnose",
       question: "Why is it happening?",
       points: [
-        "Learner segmentation & analysis",
+        "Learner segmentation and analysis",
         "Content effectiveness assessment",
-        "Causal analysis & actionable insights",
+        "Causal analysis and actionable insights",
       ],
     },
     {
@@ -208,11 +210,11 @@ const analyticsData = {
       points: [
         "Learning outcome forecasting",
         "Early intervention modeling",
-        "Risk analysis & opportunity identification",
+        "Risk analysis and opportunity identification",
       ],
     },
     {
-      title: "Prescribe & Optimize",
+      title: "Prescribe and Optimize",
       question: "What should be done?",
       points: [
         "Personalized learning paths",
@@ -223,7 +225,7 @@ const analyticsData = {
   ],
 };
 const deliverablesData = {
-  title: "Key Outcomes & Deliverables",
+  title: "Key Outcomes and Deliverables",
   subTitle: "What Learning Analytics Delivers",
   heroImage: "/digital-learning/analytics/deliverables.webp", // Replace with your actual image path
   features: [
@@ -240,7 +242,7 @@ const deliverablesData = {
     {
       icon: "/digital-learning/analytics/deliverableIcons/3.svg", // Replace with actual icon path
       title: "Content Effectiveness Index",
-      description: "Measure of engagement & learning outcomes",
+      description: "Measure of engagement and learning outcomes",
     },
     {
       icon: "/digital-learning/analytics/deliverableIcons/4.svg", // Replace with actual icon path
@@ -252,7 +254,7 @@ const deliverablesData = {
 const implementApproachData = {
   title: "Our Implementation Approach",
   description:
-    "A data-driven methodology combining learner behavior, content insights, & AI for accurate success forecasting.",
+    "A data-driven methodology combining learner behavior, content insights, and AI for accurate success forecasting.",
   image: {
     src: "/digital-learning/analytics/implement.svg",
     mblSrc: "/digital-learning/analytics/implement-mbl.svg",
@@ -264,7 +266,7 @@ const implementApproachData = {
     {
       title: "Implementation Timeline",
       content:
-        "No investment in proprietary software. Open-source applications & cloud access.",
+        "No investment in proprietary software. Open-source applications and cloud access.",
     },
     {
       title: "Access",
@@ -292,12 +294,12 @@ const howItWorks = {
     },
     {
       number: "03",
-      title: "Monitoring & Adaptation",
+      title: "Monitoring and Adaptation",
       description: "Content adapts based on performance",
     },
   ],
   completion: {
-    title: "COMPLETION & GROWTH",
+    title: "COMPLETION and GROWTH",
     description: "Outcome metrics validate learning effectiveness",
   },
   entry: {
@@ -308,7 +310,7 @@ const howItWorks = {
 
 export const metadata = {
   title:
-    "Advanced Learning Analytics: Data-Driven Insights for Personalized Learning & Outcomes",
+    "Advanced Learning Analytics: Data-Driven Insights for Personalized Learning and Outcomes",
   description:
     "Transform learning outcomes with advanced analytics. Gain actionable insights, forecast learner success, and deliver personalized experiences through data-driven decision-making",
 };
@@ -330,7 +332,7 @@ const ContentDesign = () => {
         data={{
           title: "The Result",
           subTitle:
-            "Better learning outcomes & professional growth for everyone involved.",
+            "Better learning outcomes and professional growth for everyone involved.",
           adaptiveContent: "Adaptive Content",
           personalizedLearning: "Personalized Learning",
           proactiveSupport: "Proactive Support",

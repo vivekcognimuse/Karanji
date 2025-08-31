@@ -8,7 +8,7 @@ import Head from "next/head";
 const heroData = {
   title: "Transforming Aviation Through Innovation",
   subTitle:
-    "Experience how AI, immersive tech, & smart systems are reshaping aviation—boosting efficiency, enhancing passenger satisfaction, & achieving sustainability goals.",
+    "Experience how AI, immersive tech, and smart systems are reshaping aviation—boosting efficiency, enhancing passenger satisfaction, and achieving sustainability goals.",
   ctaText: "Explore the Strategic Priorities",
   ctaLink: "strategic-priorities",
   stats: [
@@ -34,82 +34,82 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  title: "Industry Challenges & Priorities",
+  title: "Industry Challenges and Priorities",
   tag: "Overview",
   subTitle:
-    "The global aviation industry stands at a critical inflection point as it approaches $1 trillion in annual revenues & 5 billion passengers by 2025. Despite this growth trajectory, the sector faces unprecedented challenges across operations, supply chains, workforce, technology, sustainability, & regulatory compliance—all while navigating volatile economic conditions that threaten already thin profit margins.",
+    "The global aviation industry stands at a critical inflection point as it approaches $1 trillion in annual revenues and 5 billion passengers by 2025. Despite this growth trajectory, the sector faces unprecedented challenges across operations, supply chains, workforce, technology, sustainability, and regulatory compliance—all while navigating volatile economic conditions that threaten already thin profit margins.",
   featureHeader: "Top Challenges",
   heroImage: "/Industries & its pages/Aviation/Aviation image.webp", // Replace with your image path
   features: [
     {
       icon: "/Industries & its pages/Aviation/performance_9202949 1.svg", // Replace with your icon path
-      title: "Economic Pressure & Operational Bottlenecks",
+      title: "Economic Pressure and Operational Bottlenecks",
       description:
-        "Rising fuel costs, low margins, & outdated facilities disrupt operations.",
+        "Rising fuel costs, low margins, and outdated facilities disrupt operations.",
     },
     {
       icon: "/Industries & its pages/Aviation/people_13833111 1.svg", // Replace with your icon path
-      title: "Supply Chain Disruptions & Workforce Shortages",
+      title: "Supply Chain Disruptions and Workforce Shortages",
       description:
-        "Parts delays & critical workforce gaps impact production & service.",
+        "Parts delays and critical workforce gaps impact production and service.",
     },
     {
       icon: "/Industries & its pages/Aviation/sustainable_17002269 1.svg", // Replace with your icon path
-      title: "Sustainability & Regulatory Pressure",
+      title: "Sustainability and Regulatory Pressure",
       description:
-        "High SAF costs & complex global regulations increase compliance burdens.",
+        "High SAF costs and complex global regulations increase compliance burdens.",
     },
     {
       icon: "/Industries & its pages/Aviation/Cybersecurity.svg", // Replace with your icon path
-      title: "Technology Gaps & Cybersecurity Risks",
+      title: "Technology Gaps and Cybersecurity Risks",
       description:
-        "Outdated systems & rising cyberattacks expose aviation to major risks.",
+        "Outdated systems and rising cyberattacks expose aviation to major risks.",
     },
   ],
 };
 const strategicPrioritiesData = {
-  sectionTitle: "Strategic Priorities & Digital Adoption",
+  sectionTitle: "Strategic Priorities and Digital Adoption",
   sectionDescription:
-    "As aviation faces growing challenges, the industry is fast-tracking digital adoption & strategic initiatives to boost resilience, efficiency, & competitiveness-centered around six key priorities.",
+    "As aviation faces growing challenges, the industry is fast-tracking digital adoption and strategic initiatives to boost resilience, efficiency, and competitiveness-centered around six key priorities.",
   businessPrioritiesTitle: "Business Priorities",
   topRowCards: [
     {
       id: 1,
-      title: "Operational Excellence & Cost Management",
+      title: "Operational Excellence and Cost Management",
       subTitle:
-        "AI, digital twins, & cloud tools boost uptime & cut costs in maintenance & scheduling.",
+        "AI, digital twins, and cloud tools boost uptime and cut costs in maintenance and scheduling.",
     },
     {
       id: 2,
-      title: "Customer Experience & Revenue Enhancement",
+      title: "Customer Experience and Revenue Enhancement",
       subTitle:
-        "Biometrics & AI personalization improve service flow & drive ancillary revenue.",
+        "Biometrics and AI personalization improve service flow and drive ancillary revenue.",
     },
     {
       id: 3,
-      title: "Sustainability & Environmental Responsibility",
+      title: "Sustainability and Environmental Responsibility",
       subTitle:
-        "IoT & AI optimize emissions, accelerate SAF adoption, & support compliance.",
+        "IoT and AI optimize emissions, accelerate SAF adoption, and support compliance.",
     },
   ],
   bottomRowCards: [
     {
       id: 1,
-      title: "Workforce Development & Talent Management",
+      title: "Workforce Development and Talent Management",
       subTitle:
-        "VR/AR & mobile learning speed up training & preserve expert knowledge.",
+        "VR/AR and mobile learning speed up training and preserve expert knowledge.",
     },
     {
       id: 2,
-      title: "Security & Risk Management Solutions",
+      title: "Security and Risk Management Solutions",
       subTitle:
-        "AI & blockchain strengthen cybersecurity & reduce system vulnerabilities.",
+        "AI and blockchain strengthen cybersecurity and reduce system vulnerabilities.",
     },
     {
       id: 3,
-      title: "Supply Chain Resilience & Agility",
+      title: "Supply Chain Resilience and Agility",
       subTitle:
-        "Digital twins & analytics improve visibility, planning, & disruption response.",
+        "Digital twins and analytics improve visibility, planning, and disruption response.",
     },
   ],
 };
@@ -121,7 +121,7 @@ const digitalOfferingsData = {
       title: "Airlines",
 
       description:
-        "Digitizing retail & operations for better revenue & experience.",
+        "Digitizing retail and operations for better revenue and experience.",
 
       hoverContent: [
         { text: "Moving to modern retailing platforms" },
@@ -131,39 +131,41 @@ const digitalOfferingsData = {
     {
       title: "Airports",
       description:
-        "Digitally transforming operations with AI, biometrics, & smart infrastructure.",
+        "Digitally transforming operations with AI, biometrics, and smart infrastructure.",
       hoverContent: [
         { text: "Upgrading core operational systems to boost efficiency" },
-        { text: "RFID for streamlined security, boarding & baggage handling" },
+        {
+          text: "RFID for streamlined security, boarding and baggage handling",
+        },
       ],
     },
     {
-      title: "Aircraft Manufacturers & MROs",
+      title: "Aircraft Manufacturers and MROs",
       description:
-        "Adopting tech to boost design, maintenance, & supply chains.",
+        "Adopting tech to boost design, maintenance, and supply chains.",
       hoverContent: [
-        { text: "Digital twins & predictive maintenance" },
-        { text: "AI tools & advanced analytics for improved performance" },
+        { text: "Digital twins and predictive maintenance" },
+        { text: "AI tools and advanced analytics for improved performance" },
       ],
     },
   ],
 };
 
 const strategicUseCaseData = {
-  sectionTitle: "Strategic Use Cases & Implementation",
+  sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription:
     "AI-Powered Solutions Transforming the Logistics Industry",
   filterButtons: [
     { label: "All", active: true },
-    { label: "AI Advisory & Implementation", active: false },
-    { label: "XR & Gaming", active: false },
-    { label: "Creative & Entertainment", active: false },
+    { label: "AI Advisory and Implementation", active: false },
+    { label: "XR and Gaming", active: false },
+    { label: "Creative and Entertainment", active: false },
     { label: "Digital Learning", active: false },
   ],
   categoryMapping: {
-    "AI Advisory & Implementation": "AI Advisory",
-    "XR & Gaming": "XR & Gaming",
-    "Creative & Entertainment": "Creative & Entertainment",
+    "AI Advisory and Implementation": "AI Advisory",
+    "XR and Gaming": "XR and Gaming",
+    "Creative and Entertainment": "Creative and Entertainment",
     "Digital Learning": "Digital Learning",
   },
   useCaseCards: [
@@ -174,7 +176,7 @@ const strategicUseCaseData = {
       title:
         "Predictive Supply Chain Intelligence Platform with RAG Integration",
       description:
-        "Decreases document access time by 95% & cuts translation costs by 90% with intelligent multilingual search.",
+        "Decreases document access time by 95% and cuts translation costs by 90% with intelligent multilingual search.",
     },
     {
       id: 2,
@@ -182,7 +184,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Unified Operational Intelligence Platform",
       description:
-        "Decreases document access time by 95% & cuts translation costs by 90% with intelligent multilingual search.",
+        "Decreases document access time by 95% and cuts translation costs by 90% with intelligent multilingual search.",
     },
     {
       id: 3,
@@ -190,7 +192,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Advanced Aviation Cybersecurity Co-Pilot",
       description:
-        "Reduces incident response time by 85% & meets 99% of regulatory standards with AI-powered threat detection.",
+        "Reduces incident response time by 85% and meets 99% of regulatory standards with AI-powered threat detection.",
     },
     {
       id: 4,
@@ -198,7 +200,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Multilingual Aviation Documentation Intelligence Platform",
       description:
-        "Decreases document access time by 95% & cuts translation costs by 90% with intelligent multilingual search.",
+        "Decreases document access time by 95% and cuts translation costs by 90% with intelligent multilingual search.",
     },
     {
       id: 5,
@@ -206,7 +208,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Multimodal Communication Platform for Diverse Aviation Workforce",
       description:
-        "Improves workforce collaboration by 95% & reduces miscommunication incidents by 65%.",
+        "Improves workforce collaboration by 95% and reduces miscommunication incidents by 65%.",
     },
     {
       id: 6,
@@ -214,7 +216,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Multilingual XR Airport Digital Twin",
       description:
-        "Enhances operational efficiency by 20% & cuts disruptions by 35% through real-time simulation & multilingual support.",
+        "Enhances operational efficiency by 20% and cuts disruptions by 35% through real-time simulation and multilingual support.",
     },
     {
       id: 7,
@@ -222,7 +224,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "VR Maintenance Training Ecosystem",
       description:
-        "Reduces training time by up to 60% & improves knowledge retention to 95% using immersive simulations.",
+        "Reduces training time by up to 60% and improves knowledge retention to 95% using immersive simulations.",
     },
     {
       id: 8,
@@ -230,31 +232,31 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "MR Passenger Experience Platform",
       description:
-        "Boosts NPS by 25 points & increases non-aero revenue by 18% using AR-based engagement & personalization.",
+        "Boosts NPS by 25 points and increases non-aero revenue by 18% using AR-based engagement and personalization.",
     },
     {
       id: 9,
       icon: "Icons/ocr-nlp.svg",
       category: "Creative & Entertainment",
-      title: "Integrated Brand & Safety Experience Ecosystem",
+      title: "Integrated Brand and Safety Experience Ecosystem",
       description:
-        "Improves safety info retention by 150% & brand recall by 60% through gamified, engaging briefings.",
+        "Improves safety info retention by 150% and brand recall by 60% through gamified, engaging briefings.",
     },
     {
       id: 10,
       icon: "Icons/ocr-nlp.svg",
       category: "Creative & Entertainment",
-      title: "Sustainability Storytelling & Metrics Platform",
+      title: "Sustainability Storytelling and Metrics Platform",
       description:
-        "Boosts carbon offset participation by 45% & reduces reporting time by 75% with visual storytelling tools.",
+        "Boosts carbon offset participation by 45% and reduces reporting time by 75% with visual storytelling tools.",
     },
     {
       id: 11,
       icon: "Icons/ocr-nlp.svg",
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Immersive Multi-Sensory Passenger Experience Platform",
       description:
-        "Cuts travel anxiety by 40% & raises engagement by 100% with personalized digital environments.",
+        "Cuts travel anxiety by 40% and raises engagement by 100% with personalized digital environments.",
     },
     {
       id: 12,
@@ -262,7 +264,7 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Adaptive Maintenance Training Ecosystem",
       description:
-        "Reduces training costs by 40% & improves first-time quality by 30% via adaptive learning paths.",
+        "Reduces training costs by 40% and improves first-time quality by 30% via adaptive learning paths.",
     },
     {
       id: 13,
@@ -270,7 +272,7 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Multilingual Compliance Learning Platform",
       description:
-        "Increases compliance completion to 94% & reduces training time by 40% using AI & microlearning.",
+        "Increases compliance completion to 94% and reduces training time by 40% using AI and microlearning.",
     },
     {
       id: 14,
@@ -278,13 +280,13 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Operational Excellence Simulation Environment",
       description:
-        "Improves decision quality by 45% & cuts irregular operations recovery time by 35% with digital twin simulations.",
+        "Improves decision quality by 45% and cuts irregular operations recovery time by 35% with digital twin simulations.",
     },
   ],
 };
 export const metadata = {
   title:
-    "Aviation Transformation Solutions: AI, XR & Predictive Maintenance for Airlines",
+    "Aviation Transformation Solutions: AI, XR and Predictive Maintenance for Airlines",
   description:
     "Transform aviation operations with AI, XR, and predictive maintenance solutions. Boost efficiency, enhance passenger experience, and achieve sustainability goals with innovative technology.",
 };

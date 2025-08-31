@@ -6,7 +6,7 @@ import Head from "next/head";
 
 // ---- static SEO for the listing page ----
 export const metadata = {
-  title: "Karanji Blog: Insights on AI, VR & Digital Learning Innovation",
+  title: "Karanji Blog: Insights on AI, VR and Digital Learning Innovation",
   description:
     "Explore the Karanji blog for expert insights on AI, VR, digital learning, and emerging technology trends. Stay updated with cutting-edge strategies and industry innovations.",
 };

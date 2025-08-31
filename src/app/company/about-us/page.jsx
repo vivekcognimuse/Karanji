@@ -162,7 +162,7 @@ const valuesData = [
   {
     icon: "/Company/about/emojione-monotone_world-map.svg",
     title: "Integrity",
-    description: "Building trust through vision, honesty & progress.",
+    description: "Building trust through vision, honesty and progress.",
   },
 ];
 
