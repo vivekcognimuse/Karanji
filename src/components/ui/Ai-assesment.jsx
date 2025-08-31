@@ -34,16 +34,28 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
     e.preventDefault();
     // Handle form submission here
     console.log("Form submitted:", formData);
-    // You could make an API call here or redirect to ctaLink with form data
 
-    // Reset form and show success message or redirect
-    alert("Assessment request submitted successfully!");
+    // Redirect to ctaLink if provided
+    if (ctaLink) {
+      window.open(ctaLink, "_blank", "noopener,noreferrer");
+    }
+
+    // Reset form and show success message
+    setFormData({
+      name: "",
+      email: "",
+    });
     setShowForm(false);
   };
 
   const handleBack = () => {
     setShowForm(false);
   };
+
+  // Check if both fields are filled
+  const isFormValid =
+    formData.name.trim() !== "" && formData.email.trim() !== "";
+
   console.log("bg Image card", bgImage);
   return (
     <div
@@ -73,7 +85,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
         ) : (
           // Form state - similar to your image
           <>
-            <div className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-black/80 mb-2">
                   Name
@@ -106,16 +118,23 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
 
               <div className="flex gap-3 pt-4">
                 <Button
+                  type="button"
                   onClick={handleBack}
                   className="flex-1 bg-gray-100 text-black hover:bg-gray-200">
                   Back
                 </Button>
 
-                <a target="_blank" rel="noreferrer" href={ctaLink}>
-                  <Button className="flex-1">Submit Assessment</Button>{" "}
-                </a>
+                <Button
+                  type="submit"
+                  className={cn(
+                    "flex-1",
+                    !isFormValid && "opacity-50 cursor-not-allowed"
+                  )}
+                  disabled={!isFormValid}>
+                  Submit Assessment
+                </Button>
               </div>
-            </div>
+            </form>
           </>
         )}
       </div>

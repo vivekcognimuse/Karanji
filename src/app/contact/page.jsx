@@ -4,7 +4,7 @@ import { useContactForm } from "@/hooks/contactform";
 
 import { Icon } from "@iconify/react";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 
 // Enhanced form input component with accessibility
 const FormInput = ({
@@ -147,7 +147,7 @@ const FormTextarea = ({
         {maxLength && value.length > maxLength * 0.8 && (
           <div
             id={helpId}
-            className="absolute top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']">
+            className=" top-full mt-1 text-black/60 text-xs font-normal font-['Outfit']">
             {value.length}/{maxLength} characters
           </div>
         )}
@@ -253,6 +253,9 @@ const ContactPage = () => {
       console.error("Form submission failed:", { error, data });
     },
   });
+  useEffect(() => {
+    resetForm();
+  }, []);
 
   const socialIcons = [
     {
@@ -292,8 +295,8 @@ const ContactPage = () => {
                 <div className="flex flex-col gap-6">
                   <p className="text-black/80 text-lg sm:text-xl font-normal font-['Outfit'] tracking-wide">
                     Bridging creative storytelling, immersive technologies, and
-                    artificial intelligence (AI) innovation—Karanji is the your
-                    one stop integrated partner for next-generation digital
+                    artificial intelligence (AI) innovation—Karanji is your
+                    one-stop integrated partner for next-generation digital
                     experiences.
                   </p>
                   <p className="text-black/50 text-lg sm:text-xl font-light font-['Outfit'] tracking-wide">
@@ -386,7 +389,7 @@ const ContactPage = () => {
                     error={errors.project?.message}
                     touched={touchedFields.project}
                     placeholder="Describe your project requirements, timeline, and any specific technologies you're interested in..."
-                    maxLength={2000}
+                    maxLength={500}
                     rows={2}
                     disabled={isSubmitting}
                   />

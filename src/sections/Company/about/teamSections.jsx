@@ -37,7 +37,7 @@ const TeamSection = ({ sections = [] }) => {
             data-reveal-dir="up"
           >
             <button
-              className="w-full py-12 text-left focus:outline-none"
+              className="w-full py-12 text-left focus:outline-none cursor-pointer"
               onClick={() => toggleSection(index)}
             >
               <div className="flex items-start pr-4 ">

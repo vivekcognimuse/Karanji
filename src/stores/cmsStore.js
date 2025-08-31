@@ -11,7 +11,7 @@ const useCMSStore = create(
           "Transform Your Business with Future-Ready Technology in the World of AI",
         description:
           "Empower your business with intelligent, immersive solutions tailored for today's dynamic digital landscape. Stay ahead in the world of AI with technologies that drive meaningful, measurable change.",
-        ctaText: "Explore Our Technology Solutions",
+        ctaText: "Explore Our Technology Services",
         ctaLink: "#solutions",
         backgroundImage: "/solutions/hero.png",
       },

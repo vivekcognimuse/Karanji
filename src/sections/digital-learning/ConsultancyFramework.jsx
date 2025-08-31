@@ -1,8 +1,9 @@
 import { P2 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
+import Accordion from "./Accordian";
 
-const ConsultancyFramework = () => {
+const ConsultancyFramework = ({ data }) => {
   return (
     <section>
       <h3>Training Landscape Consultancy Framework (TLCF)</h3>
@@ -19,13 +20,8 @@ const ConsultancyFramework = () => {
           width={1062}
         />
       </div>
-      <div className=" md:hidden flex justify-center">
-        <Image
-          src="/digital-learning/ConsultancyFrameworkMbl.svg"
-          alt="Consultancy Framework"
-          height={196}
-          width={1062}
-        />
+      <div className=" md:hidden ">
+        <Accordion data={data} />
       </div>
     </section>
   );

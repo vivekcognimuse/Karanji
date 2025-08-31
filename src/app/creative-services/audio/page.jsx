@@ -10,9 +10,9 @@ import Head from "next/head";
 import React from "react";
 
 const heroData = {
-  title: "Professional Audio Podcast & Production",
+  title: "Professional Audio Podcast and Production",
   subTitle:
-    "Studio-quality sound that elevates your content & engages audiences",
+    "Studio-quality sound that elevates your content and engages audiences",
   ctaText: "Explore Our Services",
   ctaLink: "audio-service-offerings", // adjust as needed
   backgroundImage: null, // only include if there's a background image provided
@@ -32,9 +32,9 @@ const serviceOverview = {
   title: "Service overview",
   subTitle: "Captivate your audience with professional audio",
   description:
-    "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs & sound design.",
+    "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs and sound design.",
   feature:
-    "With state-of-the-art recording tools & in-house engineers, we deliver polished, professional sound across any distribution platform.",
+    "With state-of-the-art recording tools and in-house engineers, we deliver polished, professional sound across any distribution platform.",
   images: [
     {
       src: "/entertainment/audio/1 Podcast.webp",
@@ -53,7 +53,7 @@ const serviceOverview = {
 const serviceOfferingsData = {
   title: "Our Services Offerings",
   subTitle:
-    "Captivate Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal-clear sound with creative storytelling for podcasts, voice-overs, & commercial media.",
+    "Captivate Your Audience with Professional Audio. From concept to distribution, our expert team delivers crystal-clear sound with creative storytelling for podcasts, voice-overs, and commercial media.",
 
   cards: [
     {
@@ -64,7 +64,7 @@ const serviceOfferingsData = {
       icon: "/audio/icons/end-to-end.svg",
     },
     {
-      title: "Audio engineering & Sound Design",
+      title: "Audio engineering and Sound Design",
       subTitle: "",
       description: "Creative sound solutions for any media project.",
       featured: false,
@@ -78,7 +78,7 @@ const serviceOfferingsData = {
       icon: "/audio/icons/voice-over.svg",
     },
     {
-      title: "Audio restoration & enhancement",
+      title: "Audio restoration and enhancement",
       subTitle: "",
       description: "Specialized services to fix problematic audio.",
       featured: false,
@@ -89,11 +89,11 @@ const serviceOfferingsData = {
 const methodologyData = {
   title: "Our Production Process",
   subTitle:
-    "A 5-step workflow from planning to delivery ensures efficiency & quality. Designed for smooth collaboration & on-time results.",
+    "A 5-step workflow from planning to delivery ensures efficiency and quality. Designed for smooth collaboration and on-time results.",
   list: [
     {
-      title: "Consultation & Planning",
-      description: "Understanding your goals & project needs.",
+      title: "Consultation and Planning",
+      description: "Understanding your goals and project needs.",
       tags: [],
     },
     {
@@ -102,18 +102,18 @@ const methodologyData = {
       tags: [],
     },
     {
-      title: "Recording & Performance",
+      title: "Recording and Performance",
       description: "Capturing high-quality audio with expert direction.",
       tags: [],
     },
     {
       title: "Post‑Production",
-      description: "Editing, mixing, & mastering.",
+      description: "Editing, mixing, and mastering.",
       tags: [],
     },
     {
-      title: "Delivery & Distribution",
-      description: "Final files & platform optimization.",
+      title: "Delivery and Distribution",
+      description: "Final files and platform optimization.",
       tags: [],
     },
   ],
@@ -123,7 +123,7 @@ const methodologyData = {
 const contentFormatsData = {
   title: "Our Audio Technology",
   description:
-    "Industry‑standard tools like Pro Tools HD, Neumann mics, & Avalon preamps. Our setup is built for high‑end audio across formats.",
+    "Industry‑standard tools like Pro Tools HD, Neumann mics, and Avalon preamps. Our setup is built for high‑end audio across formats.",
   image: null,
   content: [
     {
@@ -164,9 +164,9 @@ const contentFormatsData = {
 
 // SUCCESS STORIES
 const successStoriesData = {
-  title: "Use Cases & Success Stories",
+  title: "Use Cases and Success Stories",
   description:
-    "Explore how our audio & podcast production services have helped clients elevate their content, engage audiences, & deliver polished, professional results across platforms.",
+    "Explore how our audio and podcast production services have helped clients elevate their content, engage audiences, and deliver polished, professional results across platforms.",
   cards: [
     {
       title: "One-Hour Podcast into a Visually Engaging Experience",
@@ -184,12 +184,12 @@ const successStoriesData = {
 const accordionData = {
   title: "Frequently Asked Questions",
   subTitle:
-    "Find quick guidance on pricing, timelines, equipment needs, remote recording, & distribution support.",
+    "Find quick guidance on pricing, timelines, equipment needs, remote recording, and distribution support.",
   questions: [
     {
       question: "How much does professional podcast production cost?",
       answer:
-        "Pricing depends on your project’s scope & needs. We offer flexible packages starting from basic audio editing to full-service production including recording, mixing, mastering, and post-production support.",
+        "Pricing depends on your project’s scope and needs. We offer flexible packages starting from basic audio editing to full-service production including recording, mixing, mastering, and post-production support.",
     },
     {
       question: "What equipment do I need to record a professional podcast?",
@@ -203,7 +203,7 @@ const accordionData = {
     },
     {
       question:
-        "Can you help distribute my podcast to platforms like Spotify & Apple Podcasts?",
+        "Can you help distribute my podcast to platforms like Spotify and Apple Podcasts?",
       answer:
         "Yes! We assist with podcast hosting setup, distribution to major platforms, and analytics integration to track performance and audience engagement.",
     },
@@ -227,7 +227,7 @@ const CTAData = {
 
 export const metadata = {
   title:
-    "Professional Audio & Podcast Production Services | Studio-Quality Sound",
+    "Professional Audio and Podcast Production Services | Studio-Quality Sound",
   description:
     "Elevate your audio with our professional podcast studio rental and recording services. Featuring state-of-the-art equipment, sound-treated rooms, and full production support for podcasts and voice-overs.",
 };

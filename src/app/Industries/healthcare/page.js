@@ -10,7 +10,7 @@ import Head from "next/head";
 const heroData = {
   title: "Healthcare Transformation Solutions",
   subTitle:
-    "Transforming healthcare with AI, XR, & Digital Learning to solve workforce gaps, control costs, & boost patient engagement through immersive, intelligent, & scalable solutions.",
+    "Transforming healthcare with AI, XR, and Digital Learning to solve workforce gaps, control costs, and boost patient engagement through immersive, intelligent, and scalable solutions.",
   ctaText: "Explore the Transformation Landscape",
   ctaLink: "digital-transformation-landscape",
   stats: [
@@ -40,10 +40,10 @@ const ctaData = {
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  title: "Industry Challenges & Priorities",
+  title: "Industry Challenges and Priorities",
   tag: "Overview",
   subTitle:
-    "The healthcare industry is evolving through AI, XR, & digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce & tech challenges, digital solutions empower providers to innovate and scale resiliently.",
+    "The healthcare industry is evolving through AI, XR, and digital learning – driving smarter care, cost efficiency, and better patient engagement. Amid workforce and tech challenges, digital solutions empower providers to innovate and scale resiliently.",
   featureHeader: "Critical Challenges",
   heroImage: "/Industries & its pages/Healthcare/Healthcare image.webp",
   features: [
@@ -160,18 +160,18 @@ const digitalTransformationData = {
 const strategicRoadmapData = {
   sectionTitle: "Strategic Roadmap for Healthcare Transformation",
   sectionDescription:
-    "Based on industry challenges & proven use cases, here's a clear action plan for entering & growing in the healthcare market:",
+    "Based on industry challenges and proven use cases, here's a clear action plan for entering and growing in the healthcare market:",
   roadmapData: [
     {
       title: "Immediate Priorities",
       timeframe: "(0–6 months)",
-      intro: "Focus on quick wins & workforce gaps:",
+      intro: "Focus on quick wins and workforce gaps:",
       points: [
         "VR surgical training platforms",
         "AI services for revenue cycle optimization",
         "Patient education content",
       ],
-      note: "Builds early success & market trust",
+      note: "Builds early success and market trust",
     },
     {
       title: "Medium–Term Priorities",
@@ -182,7 +182,7 @@ const strategicRoadmapData = {
         "Clinical decision support AI",
         "Patient engagement services",
       ],
-      note: "Deepens offerings & strengthens client ties",
+      note: "Deepens offerings and strengthens client ties",
     },
     {
       title: "Long–Term Priorities",
@@ -199,9 +199,9 @@ const strategicRoadmapData = {
 };
 
 const strategicUseCaseData = {
-  sectionTitle: "Strategic Use Cases & Implementation",
+  sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription:
-    "12 validated opportunities with proven market demand & clear ROI pathways",
+    "12 validated opportunities with proven market demand and clear ROI pathways",
   filterButtons: [
     { label: "All", active: true },
     { label: "XR & Gaming", active: false },
@@ -222,7 +222,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Surgical Training Platform",
       description:
-        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities",
+        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -232,7 +232,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Patient Education VR",
       description:
-        "4 in 10 patients face affordability & understanding gaps: poor treatment compliance",
+        "4 in 10 patients face affordability and understanding gaps: poor treatment compliance.",
       duration: "12–18 months",
       complexity: "Low Complexity",
     },
@@ -242,7 +242,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Remote Consultation Platform",
       description:
-        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care",
+        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care.",
       duration: "18–24 months",
       complexity: "High Complexity",
     },
@@ -252,7 +252,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "AI Readiness Assessment",
       description:
-        "77% prioritize AI but lack a strategic framework for effective, scalable implementation",
+        "77% prioritize AI but lack a strategic framework for effective, scalable implementation.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -262,7 +262,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Revenue Cycle Optimization",
       description:
-        "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency",
+        "15 cents lost per dollar; current systems lack predictive AI for denial prevention and efficiency.",
       duration: "6–12 months",
       complexity: "Medium Complexity",
     },
@@ -272,7 +272,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Clinical Decision Support",
       description:
-        "Medical decisions suffer without real-time AI to improve safety, accuracy, & diagnostic confidence.",
+        "Medical decisions suffer without real-time AI to improve safety, accuracy, and diagnostic confidence.",
       duration: "12–18 months",
       complexity: "High Complexity",
     },
@@ -292,7 +292,7 @@ const strategicUseCaseData = {
       category: "Creative & Entertainment",
       title: "Healthcare Marketing",
       description:
-        "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust & community engagement.",
+        "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust and community engagement.",
       duration: "6–12 months",
       complexity: "Medium Complexity",
     },
@@ -302,7 +302,7 @@ const strategicUseCaseData = {
       category: "Creative & Entertainment",
       title: "Medical Training Content Production",
       description:
-        "Healthcare workers lack effective training content tailored to learning styles, specialists, & competency needs.",
+        "Healthcare workers lack effective training content tailored to learning styles, specialists, and competency needs.",
       duration: "12–18 months",
       complexity: "High Complexity",
     },
@@ -312,7 +312,7 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Healthcare LMS",
       description:
-        "Fragmented training programs lack robust LMS tools for workforce & competency tracking.",
+        "Fragmented training programs lack robust LMS tools for workforce and competency tracking.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -322,7 +322,7 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Gamified Learning",
       description:
-        "Traditional training underperforms; gamified learning boosts engagement, retention, & clinical outcomes.",
+        "Traditional training underperforms; gamified learning boosts engagement, retention, and clinical outcomes.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -332,7 +332,7 @@ const strategicUseCaseData = {
       category: "Digital Learning",
       title: "Virtual Skills Laboratory",
       description:
-        "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural & patient training.",
+        "Simulation access is limited; virtual labs deliver scalable, safe, remote procedural and patient training.",
       duration: "18–24 months",
       complexity: "High Complexity",
     },
@@ -342,7 +342,7 @@ const strategicFramework = {
   isStepHidden: true,
   title: "Strategic Transformation Framework",
   subTitle:
-    "A strategic framework driving innovation, efficiency, & resilience across care delivery, workforce, & operations.",
+    "A strategic framework driving innovation, efficiency, and resilience across care delivery, workforce, and operations.",
   list: [
     {
       title: "Tech-First",
@@ -368,7 +368,7 @@ const strategicFramework = {
 };
 export const metadata = {
   title:
-    "Healthcare Transformation Solutions: AI, XR & Digital Learning for Modern Healthcare",
+    "Healthcare Transformation Solutions: AI, XR and Digital Learning for Modern Healthcare",
   description:
     "Transform healthcare with AI, XR, and digital learning solutions. Address workforce gaps, reduce costs, and enhance patient engagement through immersive and intelligent technologies.",
 };

@@ -11,7 +11,7 @@ import TimelineComponent from "@/sections/Company/about/TimelineComponent";
 import Head from "next/head";
 
 const heroData = {
-  title: "Our Identity & Purpose",
+  title: "Our Identity and Purpose",
   description:
     "Discover who we are, what drives us, and the values that shape every solution we deliver.",
   backgroundImage: "/path/to/your/hero-image.jpg",
@@ -21,14 +21,14 @@ const cardsData = [
   {
     title: "Our Team",
     description:
-      "Meet the minds shaping the future of immersive tech & storytelling",
+      "Meet the minds shaping the future of immersive tech and storytelling",
     image: "/Company/Landing page/Our Team.webp",
     href: "/company/our-team", // Link navigation
   },
   {
     title: "Career",
     description:
-      "Build your career at the crossroads of AI, creativity, & impact",
+      "Build your career at the crossroads of AI, creativity, and impact",
     image: "/Company/Landing page/Career.webp",
     href: "/company/careers", // Link navigation
   },
@@ -37,13 +37,13 @@ const cardsData = [
 const journeyData = {
   title: "Redefining the Future: Karanji's Journey",
   subTitle:
-    "Step through Karanji's 18+ year journey with our interactive timeline experience. From a bold start in 2007 to becoming a global leader in AI, VR, & digital learning, each milestone reveals how we've continually pushed technological boundaries, delivered transformational solutions, & shaped the future of enterprise learning & digital experiences.",
+    "Step through Karanji's 18+ year journey with our interactive timeline experience. From a bold start in 2007 to becoming a global leader in AI, VR, and digital learning, each milestone reveals how we've continually pushed technological boundaries, delivered transformational solutions, and shaped the future of enterprise learning and digital experiences.",
   currentYear: "2007",
   currentYearDescription:
     "A seed was planted in 2007 with a goal to change the future of learning.",
 
   yearDescription:
-    "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, & innovation in learning technology.",
+    "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, and innovation in learning technology.",
   buttonText: "Continue the Journey",
   iconSrc: "/Icons/year07icon.svg",
 };
@@ -62,10 +62,10 @@ const timelineData = [
   {
     year: "2007-10",
     yearDescription:
-      "We built a bridge between traditional training & cutting-edge technology.",
-    title: "Building the Bridge Between Traditional & Modern Learning",
+      "We built a bridge between traditional training and cutting-edge technology.",
+    title: "Building the Bridge Between Traditional and Modern Learning",
     description:
-      "Karanji started working on creating a bridge between traditional training methods & emerging technologies like AI & Virtual Reality (VR).",
+      "Karanji started working on creating a bridge between traditional training methods and emerging technologies like AI and Virtual Reality (VR).",
     iconSrc: "/Icons/year08icon.svg",
   },
   {
@@ -74,16 +74,16 @@ const timelineData = [
       "Our first big break came with Infosys - the first validation of our ideas.",
     title: "Growing the Foundation – First Major Client: Infosys",
     description:
-      "Through hard work & tad bit of luck, Infosys became the company's first major client, which validated their vision & gave them confidence.",
+      "Through hard work and a tad bit of luck, Infosys became the company's first major client, which validated their vision and gave them confidence.",
     iconSrc: "/Icons/year13icon.svg",
   },
   {
     year: "2014-16",
     yearDescription:
-      "2014-16 marked a leap into the future with Virtual Reality & Augmented Reality.",
-    title: "The Big Leap - Entering Virtual Reality & Augmented Reality",
+      "2014-16 marked a leap into the future with Virtual Reality and Augmented Reality.",
+    title: "The Big Leap - Entering Virtual Reality and Augmented Reality",
     description:
-      "Karanji made a strategic decision to integrate VR & AR into their learning design, which would revolutionize training & learning processes.",
+      "Karanji made a strategic decision to integrate VR and AR into their learning design, which would revolutionize training and learning processes.",
     iconSrc: "/Icons/year16icon.svg",
   },
   {
@@ -92,7 +92,7 @@ const timelineData = [
       "In 2017, we formed a strategic partnership with Novigo Solutions, expanding our global reach.",
     title: "Global Expansion – Partnership with Novigo Solutions",
     description:
-      "Karanji partnered with Novigo Solutions, gaining access to global clients & resources for more innovative ideas.",
+      "Karanji partnered with Novigo Solutions, gaining access to global clients and resources for more innovative ideas.",
     iconSrc: "/Icons/year17icon.svg",
   },
   {
@@ -102,22 +102,22 @@ const timelineData = [
     title:
       "Adapting to the Global Shift - Helping Clients Transition to Remote Learning During COVID-19",
     description:
-      "When COVID-19 hit, Karanji quickly adapted & helped businesses shift to remote learning through their integrated solutions.",
+      "When COVID-19 hit, Karanji quickly adapted and helped businesses shift to remote learning through their integrated solutions.",
     iconSrc: "/Icons/year20icon.svg",
   },
   {
     year: "2024",
     yearDescription:
-      "In 2024, we took another leap by forming a full AI team to drive the future of learning & business innovation.",
+      "In 2024, we took another leap by forming a full AI team to drive the future of learning and business innovation.",
     title: "The AI Revolution - Building a Full AI Team",
     description:
-      "Karanji created a dedicated AI team to help clients use AI in smart, impactful ways for learning & business solutions.",
+      "Karanji created a dedicated AI team to help clients use AI in smart, impactful ways for learning and business solutions.",
     iconSrc: "/Icons/year24icon.svg",
   },
   {
     year: "2025",
     yearDescription:
-      "In 2024, we took another leap by forming a full AI team to drive the future of learning & business innovation.",
+      "In 2024, we took another leap by forming a full AI team to drive the future of learning and business innovation.",
     title: "A Bold New Identity: Reimagined for the Future",
     subTitle:
       "“We rebranded to reflect who we’ve become - an integrated technology partner for the AI era.”",
@@ -162,7 +162,7 @@ const valuesData = [
   {
     icon: "/Company/about/emojione-monotone_world-map.svg",
     title: "Integrity",
-    description: "Building trust through vision, honesty & progress.",
+    description: "Building trust through vision, honesty and progress.",
   },
 ];
 

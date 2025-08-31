@@ -81,6 +81,76 @@
   @apply flex items-center justify-center;
 }
 
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #b15252 transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #b15252;
+  border-radius: 20px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: #b15252;
+}
+
+.scrollbar-custom-white {
+  scrollbar-width: thin;
+  scrollbar-color: #fdf9ed transparent;
+}
+
+.scrollbar-custom-white::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-custom-white::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom-white::-webkit-scrollbar-thumb {
+  background-color: #b15252;
+  border-radius: 20px;
+}
+
+.scrollbar-custom-white::-webkit-scrollbar-thumb:hover {
+  background-color: #b15252;
+}
+
+html {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #b15252 transparent; /* Firefox */
+  @apply selection:bg-[#BAABFC] selection:text-black;
+}
+
+html::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #b15252;
+  border-radius: 20px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #b15252;
+}
+
 body {
   font-family: var(--font-outfit), system-ui, sans-serif;
 }

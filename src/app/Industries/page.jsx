@@ -5,21 +5,21 @@ import Head from "next/head";
 const heroData = {
   title: "Transform Your Industry with Us",
   subTitle:
-    "From predictive maintenance to automated workflows, our AI tools help teams in Healthcare, Aviation, Logistics, & Oil & Gas work smarter, safer, & faster.",
+    "From predictive maintenance to automated workflows, our AI tools help teams in Healthcare, Aviation, Logistics, and Oil and Gas work smarter, safer, and faster.",
   ctaText: "See Industry Solutions",
   ctaLink: "industries-section",
 };
 const ctaData = {
   title: "Ready to lead the future?",
   description:
-    "Let’s collaborate to bring your next industrial innovation to life with AI, XR, & digital learning ",
+    "Let’s collaborate to bring your next industrial innovation to life with AI, XR, and digital learning ",
   PrimaryButtonText: "Schedule a Consultation",
   PrimaryButtonLink: "/contact",
 };
 const industriesData = {
   title: "Purpose — Built for Complex Industries.",
   description:
-    "We partner with organizations in Healthcare, Aviation, Logistics, & Oil & Gas to solve their most pressing operational challenges from reducing downtime & paperwork to improving safety, speed, & compliance. Each solution is tailored to real-world workflows, helping teams work smarter & scale faster.",
+    "We partner with organizations in Healthcare, Aviation, Logistics, and Oil and Gas to solve their most pressing operational challenges from reducing downtime and paperwork to improving safety, speed, and compliance. Each solution is tailored to real-world workflows, helping teams work smarter and scale faster.",
 };
 const cards = [
   {
@@ -58,19 +58,19 @@ const cards = [
     hoverContent: [
       "Supply Chain Optimization",
       "Warehouse Automation",
-      "Real-time Tracking & Analytics",
+      "Real-time Tracking and Analytics",
     ],
     ctaLink: "/Industries/logistics",
     icon: "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
   },
   {
     id: 36,
-    title: "Oil & Gas",
+    title: "Oil and Gas",
     img: "/Industries & its pages/Landing page/Oil and Gas card.webp",
     subTitle: "Driving Digital Intelligence in Energy",
     hoverContent: [
       "Equipment Monitoring Systems",
-      "Safety Training & Compliance",
+      "Safety Training and Compliance",
       "Operational Efficiency Tools",
     ],
     ctaLink: "/Industries/oil-and-gas",

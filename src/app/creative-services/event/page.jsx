@@ -10,14 +10,14 @@ import Head from "next/head";
 import React from "react";
 
 const heroData = {
-  title: "Event Production & Management",
+  title: "Event Production and Management",
   subTitle: "Flawless execution of memorable events from concept to completion",
   ctaText: "Explore Our Services",
   ctaLink: "event-service-offerings", // Adjust as necessary
   backgroundImage: null, // No visible background image
   stats: [
     {
-      subText: "Virtual & Hybrid Event Expertise",
+      subText: "Virtual and Hybrid Event Expertise",
     },
     {
       subText: "Scalable for Any Event Size",
@@ -30,11 +30,11 @@ const heroData = {
 
 const serviceOverview = {
   title: "Service overview",
-  subTitle: "Exceptional events powered by expertise & technology",
+  subTitle: "Exceptional events powered by expertise and technology",
   description:
-    "Our event production team delivers immersive experiences that engage audiences & exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
+    "Our event production team delivers immersive experiences that engage audiences and exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
   feature:
-    "With expert coordination, technical reliability, & creative stagecraft, we manage every element of execution—ensuring events are safe, seamless, and memorable at scale or remotely.",
+    "With expert coordination, technical reliability, and creative stagecraft, we manage every element of execution—ensuring events are safe, seamless, and memorable at scale or remotely.",
   images: [
     {
       src: "/entertainment/event/1 event.webp",
@@ -54,34 +54,34 @@ const serviceOverview = {
 const serviceOfferingsData = {
   title: "Our Services Offerings",
   subTitle:
-    "Create exceptional events powered by technology & expert planning. Our team ensures every critical element runs smoothly while you connect with your audience.",
+    "Create exceptional events powered by technology and expert planning. Our team ensures every critical element runs smoothly while you connect with your audience.",
 
   cards: [
     {
-      title: "Live event production & management",
+      title: "Live event production and management",
       subTitle: "",
       description: "Event management from concept to execution.",
       featured: true,
       icon: "/event/icons/production.svg",
     },
     {
-      title: "Event tech & equipment rental",
+      title: "Event tech and equipment rental",
       subTitle: "",
       description: "State-of-the-art technical solutions for any event scale.",
       featured: false,
       icon: "/event/icons/tech.svg",
     },
     {
-      title: "Stage design & Production",
+      title: "Stage design and Production",
       subTitle: "",
-      description: "Custom environments for presentation & branding.",
+      description: "Custom environments for presentation and branding.",
       featured: false,
       icon: "/event/icons/stage-design.svg",
     },
     {
-      title: "Virtual & hybrid events production",
+      title: "Virtual and hybrid events production",
       subTitle: "",
-      description: "Seamless experiences for in-person & online attendees.",
+      description: "Seamless experiences for in-person and online attendees.",
       featured: false,
       icon: "/event/icons/hybrid.svg",
     },
@@ -91,11 +91,11 @@ const serviceOfferingsData = {
 const methodologyData = {
   title: "Our Production Process",
   subTitle:
-    "Professional‑grade tools backed by a streamlined workflow. From planning to post‑event review, our process delivers results with clarity & control.",
+    "Professional‑grade tools backed by a streamlined workflow. From planning to post‑event review, our process delivers results with clarity and control.",
   list: [
     {
-      title: "Discovery & Planning",
-      description: "Understanding your goals & creating project plans.",
+      title: "Discovery and Planning",
+      description: "Understanding your goals and creating project plans.",
       tags: [],
     },
     {
@@ -105,17 +105,17 @@ const methodologyData = {
     },
     {
       title: "Pre‑Production",
-      description: "Scheduling, coordination, & preparation.",
+      description: "Scheduling, coordination, and preparation.",
       tags: [],
     },
     {
       title: "Execution",
-      description: "On‑site management & technical coordination.",
+      description: "On‑site management and technical coordination.",
       tags: [],
     },
     {
       title: "Post‑Event Analysis",
-      description: "Evaluation, reporting & recommendations.",
+      description: "Evaluation, reporting, and recommendations.",
       tags: [],
     },
   ],
@@ -124,7 +124,7 @@ const methodologyData = {
 const contentFormatsData = {
   title: "Our Event Technology",
   description:
-    "Industry‑standard tools like L‑Acoustics, Martin Lighting, & Blackmagic gear. We use modern equipment to ensure performance, reliability, & quality.",
+    "Industry‑standard tools like L‑Acoustics, Martin Lighting, and Blackmagic gear. We use modern equipment to ensure performance, reliability, and quality.",
   image: null,
   content: [
     {
@@ -136,7 +136,7 @@ const contentFormatsData = {
       src: "/entertainment/event/technology/2.svg",
     },
     {
-      description: "4K projection & LED display walls",
+      description: "4K projection and LED display walls",
       src: "/entertainment/event/technology/3.svg",
     },
     {
@@ -156,7 +156,7 @@ const contentFormatsData = {
       src: "/entertainment/event/technology/7.svg",
     },
     {
-      description: "Streaming encoders & platforms",
+      description: "Streaming encoders and platforms",
       src: "/entertainment/event/technology/8.svg",
     },
     {
@@ -167,9 +167,9 @@ const contentFormatsData = {
 };
 
 const successStoriesData = {
-  title: "Use Cases & Success Stories",
+  title: "Use Cases and Success Stories",
   description:
-    "Explore how our services adapt across industries, formats, & event scales.",
+    "Explore how our services adapt across industries, formats, and event scales.",
   cards: [
     {
       title: "Convocation Day School Real Video Project",
@@ -187,7 +187,7 @@ const successStoriesData = {
 const accordionData = {
   title: "Frequently Asked Questions",
   subTitle:
-    "Answers to your top event planning questions in one place. From booking timelines to pricing & hybrid strategies, we’ve got you covered.",
+    "Answers to your top event planning questions in one place. From booking timelines to pricing and hybrid strategies, we’ve got you covered.",
   questions: [
     {
       question: "How far in advance should I book event production services?",
@@ -218,7 +218,7 @@ const accordionData = {
 };
 
 const CTAData = {
-  title: "Ready to create an unforgettable event ?",
+  title: "Ready to create an unforgettable event?",
   description:
     "Let’s bring your vision to life with expert coordination—from creative design to flawless execution.",
   PrimaryButtonText: "Schedule a Consultation",
@@ -229,7 +229,7 @@ const CTAData = {
 
 export const metadata = {
   title:
-    "Professional Event Production & Management Services | Live, Virtual & Hybrid Events",
+    "Professional Event Production and Management Services | Live, Virtual and Hybrid Events",
   description:
     "Expert event production and management for live, virtual, and hybrid events. From stage design and tech rental to seamless execution, we deliver memorable experiences.",
 };

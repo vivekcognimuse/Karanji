@@ -459,7 +459,8 @@ export default function Navbar() {
       ref={navRef}
       className="sticky bg-white py-1 top-0 z-[999] shadow-lg"
       role="navigation"
-      aria-label="Main navigation flex">
+      aria-label="Main navigation flex"
+    >
       <div className="max-w-[1580] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -488,7 +489,8 @@ export default function Navbar() {
                     handleNavTouch(e, index, item);
                   }
                 }}
-                ref={(el) => (dropdownRefs.current[index] = el)}>
+                ref={(el) => (dropdownRefs.current[index] = el)}
+              >
                 <Link
                   href={item.href || "#"}
                   onClick={(e) => handleClick(e, index, item)}
@@ -502,7 +504,8 @@ export default function Navbar() {
                   aria-expanded={activeDropdown === index}
                   aria-haspopup={
                     item.links?.length > 0 || item.subSections?.length > 0
-                  }>
+                  }
+                >
                   {item.title}
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
                     <Icon
@@ -520,7 +523,8 @@ export default function Navbar() {
                   <div
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white rounded-lg shadow-xl overflow-hidden animate-slideDown w-[790px]"
                     role="menu"
-                    onTouchStart={(e) => e.stopPropagation()}>
+                    onTouchStart={(e) => e.stopPropagation()}
+                  >
                     <div className="flex">
                       <div className="w-1/2 border-r border-gray-100">
                         {item.subSections.map((section, sectionIndex) => (
@@ -536,7 +540,8 @@ export default function Navbar() {
                               activeSolution === sectionIndex
                                 ? "bg-[#F0E4FF]"
                                 : ""
-                            }`}>
+                            }`}
+                          >
                             <Link
                               href={section.href}
                               className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group select-none
@@ -553,7 +558,8 @@ export default function Navbar() {
                                     : ""
                                 }
                                 ${isTouchDevice ? "touch-manipulation" : ""}`}
-                              role="menuitem">
+                              role="menuitem"
+                            >
                               <div className="flex gap-2 items-center justify-start pointer-events-none">
                                 <Image
                                   src={section.icon}
@@ -603,7 +609,8 @@ export default function Navbar() {
                                     ${
                                       isTouchDevice ? "touch-manipulation" : ""
                                     }`}
-                                  role="menuitem">
+                                  role="menuitem"
+                                >
                                   <div className="flex gap-2 items-center justify-start pointer-events-none">
                                     <Image
                                       src={link.icon}
@@ -644,7 +651,8 @@ export default function Navbar() {
                     <div
                       className="absolute top-full left-0 mt-1 w-[22rem] bg-white rounded-lg shadow-xl py-2 animate-slideDown"
                       role="menu"
-                      onTouchStart={(e) => e.stopPropagation()}>
+                      onTouchStart={(e) => e.stopPropagation()}
+                    >
                       {item.links.map((link, linkIndex) => (
                         <Link
                           key={linkIndex}
@@ -654,10 +662,11 @@ export default function Navbar() {
                             pathname === link.href ||
                             pathname.startsWith(link.href + "/")
                               ? "text-black border-r-2 border-purple-600"
-                              : "text-gray-700 hover:text-black"
+                              : "text-black"
                           }
                           ${isTouchDevice ? "touch-manipulation" : ""}`}
-                          role="menuitem">
+                          role="menuitem"
+                        >
                           <div className="flex gap-2 items-center justify-start pointer-events-none">
                             <Image
                               src={link.icon}
@@ -700,7 +709,8 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-black hover:text-gray-300 "
               aria-expanded={isOpen}
-              aria-label="Toggle mobile menu">
+              aria-label="Toggle mobile menu"
+            >
               <Icon
                 icon={isOpen ? "mdi:close" : "mdi:menu"}
                 className="w-6 h-6"
@@ -748,7 +758,8 @@ export default function Navbar() {
                         isSectionActive(item)
                           ? "text-black bg-[#F0E4FF] "
                           : "text-gray-700 hover:text-black hover:bg-gray-50"
-                      }`}>
+                      }`}
+                  >
                     {item.title}
                   </Link>
                   {(item.links?.length > 0 || item.subSections?.length > 0) && (
@@ -756,7 +767,8 @@ export default function Navbar() {
                       onClick={() => toggleMobileExpanded(`main-${index}`)}
                       className="p-2 hover:bg-gray-100 rounded"
                       aria-label={`Toggle ${item.title} submenu`}
-                      aria-expanded={mobileExpandedItems[`main-${index}`]}>
+                      aria-expanded={mobileExpandedItems[`main-${index}`]}
+                    >
                       <Icon
                         icon="mdi:chevron-down"
                         className={`w-5 h-5 transition-transform duration-200 ${
@@ -784,7 +796,8 @@ export default function Navbar() {
                                 isParentActive(section.links)
                                   ? "text-black bg-[#F0E4FF] b"
                                   : "text-gray-600 hover:text-black hover:bg-gray-50"
-                              }`}>
+                              }`}
+                          >
                             {section.title}
                           </Link>
                           <button
@@ -799,7 +812,8 @@ export default function Navbar() {
                               mobileExpandedItems[
                                 `section-${index}-${sectionIndex}`
                               ]
-                            }>
+                            }
+                          >
                             <Icon
                               icon={
                                 mobileExpandedItems[
@@ -827,7 +841,8 @@ export default function Navbar() {
                                     isActive(link.href)
                                       ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                                       : "text-gray-500 hover:text-black hover:bg-gray-50"
-                                  }`}>
+                                  }`}
+                              >
                                 {link.name}
                               </a>
                             ))}
@@ -851,7 +866,8 @@ export default function Navbar() {
                             isActive(link.href)
                               ? "text-black bg-[#F0E4FF] border-l-2 border-purple-600"
                               : "text-gray-600 hover:text-black hover:bg-gray-50"
-                          }`}>
+                          }`}
+                      >
                         {link.name}
                       </a>
                     ))}

@@ -4,6 +4,7 @@ const FinalLogo = ({ finalLogoRef }) => {
   return (
     <div
       ref={finalLogoRef}
+      style={{ opacity: 0 }}
       className="absolute inset-0 flex items-center justify-center">
       <svg
         width="309"

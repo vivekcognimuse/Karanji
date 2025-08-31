@@ -1,41 +1,65 @@
 "use client";
 import { P1, P2, P3 } from "@/components/CustomTags";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 import React from "react";
 
 const Accordion = ({ data }) => {
-  const { title, subTitle, questions } = data;
-
   return (
     <>
       <div className="">
-        {/* Header */}
-        <div className="mb-16 ">
-          <h3 className=" mb-4">{title}</h3>
-          {subTitle && <P2 className="">{subTitle}</P2>}
-        </div>
-
         {/* Accordion Items */}
         <div className="space-y-4">
-          {questions.map((item, index) => (
+          {data.map((item, index) => (
             <details
               key={index}
-              className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
-              <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
-                <P1 className="text-gray-900   md:text-base pr-4">
-                  {item.question}
-                </P1>
+              className="accordion-item border-l-2 border-[#B15252] group   overflow-hidden bg-[#FFF6F3] shadow-sm hover:shadow-md transition-shadow duration-200">
+              <summary className="accordion-summary bg w-full px-6 py-4 items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none ">
+                <div className="flex items-center justify-between">
+                  <div className=" flex-shrink-0 size-11">
+                    <Image
+                      src={item.icon}
+                      alt={item.title}
+                      className="size-11"
+                      width={20}
+                      height={20}
+                    />
+                  </div>{" "}
+                  <div className="accordion-chevron flex-shrink-0  size-11 flex-center text-[#B15252]">
+                    <Icon icon="heroicons:chevron-up" className="size-7" />
+                  </div>
+                </div>
+
+                <P3 className="text-gray-900 md:text-base pr-4">
+                  {item.title}
+                </P3>
 
                 {/* Custom Chevron */}
-                <div className="accordion-chevron flex-shrink-0 w-5 h-5 text-gray-500">
-                  <Icon icon="heroicons:chevron-up" className="w-full h-full" />
-                </div>
               </summary>
 
               {/* Answer Content with Grid Animation */}
               <div className="accordion-content border-t border-black-200">
-                <div className="accordion-inner p-4 ">
-                  <P3 className="text-black-800">{item.answer}</P3>
+                <div className="accordion-inner space-y-6 p-6">
+                  {item.description.map((desc, index) => (
+                    <P3
+                      key={index}
+                      className=" text-black-500 text-xl border-b border-black-200 pb-2 font-light">
+                      {desc.split(":").map((part, idx) => (
+                        <span key={idx}>
+                          {/* First part (before the colon) remains inline */}
+                          {idx === 0 && <span>{part}:</span>}
+
+                          {/* Second part (after the colon) goes to the next line */}
+                          {idx === 1 && (
+                            <>
+                              <br />
+                              <span>{part}</span>
+                            </>
+                          )}
+                        </span>
+                      ))}
+                    </P3>
+                  ))}
                 </div>
               </div>
             </details>

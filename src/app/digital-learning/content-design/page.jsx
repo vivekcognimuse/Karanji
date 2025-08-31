@@ -21,12 +21,12 @@ import React, { useState } from "react";
 // heroData.js
 const tabs = [
   { key: "custom", buttonLabel: "Custom Content Solutions" },
-  { key: "ready", buttonLabel: "Ready Solutions & Resources" },
+  { key: "ready", buttonLabel: "Ready Solutions and Resources" },
 ];
 const heroData = {
-  title: "Content Design & Development Solutions",
+  title: "Content Design and Development Solutions",
   subTitle:
-    " Transforming learning experiences through expert content design, development, & talent resources",
+    " Transforming learning experiences through expert content design, development, and talent resources.",
   ctaText: "Explore Our Solutions",
   ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
@@ -36,7 +36,7 @@ const heroData = {
       subText: "Complete Learning Solutions",
     },
     {
-      subText: "Flexible Talent & Engagement",
+      subText: "Flexible Talent and Engagement",
     },
     {
       subText: "Modern, Engaging Formats",
@@ -68,8 +68,8 @@ const methodologyData = {
       tags: [
         "Format selection",
         "Graphic design and visualization",
-        "Animation & interactivity",
-        "Authoring & development",
+        "Animation and interactivity",
+        "Authoring and development",
       ],
     },
     {
@@ -93,7 +93,7 @@ const successStoriesData = {
     "Real results through custom content, scalable libraries, and expert talent—driving faster, smarter learning outcomes.",
   cards: [
     {
-      title: "Corporate Learning & Development Teams ",
+      title: "Corporate Learning and Development Teams ",
       stats: [
         { title: "High", subTitle: "Quality Animations" },
         { title: "70%", subTitle: "Seamless Alignment" },
@@ -105,7 +105,7 @@ const successStoriesData = {
       tag: "Digital Learning",
     },
     {
-      title: "Driving School & Training Module",
+      title: "Driving School and Training Module",
       stats: [
         { title: "6", subTitle: "Crafted Modules" },
         { title: "100%", subTitle: "Client Satisfaction" },
@@ -137,19 +137,19 @@ export const digitalTwinData = {
   title: "Categories",
 
   list: [
-    { text: "Leadership & Management" },
-    { text: "Compliance & Regulatory" },
-    { text: "Soft Skills & Communication" },
+    { text: "Leadership and Management" },
+    { text: "Compliance and Regulatory" },
+    { text: "Soft Skills and Communication" },
     { text: "Industry-Specific Training" },
-    { text: "Technical & IT Skills" },
-    { text: "Onboarding & Orientation" },
-    { text: "Training & Change Management" },
-    { text: "Continuous Improvement & Innovation" },
+    { text: "Technical and IT Skills" },
+    { text: "Onboarding and Orientation" },
+    { text: "Training and Change Management" },
+    { text: "Continuous Improvement and Innovation" },
   ],
   ctaCard: {
     title: "Extensive Library of Ready-to-Use Content.",
     subTitle:
-      "Covering multiple industries & skill areas-from compliance to technical training, everything you need in one place",
+      "Covering multiple industries and skill areas-from compliance to technical training, everything you need in one place",
     ctaText: "Request content catalog",
     ctaLink: "/contact", // You can update this with the actual link
   },
@@ -243,7 +243,7 @@ const contentFormatsData = {
       src: "/digital-learning/content-format/8.svg",
     },
     {
-      description: "E-books & PDFs",
+      description: "E-books and PDFs",
       src: "/digital-learning/content-format/9.svg",
     },
   ],
@@ -251,16 +251,16 @@ const contentFormatsData = {
 const learningChallenges = {
   title: "Custom E-Learning Solutions",
   subTitle:
-    "Transform Your Learning Initiatives with Tailored Content & Expert Resources",
+    "Transform Your Learning Initiatives with Tailored Content and Expert Resources.",
   challenges: [
     {
       title: "Custom Content Solutions",
       description:
-        "Customized training content, ensuring engaging, high-quality, & culturally relevant materials.",
+        "Customized training content, ensuring engaging, high-quality, and culturally relevant materials.",
       icon: null,
     },
     {
-      title: "Ready Solutions & Resources",
+      title: "Ready Solutions and Resources",
       description:
         "Accelerate learning with customizable, expert content, compatible with LMS platforms.",
       icon: null,
@@ -277,7 +277,7 @@ const eLearning = {
       img: "/digital-learning/content-solution/CustomContentSolutions.webp",
       alt: "Custom Content Solutions",
       description:
-        "We create tailored training content that meets your specific needs, from instructional design to localization. Our 3-step approach ensures engaging, high-quality & culturally relevant learning materials for any audience.",
+        "We create tailored training content that meets your specific needs, from instructional design to localization. Our 3-step approach ensures engaging, high-quality and culturally relevant learning materials for any audience.",
       stats: [
         { title: "3 step Approach" },
         { title: "Content Creation" },
@@ -285,12 +285,12 @@ const eLearning = {
       ],
     },
     ready: {
-      buttonSubTitle: "Ready Solutions & Resources",
-      title: "Ready Solutions & Resources",
+      buttonSubTitle: "Ready Solutions and Resources",
+      title: "Ready Solutions and Resources",
       img: "/digital-learning/content-solution/Readysolutionsandresources.webp",
-      alt: "Ready Solutions & Resources",
+      alt: "Ready Solutions and Resources",
       description:
-        "Accelerate your learning initiatives with our pre-built, customizable content library. Designed by industry experts & ready for immediate deployment, our resources are fully compatible with major LMS platforms.",
+        "Accelerate your learning initiatives with our pre-built, customizable content library. Designed by industry experts and ready for immediate deployment, our resources are fully compatible with major LMS platforms.",
       stats: [{ title: "Library Preview" }, { title: "Talent Augmentation" }],
     },
   },
@@ -304,7 +304,7 @@ const customELearningSolutionDeepDive = {
     {
       subTitle: "Level 1",
       description:
-        "Basic text, images, & voice with minor interactive animations & visual enhancements.",
+        "Basic text, images, and voice with minor interactive animations and visual enhancements.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 1.webp",
       videoSrc:
         "https://360.articulate.com/review/content/86f66826-278f-4400-b6c4-829f0833272b/review",
@@ -312,7 +312,7 @@ const customELearningSolutionDeepDive = {
     },
     {
       subTitle: "Level 2",
-      description: "Enhanced graphics & animations with interactive quizzes.",
+      description: "Enhanced graphics and animations with interactive quizzes.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 2.webp",
       videoSrc:
         "https://360.articulate.com/review/content/d6db3a2f-2051-4488-9efe-d7907bce4663/review",
@@ -321,7 +321,7 @@ const customELearningSolutionDeepDive = {
     {
       subTitle: "Level 3",
       description:
-        "2D animations, branching scenarios, mini-games, assessments",
+        "2D animations, branching scenarios, mini-games, assessments.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
       videoSrc:
         "https://360.articulate.com/review/content/896d0d5c-001a-42d8-a311-3b9f6148fa4e/review",
@@ -330,7 +330,7 @@ const customELearningSolutionDeepDive = {
     {
       subTitle: "Level 4",
       description:
-        "Rich graphics, custom music & advanced interactive content.",
+        "Rich graphics, custom music and advanced interactive content.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 4.webp",
       videoSrc:
         "https://360.articulate.com/review/content/224d0588-ba86-4680-808f-883ef2648267/review",
@@ -339,7 +339,7 @@ const customELearningSolutionDeepDive = {
   ],
   cta: {
     text: "Need something totally ready to deploy?",
-    buttonText: "View Ready Solutions & Resources",
+    buttonText: "View Ready Solutions and Resources",
     buttonLink: "solutions-and-resources",
   },
 };
@@ -354,7 +354,7 @@ const serviceOfferingsData = {
       title: "Learning Experts",
       subTitle: "",
       description:
-        "Skilled professionals who design, develop, & analyze effective learning experiences.",
+        "Skilled professionals who design, develop, and analyze effective learning experiences.",
       featured: true,
       icon: "/digital-learning/content-design/content-design/talent/1.svg",
     },
@@ -362,7 +362,7 @@ const serviceOfferingsData = {
       title: "Trainers Network",
       subTitle: "",
       description:
-        "Certified trainers for virtual, in-person, technical, soft skills, & leadership training.",
+        "Certified trainers for virtual, in-person, technical, soft skills, and leadership training.",
       featured: false,
       icon: "/digital-learning/content-design/content-design/talent/2.svg",
     },
@@ -370,7 +370,7 @@ const serviceOfferingsData = {
       title: "SME expertise",
       subTitle: "",
       description:
-        "Specialists with deep industry, domain, & technical expertise.",
+        "Specialists with deep industry, domain, and technical expertise.",
       featured: false,
       icon: "/digital-learning/content-design/content-design/talent/3.svg",
     },
@@ -419,7 +419,8 @@ const ContentDesign = () => {
         {/* Toggle Buttons */}
         <div
           id="solutions-and-resources"
-          className="flex justify-center gap-2 mb-8">
+          className="flex justify-center gap-2 mb-8"
+        >
           {tabs.map(({ key, buttonLabel }) => (
             <button
               key={key}
@@ -428,7 +429,8 @@ const ContentDesign = () => {
                 activeTab === key
                   ? "bg-[#F0B8B8] text-gray-800"
                   : "bg-white text-gray-600 hover:bg-pink-100"
-              }`}>
+              }`}
+            >
               {buttonLabel}
             </button>
           ))}
@@ -470,7 +472,8 @@ const ContentDesign = () => {
                   }}
                   size="sm"
                   variant="secondary"
-                  className="">
+                  className=""
+                >
                   View Custom Content Solutions
                 </Button>
               </div>

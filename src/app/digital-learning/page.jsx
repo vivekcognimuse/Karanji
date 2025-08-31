@@ -1,9 +1,11 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
+import Accordion from "@/sections/digital-learning/Accordian";
 import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import TechnologyServices from "@/sections/service/Service";
+import { Icon } from "lucide-react";
 import Head from "next/head";
 import React from "react";
 
@@ -44,7 +46,7 @@ const technologyServicesData = {
 
       image: "/digital-learning/service/1.webp",
       description:
-        "Transforming learning experiences through expert content design, development, & talent resources",
+        "Transforming learning experiences through expert content design, development, & talent resources.",
       list: [
         { text: "Custom eLearning modules" },
         { text: "Microlearning formats" },
@@ -76,7 +78,7 @@ const technologyServicesData = {
       number: "03",
       image: "/digital-learning/service/3.webp",
       description:
-        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences.",
       list: [
         { text: "Learning Data Management" },
         { text: "Custom Dashboards" },
@@ -136,10 +138,10 @@ const methodologyData = {
 // successStoriesData.js
 
 const successStoriesData = {
-  title: "Entertainment Services Success Stories",
+  title: "Digital Learning Success Stories",
   tag: "technology Solutions",
   description:
-    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
+    "Real-world examples highlight the impact of our digital learning solutions. Explore case studies showcasing enhanced learner engagement, improved training efficiency, and measurable performance growth across organizations.",
   cards: [
     {
       title: "Corporate Learning & Development Teams ",
@@ -209,6 +211,49 @@ export const metadata = {
     "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
 };
 
+const consultancyFramework = [
+  {
+    icon: "/digital-learning/accordian/1.svg",
+    title: "Understanding Complex Training Landscape",
+    description: [
+      "Analysis: Gap & maturity level assessment",
+      "Engagement: Surveys, workshops, interviews",
+      "Feedback: Employee & customer insights",
+      "Outcome: Identified needs & opportunities",
+    ],
+  },
+  {
+    icon: "/digital-learning/accordian/2.svg",
+    title: "Measuring, Monitoring, & Improving",
+    description: [
+      "Analysis: Define KPIs & baseline",
+      "Engagement: AI-based dashboards & monitoring",
+      "Feedback: Insights from learners & stakeholders",
+      "Outcome: Continuous improvement plan",
+    ],
+  },
+  {
+    icon: "/digital-learning/accordian/3.svg",
+    title: "Mapping Training Needs to Right Strategy",
+    description: [
+      "Analysis: Strategy alignment with training needs",
+      "Engagement: Development of training programs",
+      "Feedback: Budget, ROI, timeline, recommendations",
+      "Outcome: Strategic plan for addressing gaps",
+    ],
+  },
+  {
+    icon: "/digital-learning/accordian/4.svg",
+    title: "Integrating Technology, Processes, Systems",
+    description: [
+      "Analysis: Evaluation of current systems, workflows",
+      "Engagement: Implementation of technologies, methods",
+      "Feedback: Insights from trainers & SMEs",
+      "Outcome: A connected, efficient training ecosystem",
+    ],
+  },
+];
+
 const DigitalLearning = () => {
   return (
     <main className="w-full   max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
@@ -222,7 +267,7 @@ const DigitalLearning = () => {
           />
         </div>
         <EcoSystem />
-        <ConsultancyFramework />
+        <ConsultancyFramework data={consultancyFramework} />
         <Methodology column={true} data={methodologyData} />{" "}
         <SuccessStories data={successStoriesData} />
       </div>

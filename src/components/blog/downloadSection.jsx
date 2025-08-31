@@ -90,10 +90,7 @@ const DownloadSection = ({
 
       {/* Download box or form - constrained to content width */}
       {!isModalOpen ? (
-        <div
-          className="p-6 shadow-sm rounded-md border border-black/20 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
-          onClick={openModal}
-        >
+        <div className="p-6 shadow-sm rounded-md border border-black/20 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4  hover:bg-gray-50 transition-colors duration-200">
           <div className="text-black-500 leading-relaxed flex-1">
             {audienceNote && <P3 className="mb-2">{audienceNote}</P3>}
             {encouragementNote && <P3 className="mt-1">{encouragementNote}</P3>}

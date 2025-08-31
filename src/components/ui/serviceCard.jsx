@@ -45,6 +45,7 @@ export const ServiceCard = memo(function ServiceCard({
               key={i + service.title}
               data={service}
               index={i}
+              image={service.image}
               data-reveal
               data-reveal-dir={dirForIndex(i)}
               className="w-full opacity-100" // ensure visible in slides
@@ -176,8 +177,6 @@ const SingleServiceCard = memo(function SingleServiceCard({
           </div>
 
           <div className="flex justify-end items-center gap-2.5">
-            {" "}
-            <P1 className="">{index + 1}</P1>
             <button className="w-12 h-12 p-2 rounded-full border-2 border-slate-400 backdrop-blur-sm flex items-center justify-center hover:bg-slate-100 transition-colors">
               <Icon
                 icon="pepicons-pencil:arrow-up-right"

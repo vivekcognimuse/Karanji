@@ -25,7 +25,7 @@ const Card = ({ resource, className }) => {
           fill
           className="object-cover object-center aspect-square group-hover:scale-105 transition-transform duration-300"
         />
-        <span className="absolute top-3 left-3 bg-white/90 text-black-950 text-xs px-3 py-1 rounded-full font-medium">
+        <span className="absolute top-3 left-3 bg-white/90 text-black-950 text-xs px-3 py-1 rounded-full font-medium border border-black-100">
           {resource.domain}
         </span>
       </div>
