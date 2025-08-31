@@ -12,7 +12,7 @@ import LogoAnimation from "@/components/LogoAnimation";
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
   description:
-    "Discover the significant impact of Karanji’s innovative solutions. Our metrics showcase how we drive efficiency & savings for our clients. Join us in transforming challenges into opportunities for growth.",
+    "Discover the significant impact of Karanji’s innovative solutions. Our metrics showcase how we drive efficiency and savings for our clients. Join us in transforming challenges into opportunities for growth.",
   cards: [
     {
       title: "Corporate Learning & Development Teams ",
@@ -21,13 +21,13 @@ const successStoriesData = {
         { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
-        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+        "Gamified, branching e-learning modules for a banking L&D team, built sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent - and the project was delivered on time.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "10",
-      tag: "Digital Learning",
+      tag: "Digital Learning",  
     },
     {
-      title: "Driving School & Training Module",
+      title: "Driving School and Training Module",              
       stats: [
         { title: "6", subTitle: "Crafted Modules" },
         { title: "100%", subTitle: "Client Satisfaction" },
@@ -111,7 +111,7 @@ const successStoriesData = {
 const technologyServicesData = {
   title: "Our Solutions",
   description:
-    "Discover how Karanji's unique integration of technologies, creative services, & learning expertise creates powerful solutions greater than the sum of their parts.",
+    "Discover how Karanji's unique integration of technologies, creative services, and learning expertise creates powerful solutions greater than the sum of their parts.",
   cards: [
     {
       id: 1,
@@ -120,7 +120,7 @@ const technologyServicesData = {
 
       image: "/home/technology.jpg",
       description:
-        "Transforming learning experiences through expert content design, development, & talent resources",
+        "Transforming learning experiences through expert content design, development, and talent resources",
       list: [
         { text: "Custom eLearning modules" },
         { text: "Microlearning formats" },
@@ -152,7 +152,7 @@ const technologyServicesData = {
       number: "03",
       image: "/home/creative_services.webp",
       description:
-        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences",
+        "Make data-driven decisions to enhance learner success through actionable insights and personalized experiences",
       list: [
         { text: "Learning Data Management" },
         { text: "Custom Dashboards" },

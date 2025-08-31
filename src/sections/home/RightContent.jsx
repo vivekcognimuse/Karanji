@@ -9,7 +9,7 @@ const contentDataRight = {
     bgImage: "/home/4a4b75f1bb78bb49dedd9594cf6151ba117329c3.png",
     description: (
       <span>
-        Where <strong> Creative Learninge</strong> meets{" "}
+        Where <strong> Creative Learning</strong> meets{" "}
         <strong>Immersive Tech</strong>
       </span>
     ),
@@ -20,7 +20,7 @@ const contentDataRight = {
     bgImage: "/home/68ca4dd5e9e1ae775f7ba7bc8669ce2063c77d1f.png",
     description: (
       <span>
-        Where <strong> Creative Learninge</strong> meets{" "}
+        Where <strong> Creative Learning</strong> meets{" "}
         <strong>Creative Learning</strong>
       </span>
     ),

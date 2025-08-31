@@ -70,14 +70,14 @@ const avatarData = {
   ],
 };
 const sectionData = {
-  heading: "Real Impact & Results",
+  heading: "Real Impact and Results",
   description:
-    "Our digital avatars deliver measurable business value through intelligent automation & enhanced customer engagement.",
+    "Our digital avatars deliver measurable business value through intelligent automation and enhanced customer engagement.",
   impactItems: [
     {
       title: "30% Calendar Time Saved",
       subTitle:
-        "Freed up 30% of the weekly calendar & increased partner engagement.",
+        "Freed up 30% of the weekly calendar and increased partner engagement.",
     },
     {
       title: "Engagement Increase",
@@ -87,13 +87,13 @@ const sectionData = {
     {
       title: "24/7 Problem Solving",
       subTitle:
-        "Helps our team understand & solve AI implementation challenges continuously.",
+        "Helps our team understand and solve AI implementation challenges continuously.",
     },
   ],
 };
 export const metadata = {
   title:
-    "Meet Our Digital Avatars: AI-Powered Clones for 24/7 Customer Support & Guidance",
+    "Meet Our Digital Avatars: AI-Powered Clones for 24/7 Customer Support and Guidance",
   description:
     "Experience Karanji's digital avatars—AI-powered clones of our experts offering multilingual, 24/7 support. Explore services, get personalized guidance, and enhance engagement.",
 };

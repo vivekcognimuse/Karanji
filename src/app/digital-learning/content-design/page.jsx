@@ -26,7 +26,7 @@ const tabs = [
 const heroData = {
   title: "Content Design & Development Solutions",
   subTitle:
-    " Transforming learning experiences through expert content design, development, & talent resources",
+    " Transforming learning experiences through expert content design, development, & talent resources.",
   ctaText: "Explore Our Solutions",
   ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
@@ -251,7 +251,7 @@ const contentFormatsData = {
 const learningChallenges = {
   title: "Custom E-Learning Solutions",
   subTitle:
-    "Transform Your Learning Initiatives with Tailored Content & Expert Resources",
+    "Transform Your Learning Initiatives with Tailored Content & Expert Resources.",
   challenges: [
     {
       title: "Custom Content Solutions",
@@ -321,7 +321,7 @@ const customELearningSolutionDeepDive = {
     {
       subTitle: "Level 3",
       description:
-        "2D animations, branching scenarios, mini-games, assessments",
+        "2D animations, branching scenarios, mini-games, assessments.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
       videoSrc:
         "https://360.articulate.com/review/content/896d0d5c-001a-42d8-a311-3b9f6148fa4e/review",
@@ -419,7 +419,8 @@ const ContentDesign = () => {
         {/* Toggle Buttons */}
         <div
           id="solutions-and-resources"
-          className="flex justify-center gap-2 mb-8">
+          className="flex justify-center gap-2 mb-8"
+        >
           {tabs.map(({ key, buttonLabel }) => (
             <button
               key={key}
@@ -428,7 +429,8 @@ const ContentDesign = () => {
                 activeTab === key
                   ? "bg-[#F0B8B8] text-gray-800"
                   : "bg-white text-gray-600 hover:bg-pink-100"
-              }`}>
+              }`}
+            >
               {buttonLabel}
             </button>
           ))}
@@ -470,7 +472,8 @@ const ContentDesign = () => {
                   }}
                   size="sm"
                   variant="secondary"
-                  className="">
+                  className=""
+                >
                   View Custom Content Solutions
                 </Button>
               </div>

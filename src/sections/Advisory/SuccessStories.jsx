@@ -26,7 +26,8 @@ export default function SuccessStories({ data }) {
           autoPlayInterval={7000}
           showDots={true}
           showArrows={true}
-          className=" mx-auto  ">
+          className=" mx-auto  "
+        >
           {cards.map((card, index) => (
             <TestimonialCard key={index} testimonial={card} />
           ))}

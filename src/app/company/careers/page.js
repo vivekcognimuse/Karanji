@@ -19,7 +19,7 @@ const teamData = {
 const sectionData = {
   title: "Why Work With Us?",
   description:
-    "Join a company where creativity meets cutting-edge technology. At Karanji, we blend innovation, collaboration, & personal growth to shape the future of learning, entertainment, & AI-driven solutions. We're not just building products – we're building meaningful experiences, & it all starts with our people.",
+    "Join a company where creativity meets cutting-edge technology. At Karanji, we blend innovation, collaboration, and personal growth to shape the future of learning, entertainment, and AI-driven solutions. We're not just building products – we're building meaningful experiences, and it all starts with our people.",
 };
 
 const cardsData = [
@@ -27,7 +27,7 @@ const cardsData = [
     icon: "/Company/Team/icons/culture.svg",
     title: "Culture",
     description:
-      "We foster a collaborative environment built on trust & innovation.",
+      "We foster a collaborative environment built on trust and innovation.",
     image: "/Company/Culture.webp",
   },
   {

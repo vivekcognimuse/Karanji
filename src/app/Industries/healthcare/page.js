@@ -222,7 +222,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Surgical Training Platform",
       description:
-        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities",
+        "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -232,7 +232,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Patient Education VR",
       description:
-        "4 in 10 patients face affordability & understanding gaps: poor treatment compliance",
+        "4 in 10 patients face affordability & understanding gaps: poor treatment compliance.",
       duration: "12–18 months",
       complexity: "Low Complexity",
     },
@@ -242,7 +242,7 @@ const strategicUseCaseData = {
       category: "XR & Gaming",
       title: "Remote Consultation Platform",
       description:
-        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care",
+        "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care.",
       duration: "18–24 months",
       complexity: "High Complexity",
     },
@@ -252,7 +252,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "AI Readiness Assessment",
       description:
-        "77% prioritize AI but lack a strategic framework for effective, scalable implementation",
+        "77% prioritize AI but lack a strategic framework for effective, scalable implementation.",
       duration: "12–18 months",
       complexity: "Medium Complexity",
     },
@@ -262,7 +262,7 @@ const strategicUseCaseData = {
       category: "AI Advisory",
       title: "Revenue Cycle Optimization",
       description:
-        "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency",
+        "15 cents lost per dollar; current systems lack predictive AI for denial prevention & efficiency.",
       duration: "6–12 months",
       complexity: "Medium Complexity",
     },

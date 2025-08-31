@@ -6,7 +6,7 @@ import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 const heroData = {
-  title: "Driving Digital Transformation inGlobal Logistics",
+  title: "Driving Digital Transformation in Global Logistics",
   subTitle:
     "From AI-driven compliance & training software to predictive maintenance & digital twins for operations-empower your workforce & streamline logistics.",
   ctaText: "Explore the Strategic Priorities",
