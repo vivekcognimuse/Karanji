@@ -41,7 +41,7 @@ const cardsData = [
     icon: "/Company/Team/icons/growth.svg",
     title: "Growth",
     description:
-      "Opportunities for advancement & career paths based on performance.",
+      "Opportunities for advancement and career paths based on performance.",
     image: "/Company/growth.webp",
   },
 ];
@@ -55,7 +55,7 @@ const ctaData = {
     "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
 };
 export const metadata = {
-  title: "Careers at Karanji: Join Our AI, VR & Digital Learning Innovation Team",
+  title: "Careers at Karanji: Join Our AI, VR and Digital Learning Innovation Team",
   description:
     "Build your career with Karanji's innovative team. Explore opportunities in AI development, VR programming, instructional design, and shape the future of technology and learning.",
 }

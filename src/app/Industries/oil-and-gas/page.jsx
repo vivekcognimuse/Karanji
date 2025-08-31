@@ -7,9 +7,9 @@ import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
 const heroData = {
-  title: "Digital Evolution in Oil & Gas",
+  title: "Digital Evolution in Oil and Gas",
   subTitle:
-    "Accelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, & Resilience Across the Energy Value Chain",
+    "Accelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, and Resilience Across the Energy Value Chain",
   ctaText: "Explore the Transformation Landscape",
   ctaLink: "digital-transformation",
   stats: [
@@ -28,17 +28,17 @@ const heroData = {
   ],
 };
 const ctaData = {
-  title: "Ready to power the future of oil & gas?",
+  title: "Ready to power the future of oil and gas?",
   description:
-    "  To know more about these cases or discuss any other requirement for transformation of Oil & gas",
+    "  To know more about these cases or discuss any other requirement for transformation of Oil and gas",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
 const industryData = {
-  title: "Industry Challenges & Landscape",
+  title: "Industry Challenges and Landscape",
   tag: "Overview",
   subTitle:
-    "The oil & gas sector is undergoing rapid disruption from price volatility & environmental pressures to workforce & infrastructure challenges. To stay competitive, companies are turning to digital solutions like AI-driven maintenance, emissions tracking, & immersive training. The future of energy is data-powered, automated, & built for resilience.",
+    "The oil and gas sector is undergoing rapid disruption from price volatility and environmental pressures to workforce and infrastructure challenges. To stay competitive, companies are turning to digital solutions like AI-driven maintenance, emissions tracking, and immersive training. The future of energy is data-powered, automated, and built for resilience.",
   heroImage: "/Industries & its pages/Oil and gas/Oil and gas image image.webp",
   featureHeader: "Top Challenges",
   features: [
@@ -46,7 +46,7 @@ const industryData = {
       icon: "/Industries & its pages/Aviation/regulation_15546710 1.svg", // Replace with appropriate icon path
       title: "Market Dynamics",
       description:
-        "Price volatility, market divergence, & supply chain pressures.",
+        "Price volatility, market divergence, and supply chain pressures.",
     },
     {
       icon: "/Industries & its pages/Aviation/stock-market_9610148 1.svg", // Replace with appropriate icon path
@@ -73,9 +73,9 @@ const strategicPrioritiesData = {
   topRowCards: [
     {
       id: 1,
-      title: "AI & Analytics",
+      title: "AI and Analytics",
       subTitle:
-        "Predictive maintenance, production optimization, & intelligent exploration solutions",
+        "Predictive maintenance, production optimization, and intelligent exploration solutions",
       number: "+18%",
       metric: "Equipment Uptime",
     },
@@ -83,7 +83,7 @@ const strategicPrioritiesData = {
       id: 2,
       title: "Learning Tech",
       subTitle:
-        "VR safety training, AR-assisted maintenance, & digital learning ecosystems",
+        "VR safety training, AR-assisted maintenance, and digital learning ecosystems",
       number: "40%",
       metric: "Faster Competency",
     },
@@ -91,7 +91,7 @@ const strategicPrioritiesData = {
       id: 3,
       title: "Asset Optimization",
       subTitle:
-        "Digital twins, predictive maintenance, & condition-based monitoring",
+        "Digital twins, predictive maintenance, and condition-based monitoring",
       number: "$4.2M",
       metric: "Annual Savings",
     },
@@ -101,7 +101,7 @@ const strategicPrioritiesData = {
       id: 1,
       title: "Environmental",
       subTitle:
-        "Emissions monitoring, ESG analytics, & regulatory compliance platforms",
+        "Emissions monitoring, ESG analytics, and regulatory compliance platforms",
       number: "65%",
       metric: "Reporting Efficiency",
     },
@@ -109,14 +109,14 @@ const strategicPrioritiesData = {
       id: 2,
       title: "Knowledge Management",
       subTitle:
-        "Expertise capture, collaborative platforms, & knowledge transfer systems",
+        "Expertise capture, collaborative platforms, and knowledge transfer systems",
       number: "200+",
       metric: "Videos in 6 Months",
     },
     {
       id: 3,
       title: "Implementation",
-      subTitle: "Strategy development, change management, & ROI measurement",
+      subTitle: "Strategy development, change management, and ROI measurement",
       number: "8-12",
       metric: "Week Implementation",
     },
@@ -124,12 +124,12 @@ const strategicPrioritiesData = {
 };
 
 const strategicUseCaseData = {
-  sectionTitle: "Strategic Use Cases & Implementation",
+  sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription: "AI-Powered Solutions Transforming the Energy Industry",
   filterButtons: [
     { label: "All", active: true },
     { label: "AI Implementation", active: false },
-    { label: "Immersive Technologies & Digital Learning", active: false },
+    { label: "Immersive Technologies and Digital Learning", active: false },
   ],
   categoryMapping: {
     "AI Implementation": "AI Implementation",
@@ -143,7 +143,7 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "Predictive Maintenance for Critical Equipment",
       description:
-        "Reduces downtime by 45% & maintenance costs by 30% using AI-based anomaly detection & IoT sensors.",
+        "Reduces downtime by 45% and maintenance costs by 30% using AI-based anomaly detection and IoT sensors.",
     },
     {
       id: 2,
@@ -151,7 +151,7 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "Production Rate Optimization",
       description:
-        "Increases production by 6% & drives $3.2M in revenue annually through LSTM-based forecasting.",
+        "Increases production by 6% and drives $3.2M in revenue annually through LSTM-based forecasting.",
     },
     {
       id: 3,
@@ -159,7 +159,7 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "Automated Seismic Interpretation",
       description:
-        "Boosts mapping accuracy by 90% & reduces interpretation time by 75% using GANs & deep learning.",
+        "Boosts mapping accuracy by 90% and reduces interpretation time by 75% using GANs and deep learning.",
     },
     {
       id: 4,
@@ -167,7 +167,7 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "Drilling Parameter Advisor",
       description:
-        "Lowers drilling time by 15% through AI-driven parameter optimization using historical & real-time data.",
+        "Lowers drilling time by 15% through AI-driven parameter optimization using historical and real-time data.",
     },
     {
       id: 5,
@@ -175,7 +175,7 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "AI-Powered Emissions Monitoring",
       description:
-        "Delivers 95% accuracy & real-time visibility using computer vision & machine learning.",
+        "Delivers 95% accuracy and real-time visibility using computer vision and machine learning.",
     },
     {
       id: 6,
@@ -183,15 +183,15 @@ const strategicUseCaseData = {
       category: "AI Implementation",
       title: "Digital Performance Support System (AI RAG Model)",
       description:
-        "Reduces info retrieval time by 60% & boosts SOP usage by 300% using retrieval-augmented generation.",
+        "Reduces info retrieval time by 60% and boosts SOP usage by 300% using retrieval-augmented generation.",
     },
     {
       id: 7,
       icon: "Icons/ai-icon.svg",
       category: "AI Implementation",
-      title: "ESG Performance Analytics & Reporting",
+      title: "ESG Performance Analytics and Reporting",
       description:
-        "Reduces ESG reporting time from 6 weeks to 2 days using AI-powered automation & data pipelines.",
+        "Reduces ESG reporting time from 6 weeks to 2 days using AI-powered automation and data pipelines.",
     },
     {
       id: 8,
@@ -199,7 +199,7 @@ const strategicUseCaseData = {
       category: "Immersive Tech & Digital Learning",
       title: "VR Safety Training Simulations",
       description:
-        "Increases retention by 28% & speeds competency by 40% with immersive, scenario-based simulations.",
+        "Increases retention by 28% and speeds competency by 40% with immersive, scenario-based simulations.",
     },
     {
       id: 9,
@@ -207,7 +207,7 @@ const strategicUseCaseData = {
       category: "Immersive Tech & Digital Learning",
       title: "Peer Learning Video Platform",
       description:
-        "Accelerates onboarding & preserves expertise through AI-tagged training videos & avatar-based learning.",
+        "Accelerates onboarding and preserves expertise through AI-tagged training videos and avatar-based learning.",
     },
     {
       id: 10,
@@ -215,7 +215,7 @@ const strategicUseCaseData = {
       category: "Immersive Tech & Digital Learning",
       title: "Collaborative Virtual Design Environment",
       description:
-        "Reduces design rework & speeds iteration using real-time VR collaboration & simulation tools.",
+        "Reduces design rework and speeds iteration using real-time VR collaboration and simulation tools.",
     },
     {
       id: 11,
@@ -223,14 +223,14 @@ const strategicUseCaseData = {
       category: "Immersive Tech & Digital Learning",
       title: "Augmented Reality Maintenance Support",
       description:
-        "Cuts error rates by 60% & reduces travel by 80% with AR-based remote guidance.",
+        "Cuts error rates by 60% and reduces travel by 80% with AR-based remote guidance.",
     },
   ],
 };
 
 const digitalTransformationData = {
   sectionTitle: "Digital Transformation Landscape",
-  sectionSubtitle: "Transforming Oil & Gas with Smart Digital Technologies",
+  sectionSubtitle: "Transforming Oil and Gas with Smart Digital Technologies",
   digitalCards: [
     {
       id: 1,
@@ -246,7 +246,7 @@ const digitalTransformationData = {
     },
     {
       id: 3,
-      title: "Data & Analytics",
+      title: "Data and Analytics",
       icon: "/Industries & its pages/Oil and gas/Increase.svg", // Replace with your icon path
       points: ["Advanced Analytics", "Machine Learning", "Edge Computing"],
     },
@@ -260,9 +260,9 @@ const digitalTransformationData = {
 };
 export const metadata = {
   title:
-    "Oil & Gas Digital Transformation: AI, VR Training & Predictive Maintenance Solutions",
+    "Oil and Gas Digital Transformation: AI, VR Training and Predictive Maintenance Solutions",
   description:
-    "Accelerate digital transformation in Oil & Gas with AI-driven predictive maintenance, VR safety training, and digital twin solutions. Boost operational excellence, reduce costs, and enhance efficiency.",
+    "Accelerate digital transformation in Oil and Gas with AI-driven predictive maintenance, VR safety training, and digital twin solutions. Boost operational excellence, reduce costs, and enhance efficiency.",
 };
 export default async function Aviation() {
   return (
