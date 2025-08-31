@@ -218,7 +218,7 @@ const accordionData = {
 };
 
 const CTAData = {
-  title: "Ready to create an unforgettable event ?",
+  title: "Ready to create an unforgettable event?",
   description:
     "Let’s bring your vision to life with expert coordination—from creative design to flawless execution.",
   PrimaryButtonText: "Schedule a Consultation",

@@ -32,7 +32,7 @@ export default function Results({ data = {} }) {
           alt="Descriptive Alt Text"
           width={1360}
           height={317}
-          className="object-contain w-full lg:max-w-lg h-auto"
+          className="object-contain w-full lg:max-w-xl h-auto"
         />
       </div>
 

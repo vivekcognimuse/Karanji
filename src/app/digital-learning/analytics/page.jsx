@@ -63,7 +63,7 @@ const lmsLearningData = {
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
   subTitle:
-    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes",
+    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
   tag: "Who Benefits",
   cards: [
     {

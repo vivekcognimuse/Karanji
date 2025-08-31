@@ -73,8 +73,8 @@ const LogoAnimation = () => {
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: "+=3000",
-        scrub: 1,
+        end: "+=6000",
+        scrub: 0.3,
         pin: true,
         anticipatePin: 1,
         pinSpacing: true,
@@ -172,12 +172,11 @@ const LogoAnimation = () => {
     <div>
       <div
         ref={containerRef}
-        className="h-screen flex flex-col items-center justify-center relative overflow-hidden"
-      >
+        className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
         {/* Logo Animation Section */}
-        <div className="flex items-center justify-center relative z-10 flex-1 md:pt-28">
+        <div className="flex items-center justify-center relative z-10 flex-1 ">
           <PieChartLogo
             logoRef={logoRef}
             section1Ref={section1Ref}
@@ -188,7 +187,7 @@ const LogoAnimation = () => {
         </div>
 
         {/* Quote Content - appears after logo animation */}
-        <div ref={quoteContentRef} className="w-full pb-24 md:pb-28">
+        <div ref={quoteContentRef} className="w-full opacity-0 pb-24 md:pb-28">
           <div className="mx-auto px-4 md:px-8">
             {/* Quote Icon */}
             <div className="mb-8 flex justify-start">
@@ -204,7 +203,7 @@ const LogoAnimation = () => {
 
             {/* Main Heading */}
             <div className="text-center">
-              <h2 className="text-black text-nowrap">
+              <h2 className="text-black lg:text-nowrap">
                 Innovate. Design. Transform.
               </h2>
             </div>

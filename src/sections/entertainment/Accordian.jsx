@@ -10,7 +10,7 @@ const Accordion = ({ data }) => {
     <>
       <div className="">
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-16 ">
           <h3 className=" mb-4">{title}</h3>
           {subTitle && <P2 className="">{subTitle}</P2>}
         </div>
@@ -20,8 +20,7 @@ const Accordion = ({ data }) => {
           {questions.map((item, index) => (
             <details
               key={index}
-              className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200"
-            >
+              className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">
               <summary className="accordion-summary w-full px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray[#D3CAFD40]/50 transition-colors duration-200 focus:outline-none focus:ring-2  ">
                 <P1 className="text-gray-900   md:text-base pr-4">
                   {item.question}
@@ -29,10 +28,7 @@ const Accordion = ({ data }) => {
 
                 {/* Custom Chevron */}
                 <div className="accordion-chevron flex-shrink-0 w-5 h-5 text-gray-500">
-                  <Icon
-                    icon="heroicons:chevron-down"
-                    className="w-full h-full"
-                  />
+                  <Icon icon="heroicons:chevron-up" className="w-full h-full" />
                 </div>
               </summary>
 

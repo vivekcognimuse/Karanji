@@ -94,11 +94,7 @@ export const fieldValidators = {
       z
         .string()
         .min(10, "Please provide at least 10 characters about your project")
-        .max(2000, "Project description must not exceed 2000 characters")
-        .refine((value) => {
-          const words = value.split(/\s+/).filter((word) => word.length > 0);
-          return words.length >= 2;
-        }, "Project description must contain at least 2 words")
+        .max(500, "Project description must not exceed 5400 characters")
     ),
 
   phone: z
