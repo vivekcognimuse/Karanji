@@ -102,7 +102,7 @@ const ctaData = {
 };
 const learningChallenges = {
   title: "Learning Challenges",
-  subTitle: "Why Organizations Need Learning Analytics",
+  subTitle: "Why Organizations Need Learning Analytics.",
   challenges: [
     {
       title: "One-Size-Fits-All Approach",

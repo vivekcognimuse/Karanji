@@ -5,21 +5,21 @@ const contentData = {
   1: {
     title: "Immersive AR/VR Experiences",
     description:
-      "Leverages narrative immersion to engage learners emotionally & cognitively within virtual environments.",
+      "Leverages narrative immersion to engage learners emotionally and cognitively within virtual environments.",
 
     buttonLink: "/technology-solutions",
   },
   2: {
     title: "Adaptive Personalized Learnings",
     description:
-      "Learners follow optimized paths powered by intelligent systems tailored to their unique goals & pace.",
+      "Learners follow optimized paths powered by intelligent systems tailored to their unique goals and pace.",
 
     buttonLink: "/digital-learning",
   },
   3: {
-    title: "Intelligent Simulations & Forecasts",
+    title: "Intelligent Simulations and Forecasts",
     description:
-      "Blends experiential learning with AI-driven insights to drive measurable performance & learning outcomes.",
+      "Blends experiential learning with AI-driven insights to drive measurable performance and learning outcomes.",
 
     buttonLink: "/creative-services",
   },
