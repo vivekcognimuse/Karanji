@@ -15,25 +15,28 @@ const TestimonialCard = ({ testimonial }) => {
         </span>
       )}
 
-      <h4 className="mb-8 lg:mb-12 text-2xl ">{testimonial?.title}</h4>
+      <h4 className="mb-8 lg:mb-12 text-xl lg:text-2xl ">
+        {testimonial?.title}
+      </h4>
 
       <div className="flex  flex-col lg:flex-row gap-8  mb-8 lg:mb-12">
         {testimonial?.stats?.map((metric, statsIndex) => (
           <div
             key={statsIndex}
-            className="flex w-full lg:items-start  lg:justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4"
-          >
-            <p className="font-sans my-auto  font-semibold text-2xl md:text-5xl">
+            className="flex w-full lg:items-start   justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4">
+            <p className="font-sans my-auto  font-semibold text-xl md:text-5xl">
               {metric.title}
             </p>
-            <P2 className="text-black text-sm">
+            <p className="text-black  text-xl sm:text-[1.375rem]">
               {metric.subTitle || metric.subTitle}
-            </P2>
+            </p>
           </div>
         ))}
       </div>
 
-      <P2 className="text-black-500 mb-6">{testimonial?.description}</P2>
+      <p className="text-black-500  sm:text-[1.375rem] mb-6">
+        {testimonial?.description}
+      </p>
       <div className="flex justify-end">
         <Link href={"/case-studies/" + (testimonial?.ctaLink || "")}>
           <Button
@@ -41,8 +44,7 @@ const TestimonialCard = ({ testimonial }) => {
               <Icon icon="tabler:arrow-up-right" size={20} className="size-5" />
             }
             className=""
-            variant="text"
-          >
+            variant="text">
             {testimonial?.ctaText || "Read Full CaseStudy"}
           </Button>
         </Link>
