@@ -134,7 +134,7 @@ const strategicUseCaseData = {
   categoryMapping: {
     "AI Implementation": "AI Implementation",
     "Immersive Technologies and Digital Learning":
-      "Immersive Tech & Digital Learning",
+      "Immersive Tech and Digital Learning",
   },
   useCaseCards: [
     {
@@ -196,7 +196,7 @@ const strategicUseCaseData = {
     {
       id: 8,
       icon: "Icons/immersive-tech-icon.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "VR Safety Training Simulations",
       description:
         "Increases retention by 28% and speeds competency by 40% with immersive, scenario-based simulations.",
@@ -204,7 +204,7 @@ const strategicUseCaseData = {
     {
       id: 9,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Peer Learning Video Platform",
       description:
         "Accelerates onboarding and preserves expertise through AI-tagged training videos and avatar-based learning.",
@@ -212,7 +212,7 @@ const strategicUseCaseData = {
     {
       id: 10,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Collaborative Virtual Design Environment",
       description:
         "Reduces design rework and speeds iteration using real-time VR collaboration and simulation tools.",
@@ -220,7 +220,7 @@ const strategicUseCaseData = {
     {
       id: 11,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Augmented Reality Maintenance Support",
       description:
         "Cuts error rates by 60% and reduces travel by 80% with AR-based remote guidance.",
