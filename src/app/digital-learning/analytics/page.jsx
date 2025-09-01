@@ -13,7 +13,7 @@ import Head from "next/head";
 const heroData = {
   title: "Transform Learning Outcomes with Advanced Analytics",
   subTitle:
-    "Make data-driven decisions to enhance learner success through actionable insights and personalized experiences",
+    "Make data-driven decisions to enhance learner success through actionable insights and personalized experiences.",
   ctaText: "Explore Our Approach",
   ctaLink: "analytics-service-offerings", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
@@ -63,7 +63,6 @@ const lmsLearningData = {
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
   subTitle:
-
     "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
 
   tag: "Who Benefits",
