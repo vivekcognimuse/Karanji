@@ -108,6 +108,12 @@ export const NAV_LINKS = [
         description: "Fueling digital innovation & efficiency.",
       },
       {
+        name: "Oil & Gas",
+        href: "/Industries/oil-and-gas",
+        icon: "/nav/oil-gas.png",
+        description: "Fueling digital innovation & efficiency.",
+      },
+      {
         name: "Healthcare",
         href: "/Industries/healthcare",
         icon: "/nav/healthcare.png",
