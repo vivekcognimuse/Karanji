@@ -13,7 +13,7 @@ import React from "react";
 const heroData = {
   title: "Cutting-Edge VFX and Animation Services",
   subTitle:
-    "Bringing extraordinary visions to life with precision and creativity",
+    "Bringing extraordinary visions to life with precision and creativity.",
   ctaText: "Explore Our Services",
   ctaLink: "vfx-service-offerings", // You can change this to the appropriate link for your services page
 
@@ -184,6 +184,7 @@ const successStoriesData = {
   cards: [
     {
       title: "Bringing a Murder Mystery Scene to Life",
+      tag: "Creative Services",
       stats: [
         { title: "70%", subTitle: "Innovation" },
         { title: "0 bugs", subTitle: "Final Delivery" },
@@ -194,6 +195,7 @@ const successStoriesData = {
     },
     {
       title: "Quality Month: Video Animation",
+      tag: "Creative Services",
       stats: [
         { title: "On time", subTitle: "Delivery" },
         { title: "100%", subTitle: "In-house Dubbing" },

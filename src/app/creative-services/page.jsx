@@ -9,7 +9,7 @@ const heroData = {
   title:
     "Elevate your content with professional entertainment production services",
   subTitle:
-    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life",
+    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life.",
   ctaText: "Explore Our Services",
   ctaLink: "entertainment-services", // You can change this to the appropriate link for your services page
 
@@ -127,12 +127,13 @@ const technologyServices = {
 
 const successStoriesData = {
   title: "Entertainment Services Success Stories",
-  tag: "Entertainment Services",
+
   description:
     "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
   cards: [
     {
       title: "Bringing a Murder Mystery Scene to Life",
+      tag: "Creative Services",
       stats: [
         { title: "70%", subTitle: "Innovation" },
         { title: "0 bugs", subTitle: "Final Delivery" },
@@ -143,6 +144,7 @@ const successStoriesData = {
     },
     {
       title: "Quality Month: Video Animation",
+      tag: "Creative Services",
       stats: [
         { title: "On time", subTitle: "Delivery" },
         { title: "100%", subTitle: "In-house Dubbing" },
@@ -153,6 +155,7 @@ const successStoriesData = {
     },
     {
       title: "One-Hour Podcast into a Visually Engaging Experience",
+      tag: "Creative Services",
       stats: [
         { title: "+100%", subTitle: "Improved Video Quality" },
         { title: "1 week", subTitle: "Project Completion" },
@@ -163,6 +166,7 @@ const successStoriesData = {
     },
     {
       title: "Convocation Day School Real Video Project",
+      tag: "Creative Services",
       stats: [
         { title: "95%", subTitle: "Engaging" },
         { title: "100%", subTitle: "Client Satisfaction" },

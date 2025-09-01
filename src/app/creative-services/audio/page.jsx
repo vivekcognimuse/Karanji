@@ -12,7 +12,7 @@ import React from "react";
 const heroData = {
   title: "Professional Audio Podcast and Production",
   subTitle:
-    "Studio-quality sound that elevates your content and engages audiences",
+    "Studio-quality sound that elevates your content and engages audiences.",
   ctaText: "Explore Our Services",
   ctaLink: "audio-service-offerings", // adjust as needed
   backgroundImage: null, // only include if there's a background image provided
@@ -170,6 +170,7 @@ const successStoriesData = {
   cards: [
     {
       title: "One-Hour Podcast into a Visually Engaging Experience",
+      tag: "Creative Services",
       stats: [
         { title: "+100%", subTitle: "Improved Video Quality" },
         { title: "1 week", subTitle: "Project Completion" },

@@ -11,7 +11,8 @@ import React from "react";
 
 const heroData = {
   title: "Event Production and Management",
-  subTitle: "Flawless execution of memorable events from concept to completion",
+  subTitle:
+    "Flawless execution of memorable events from concept to completion.",
   ctaText: "Explore Our Services",
   ctaLink: "event-service-offerings", // Adjust as necessary
   backgroundImage: null, // No visible background image
@@ -173,6 +174,7 @@ const successStoriesData = {
   cards: [
     {
       title: "Convocation Day School Real Video Project",
+      tag: "Creative Services",
       stats: [
         { title: "95%", subTitle: "Engaging" },
         { title: "100%", subTitle: "Client Satisfaction" },
@@ -218,7 +220,7 @@ const accordionData = {
 };
 
 const CTAData = {
-  title: "Ready to create an unforgettable event ?",
+  title: "Ready to create an unforgettable event?",
   description:
     "Let’s bring your vision to life with expert coordination—from creative design to flawless execution.",
   PrimaryButtonText: "Schedule a Consultation",
