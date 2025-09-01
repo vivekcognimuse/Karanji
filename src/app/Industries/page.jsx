@@ -12,7 +12,7 @@ const heroData = {
 const ctaData = {
   title: "Ready to lead the future?",
   description:
-    "Let’s collaborate to bring your next industrial innovation to life with AI, XR, and digital learning ",
+    "Let’s collaborate to bring your next industrial innovation to life with AI, XR, and digital learning.",
   PrimaryButtonText: "Schedule a Consultation",
   PrimaryButtonLink: "/contact",
 };

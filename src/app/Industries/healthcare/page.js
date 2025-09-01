@@ -35,7 +35,7 @@ const heroData = {
 const ctaData = {
   title: "Ready to lead the future of healthcare?",
   description:
-    " To know more about these cases or discuss any other requirement for transformation of Healthcare ",
+    " To know more about these cases or discuss any other requirement for transformation of Healthcare.",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
@@ -113,7 +113,7 @@ const strategicPrioritiesData = {
 };
 const digitalTransformationData = {
   sectionTitle: "Digital Transformation Landscape",
-  sectionSubtitle: "Empowering Healthcare Through Smart Technologies",
+  sectionSubtitle: "Empowering Healthcare Through Smart Technologies.",
   digitalCards: [
     {
       id: 1,
@@ -201,7 +201,7 @@ const strategicRoadmapData = {
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription:
-    "12 validated opportunities with proven market demand and clear ROI pathways",
+    "12 validated opportunities with proven market demand and clear ROI pathways.",
   filterButtons: [
     { label: "All", active: true },
     { label: "XR and Gaming", active: false },
@@ -346,23 +346,23 @@ const strategicFramework = {
   list: [
     {
       title: "Tech-First",
-      description: "AI, VR/AR, digital platforms",
+      description: "AI, VR/AR, digital platforms.",
     },
     {
       title: "Workforce Augmentation",
-      description: "AI workflows, remote learning",
+      description: "AI workflows, remote learning.",
     },
     {
       title: "Patient-Centric",
-      description: "Digital front doors, home-based care ($265B by 2025)",
+      description: "Digital front doors, home-based care ($265B by 2025).",
     },
     {
       title: "Operational Excellence",
-      description: "Cost control, security, quality systems",
+      description: "Cost control, security, quality systems.",
     },
     {
       title: "Regulatory Adaptation",
-      description: "Compliance automation, value-based care models",
+      description: "Compliance automation, value-based care models.",
     },
   ],
 };

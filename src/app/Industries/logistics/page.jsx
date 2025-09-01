@@ -29,7 +29,7 @@ const heroData = {
 const ctaData = {
   title: "Ready to transform the future of logistics?",
   description:
-    " To know more about these cases or discuss any other requirement for transformation of Logistics",
+    " To know more about these cases or discuss any other requirement for transformation of Logistics.",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
@@ -190,7 +190,7 @@ const offering = {
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription:
-    "AI-Powered Solutions Transforming the Logistics Industry",
+    "AI-Powered Solutions Transforming the Logistics Industry.",
   filterButtons: [
     { label: "All", active: true },
     { label: "AI Consulting and Technology Services", active: false },
