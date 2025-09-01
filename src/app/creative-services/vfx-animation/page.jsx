@@ -13,7 +13,7 @@ import React from "react";
 const heroData = {
   title: "Cutting-Edge VFX and Animation Services",
   subTitle:
-    "Bringing extraordinary visions to life with precision and creativity",
+    "Bringing extraordinary visions to life with precision and creativity.",
   ctaText: "Explore Our Services",
   ctaLink: "vfx-service-offerings", // You can change this to the appropriate link for your services page
 
