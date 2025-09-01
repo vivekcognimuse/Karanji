@@ -21,11 +21,11 @@ export default function HeroSection({ data, bgImage }) {
   return (
     <section
       id="hero-section"
-      className={`relative  bg-no-repeat flex flex-col h-fit pt-16 lg:pt-0 md:min-h-[calc(100vh-80px)] bg-top bg-contain`}
+      className={`relative  bg-no-repeat flex flex-col h-fit  pt-16  md:min-h-[calc(100vh-80px)] bg-top bg-contain`}
       style={{
         backgroundImage: `url('${bgImage}')`,
       }}>
-      <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center  max-w-[1580px] lg:mx-auto">
+      <div className="space-y-6 sm:space-y-8 lg:flex-grow   flex flex-col justify-center  max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
           <h1
             className="font-sans text-4xl sm:text-5xl lg:text-[4rem] text-black font-normal mb-4 text-center opacity-0 will-change-transform"
@@ -47,7 +47,7 @@ export default function HeroSection({ data, bgImage }) {
       </div>
 
       {stats?.length > 0 && (
-        <div className="w-full hidden lg:block pb-24 px-4 sm:px-6">
+        <div className="w-full hidden lg:block mt-24 pb-24 px-4 sm:px-6">
           <div className={`gap-4 flex flex-col lg:justify-center lg:flex-row`}>
             {stats.map((card, index) => {
               const isThreeCards = stats.length === 3;
