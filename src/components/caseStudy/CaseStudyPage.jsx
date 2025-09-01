@@ -164,7 +164,7 @@ const CaseStudyPage = ({ data }) => {
               {data.title}
             </h2>
             <P1
-              className="text-black-500 text-base mb-4"
+              className="text-[#333333] text-base mb-4"
               data-reveal
               data-reveal-dir="up"
             >
