@@ -71,13 +71,23 @@ const CaseStudyPage = ({ data }) => {
         );
       case "subheading":
         return (
-          <h5 className="mt-6 mb-2" key={idx} data-reveal data-reveal-dir="up">
+          <h5
+            className="mt-6 text-black-500 mb-2"
+            key={idx}
+            data-reveal
+            data-reveal-dir="up"
+          >
             {section.content}
           </h5>
         );
       case "text":
         return (
-          <P3 className=" mb-4" key={idx} data-reveal data-reveal-dir="up">
+          <P3
+            className="text-black-500 mb-4"
+            key={idx}
+            data-reveal
+            data-reveal-dir="up"
+          >
             {section.content}
           </P3>
         );
