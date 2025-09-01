@@ -15,7 +15,7 @@ const contentDataRight = {
     ),
   },
   2: {
-    title: "Adaptive & Personalized Learning",
+    title: "Adaptive and Personalized Learning",
     link: "/digital-learning",
     bgImage: "/home/68ca4dd5e9e1ae775f7ba7bc8669ce2063c77d1f.png",
     description: (
@@ -26,7 +26,7 @@ const contentDataRight = {
     ),
   },
   3: {
-    title: "Intelligent Simulations & Real Time Analytics",
+    title: "Intelligent Simulations and Real Time Analytics",
     link: "/creative-services",
     bgImage: "/home/5d900e531beab307f837ab2fe6f6ea7976fb7b0f.png",
     description: (
