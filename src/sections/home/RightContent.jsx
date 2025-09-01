@@ -21,7 +21,7 @@ const contentDataRight = {
     description: (
       <span>
         Where <strong> Creative Learning</strong> meets{" "}
-        <strong>Creative Learning</strong>
+        <strong>AI Innovation</strong>
       </span>
     ),
   },
@@ -32,7 +32,7 @@ const contentDataRight = {
     description: (
       <span>
         Where <strong> Immersive Tech </strong> meets{" "}
-        <strong>Innovation</strong>
+        <strong>AI Innovation</strong>
       </span>
     ),
   },
