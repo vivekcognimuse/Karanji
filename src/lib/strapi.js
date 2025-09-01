@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Default populate
-    revalidate = 3600, // No revalidate by default (pure SSG)
+        revalidate = 3600, // 3600 seconds = 60 minutes = 1 hour
   } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
