@@ -5,6 +5,7 @@ import { P2, P3 } from "@/components/CustomTags";
 import { gsap } from "gsap";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+
 const IndustryCard = ({ card, index }) => {
   const cardRef = useRef(null);
   const frontContentRef = useRef(null);
@@ -78,9 +79,8 @@ const IndustryCard = ({ card, index }) => {
   return (
     <div
       ref={cardRef}
-      className="relative rounded-2xl flex flex-col p-4 bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
+      className="relative rounded-2xl flex flex-col bg-cover bg-bottom bg-no-repeat shadow-md border border-gray-300 hover:shadow-lg transition-shadow duration-200 overflow-hidden"
       style={{
-        Height: "300px",
         maxWidth: "320px", // Set max width of the card to 320px
         background: `url('/gradients/offering-card-gradient.svg')`,
       }}
@@ -89,29 +89,35 @@ const IndustryCard = ({ card, index }) => {
     >
       {/* Front Content - Default State */}
       <div ref={frontContentRef} className="relative z-10 flex flex-col h-full">
-        <div className="mb-4 w-16 h-16 flex items-center justify-center">
+        {/* Content with padding */}
+        <div className="p-4 flex-shrink-0">
+          <div className="mb-4 w-16 h-16 flex items-center justify-center">
+            <Image
+              src={icon}
+              alt={`${title} icon`}
+              width={48}
+              height={48}
+              className="object-contain"
+            />
+          </div>
+
+          <h4 className="mb-2">{title}</h4>
+          <div className="h-1">
+            <P2 className="text-gray-600 line-clamp-2">{subTitle}</P2>
+          </div>
+        </div>
+
+        {/* Main Image - No padding, fills remaining space */}
+        <div className="flex-1 flex items-end">
           <Image
-            src={icon}
+            src={img}
             alt={`${title} icon`}
             width={48}
             height={48}
-            className="object-contain"
+            unoptimized
+            className="object-cover w-full h-auto rounded-b-2xl"
           />
         </div>
-
-        <h4 className="mb-2">{title}</h4>
-        <div className="h-1">
-          <P2 className="text-gray-600 line-clamp-2">{subTitle}</P2>
-        </div>
-
-        <Image
-          src={img}
-          alt={`${title} icon`}
-          width={48}
-          height={48}
-          unoptimized
-          className="object-cover w-full h-auto"
-        />
       </div>
 
       {/* Back Content - Hover State */}

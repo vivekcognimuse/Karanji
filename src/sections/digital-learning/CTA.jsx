@@ -140,8 +140,7 @@ const CTA = ({ className = "", data }) => {
             <button
               onClick={closePopup}
               className="absolute top-6 cursor-pointer right-6 text-black-600 hover:text-gray-800 text-4xl font-light"
-              type="button"
-            >
+              type="button">
               ×
             </button>
 
@@ -235,13 +234,14 @@ const CTA = ({ className = "", data }) => {
                   </div>
 
                   {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-black text-white py-4 rounded-full font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed "
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </button>
+                  <div className="flex-center">
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className=" disabled:opacity-50 mx-auto px-12 lg:px-12 disabled:cursor-not-allowed ">
+                      {isSubmitting ? "Submitting..." : "Submit"}
+                    </Button>
+                  </div>
                 </form>
               </>
             )}
