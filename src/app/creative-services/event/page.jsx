@@ -11,7 +11,8 @@ import React from "react";
 
 const heroData = {
   title: "Event Production and Management",
-  subTitle: "Flawless execution of memorable events from concept to completion",
+  subTitle:
+    "Flawless execution of memorable events from concept to completion.",
   ctaText: "Explore Our Services",
   ctaLink: "event-service-offerings", // Adjust as necessary
   backgroundImage: null, // No visible background image

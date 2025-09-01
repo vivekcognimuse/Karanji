@@ -12,7 +12,7 @@ import { ta } from "zod/v4/locales";
 const heroData = {
   title: "Elevate Your Corporate Learning with K-nest LMS",
   subTitle:
-    " A fully-customizable learning platform that adapts to your organization's unique requirements",
+    " A fully-customizable learning platform that adapts to your organization's unique requirements.",
   ctaText: "Explore Our Platform",
   ctaLink: "lms-services", // You can change this to the appropriate link for your services page
 

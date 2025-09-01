@@ -9,7 +9,7 @@ const heroData = {
   title:
     "Elevate your content with professional entertainment production services",
   subTitle:
-    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life",
+    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life.",
   ctaText: "Explore Our Services",
   ctaLink: "entertainment-services", // You can change this to the appropriate link for your services page
 

@@ -11,7 +11,7 @@ import React from "react";
 
 const heroData = {
   title: "End-to-End Digital Learning Solutions",
-  subTitle: "From custom content creation to LMS integration and analytics",
+  subTitle: "From custom content creation to LMS integration and analytics.",
   ctaText: "Explore Our Services",
   ctaLink: "digital-learning-solutions", // You can update the link here based on where you want the button to redirect
   linkIcon: "material-symbols:arrow-forward", // You can change this icon as per your choice
