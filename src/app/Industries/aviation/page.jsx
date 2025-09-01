@@ -213,7 +213,7 @@ const strategicUseCaseData = {
     {
       id: 6,
       icon: "Icons/ocr-nlp.svg",
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "Multilingual XR Airport Digital Twin",
       description:
         "Enhances operational efficiency by 20% and cuts disruptions by 35% through real-time simulation and multilingual support.",
@@ -221,7 +221,7 @@ const strategicUseCaseData = {
     {
       id: 7,
       icon: "Icons/ocr-nlp.svg",
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "VR Maintenance Training Ecosystem",
       description:
         "Reduces training time by up to 60% and improves knowledge retention to 95% using immersive simulations.",
@@ -229,7 +229,7 @@ const strategicUseCaseData = {
     {
       id: 8,
       icon: "Icons/ocr-nlp.svg",
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "MR Passenger Experience Platform",
       description:
         "Boosts NPS by 25 points and increases non-aero revenue by 18% using AR-based engagement and personalization.",
@@ -237,7 +237,7 @@ const strategicUseCaseData = {
     {
       id: 9,
       icon: "Icons/ocr-nlp.svg",
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Integrated Brand and Safety Experience Ecosystem",
       description:
         "Improves safety info retention by 150% and brand recall by 60% through gamified, engaging briefings.",
@@ -245,7 +245,7 @@ const strategicUseCaseData = {
     {
       id: 10,
       icon: "Icons/ocr-nlp.svg",
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Sustainability Storytelling and Metrics Platform",
       description:
         "Boosts carbon offset participation by 45% and reduces reporting time by 75% with visual storytelling tools.",

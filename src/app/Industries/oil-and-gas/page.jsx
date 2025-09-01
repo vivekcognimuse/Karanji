@@ -133,7 +133,7 @@ const strategicUseCaseData = {
   ],
   categoryMapping: {
     "AI Implementation": "AI Implementation",
-    "Immersive Technologies & Digital Learning":
+    "Immersive Technologies and Digital Learning":
       "Immersive Tech & Digital Learning",
   },
   useCaseCards: [
