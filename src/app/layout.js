@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 
 import Navbar from "@/components/Navbar";
 import CookieNotification from "@/components/CookieNotification";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({ children }) {
         <Footer />
         {/* </SmoothScrollWrapper> */}
         <CookieNotification />
+        <ScrollToTop />
       </body>
     </html>
   );
