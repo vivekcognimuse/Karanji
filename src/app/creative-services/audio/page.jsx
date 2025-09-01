@@ -170,6 +170,7 @@ const successStoriesData = {
   cards: [
     {
       title: "One-Hour Podcast into a Visually Engaging Experience",
+      tag: "Creative Services",
       stats: [
         { title: "+100%", subTitle: "Improved Video Quality" },
         { title: "1 week", subTitle: "Project Completion" },

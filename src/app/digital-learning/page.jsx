@@ -181,6 +181,7 @@ const successStoriesData = {
     },
     {
       title: "AI-Certification LMS",
+      tag: "Digital Learning",
       stats: [
         { title: "+90%", subTitle: "Optimized Time Controls" },
         { title: "100%", subTitle: "Seamless LMS Integration" },
@@ -192,6 +193,7 @@ const successStoriesData = {
     },
     {
       title: "Automobile-EV Training Module",
+      tag: "Digital Learning",
       stats: [
         { title: "75%", subTitle: "Cross Team Synergy" },
         { title: "85%", subTitle: "Increased Learner Engagement" },

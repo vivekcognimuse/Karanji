@@ -173,6 +173,7 @@ const successStoriesData = {
   cards: [
     {
       title: "Convocation Day School Real Video Project",
+      tag: "Creative Services",
       stats: [
         { title: "95%", subTitle: "Engaging" },
         { title: "100%", subTitle: "Client Satisfaction" },

@@ -3,6 +3,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServices from "@/sections/service/Service";
 import TechnologyAdvantage from "@/sections/service/Technology";
+import { Tag } from "lucide-react";
 
 // Static metadata definition
 export const metadata = {
@@ -10,6 +11,60 @@ export const metadata = {
     "AI Consulting, XR & Digital Twin Solutions | Future-Ready Technology Services",
   description:
     "Transform your business with our AI consulting, XR/VR experiences, and digital twin technology. Drive innovation, optimize operations, and accelerate digital transformation.",
+};
+
+const technologyService = {
+  id: 20,
+  title: "Our Technology Services",
+  description:
+    "Explore a full spectrum of technology services crafted to drive innovation & operational excellence.",
+  cards: [
+    {
+      id: 55,
+      title: "AI Advisory & Implementation",
+      description:
+        "Empower your business with tailored AI strategies - from maturity assessments & customized roadmaps to actionable AI solutions that drive growth.",
+      image: null,
+      list: [
+        { id: 321, text: "AI strategy & roadmap development" },
+        { id: 322, text: "Comprehensive AI maturity assessments" },
+        { id: 323, text: "Custom AI-driven applications" },
+        { id: 324, text: "Data strategy & analytics" },
+      ],
+      ctaLink: "/technology-solutions/ai-advisory",
+      ctaText: "Learn More",
+    },
+    {
+      id: 55,
+      title: "XR & GamingSolutions",
+      description:
+        "Engage & inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys.",
+      image: null,
+      list: [
+        { id: 321, text: "Immersive VR training experiences" },
+        { id: 322, text: "Augmented reality learning modules" },
+        { id: 323, text: "Interactive gaming & simulation applications" },
+        { id: 324, text: "Dynamic mixed reality experiences" },
+      ],
+      ctaLink: "/technology-solutions/xr-gaming",
+      ctaText: "Learn More",
+    },
+    {
+      id: 56,
+      title: "Digital Twins &Simulations",
+      description:
+        "Revolutionize your operational insights through digital replicas & interactive simulations that provide real-time data visualization & predictive analytics.",
+      image: null,
+      list: [
+        { id: 325, text: "Virtual replicas of physical environments" },
+        { id: 326, text: "Interactive 3DSimulations" },
+        { id: 327, text: "Predictive analytics integration" },
+        { id: 328, text: "Process optimization modeling" },
+      ],
+      ctaLink: "/technology-solutions/digital-twins",
+      ctaText: "Learn More",
+    },
+  ],
 };
 
 export default async function TechnologySolution() {
@@ -20,7 +75,7 @@ export default async function TechnologySolution() {
     return null; // Or return a fallback UI component
   }
 
-  const { hero, technologyAdvantage, technologyService } = data || {};
+  const { hero, technologyAdvantage } = data || {};
   const successStoriesData = {
     title: "Technology Implementation Success Stories",
     description:
@@ -28,7 +83,7 @@ export default async function TechnologySolution() {
     cards: [
       {
         title: "3D AI Advertisement",
-
+        tag: "Technology Solutions",
         stats: [
           { title: "+45%", subTitle: "Team Skill Growth" },
           { title: "+100%", subTitle: "Client Satisfaction" },
@@ -40,6 +95,7 @@ export default async function TechnologySolution() {
       },
       {
         title: "K buddy AI Learning Companion",
+        tag: "Technology Solutions",
         stats: [
           { title: "60%", subTitle: "Increased After-hours Engagement" },
           { title: "35%", subTitle: "Improved Student Satisfaction" },
@@ -51,6 +107,7 @@ export default async function TechnologySolution() {
       },
       {
         title: "Outbound Calling Agent",
+        tag: "Technology Solutions",
         stats: [
           { title: "60%", subTitle: "Reduced Manual Workload" },
           { title: "40%", subTitle: "Improved Lead Response Rate" },
@@ -62,6 +119,7 @@ export default async function TechnologySolution() {
       },
       {
         title: "Sign Language Bot (SignBot)",
+        tag: "Technology Solutions",
         stats: [
           { title: "Reduced", subTitle: "Content Creation Time" },
           { title: "Better", subTitle: "Engagement" },
@@ -73,6 +131,7 @@ export default async function TechnologySolution() {
       },
       {
         title: "Teacher Empowerment System (TES)",
+        tag: "Technology Solutions",
         stats: [
           { title: "40-50%", subTitle: "Reduced Preparation Time" },
           { title: "30%", subTitle: "Increased Interactive Sessions" },
