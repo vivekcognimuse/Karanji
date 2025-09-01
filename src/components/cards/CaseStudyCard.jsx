@@ -41,7 +41,8 @@ const CaseStudyCard = ({ caseStudy }) => {
       <footer className="flex justify-end items-center gap-2">
         <a
           href="#"
-          className="text-base lg:text-lg font-normal font-['Outfit'] tracking-wide text-black hover:underline">
+          className="text-base lg:text-lg font-normal font-['Outfit'] tracking-wide text-black hover:underline"
+        >
           Read Full Case Study
         </a>
         <Icon icon="carbon:arrow-up-right" className="w-5 h-5 text-black " />

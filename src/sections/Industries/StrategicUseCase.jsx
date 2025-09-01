@@ -117,10 +117,18 @@ const StrategicUseCase = ({ data, icon }) => {
                 size="sm"
                 variant="secondary"
                 onClick={() => handleFilterClick(button.label)}
-                className={
+                className={`px-6 py-2 gap-10 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
                   selectedCategory === button.label
-                    ? "bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] text-white px-4 py-2 rounded-full text-sm"
-                    : "px-4 py-2 rounded-full text-sm"
+                    ? "text-black" // Remove bg-black
+                    : "bg-white hover:bg-black/30 text-black"
+                }`}
+                style={
+                  selectedCategory === button.label
+                    ? {
+                        background:
+                          "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
+                      }
+                    : undefined
                 }
                 data-reveal
                 data-reveal-dir="up"
@@ -181,7 +189,7 @@ const StrategicUseCase = ({ data, icon }) => {
                         className="size-10"
                       />
                     </div>
-                    <P5 className="bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] bg-clip-text text-transparent border border-gray-300 px-2 py-1 rounded-sm">
+                    <P5 className="ml-auto border text-sm border-black-500 rounded-[5px] py-0.5 bg-gradient-to-r bg-clip-text text-transparent from-[#5254CB] to-[#FF942F] px-1 block w-fit mb-4">
                       {card.category}
                     </P5>
                   </div>

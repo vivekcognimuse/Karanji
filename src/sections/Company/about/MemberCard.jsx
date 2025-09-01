@@ -19,7 +19,7 @@ const MemberCard = ({
     <div className="member-card rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 shadow-lg">
       {/* Profile Image */}
       <div className="flex-shrink-0 mx-auto sm:mx-0">
-        <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-white rounded-2xl overflow-hidden shadow-md">
+        <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-68 bg-white rounded-2xl overflow-hidden shadow-md">
           <Image
             src={image}
             alt={name}
