@@ -24,6 +24,19 @@ const industriesData = {
 const cards = [
   {
     id: 33,
+    title: "Oil and Gas",
+    img: "/Industries & its pages/Landing page/Oil and Gas card.webp",
+    subTitle: "Driving Digital Intelligence in Energy",
+    hoverContent: [
+      "Equipment Monitoring Systems",
+      "Safety Training and Compliance",
+      "Operational Efficiency Tools",
+    ],
+    ctaLink: "/Industries/oil-and-gas",
+    icon: "/Icons/Industries/Group.svg",
+  },
+  {
+    id: 34,
     title: "HealthCare",
 
     img: "/Industries & its pages/Landing page/Healthcare card.webp",
@@ -38,7 +51,7 @@ const cards = [
     icon: "/Icons/Industries/fluent-mdl2_health.svg",
   },
   {
-    id: 34,
+    id: 35,
     title: "Aviation",
     img: "/Industries & its pages/Landing page/Aviation card .webp",
     subTitle: "Future-ready aviation.",
@@ -51,7 +64,7 @@ const cards = [
     icon: "/Icons/Industries/mage_aeroplane.svg",
   },
   {
-    id: 35,
+    id: 36,
     title: "Logistics",
     img: "/Industries & its pages/Landing page/Logistics card.webp",
     subTitle: "Precision in Every Operation",
@@ -62,19 +75,6 @@ const cards = [
     ],
     ctaLink: "/Industries/logistics",
     icon: "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
-  },
-  {
-    id: 36,
-    title: "Oil and Gas",
-    img: "/Industries & its pages/Landing page/Oil and Gas card.webp",
-    subTitle: "Driving Digital Intelligence in Energy",
-    hoverContent: [
-      "Equipment Monitoring Systems",
-      "Safety Training and Compliance",
-      "Operational Efficiency Tools",
-    ],
-    ctaLink: "/Industries/oil-and-gas",
-    icon: "/Icons/Industries/Group.svg",
   },
 ];
 
