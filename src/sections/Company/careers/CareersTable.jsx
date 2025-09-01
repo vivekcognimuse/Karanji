@@ -36,7 +36,7 @@ export const defaultCareers = [
     id: 4,
     title: "Instructional Designer",
     type: "Full-time | Remote",
-    location: "Bangalore (Remote)",
+    location: "Bangalore",
     experience: "5–8 years",
     category: "Learning & Content Development",
   },
@@ -149,7 +149,7 @@ export default function CareersTable({
                 size="sm"
                 key={c.id}
                 onClick={() => setSelectedCategory(c.id)}
-                className={`px-6 py-2 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
+                className={`px-6 py-2 gap-10 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
                   selectedCategory === c.id
                     ? "text-black" // Remove bg-black
                     : "bg-white hover:bg-black/30 text-black"
@@ -176,7 +176,7 @@ export default function CareersTable({
         <div className="flex justify-between items-center mb-6 lg:hidden">
           <button
             onClick={() => setFilterOpen(true)}
-            className="flex items-center justify-between px-4 py-2 rounded-full text-black text-lg w-full cursor-pointer bg-white/70"
+            className="flex items-center justify-between px-6 py-2 rounded-full text-black text-lg w-full cursor-pointer bg-white/70"
             aria-haspopup="dialog"
             aria-expanded={filterOpen}
           >
@@ -225,7 +225,7 @@ export default function CareersTable({
                   className="border-b border-black-200 cursor-pointer group"
                   onClick={() => handleView(job)}
                 >
-                  <div className="text-black/80 group-hover:text-white text-base lg:text-xl font-normal py-6 lg:py-8 px-0 group-hover:bg-black transition-colors duration-150">
+                  <div className="text-black/80 group-hover:text-white text-base lg:text-xl font-normal py-6 lg:py-8 px-4 group-hover:bg-black transition-colors duration-150">
                     {/* Desktop */}
                     <div className="hidden lg:grid grid-cols-6 items-center">
                       <P4 className="col-span-2">{job.title}</P4>
