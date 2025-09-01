@@ -95,6 +95,12 @@ export const NAV_LINKS = [
     title: "Industries",
     href: "/Industries",
     links: [
+        {
+        name: "Oil & Gas",
+        href: "/Industries/oil-and-gas",
+        icon: "/nav/oil-gas.png",
+        description: "Fueling digital innovation & efficiency.",
+      },
       {
         name: "Oil & Gas",
         href: "/Industries/oil-and-gas",
@@ -119,6 +125,7 @@ export const NAV_LINKS = [
         icon: "/nav/logistics.png",
         description: "Streamlining supply chains with precision.",
       },
+
     ],
   },
   {

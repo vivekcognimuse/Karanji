@@ -29,7 +29,7 @@ const heroData = {
 const ctaData = {
   title: "Ready to lead the future of Aviation?",
   description:
-    " To know more about these cases or discuss any other requirement for transformation of Aviation",
+    " To know more about these cases or discuss any other requirement for transformation of Aviation.",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
@@ -154,7 +154,7 @@ const digitalOfferingsData = {
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases and Implementation",
   sectionDescription:
-    "AI-Powered Solutions Transforming the Logistics Industry",
+    "AI-Powered Solutions Transforming the Logistics Industry.",
   filterButtons: [
     { label: "All", active: true },
     { label: "AI Advisory and Implementation", active: false },
