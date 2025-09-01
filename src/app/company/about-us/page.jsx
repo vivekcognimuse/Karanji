@@ -57,7 +57,7 @@ const timelineData = [
     title: "Where It All Began",
     description:
       "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, and innovation in learning technology.",
-    iconSrc: "/Icons/year07icon.svg",
+    iconSrc: "/Icons/year08icon.svg",
   },
   {
     year: "2007-10",
@@ -66,7 +66,7 @@ const timelineData = [
     title: "Building the Bridge Between Traditional and Modern Learning",
     description:
       "Karanji started working on creating a bridge between traditional training methods and emerging technologies like AI and Virtual Reality (VR).",
-    iconSrc: "/Icons/year08icon.svg",
+    iconSrc: "/Icons/year10icon.svg",
   },
   {
     year: "2010-13",
@@ -75,7 +75,7 @@ const timelineData = [
     title: "Growing the Foundation – First Major Client: Infosys",
     description:
       "Through hard work and a tad bit of luck, Infosys became the company's first major client, which validated their vision and gave them confidence.",
-    iconSrc: "/Icons/year13icon.svg",
+    iconSrc: "/Icons/year16icon.svg",
   },
   {
     year: "2014-16",
@@ -84,7 +84,7 @@ const timelineData = [
     title: "The Big Leap - Entering Virtual Reality and Augmented Reality",
     description:
       "Karanji made a strategic decision to integrate VR and AR into their learning design, which would revolutionize training and learning processes.",
-    iconSrc: "/Icons/year16icon.svg",
+    iconSrc: "/Icons/year13icon.svg",
   },
   {
     year: "2017",
