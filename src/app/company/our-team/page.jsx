@@ -130,8 +130,7 @@ const teamSectionData = [
         role: "Delivery Transformation Specialist",
         brief:
           "Sudhir specializes in delivery transformation, leveraging technology to enhance business and customer experiences.",
-        image:
-          "/Company/Team/Management-collective/Sudhir-Bhandarkar-Bantwal.webp",
+        image: "/Company/Team/Management-collective/Sudhir.webp",
         linkedin:
           "https://www.linkedin.com/in/sudhir-bhandarkar-bantwal-1287885/",
         showTalkButton: false,
