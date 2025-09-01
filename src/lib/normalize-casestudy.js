@@ -1,18 +1,32 @@
 import { caseStudies } from "@/data/casestudies";
-import { toPlainText, arrayifyList, splitCommaString } from "@/utils/ish";
+import { getMediaUrl, toPlainText, arrayifyList, splitCommaString } from "@/utils/ish";
 export const normalizeCaseStudy = (entry) => {
   const a = entry?.attributes ? entry.attributes : entry || {};
 
-  // Static JSON-based downloadCta and image mapping by Slug
+  // Static JSON-based downloadCta mapping by Slug (keeping this for downloadCta only)
   const staticData = caseStudies.find((item) => item.slug === a.slug);
+
   if (!staticData) {
     console.error(`No static data found for case study slug: ${a.slug}`);
   }
 
   const downloadCta = staticData?.downloadCta || {};
   const pdfLink = staticData?.pdfLink || "";
-  const image =
-    staticData?.image || a.image || "/CaseStudyImages/default-image.webp";
+
+  // Get image from Strapi first, fallback to static data, then default
+  let image = "/CaseStudyImages/default-image.webp"; // default fallback
+
+  // Check if Strapi has an image
+  if (a.image) {
+    // Handle different possible Strapi image structures
+    const strapiImageUrl = getMediaUrl(a.image);
+    if (strapiImageUrl) {
+      image = strapiImageUrl;
+    }
+  } else if (staticData?.image) {
+    // Fallback to static data image if no Strapi image
+    image = staticData.image;
+  }
 
   const sections = Array.isArray(a.sections)
     ? a.sections
@@ -44,7 +58,7 @@ export const normalizeCaseStudy = (entry) => {
     tags: splitCommaString(a.tags),
     domain: a.domain || "",
     targetAudience: splitCommaString(a.targetAudience),
-    image,
+    image, // Now using Strapi image with fallbacks
     sections,
     downloadCta,
     pdfLink,
