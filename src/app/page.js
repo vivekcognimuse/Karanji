@@ -61,6 +61,7 @@ const successStoriesData = {
         "We scripted and produced a full 3D AI-generated ad with a human avatar and custom voice, delivered end-to-end in just four working days—solving tight budget and timeline constraints for a leading agriculture company in India.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "1",
+      tag: "Technology Solutions",
     },
     {
       title: "K buddy AI Learning Companion",
@@ -72,6 +73,7 @@ const successStoriesData = {
         "AI-powered learning companion for the education sector that offers instant explanations, quiz generation, and personalized assessments through a voice/text chatbot, with full deployment completed in three months.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "3",
+      tag: "Technology Solutions",
     },
     {
       title: "Outbound Calling Agent",
@@ -83,6 +85,7 @@ const successStoriesData = {
         "An automated outbound calling agent for EdTech sales teams that places voice calls at set intervals, logs every interaction centrally, and gives managers a dashboard for activation and oversight.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "4",
+      tag: "Technology Solutions",
     },
     {
       title: "Sign Language Bot (SignBot)",
@@ -94,6 +97,7 @@ const successStoriesData = {
         "AI tool that converts text into sign language by retrieving and stitching pre-recorded sign clips using SBERT-based semantic similarity and exact phrase matching.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "5",
+      tag: "Technology Solutions",
     },
     {
       title: "Teacher Empowerment System (TES)",
@@ -105,6 +109,7 @@ const successStoriesData = {
         "AI-powered teacher assistant that cuts prep time by up to 50% through syllabus-aligned resource curation, auto-generated quizzes, and smart teaching suggestions—already deployed in 10 schools.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "6",
+      tag: "Technology Solutions",
     },
   ],
 };

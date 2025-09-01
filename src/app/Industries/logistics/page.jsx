@@ -197,15 +197,15 @@ const strategicUseCaseData = {
     { label: "Immersive Technologies and Digital Learning", active: false },
   ],
   categoryMapping: {
-    "AI Consulting & Technology Services": "AI Consulting & Tech",
-    "Immersive Technologies & Digital Learning":
-      "Immersive Tech & Digital Learning",
+    "AI Consulting and Technology Services": "AI Consulting and Tech",
+    "Immersive Technologies and Digital Learning":
+      "Immersive Tech and Digital Learning",
   },
   useCaseCards: [
     {
       id: 1,
       icon: "Icons/ocr-nlp.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "Automatic Document Verification System",
       description:
         "Reduces document errors by 95% and speeds up processing by 70% using OCR and NLP-based verification.",
@@ -213,7 +213,7 @@ const strategicUseCaseData = {
     {
       id: 2,
       icon: "Icons/rag-multilingual.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "RAG-Based Multilingual Document Access System",
       description:
         "Cuts translation costs by 90% and boosts information retrieval speed by 80% using RAG and multilingual models.",
@@ -221,7 +221,7 @@ const strategicUseCaseData = {
     {
       id: 3,
       icon: "Icons/ai-compliance.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "AI Compliance Engine for Regulatory Automation",
       description:
         "Achieves 99% accuracy in classification and reduces compliance checks time by 90%.",
@@ -229,7 +229,7 @@ const strategicUseCaseData = {
     {
       id: 4,
       icon: "Icons/ai-dispatch.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "Autonomous Dispatch System",
       description:
         "Reduces empty miles by 30% and improves on-time delivery by 25% using AI-based carrier matching.",
@@ -237,7 +237,7 @@ const strategicUseCaseData = {
     {
       id: 5,
       icon: "Icons/financial-operations.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "AI-Powered Financial Operations System",
       description:
         "Cuts payment errors by 85% and invoice processing time by 50% through AI-based reconciliation.",
@@ -245,7 +245,7 @@ const strategicUseCaseData = {
     {
       id: 6,
       icon: "Icons/customer-service.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "Intelligent Customer Service Automation",
       description:
         "Delivers 24/7 support, reduces agent workload, and improves satisfaction via AI chatbots and sentiment analysis.",
@@ -253,7 +253,7 @@ const strategicUseCaseData = {
     {
       id: 7,
       icon: "Icons/supplier-ecosystem.svg", // Replace with appropriate icon path
-      category: "AI Consulting & Tech",
+      category: "AI Consulting and Tech",
       title: "Supplier and Partner Ecosystem Collaboration",
       description:
         "Automates 80% of document exchanges and achieves 100% shipment traceability through blockchain.",
@@ -261,7 +261,7 @@ const strategicUseCaseData = {
     {
       id: 8,
       icon: "Icons/vr-cardboard.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Maritime Training and Safety Simulation",
       description:
         "Reduces training time by up to 75% and enhances safety through VR-based emergency drills.",
@@ -269,7 +269,7 @@ const strategicUseCaseData = {
     {
       id: 9,
       icon: "Icons/maritime-academy.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Maritime Knowledge Academy",
       description:
         "Standardizes training globally and scales learning access 24/7 via gamified e-learning.",
@@ -277,7 +277,7 @@ const strategicUseCaseData = {
     {
       id: 10,
       icon: "Icons/cybersecurity.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Cybersecurity Awareness",
       description:
         "Improves security behavior and reduces incidents via scenario-based microlearning.",
@@ -285,7 +285,7 @@ const strategicUseCaseData = {
     {
       id: 11,
       icon: "Icons/sustainability.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Sustainability and Compliance Training",
       description:
         "Ensures compliance and reduces risk of violations through environmental regulation training.",
@@ -293,7 +293,7 @@ const strategicUseCaseData = {
     {
       id: 12,
       icon: "Icons/ar-maintenance.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "AR-Enhanced Maintenance and Repair",
       description:
         "Reduces repair time by 30% and preserves knowledge through AR-guided procedures.",
@@ -301,7 +301,7 @@ const strategicUseCaseData = {
     {
       id: 13,
       icon: "Icons/digital-twin.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Digital Twin Visualization for Port Operations",
       description:
         "Improves port throughput by 20% and reduces emissions through 3D visual planning tools.",

@@ -204,22 +204,22 @@ const strategicUseCaseData = {
     "12 validated opportunities with proven market demand and clear ROI pathways",
   filterButtons: [
     { label: "All", active: true },
-    { label: "XR & Gaming", active: false },
-    { label: "AI Advisory & Implementation", active: false },
-    { label: "Creative & Entertainment", active: false },
+    { label: "XR and Gaming", active: false },
+    { label: "AI Advisory and Implementation", active: false },
+    { label: "Creative and Entertainment", active: false },
     { label: "Digital Learning", active: false },
   ],
   categoryMapping: {
-    "XR & Gaming": "XR & Gaming",
-    "AI Advisory & Implementation": "AI Advisory",
-    "Creative & Entertainment": "Creative & Entertainment",
+    "XR and Gaming": "XR and Gaming",
+    "AI Advisory and Implementation": "AI Advisory",
+    "Creative and Entertainment": "Creative and Entertainment",
     "Digital Learning": "Digital Learning",
   },
   useCaseCards: [
     {
       id: 1,
       icon: "/Icons/_x34_7_Maximize.svg", // Replace with your icon path
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "Surgical Training Platform",
       description:
         "Critical physician shortage (37K–124K by 2034) with limited surgical training opportunities.",
@@ -229,7 +229,7 @@ const strategicUseCaseData = {
     {
       id: 2,
       icon: "Icons/notes-medical.svg", // Replace with your icon path
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "Patient Education VR",
       description:
         "4 in 10 patients face affordability and understanding gaps: poor treatment compliance.",
@@ -239,7 +239,7 @@ const strategicUseCaseData = {
     {
       id: 3,
       icon: "Icons/laptop-medical.svg", // Replace with your icon path
-      category: "XR & Gaming",
+      category: "XR and Gaming",
       title: "Remote Consultation Platform",
       description:
         "Specialist access gaps in rural/underserved areas; $265B shifts to home-based care.",
@@ -279,7 +279,7 @@ const strategicUseCaseData = {
     {
       id: 7,
       icon: "Icons/book-medical.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Patient Education Content",
       description:
         "Low health literacy persists; providers lack customizable, multilingual tools for clear patient communication.",
@@ -289,7 +289,7 @@ const strategicUseCaseData = {
     {
       id: 8,
       icon: "Icons/microchip.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Healthcare Marketing",
       description:
         "Organizations struggle to differentiate; authentic, culturally resonant storytelling boosts trust and community engagement.",
@@ -299,7 +299,7 @@ const strategicUseCaseData = {
     {
       id: 9,
       icon: "Icons/user-md.svg", // Replace with your icon path
-      category: "Creative & Entertainment",
+      category: "Creative and Entertainment",
       title: "Medical Training Content Production",
       description:
         "Healthcare workers lack effective training content tailored to learning styles, specialists, and competency needs.",
