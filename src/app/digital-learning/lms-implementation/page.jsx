@@ -7,6 +7,7 @@ import LMSLearning from "@/sections/digital-learning/LMSLearning";
 import SwitchSection from "@/sections/digital-learning/SwitchSection";
 import { Tag } from "lucide-react";
 import Head from "next/head";
+import { ta } from "zod/v4/locales";
 
 const heroData = {
   title: "Elevate Your Corporate Learning with K-nest LMS",
@@ -255,6 +256,7 @@ const successStoriesData = {
   cards: [
     {
       title: "AI-Certification LMS",
+      tag: "Digital Learning",
       stats: [
         { title: "+90%", subTitle: "Optimized Time Controls" },
         { title: "100%", subTitle: "Seamless LMS Integration" },
@@ -266,6 +268,7 @@ const successStoriesData = {
     },
     {
       title: "Automobile-EV Training Module",
+      tag: "Digital Learning",
       stats: [
         { title: "75%", subTitle: "Cross Team Synergy" },
         { title: "85%", subTitle: "Increased Learner Engagement" },
