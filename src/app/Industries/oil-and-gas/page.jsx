@@ -9,7 +9,7 @@ import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
 const heroData = {
   title: "Digital Evolution in Oil and Gas",
   subTitle:
-    "Accelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, and Resilience Across the Energy Value Chain",
+    "Accelerating Strategic Digital Transformation to Unlock Operational Excellence, Efficiency, and Resilience Across the Energy Value Chain.",
   ctaText: "Explore the Transformation Landscape",
   ctaLink: "digital-transformation",
   stats: [
@@ -30,7 +30,7 @@ const heroData = {
 const ctaData = {
   title: "Ready to power the future of oil and gas?",
   description:
-    "  To know more about these cases or discuss any other requirement for transformation of Oil and gas",
+    "To know more about these cases or discuss any other requirement for transformation of Oil and gas",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
 };
@@ -68,14 +68,14 @@ const industryData = {
 };
 const strategicPrioritiesData = {
   sectionTitle: "Our Services Portfolio",
-  sectionDescription: "End-to-End Digital Solutions for the Energy Sector",
+  sectionDescription: "End-to-End Digital Solutions for the Energy Sector.",
   isServicesPortfolio: true, // New flag to identify this layout
   topRowCards: [
     {
       id: 1,
       title: "AI and Analytics",
       subTitle:
-        "Predictive maintenance, production optimization, and intelligent exploration solutions",
+        "Predictive maintenance, production optimization, and intelligent exploration solutions.",
       number: "+18%",
       metric: "Equipment Uptime",
     },
@@ -83,7 +83,7 @@ const strategicPrioritiesData = {
       id: 2,
       title: "Learning Tech",
       subTitle:
-        "VR safety training, AR-assisted maintenance, and digital learning ecosystems",
+        "VR safety training, AR-assisted maintenance, and digital learning ecosystems.",
       number: "40%",
       metric: "Faster Competency",
     },
@@ -91,7 +91,7 @@ const strategicPrioritiesData = {
       id: 3,
       title: "Asset Optimization",
       subTitle:
-        "Digital twins, predictive maintenance, and condition-based monitoring",
+        "Digital twins, predictive maintenance, and condition-based monitoring.",
       number: "$4.2M",
       metric: "Annual Savings",
     },
@@ -101,7 +101,7 @@ const strategicPrioritiesData = {
       id: 1,
       title: "Environmental",
       subTitle:
-        "Emissions monitoring, ESG analytics, and regulatory compliance platforms",
+        "Emissions monitoring, ESG analytics, and regulatory compliance platforms.",
       number: "65%",
       metric: "Reporting Efficiency",
     },
@@ -109,14 +109,14 @@ const strategicPrioritiesData = {
       id: 2,
       title: "Knowledge Management",
       subTitle:
-        "Expertise capture, collaborative platforms, and knowledge transfer systems",
+        "Expertise capture, collaborative platforms, and knowledge transfer systems.",
       number: "200+",
       metric: "Videos in 6 Months",
     },
     {
       id: 3,
       title: "Implementation",
-      subTitle: "Strategy development, change management, and ROI measurement",
+      subTitle: "Strategy development, change management, and ROI measurement.",
       number: "8-12",
       metric: "Week Implementation",
     },
@@ -125,7 +125,7 @@ const strategicPrioritiesData = {
 
 const strategicUseCaseData = {
   sectionTitle: "Strategic Use Cases and Implementation",
-  sectionDescription: "AI-Powered Solutions Transforming the Energy Industry",
+  sectionDescription: "AI-Powered Solutions Transforming the Energy Industry.",
   filterButtons: [
     { label: "All", active: true },
     { label: "AI Implementation", active: false },
@@ -134,7 +134,7 @@ const strategicUseCaseData = {
   categoryMapping: {
     "AI Implementation": "AI Implementation",
     "Immersive Technologies and Digital Learning":
-      "Immersive Tech & Digital Learning",
+      "Immersive Tech and Digital Learning",
   },
   useCaseCards: [
     {
@@ -196,7 +196,7 @@ const strategicUseCaseData = {
     {
       id: 8,
       icon: "Icons/immersive-tech-icon.svg", // Replace with appropriate icon path
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "VR Safety Training Simulations",
       description:
         "Increases retention by 28% and speeds competency by 40% with immersive, scenario-based simulations.",
@@ -204,7 +204,7 @@ const strategicUseCaseData = {
     {
       id: 9,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Peer Learning Video Platform",
       description:
         "Accelerates onboarding and preserves expertise through AI-tagged training videos and avatar-based learning.",
@@ -212,7 +212,7 @@ const strategicUseCaseData = {
     {
       id: 10,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Collaborative Virtual Design Environment",
       description:
         "Reduces design rework and speeds iteration using real-time VR collaboration and simulation tools.",
@@ -220,7 +220,7 @@ const strategicUseCaseData = {
     {
       id: 11,
       icon: "Icons/immersive-tech-icon.svg",
-      category: "Immersive Tech & Digital Learning",
+      category: "Immersive Tech and Digital Learning",
       title: "Augmented Reality Maintenance Support",
       description:
         "Cuts error rates by 60% and reduces travel by 80% with AR-based remote guidance.",
@@ -230,7 +230,7 @@ const strategicUseCaseData = {
 
 const digitalTransformationData = {
   sectionTitle: "Digital Transformation Landscape",
-  sectionSubtitle: "Transforming Oil and Gas with Smart Digital Technologies",
+  sectionSubtitle: "Transforming Oil and Gas with Smart Digital Technologies.",
   digitalCards: [
     {
       id: 1,

@@ -21,14 +21,14 @@ const cardsData = [
   {
     title: "Our Team",
     description:
-      "Meet the minds shaping the future of immersive tech and storytelling",
+      "Meet the minds shaping the future of immersive tech and storytelling.",
     image: "/Company/Landing page/Our Team.webp",
     href: "/company/our-team", // Link navigation
   },
   {
     title: "Career",
     description:
-      "Build your career at the crossroads of AI, creativity, and impact",
+      "Build your career at the crossroads of AI, creativity, and impact.",
     image: "/Company/Landing page/Career.webp",
     href: "/company/careers", // Link navigation
   },

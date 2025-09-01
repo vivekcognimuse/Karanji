@@ -64,8 +64,10 @@ const successStoriesData = {
       tag: "Technology Solutions",
     },
     {
-      title: "K buddy AI Learning Companion",
+      title: "K Buddy AI Learning Companion",
+
       tag: "Technology Solutions",
+
       stats: [
         { title: "60%", subTitle: "Increased After-hours Engagement" },
         { title: "35%", subTitle: "Improved Student Satisfaction" },

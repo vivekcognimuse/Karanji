@@ -46,7 +46,7 @@ const Page = () => {
       <div className="flex justify-center flex-col md:flex-row items-center  md:min-h-[calc(100vh-80px)]">
         <div>
           <Image
-            src="/coming-soon.svg"
+            src="/coming-soon.webp"
             alt="Home"
             width={500}
             height={500}
