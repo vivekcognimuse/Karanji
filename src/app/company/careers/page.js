@@ -2,9 +2,7 @@
 import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
 // ⬇️ Import the careers table + default data
-import CareersTable, {
-  defaultCareers,
-} from "@/sections/Company/careers/CareersTable";
+import CareersTable from "@/sections/Company/careers/CareersTable";
 import Head from "next/head";
 
 const teamData = {
@@ -54,6 +52,81 @@ const ctaData = {
   SecondaryButtonLink:
     "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
 };
+const defaultCareers = [
+  {
+    id: 1,
+    title: "Content Reviewer",
+    type: "Full-time | WFO",
+    location: "Mangalore",
+    experience: "3–4 years",
+    category: "Learning and Content Development",
+  },
+  {
+    id: 2,
+    title: "GenAI Developer – Interns",
+    type: "Full-time | WFO ",
+    duration: "Internship (6 months)",
+    location: "Mangalore",
+    experience: "Freshers",
+    category: "AI and Technology",
+  },
+  {
+    id: 3,
+    title: "Instructional Designer – Interns",
+    type: "Full-time | Onsite",
+    location: "Mangalore",
+    experience: "Fresher",
+    category: "Learning and Content Development",
+  },
+  {
+    id: 4,
+    title: "Instructional Designer",
+    type: "Full-time | Remote",
+    location: "Bangalore",
+    experience: "5–8 years",
+    category: "Learning and Content Development",
+  },
+  {
+    id: 5,
+    title: "Sales Expert",
+    type: "Full-time | Remote",
+    location: "Delhi",
+    experience: "4+ years",
+    category: "Business and Sales",
+  },
+  {
+    id: 6,
+    title: "Senior Generative AI Developer",
+    type: "Full-time | Remote",
+    location: "Mangalore",
+    experience: "2+ years",
+    category: "AI and Technology",
+  },
+  {
+    id: 7,
+    title: "Subject Matter Expert – IT Domain",
+    type: "Full-time | WFO",
+    location: "Mangalore",
+    experience: "5–10 years",
+    category: "Domain Experts",
+  },
+  {
+    id: 8,
+    title: "Subject Matter Expert – Manufacturing",
+    type: "Full-time | WFO",
+    location: "Mangalore",
+    experience: "5–10 years",
+    category: "Domain Experts",
+  },
+  {
+    id: 9,
+    title: "Unity Programmer (AR/VR)",
+    type: "Full-time | Onsite",
+    location: "Mangalore",
+    experience: "4+ years",
+    category: "AI and Technology",
+  },
+];
 export const metadata = {
   title: "Careers at Karanji: Join Our AI, VR and Digital Learning Innovation Team",
   description:

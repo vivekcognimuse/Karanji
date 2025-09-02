@@ -92,7 +92,7 @@ const strategicPrioritiesData = {
     {
       id: 3,
       value: "55%",
-      title: "AI & Technology",
+      title: "AI and Technology",
       subTitle: "priority ranking",
     },
   ],
