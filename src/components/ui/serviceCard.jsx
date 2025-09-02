@@ -213,7 +213,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
 
               {/* Features list - 2 columns for better use of space */}
               {list && list.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-6">
+                <div className="md:grid hidden grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-6">
                   {list.map((item, i) => (
                     <div
                       key={i}
@@ -226,11 +226,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
             </div>
 
             <div className="flex justify-end items-end">
-              {ctaText && ctaLink && (
-                <Link href={ctaLink}>
-                  <Button className="">{ctaText}</Button>
-                </Link>
-              )}
+              {ctaText && ctaLink && <Button className="">{ctaText}</Button>}
             </div>
           </div>
         </div>{" "}
