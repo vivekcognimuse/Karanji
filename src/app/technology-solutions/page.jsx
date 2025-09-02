@@ -21,29 +21,29 @@ const technologyService = {
   cards: [
     {
       id: 55,
-      title: "AI Advisory & Implementation",
+      title: "AI Advisory and Implementation",
       description:
-        "Empower your business with tailored AI strategies - from maturity assessments & customized roadmaps to actionable AI solutions that drive growth.",
+        "Empower your business with tailored AI strategies - from maturity assessments and customized roadmaps to actionable AI solutions that drive growth.",
       image: null,
       list: [
-        { id: 321, text: "AI strategy & roadmap development" },
+        { id: 321, text: "AI strategy and roadmap development" },
         { id: 322, text: "Comprehensive AI maturity assessments" },
         { id: 323, text: "Custom AI-driven applications" },
-        { id: 324, text: "Data strategy & analytics" },
+        { id: 324, text: "Data strategy and analytics" },
       ],
       ctaLink: "/technology-solutions/ai-advisory",
       ctaText: "Learn More",
     },
     {
       id: 55,
-      title: "XR & GamingSolutions",
+      title: "XR and GamingSolutions",
       description:
-        "Engage & inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys.",
+        "Engage and inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys.",
       image: null,
       list: [
         { id: 321, text: "Immersive VR training experiences" },
         { id: 322, text: "Augmented reality learning modules" },
-        { id: 323, text: "Interactive gaming & simulation applications" },
+        { id: 323, text: "Interactive gaming and simulation applications" },
         { id: 324, text: "Dynamic mixed reality experiences" },
       ],
       ctaLink: "/technology-solutions/xr-gaming",
@@ -51,9 +51,9 @@ const technologyService = {
     },
     {
       id: 56,
-      title: "Digital Twins &Simulations",
+      title: "Digital Twins and Simulations",
       description:
-        "Revolutionize your operational insights through digital replicas & interactive simulations that provide real-time data visualization & predictive analytics.",
+        "Revolutionize your operational insights through digital replicas and interactive simulations that provide real-time data visualization and predictive analytics.",
       image: null,
       list: [
         { id: 325, text: "Virtual replicas of physical environments" },
