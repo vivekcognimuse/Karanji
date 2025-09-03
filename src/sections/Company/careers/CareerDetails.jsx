@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
+
 export default function CareerDetails({
   // header/meta
   title,
@@ -71,13 +72,13 @@ export default function CareerDetails({
           {title}
         </h2>
 
-        {/* Meta row */}
-        <P3 className="flex flex-wrap gap-x-6 gap-y-2 text-black/80 border-b border-black/10 pb-6 mb-8">
-          {location ? <div>📍 {location}</div> : null}
-          {workModel ? <div>• {workModel}</div> : null}
-          {category ? <div>• {category}</div> : null}
-          {employmentType ? <div>• {employmentType}</div> : null}
-        </P3>
+        {/* Meta row - Fixed: Removed div inside P3 */}
+        <div className="font-outfit font-light sm:text-xl flex flex-wrap gap-x-6 gap-y-2 text-black/80 border-b border-black/10 pb-6 mb-8">
+          {location ? <span>📍 {location}</span> : null}
+          {workModel ? <span>• {workModel}</span> : null}
+          {category ? <span>• {category}</span> : null}
+          {employmentType ? <span>• {employmentType}</span> : null}
+        </div>
 
         {/* Summary */}
         {summary ? (
@@ -87,33 +88,33 @@ export default function CareerDetails({
           </div>
         ) : null}
 
-        {/* Responsibilities */}
+        {/* Responsibilities - Fixed: Changed P3 to ul for proper list semantics */}
         {responsibilities?.length ? (
           <div className="mb-10">
             <h4 className="text-2xl font-medium mb-3">Key Responsibilities</h4>
-            <P3 className="list-disc pl-5 space-y-2 text-black/80">
+            <ul className="font-outfit font-light sm:text-xl list-disc pl-5 space-y-2 text-black/80">
               {responsibilities.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
-            </P3>
+            </ul>
           </div>
         ) : null}
 
-        {/* Requirements */}
+        {/* Requirements - Fixed: Changed P3 to ul for proper list semantics */}
         {requirements?.length ? (
           <div className="mb-10">
             <h4 className="text-2xl font-medium mb-3">
               What We're Looking For
             </h4>
-            <P3 className="list-disc pl-5 space-y-2 text-black/80">
+            <ul className="font-outfit font-light sm:text-xl list-disc pl-5 space-y-2 text-black/80">
               {requirements.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
-            </P3>
+            </ul>
           </div>
         ) : null}
 
-        {/* Apply */}
+        {/* Apply - Fixed: Removed asChild prop and used proper link structure */}
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <P3 className="text-black/80">
             To apply for the role please send an email to{" "}
@@ -123,9 +124,9 @@ export default function CareerDetails({
             with subject line as "{applySubject}".
           </P3>
           <div>
-            <Button asChild>
-              <a href={mailto}>{applyCtaText}</a>
-            </Button>
+            <a href={mailto}>
+              <Button>{applyCtaText}</Button>
+            </a>
           </div>
         </div>
       </div>

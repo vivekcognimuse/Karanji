@@ -30,7 +30,7 @@ const serviceOffering = {
     },
     {
       id: 12,
-      title: "Game Based Learning Experiences",
+      title: "Game-based Learning Experiences",
       subTitle: null,
       description:
         "Enhanced learner retention through game-based eLearning modules",

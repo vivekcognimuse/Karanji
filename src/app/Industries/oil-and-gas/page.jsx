@@ -239,7 +239,7 @@ const digitalTransformationData = {
     {
       id: 1,
       title: "Operational Technology",
-      icon: "/Industries & its pages/Oil and gas/Increase.svg", // Replace with your icon path
+      icon: "/Industries & its pages/Oil and gas/supply-chain.svg", // Replace with your icon path
       points: ["Digital Twin", "Remote Operations", "Automation"],
     },
     {

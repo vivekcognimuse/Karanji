@@ -72,7 +72,7 @@ const LogoAnimation = () => {
     const mainTL = gsap.timeline({
       scrollTrigger: {
         trigger: container,
-        start: "top top",
+        start: "top-=70 top",
         end: "+=6000",
         scrub: 0.3,
         pin: true,
@@ -143,7 +143,7 @@ const LogoAnimation = () => {
           scale: 1,
           rotation: 360,
           duration: 0.8,
-          ease: "back.out(1.4)",
+          ease: "power2.out",
         },
         "-=0.4"
       )
@@ -169,14 +169,12 @@ const LogoAnimation = () => {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <div
         ref={containerRef}
-        className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
-
+        className="min-h-[calc(100vh-80px)] lg:pb-32 flex flex-col items-center justify-center relative overflow-hidden">
         {/* Logo Animation Section */}
-        <div className="flex items-center justify-center relative z-10 flex-1 ">
+        <div className="flex items-center justify-center relative z-10  ">
           <PieChartLogo
             logoRef={logoRef}
             section1Ref={section1Ref}
@@ -187,10 +185,10 @@ const LogoAnimation = () => {
         </div>
 
         {/* Quote Content - appears after logo animation */}
-        <div ref={quoteContentRef} className="w-full opacity-0 pb-24 md:pb-28">
+        <div ref={quoteContentRef} className="w-full  -mt-10 pb-24 md:pb-28">
           <div className="mx-auto px-4 md:px-8">
             {/* Quote Icon */}
-            <div className="mb-8 flex justify-start">
+            <div className="mb-4 flex justify-start">
               <Image
                 height={40}
                 width={40}

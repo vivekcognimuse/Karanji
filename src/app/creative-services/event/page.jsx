@@ -59,14 +59,14 @@ const serviceOfferingsData = {
 
   cards: [
     {
-      title: "Live event production and management",
+      title: "Live event production and Management",
       subTitle: "",
       description: "Event management from concept to execution.",
       featured: true,
       icon: "/event/icons/production.svg",
     },
     {
-      title: "Event tech and equipment rental",
+      title: "Event tech and Equipment rental",
       subTitle: "",
       description: "State-of-the-art technical solutions for any event scale.",
       featured: false,
@@ -80,7 +80,7 @@ const serviceOfferingsData = {
       icon: "/event/icons/stage-design.svg",
     },
     {
-      title: "Virtual and hybrid events production",
+      title: "Virtual and Hybrid events production",
       subTitle: "",
       description: "Seamless experiences for in-person and online attendees.",
       featured: false,
