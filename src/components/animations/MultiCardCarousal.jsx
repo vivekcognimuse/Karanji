@@ -6,6 +6,7 @@ import { Icon } from "@iconify/react";
 const MultiCardCarousel = ({
   children,
   autoPlay = false,
+  showButtons = false,
   autoPlayInterval = 5000,
   className = "",
 }) => {
@@ -310,7 +311,7 @@ const MultiCardCarousel = ({
       </div>
 
       {/* Navigation Arrows - Bottom Right */}
-      {totalCards > visibleCards && (
+      {(totalCards > visibleCards || showButtons) && (
         <div className="flex justify-end items-center gap-2 mt-6">
           <button
             onClick={goToPrevious}
