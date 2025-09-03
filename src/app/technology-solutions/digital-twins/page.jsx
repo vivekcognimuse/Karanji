@@ -53,6 +53,7 @@ const DigitalTwins = async () => {
         <div id="digital-twin-offerings">
           <DigitalTwinOfferings
             data={offering}
+            noPopup={true}
             bgImage="/service-offering/digital-twin/default.svg"
             bgImageHover="/service-offering/digital-twin/hover.svg"
           />

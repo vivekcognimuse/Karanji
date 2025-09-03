@@ -419,8 +419,7 @@ const ContentDesign = () => {
         {/* Toggle Buttons */}
         <div
           id="solutions-and-resources"
-          className="flex justify-center gap-2 mb-8"
-        >
+          className="flex justify-center gap-2 mb-8">
           {tabs.map(({ key, buttonLabel }) => (
             <button
               key={key}
@@ -429,8 +428,7 @@ const ContentDesign = () => {
                 activeTab === key
                   ? "bg-[#F0B8B8] text-gray-800"
                   : "bg-white text-gray-600 hover:bg-pink-100"
-              }`}
-            >
+              }`}>
               {buttonLabel}
             </button>
           ))}
@@ -456,6 +454,7 @@ const ContentDesign = () => {
                 CtaClassName="lg:-mt-24"
                 bgImageCard="/service-offering/digital-learning/content-catalogue.svg"
                 data={digitalTwinData}
+                thankYouPopup={true}
               />{" "}
               <ServiceOfferings
                 data={serviceOfferingsData}
@@ -472,8 +471,7 @@ const ContentDesign = () => {
                   }}
                   size="sm"
                   variant="secondary"
-                  className=""
-                >
+                  className="">
                   View Custom Content Solutions
                 </Button>
               </div>

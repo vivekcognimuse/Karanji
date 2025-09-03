@@ -63,7 +63,7 @@ const lmsLearningData = {
 const serviceOfferingsData = {
   title: "How Learning Analytics Helps",
   subTitle:
-    "Learning analytics involves collecting & analyzing data about learners & their learning environments to improve outcomes.",
+    "Learning analytics involves collecting and analyzing data about learners and their learning environments to improve outcomes.",
 
   tag: "Who Benefits",
   cards: [
@@ -266,16 +266,31 @@ const implementApproachData = {
       title: "Implementation Timeline",
       content:
         "No investment in proprietary software. Open-source applications and cloud access.",
-    },
-    {
-      title: "Access",
-      contentTop: "T0 + 1-2 weeks",
-      divider: true,
-      contentBottom:
-        "All variables • Data consistency • Measure correlation • Check removal",
+      timeline: [
+        {
+          title: "Access",
+          contentTop: "T0 + 1-2 weeks",
+          divider: true,
+          contentBottom:
+            "All variables • Data consistency • Measure correlation • Check removal",
+        },
+        {
+          title: "Assess",
+          contentTop: "T0 + 2-3 weeks",
+          divider: true,
+          contentBottom: "Data distribution • Data cleaning",
+        },
+        {
+          title: "Build/Test",
+          contentTop: "T0 + 4 weeks",
+          divider: true,
+          contentBottom: "Data systems • Variables format & cadence",
+        },
+      ],
     },
   ],
 };
+
 const howItWorks = {
   title: "How It Works in Practice",
   subTitle: "Process flow",

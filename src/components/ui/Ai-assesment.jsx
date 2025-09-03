@@ -1,25 +1,36 @@
 "use client";
 import { memo, useState } from "react";
-import { P3 } from "../CustomTags";
+import { P1, P3 } from "../CustomTags";
 import Button from "./Button";
 import { cn } from "@/lib/utils";
+
+import { useRouter } from "next/navigation";
 
 // Placeholder components - replace with your actual components
 
 export const AIAssessmentCard = memo(function AIAssessmentCard({
   data,
+  noPopup = false,
+  thankYouPopup = false,
   bgImage = "",
   className = "",
 }) {
   const { title, subTitle, ctaLink, ctaText } = data || {};
   const [showForm, setShowForm] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
   });
+  const router = useRouter();
 
   const handleButtonClick = () => {
-    setShowForm(true);
+    if (noPopup) {
+      router.push(ctaLink);
+    } else {
+      setShowForm(true);
+      // Show popup logic here
+    }
   };
 
   const handleInputChange = (e) => {
@@ -35,21 +46,32 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
     // Handle form submission here
     console.log("Form submitted:", formData);
 
-    // Redirect to ctaLink if provided
-    if (ctaLink) {
-      window.open(ctaLink, "_blank", "noopener,noreferrer");
+    if (thankYouPopup) {
+      // Show thank you message
+      setShowThankYou(true);
+      setShowForm(false);
+    } else {
+      // Redirect to ctaLink if provided
+      if (ctaLink) {
+        window.open(ctaLink, "_blank", "noopener,noreferrer");
+      }
+      setShowForm(false);
     }
 
-    // Reset form and show success message
+    // Reset form
     setFormData({
       name: "",
       email: "",
     });
-    setShowForm(false);
   };
 
   const handleBack = () => {
     setShowForm(false);
+  };
+
+  const handleThankYouClose = () => {
+    setShowThankYou(false);
+    // Redirect to ctaLink if provided after showing thank you
   };
 
   // Check if both fields are filled
@@ -57,6 +79,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
     formData.name.trim() !== "" && formData.email.trim() !== "";
 
   console.log("bg Image card", bgImage);
+
   return (
     <div
       className={cn(
@@ -69,7 +92,36 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
           : "url(/solutions/assessmentCard-bg.svg)",
       }}>
       <div className="w-full max-w-md space-y-8">
-        {!showForm ? (
+        {showThankYou ? (
+          // Thank you state
+          <>
+            <div className="relative py-8">
+              <button
+                onClick={handleThankYouClose}
+                className="absolute -top-4 -right-4 w-8 h-8  rounded-full flex items-center justify-center transition-colors">
+                <svg
+                  className="w-6 h-6 text-black/60 hover:text-black cursor-pointer"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <div className="text-center space-y-4">
+                <h4 className="">Thank you for your interest.</h4>
+                <P1 className="text-black/80">
+                  Your information has been submitted successfully. We'll get
+                  back to you soon.
+                </P1>
+              </div>
+            </div>
+          </>
+        ) : !showForm ? (
           // Initial state - matching your original design
           <>
             <div className="text-center space-y-4">
@@ -131,7 +183,7 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
                     !isFormValid && "opacity-50 cursor-not-allowed"
                   )}
                   disabled={!isFormValid}>
-                  Submit Assessment
+                  {thankYouPopup ? "Submit" : ctaText}
                 </Button>
               </div>
             </form>
