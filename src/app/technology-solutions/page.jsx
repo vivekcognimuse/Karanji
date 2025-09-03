@@ -36,7 +36,7 @@ const technologyService = {
     },
     {
       id: 55,
-      title: "XR and GamingSolutions",
+      title: "XR and Gaming Solutions",
       description:
         "Engage and inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys.",
       image: null,

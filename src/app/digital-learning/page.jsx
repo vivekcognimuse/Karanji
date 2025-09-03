@@ -150,7 +150,7 @@ const successStoriesData = {
         { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
-        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+        "Gamified, branching eLearning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "10",
       tag: "Digital Learning",
@@ -162,7 +162,7 @@ const successStoriesData = {
         { title: "100%", subTitle: "Client Satisfaction" },
       ],
       description:
-        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+        "A specialized, end-to-end eLearning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "9",
       tag: "Digital Learning",

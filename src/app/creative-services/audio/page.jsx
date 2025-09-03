@@ -64,7 +64,7 @@ const serviceOfferingsData = {
       icon: "/audio/icons/end-to-end.svg",
     },
     {
-      title: "Audio engineering and Sound Design",
+      title: "Audio engineering and Sound design",
       subTitle: "",
       description: "Creative sound solutions for any media project.",
       featured: false,
