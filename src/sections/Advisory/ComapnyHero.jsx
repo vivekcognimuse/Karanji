@@ -16,10 +16,7 @@ export default function HeroSection({ data, bgImage }) {
   return (
     <section
       id="hero-section"
-      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] bg-top bg-contain`}
-      style={{
-        backgroundImage: `url('${bgImage}')`,
-      }}>
+      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] bg-top bg-contain`}>
       <div className="space-y-6 sm:space-y-8 flex lg:flex-grow  flex-col justify-center  max-w-[1580px] lg:mx-auto">
         <div className="hidden lg:block">
           <LogoAnimation />

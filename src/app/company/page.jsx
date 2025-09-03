@@ -39,7 +39,7 @@ console.log("company landing data:", data);
 const { heroData, cardsData, teamData } = data || {};
 export default async function companyLanding() {
   return (
-    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
+    <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-0">
       {" "}
       <HeroSection data={heroData} />
       <NextUpSection
