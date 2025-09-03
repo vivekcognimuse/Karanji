@@ -15,6 +15,10 @@ const ctaData = {
     "Let’s collaborate to bring your next industrial innovation to life with AI, XR, and digital learning.",
   PrimaryButtonText: "Schedule a Consultation",
   PrimaryButtonLink: "/contact",
+  popupTitle: "To Know More",
+  popupButtonText: "Enquire",
+  popupSubtitle:
+    "For industry-specific use cases, please fill out the form below",
 };
 const industriesData = {
   title: "Purpose — Built for Complex Industries.",

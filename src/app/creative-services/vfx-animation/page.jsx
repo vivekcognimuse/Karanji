@@ -231,12 +231,12 @@ const accordionData = {
         "To provide an accurate quote, we typically need: footage samples or storyboards, detailed description of required effects, project timeline, output format requirements, and any specific technical considerations. The more details you provide, the more precise our estimate will be.",
     },
     {
-      question: "What information do you need to provide for a VFX quote?",
+      question: "What is the typical timeline for VFX production?",
       answer:
-        "Timelines vary based on complexity and scope. Simple rotoscoping might be completed in days, while complex compositing and CGI could take weeks. We work closely with clients to establish realistic schedules and can adjust team size for urgent deadlines when possible.",
+        "Timelines vary based on complexity & scope. Simple rotoscoping might be completed in days, while complex compositing & CGI could take weeks. We work closely with clients to establish realistic schedules & can adjust team size for urgent deadlines when possible.",
     },
     {
-      question: "What information do you need to provide for a VFX quote?",
+      question: "Do you work with clients remotely or need to be on location?",
       answer:
         "We work with clients globally through efficient remote collaboration. For complex shoots requiring on-set VFX supervision, our team can travel to your location to ensure all necessary elements are captured correctly, optimizing the post-production process.",
     },
