@@ -9,8 +9,7 @@ const QuoteSection = ({ title }) => {
       className="w-full pb-16 md:pb-24 lg:pb-28"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+      data-reveal-stagger="0.12">
       <div className="mx-auto px-4 sm:px-6 md:px-8 max-w-7xl">
         {/* Quote Icon */}
         <div className="mb-6 md:mb-8" data-reveal data-reveal-dir="up">
