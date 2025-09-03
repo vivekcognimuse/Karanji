@@ -54,7 +54,7 @@ const cards = [
     id: 35,
     title: "Aviation",
     img: "/Industries & its pages/Landing page/Aviation card .webp",
-    subTitle: "Future-ready aviation.",
+    subTitle: "Future-ready Aviation",
     hoverContent: [
       "Predictive Maintenance Solutions",
       "Flight Crew Training Simulations",
