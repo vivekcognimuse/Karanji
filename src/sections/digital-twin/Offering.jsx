@@ -14,6 +14,8 @@ const DigitalTwinOfferings = ({
   CtaClassName = "",
   className = "",
   data,
+  noPopup,
+  thankYouPopup,
   bgImageHover,
   bgImageCard,
   bgImage,
@@ -72,6 +74,8 @@ const DigitalTwinOfferings = ({
               </Link>
             </div> */}
             <AIAssessmentCard
+              noPopup={noPopup}
+              thankYouPopup={thankYouPopup}
               bgImage={bgImageCard}
               className="max-w-xl"
               data={ctaCard}

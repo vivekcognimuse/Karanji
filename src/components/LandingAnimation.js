@@ -401,7 +401,7 @@ const LogoStoryAnimation = () => {
     <div>
       <div
         ref={containerRef}
-        className="h-screen pt-20 flex flex-col items-center justify-center relative overflow-hidden">
+        className="min-h-screen pt-20 mb-16 flex flex-col items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
         <div className="flex w-full justify-between">
           <div ref={leftContentRef} className="max-w-96 z-20">

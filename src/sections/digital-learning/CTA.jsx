@@ -25,6 +25,7 @@ const CTA = ({ className = "", data }) => {
     // New props for popup
     popupTitle = "Join the Journey",
     popupSubtitle = "Share your details and discover how Karanji can support your goals.",
+    popupButtonText = "Submit",
   } = data || {};
 
   // Validation function
@@ -135,7 +136,7 @@ const CTA = ({ className = "", data }) => {
       {/* Popup Overlay */}
       {isPopupOpen && (
         <div className="fixed inset-0 bg-black/10 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
-          <div className="bg-gradient-to-br from-purple-100 to-blue-100 flex flex-col justify-center max-h-[90vh] rounded-3xl min-h-[60vh] max-w-xl w-full mx-4 p-8 relative">
+          <div className="bg-gradient-to-br from-purple-100 to-blue-100 flex flex-col justify-center max-h-[98vh] rounded-3xl min-h-[60vh] max-w-xl w-full mx-4 p-8 relative">
             {/* Close Button */}
             <button
               onClick={closePopup}
@@ -239,7 +240,7 @@ const CTA = ({ className = "", data }) => {
                       type="submit"
                       disabled={isSubmitting}
                       className=" disabled:opacity-50 mx-auto px-12 lg:px-12 disabled:cursor-not-allowed ">
-                      {isSubmitting ? "Submitting..." : "Submit"}
+                      {popupButtonText}
                     </Button>
                   </div>
                 </form>
