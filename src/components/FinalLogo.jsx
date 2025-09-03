@@ -24,9 +24,9 @@ const FinalLogo = ({ finalLogoRef }) => {
             x2="43.6734"
             y2="32.9198"
             gradientUnits="userSpaceOnUse">
-            <stop stop-color="#9E87FF" />
-            <stop offset="0.5" stop-color="#6DBFFE" />
-            <stop offset="1" stop-color="#FF8F8F" />
+            <stop stopColor="#9E87FF" />
+            <stop offset="0.5" stopColor="#6DBFFE" />
+            <stop offset="1" stopColor="#FF8F8F" />
           </linearGradient>
         </defs>
       </svg>

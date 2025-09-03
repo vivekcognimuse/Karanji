@@ -31,9 +31,9 @@ const HowItWorks = ({ data }) => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative border-t-6 border-[#B15252] pt-4 w-full md:max-w-[15rem]">
+              className="relative  lg:border-t-6 border-t-3 lg:mb-0 mb-6 border-[#B15252] pt-4 w-full md:max-w-[15rem]">
               {/* Large step number */}
-              <div className="text-5xl font-thin text-black leading-none mb-4">
+              <div className=" text-3xl lg:text-5xl font-thin text-black leading-none mb-4">
                 {step.number}
               </div>
 

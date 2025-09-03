@@ -33,6 +33,10 @@ const ctaData = {
     "To know more about these cases or discuss any other requirement for transformation of Oil and gas",
   PrimaryButtonText: "Enquire Now",
   PrimaryButtonLink: "/contact",
+  popupTitle: "To Know More",
+  popupButtonText: "Enquire",
+  popupSubtitle:
+    "For industry-specific use cases, please fill out the form below",
 };
 const industryData = {
   title: "Industry Challenges and Landscape",
