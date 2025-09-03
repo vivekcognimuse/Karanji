@@ -52,13 +52,26 @@ const JourneySection = ({ data = {} }) => {
           data-reveal
           data-reveal-dir="up"
         >
-          <Image
-            src="/Desktop-infographic.svg"
-            alt="Description of the image"
-            width={945}
-            height={410}
-            className="mx-auto w-full h-auto"
-          />
+          {/* Desktop Infographic */}
+          <div className="hidden sm:block">
+            <Image
+              src="/Desktop-infographic.svg"
+              alt="Description of the image"
+              width={945}
+              height={410}
+              className="mx-auto w-full h-auto"
+            />
+          </div>
+          {/* Mobile Infographic */}
+          <div className="block sm:hidden">
+            <Image
+              src="/Mobile-infographic.svg"
+              alt="Description of the image"
+              width={400}
+              height={400}
+              className="mx-auto w-full h-auto"
+            />
+          </div>
         </div>
 
         {/* Button (Centered) */}

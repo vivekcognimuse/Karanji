@@ -102,7 +102,7 @@ export const caseStudies = [
     "slug": "10",
     "downloadCta": {
       "title": "Access Banking Branching Simulation Story",
-  "audienceNote": "See how visual logic maps, parallel production, and scenario trees create realistic, decision-driven training for financial teams-plus best practices for crafting impactful E-learning content",
+  "audienceNote": "See how visual logic maps, parallel production, and scenario trees create realistic, decision-driven training for financial teams-plus best practices for crafting impactful eLearning content",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/9_corporate_learning_development_teams.webp",
