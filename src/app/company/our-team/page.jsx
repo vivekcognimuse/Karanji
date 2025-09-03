@@ -42,7 +42,7 @@ const teamSectionData = [
         linkedin: "https://www.linkedin.com/in/praveen-kumar-kalbhavi-3908285",
       },
       {
-        name: "Mohammed Hanif",
+        name: "Hanif",
         role: "Executive Director",
         brief:
           "Mohammed specializes in AI automation and business strategy to optimize processes. He plays a key role in expanding Novigo’s partnerships and driving client success.",
@@ -58,10 +58,10 @@ const teamSectionData = [
         linkedin: "https://www.linkedin.com/in/shihab-kalandar-5228b315",
       },
       {
-        name: "Mohammed Jarood",
+        name: "Jarood",
         role: "Executive Director",
         brief:
-          "With deep expertise in Microsoft technologies, Mohammed co-founded Novigo Solutions to deliver innovative IT solutions to Fortune 1000 companies.",
+          "With deep expertise in Microsoft technologies, Jarood co-founded Novigo Solutions to deliver innovative IT solutions to Fortune 1000 companies.",
         image: "/Company/Team/Advisory-leaders/Mohammed-Jarood.webp",
         linkedin: "https://www.linkedin.com/in/mohammed-jarood-86024424",
       },

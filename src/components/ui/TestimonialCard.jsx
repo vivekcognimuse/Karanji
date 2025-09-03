@@ -23,7 +23,8 @@ const TestimonialCard = ({ testimonial }) => {
         {testimonial?.stats?.map((metric, statsIndex) => (
           <div
             key={statsIndex}
-            className="flex w-full lg:items-start   justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4">
+            className="flex w-full lg:items-start   justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4"
+          >
             <p className="font-sans my-auto  font-semibold text-xl md:text-5xl">
               {metric.title}
             </p>
@@ -44,7 +45,8 @@ const TestimonialCard = ({ testimonial }) => {
               <Icon icon="tabler:arrow-up-right" size={20} className="size-5" />
             }
             className=""
-            variant="text">
+            variant="text"
+          >
             {testimonial?.ctaText || "Read Full CaseStudy"}
           </Button>
         </Link>

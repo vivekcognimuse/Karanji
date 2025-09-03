@@ -67,7 +67,7 @@ const Page = () => {
               <div className="w-full flex justify-end">
                 <Link href="/">
                   <Button type="submit" className="px-1">
-                    Go back to home
+                    Go back to Home
                   </Button>
                 </Link>
               </div>
