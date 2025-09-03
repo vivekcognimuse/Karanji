@@ -126,7 +126,7 @@ export const caseStudies = [
     "downloadCta": {
       "title": "Access Automobile-EV Training Module: Micro-learning Case Study",
       "intro": "See how we turned complex EV concepts into quick, interactive micro-lessons for the automotive industry.",
-  "audienceNote": "If you're in automotive training or e-learning development, this case demonstrates how eLearning solution can streamline complex content into digestible modules.",
+  "audienceNote": "If you're in automotive training or eLearning development, this case demonstrates how eLearning solution can streamline complex content into digestible modules.",
       "buttonLabel": "Download Full Case Study"
     },
     "image": "/CaseStudyImages/11_automobile_ev_training_module.webp",

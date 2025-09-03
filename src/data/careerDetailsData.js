@@ -88,9 +88,9 @@ export const careersDetails = [
     experience: "Fresher",
     postedAgo: null,
     summary:
-      "Assist in designing and developing instructional materials for e-learning and LMS delivery, supporting content creation, editing, and course ops.",
+      "Assist in designing and developing instructional materials for eLearning and LMS delivery, supporting content creation, editing, and course ops.",
     responsibilities: [
-      "Assist in designing/developing e-learning modules, videos, simulations (LMS-packaged).",
+      "Assist in designing/developing eLearning modules, videos, simulations (LMS-packaged).",
       "Create engaging learning content aligned to objectives.",
       "Conduct basic needs assessments.",
       "Proofread/edit for accuracy, clarity, consistency; correct grammar and punctuation.",
@@ -103,7 +103,7 @@ export const careersDetails = [
       "Strong communication skills.",
       "Good MS Office knowledge.",
       "Experience with writing/AI tools (e.g., Grammarly, ChatGPT).",
-      "Interest in e-learning and digital learning technologies."
+      "Interest in eLearning and digital learning technologies."
     ]
   },
 
@@ -117,7 +117,7 @@ export const careersDetails = [
     experience: "5–8 years",
     postedAgo: null,
     summary:
-      "Design engaging, effective learning experiences across ILT/VILT/e-learning (L1–L4), integrating with LMS; lead storyboards, guides, and assessments.",
+      "Design engaging, effective learning experiences across ILT/VILT/eLearning (L1–L4), integrating with LMS; lead storyboards, guides, and assessments.",
     responsibilities: [
       "Collaborate with clients/stakeholders to define training requirements and objectives.",
       "Design/develop storyboards, facilitator/learner guides, and assessments.",
@@ -132,7 +132,7 @@ export const careersDetails = [
       "5–8 years in instructional design.",
       "Strong grasp of instructional methodologies and learning theories.",
       "Excellent writing, editing, and communication.",
-      "Experience across formats (e-learning, ILT, VILT, blended).",
+      "Experience across formats (eLearning, ILT, VILT, blended).",
       "Proficiency with tools like Articulate Storyline, Adobe Captivate, etc.",
       "Ability to manage multiple projects and deadlines.",
       "Domain breadth (IT, Manufacturing, Healthcare, Automobile, Finance).",
@@ -167,7 +167,7 @@ export const careersDetails = [
       "Proven record meeting/exceeding revenue targets.",
       "Strong MNC network; excellent communication/negotiation/presentation.",
       "Business/financial acumen; willingness to travel.",
-      "Exposure to platform-led learning (LMS/LCMS/TMS) and packaged e-learning."
+      "Exposure to platform-led learning (LMS/LCMS/TMS) and packaged eLearning."
     ],
     preferred: [
       "Experience selling across varied industry sectors.",
@@ -243,7 +243,7 @@ export const careersDetails = [
     experience: "5–10 years",
     postedAgo: null,
     summary:
-      "Manufacturing/automotive SME to interface with clients, support teams, and develop accurate, high-quality training and e-learning for plant/field staff.",
+      "Manufacturing/automotive SME to interface with clients, support teams, and develop accurate, high-quality training and eLearning for plant/field staff.",
     responsibilities: [
       "Lead client meetings to understand manufacturing requirements.",
       "Provide domain expertise to ID and content teams.",
