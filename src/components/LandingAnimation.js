@@ -423,7 +423,7 @@ const LogoStoryAnimation = () => {
         <div className="text-center space-y-8 w-full px-8">
           <h3
             ref={headingRef}
-            className="text-center w-full justify-start text-black text-6xl font-normal">
+            className="text-center w-full justify-start text-black text-6xl font-normal font-sans">
             Innovate.Design.Transform
           </h3>
           <div ref={buttonRef}>

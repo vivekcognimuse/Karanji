@@ -36,7 +36,7 @@ const entertainmentServices = {
   services: [
     {
       icon: "/entertainment/entertainment-advantage/1.svg",
-      title: "End-to-end solutions",
+      title: "End-to-end Solutions",
       description:
         "Seamless integration of all creative and production elements from concept to delivery.",
     },
@@ -54,13 +54,13 @@ const entertainmentServices = {
     },
     {
       icon: "/entertainment/entertainment-advantage/4.svg",
-      title: "Cutting-edge technology",
+      title: "Cutting-edge Technology",
       description:
         "State-of-the-art equipment and software for premium quality and innovative services.",
     },
     {
       icon: "/entertainment/entertainment-advantage/5.svg",
-      title: "Collaborative process",
+      title: "Collaborative Process",
       description:
         "We work closely with you every step to ensure your creative vision is expertly realized.",
     },
