@@ -28,7 +28,7 @@ const heroData = {
   subTitle:
     " Transforming learning experiences through expert content design, development, and talent resources.",
   ctaText: "Explore Our Solutions",
-  ctaLink: "e-learning-solutions", // You can change this to the appropriate link for your services page
+  ctaLink: "eLearning-solutions", // You can change this to the appropriate link for your services page
   linkIcon: "material-symbols:arrow-forward", // You can change this to the desired icon
   backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
   stats: [
@@ -99,7 +99,7 @@ const successStoriesData = {
         { title: "70%", subTitle: "Seamless Alignment" },
       ],
       description:
-        "Gamified, branching e-learning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
+        "Gamified, branching eLearning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent—delivered on time.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "10",
       tag: "Digital Learning",
@@ -111,7 +111,7 @@ const successStoriesData = {
         { title: "100%", subTitle: "Client Satisfaction" },
       ],
       description:
-        "A specialized, end-to-end e-learning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
+        "A specialized, end-to-end eLearning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers.",
       ctaText: "Read Full CaseStudy",
       ctaLink: "9",
       tag: "Digital Learning",
@@ -249,7 +249,7 @@ const contentFormatsData = {
   ],
 };
 const learningChallenges = {
-  title: "Custom E-Learning Solutions",
+  title: "Custom eLearning Solutions",
   subTitle:
     "Transform Your Learning Initiatives with Tailored Content and Expert Resources.",
   challenges: [
@@ -297,9 +297,9 @@ const eLearning = {
   defaultTab: "custom", // optional, defaults to first tab
 };
 const customELearningSolutionDeepDive = {
-  title: "Custom E-Learning Solutions Deep Dive",
+  title: "Custom eLearning Solutions Deep Dive",
   subTitle:
-    "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging e-learning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
+    "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging eLearning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
   cards: [
     {
       subTitle: "Level 1",
@@ -413,7 +413,7 @@ const ContentDesign = () => {
       {" "}
       <HeroSection bgImage="/hero/Content-design.webp" data={heroData} />
       <div className="space-y-16 lg:space-y-32">
-        <div id="e-learning-solutions">
+        <div id="eLearning-solutions">
           <LearningChallenges data={learningChallenges} />
         </div>
         {/* Toggle Buttons */}

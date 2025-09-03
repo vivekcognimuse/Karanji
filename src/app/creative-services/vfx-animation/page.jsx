@@ -37,7 +37,7 @@ const heroData = {
 // SERVICE OVERVIEW
 const serviceOverview = {
   title: "Service overview",
-  subTitle: "Transform your vision with professional vfx and animation",
+  subTitle: "Transform your vision with professional VFX and animation",
   description:
     "Our VFX and animation team delivers stunning visual elements that elevate your project from ordinary to extraordinary. With expertise spanning film, advertising, and digital media, we provide end-to-end visual effects solutions tailored to your creative vision and technical requirements.",
   feature:

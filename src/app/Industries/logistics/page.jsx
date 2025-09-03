@@ -276,7 +276,7 @@ const strategicUseCaseData = {
       category: "Immersive Tech and Digital Learning",
       title: "Maritime Knowledge Academy",
       description:
-        "Standardizes training globally and scales learning access 24/7 via gamified e-learning.",
+        "Standardizes training globally and scales learning access 24/7 via gamified eLearning.",
     },
     {
       id: 10,

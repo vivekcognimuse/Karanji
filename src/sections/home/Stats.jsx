@@ -6,7 +6,7 @@ const StatsSection = () => {
     { title: "18+", subTitle: "years in Business" },
     { title: "240+", subTitle: "Happy Clients" },
     { title: "2400+", subTitle: "Projects Completed" },
-    { title: "21000+", subTitle: "e-Learning Hours Developed" },
+    { title: "21000+", subTitle: "eLearning Hours Developed" },
   ];
 
   return (

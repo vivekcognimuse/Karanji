@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Button from "./Button";
-import { P1, P3, P4 } from "../CustomTags";
+import { P1, P2, P3, P4 } from "../CustomTags";
 import CarouselContainer from "../animations/Carousal";
 
 export const ServiceCard = memo(function ServiceCard({
@@ -208,7 +208,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
           <div className="hover-content absolute inset-0 px-8 py-8 h-full flex flex-col justify-between opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-300 ease-in-out delay-100 group-hover:delay-100">
             <div className="flex-1">
               {description && (
-                <P1 className="text-black-800 mb-6">{description}</P1>
+                <P2 className="text-black-800 mb-6">{description}</P2>
               )}
 
               {/* Features list - 2 columns for better use of space */}
