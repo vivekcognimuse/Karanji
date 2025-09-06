@@ -1,138 +1,111 @@
 // app/company/careers/page.jsx
 import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
-// ⬇️ Import the careers table + default data
 import CareersTable from "@/sections/Company/careers/CareersTable";
-import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
+import { getMediaUrl  } from "@/utils/ish";
 
-const teamData = {
-  title: "Your Next Chapter Starts Here",
-  description:
-    "Build your career with us and help shape the future of [Industry/Field]. We value innovation, diversity, and collaborative growth.",
-  SecondaryButtonText: "View Open Roles",
-  // Scrolls to the roles section below
-  SecondaryButtonLink: "#open-roles",
-};
 
-const sectionData = {
-  title: "Why Work With Us?",
-  description:
-    "Join a company where creativity meets cutting-edge technology. At Karanji, we blend innovation, collaboration, and personal growth to shape the future of learning, entertainment, and AI-driven solutions. We're not just building products – we're building meaningful experiences, and it all starts with our people.",
-};
+function normalizeLanding(data) {
+  // Strapi single type usually returns: { id, attributes: {...} }
+  const attrs = data?.attributes ?? data ?? {};
 
-const cardsData = [
-  {
-    icon: "/Company/Team/icons/culture.svg",
-    title: "Culture",
-    description:
-      "We foster a collaborative environment built on trust and innovation.",
-    image: "/Company/Culture.webp",
-  },
-  {
-    icon: "/Company/Team/icons/learning.svg",
-    title: "Learning",
-    description:
-      "Continuous development opportunities to foster personal growth.",
-    image: "/Company/Learning.webp",
-  },
-  {
-    icon: "/Company/Team/icons/growth.svg",
-    title: "Growth",
-    description:
-      "Opportunities for advancement and career paths based on performance.",
-    image: "/Company/growth.webp",
-  },
-];
+  // Keep names identical to your components' expected props
+  const teamData = attrs.teamData ?? {};
+  const sectionData = attrs.sectionData ?? {};
+  const cards = Array.isArray(attrs.cardsData)
+  ? attrs.cardsData.map((c, i) => {
+      const item = c?.attributes ?? c ?? {};
+      const rawIcon =
+        typeof item.icon === "string"
+          ? item.icon
+          : typeof item.Icon === "string"
+          ? item.Icon
+          : "";
 
-const ctaData = {
-  title: "Don't see a role that fits?",
-  description:
-    "We’d love to hear from you! Send us an email at recruitment@karanji.com with the subject line ‘Application | Role Title’, along with your profile and areas of interest. We’re always on the lookout for exceptional talent to join our team.",
-  SecondaryButtonText: "Send us an Email",
-  SecondaryButtonLink:
-    "mailto:recruitment@karanji.com?subject=Application%20%7C%20Role%20Title",
-};
-const defaultCareers = [
-  {
-    id: 1,
-    title: "Content Reviewer",
-    type: "Full-time | WFO",
-    location: "Mangalore",
-    experience: "3–4 years",
-    category: "Learning and Content Development",
-  },
-  {
-    id: 2,
-    title: "GenAI Developer – Interns",
-    type: "Full-time | WFO ",
-    duration: "Internship (6 months)",
-    location: "Mangalore",
-    experience: "Freshers",
-    category: "AI and Technology",
-  },
-  {
-    id: 3,
-    title: "Instructional Designer – Interns",
-    type: "Full-time | Onsite",
-    location: "Mangalore",
-    experience: "Fresher",
-    category: "Learning and Content Development",
-  },
-  {
-    id: 4,
-    title: "Instructional Designer",
-    type: "Full-time | Remote",
-    location: "Bangalore",
-    experience: "5–8 years",
-    category: "Learning and Content Development",
-  },
-  {
-    id: 5,
-    title: "Sales Expert",
-    type: "Full-time | Remote",
-    location: "Delhi",
-    experience: "4+ years",
-    category: "Business and Sales",
-  },
-  {
-    id: 6,
-    title: "Senior Generative AI Developer",
-    type: "Full-time | Remote",
-    location: "Mangalore",
-    experience: "2+ years",
-    category: "AI and Technology",
-  },
-  {
-    id: 7,
-    title: "Subject Matter Expert – IT Domain",
-    type: "Full-time | WFO",
-    location: "Mangalore",
-    experience: "5–10 years",
-    category: "Domain Experts",
-  },
-  {
-    id: 8,
-    title: "Subject Matter Expert – Manufacturing",
-    type: "Full-time | WFO",
-    location: "Mangalore",
-    experience: "5–10 years",
-    category: "Domain Experts",
-  },
-  {
-    id: 9,
-    title: "Unity Programmer (AR/VR)",
-    type: "Full-time | Onsite",
-    location: "Mangalore",
-    experience: "4+ years",
-    category: "AI and Technology",
-  },
-];
+      return {
+        id: item.id ?? i,
+        title: item.title ?? item.Title ?? "",
+        description: item.description ?? item.Description ?? "",
+        // icon is a plain text path like "/Company/Team/icons/culture.svg"
+        icon: rawIcon
+          ? (rawIcon.startsWith("/") ? rawIcon : `/${rawIcon}`).trim()
+          : "",
+        // image can be Strapi media or a string path
+        image: getMediaUrl(item.image),
+      };
+    })
+  : [];
+
+  const ctaData = attrs.ctaData ?? {};
+
+  // Default careers rows (table on landing)
+  // Expecting items like: { title, type, duration?, location, experience, category }
+  const defaultCareersRaw = Array.isArray(attrs.defaultCareers)
+    ? attrs.defaultCareers
+    : [];
+
+  // If these come as component objects, pass through as-is; otherwise map to safe shape
+  const defaultCareers = defaultCareersRaw.map((item, i) => {
+    // component entries may be plain objects already
+    const row = item?.attributes ?? item ?? {};
+    return {
+      id: row.id ?? i,
+      title: row.title ?? row.Title ?? "",
+      type: row.type ?? "",
+      duration: row.duration ?? "",
+      location: row.location ?? row.Location ?? "",
+      experience: row.experience ?? row.Experience ?? "",
+      category: row.category ?? row.Category ?? "",
+    };
+  });
+
+  return { teamData, sectionData, cards, ctaData, defaultCareers };
+}
 export const metadata = {
   title: "Careers at Karanji: Join Our AI, VR and Digital Learning Innovation Team",
   description:
     "Build your career with Karanji's innovative team. Explore opportunities in AI development, VR programming, instructional design, and shape the future of technology and learning.",
 }
-export default function careersPage() {
+export default async function CareersPage() {
+  // 1) Pull the single type (cards need image populate)
+  // If your wrapper is picky, you can also just do "careerpage?populate=*"
+  const pageData = await fetchFromStrapi("careerpage");
+  // 2) Pull careers (source of truth for Slug)
+  const careers = await fetchFromStrapi(
+    "careers?fields[0]=Title&fields[1]=Slug&fields[2]=category&fields[3]=Location&fields[4]=Experience&fields[5]=EmploymentType&sort=PostedAt:desc&pagination[pageSize]=200"
+  );
+  if (!pageData) return null;
+
+    const { teamData, sectionData, cards , ctaData, defaultCareers } =
+    normalizeLanding(pageData);
+
+  // Build a fast lookup of careers by normalized Title
+  const normalize = (s) => (s || "").trim().toLowerCase();
+  const careersByTitle = new Map(
+    (Array.isArray(careers) ? careers : []).map((e) => {
+      const a = e?.attributes ?? e ?? {};
+      return [normalize(a.Title), a];
+    })
+  );
+
+   const mergedCareers =
+       (defaultCareers || []).map((row, i) => {
+      const match = careersByTitle.get(normalize(row.title));
+      return {
+        id: row.id ?? i,
+        title: row.title,
+        // prefer curated values for table display; fall back to collection values
+        type: row.type ?? match?.EmploymentType ?? "",
+        duration: row.duration ?? "",
+        location: row.location ?? match?.Location ?? "",
+        experience: row.experience ?? match?.Experience ?? "",
+        category: row.category ?? match?.category ?? "",
+        // key part: real slug from collection (fallback to empty)
+        slug: match?.Slug ?? "",
+      };
+    });
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-10 space-y-16 lg:space-y-32">
       {/* Wrapper for all components except the last CTA */}
@@ -143,8 +116,10 @@ export default function careersPage() {
             "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
           backdropFilter: "blur(28.100000381469727px)",
           boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)",
-        }}>
+        }}
+      >
         <div className="space-y-16 lg:space-y-32">
+          {/* Hero */}
           <CTA
             data={teamData}
             className="
@@ -161,17 +136,14 @@ export default function careersPage() {
 
           {/* Why Work With Us */}
           <WhyWorkWithUsSection
-            title={sectionData.title}
-            description={sectionData.description}
-            cards={cardsData}
+            title={sectionData?.title}
+            description={sectionData?.description}
+            cards={cards}
           />
 
           {/* Open Roles */}
           <section id="open-roles">
-            <CareersTable
-              jobs={defaultCareers}
-              detailBasePath="/company/careers"
-            />
+            <CareersTable jobs={mergedCareers} detailBasePath="/company/careers" />
           </section>
         </div>
       </div>

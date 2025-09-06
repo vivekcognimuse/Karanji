@@ -1,6 +1,7 @@
 "use client";
 import { P2 } from "../CustomTags";
 import Image from "next/image";
+import Link from "next/link";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 export default function MeetSpeakers({ speakers }) {
@@ -9,7 +10,8 @@ export default function MeetSpeakers({ speakers }) {
       className="py-20 px-6"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto">
         {/* Title with Reveal Animation */}
         <h3 className="mb-4" data-reveal data-reveal-dir="up">
@@ -24,9 +26,12 @@ export default function MeetSpeakers({ speakers }) {
         {/* Speaker List */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {speakers.list.map((speaker, index) => (
-            <div
+            <Link
               key={index}
-              className="hover:scale-105 transition-all duration-300 cursor-pointer"
+              href={speaker.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-all duration-300 cursor-pointer block"
               data-reveal
               data-reveal-dir="up" // Added reveal animation for each speaker
             >
@@ -47,7 +52,8 @@ export default function MeetSpeakers({ speakers }) {
                     className="w-6 h-6 text-black-950"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24">
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -60,7 +66,7 @@ export default function MeetSpeakers({ speakers }) {
                   {speaker.title}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

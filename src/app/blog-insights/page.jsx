@@ -66,10 +66,13 @@ const normalizeBlog = (entry) => {
 export default async function BlogInsights() {
   const data = await fetchFromStrapi(
     "blogs",
-    { populate: "*" },
+    { populate: "all" },
     "https://calm-joy-61798b158b.strapiapp.com/api"
   );
   const blogs = (Array.isArray(data) ? data : []).map(normalizeBlog);
+  if (blogs.length === 0) {
+    return <p className="p-4">No blog posts found.</p>;
+  }
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
