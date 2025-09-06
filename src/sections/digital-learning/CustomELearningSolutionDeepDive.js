@@ -103,7 +103,7 @@ export default function ELearningSolutions({ data, setActiveTab }) {
 
       {/* Cards - Desktop */}
       <div className="w-full hidden md:block md:min-w-lg gap-8 mx-auto px-6">
-        <MultiCardCarousel>{renderCards()}</MultiCardCarousel>
+        <MultiCardCarousel showButtons>{renderCards()}</MultiCardCarousel>
       </div>
 
       {/* Cards - Mobile */}
