@@ -1,4 +1,4 @@
-//app/case-studies/page.jsx
+// app/case-studies/page.jsx
 import React from "react";
 import { notFound } from "next/navigation";
 import ResourcesGrid from "@/components/resources/ResourcesGrid";
@@ -15,13 +15,12 @@ export const metadata = {
 
 const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
 
-// tiny helpers
+// helpers
 const asArr = (res) =>
   Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : [];
 
 const text = (v, d = "") => (typeof v === "string" ? v : d);
 
-// normalize each entry to the card shape your grid expects
 const normalizeCard = ({
   type,
   item,
@@ -30,7 +29,7 @@ const normalizeCard = ({
   titleField = "title",
   slugField = "slug",
   imageField = "image",
-  domainField = "domain", // change to "category" for blogs if needed
+  domainField = "domain",
 }) => {
   const a = item?.attributes ?? item ?? {};
   const title = text(a[titleField]);
@@ -51,15 +50,10 @@ const normalizeCard = ({
   };
 };
 
-// --- fetchers (params object avoids fragile query strings) ---
 async function fetchCaseStudies() {
   return fetchFromStrapi(
     "case-studies",
-    {
-      populate: "*",
-      pagination: { pageSize: 100 },
-      sort: "createdAt:desc", // <- safer than publishedAt
-    },
+    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
     STRAPI
   );
 }
@@ -67,23 +61,15 @@ async function fetchCaseStudies() {
 async function fetchBlogs() {
   return fetchFromStrapi(
     "blogs",
-    {
-      populate: "*",
-      pagination: { pageSize: 100 },
-      sort: "createdAt:desc",
-    },
+    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
     STRAPI
   );
 }
 
 async function fetchWebinars() {
   return fetchFromStrapi(
-    "webinar", // <- singular per your API
-    {
-      populate: "*",
-      pagination: { pageSize: 100 },
-      sort: "createdAt:desc", // if you have eventDate, you can switch to "eventDate:desc"
-    },
+    "webinar",
+    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
     STRAPI
   );
 }
@@ -109,10 +95,9 @@ async function fetchAllResources() {
     normalizeCard({
       type: "Blog",
       item,
-      basePath: "/blog",
+      basePath: "/blog-insights",
       defaultCTA: "Read Blog",
-      // if blogs use "category", change:
-      domainField: "domain", // or "category"
+      domainField: "domain",
     })
   );
 
@@ -120,7 +105,7 @@ async function fetchAllResources() {
     normalizeCard({
       type: "Webinar",
       item,
-      basePath: "/webinars", // your listing route; detail can be /webinars/[slug]
+      basePath: "/webinars",
       defaultCTA: "Register for Webinar",
       domainField: "domain",
     })
@@ -129,7 +114,7 @@ async function fetchAllResources() {
   return { caseStudies, blogCards, webinarCards };
 }
 
-export default async function ResourcesPage() {
+export default async function CaseStudiesPage() {
   let data;
   try {
     data = await fetchAllResources();
@@ -138,32 +123,32 @@ export default async function ResourcesPage() {
     notFound();
   }
 
-  const { caseStudies, blogCards, webinarCards } = data;
+  const { caseStudies, webinarCards } = data;
 
-  // keep grid as Case Studies only (like before)
-  const filteredResources = caseStudies.slice(0, 6);
+  // ✅ show first 6 in the grid
+  const gridItems = caseStudies.slice(0, 6);
+
+  // ✅ Upcoming shows webinars + remaining case studies (no duplicates)
+  const upcomingItems = [...webinarCards, ...caseStudies.slice(6)];
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <div>
         <div className="space-y-4 pt-10">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            What's New?
+            Case Studies
           </h2>
         </div>
 
         <section className="space-y-6 pb-16">
-          <ResourcesGrid resources={filteredResources} />
+          <ResourcesGrid resources={gridItems} />
         </section>
 
-        <section className="space-y-6">
-          <Upcoming
-            items={[
-              ...webinarCards, // typically “upcoming”
-              ...caseStudies, // latest case studies
-            ]}
-          />
-        </section>
+        {upcomingItems.length > 0 && (
+          <section className="space-y-6">
+            <Upcoming items={upcomingItems} />
+          </section>
+        )}
       </div>
     </main>
   );

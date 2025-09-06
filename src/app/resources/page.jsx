@@ -15,21 +15,31 @@ export const metadata = {
 
 const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
 
-// helpers
-const asArr = (res) =>
-  Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : [];
+// --- helpers ---
+// Handle both collectionType and singleType shapes
+const asArr = (res) => {
+  if (Array.isArray(res)) return res;
+  if (Array.isArray(res?.data)) return res.data;
+  // singleType: { data: { id, attributes } }
+  if (res?.data && typeof res.data === "object") return [res.data];
+  // already a single entry object? (id + attributes)
+  if (res && typeof res === "object" && "id" in res && "attributes" in res)
+    return [res];
+  return [];
+};
 
 const text = (v, d = "") => (typeof v === "string" ? v : d);
 
+// normalize each entry to the card shape
 const normalizeCard = ({
   type, // "Case Study" | "Blog" | "Webinar"
-  item, // Strapi entry
-  basePath, // "/case-studies" | "/blog" | "/webinars"
-  defaultCTA, // "View Case Study" | "Read Blog" | "Register for Webinar"
+  item,
+  basePath,
+  defaultCTA,
   titleField = "title",
   slugField = "slug",
-  imageField = "image", // change to "cover" if your blog uses cover
-  domainField = "domain", // change to "category" if your blog uses category
+  imageField = "image",
+  domainField = "domain",
 }) => {
   const a = item?.attributes ?? item ?? {};
   const title = text(a[titleField]);
@@ -37,6 +47,8 @@ const normalizeCard = ({
   const image =
     getMediaUrl(a[imageField]) || "/CaseStudyImages/default-image.webp";
   const domain = text(a[domainField]) || type;
+
+  // SingleType webinar likely has no slug; link to basePath itself
   const link = slug ? `${basePath}/${encodeURIComponent(slug)}` : basePath;
 
   return {
@@ -50,7 +62,7 @@ const normalizeCard = ({
   };
 };
 
-// fetchers (params object = less brittle)
+// --- fetchers ---
 async function fetchCaseStudies() {
   return fetchFromStrapi(
     "case-studies",
@@ -58,6 +70,7 @@ async function fetchCaseStudies() {
     STRAPI
   );
 }
+
 async function fetchBlogs() {
   return fetchFromStrapi(
     "blogs",
@@ -65,13 +78,10 @@ async function fetchBlogs() {
     STRAPI
   );
 }
+
 async function fetchWebinars() {
-  // API UID is singular: "webinar"
-  return fetchFromStrapi(
-    "webinar",
-    { pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+  // singleType: no pagination/sort
+  return fetchFromStrapi("webinar", STRAPI);
 }
 
 async function fetchAllResources() {
@@ -95,25 +105,25 @@ async function fetchAllResources() {
     normalizeCard({
       type: "Blog",
       item,
-      basePath: "/blog",
+      basePath: "/blog-insights",
       defaultCTA: "Read Blog",
-      // if your blogs use "category" or "cover", tweak:
-      domainField: "domain", // or "category"
-      imageField: "image", // or "cover"
+      domainField: "domain", // change to "category" if that’s what your blog uses
+      imageField: "image",
     })
   );
 
+  // Treat singleType as an array of 1 (asArr handles that now)
   const webinarCards = asArr(webinarRes).map((item) =>
     normalizeCard({
       type: "Webinar",
       item,
-      basePath: "/webinars",
+      basePath: "/webinar", // ← make sure you actually have a /webinar page
       defaultCTA: "Register for Webinar",
       domainField: "domain",
     })
   );
 
-  // merge EVERYTHING, newest first
+  // newest first (eventDate > publishedAt > updatedAt > createdAt)
   const all = [...caseStudies, ...blogCards, ...webinarCards].sort((a, b) => {
     const da = a._date ? new Date(a._date).getTime() : 0;
     const db = b._date ? new Date(b._date).getTime() : 0;
@@ -134,25 +144,27 @@ export default async function ResourcesPage() {
 
   const { all } = data;
 
+  const gridItems = all.slice(0, 6);
+  const upcomingItems = all.slice(6); // show ALL remaining
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <div>
-        {/* Header */}
         <div className="space-y-4 pt-10">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             What's New?
           </h2>
         </div>
 
-        {/* Resources Grid – ALL items, no filter */}
         <section className="space-y-6 pb-16">
-          <ResourcesGrid resources={all.slice(0, 6)} />
+          <ResourcesGrid resources={gridItems} />
         </section>
 
-        {/* Upcoming – ALL items, no slice */}
-        <section className="space-y-6">
-          <Upcoming items={all} />
-        </section>
+        {upcomingItems.length > 0 && (
+          <section className="space-y-6">
+            <Upcoming items={upcomingItems} />
+          </section>
+        )}
       </div>
     </main>
   );
