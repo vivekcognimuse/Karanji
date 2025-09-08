@@ -148,11 +148,14 @@ const IndustryCard = ({ card, index }) => {
               </div>
               <div>
                 {hoverContent.map((item, idx) => (
-                  <div key={idx} className="items-start">
-                    <P3 className="text-gray-700">{item}</P3>
+                  <div key={item.id || idx} className="items-start">
+                    <P3 className="text-gray-700">
+                      {typeof item === "string" ? item : item.text}
+                    </P3>
                     <hr className="mt-2 w-full text-black-200" />
                   </div>
                 ))}
+
                 <div className="flex justify-end mt-8">
                   <Link href={ctaLink}>
                     <Button variant="secondary" size="sm">
