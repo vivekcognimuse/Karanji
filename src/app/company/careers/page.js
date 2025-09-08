@@ -12,7 +12,7 @@ function normalizeLanding(data) {
 
   // Keep names identical to your components' expected props
   const teamData = attrs.teamData ?? {};
-  const sectionData = attrs.sectionData ?? {};
+  const sectionData = attrs.whySectionData ?? {};
   const cards = Array.isArray(attrs.cardsData)
   ? attrs.cardsData.map((c, i) => {
       const item = c?.attributes ?? c ?? {};
