@@ -49,10 +49,12 @@ const BlogPage = ({ blogs = [] }) => {
               id="hero-image"
               src="/blog/Casestudy%202.webp"
               alt={blog.title}
+              width={1200}
               height={600}
-              width={800}
               unoptimized
-              className="w-full rounded-2xl my-6"
+              className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
+              data-reveal
+              data-reveal-dir="up"
             />
           </div>
 
@@ -74,7 +76,7 @@ const BlogPage = ({ blogs = [] }) => {
                     <SectionRenderer sections={mainSections} />
 
                     {/* Download Section within the main content area */}
-                    <div className="mt-8">
+                    {/* <div className="mt-8">
                       <DownloadSection
                         title="Why download the VR Healthcare Case Study?"
                         intro="This isn't just a story – it's a proven blueprint for impact."
@@ -83,7 +85,7 @@ const BlogPage = ({ blogs = [] }) => {
                         encouragementNote="Use it, learn from it, and start your own impact story"
                         buttonLabel="Download Full Case Study"
                       />
-                    </div>
+                    </div> */}
 
                     {/* Newsletter Section within the main content area */}
                     <div className="mt-8">
@@ -112,7 +114,7 @@ const BlogPage = ({ blogs = [] }) => {
               </div>
 
               {/* Download Section for mobile - within content container */}
-              <div className="px-4 mt-8">
+              {/* <div className="px-4 mt-8">
                 <DownloadSection
                   title="Why download the VR Healthcare Case Study?"
                   intro="This isn't just a story – it's a proven blueprint for impact."
@@ -121,7 +123,7 @@ const BlogPage = ({ blogs = [] }) => {
                   encouragementNote="Use it, learn from it, and start your own impact story"
                   buttonLabel="Download Full Case Study"
                 />
-              </div>
+              </div> */}
 
               {/* Newsletter Section for mobile - within content container */}
               <div className="px-4 mt-8">
