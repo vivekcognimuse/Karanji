@@ -169,13 +169,13 @@ export const NAV_LINKS = [
       },
       {
         name: "Blog & Insights",
-        href: "/coming-soon",
+        href: "/blog-insights",
         icon: "/nav/blog-insights.svg",
         description: "Stay informed with the latest trends & insights.",
       },
       {
         name: "Webinars",
-        href: "/coming-soon",
+        href: "/webinar",
         icon: "/nav/webinars.svg",
         description: "Join us for insightful webinars & events.",
       },
