@@ -6,6 +6,7 @@ import ScrollSpySidebar from "./ScrollSpySidebar";
 import DownloadSection from "./downloadSection";
 import NewsletterSubscribe from "./NewsletterSubscribe";
 import Image from "next/image";
+
 const BlogPage = ({ blogs = [] }) => {
   const first = blogs[0];
 
@@ -48,10 +49,12 @@ const BlogPage = ({ blogs = [] }) => {
               id="hero-image"
               src="/blog/Casestudy%202.webp"
               alt={blog.title}
+              width={1200}
               height={600}
-              width={800}
               unoptimized
-              className="w-full rounded-2xl my-6"
+              className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
+              data-reveal
+              data-reveal-dir="up"
             />
           </div>
 
@@ -63,46 +66,70 @@ const BlogPage = ({ blogs = [] }) => {
           )}
 
           {/* Content Section with Sidebar Layout */}
-          <div className=" mx-auto">
-            <div className="hidden xl:flex xl:gap-8">
-              {/* Main Content */}
-              <div className="flex-1 ">
-                <div id="content" className="pr-6">
-                  <SectionRenderer sections={mainSections} />
-                </div>
-              </div>
+          <div className="mx-auto">
+            {/* Desktop and Large Tablets: Sidebar Layout */}
+            <div className="hidden xl:block">
+              <div className="flex gap-8">
+                {/* Main Content */}
+                <div className="flex-1 min-w-0">
+                  <div id="content">
+                    <SectionRenderer sections={mainSections} />
 
-              {/* Sidebar */}
-              <div className="w-64 shrink-0">
-                <div className="sticky top-36">
-                  <ScrollSpySidebar headings={headings} />
+                    {/* Download Section within the main content area */}
+                    {/* <div className="mt-8">
+                      <DownloadSection
+                        title="Why download the VR Healthcare Case Study?"
+                        intro="This isn't just a story – it's a proven blueprint for impact."
+                        description="It's a real-world example of how a global organization used immersive VR to upskill healthcare workers – faster, safer, and more effectively. From strategy to execution, see how skill gaps were closed and patient care improved."
+                        audienceNote="If you're a CSR lead, hospital trainer, or L&D manager driving healthcare transformation — it's built for you."
+                        encouragementNote="Use it, learn from it, and start your own impact story"
+                        buttonLabel="Download Full Case Study"
+                      />
+                    </div> */}
+
+                    {/* Newsletter Section within the main content area */}
+                    <div className="mt-8">
+                      <NewsletterSubscribe />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sticky Sidebar */}
+                <div className="w-64 flex-shrink-0">
+                  <div className="sticky top-36 space-y-4">
+                    {headings.length > 0 && (
+                      <div>
+                        <ScrollSpySidebar headings={headings} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Mobile Content */}
+            {/* Mobile Content: Full width for smaller screens */}
             <div className="xl:hidden">
               <div className="px-4">
                 <SectionRenderer sections={mainSections} />
               </div>
+
+              {/* Download Section for mobile - within content container */}
+              {/* <div className="px-4 mt-8">
+                <DownloadSection
+                  title="Why download the VR Healthcare Case Study?"
+                  intro="This isn't just a story – it's a proven blueprint for impact."
+                  description="It's a real-world example of how a global organization used immersive VR to upskill healthcare workers – faster, safer, and more effectively. From strategy to execution, see how skill gaps were closed and patient care improved."
+                  audienceNote="If you're a CSR lead, hospital trainer, or L&D manager driving healthcare transformation — it's built for you."
+                  encouragementNote="Use it, learn from it, and start your own impact story"
+                  buttonLabel="Download Full Case Study"
+                />
+              </div> */}
+
+              {/* Newsletter Section for mobile - within content container */}
+              <div className="px-4 mt-8">
+                <NewsletterSubscribe />
+              </div>
             </div>
-          </div>
-
-          {/* Full Width Download Section */}
-          <div className="mx-auto">
-            <DownloadSection
-              title="Why download the VR Healthcare Case Study?"
-              intro="This isn't just a story – it's a proven blueprint for impact."
-              description="It's a real-world example of how a global organization used immersive VR to upskill healthcare workers – faster, safer, and more effectively. From strategy to execution, see how skill gaps were closed and patient care improved."
-              audienceNote="If you're a CSR lead, hospital trainer, or L&D manager driving healthcare transformation — it's built for you."
-              encouragementNote="Use it, learn from it, and start your own impact story"
-              buttonLabel="Download Full Case Study"
-            />
-          </div>
-
-          {/* Full Width Newsletter */}
-          <div className="mx-auto">
-            <NewsletterSubscribe />
           </div>
         </article>
       ))}
