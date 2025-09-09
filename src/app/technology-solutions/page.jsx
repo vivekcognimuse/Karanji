@@ -21,21 +21,6 @@ const technologyService = {
   cards: [
     {
       id: 55,
-      title: "AI Advisory and Implementation",
-      description:
-        "Empower your business with tailored AI strategies - from maturity assessments and customized roadmaps to actionable AI solutions that drive growth.",
-      image: null,
-      list: [
-        { id: 321, text: "AI strategy and roadmap development" },
-        { id: 322, text: "Comprehensive AI maturity assessments" },
-        { id: 323, text: "Custom AI-driven applications" },
-        { id: 324, text: "Data strategy and analytics" },
-      ],
-      ctaLink: "/technology-solutions/ai-advisory",
-      ctaText: "Learn More",
-    },
-    {
-      id: 55,
       title: "XR and Gaming Solutions",
       description:
         "Engage and inspire with immersive VR/AR/MR experiences that transform training, marketing, & customer interaction into dynamic journeys.",
@@ -149,7 +134,11 @@ export default async function TechnologySolution() {
       {/* No need for <Head> for static metadata */}
       <HeroSection data={hero} bgImage="/hero/TechnologySolutions.webp" />
       <div className="space-y-16 lg:space-y-32">
-        <TechnologyAdvantage data={technologyAdvantage} className="lg:-mt-16" />
+        <TechnologyAdvantage
+          data={technologyAdvantage}
+          isAIAssessmentCard={false}
+          className="lg:-mt-16"
+        />
         <div id="technology-solutions">
           <TechnologyServices
             bgImage="/technologySolutions/gradient.svg"

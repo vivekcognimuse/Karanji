@@ -4,7 +4,11 @@ import SectionReveal from "@/components/animations/sectionReveal"; // <- client
 import { cn } from "@/lib/utils";
 import { AIAssessmentCard } from "@/components/ui/Ai-assesment";
 
-export default function TechnologyAdvantage({ data, className = "" }) {
+export default function TechnologyAdvantage({
+  data,
+  isAIAssessmentCard = true,
+  className = "",
+}) {
   const { title, subTitle, ctaCard, cards = [] } = data;
 
   return (
@@ -49,12 +53,14 @@ export default function TechnologyAdvantage({ data, className = "" }) {
         </div>
 
         {/* AI Assessment Card */}
-        <div
-          className="w-full flex justify-center lg:max-w-5/12 xl:w-5/12 opacity-0 will-change-transform"
-          data-reveal
-          data-reveal-dir="right">
-          <AIAssessmentCard data={ctaCard} />
-        </div>
+        {isAIAssessmentCard && (
+          <div
+            className="w-full flex justify-center lg:max-w-5/12 xl:w-5/12 opacity-0 will-change-transform"
+            data-reveal
+            data-reveal-dir="right">
+            <AIAssessmentCard data={ctaCard} />
+          </div>
+        )}
       </div>
 
       {/* Client-side animator; SSR stays intact */}

@@ -20,7 +20,7 @@ export const ServiceCard = memo(function ServiceCard({
     <div
       className="service-cards-container  gap-8 lg:gap-4 xl:gap-6  overflow-x-auto lg:overflow-x-visible"
       {...props}>
-      <div className="hidden justify-between gap-8 lg:flex">
+      <div className="hidden justify-center gap-8 lg:flex">
         {cards.map((service, i) => (
           <SingleServiceCard
             bgImage={bgImage}
