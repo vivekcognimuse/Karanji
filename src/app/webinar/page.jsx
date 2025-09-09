@@ -139,7 +139,7 @@ function normalizeWebinar(strapiData) {
     Array.isArray(ag.sessions) ? ag.sessions : []
   );
 
-  // TAKEAWAYS now a repeatable component with { title, description }
+  // TAKEAWAYS: repeatable { title, description }
   const mergedTakeaways = agendaBlocks
     .flatMap((ag) => (Array.isArray(ag.takeaways) ? ag.takeaways : []))
     .map((item) => {
@@ -150,6 +150,10 @@ function normalizeWebinar(strapiData) {
       };
     })
     .filter((t) => t.title);
+
+  // CERTIFICATE: single component { title, description }
+  const certRaw = firstAgenda.certificate ?? {};
+  const cert = certRaw?.attributes ?? certRaw ?? {};
 
   const agenda = {
     title: firstAgenda.title ?? "",
@@ -165,6 +169,10 @@ function normalizeWebinar(strapiData) {
       };
     }),
     takeaways: mergedTakeaways, // [{ title, description }]
+    certificate: {
+      title: (cert.title ?? "").trim(),
+      description: (cert.description ?? "").trim(),
+    },
   };
 
   return { header, speakers, successStories, registration, agenda };
