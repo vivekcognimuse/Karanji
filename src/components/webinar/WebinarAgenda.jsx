@@ -110,7 +110,6 @@ export default function WebinarAgenda({ agenda }) {
                 </h5>
                 <p className="text-gray-600">Exclusive resources & insights</p>
               </div>
-
               {/* Takeaways List */}
               <div className="space-y-4 mb-8">
                 {agenda.takeaways.slice(0, 4).map((t, index) => (
@@ -133,7 +132,7 @@ export default function WebinarAgenda({ agenda }) {
                       <p className="text-gray-900 font-medium text-sm leading-relaxed">
                         {t.title}
                       </p>
-                      {t.description && (
+                      {!!t.description && (
                         <p className="text-gray-600 text-sm mt-1">
                           {t.description}
                         </p>
@@ -144,25 +143,32 @@ export default function WebinarAgenda({ agenda }) {
               </div>
 
               {/* Certificate Section */}
-              <div className="pt-6 border-t border-purple-200">
-                <div className="bg-white rounded-xl p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <Image
-                      height={40}
-                      width={40}
-                      src="/Icons/ph_certificate-light.svg"
-                      alt="Certificate"
-                      className="w-16 h-16"
-                    />
+              {(agenda.certificate?.title ||
+                agenda.certificate?.description) && (
+                <div className="pt-6 border-t border-purple-200">
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Image
+                        height={40}
+                        width={40}
+                        src="/Icons/ph_certificate-light.svg" // local icon
+                        alt="Certificate"
+                        className="w-16 h-16"
+                      />
+                    </div>
+                    {agenda.certificate?.title && (
+                      <p className="text-gray-900 font-medium text-sm mb-2">
+                        {agenda.certificate.title}
+                      </p>
+                    )}
+                    {agenda.certificate?.description && (
+                      <p className="text-gray-600 text-sm">
+                        {agenda.certificate.description}
+                      </p>
+                    )}
                   </div>
-                  <p className="text-gray-900 font-medium text-sm mb-2">
-                    Certificate of completion
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    30-day access to exclusive resource library
-                  </p>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
