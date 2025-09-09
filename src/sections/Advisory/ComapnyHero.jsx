@@ -10,7 +10,6 @@ import FinalLogo from "@/components/FinalLogo";
 import Image from "next/image";
 
 export default function HeroSection({ data, bgImage }) {
-  const { title, ctaText, ctaLink, subTitle, stats, backgroundImage } = data;
   console.log("HeroSection data:", data);
 
   return (
@@ -52,34 +51,7 @@ export default function HeroSection({ data, bgImage }) {
         </div>
 
         {/* Use ScrollButton here */}
-        {ctaText && <ScrollButton ctaText={ctaText} ctaLink={ctaLink} />}
       </div>
-
-      {stats?.length > 0 && (
-        <div className="w-full hidden lg:block pb-24 px-4 sm:px-6">
-          <div className={`gap-4 flex flex-col lg:justify-center lg:flex-row`}>
-            {stats.map((card, index) => {
-              const isThreeCards = stats.length === 3;
-              const addLgBorderLeft =
-                isThreeCards && index > 0 ? " lg:border-l" : "lg:border-l";
-
-              return (
-                <div
-                  key={index}
-                  className={`px-4 sm:px-6 flex border-l border-black/30 gap-3 sm:gap-4 items-start lg:items-center justify-start text-left${addLgBorderLeft} opacity-0 will-change-transform`}
-                  data-reveal>
-                  <div className="text-lg lg:text-[2.62rem] font-semibold font-sans text-black sm:mx-0">
-                    {card.number}
-                  </div>
-                  <p className="text-black-700 text-sm font-light sm:text-base lg:text-lg uppercase leading-relaxed sm:mx-0 max-w-xs sm:max-w-none">
-                    {card.text || card.subText}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
 
       {/* GSAP runs client-side; does not affect SSR of markup */}
       <HeroReveal />
