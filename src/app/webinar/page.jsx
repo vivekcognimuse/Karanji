@@ -127,21 +127,30 @@ function normalizeWebinar(strapiData) {
   };
 
   /* -------------------- Agenda -------------------- */
-  // Repeatable in single type → merge; component has { title, subtitle, sessions[], takeaways(json) }
   const agendaBlocks = Array.isArray(a.agenda)
     ? a.agenda
     : a.agenda
     ? [a.agenda]
     : [];
+
   const firstAgenda = agendaBlocks[0] ?? {};
+
   const allSessions = agendaBlocks.flatMap((ag) =>
     Array.isArray(ag.sessions) ? ag.sessions : []
   );
-  const mergedTakeaways = agendaBlocks.flatMap((ag) => {
-    const tw = ag.takeaways;
-    if (!tw) return [];
-    return Array.isArray(tw) ? tw : []; // takeaways is json; assuming string[]
-  });
+
+  // TAKEAWAYS now a repeatable component with { title, description }
+  const mergedTakeaways = agendaBlocks
+    .flatMap((ag) => (Array.isArray(ag.takeaways) ? ag.takeaways : []))
+    .map((item) => {
+      const it = item?.attributes ?? item ?? {};
+      return {
+        title: (it.title ?? "").trim(),
+        description: (it.description ?? "").trim(),
+      };
+    })
+    .filter((t) => t.title);
+
   const agenda = {
     title: firstAgenda.title ?? "",
     subTitle: firstAgenda.subtitle ?? firstAgenda.subTitle ?? "",
@@ -155,7 +164,7 @@ function normalizeWebinar(strapiData) {
         speaker: it.speaker ?? "",
       };
     }),
-    takeaways: mergedTakeaways,
+    takeaways: mergedTakeaways, // [{ title, description }]
   };
 
   return { header, speakers, successStories, registration, agenda };
