@@ -131,7 +131,7 @@ export const MethodologyStep = memo(function MethodologyStep({
                   <P3
                     key={index}
                     className="rounded-full bg-white/40 text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
-                    {tag}
+                    {tag.text}
                   </P3>
                 ))}
               </div>

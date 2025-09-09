@@ -1,6 +1,7 @@
 "use client";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -133,7 +134,7 @@ const successStoriesData = {
 
 // digitalTwinData.js
 
-export const digitalTwinData = {
+const digitalTwinData = {
   title: "Categories",
 
   list: [
@@ -391,7 +392,22 @@ const serviceOfferingsData = {
 //   description:
 //     "Transform learning with expert content design & development. From custom eLearning modules and microlearning to gamification and localization, we create engaging training solutions.",
 // };
-const ContentDesign = () => {
+const ContentDesign = async () => {
+  // const data = await fetchFromStrapi("content-desaaign");
+  const data = {};
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("content-design data:", data);
+  const {
+    hero,
+    methodologyData,
+    successStoriesData,
+    technologyServicesData,
+    consultancyFramework,
+    ecoSystem,
+  } = data || {};
   const [activeTab, setActiveTab] = useState("custom");
   const handleScrollToSection = (e, targetId) => {
     e.preventDefault();

@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -287,23 +288,40 @@ export const metadata = {
     "Elevate corporate training with K-nest LMS—a fully customizable, SCORM-compliant learning platform. Features multilingual support, SSO, and flexible cloud-based or on-premise deployment.",
 };
 export default async function LMSImplementation() {
+  const data = await fetchFromStrapi("k-nest-lms");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("K-nest LMS data:", data);
+  const {
+    hero,
+
+    successStories,
+
+    benifits,
+    lmsChallenge,
+    learningPlatform,
+    cta,
+  } = data || {};
+
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10  space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection data={heroData} bgImage="/hero/1.LMS banner.webp" />
+      <HeroSection data={hero} bgImage="/hero/1.LMS banner.webp" />
       <div className="space-y-16 lg:space-y-32">
         <div id="lms-services">
           <ServiceOfferings
             bgImage="/service-offering/digital-learning/default.svg"
-            data={serviceOfferingsData}
+            data={benifits}
             icon="/digital-learning/lms-discover"
           />
         </div>
-        <LMSLearning data={lmsLearningData} />
-        <LearningChallenges data={learningChallenges} />
+        <LMSLearning data={lmsChallenge} />
+        <LearningChallenges data={learningPlatform} />
         <SwitchSection data={switchSectionData} />
-        <SuccessStories data={successStoriesData} />
-        <CTA data={ctaData} />
+        <SuccessStories data={successStories} />
+        <CTA data={cta} />
       </div>
     </main>
   );

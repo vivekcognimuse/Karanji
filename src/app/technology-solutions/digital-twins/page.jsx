@@ -15,15 +15,6 @@ export const metadata = {
     "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
 };
 
-const CTAData = {
-  title: "Transform Your Industry with Tailored Approach",
-  description:
-    "Discover how our solutions address the unique challenges in your industry.",
-  PrimaryButtonText: null,
-  PrimaryButtonLink: null,
-  SecondaryButtonText: "Explore Industry Solutions",
-  SecondaryButtonLink: "/Industries",
-};
 const DigitalTwins = async () => {
   const data = await fetchFromStrapi("twin");
   if (!data) {
@@ -63,7 +54,7 @@ const DigitalTwins = async () => {
           data={industryExpertise}
           icon={`/technologySolutions/digital-offering`}
         />
-        <CTA data={CTAData} />
+        <CTA data={industryExpertise.cta} />
         <SuccessStories data={successStories} />
       </div>
     </main>

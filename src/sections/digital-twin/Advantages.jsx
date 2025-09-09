@@ -6,7 +6,7 @@ import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
 import CarouselContainer from "@/components/animations/Carousal";
 
 const Advantages = ({ className = "", data }) => {
-  const { title, list } = data || {};
+  const { title, lists } = data || {};
   console.log("Fetched Advantages data:", data);
   return (
     <section
@@ -25,7 +25,7 @@ const Advantages = ({ className = "", data }) => {
         </div>
 
         <div className="md:grid hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-8 items-end">
-          {list.map((card, index) => (
+          {lists.map((card, index) => (
             <div
               key={card.id}
               className="border-l-2 border-gray-300 pl-4 flex flex-col justify-end min-h-fit"
@@ -44,7 +44,7 @@ const Advantages = ({ className = "", data }) => {
 
         <div className="md:hidden">
           <CarouselContainer>
-            {list.map((card, index) => (
+            {lists.map((card, index) => (
               <div
                 key={card.id}
                 className="border-l-2 max-w-screen border-gray-300 pl-4 flex flex-col justify-end min-h-fit"

@@ -5,7 +5,6 @@ import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import CTA from "@/sections/digital-learning/CTA";
-import Head from "next/head";
 
 const CTAData = {
   title: "Transform Your Industry with Tailored Approach",
@@ -54,7 +53,7 @@ export default async function AIAdvisoryPage() {
           data={industryExpertise}
           icon={`/technologySolutions/ai-industry`}
         />
-        <CTA data={CTAData} />
+        <CTA data={industryExpertise.cta} />
         <SuccessStories data={successStories} />
       </div>
     </main>
