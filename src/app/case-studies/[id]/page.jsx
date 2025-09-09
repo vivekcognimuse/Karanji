@@ -1,7 +1,6 @@
-//app/case-studies/[id]/page.jsx
-
+// app/case-studies/[id]/page.jsx
+import { notFound } from "next/navigation";
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
-import { caseStudies } from "@/data/casestudies";
 import { fetchFromStrapi } from "@/lib/strapi";
 import {
   getMediaUrl,
@@ -10,48 +9,25 @@ import {
   splitCommaString,
 } from "@/utils/ish";
 
-// Normalize Strapi v5 -> your JSON shape that CaseStudyPage expects
-// Normalize Strapi v5 -> your JSON shape that CaseStudyPage expects
+const STRAPI_BASE_URL = "https://calm-joy-61798b158b.strapiapp.com/api";
+
+export const dynamicParams = true;
+
 const normalizeCaseStudy = (entry) => {
   const a = entry?.attributes ? entry.attributes : entry || {};
 
-  // Static JSON-based downloadCta mapping by Slug (keeping this for downloadCta only)
-  const staticData = caseStudies.find((item) => item.slug === a.slug);
-
-  if (!staticData) {
-    console.error(`No static data found for case study slug: ${a.slug}`);
-  }
-
-  const downloadCta = staticData?.downloadCta || {};
-  const pdfLink = staticData?.pdfLink || "";
-
-  // Get image from Strapi first, fallback to static data, then default
-  let image = "/CaseStudyImages/default-image.webp"; // default fallback
-
-  // Check if Strapi has an image
-  if (a.image) {
-    // Handle different possible Strapi image structures
-    const strapiImageUrl = getMediaUrl(a.image);
-    if (strapiImageUrl) {
-      image = strapiImageUrl;
-    }
-  } else if (staticData?.image) {
-    // Fallback to static data image if no Strapi image
-    image = staticData.image;
-  }
+  const image = getMediaUrl(a.image) || "/CaseStudyImages/default-image.webp";
 
   const sections = Array.isArray(a.sections)
     ? a.sections
         .map((b) => {
           const name = b.__component?.split(".")[1];
           if (!name) return null;
-
           if (name === "list")
             return {
               type: "list",
               items: arrayifyList(b.items ?? b.content ?? []),
             };
-
           const content = toPlainText(b.content);
           if (name === "quote") return { type: "quote", content };
           if (name === "subheading") return { type: "subheading", content };
@@ -63,6 +39,17 @@ const normalizeCaseStudy = (entry) => {
         .filter(Boolean)
     : [];
 
+  const downloadCta = a.downloadCta
+    ? {
+        title: a.downloadCta.title ?? "",
+        intro: toPlainText(a.downloadCta.intro ?? ""),
+        audienceNote: a.downloadCta.audienceNote ?? "",
+        buttonLabel: a.downloadCta.buttonLabel ?? "",
+      }
+    : {};
+
+  const pdfLink = getMediaUrl(a.pdf) || "";
+
   return {
     id: entry.id,
     title: a.title,
@@ -70,29 +57,39 @@ const normalizeCaseStudy = (entry) => {
     tags: splitCommaString(a.tags),
     domain: a.domain || "",
     targetAudience: splitCommaString(a.targetAudience),
-    image, // Now using Strapi image with fallbacks
+    image,
     sections,
     downloadCta,
     pdfLink,
   };
 };
 
-export const revalidate = 60;
-
 export default async function CaseStudyDetail({ params }) {
-  const p = await params; // Next.js 15
-  const slug = p.slug ?? p.id;
+  // ✅ Next 15: params is a Promise — await it
+  const p = await params;
+  const slug = p?.id ?? p?.slug; // folder is [id], so id is expected
+  if (!slug) notFound();
 
-  const data = await fetchFromStrapi(
-    `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
-    { populate: "*" },
-    "https://calm-joy-61798b158b.strapiapp.com/api"
-  );
+  let res;
+  try {
+    res = await fetchFromStrapi(
+      `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
+      { populate: "*" },
+      "https://calm-joy-61798b158b.strapiapp.com/api"
+    );
+  } catch (e) {
+    console.error("Strapi fetch failed:", e);
+    notFound();
+  }
 
-  const entry = Array.isArray(data) ? data[0] : null;
-  if (!entry) return <p>Case study not found.</p>;
+  const entry = Array.isArray(res)
+    ? res[0]
+    : Array.isArray(res?.data)
+    ? res.data[0]
+    : res?.data ?? res ?? null;
 
-  // Normalize the case study data
+  if (!entry) notFound();
+
   const normalized = normalizeCaseStudy(entry);
 
   return (
@@ -100,4 +97,28 @@ export default async function CaseStudyDetail({ params }) {
       <CaseStudyPage data={normalized} />
     </main>
   );
+}
+
+export async function generateStaticParams() {
+  try {
+    const res = await fetchFromStrapi(
+      "case-studies",
+      { fields: ["slug"], pagination: { pageSize: 100 } },
+      STRAPI_BASE_URL
+    );
+    const items = Array.isArray(res)
+      ? res
+      : Array.isArray(res?.data)
+      ? res.data
+      : [];
+    // ✅ folder is [id] → the param key must be "id"
+    return items
+      .map((it) => {
+        const a = it?.attributes ?? it ?? {};
+        return a.slug ? { id: String(a.slug) } : null;
+      })
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
 }

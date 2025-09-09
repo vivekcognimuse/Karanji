@@ -2,23 +2,26 @@
 
 import Link from "next/link";
 import Button from "@/components/ui/Button";
-import { P2, P3 } from "@/components/CustomTags";
+import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
 
 export default function CareerDetails({
   // header/meta
   title,
-  category, // e.g., "Learning & Content Development"
-  location, // e.g., "Mangalore"
-  workModel, // e.g., "Work From Office" | "Remote" | "Onsite"
-  employmentType, // e.g., "Full-time"
-  postedAgo = "", // e.g., "One Week Ago"
+  category,
+  location,
+  workModel,
+  employmentType,
+  postedAgo = "",
   backHref = "/careers",
 
   // body
-  summary, // string
-  responsibilities = [], // string[]
-  requirements = [], // string[]
+  summary,
+  responsibilities = [],
+  requirements = [],
+  trainingProvided = [],
+  preferred = [],
+  techStack = [],
 
   // apply
   applyEmail = "recruitment@karanji.com",
@@ -72,7 +75,7 @@ export default function CareerDetails({
           {title}
         </h2>
 
-        {/* Meta row - Fixed: Removed div inside P3 */}
+        {/* Meta row */}
         <div className="font-outfit font-light sm:text-xl flex flex-wrap gap-x-6 gap-y-2 text-black/80 border-b border-black/10 pb-6 mb-8">
           {location ? <span>📍 {location}</span> : null}
           {workModel ? <span>• {workModel}</span> : null}
@@ -88,7 +91,7 @@ export default function CareerDetails({
           </div>
         ) : null}
 
-        {/* Responsibilities - Fixed: Changed P3 to ul for proper list semantics */}
+        {/* Responsibilities */}
         {responsibilities?.length ? (
           <div className="mb-10">
             <h4 className="text-2xl font-medium mb-3">Key Responsibilities</h4>
@@ -100,7 +103,7 @@ export default function CareerDetails({
           </div>
         ) : null}
 
-        {/* Requirements - Fixed: Changed P3 to ul for proper list semantics */}
+        {/* Requirements */}
         {requirements?.length ? (
           <div className="mb-10">
             <h4 className="text-2xl font-medium mb-3">
@@ -114,7 +117,45 @@ export default function CareerDetails({
           </div>
         ) : null}
 
-        {/* Apply - Fixed: Removed asChild prop and used proper link structure */}
+        {/* Training Provided */}
+        {trainingProvided?.length ? (
+          <div className="mb-10">
+            <h4 className="text-2xl font-medium mb-3">Training Provided</h4>
+            <ul className="font-outfit font-light sm:text-xl list-disc pl-5 space-y-2 text-black/80">
+              {trainingProvided.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {/* Preferred Qualifications */}
+        {preferred?.length ? (
+          <div className="mb-10">
+            <h4 className="text-2xl font-medium mb-3">
+              Preferred Qualifications
+            </h4>
+            <ul className="font-outfit font-light sm:text-xl list-disc pl-5 space-y-2 text-black/80">
+              {preferred.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {/* Tech Stack */}
+        {techStack?.length ? (
+          <div className="mb-10">
+            <h4 className="text-2xl font-medium mb-3">Tech Stack</h4>
+            <ul className="font-outfit font-light sm:text-xl list-disc pl-5 space-y-2 text-black/80">
+              {techStack.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {/* Apply */}
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <P3 className="text-black/80">
             To apply for the role please send an email to{" "}

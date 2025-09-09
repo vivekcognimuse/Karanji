@@ -57,7 +57,7 @@ export default function CareersTable({
   const handleView = useCallback(
     (job) => {
       if (onViewRole) return onViewRole(job);
-      router.push(`${detailBasePath}/${slugify(job.title)}`);
+      router.push(`${detailBasePath}/${job.slug || ""}`);
     },
     [detailBasePath, onViewRole, router]
   );

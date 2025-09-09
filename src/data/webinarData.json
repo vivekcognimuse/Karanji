@@ -7,30 +7,35 @@
     "location": "Virtual Event - Join from Anywhere",
     "buttons": {
       "register": "Register for Free Now",
-      "preview": "Watch Preview"
+      "registerLink": "https://karanji.com/webinar-registration",
+      "preview": "Watch Preview",
+      "previewLink": "https://karanji.com/webinar-preview"
     }
   },
   "speakers": {
-    "title": "Meet Your Expert Speakers",
-    "description": "Learn from industry-leading experts at Karanji, pioneers in virtual automotive engineering training.",
-    "list": [
-      {
-        "name": "Alex Thompson",
-        "title": "Chief Technology Officer, Karanji",
-        "image": "/speakers/alex.png"
-      },
-      {
-        "name": "Rajesh Krishnan",
-        "title": "VP, Automotive Engineering Solutions, Karanji",
-        "image": "/speakers/rajesh.png"
-      },
-      {
-        "name": "Ananya Gupta",
-        "title": "Senior Training Specialist, Karanji",
-        "image": "/speakers/ananya.png"
-      }
-    ]
-  },
+  "title": "Meet Your Expert Speakers",
+  "description": "Learn from industry-leading experts at Karanji, pioneers in virtual automotive engineering training.",
+  "list": [
+    {
+      "name": "Alex Thompson",
+      "title": "Chief Technology Officer, Karanji",
+      "image": "/speakers/alex.png",
+      "linkedin": "https://linkedin.com/in/alexthompson"
+    },
+    {
+      "name": "Rajesh Krishnan",
+      "title": "VP, Automotive Engineering Solutions, Karanji",
+      "image": "/speakers/rajesh.png",
+      "linkedin": "https://linkedin.com/in/rajeshkrishnan"
+    },
+    {
+      "name": "Ananya Gupta",
+      "title": "Senior Training Specialist, Karanji",
+      "image": "/speakers/ananya.png",
+      "linkedin": "https://linkedin.com/in/ananyagupta"
+    }
+  ]
+},
   "successStories": [
     {
       "company": "Abc",
