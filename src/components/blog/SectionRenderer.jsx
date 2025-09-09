@@ -48,19 +48,19 @@ const SectionRenderer = ({ sections }) => {
             );
           case "subheading":
             return (
-              <h5 key={index} className="text-black-950 mt-6 mb-2">
+              <h5 key={index} className="text-black-950/50 mt-6 mb-2">
                 {section.content}
               </h5>
             );
           case "text":
             return (
-              <P1 key={index} className="mb-4">
+              <P1 key={index} className="mb-4 text-black-950/50">
                 {section.content}
               </P1>
             );
           case "intro_text":
             return (
-              <P1 key={index} className="mb-4">
+              <P1 key={index} className="mb-4 text-[#333333]">
                 {section.content}
               </P1>
             );

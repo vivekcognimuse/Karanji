@@ -72,7 +72,7 @@ const CaseStudyPage = ({ data }) => {
       case "subheading":
         return (
           <h5
-            className="mt-6 text-black-500 mb-2"
+            className="mt-6 text-black-950/50 mb-2"
             key={idx}
             data-reveal
             data-reveal-dir="up"
@@ -83,7 +83,7 @@ const CaseStudyPage = ({ data }) => {
       case "text":
         return (
           <P3
-            className="text-black-500 mb-4"
+            className="text-black-950/50 mb-4"
             key={idx}
             data-reveal
             data-reveal-dir="up"
@@ -94,7 +94,7 @@ const CaseStudyPage = ({ data }) => {
       case "subtext":
         return (
           <P3
-            className="text-black-500 mb-4"
+            className="text-black-950/50 mb-4"
             key={idx}
             data-reveal
             data-reveal-dir="up"
