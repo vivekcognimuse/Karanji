@@ -12,7 +12,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Default populate
-    revalidate = 3600, // No revalidate by default (pure SSG)
+    revalidate = 30, // No revalidate by default (pure SSG)
   } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
