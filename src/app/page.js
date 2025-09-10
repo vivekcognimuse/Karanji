@@ -1,13 +1,8 @@
 import HeroSection from "@/sections/home/Hero";
 import StatsSection from "@/sections/home/Stats";
-import SuccessStoriesSection from "@/sections/home/Successtories";
-import ScrollImageSequence from "@/components/LandingAnimation";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-import TechnologyServices from "@/sections/service/Service";
-import ScrollVideoSequence from "@/components/LandingAnimation";
 import TechnologyServicesHome from "@/sections/service/Service copy";
 import LogoStoryAnimation from "@/components/LandingAnimation";
-import LogoAnimation from "@/components/LogoAnimation";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",

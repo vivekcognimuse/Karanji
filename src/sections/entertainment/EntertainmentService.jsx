@@ -24,7 +24,7 @@ const EntertainmentServices = ({ data }) => {
               {/* Icon */}
 
               <Image
-                src={service.icon}
+                src={service.icon || "/"}
                 alt={service.title}
                 width={64}
                 height={64}
@@ -55,7 +55,7 @@ const EntertainmentServices = ({ data }) => {
                 {/* Icon */}
 
                 <Image
-                  src={service.icon}
+                  src={service.icon || "/"}
                   alt={service.title}
                   width={64}
                   height={64}

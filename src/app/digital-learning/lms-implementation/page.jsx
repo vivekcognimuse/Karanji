@@ -298,7 +298,6 @@ export default async function LMSImplementation() {
     hero,
 
     successStories,
-
     benifits,
     lmsChallenge,
     learningPlatform,

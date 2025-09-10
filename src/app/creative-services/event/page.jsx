@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -29,29 +30,20 @@ const heroData = {
   ], // Omit if none are shown
 };
 
-const serviceOverview = {
-  title: "Service overview",
-  subTitle: "Exceptional events powered by expertise and technology",
-  description:
-    "Our event production team delivers immersive experiences that engage audiences and exceed expectations. From internal town halls and brand experiences to large-scale conferences, we provide comprehensive production solutions tailored to your goals.",
-  feature:
-    "With expert coordination, technical reliability, and creative stagecraft, we manage every element of execution—ensuring events are safe, seamless, and memorable at scale or remotely.",
-  images: [
-    {
-      src: "/entertainment/event/1 event.webp",
-      alt: "Podcast production setup with microphones and mixer",
-    },
-    {
-      src: "/entertainment/event/2 event.webp",
-      alt: "Voice-over recording in professional studio",
-    },
-    {
-      src: "/entertainment/event/3 event.webp",
-      alt: "Sound engineer working with audio mixing software",
-    },
-  ],
-};
-
+const serviceOverviewImages = [
+  {
+    src: "/entertainment/event/1 event.webp",
+    alt: "Podcast production setup with microphones and mixer",
+  },
+  {
+    src: "/entertainment/event/2 event.webp",
+    alt: "Voice-over recording in professional studio",
+  },
+  {
+    src: "/entertainment/event/3 event.webp",
+    alt: "Sound engineer working with audio mixing software",
+  },
+];
 const serviceOfferingsData = {
   title: "Our Services Offerings",
   subTitle:
@@ -236,24 +228,47 @@ export const metadata = {
     "Expert event production and management for live, virtual, and hybrid events. From stage design and tech rental to seamless execution, we deliver memorable experiences.",
 };
 
-const VfxAnimation = () => {
+const VfxAnimation = async () => {
+  const data = await fetchFromStrapi("event-production");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("event production data:", data);
+  const {
+    hero,
+    serviceOverview,
+    serviceOffering,
+    productionProcess,
+    technologyStack,
+
+    faq,
+
+    cta,
+  } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage="/hero/Event-banner.webp" />
+      <HeroSection data={hero} bgImage="/hero/Event-banner.webp" />
       <div className="space-y-16 lg:space-y-32">
-        <ServiceOverview data={serviceOverview} />
+        <ServiceOverview
+          images={serviceOverviewImages}
+          data={serviceOverview}
+        />
         <div id="event-service-offerings">
           <ServiceOfferings
-            data={serviceOfferingsData}
+            data={serviceOffering}
             bgImage="/service-offering/creative/default.svg"
-            icon="/entertainment/vfx/offering"
-          />{" "}
+            icon="/entertainment/event/offering"
+          />
         </div>
-        <Methodology data={methodologyData} />
-        <ContentFormats data={contentFormatsData} />{" "}
+        <Methodology data={productionProcess} />
+        <ContentFormats
+          cardImage="/entertainment/event/techstack"
+          data={technologyStack}
+        />
         <SuccessStories data={successStoriesData} />
-        <Accordion data={accordionData} />
-        <CTA data={CTAData} />
+        <Accordion data={faq} />
+        <CTA data={cta} />
       </div>
     </main>
   );

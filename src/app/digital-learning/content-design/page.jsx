@@ -1,7 +1,7 @@
-"use client";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { fetchFromStrapi } from "@/lib/strapi";
+
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -16,8 +16,9 @@ import ELearningCustomELearningSolutionDeepDive from "@/sections/digital-learnin
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import Advantages from "@/sections/digital-twin/Advantages";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
-
-import React, { useState } from "react";
+import Link from "next/link";
+import React from "react";
+import { metadata } from "../page";
 
 // heroData.js
 const tabs = [
@@ -56,10 +57,10 @@ const methodologyData = {
       description:
         "We select the ideal content formats, add engaging visuals and animations, and develop interactive learning experiences.",
       tags: [
-        "Expert SME engagement",
-        "Thorough needs analysis",
-        "Target audience profiling",
-        "Instructional design",
+        { text: "Expert SME engagement" },
+        { text: "Thorough needs analysis" },
+        { text: "Target audience profiling" },
+        { text: "Instructional design" },
       ],
     },
     {
@@ -67,10 +68,10 @@ const methodologyData = {
       description:
         "We select the ideal content formats, add engaging visuals and animations, and develop interactive learning experiences.",
       tags: [
-        "Format selection",
-        "Graphic design and visualization",
-        "Animation and interactivity",
-        "Authoring and development",
+        { text: "Format selection" },
+        { text: "Graphic design and visualization" },
+        { text: "Animation and interactivity" },
+        { text: "Authoring and development" },
       ],
     },
     {
@@ -78,10 +79,10 @@ const methodologyData = {
       description:
         "We translate and culturally adapt content with voice-overs and rigorous quality checks for a seamless global learning experience.",
       tags: [
-        "Translation to multiple languages",
-        "Cultural adaptation",
-        "Voice-over and audio production",
-        "Quality assurance",
+        { text: "Translation to multiple languages" },
+        { text: "Cultural adaptation" },
+        { text: "Voice-over and audio production" },
+        { text: "Quality assurance" },
       ],
     },
   ],
@@ -160,7 +161,7 @@ const ADVANTAGES_CONTENT = {
   title: "Content library",
   description:
     "Accelerate your learning initiatives with our library of pre-built, customizable content. Designed by industry experts, our content is available for immediate deployment, and can be tailored to your brand's needs.",
-  list: [
+  lists: [
     {
       id: "01",
       title: "Designed by industry experts",
@@ -253,7 +254,7 @@ const learningChallenges = {
   title: "Custom eLearning Solutions",
   subTitle:
     "Transform Your Learning Initiatives with Tailored Content and Expert Resources.",
-  challenges: [
+  cards: [
     {
       title: "Custom Content Solutions",
       description:
@@ -303,7 +304,7 @@ const customELearningSolutionDeepDive = {
     "Our team of instructional designers, graphic designers, subject matter experts work together to craft engaging eLearning solutions that fit your specific needs. From basic text-based modules to fully interactive simulations, we deliver solutions that transform the learning experience.",
   cards: [
     {
-      subTitle: "Level 1",
+      tag: "Level 1",
       description:
         "Basic text, images, and voice with minor interactive animations and visual enhancements.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 1.webp",
@@ -312,7 +313,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Information Security Awareness Training slide",
     },
     {
-      subTitle: "Level 2",
+      tag: "Level 2",
       description: "Enhanced graphics and animations with interactive quizzes.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 2.webp",
       videoSrc:
@@ -320,7 +321,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subTitle: "Level 3",
+      tag: "Level 3",
       description:
         "2D animations, branching scenarios, mini-games, assessments.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 3.webp",
@@ -329,7 +330,7 @@ const customELearningSolutionDeepDive = {
       imageAlt: "Global and US Healthcare Industry slide",
     },
     {
-      subTitle: "Level 4",
+      tag: "Level 4",
       description:
         "Rich graphics, custom music and advanced interactive content.",
       imageSrc: "/digital-learning/content-solution/deepLearning/level 4.webp",
@@ -386,15 +387,23 @@ const serviceOfferingsData = {
   ],
 };
 
-// export const metadata = {
-//   title:
-//     "Content Design & Development Solutions | Custom eLearning & Instructional Design",
-//   description:
-//     "Transform learning with expert content design & development. From custom eLearning modules and microlearning to gamification and localization, we create engaging training solutions.",
-// };
-const ContentDesign = async () => {
-  // const data = await fetchFromStrapi("content-desaaign");
-  const data = {};
+export async function generateMetadata() {
+  const data = await fetchFromStrapi("content-design");
+  const { title, description } = data?.metaData || {};
+  console.log("title, description:", title, description);
+  return {
+    title:
+      title ||
+      "Content Design & Development Solutions | Custom eLearning & Instructional Design",
+    description:
+      description ||
+      "Transform learning with expert content design & development.",
+  };
+}
+const ContentDesign = async ({ searchParams }) => {
+  const activeTab = searchParams?.tab || "custom";
+
+  const data = await fetchFromStrapi("content-design");
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
@@ -402,51 +411,42 @@ const ContentDesign = async () => {
   console.log("content-design data:", data);
   const {
     hero,
-    methodologyData,
-    successStoriesData,
+    eLearningSolutions,
     technologyServicesData,
+    customContentSolutions,
     consultancyFramework,
+    readySolutions,
     ecoSystem,
+    cta,
   } = data || {};
-  const [activeTab, setActiveTab] = useState("custom");
-  const handleScrollToSection = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
+  // const [activeTab, setActiveTab] = useState("custom");
 
-    if (targetElement) {
-      const targetPosition =
-        targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth", // Smooth scroll
-      });
-    }
-  };
   return (
     <main className="w-full max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32 ">
       {" "}
-      <HeroSection bgImage="/hero/Content-design.webp" data={heroData} />
+      <HeroSection bgImage="/hero/Content-design.webp" data={hero} />
       <div className="space-y-16 lg:space-y-32">
         <div id="eLearning-solutions">
-          <LearningChallenges data={learningChallenges} />
+          <LearningChallenges
+            icons="/digital-learning/content-solution/eSolutions"
+            data={eLearningSolutions}
+          />
         </div>
         {/* Toggle Buttons */}
         <div
           id="solutions-and-resources"
           className="flex justify-center gap-2 mb-8">
           {tabs.map(({ key, buttonLabel }) => (
-            <button
+            <Link
               key={key}
-              onClick={() => setActiveTab(key)}
+              href={`?tab=${key}#solutions-and-resources`}
               className={`px-6 py-2 rounded-full p2 shadow-lg duration-300 cursor-pointer transition-colors ${
                 activeTab === key
                   ? "bg-[#F0B8B8] text-gray-800"
                   : "bg-white text-gray-600 hover:bg-pink-100"
               }`}>
               {buttonLabel}
-            </button>
+            </Link>
           ))}
         </div>
         <div className="p-8 bg-[#FCE8E8] border border-black-200 space-y-16 lg:space-y-32 rounded-2xl">
@@ -456,40 +456,44 @@ const ContentDesign = async () => {
           {/* Conditional Content */}
           {activeTab === "custom" ? (
             <>
-              <Methodology column={true} data={methodologyData} />
-              <ContentFormats data={contentFormatsData} />
+              <Methodology
+                column={true}
+                data={customContentSolutions.contentDevelopmentApproach}
+              />
+              <ContentFormats
+                cardImage="/digital-learning/content-format"
+                data={customContentSolutions.contentFormats}
+              />
               <ELearningCustomELearningSolutionDeepDive
-                setActiveTab={setActiveTab}
                 data={customELearningSolutionDeepDive}
               />
             </>
           ) : (
             <>
-              <Advantages data={ADVANTAGES_CONTENT} />
+              <Advantages data={readySolutions.contentLibrary} />
               <DigitalTwinOfferings
                 CtaClassName="lg:-mt-24"
                 bgImageCard="/service-offering/digital-learning/content-catalogue.svg"
-                data={digitalTwinData}
+                data={readySolutions.categorties}
                 thankYouPopup={true}
               />{" "}
               <ServiceOfferings
-                data={serviceOfferingsData}
+                data={readySolutions.talentAugmentation}
                 bgImage="/service-offering/digital-learning/default.svg"
                 icon="/digital-learning/lms-discover"
               />
               <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
-                <P2 className=" ">Looking for something more tailored?</P2>
+                <P2 className=" ">
+                  {readySolutions.talentAugmentation.ctaText ??
+                    "Looking for something more tailored?"}
+                </P2>
 
-                <Button
-                  onClick={() => {
-                    handleScrollToSection(event, "solutions-and-resources");
-                    setActiveTab("custom");
-                  }}
-                  size="sm"
-                  variant="secondary"
-                  className="">
-                  View Custom Content Solutions
-                </Button>
+                <Link href="?tab=custom#solutions-and-resources">
+                  <Button size="sm" variant="secondary" className="">
+                    {readySolutions.talentAugmentation.ctaButtonText ??
+                      "View Custom Content Solutions"}
+                  </Button>
+                </Link>
               </div>
             </>
           )}
@@ -501,7 +505,7 @@ const ContentDesign = async () => {
         </div> */}
         </div>
         <SuccessStories data={successStoriesData} />
-        <CTA data={CTAData} />
+        <CTA data={cta} />
       </div>
     </main>
   );

@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import EntertainmentServices from "@/sections/entertainment/EntertainmentService";
@@ -184,10 +185,18 @@ export const metadata = {
   description:
     "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
 };
-const Entertainment = () => {
+const Entertainment = async () => {
+  const data = await fetchFromStrapi("creative");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("creative:", data);
+  const { hero, entertainmentServices, successStoriesData } = data || {};
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage="/hero/entertainment.webp" />
+      <HeroSection data={hero} bgImage="/hero/entertainment.webp" />
       <div className="space-y-16 lg:space-y-32">
         <div id="entertainment-services">
           <EntertainmentServices data={entertainmentServices} />
@@ -196,7 +205,7 @@ const Entertainment = () => {
           data={technologyServices}
           image="/entertainment/landing/service"
         />
-        <SuccessStories data={successStoriesData} />
+        {/* <SuccessStories data={successStoriesData} /> */}
       </div>
     </main>
   );

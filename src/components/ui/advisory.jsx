@@ -112,6 +112,8 @@ export const MethodologyStep = memo(function MethodologyStep({
   isStepHidden = false,
   column = false,
 }) {
+  console.log("MethodologyStep tags:", tags);
+
   if (column) {
     return (
       <div className={`${"border-b border-black/50 pb-8"}`}>

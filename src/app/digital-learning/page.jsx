@@ -2,8 +2,7 @@ import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-import Accordion from "@/sections/digital-learning/Accordian";
-import ConsultancyFramework from "@/sections/digital-learning/ConsultancyFramework";
+
 import EcoSystem from "@/sections/digital-learning/Eco-system";
 import TechnologyServices from "@/sections/service/Service";
 

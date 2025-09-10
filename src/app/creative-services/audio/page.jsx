@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -28,28 +29,20 @@ const heroData = {
     },
   ], // omitted since the image shows no stats
 };
-const serviceOverview = {
-  title: "Service overview",
-  subTitle: "Captivate your audience with professional audio",
-  description:
-    "Our audio production team combines technical expertise with creative storytelling to deliver pristine sound that keeps listeners engaged. From concept development to final distribution, we provide complete audio solutions for podcasts, voice-overs and sound design.",
-  feature:
-    "With state-of-the-art recording tools and in-house engineers, we deliver polished, professional sound across any distribution platform.",
-  images: [
-    {
-      src: "/entertainment/audio/1 Podcast.webp",
-      alt: "Podcast production setup with microphones and mixer",
-    },
-    {
-      src: "/entertainment/audio/2 Podcast.webp",
-      alt: "Voice-over recording in professional studio",
-    },
-    {
-      src: "/entertainment/audio/3 Podcast.webp",
-      alt: "Sound engineer working with audio mixing software",
-    },
-  ],
-};
+const serviceOverviewImages = [
+  {
+    src: "/entertainment/audio/1 Podcast.webp",
+    alt: "Podcast production setup with microphones and mixer",
+  },
+  {
+    src: "/entertainment/audio/2 Podcast.webp",
+    alt: "Voice-over recording in professional studio",
+  },
+  {
+    src: "/entertainment/audio/3 Podcast.webp",
+    alt: "Sound engineer working with audio mixing software",
+  },
+];
 const serviceOfferingsData = {
   title: "Our Services Offerings",
   subTitle:
@@ -233,24 +226,45 @@ export const metadata = {
     "Elevate your audio with our professional podcast studio rental and recording services. Featuring state-of-the-art equipment, sound-treated rooms, and full production support for podcasts and voice-overs.",
 };
 
-const VfxAnimation = () => {
+const VfxAnimation = async () => {
+  const data = await fetchFromStrapi("audio-and-podcast");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("event production data:", data);
+  const {
+    hero,
+    serviceOverview,
+    serviceOffering,
+    vfxProcess,
+    technologyStack,
+    faq,
+    cta,
+  } = data || {};
   return (
     <main className="w-full max-w-[1540px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage="/hero/Podcast banner.webp" />
+      <HeroSection data={hero} bgImage="/hero/Podcast banner.webp" />
       <div className="space-y-16 lg:space-y-32">
-        <ServiceOverview data={serviceOverview} />
+        <ServiceOverview
+          images={serviceOverviewImages}
+          data={serviceOverview}
+        />
         <div id="audio-service-offerings">
           <ServiceOfferings
-            data={serviceOfferingsData}
+            data={serviceOffering}
             icon="/audio/icons"
             bgImage="/service-offering/creative/default.svg"
           />{" "}
         </div>
-        <Methodology data={methodologyData} />
-        <ContentFormats data={contentFormatsData} />{" "}
+        <Methodology data={vfxProcess} />
+        <ContentFormats
+          cardImage="/entertainment/audio/techstack"
+          data={technologyStack}
+        />{" "}
         <SuccessStories data={successStoriesData} />
-        <Accordion data={accordionData} />
-        <CTA data={CTAData} />
+        <Accordion data={faq} />
+        <CTA data={cta} />
       </div>
     </main>
   );

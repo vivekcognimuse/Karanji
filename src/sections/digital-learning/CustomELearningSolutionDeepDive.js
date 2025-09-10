@@ -1,6 +1,6 @@
-"use client";
 import CarouselContainer from "@/components/animations/Carousal";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
+
 import { P1, P2, P3 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { Icon } from "@iconify/react";
@@ -12,7 +12,7 @@ import React from "react";
  * Reusable Card Component
  */
 const ELearningCard = ({ card, index }) => {
-  const { subTitle, description, videoSrc, imageSrc, alt } = card;
+  const { tag, description, videoSrc, imageSrc, alt } = card;
 
   return (
     <div key={index} className="flex flex-wrap gap-4 justify-center">
@@ -23,7 +23,7 @@ const ELearningCard = ({ card, index }) => {
           rel="noopener noreferrer"
           className=" bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col hover:shadow-lg transition-all duration-300 cursor-pointer">
           <P1 className="w-fit rounded-full py-2 border border-black-200 mb-4 px-6 group-hover:border-black-400 transition-colors duration-300">
-            {subTitle}
+            {tag}
           </P1>
           <P3 className="mb-8 flex-grow">{description}</P3>
           <div className="relative mt-auto aspect-auto border rounded-2xl overflow-hidden flex items-end w-auto flex-grow">
@@ -54,38 +54,9 @@ const ELearningCard = ({ card, index }) => {
   );
 };
 
-/**
- * ELearningSolutions – pixel-aligned Tailwind component matching the provided mock.
- * No motion libs; images supplied via the data prop.
- *
- * Props shape expected:
- * {
- *   title, subTitle,
- *   level1: { label, title, imageSrc, imageAlt },
- *   level2: { label, title, badge, badgeIcon, imageSrc, imageAlt },
- *   cta: { text, buttonText }
- * }
- */
 export default function ELearningSolutions({ data, setActiveTab }) {
-  const { title, subTitle, level1, level2, cta, cards } = data;
-
-  const handleScrollToSection = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-
-    if (targetElement) {
-      const targetPosition =
-        targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - 80; // Subtract 80px to scroll 80px above the section
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth", // Smooth scroll
-      });
-    }
-
-    setActiveTab("ready");
-  };
+  const { title, subTitle, level1, level2, ctaText, ctaButtonText, cards } =
+    data;
 
   // Render cards function to avoid duplication
   const renderCards = () =>
@@ -113,15 +84,14 @@ export default function ELearningSolutions({ data, setActiveTab }) {
 
       {/* CTA */}
       <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
-        <P2 className=" ">{cta.text}</P2>
-
-        <Button
-          onClick={() => handleScrollToSection(event, cta.buttonLink)}
-          size="sm"
-          variant="secondary"
-          className="">
-          {cta.buttonText}
-        </Button>
+        <P2 className=" ">
+          {ctaText || "Need something totally ready to deploy?"}
+        </P2>
+        <Link href="?tab=ready#solutions-and-resources">
+          <Button size="sm" variant="secondary" className="">
+            {ctaButtonText || "View Ready Solutions and Resources"}
+          </Button>
+        </Link>
       </div>
     </section>
   );

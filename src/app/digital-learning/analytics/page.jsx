@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -147,10 +148,10 @@ const methodologyData = {
         </>
       ),
       tags: [
-        "Skill development and real-world application",
-        "Career or professional advancement",
-        "Performance improvement",
-        "Goal achievement rates",
+        { text: "Skill development and real-world application" },
+        { text: "Career or professional advancement" },
+        { text: "Performance improvement" },
+        { text: "Goal achievement rates" },
       ],
     },
     {
@@ -165,16 +166,16 @@ const methodologyData = {
         </>
       ),
       tags: [
-        "Demographics",
-        "Learning styles",
-        "Prior knowledge",
-        "Motivation drivers",
-        "Personal goals and aspirations",
-        "Content quality and relevance",
-        "Engagement and participation",
-        "Learning activities and paths",
-        "Support mechanisms",
-        "Systems for feedback and improvement",
+        { text: "Demographics" },
+        { text: "Learning styles" },
+        { text: "Prior knowledge" },
+        { text: "Motivation drivers" },
+        { text: "Personal goals and aspirations" },
+        { text: "Content quality and relevance" },
+        { text: "Engagement and participation" },
+        { text: "Learning activities and paths" },
+        { text: "Support mechanisms" },
+        { text: "Systems for feedback and improvement" },
       ],
     },
   ],
@@ -328,17 +329,36 @@ export const metadata = {
   description:
     "Transform learning outcomes with advanced analytics. Gain actionable insights, forecast learner success, and deliver personalized experiences through data-driven decision-making",
 };
-const ContentDesign = () => {
+const ContentDesign = async () => {
+  const data = await fetchFromStrapi("advance-learning-analytics");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("K-nest LMS data:", data);
+  const {
+    hero,
+    learningChallenge,
+    maturityModel,
+    HowLearningAnalyticsHelps,
+    implementationApproach,
+    KeyOutcomes,
+    howItWorks,
+    cta,
+  } = data || {};
   return (
     <main className="w-full  max-w-[1580px] mx-auto p-4 lg:p-10 space-y-16 lg:space-y-32">
       {" "}
-      <HeroSection data={heroData} bgImage="/hero/Analytics-banner.webp" />
-      <LearningChallenges data={learningChallenges} />
+      <HeroSection data={hero} bgImage="/hero/Analytics-banner.webp" />
+      <LearningChallenges
+        icons="/digital-learning/analytics/learning"
+        data={learningChallenge}
+      />
       <div id="analytics-service-offerings">
         <ServiceOfferings
           className="w-fit mx-auto"
           bgImage="/service-offering/digital-learning/default.svg"
-          data={serviceOfferingsData}
+          data={HowLearningAnalyticsHelps}
           icon="/digital-learning/analytics/deliverableIcons/learningAnalytics"
         />
       </div>
@@ -353,11 +373,18 @@ const ContentDesign = () => {
         }}
       />
       <Methodology column={true} data={methodologyData} />
-      <AnalyticsMaturityModel data={analyticsData} />
-      <ImplementApproach data={implementApproachData} />
-      <Deliverables data={deliverablesData} />
+      <AnalyticsMaturityModel
+        stairImage="/digital-learning/analytics/matureModal.svg"
+        data={maturityModel}
+      />
+      <ImplementApproach data={implementationApproach} />
+      <Deliverables
+        heroImage="/digital-learning/analytics/deliverables.webp"
+        cardImage="/digital-learning/analytics/deliverableIcons"
+        data={KeyOutcomes}
+      />
       <HowItWorks data={howItWorks} />
-      <CTA data={ctaData} />
+      <CTA data={cta} />
     </main>
   );
 };

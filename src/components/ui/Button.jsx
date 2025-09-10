@@ -1,22 +1,23 @@
 "use client";
 import React, { forwardRef } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "@/lib/utils"; // Utility function for className merging
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+import { sendGAEvent } from "@next/third-parties/google"; // ✅ official GA helper
 
 // Button variants using CVA (Class Variance Authority)
 const buttonVariants = cva(
-  // Base styles
-  "inline-flex flex-center transition duration-200 items-center justify-center transition cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+  "inline-flex flex-center transition duration-200 items-center justify-center cursor-pointer gap-2 whitespace-nowrap rounded-full text-base font-normal font-outfit tracking-wide transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50 active:scale-95",
   {
     variants: {
       variant: {
         primary:
           "bg-black text-white hover:text-black border border-black hover:bg-gradient-to-r hover:from-[#D3C9FF] hover:via-[#DCF0FF] hover:to-[#A7D3FF]",
         secondary:
-          "bg-transparent text-black  border border-black hover:bg-gradient-to-r hover:from-[#D3C9FF] hover:via-[#DCF0FF] hover:to-[#A7D3FF]  focus-visible:bg-gray-50",
+          "bg-transparent text-black border border-black hover:bg-gradient-to-r hover:from-[#D3C9FF] hover:via-[#DCF0FF] hover:to-[#A7D3FF] focus-visible:bg-gray-50",
         ghost:
           "border-transparent text-black hover:bg-gray-100 hover:scale-105 focus-visible:bg-gray-100",
-        text: "flex items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity hover:underline", // Underline added here for the text variant
+        text: "flex items-center gap-2 text-lg text-black tracking-wide hover:opacity-80 transition-opacity hover:underline",
         destructive:
           "bg-red-600 text-white border border-red-600 hover:bg-red-700 hover:scale-105 focus-visible:bg-red-700",
       },
@@ -33,7 +34,6 @@ const buttonVariants = cva(
   }
 );
 
-// Button component with full accessibility
 const Button = forwardRef(
   (
     {
@@ -53,27 +53,44 @@ const Button = forwardRef(
     },
     ref
   ) => {
-    // Handle keyboard navigation
-    const handleKeyDown = (e) => {
-      if (onKeyDown) {
-        onKeyDown(e);
-      }
+    const pathname = usePathname();
+    const isDisabled = disabled || loading;
 
-      // Enter and Space key handling
-      if ((e.key === "Enter" || e.key === " ") && !disabled && !loading) {
+    const handleKeyDown = (e) => {
+      if (onKeyDown) onKeyDown(e);
+      if ((e.key === "Enter" || e.key === " ") && !isDisabled) {
         e.preventDefault();
         onClick?.(e);
       }
     };
 
-    // Handle click with loading state
     const handleClick = (e) => {
-      if (!disabled && !loading && onClick) {
-        onClick(e);
+      if (!isDisabled) {
+        // Build analytics payload
+        const label =
+          e.currentTarget.innerText
+            ?.toLowerCase()
+            .trim()
+            .replace(/\s+/g, "_") || "unknown_button";
+
+        const analyticsData = {
+          content_type: "button",
+          item_id: label,
+          page_location: pathname || window.location.pathname,
+        };
+
+        // ✅ Log to console for debugging
+        console.log("🔍 GA Event Fired:", {
+          event: "select_content",
+          ...analyticsData,
+        });
+
+        // ✅ Send to GA via official helper
+        sendGAEvent("event", "select_content", analyticsData);
+
+        onClick?.(e);
       }
     };
-
-    const isDisabled = disabled || loading;
 
     return (
       <button
@@ -85,8 +102,7 @@ const Button = forwardRef(
         onKeyDown={handleKeyDown}
         aria-disabled={isDisabled}
         aria-busy={loading}
-        {...props}
-      >
+        {...props}>
         {/* Loading spinner */}
         {loading && (
           <svg
@@ -94,8 +110,7 @@ const Button = forwardRef(
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             <circle
               className="opacity-25"
               cx="12"
@@ -112,17 +127,14 @@ const Button = forwardRef(
           </svg>
         )}
 
-        {/* Left icon */}
         {leftIcon && !loading && (
           <span className="flex-shrink-0" aria-hidden="true">
             {leftIcon}
           </span>
         )}
 
-        {/* Button text */}
         <span className="flex-1">{loading ? loadingText : children}</span>
 
-        {/* Right icon */}
         {rightIcon && !loading && (
           <span className="flex-shrink-0" aria-hidden="true">
             {rightIcon}

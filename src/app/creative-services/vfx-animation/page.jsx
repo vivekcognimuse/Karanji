@@ -1,3 +1,4 @@
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -35,29 +36,20 @@ const heroData = {
 };
 
 // SERVICE OVERVIEW
-const serviceOverview = {
-  title: "Service overview",
-  subTitle: "Transform your vision with professional VFX and animation",
-  description:
-    "Our VFX and animation team delivers stunning visual elements that elevate your project from ordinary to extraordinary. With expertise spanning film, advertising, and digital media, we provide end-to-end visual effects solutions tailored to your creative vision and technical requirements.",
-  feature:
-    "From subtle enhancements to complex digital environments, our industry veterans bring technical precision and artistic excellence to every frame, ensuring seamless integration and maximum visual impact.",
-
-  images: [
-    {
-      src: "/entertainment/vfx/1 VFX.webp",
-      alt: "Podcast production setup with microphones and mixer",
-    },
-    {
-      src: "/entertainment/vfx/2 VFX.webp",
-      alt: "Voice-over recording in professional studio",
-    },
-    {
-      src: "/entertainment/vfx/3 VFX.webp",
-      alt: "Sound engineer working with audio mixing software",
-    },
-  ],
-};
+const serviceOverviewImages = [
+  {
+    src: "/entertainment/vfx/1 VFX.webp",
+    alt: "Podcast production setup with microphones and mixer",
+  },
+  {
+    src: "/entertainment/vfx/2 VFX.webp",
+    alt: "Voice-over recording in professional studio",
+  },
+  {
+    src: "/entertainment/vfx/3 VFX.webp",
+    alt: "Sound engineer working with audio mixing software",
+  },
+];
 
 // SERVICE OFFERINGS
 const serviceOfferingsData = {
@@ -261,24 +253,48 @@ export const metadata = {
     "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
 };
 
-const AudioPodcastProduction = () => {
+const AudioPodcastProduction = async () => {
+  const data = await fetchFromStrapi("vfx");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+  console.log("vfx data:", data);
+  const {
+    hero,
+    serviceOverview,
+    serviceOffering,
+    vfxProcess,
+    technologyStack,
+    successStories,
+    FAQ,
+
+    cta,
+  } = data || {};
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10  space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage="/hero/VFX banner.webp" />
+      <HeroSection data={hero} bgImage="/hero/VFX banner.webp" />
       <div className="space-y-16 lg:space-y-32">
-        <ServiceOverview data={serviceOverview} />
+        <ServiceOverview
+          images={serviceOverviewImages}
+          data={serviceOverview}
+        />
         <div id="vfx-service-offerings">
           <ServiceOfferings
-            data={serviceOfferingsData}
+            data={serviceOffering}
             bgImage="/service-offering/creative/default.svg"
             icon="/entertainment/vfx/offering" // Update if using dynamic icons
           />
         </div>
-        <Methodology data={methodologyData} />
-        <ContentFormats data={contentFormatsData} />
-        <SuccessStories data={successStoriesData} />
-        <Accordion data={accordionData} />
-        <CTA data={CTAData} />
+        <Methodology data={vfxProcess} />
+        <ContentFormats
+          cardImage="/entertainment/vfx/techstack"
+          data={technologyStack}
+        />
+        <SuccessStories data={successStories} />
+        <Accordion data={FAQ} />
+        <CTA data={cta} />
       </div>
     </main>
   );

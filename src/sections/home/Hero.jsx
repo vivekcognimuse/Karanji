@@ -1,6 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import Image from "next/image";
+import React, { useRef, useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import { P1 } from "@/components/CustomTags";
 import Link from "next/link";
@@ -20,11 +19,19 @@ const HeroSection = ({ data }) => {
 
   const videoRef = useRef(null);
   const mobileVideoRef = useRef(null);
+  const [isSafari, setIsSafari] = useState(false);
 
+  // Detect Safari browser
   useEffect(() => {
-    // Disable right-click context menu on videos
-    const videos = [videoRef.current, mobileVideoRef.current].filter(Boolean);
+    const ua = navigator.userAgent.toLowerCase();
+    setIsSafari(
+      ua.includes("safari") && !ua.includes("chrome") && !ua.includes("android")
+    );
+  }, []);
 
+  // Disable right click on videos
+  useEffect(() => {
+    const videos = [videoRef.current, mobileVideoRef.current].filter(Boolean);
     videos.forEach((video) => {
       if (video) {
         video.addEventListener("contextmenu", (e) => {
@@ -35,40 +42,44 @@ const HeroSection = ({ data }) => {
     });
   }, []);
 
+  const VideoSource = () => {
+    if (isSafari) {
+      return <source src="/output.mov" type="video/quicktime" />;
+    }
+    return <source src="/output.webm" type="video/webm" />;
+  };
+
   return (
     <section className="lg:min-h-[calc(100vh-5rem)] items-center pb-10 lg:pb-32 flex flex-col lg:flex-row gap-8">
       <div className="flex-1 mt-16 lg:-mt-20 space-y-8">
         <div className="space-y-4">
-          <h1 className="font-sans text-black  leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)]  font-normal">
+          <h1 className="font-sans text-black leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)] font-normal">
             Let's Bring Your Vision to Life
           </h1>
-          <P1 className="">
+          <P1>
             We help organizations solve complex business challenges through the
             strategic integration of digital learning, immersive experiences and
             practical AI implementation.
           </P1>
         </div>
 
-        {/* Mobile Video - shown only on mobile */}
+        {/* Mobile Video */}
         <div className="w-full lg:hidden">
           <div className="relative w-full aspect-video rounded-lg">
-            {/* Overlay to prevent interaction */}
+            {/* Overlay to block interactions */}
             <div
               className="absolute inset-0 z-10 cursor-default"
-              style={{
-                backgroundColor: "transparent",
-                pointerEvents: "auto",
-              }}
+              style={{ backgroundColor: "transparent", pointerEvents: "auto" }}
               onContextMenu={(e) => e.preventDefault()}
             />
 
-            {/* Mobile Video element */}
             <video
               ref={mobileVideoRef}
               className="w-full h-full object-contain rounded-lg"
               autoPlay
               muted
               playsInline
+              loop
               controlsList="nodownload nofullscreen noremoteplayback"
               disablePictureInPicture
               onContextMenu={(e) => e.preventDefault()}
@@ -79,8 +90,7 @@ const HeroSection = ({ data }) => {
                 MozUserSelect: "none",
                 msUserSelect: "none",
               }}>
-              <source src={"/output.webm"} type="video/webm" />
-              <source src={"/output.mp4"} type="video/mp4" />
+              <VideoSource />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -104,23 +114,20 @@ const HeroSection = ({ data }) => {
       {/* Desktop Video */}
       <div className="w-1/2 h-full hidden -mt-16 lg:flex justify-center items-center">
         <div className="relative w-full h-[600px] max-w-[600px] overflow-hidden rounded-lg">
-          {/* Overlay to prevent interaction */}
+          {/* Overlay to block interactions */}
           <div
             className="absolute inset-0 z-10 cursor-default"
-            style={{
-              backgroundColor: "transparent",
-              pointerEvents: "auto",
-            }}
+            style={{ backgroundColor: "transparent", pointerEvents: "auto" }}
             onContextMenu={(e) => e.preventDefault()}
           />
 
-          {/* Desktop Video element */}
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
             autoPlay
             muted
             playsInline
+            loop
             controlsList="nodownload nofullscreen noremoteplayback"
             disablePictureInPicture
             onContextMenu={(e) => e.preventDefault()}
@@ -131,32 +138,27 @@ const HeroSection = ({ data }) => {
               MozUserSelect: "none",
               msUserSelect: "none",
             }}>
-            <source src={"/output.webm"} type="video/webm" />
-            <source src={"/output.mp4"} type="video/mp4" />
+            <VideoSource />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
 
-      {/* CSS to further prevent selection and downloading */}
+      {/* Extra CSS to hide controls */}
       <style jsx>{`
         video::-webkit-media-controls-download-button {
           display: none;
         }
-
         video::-webkit-media-controls-enclosure {
           overflow: hidden;
         }
-
         video::-webkit-media-controls-panel {
           width: calc(100% + 30px);
         }
-
         video::--webkit-media-controls {
           display: none !important;
         }
-
-        video::-webkit-media-controls-start-playbook-button {
+        video::-webkit-media-controls-start-playback-button {
           display: none !important;
         }
       `}</style>
