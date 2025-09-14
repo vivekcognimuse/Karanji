@@ -4,8 +4,8 @@ import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
-const ServiceOverview = ({ data }) => {
-  const { title, subTitle, description, feature, images } = data;
+const ServiceOverview = ({ data, images }) => {
+  const { title, subTitle, description1, description2 } = data;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Image cycling effect
@@ -27,11 +27,11 @@ const ServiceOverview = ({ data }) => {
       {/* Subtitle */}
       <h4 className="mb-16">{subTitle}</h4>
 
-      <div className=" flex flex-col-reverse lg:grid    grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className=" flex flex-col-reverse lg:grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left Content Section */}
         <div className="space-y-6  lg:col-span-5 my-auto">
-          <P2 className="mb-6 text=[#010101]">{description}</P2>
-          <P3 className="text-black-500">{feature}</P3>
+          <P2 className="mb-6 text=[#010101]">{description1}</P2>
+          <P3 className="text-black-500">{description2}</P3>
         </div>
 
         {/* Right Image Section */}

@@ -30,7 +30,7 @@ const ScrollButton = ({ ctaText, ctaLink, variant = "primary" }) => {
         }
         onClick={(e) => handleScrollToSection(e, ctaLink)} // Handle scroll on click
       >
-        {ctaText || "Go to solutions"}
+        {ctaText || "Explore our solutions"}
       </Button>
     </div>
   );

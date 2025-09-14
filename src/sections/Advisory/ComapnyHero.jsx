@@ -50,6 +50,7 @@ export default function HeroSection({ data, bgImage }) {
             </div>
           </div>
         </div>
+
       </div>
 
       {/* GSAP runs client-side; does not affect SSR of markup */}

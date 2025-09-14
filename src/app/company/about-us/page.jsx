@@ -8,8 +8,10 @@ import VisionMission from "@/sections/Company/about/VisionMission";
 import ValuesSection from "@/sections/Company/about/ValuesSection";
 import JourneySection from "@/sections/Company/about/journeySection";
 import TimelineComponent from "@/sections/Company/about/TimelineComponent";
+
 import Head from "next/head";
 import { fetchFromStrapi } from "@/lib/strapi";
+
 
 // Default/fallback data
 const defaultHeroData = {
@@ -286,11 +288,13 @@ export default function AboutUs() {
           onMouseLeave={handleMouseLeave}
           className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50 "
           style={{
+
             top: "60px",
             height: "100vh",
             overflow: "hidden",
           }}
         >
+
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

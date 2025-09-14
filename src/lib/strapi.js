@@ -1,9 +1,7 @@
 export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   baseUrl =
     baseUrl ||
-
     "https://calm-joy-61798b158b.strapiapp.com/api" ||
-
     process.env.STRAPI_API_URL;
 
   if (!baseUrl) {

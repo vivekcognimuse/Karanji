@@ -2,11 +2,10 @@ import React from "react";
 
 import { Icon } from "@iconify/react";
 import Button from "./Button";
-import { P2 } from "../CustomTags";
+
 import Link from "next/link";
 
 const TestimonialCard = ({ testimonial }) => {
-  console.log("Testimonial Data:", testimonial);
   return (
     <div className="rounded-3xl shadow-lg border max-w-5xl mx-auto border-black/20 p-4 mb-4 sm:p-6 lg:p-8 bg-white cursor-default">
       {testimonial?.tag && (
@@ -23,8 +22,7 @@ const TestimonialCard = ({ testimonial }) => {
         {testimonial?.stats?.map((metric, statsIndex) => (
           <div
             key={statsIndex}
-            className="flex w-full lg:items-start   justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4"
-          >
+            className="flex w-full lg:items-start   justify-start  space-y-2 flex-row lg:flex-col  border-l-2 border-black pl-4 items-center gap-4">
             <p className="font-sans my-auto  font-semibold text-xl md:text-5xl">
               {metric.title}
             </p>
@@ -45,8 +43,7 @@ const TestimonialCard = ({ testimonial }) => {
               <Icon icon="tabler:arrow-up-right" size={20} className="size-5" />
             }
             className=""
-            variant="text"
-          >
+            variant="text">
             {testimonial?.ctaText || "Read Full CaseStudy"}
           </Button>
         </Link>

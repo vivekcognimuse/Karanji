@@ -27,9 +27,9 @@ const LMSLearning = ({ data }) => {
             <h5>{card.title}</h5>
             <hr className="h-px opacity-20 bg-black-100" />
             <div className="space-y-8">
-              {card.description.map((desc, idx) => (
+              {card.list.map((item, idx) => (
                 <P3 key={idx} className="mt-2">
-                  {desc}
+                  {item.text}
                 </P3>
               ))}
             </div>

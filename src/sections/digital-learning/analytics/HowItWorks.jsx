@@ -2,7 +2,7 @@ import { P2, P3 } from "@/components/CustomTags";
 import React from "react";
 
 const HowItWorks = ({ data }) => {
-  const { title, subTitle, entry, steps, completion } = data || {};
+  const { title, subTitle, entry, steps, cards, completion } = data || {};
 
   return (
     <div className="">
@@ -18,17 +18,17 @@ const HowItWorks = ({ data }) => {
         <div className="flex flex-col md:flex-row md:items-start gap-8">
           {/* Entry Column */}
           <div className="relative md:my-auto w-full md:max-w-[15rem]">
-            <h4 className="mb-3">{entry.title}</h4>
+            <h4 className="mb-3">{cards[0].title}</h4>
             <div className="flex-1">
               <div className="h-px bg-black-300 relative w-full md:w-full max-w-[200px] md:max-w-full">
                 <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-black-300 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent"></div>
               </div>
             </div>
-            <P3 className="mt-8">{entry.description}</P3>
+            <P3 className="mt-8">{cards[0].description}</P3>
           </div>
 
           {/* Process Steps */}
-          {steps.map((step, index) => (
+          {cards.slice(1, -1).map((step, index) => (
             <div
               key={index}
               className="relative  lg:border-t-6 border-t-3 lg:mb-0 mb-6 border-[#B15252] pt-4 w-full md:max-w-[15rem]">
@@ -48,13 +48,13 @@ const HowItWorks = ({ data }) => {
 
           {/* Completion Section */}
           <div className="relative md:my-auto w-full md:max-w-[15rem]">
-            <h4 className="mb-3">{completion.title}</h4>
+            <h4 className="mb-3">{cards[cards.length - 1].title}</h4>
             <div className="flex-1">
               <div className="h-px bg-black-300 relative w-full md:w-full max-w-[200px] md:max-w-full">
                 <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-[6px] border-l-black-300 border-t-[3px] border-t-transparent border-b-[3px] border-b-transparent"></div>
               </div>
             </div>
-            <P3 className="mt-8">{completion.description}</P3>
+            <P3 className="mt-8">{cards[cards.length - 1].description}</P3>
           </div>
         </div>
       </div>

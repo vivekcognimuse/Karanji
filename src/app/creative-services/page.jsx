@@ -1,202 +1,40 @@
+import { getMetadata } from "@/lib/metadata";
+import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import EntertainmentServices from "@/sections/entertainment/EntertainmentService";
 import TechnologyServices from "@/sections/service/Service";
-import Head from "next/head";
+
 import React from "react";
 
-const heroData = {
-  title:
-    "Elevate your content with professional entertainment production services",
-  subTitle:
-    "From stunning visual effects to immersive audio experiences and dynamic event coverage-bringing your vision to life.",
-  ctaText: "Explore Our Services",
-  ctaLink: "entertainment-services", // You can change this to the appropriate link for your services page
+export async function generateMetadata() {
+  return await getMetadata("creative");
+}
+const Entertainment = async () => {
+  const data = await fetchFromStrapi("creative");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
 
-  backgroundImage: "/path/to/your/hero-image.jpg", // Provide the background image URL
-  stats: [
-    {
-      subText: "End-to-End Solutions",
-    },
-    {
-      subText: "Expertise and Customization",
-    },
-    {
-      subText: "Cutting-Edge Technology",
-    },
-    {
-      subText: "Collaborative and Reliable",
-    },
-  ],
-};
-const entertainmentServices = {
-  title: "The Advantage of choosing our entertainment services",
-  subTitle:
-    "We offer a full range of solutions, from VFX and animation to audio production and live event coverage, using industry expertise and cutting-edge technology to bring your vision to life.",
-  services: [
-    {
-      icon: "/entertainment/entertainment-advantage/1.svg",
-      title: "End-to-end Solutions",
-      description:
-        "Seamless integration of all creative and production elements from concept to delivery.",
-    },
-    {
-      icon: "/entertainment/entertainment-advantage/2.svg",
-      title: "Industry Expertise",
-      description:
-        "Our expert team delivers exceptional results working on projects across all entertainment sectors.",
-    },
-    {
-      icon: "/entertainment/entertainment-advantage/3.svg",
-      title: "Custom Approach",
-      description:
-        "Tailored production solutions to meet your specific creative and technical requirements.",
-    },
-    {
-      icon: "/entertainment/entertainment-advantage/4.svg",
-      title: "Cutting-edge Technology",
-      description:
-        "State-of-the-art equipment and software for premium quality and innovative services.",
-    },
-    {
-      icon: "/entertainment/entertainment-advantage/5.svg",
-      title: "Collaborative Process",
-      description:
-        "We work closely with you every step to ensure your creative vision is expertly realized.",
-    },
-    {
-      icon: "/entertainment/entertainment-advantage/6.svg",
-      title: "Delivery Excellence",
-      description:
-        "Reliable on-time delivery with uncompromising quality and client satisfaction.",
-    },
-  ],
-};
+  const { hero, entertainmentServices, technologyServices, successStories } =
+    data || {};
 
-const technologyServices = {
-  description:
-    "We offer expert, tailored production solutions with cutting-edge technology for seamless execution and exceptional results.",
-  cards: [
-    {
-      id: 1,
-      title: "VFX/Animation",
-      description:
-        "Cutting-edge visual effects, animation, and motion graphics that elevate your production. Our artists bring imagination to life with industry-standard software and creative storytelling.",
-      list: [
-        { id: 101, text: "3D/2D Animation" },
-        { id: 102, text: "Motion Graphics" },
-        { id: 103, text: "Visual Effects (VFX)" },
-        { id: 104, text: "Character Animation" },
-      ],
-      ctaText: "Learn More",
-      ctaLink: "/creative-services/vfx-animation",
-      image: "/entertainment/landing/service/1.webp",
-    },
-    {
-      id: 2,
-      title: "Audio and Podcast",
-      description:
-        "Professional sound design and podcast production that captures the essence of your message. From recording to post-production, we ensure clarity, quality, and creativity.",
-      list: [
-        { id: 201, text: "Podcast Recording" },
-        { id: 202, text: "Audio Editing and Mixing" },
-        { id: 203, text: "Voiceovers and Narration" },
-        { id: 204, text: "Sound Design" },
-      ],
-      ctaText: "Learn More",
-      ctaLink: "/creative-services/audio",
-      image: "/entertainment/landing/service/2.webp",
-    },
-    {
-      id: 3,
-      title: "Event Production",
-      description:
-        "Dynamic coverage of live events with multi-camera setups, expert crews, and live streaming options. We bring your events to life, capturing every moment in stunning detail.",
-      list: [
-        { id: 301, text: "Multi-camera Live Coverage" },
-        { id: 302, text: "Live Streaming" },
-        { id: 303, text: "On-site Production Crew" },
-        { id: 304, text: "Post-event Editing" },
-      ],
-      ctaText: "Learn More",
-      ctaLink: "/creative-services/event",
-      image: "/entertainment/landing/service/3.webp",
-    },
-  ],
-};
-
-const successStoriesData = {
-  title: "Entertainment Services Success Stories",
-
-  description:
-    "Real-world examples highlight the impact of our entertainment production services. Explore case studies that showcase how we elevate storytelling, enhance visual experiences, and drive engagement across entertainment platforms.",
-  cards: [
-    {
-      title: "Bringing a Murder Mystery Scene to Life",
-      tag: "Creative Services",
-      stats: [
-        { title: "70%", subTitle: "Innovation" },
-        { title: "0 bugs", subTitle: "Final Delivery" },
-      ],
-      description:
-        "We composited client-provided murder footage onto a moving phone screen using Mocha AE planar tracking, matching motion, angle, and lighting for a realistic “video-on-phone” effect—shot with a green screen and replaced in post.",
-      link: "Read Full CaseStudy",
-    },
-    {
-      title: "Quality Month: Video Animation",
-      tag: "Creative Services",
-      stats: [
-        { title: "On time", subTitle: "Delivery" },
-        { title: "100%", subTitle: "In-house Dubbing" },
-      ],
-      description:
-        "A culturally resonant animated VSB series for an automotive company’s Quality Month, told in a Panchayat-style narrative with custom Kannada voiceovers to mirror employees and values.",
-      link: "Read Full CaseStudy",
-    },
-    {
-      title: "One-Hour Podcast into a Visually Engaging Experience",
-      tag: "Creative Services",
-      stats: [
-        { title: "+100%", subTitle: "Improved Video Quality" },
-        { title: "1 week", subTitle: "Project Completion" },
-      ],
-      description:
-        "A one-hour, low-quality video-call podcast (Senior Director × bestselling author) was turned into a visually engaging piece for a global IT services provider—covering innovation, resilience, and storytelling.",
-      link: "Read Full CaseStudy",
-    },
-    {
-      title: "Convocation Day School Real Video Project",
-      tag: "Creative Services",
-      stats: [
-        { title: "95%", subTitle: "Engaging" },
-        { title: "100%", subTitle: "Client Satisfaction" },
-      ],
-      description:
-        "A three-day, end-to-end convocation video for a school, produced via rapid scripting/storyboarding, in-school filming, and smart use of stock footage to showcase the institution during the ceremony.",
-      link: "Read Full CaseStudy",
-    },
-  ],
-};
-
-export const metadata = {
-  title:
-    "Entertainment Production Services: Professional VFX, Audio and Event Production",
-  description:
-    "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
-};
-const Entertainment = () => {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
-      <HeroSection data={heroData} bgImage="/hero/entertainment.webp" />
+      <HeroSection data={hero} bgImage="/hero/entertainment.webp" />
       <div className="space-y-16 lg:space-y-32">
         <div id="entertainment-services">
-          <EntertainmentServices data={entertainmentServices} />
+          <EntertainmentServices
+            icon="/entertainment/entertainment-advantage"
+            data={entertainmentServices}
+          />
         </div>
         <TechnologyServices
           data={technologyServices}
           image="/entertainment/landing/service"
         />
-        <SuccessStories data={successStoriesData} />
+        <SuccessStories data={successStories} />
       </div>
     </main>
   );

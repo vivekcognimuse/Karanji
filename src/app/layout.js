@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import CookieNotification from "@/components/CookieNotification";
 import ScrollToTop from "@/components/ScrollToTop";
-
+import AnalyticsProvider from "@/lib/analytics-provider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
   subsets: ["latin"],
@@ -58,8 +59,9 @@ export default function RootLayout({ children }) {
         <Navbar />
         {/* <SmoothScrollWrapper> */}
         <div className="] pb-16 ">{children}</div>
+        <AnalyticsProvider />{" "}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         <Footer />
-        {/* </SmoothScrollWrapper> */}
         <CookieNotification />
         <ScrollToTop />
       </body>
