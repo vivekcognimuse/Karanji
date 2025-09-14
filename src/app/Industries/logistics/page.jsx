@@ -5,6 +5,7 @@ import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
 const heroData = {
   title: "Driving Digital Transformation in Global Logistics",
   subTitle:
@@ -319,6 +320,19 @@ export const metadata = {
     "Drive digital transformation in logistics with AI-powered compliance, predictive maintenance, and immersive workforce training. Streamline operations, reduce costs, and enhance efficiency.",
 };
 export default async function Logistics() {
+  const data = await fetchFromStrapi("logistic");
+  if (!data) {
+    console.error("No data object provided for logistics.");
+    return null; // Or return a fallback UI component
+  }
+  const {
+    heroData,
+    industryData,
+    strategicPrioritiesData,
+    offering,
+    strategicUseCaseData,
+    ctaData,
+  } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection

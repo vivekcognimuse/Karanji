@@ -36,12 +36,12 @@ if (!data) {
   console.error("No data object provided for HeroSection.");
 }
 console.log("company landing data:", data);
-const { heroData, cardsData, teamData } = data || {};
+const { cardsData, teamData } = data || {};
 export default async function companyLanding() {
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-0">
       {" "}
-      <HeroSection data={heroData} />
+      <HeroSection />
       <NextUpSection
         title={teamData?.title}
         description={teamData?.description}
