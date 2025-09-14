@@ -2,6 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import IndustriesSection from "@/sections/Industries/IndustriesSection";
 import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
 const heroData = {
   title: "Transform Your Industry with Us",
   subTitle:
@@ -83,6 +84,12 @@ const cards = [
 ];
 
 export default async function IndustryLanding() {
+  const data = await fetchFromStrapi("Industry-landing");
+  if (!data) {
+    console.error("No data object provided for aviation.");
+    return null; // Or return a fallback UI component
+  }
+  const { heroData, industriesData, ctaData } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

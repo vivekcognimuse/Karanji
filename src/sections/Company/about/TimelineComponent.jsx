@@ -1,3 +1,5 @@
+// TimelineComponent.jsx
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import { P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
@@ -107,11 +109,13 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
       className={`fixed inset-0 bg-gradient-to-br from-purple-50 to-blue-50 z-50 ${
         isLastStep ? "overflow-y-auto" : "overflow-hidden"
       }`}
-      style={{ height: "calc(100vh - 80px)", top: "60px" }}>
+      style={{ height: "calc(100vh - 80px)", top: "60px" }}
+    >
       <div
         className={`w-full mx-auto flex flex-col ${
           isLastStep ? "min-h-full" : "h-full"
-        }`}>
+        }`}
+      >
         {/* Header */}
         <div className="mx-auto w-full px-6 sm:px-12">
           <div className="flex items-center gap-3 py-2 w-fit">
@@ -119,7 +123,8 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
               className="text-black-500"
               variant="text"
               size="sm"
-              onClick={onBackToAbout}>
+              onClick={onBackToAbout}
+            >
               Take me back to About Us
             </Button>
             <P3 className="font-semibold">Karanji's Journey</P3>
@@ -141,7 +146,8 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
         <div
           className={`flex-1 flex flex-col ${
             isLastStep ? "py-12" : "justify-center"
-          } px-6 sm:px-12`}>
+          } px-6 sm:px-12`}
+        >
           {/* Years Display */}
           <div className="relative text-center mb-4">
             {/* Previous Year - Now visible on mobile with smaller size */}
@@ -159,7 +165,8 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                 onTouchEnd={(e) => {
                   e.preventDefault();
                   handlePrevYearClick();
-                }}>
+                }}
+              >
                 {timelineData[currentIndex - 1].year}
               </div>
             )}
@@ -173,7 +180,8 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                 fontSize: "clamp(80px, 12vw, 128px)",
                 lineHeight: "1",
                 letterSpacing: "-5%",
-              }}>
+              }}
+            >
               {currentStep.year}
             </div>
 
@@ -192,7 +200,8 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                 onTouchEnd={(e) => {
                   e.preventDefault();
                   handleNextYearClick();
-                }}>
+                }}
+              >
                 {timelineData[currentIndex + 1].year}
               </div>
             )}
@@ -207,12 +216,14 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                   : "text-gray-300 cursor-not-allowed"
               }`}
               onClick={handlePrevYearClick}
-              disabled={currentIndex === 0}>
+              disabled={currentIndex === 0}
+            >
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                fill="currentColor">
+                fill="currentColor"
+              >
                 <path d="M15 18l-6-6 6-6v12z" />
               </svg>
             </button>
@@ -228,12 +239,14 @@ const TimelineComponent = ({ timelineData, onBackToAbout, onNextUp }) => {
                   : "text-gray-300 cursor-not-allowed"
               }`}
               onClick={handleNextYearClick}
-              disabled={currentIndex === totalSteps - 1}>
+              disabled={currentIndex === totalSteps - 1}
+            >
               <svg
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
-                fill="currentColor">
+                fill="currentColor"
+              >
                 <path d="M9 6l6 6-6 6V6z" />
               </svg>
             </button>
