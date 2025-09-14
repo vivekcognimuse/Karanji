@@ -6,6 +6,7 @@ import DigitalTransformation from "@/sections/Industries/DigitalTransformation";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
 import Deliverables from "@/sections/digital-learning/analytics/Deliverables";
+import { fetchFromStrapi } from "@/lib/strapi";
 const heroData = {
   title: "Digital Evolution in Oil and Gas",
   subTitle:
@@ -268,7 +269,20 @@ export const metadata = {
   description:
     "Accelerate digital transformation in Oil and Gas with AI-driven predictive maintenance, VR safety training, and digital twin solutions. Boost operational excellence, reduce costs, and enhance efficiency.",
 };
-export default async function Aviation() {
+export default async function OilAndGas() {
+  const data = await fetchFromStrapi("oil-and-gas");
+  if (!data) {
+    console.error("No data object provided for oil and gas.");
+    return null; // Or return a fallback UI component
+  }
+  const {
+    heroData,
+    industryData,
+    strategicPrioritiesData,
+    digitalTransformationData,
+    strategicUseCaseData,
+    ctaData,
+  } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

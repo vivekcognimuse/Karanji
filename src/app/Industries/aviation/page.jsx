@@ -5,6 +5,8 @@ import StrategicPriorities from "@/sections/Industries/StrategicPriorities";
 import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
+
 const heroData = {
   title: "Transforming Aviation Through Innovation",
   subTitle:
@@ -295,6 +297,19 @@ export const metadata = {
     "Transform aviation operations with AI, XR, and predictive maintenance solutions. Boost efficiency, enhance passenger experience, and achieve sustainability goals with innovative technology.",
 };
 export default async function Aviation() {
+  const data = await fetchFromStrapi("aviation");
+  if (!data) {
+    console.error("No data object provided for aviation.");
+    return null; // Or return a fallback UI component
+  }
+  const {
+    heroData,
+    industryData,
+    strategicPrioritiesData,
+    digitalOfferingsData,
+    strategicUseCaseData,
+    ctaData,
+  } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

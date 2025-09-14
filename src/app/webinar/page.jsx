@@ -142,24 +142,20 @@ function normalizeWebinar(strapiData) {
   // TAKEAWAYS: repeatable { title, description }
   const mergedTakeaways = agendaBlocks
     .flatMap((ag) => (Array.isArray(ag.takeaways) ? ag.takeaways : []))
-    .map((item) => {
-      const it = item?.attributes ?? item ?? {};
-      return {
-        title: (it.title ?? "").trim(),
-        description: (it.description ?? "").trim(),
-      };
-    })
+    .map((item) => ({
+      title: (item.title ?? "").trim(),
+      description: (item.description ?? "").trim(),
+    }))
     .filter((t) => t.title);
 
   // CERTIFICATE: single component { title, description }
-  const certRaw = firstAgenda.certificate ?? {};
-  const cert = certRaw?.attributes ?? certRaw ?? {};
+  const certRaw = firstAgenda.Certificate ?? {};
 
   const agenda = {
     title: firstAgenda.title ?? "",
     subTitle: firstAgenda.subtitle ?? firstAgenda.subTitle ?? "",
     sessions: allSessions.map((s) => {
-      const it = s?.attributes ?? s ?? {};
+      const it = s?.attributes ?? s ?? {}; // sessions might still be relations
       return {
         time: it.time ?? "",
         tag: it.tag ?? "",
@@ -168,10 +164,10 @@ function normalizeWebinar(strapiData) {
         speaker: it.speaker ?? "",
       };
     }),
-    takeaways: mergedTakeaways, // [{ title, description }]
+    takeaways: mergedTakeaways,
     certificate: {
-      title: (cert.title ?? "").trim(),
-      description: (cert.description ?? "").trim(),
+      title: (certRaw.title ?? "").trim(),
+      description: (certRaw.description ?? "").trim(),
     },
   };
 

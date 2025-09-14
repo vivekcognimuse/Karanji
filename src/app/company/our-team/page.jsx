@@ -2,6 +2,7 @@ import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/about/teamSections";
 import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
 
 const heroData = {
   title: "Meet the Experts",
@@ -145,13 +146,19 @@ export const metadata = {
     "Meet Karanji's expert team of AI, VR and digital learning professionals. With 18+ years of experience, our leaders deliver transformative technology solutions and immersive learning experiences.",
 };
 export default async function teampage() {
+  const data = await fetchFromStrapi("our-team");
+  if (!data) {
+    console.error("No data object provided for our-team.");
+    return null; // Or return a fallback UI component
+  }
+  const { heroData, teamData, teamSectionData, ctaData } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
       <HeroSection data={heroData} bgImage="/hero/team.png" />
       <CTA data={teamData} />
       <div id="team-section">
-        <TeamSections sections={teamSectionData} />
+        <TeamSections data={teamSectionData} />
       </div>
       <CTA data={ctaData} />
     </main>

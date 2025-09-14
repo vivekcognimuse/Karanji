@@ -7,6 +7,7 @@ import StrategicRoadmap from "@/sections/Industries/StrategicRoadmap";
 import StrategicUseCase from "@/sections/Industries/StrategicUseCase";
 import Methodology from "@/sections/Advisory/Methodology";
 import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
 const heroData = {
   title: "Healthcare Transformation Solutions",
   subTitle:
@@ -377,6 +378,21 @@ export const metadata = {
     "Transform healthcare with AI, XR, and digital learning solutions. Address workforce gaps, reduce costs, and enhance patient engagement through immersive and intelligent technologies.",
 };
 export default async function HealthCare() {
+  const data = await fetchFromStrapi("healthcare");
+  if (!data) {
+    console.error("No data object provided for healthcare.");
+    return null; // Or return a fallback UI component
+  }
+  const {
+    heroData,
+    industryData,
+    strategicPrioritiesData,
+    digitalTransformationData,
+    strategicFramework,
+    strategicRoadmapData,
+    strategicUseCaseData,
+    ctaData,
+  } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <HeroSection

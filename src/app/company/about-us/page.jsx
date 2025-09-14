@@ -9,38 +9,42 @@ import ValuesSection from "@/sections/Company/about/ValuesSection";
 import JourneySection from "@/sections/Company/about/journeySection";
 import TimelineComponent from "@/sections/Company/about/TimelineComponent";
 
-const heroData = {
+import Head from "next/head";
+import { fetchFromStrapi } from "@/lib/strapi";
+
+
+// Default/fallback data
+const defaultHeroData = {
   title: "Our Identity and Purpose",
   description:
     "Discover who we are, what drives us, and the values that shape every solution we deliver.",
   backgroundImage: "/path/to/your/hero-image.jpg",
 };
 
-const cardsData = [
+const defaultCardsData = [
   {
     title: "Our Team",
     description:
       "Meet the minds shaping the future of immersive tech and storytelling.",
     image: "/Company/Landing page/Our Team.webp",
-    href: "/company/our-team", // Link navigation
+    href: "/company/our-team",
   },
   {
     title: "Career",
     description:
       "Build your career at the crossroads of AI, creativity, and impact.",
     image: "/Company/Landing page/Career.webp",
-    href: "/company/careers", // Link navigation
+    href: "/company/careers",
   },
 ];
 
-const journeyData = {
+const defaultJourneyData = {
   title: "Redefining the Future: Karanji's Journey",
   subTitle:
     "Step through Karanji's 18+ year journey with our interactive timeline experience. From a bold start in 2007 to becoming a global leader in AI, VR, and digital learning, each milestone reveals how we've continually pushed technological boundaries, delivered transformational solutions, and shaped the future of enterprise learning and digital experiences.",
   currentYear: "2007",
   currentYearDescription:
     "A seed was planted in 2007 with a goal to change the future of learning.",
-
   yearDescription:
     "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, and innovation in learning technology.",
   buttonText: "Continue the Journey",
@@ -48,7 +52,7 @@ const journeyData = {
 };
 
 // Timeline data for the interactive timeline component
-const timelineData = [
+const defaultTimelineData = [
   {
     year: "2007",
     yearDescription:
@@ -119,16 +123,18 @@ const timelineData = [
       "In 2024, we took another leap by forming a full AI team to drive the future of learning and business innovation.",
     title: "A Bold New Identity: Reimagined for the Future",
     subTitle:
-      "“We rebranded to reflect who we’ve become - an integrated technology partner for the AI era.”",
+      "We rebranded to reflect who we've become - an integrated technology partner for the AI era.",
     description:
       "In 2025, Karanji embraced a new visual identity to match its evolved mission. What began as a digital learning company now leads the way in AI, VR, AR and creative technology. This rebrand marks our transformation into a comprehensive technology services partner, helping businesses across industries create meaningful, human-centered digital experiences.",
     iconSrc: "/Icons/year25icon.svg",
   },
 ];
-const quoteData = {
+
+const defaultQuoteData = {
   title: "Innovate. Design. Transform.",
 };
-const visionMissionData = {
+
+const defaultVisionMissionData = {
   visionTitle: "Vision",
   visionDescription:
     "To be the global leader in creative design and emerging technologies, transforming how people learn, engage, and work efficiently.",
@@ -136,7 +142,8 @@ const visionMissionData = {
   missionDescription:
     "We create immersive experiences using extended reality, AI and creative design to help organizations improve training, entertainment, and business performance in today's digital world.",
 };
-const valuesData = [
+
+const defaultValuesData = [
   {
     icon: "/Company/about/hugeicons_ai-innovation-03.svg",
     title: "Continuous innovation",
@@ -167,17 +174,38 @@ const valuesData = [
 
 export default function AboutUs() {
   const [showTimeline, setShowTimeline] = useState(false);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const timelineRef = useRef(null);
 
+  // Fetch data on component mount
   useEffect(() => {
-    // Lock the background scroll when the timeline is visible
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const strapiData = await fetchFromStrapi("about-us");
+        setData(strapiData);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  // Lock background scroll when timeline is visible
+  useEffect(() => {
     if (showTimeline) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
     return () => {
-      document.body.style.overflow = "auto"; // Clean up on unmount
+      document.body.style.overflow = "auto";
     };
   }, [showTimeline]);
 
@@ -208,6 +236,29 @@ export default function AboutUs() {
     }
   };
 
+  // Use fetched data or fallback to defaults
+  const heroData = data?.heroData || defaultHeroData;
+  const cardsData = data?.cardsData || defaultCardsData;
+  const journeyData = data?.journeyData || defaultJourneyData;
+  const timelineData = data?.timelineData || defaultTimelineData;
+  const visionMissionData = data?.visionMissionData || defaultVisionMissionData;
+  const valuesData = data?.valuesData || defaultValuesData;
+  const quoteData = data?.quoteData || defaultQuoteData;
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    console.error("Error in AboutUs component:", error);
+  }
+
   return (
     <>
       <main className="">
@@ -237,10 +288,13 @@ export default function AboutUs() {
           onMouseLeave={handleMouseLeave}
           className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50 "
           style={{
-            top: "60px", // Adjusted top position for header
-            height: "100vh", // Ensuring full height of the viewport
-            overflow: "hidden", // Initially hide overflow
-          }}>
+
+            top: "60px",
+            height: "100vh",
+            overflow: "hidden",
+          }}
+        >
+
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

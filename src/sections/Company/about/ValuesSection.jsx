@@ -82,6 +82,7 @@ const ValuesSection = ({ data }) => {
               {/* Full-width card */}
               <div className="sm:col-span-2">
                 <ValueCard
+                  isFullWidth={true}
                   {...valuesData[2]}
                   data-reveal
                   data-reveal-dir="up"
