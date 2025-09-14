@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -6,19 +7,16 @@ import TechnologyServices from "@/sections/service/Service";
 
 import React from "react";
 
-export const metadata = {
-  title:
-    "Entertainment Production Services: Professional VFX, Audio and Event Production",
-  description:
-    "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
-};
+export async function generateMetadata() {
+  return await getMetadata("creative");
+}
 const Entertainment = async () => {
   const data = await fetchFromStrapi("creative");
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("creative:", data);
+
   const { hero, entertainmentServices, technologyServices, successStories } =
     data || {};
 

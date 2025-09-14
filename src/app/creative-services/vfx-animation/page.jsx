@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -25,12 +26,9 @@ const serviceOverviewImages = [
   },
 ];
 
-export const metadata = {
-  title:
-    "Entertainment Production Services: Professional VFX, Audio and Event Production",
-  description:
-    "Elevate your content with our entertainment production services. From VFX and animation to audio production and live event coverage, we bring your vision to life with cutting-edge technology.",
-};
+export async function generateMetadata() {
+  return await getMetadata("vfx");
+}
 
 const AudioPodcastProduction = async () => {
   const data = await fetchFromStrapi("vfx");

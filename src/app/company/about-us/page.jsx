@@ -8,7 +8,6 @@ import VisionMission from "@/sections/Company/about/VisionMission";
 import ValuesSection from "@/sections/Company/about/ValuesSection";
 import JourneySection from "@/sections/Company/about/journeySection";
 import TimelineComponent from "@/sections/Company/about/TimelineComponent";
-import Head from "next/head";
 
 const heroData = {
   title: "Our Identity and Purpose",
@@ -241,8 +240,7 @@ export default function AboutUs() {
             top: "60px", // Adjusted top position for header
             height: "100vh", // Ensuring full height of the viewport
             overflow: "hidden", // Initially hide overflow
-          }}
-        >
+          }}>
           <TimelineComponent
             timelineData={timelineData}
             onBackToAbout={handleBackToAbout}

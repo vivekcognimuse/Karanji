@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -10,19 +11,16 @@ import Results from "@/sections/digital-learning/analytics/Result";
 import CTA from "@/sections/digital-learning/CTA";
 import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 
-export const metadata = {
-  title:
-    "Advanced Learning Analytics: Data-Driven Insights for Personalized Learning and Outcomes",
-  description:
-    "Transform learning outcomes with advanced analytics. Gain actionable insights, forecast learner success, and deliver personalized experiences through data-driven decision-making",
-};
+export async function generateMetadata() {
+  return await getMetadata("advance-learning-analytics");
+}
 const ContentDesign = async () => {
   const data = await fetchFromStrapi("advance-learning-analytics");
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("K-nest LMS data:", data);
+
   const {
     hero,
     learningChallenge,

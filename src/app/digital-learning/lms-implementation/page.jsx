@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
@@ -7,14 +8,9 @@ import LearningChallenges from "@/sections/digital-learning/LearningChallenges";
 import LMSLearning from "@/sections/digital-learning/LMSLearning";
 import SwitchSection from "@/sections/digital-learning/SwitchSection";
 
-export const metadata = {
-  title:
-    "K-nest LMS: Customizable Corporate Learning Platform | SCORM Compliant and Cloud-Based",
-  description:
-    "Elevate corporate training with K-nest LMS—a fully customizable, SCORM-compliant learning platform. Features multilingual support, SSO, and flexible cloud-based or on-premise deployment.",
-};
-
-// Image mapping for each section and card - URLs must match exactly (case-sensitive)
+export async function generateMetadata() {
+  return await getMetadata("k-nest-lms");
+}
 const IMAGE_MAPPING = {
   "Learning Experience": {
     "Course Navigation":
@@ -42,11 +38,6 @@ const IMAGE_MAPPING = {
   },
 };
 
-/**
- * Transform API switch section data into the format expected by SwitchSection component
- * @param {Array} apiSwitchSection - The switch section data from API
- * @returns {Object} Transformed data structure for SwitchSection component
- */
 function transformSwitchSectionData(apiSwitchSection) {
   if (!apiSwitchSection || !Array.isArray(apiSwitchSection)) {
     return { tabs: [], content: {} };
@@ -92,8 +83,6 @@ export default async function LMSImplementation() {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-
-  console.log("K-nest LMS data:", data);
 
   const {
     hero,

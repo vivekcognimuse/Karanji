@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -8,69 +9,10 @@ import TechnologyServices from "@/sections/service/Service";
 
 import React from "react";
 
-export const metadata = {
-  title:
-    "End-to-End Digital Learning Solutions: Custom eLearning, LMS & Analytics",
-  description:
-    "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
-};
+export async function generateMetadata() {
+  return await getMetadata("digital-learning");
+}
 
-const technologyServicesData = {
-  title: "Our Digital Learning Services",
-  description:
-    "Explore a full spectrum of technology services crafted to drive innovation & operational excellence.",
-  cards: [
-    {
-      id: 1,
-      title: "Content Design & Development",
-      number: "01",
-
-      image: "/digital-learning/service/1.webp",
-      description:
-        "Transforming learning experiences through expert content design, development, & talent resources.",
-      list: [
-        { text: "Custom eLearning modules" },
-        { text: "Microlearning formats" },
-        { text: "Interactive & Immersive Learning" },
-        { text: "Learning Gamification" },
-      ],
-      ctaText: "Learn More",
-      ctaLink: "/digital-learning/content-design",
-    },
-    {
-      id: 2,
-      title: "Learning Management System (LMS)",
-      number: "02",
-      image: "/digital-learning/service/2.webp",
-      description:
-        "A fully customizable learning platform that adapts to your organization’s needs.",
-      ctaText: "Learn More",
-      list: [
-        { text: "Homegrown LMS " },
-        { text: "System Integration" },
-        { text: "Content Management" },
-        { text: "Platform Administration" },
-      ],
-      ctaLink: "/digital-learning/lms-implementation",
-    },
-    {
-      id: 3,
-      title: "Learning Analytics & Optimization",
-      number: "03",
-      image: "/digital-learning/service/3.webp",
-      description:
-        "Make data-driven decisions to enhance learner success through actionable insights & personalized experiences.",
-      list: [
-        { text: "Learning Data Management" },
-        { text: "Custom Dashboards" },
-        { text: "AI Based Learning" },
-        { text: "Performance Measurement" },
-      ],
-      ctaText: "Learn More",
-      ctaLink: "/digital-learning/analytics",
-    },
-  ],
-};
 const DigitalLearning = async () => {
   const data = await fetchFromStrapi("digital-learning");
   if (!data) {

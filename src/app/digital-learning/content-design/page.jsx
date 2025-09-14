@@ -1,5 +1,6 @@
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 
 import HeroSection from "@/sections/Advisory/Hero";
@@ -20,17 +21,7 @@ import Link from "next/link";
 import React from "react";
 
 export async function generateMetadata() {
-  const data = await fetchFromStrapi("content-design");
-  const { title, description } = data?.metaData || {};
-  console.log("title, description:", title, description);
-  return {
-    title:
-      title ||
-      "Content Design & Development Solutions | Custom eLearning & Instructional Design",
-    description:
-      description ||
-      "Transform learning with expert content design & development.",
-  };
+  return await getMetadata("content-design");
 }
 const ContentDesign = async ({ searchParams }) => {
   const activeTab = searchParams?.tab || "custom";
@@ -40,7 +31,7 @@ const ContentDesign = async ({ searchParams }) => {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("content-design data:", data);
+
   const {
     hero,
     eLearningSolutions,

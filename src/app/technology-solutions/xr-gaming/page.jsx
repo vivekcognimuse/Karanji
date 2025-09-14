@@ -1,15 +1,13 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
-import Head from "next/head";
-export const metadata = {
-  title:
-    "XR & Gaming Solutions | Immersive VR/AR Training & Game-Based Learning",
-  description:
-    "Transform operations with our XR & gaming solutions. Featuring immersive VR/AR experiences, interactive training simulations, and game-based learning for 90% retention rates.",
-};
+
+export async function generateMetadata() {
+  return await getMetadata("xr-gaming");
+}
 
 const XRGaming = async () => {
   const data = await fetchFromStrapi("xr-gaming");
@@ -17,7 +15,7 @@ const XRGaming = async () => {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("XRGaming data:", data);
+
   const { hero, methodology, successStories, serviceOffering } = data || {};
 
   return (

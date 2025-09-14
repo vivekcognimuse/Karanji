@@ -5,17 +5,8 @@ import { P1 } from "@/components/CustomTags";
 import Link from "next/link";
 import ScrollButton from "@/components/ScrollButton copy";
 
-const HeroSection = ({ data }) => {
-  const {
-    title,
-    Subtitles,
-    cta1_text,
-    cta1_link,
-    cta2_text,
-    cta2_link,
-    logo,
-    videoUrl,
-  } = data || {};
+const HeroSection = ({ data, cta1_Text, cta2_Link, cta2_Text }) => {
+  const { title, Subtitle } = data || {};
 
   const videoRef = useRef(null);
   const mobileVideoRef = useRef(null);
@@ -54,13 +45,9 @@ const HeroSection = ({ data }) => {
       <div className="flex-1 mt-16 lg:-mt-20 space-y-8">
         <div className="space-y-4">
           <h1 className="font-sans text-black leading-tight text-5xl text-[clamp(2.5rem,5vw,6rem)] font-normal">
-            Let's Bring Your Vision to Life
+            {title}
           </h1>
-          <P1>
-            We help organizations solve complex business challenges through the
-            strategic integration of digital learning, immersive experiences and
-            practical AI implementation.
-          </P1>
+          <P1>{Subtitle}</P1>
         </div>
 
         {/* Mobile Video */}
@@ -101,11 +88,11 @@ const HeroSection = ({ data }) => {
           <ScrollButton
             variant="primary"
             ctaLink="our-services"
-            ctaText="Explore Our Solutions"
+            ctaText={cta1_Text}
           />
-          <Link href="/resources">
+          <Link href={cta2_Link || "/resources"} className="w-full sm:w-auto">
             <Button variant="secondary" className="w-full md:w-fit">
-              View Case Studies
+              {cta2_Text}
             </Button>
           </Link>
         </div>

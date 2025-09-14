@@ -8,12 +8,10 @@ import SuccessStories from "@/sections/Advisory/SuccessStories";
 import { fetchFromStrapi } from "@/lib/strapi";
 import Head from "next/head";
 import CTA from "@/sections/digital-learning/CTA";
-export const metadata = {
-  title:
-    "End-to-End Digital Learning Solutions: Custom eLearning, LMS & Analytics",
-  description:
-    "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
-};
+import { getMetadata } from "@/lib/metadata";
+export async function generateMetadata() {
+  return await getMetadata("twin");
+}
 
 const DigitalTwins = async () => {
   const data = await fetchFromStrapi("twin");

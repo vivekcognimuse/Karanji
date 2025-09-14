@@ -3,6 +3,8 @@ import StatsSection from "@/sections/home/Stats";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServicesHome from "@/sections/service/Service copy";
 import LogoStoryAnimation from "@/components/LandingAnimation";
+import { getMetadata } from "@/lib/metadata";
+import { fetchFromStrapi } from "@/lib/strapi";
 
 const successStoriesData = {
   title: "Transforming Business Through Measurable Success",
@@ -10,7 +12,7 @@ const successStoriesData = {
     "Discover the significant impact of Karanji’s innovative solutions. Our metrics showcase how we drive efficiency and savings for our clients. Join us in transforming challenges into opportunities for growth.",
   cards: [
     {
-      title: "Corporate Learning and Development Teams ",
+      title: "Corporate Learning and Development Teams",
       stats: [
         { title: "High", subTitle: "Quality Animations" },
         { title: "70%", subTitle: "Seamless Alignment" },
@@ -214,12 +216,30 @@ const technologyServicesData = {
     },
   ],
 };
-const KaranjiLanding = () => {
+export async function generateMetadata() {
+  return await getMetadata("landing-page");
+}
+
+const KaranjiLanding = async () => {
+  const data = await fetchFromStrapi("landing-page");
+  if (!data) {
+    console.error("No data object provided for HeroSection.");
+    return null; // Or return a fallback UI component
+  }
+
+  const { hero, stats, successStories, cta1_Text, cta2_Link, cta2_Text } =
+    data || {};
+  console.log("hero", data);
   return (
     <div className="bg-[url('/page/home.svg')] bg-cover bg-right bg-no-repeat">
       <main className="w-full max-w-[1580px]  mx-auto px-4 lg:p-10 ">
-        <HeroSection />
-        <StatsSection />
+        <HeroSection
+          data={hero}
+          cta1_Text={cta1_Text}
+          cta2_Link={cta2_Link}
+          cta2_Text={cta2_Text}
+        />
+        <StatsSection data={stats} />
         <div id="our-services" className="mt-16  lg:mt-0">
           <div className="block lg:hidden">
             <TechnologyServicesHome
@@ -233,7 +253,7 @@ const KaranjiLanding = () => {
           </div>
         </div>
         {/* <ScrollVideoSequence /> */}
-        <SuccessStories data={successStoriesData} />
+        <SuccessStories data={successStories} />
       </main>
     </div>
   );

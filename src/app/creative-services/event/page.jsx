@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -25,12 +26,9 @@ const serviceOverviewImages = [
   },
 ];
 
-export const metadata = {
-  title:
-    "Professional Event Production and Management Services | Live, Virtual and Hybrid Events",
-  description:
-    "Expert event production and management for live, virtual, and hybrid events. From stage design and tech rental to seamless execution, we deliver memorable experiences.",
-};
+export async function generateMetadata() {
+  return await getMetadata("event-production");
+}
 
 const VfxAnimation = async () => {
   const data = await fetchFromStrapi("event-production");
@@ -38,7 +36,7 @@ const VfxAnimation = async () => {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("event production data:", data);
+
   const {
     hero,
     serviceOverview,

@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -24,14 +25,16 @@ const serviceOverviewImages = [
     alt: "Sound engineer working with audio mixing software",
   },
 ];
-
+export async function generateMetadata() {
+  return await getMetadata("audio-and-podcast");
+}
 const VfxAnimation = async () => {
   const data = await fetchFromStrapi("audio-and-podcast");
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("event production data:", data);
+
   const {
     hero,
     serviceOverview,
