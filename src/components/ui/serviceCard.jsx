@@ -28,7 +28,7 @@ export const ServiceCard = memo(function ServiceCard({
             key={i + service.title}
             index={i}
             data-reveal
-            image={service.image}
+            image={image}
             data-reveal-dir={dirForIndex(i)}
             className="opacity-0 will-change-transform flex-shrink-0"
           />
@@ -45,7 +45,7 @@ export const ServiceCard = memo(function ServiceCard({
               key={i + service.title}
               data={service}
               index={i}
-              image={service.image}
+              image={image}
               data-reveal
               data-reveal-dir={dirForIndex(i)}
               className="w-full opacity-100" // ensure visible in slides
@@ -173,7 +173,10 @@ const SingleServiceCard = memo(function SingleServiceCard({
             className="absolute z-0 bottom-0 flex justify-center  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300"
             style={{ backgroundImage: `url('${bgImage}')` }}>
             <Image
-              src={image || `/technologySolutions/card${index + 1}.webp`}
+              src={
+                `${image}/${index + 1}.webp` ||
+                `/technologySolutions/card${index + 1}.webp`
+              }
               alt={title}
               width={180}
               height={180}

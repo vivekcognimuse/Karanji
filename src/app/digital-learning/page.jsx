@@ -15,48 +15,6 @@ export const metadata = {
     "Transform training with our digital learning solutions. From custom eLearning content and LMS integration to AI-powered learning analytics, we boost ROI and learner engagement.",
 };
 
-const consultancyFramework = [
-  {
-    icon: "/digital-learning/accordian/1.svg",
-    title: "Understanding Complex Training Landscape",
-    description: [
-      "Analysis: Gap & maturity level assessment",
-      "Engagement: Surveys, workshops, interviews",
-      "Feedback: Employee & customer insights",
-      "Outcome: Identified needs & opportunities",
-    ],
-  },
-  {
-    icon: "/digital-learning/accordian/2.svg",
-    title: "Measuring, Monitoring, & Improving",
-    description: [
-      "Analysis: Define KPIs & baseline",
-      "Engagement: AI-based dashboards & monitoring",
-      "Feedback: Insights from learners & stakeholders",
-      "Outcome: Continuous improvement plan",
-    ],
-  },
-  {
-    icon: "/digital-learning/accordian/3.svg",
-    title: "Mapping Training Needs to Right Strategy",
-    description: [
-      "Analysis: Strategy alignment with training needs",
-      "Engagement: Development of training programs",
-      "Feedback: Budget, ROI, timeline, recommendations",
-      "Outcome: Strategic plan for addressing gaps",
-    ],
-  },
-  {
-    icon: "/digital-learning/accordian/4.svg",
-    title: "Integrating Technology, Processes, Systems",
-    description: [
-      "Analysis: Evaluation of current systems, workflows",
-      "Engagement: Implementation of technologies, methods",
-      "Feedback: Insights from trainers & SMEs",
-      "Outcome: A connected, efficient training ecosystem",
-    ],
-  },
-];
 const technologyServicesData = {
   title: "Our Digital Learning Services",
   description:
@@ -124,7 +82,7 @@ const DigitalLearning = async () => {
     hero,
     methodologyData,
     successStoriesData,
-    // technologyServicesData,
+    technologyServicesData,
     consultancyFramework,
     ecoSystem,
   } = data || {};
@@ -135,6 +93,7 @@ const DigitalLearning = async () => {
       <div className="space-y-16 lg:space-y-32">
         <div id="digital-learning-solutions">
           <TechnologyServices
+            image={"/digital-learning/service"}
             data={technologyServicesData}
             bgImage="/digital-learning/service/bg.svg"
           />

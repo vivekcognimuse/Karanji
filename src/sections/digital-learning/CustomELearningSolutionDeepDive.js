@@ -12,13 +12,13 @@ import React from "react";
  * Reusable Card Component
  */
 const ELearningCard = ({ card, index }) => {
-  const { tag, description, videoSrc, imageSrc, alt } = card;
+  const { tag, description, link, image } = card;
 
   return (
     <div key={index} className="flex flex-wrap gap-4 justify-center">
       <div className="relative group">
         <a
-          href={videoSrc}
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
           className=" bg-white max-w-[32rem] w-full aspect-auto rounded-2xl border border-black-300 p-4 flex flex-col hover:shadow-lg transition-all duration-300 cursor-pointer">
@@ -28,8 +28,8 @@ const ELearningCard = ({ card, index }) => {
           <P3 className="mb-8 flex-grow">{description}</P3>
           <div className="relative mt-auto aspect-auto border rounded-2xl overflow-hidden flex items-end w-auto flex-grow">
             <Image
-              src={imageSrc}
-              alt={alt || description}
+              src={image.url}
+              alt={image.alternativeText || description}
               width={500}
               height={310}
               className="w-full  transition-transform duration-300"
