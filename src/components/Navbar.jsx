@@ -467,10 +467,10 @@ export default function Navbar() {
             <Link href="/" aria-label="Karanji Home">
               <Image
                 src="/logo.svg"
-                className="h-8  lg:h-11 w-fit"
                 alt="Logo"
                 width={100}
                 height={100}
+                className="h-8 lg:h-11 w-auto"
               />
             </Link>
           </div>

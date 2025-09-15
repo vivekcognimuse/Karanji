@@ -5,9 +5,11 @@ import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServices from "@/sections/service/Service";
 import TechnologyAdvantage from "@/sections/service/Technology";
 
+
 export async function generateMetadata() {
   return await getMetadata("technology-solutions");
 }
+
 
 export default async function TechnologySolution() {
   const data = await fetchFromStrapi("technology-solutions");
@@ -25,7 +27,11 @@ export default async function TechnologySolution() {
       {/* No need for <Head> for static metadata */}
       <HeroSection data={hero} bgImage="/hero/TechnologySolutions.webp" />
       <div className="space-y-16 lg:space-y-32">
-        <TechnologyAdvantage data={technologyAdvantage} className="lg:-mt-16" />
+        <TechnologyAdvantage
+          data={technologyAdvantage}
+          isAIAssessmentCard={false}
+          className="lg:-mt-16"
+        />
         <div id="technology-solutions">
           <TechnologyServices
             bgImage="/technologySolutions/gradient.svg"

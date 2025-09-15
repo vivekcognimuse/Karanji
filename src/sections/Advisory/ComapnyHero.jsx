@@ -6,10 +6,12 @@ import { P1 } from "@/components/CustomTags";
 import HeroReveal from "@/components/animations/HeroReveal";
 import ScrollButton from "@/components/ScrollButton";
 import LogoAnimation from "@/components/LogoAnimation";
-import FinalLogo from "@/components/FinalLogo";
+
 import Image from "next/image";
 
+
 export default function HeroSection({ data, bgImage }) {
+
   console.log("HeroSection data:", data);
 
   return (
