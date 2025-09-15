@@ -142,7 +142,7 @@ const Footer = () => {
   return (
     <footer className="w-full  max-w-[1580px] pb-10 px-8 mx-auto space-y-16 lg:space-y-12 mt-8 lg:mt-16">
       {/* Top */}
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-32">
+      <div className="flex flex-col lg:flex-row  justify-between gap-8 lg:gap-32">
         <Image
           src="/logo.svg"
           className="h-8 w-fit"
@@ -152,7 +152,7 @@ const Footer = () => {
         />
 
         {/* Nav */}
-        <nav className="flex-1 grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-6 gap-6 sm:gap-8">
+        <nav className="flex-1 grid grid-cols-2 sm:grid-cols-3   lg:grid-cols-5 gap-6 sm:gap-8">
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-4   mb-4 min-w-0">
               <Link href={section.href}>

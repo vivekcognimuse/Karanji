@@ -1,12 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { images: {
-    // Option 1: simple allow-list
-    domains: [
-      'calm-joy-61798b158b.media.strapiapp.com', // your Strapi media host
-      'localhost', // if you load images from local Strapi during dev
-    ],
+const nextConfig = {
+  images: {
+    domains: ["calm-joy-61798b158b.media.strapiapp.com", "localhost"],
   },
-reactStrictMode: process.env.NODE_ENV === "development" };
+
+  reactStrictMode: process.env.NODE_ENV === "development",
+
+  compiler: {
+    // Remove console.* except error and warn in production
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
+  },
+};
 
 export default nextConfig;
-  
