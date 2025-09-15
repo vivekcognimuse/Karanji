@@ -15,7 +15,7 @@ export default async function companyLanding() {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  const { twinHero, avatarData, impactSection, ctaData } = data || {};
+  const { twinHero, avatarData, impactSection, cta } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       <DigitalTwinHeroSection data={twinHero} bgImage={"/hero/Avatars.webp"} />
@@ -23,7 +23,7 @@ export default async function companyLanding() {
         <ChooseAvatarSection data={avatarData} />
       </div>
       <RealImpactResults data={impactSection} />
-      <CTA data={ctaData} />
+      <CTA data={cta} />
     </main>
   );
 }
