@@ -1,32 +1,8 @@
 import HeroSection from "@/sections/Advisory/ComapnyHero";
-import QuoteSection from "@/sections/Company/about/quoteSection";
+
 import { fetchFromStrapi } from "@/lib/strapi";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
-import Head from "next/head";
 
-// const cardsData = [
-//   {
-//     title: "About Us",
-//     description:
-//       "Our journey of innovation through technology, learning, & creativity",
-//     image: "/Company/Landing page/About us.webp",
-//     href: "/company/about-us",
-//   },
-//   {
-//     title: "Our Team",
-//     description:
-//       "Meet the minds shaping the future of immersive tech & storytelling",
-//     image: "/Company/Landing page/Our Team.webp",
-//     href: "/company/our-team",
-//   },
-//   {
-//     title: "Career",
-//     description:
-//       "Build your career at the crossroads of AI, creativity, & impact",
-//     image: "/Company/Landing page/Career.webp",
-//     href: "/company/careers",
-//   },
-// ];
 const data = await fetchFromStrapi(
   "company-landing",
   { populate: "*" },
