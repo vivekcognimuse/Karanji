@@ -1,46 +1,11 @@
-"use client";
-
 import Button from "@/components/ui/Button";
-import Head from "next/head";
+
 import Image from "next/image";
 import Link from "next/link";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Page = () => {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  // Email validation function
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
-
-  // Form submission handler
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Validate the email
-    if (!email.trim()) {
-      setError("Email is required");
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address");
-      return;
-    }
-
-    // If validation passes, clear error and open success modal
-    setError("");
-
-    // Optional: Reset the form
-    setEmail("");
-  };
-
   return (
     <div className=" w-full max-w-[1580px] mx-auto px-4 lg:px-20 space-y-16 lg:space-y-32">
       <div className="flex justify-center flex-col md:flex-row items-center  md:min-h-[calc(100vh-80px)]">
@@ -62,18 +27,15 @@ const Page = () => {
             We are in the final stages of development and we’ll be ready to
             share something exciting with you soon.
           </p>
-          <form onSubmit={handleSubmit} className="mt-8">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="w-full flex justify-end">
-                <Link href="/">
-                  <Button type="submit" className="px-1">
-                    Go back to Home
-                  </Button>
-                </Link>
-              </div>
-            </div>{" "}
-            {error && <p className="text-red-500 mt-1 text-sm">{error}</p>}
-          </form>
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="w-full flex justify-end">
+              <Link href="/">
+                <Button type="submit" className="px-1">
+                  Go back to Home
+                </Button>
+              </Link>
+            </div>
+          </div>{" "}
         </div>
       </div>
     </div>

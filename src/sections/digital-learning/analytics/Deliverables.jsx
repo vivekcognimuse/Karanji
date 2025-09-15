@@ -35,8 +35,8 @@ const FeatureCard = ({ feature, cardImage, index }) => (
 );
 
 const Deliverables = ({ heroImage, data, cardImage }) => {
-  const { cards, title, tag, subTitle, featureHeader } = data;
-
+  const { features, title, tags, subTitle, featureHeader } = data;
+  console.log("data of logistics", features);
   // Shared Feature Card (mobile + desktop styles in one place)
 
   return (
@@ -51,7 +51,7 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
           {title}
         </h3>
 
-        {tag && <h4 className="mb-4 lg:mb-6 text-black">{tag}</h4>}
+        {tags && <h4 className="mb-4 lg:mb-6 text-black">{tags}</h4>}
         <P2 className="text-black mb-16" data-reveal data-reveal-dir="up">
           {subTitle}
         </P2>
@@ -82,7 +82,7 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
 
           {/* Desktop Grid */}
           <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-            {cards.map((feature, index) => (
+            {features?.map((feature, index) => (
               <FeatureCard
                 index={index}
                 key={index}
@@ -94,23 +94,23 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
 
           {/* Mobile Carousel */}
           <div className="block md:hidden">
-            {cards?.length > 0 && (
+            {features?.length > 0 && (
               <>
-                {cards.length === 1 ? (
+                {features.length === 1 ? (
                   <FeatureCard
                     index={index}
                     cardImage={cardImage}
-                    feature={cards[0]}
+                    feature={features[0]}
                   />
                 ) : (
                   <CarouselContainer
-                    key={`cards-${cards.length}`}
+                    key={`cards-${features.length}`}
                     autoPlay={true}
                     autoPlayInterval={5500}
                     showDots={true}
                     showArrows={false}
                     className="w-full">
-                    {cards.map((feature, index) => (
+                    {features.map((feature, index) => (
                       <FeatureCard
                         index={index}
                         cardImage={cardImage}

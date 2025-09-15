@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-import { sendGAEvent } from "@next/third-parties/google"; // ✅ official GA helper
+import { useEffect, Suspense } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
-export default function AnalyticsProvider() {
+function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -24,9 +24,18 @@ export default function AnalyticsProvider() {
       ...analyticsData,
     });
 
-    // ✅ Send to GA (avoids duplication with GA’s built-in page_view)
+    // ✅ Send to GA (avoids duplication with GA's built-in page_view)
     sendGAEvent("event", "custom_page_view", analyticsData);
   }, [pathname, searchParams]);
 
   return null;
+}
+
+// Main component with Suspense boundary
+export default function AnalyticsProvider() {
+  return (
+    <Suspense fallback={null}>
+      <AnalyticsTracker />
+    </Suspense>
+  );
 }
