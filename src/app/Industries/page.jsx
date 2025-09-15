@@ -1,30 +1,10 @@
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import IndustriesSection from "@/sections/Industries/IndustriesSection";
-import Head from "next/head";
-const heroData = {
-  title: "Transform Your Industry with Us",
-  subTitle:
-    "From predictive maintenance to automated workflows, our AI tools help teams in Healthcare, Aviation, Logistics, and Oil and Gas work smarter, safer, and faster.",
-  ctaText: "See Industry Solutions",
-  ctaLink: "industries-section",
-};
-const ctaData = {
-  title: "Ready to lead the future?",
-  description:
-    "Let’s collaborate to bring your next industrial innovation to life with AI, XR, and digital learning.",
-  PrimaryButtonText: "Schedule a Consultation",
-  PrimaryButtonLink: "/contact",
-  popupTitle: "To Know More",
-  popupButtonText: "Enquire",
-  popupSubtitle:
-    "For industry-specific use cases, please fill out the form below",
-};
-const industriesData = {
-  title: "Purpose — Built for Complex Industries.",
-  description:
-    "We partner with organizations in Healthcare, Aviation, Logistics, and Oil and Gas to solve their most pressing operational challenges from reducing downtime and paperwork to improving safety, speed, and compliance. Each solution is tailored to real-world workflows, helping teams work smarter and scale faster.",
-};
+
+import { fetchFromStrapi } from "@/lib/strapi";
+import { getMetadata } from "@/lib/metadata";
+
 const cards = [
   {
     id: 33,
@@ -81,8 +61,16 @@ const cards = [
     icon: "/Icons/Industries/streamline-ultimate_shipment-cargo-boat.svg",
   },
 ];
-
+export async function generateMetadata() {
+  return await getMetadata("xr-gaming");
+}
 export default async function IndustryLanding() {
+  const data = await fetchFromStrapi("Industry-landing");
+  if (!data) {
+    console.error("No data object provided for aviation.");
+    return null; // Or return a fallback UI component
+  }
+  const { heroData, industriesData, ctaData } = data || {};
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

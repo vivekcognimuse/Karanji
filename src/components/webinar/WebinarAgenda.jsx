@@ -9,7 +9,8 @@ export default function WebinarAgenda({ agenda }) {
       className="py-16 px-6"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="max-w-[1580px] mx-auto">
         {/* Header */}
         <div className="mb-12" data-reveal data-reveal-dir="up">
@@ -24,7 +25,8 @@ export default function WebinarAgenda({ agenda }) {
           <div
             className="lg:col-span-2 relative"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             {/* Continuous Timeline Line */}
             <div className="absolute left-1 top-6 bottom-0 w-0.5 bg-black"></div>
 
@@ -34,7 +36,8 @@ export default function WebinarAgenda({ agenda }) {
                   key={index}
                   className="relative flex gap-6"
                   data-reveal
-                  data-reveal-dir="up">
+                  data-reveal-dir="up"
+                >
                   {/* Timeline Dot */}
                   <div className="relative z-10">
                     {/* Black Dot */}
@@ -97,7 +100,8 @@ export default function WebinarAgenda({ agenda }) {
           <div
             className="lg:sticky lg:top-8 lg:self-start"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             <div className="bg-gradient-to-br from-[#F9DCDC] to-[#BAABFC] rounded-2xl p-6">
               {/* Header */}
               <div className="text-center mb-6">
@@ -106,61 +110,65 @@ export default function WebinarAgenda({ agenda }) {
                 </h5>
                 <p className="text-gray-600">Exclusive resources & insights</p>
               </div>
-
               {/* Takeaways List */}
               <div className="space-y-4 mb-8">
-                {agenda.takeaways.slice(0, 4).map((takeaway, index) => {
-                  const parts = takeaway.split(" – ");
-                  return (
-                    <div
-                      key={index}
-                      className="flex items-start gap-3"
-                      data-reveal
-                      data-reveal-dir="up">
-                      <div className="flex-shrink-0 mt-0.5">
-                        <Image
-                          height={40}
-                          width={40}
-                          src="/Icons/Check box.svg"
-                          alt="Check"
-                          className="w-6 h-6"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-gray-900 font-medium text-sm leading-relaxed">
-                          {parts[0]}
-                        </p>
-                        {parts[1] && (
-                          <p className="text-gray-600 text-sm mt-1">
-                            {parts[1]}
-                          </p>
-                        )}
-                      </div>
+                {agenda.takeaways.slice(0, 4).map((t, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3"
+                    data-reveal
+                    data-reveal-dir="up"
+                  >
+                    <div className="flex-shrink-0 mt-0.5">
+                      <Image
+                        height={40}
+                        width={40}
+                        src="/Icons/Check box.svg"
+                        alt="Check"
+                        className="w-6 h-6"
+                      />
                     </div>
-                  );
-                })}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-gray-900 font-medium text-sm leading-relaxed">
+                        {t.title}
+                      </p>
+                      {!!t.description && (
+                        <p className="text-gray-600 text-sm mt-1">
+                          {t.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Certificate Section */}
-              <div className="pt-6 border-t border-purple-200">
-                <div className="bg-white rounded-xl p-6 text-center">
-                  <div className="flex justify-center mb-4">
-                    <Image
-                      height={40}
-                      width={40}
-                      src="/Icons/ph_certificate-light.svg"
-                      alt="Certificate"
-                      className="w-16 h-16"
-                    />
+              {(agenda.certificate?.title ||
+                agenda.certificate?.description) && (
+                <div className="pt-6 border-t border-purple-200">
+                  <div className="bg-white rounded-xl p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Image
+                        height={40}
+                        width={40}
+                        src="/Icons/ph_certificate-light.svg" // local icon
+                        alt="Certificate"
+                        className="w-16 h-16"
+                      />
+                    </div>
+                    {agenda.certificate?.title && (
+                      <p className="text-gray-900 font-medium text-sm mb-2">
+                        {agenda.certificate.title}
+                      </p>
+                    )}
+                    {agenda.certificate?.description && (
+                      <p className="text-gray-600 text-sm">
+                        {agenda.certificate.description}
+                      </p>
+                    )}
                   </div>
-                  <p className="text-gray-900 font-medium text-sm mb-2">
-                    Certificate of completion
-                  </p>
-                  <p className="text-gray-600 text-sm">
-                    30-day access to exclusive resource library
-                  </p>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

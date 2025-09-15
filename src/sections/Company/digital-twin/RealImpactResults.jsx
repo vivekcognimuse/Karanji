@@ -3,22 +3,23 @@ import React from "react";
 import { P2, P3 } from "@/components/CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
-export default function RealImpactResults({ sectionData }) {
+export default function RealImpactResults({ data }) {
   return (
     <section
       className="py-16 px-6 max-w-7xl mx-auto"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       {/* Header */}
       <div className="text-left mb-16" data-reveal data-reveal-dir="up">
-        <h3 className="mb-4">{sectionData.heading}</h3>
-        <P2 className="text-left mx-auto">{sectionData.description}</P2>
+        <h3 className="mb-4">{data.heading}</h3>
+        <P2 className="text-left mx-auto">{data.description}</P2>
       </div>
 
       {/* Impact Cards */}
       <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-        {sectionData.impactItems.map((item, index) => (
+        {data.impactItems.map((item, index) => (
           <div
             key={index}
             className="text-center max-w-xs"

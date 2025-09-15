@@ -2,8 +2,8 @@ import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
-const AnalyticsMaturityModel = ({ data }) => {
-  const { title, subTitle, stairImage, stages } = data;
+const AnalyticsMaturityModel = ({ data, stairImage }) => {
+  const { title, subTitle, cards } = data;
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -35,21 +35,21 @@ const AnalyticsMaturityModel = ({ data }) => {
 
         {/* Right Side - Stage Details */}
         <div className=" grid  lg:grid-cols-2 gap-16 ">
-          {stages.map((stage, index) => (
+          {cards.map((stage, index) => (
             <div key={index} className="space-y-3">
               {/* Stage Title */}
               <h5 className="mb-2">{stage.title}</h5>
 
               {/* Stage Question */}
-              <P3 className="">{stage.question}</P3>
+              <P3 className="">{stage.subTitle}</P3>
               <hr className="text-black-200 mt-6 mb-8" />
               {/* Stage Points */}
               <ul className="text-black-500 list-disc list-inside space-y-2 mt-4">
-                {stage.points.map((point, pointIndex) => (
+                {stage.list.map((point, pointIndex) => (
                   <li
                     key={pointIndex}
                     className="pl-2 [text-indent:-1.5rem] leading-relaxed">
-                    {point}
+                    {point.text}
                   </li>
                 ))}
               </ul>

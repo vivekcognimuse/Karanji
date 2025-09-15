@@ -13,16 +13,16 @@ const chunkArray = (array, chunkSize) => {
   return chunks;
 };
 
-const ContentFormats = ({ data }) => {
-  const { title, description, content, image } = data || {};
+const ContentFormats = ({ data, cardImage }) => {
+  const { title, subTitle, cards, image } = data || {};
 
   // Chunk the content into pairs for mobile carousel
-  const chunkedContent = chunkArray(content, 3);
+  const chunkedContent = chunkArray(cards, 3);
 
   return (
     <div>
       <h3>{title}</h3>
-      <P2>{description}</P2>
+      <P2>{subTitle}</P2>
       {image && (
         <div className="mt-8 rounded-2xl h-auto max-h-96 bg-purple-200 object-bottom overflow-hidden">
           <Image
@@ -38,20 +38,20 @@ const ContentFormats = ({ data }) => {
 
       {/* Desktop View - Original Grid Implementation */}
       <div className="mt-16 hidden lg:grid gap-4 grid-cols-1 lg:grid-cols-3">
-        {content.map((item, index) => (
+        {cards.map((item, index) => (
           <div
             key={index}
             className="mb-8 border border-black-200 shadow-md px-4 py-2 gap-4 rounded-2xl flex items-center">
-            {item.src && (
+            {(item.src || cardImage) && (
               <Image
-                src={item.src}
-                alt={item.alt || item.description}
+                src={`${cardImage}/${index + 1}.svg` || item.src}
+                alt={item.alt || item.title}
                 width={40}
                 height={40}
                 className="size-10"
               />
             )}
-            <h5 className="mb-0">{item.description}</h5>
+            <h5 className="mb-0">{item.title}</h5>
           </div>
         ))}
       </div>
@@ -63,20 +63,21 @@ const ContentFormats = ({ data }) => {
             <div key={chunkIndex} className="w-full space-y-4 px-4">
               {chunk.map((item, itemIndex) => {
                 const originalIndex = chunkIndex * 2 + itemIndex;
+                console.log("imgsrc", `${cardImage}/${originalIndex + 1}.svg`);
                 return (
                   <div
                     key={originalIndex}
                     className="mb-8 w-full border border-black-200 shadow-md px-4 py-2 gap-4 rounded-2xl flex items-center">
                     {item.src && (
                       <Image
-                        src={item.src}
-                        alt={item.alt || item.description}
+                        src={`${cardImage}/${index + 1}.svg`}
+                        alt={item.alt || item.title}
                         width={40}
                         height={40}
                         className="size-9"
                       />
                     )}
-                    <h5 className="mb-0">{item.description}</h5>
+                    <h5 className="mb-0">{item.title}</h5>
                   </div>
                 );
               })}

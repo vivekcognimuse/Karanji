@@ -1,9 +1,10 @@
 import CarouselContainer from "@/components/animations/Carousal";
 import { P2, P3 } from "@/components/CustomTags";
+
 import Image from "next/image";
 import React from "react";
 
-const EntertainmentServices = ({ data }) => {
+const EntertainmentServices = ({ data, icon }) => {
   const { title, subTitle, services } = data;
 
   return (
@@ -24,7 +25,7 @@ const EntertainmentServices = ({ data }) => {
               {/* Icon */}
 
               <Image
-                src={service.icon}
+                src={`${icon}/${index + 1}.svg` || "/"}
                 alt={service.title}
                 width={64}
                 height={64}
@@ -55,7 +56,7 @@ const EntertainmentServices = ({ data }) => {
                 {/* Icon */}
 
                 <Image
-                  src={service.icon}
+                  src={`${icon}/${index + 1}.svg` || "/"}
                   alt={service.title}
                   width={64}
                   height={64}

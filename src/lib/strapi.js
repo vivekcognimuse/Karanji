@@ -1,7 +1,7 @@
 export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   baseUrl =
     baseUrl ||
-    " https://0c2f81869df7.ngrok-free.app/api" ||
+    "https://calm-joy-61798b158b.strapiapp.com/api" ||
     process.env.STRAPI_API_URL;
 
   if (!baseUrl) {
@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Default populate
-    revalidate = 3600, // No revalidate by default (pure SSG)
+    revalidate = 30, // No revalidate by default (pure SSG)
   } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);

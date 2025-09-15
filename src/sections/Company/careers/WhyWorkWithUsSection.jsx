@@ -43,6 +43,7 @@ const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
               width={40}
               src={icon}
               alt={`${title} icon`}
+              unoptimized
               className="w-12 h-12 object-contain"
             />
             <h4>{title}</h4>
@@ -84,7 +85,7 @@ const WhyWorkWithUsSection = ({
       <div className="mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8" data-reveal data-reveal-dir="up">
-          <h4 className=" text-black-800 mb-8">{title}</h4>
+          <h4 className="mb-8">{title}</h4>
           <P3 className="text-black-950 mx-auto">{description}</P3>
         </div>
         {/* Cards Scatter Flexbox */}

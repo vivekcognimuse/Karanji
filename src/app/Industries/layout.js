@@ -1,9 +1,15 @@
-const TechnologySolutionsLayout = ({ children }) => {
+
+import Head from "next/head";
+
+const Industries = ({ children }) => {
   return (
-    <div className="bg-[url('/page/technology.svg')]  bg-cover bg-right bg-no-repeat relative">
+    <div className="bg-[url('/page/home.svg')]  bg-cover bg-right bg-no-repeat relative">
+
       {children} {/* This renders the content of each page */}
     </div>
   );
 };
 
-export default TechnologySolutionsLayout;
+
+export default Industries;
+

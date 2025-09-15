@@ -2,6 +2,7 @@ import { P1 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { toPlainText } from "@/utils/ish";
 import Image from "next/image";
+import Link from "next/link";
 export default function WebinarHeader({ data, bgImage }) {
   const buttons = Array.isArray(data?.buttons)
     ? data.buttons[0] ?? {}
@@ -84,18 +85,46 @@ export default function WebinarHeader({ data, bgImage }) {
           {/* Buttons - Following HeroSection CTA pattern */}
           {(buttons.register || buttons.preview) && (
             <div className="flex justify-center gap-4 flex-wrap">
-              {buttons.register && (
-                <Button className="whitespace-nowrap cursor-not-allowed">
-                  {buttons.register}
-                </Button>
-              )}
-              {buttons.preview && (
-                <Button
-                  variant="secondary"
-                  className="bg-white text-black border border-black whitespace-nowrap cursor-not-allowed"
+              {buttons.register && buttons.registerLink && (
+                <Link
+                  href={buttons.registerLink}
+                  target={
+                    buttons.registerLink?.startsWith("http")
+                      ? "_blank"
+                      : undefined
+                  }
+                  rel={
+                    buttons.registerLink?.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                 >
-                  {buttons.preview}
-                </Button>
+                  <Button className="whitespace-nowrap">
+                    {buttons.register}
+                  </Button>
+                </Link>
+              )}
+              {buttons.preview && buttons.previewLink && (
+                <Link
+                  href={buttons.previewLink}
+                  target={
+                    buttons.previewLink?.startsWith("http")
+                      ? "_blank"
+                      : undefined
+                  }
+                  rel={
+                    buttons.previewLink?.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  <Button
+                    variant="secondary"
+                    className="bg-white text-black border border-black whitespace-nowrap"
+                  >
+                    {buttons.preview}
+                  </Button>
+                </Link>
               )}
             </div>
           )}

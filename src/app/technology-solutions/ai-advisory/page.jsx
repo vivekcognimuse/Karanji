@@ -1,3 +1,4 @@
+import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
@@ -5,31 +6,17 @@ import Methodology from "@/sections/Advisory/Methodology";
 import ServiceOfferings from "@/sections/Advisory/ServiceOfferings";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import CTA from "@/sections/digital-learning/CTA";
-import Head from "next/head";
 
-const CTAData = {
-  title: "Transform Your Industry with Tailored Approach",
-  description:
-    "Discover how our solutions address the unique challenges in your industry.",
-  PrimaryButtonText: null,
-  PrimaryButtonLink: null,
-  SecondaryButtonText: "Explore Industry Solutions",
-  SecondaryButtonLink: "/Industries",
-};
-
-export const metadata = {
-  title:
-    "AI Consulting, XR & Digital Twin Solutions | Future-Ready Technology Services",
-  description:
-    "Transform your business with our AI consulting, XR/VR experiences, and digital twin technology. Drive innovation, optimize operations, and accelerate digital transformation.",
-};
+export async function generateMetadata() {
+  return await getMetadata("ai-advisory");
+}
 export default async function AIAdvisoryPage() {
   const data = await fetchFromStrapi("ai-advisory");
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("AI Advisory data:", data);
+
   const {
     hero,
     successStories,
@@ -54,7 +41,7 @@ export default async function AIAdvisoryPage() {
           data={industryExpertise}
           icon={`/technologySolutions/ai-industry`}
         />
-        <CTA data={CTAData} />
+        <CTA data={industryExpertise.cta} />
         <SuccessStories data={successStories} />
       </div>
     </main>

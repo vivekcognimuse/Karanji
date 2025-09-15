@@ -1,15 +1,110 @@
 "use client";
+import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "../CustomTags";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
 export default function RegisterForWebinar({ data }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Company validation
+    if (!formData.company.trim()) {
+      newErrors.company = "Company is required";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Phone validation
+    const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ""))) {
+      newErrors.phone = "Please enter a valid phone number";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Add your form submission logic here
+      console.log("Form submitted:", formData);
+
+      // Reset form on successful submission
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+      });
+
+      // You can add a success message here
+      alert("Registration successful!");
+    } catch (error) {
+      console.error("Submission error:", error);
+      // Handle submission error
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       className="py-20"
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+      data-reveal-stagger="0.12"
+    >
       <div className="mx-auto">
         {/* Title and Description with Reveal Animation */}
         <div className="mb-16" data-reveal data-reveal-dir="up">
@@ -24,7 +119,8 @@ export default function RegisterForWebinar({ data }) {
           <div
             className="flex flex-col justify-between space-y-8"
             data-reveal
-            data-reveal-dir="up">
+            data-reveal-dir="up"
+          >
             {/* Features List with Reveal Animation */}
             <div className="space-y-6">
               {data.features.map((feature, idx) => (
@@ -32,7 +128,8 @@ export default function RegisterForWebinar({ data }) {
                   key={idx}
                   className="space-y-2"
                   data-reveal
-                  data-reveal-dir="up">
+                  data-reveal-dir="up"
+                >
                   <h4 className="text-xl font-semibold text-gray-900">
                     {feature.title}
                   </h4>
@@ -45,11 +142,12 @@ export default function RegisterForWebinar({ data }) {
             <div
               className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl"
               data-reveal
-              data-reveal-dir="up">
+              data-reveal-dir="up"
+            >
               <div className="text-center">
                 <h5 className="text-black-950 mb-4">REGISTER FOR FREE</h5>
                 <P3 className="text-black-700 text-lg ">
-                  Transform Your Workforce with Karanji’s Virtual Engine
+                  Transform Your Workforce with Karanji's Virtual Engine
                   Workshop Today
                 </P3>
               </div>
@@ -58,53 +156,88 @@ export default function RegisterForWebinar({ data }) {
 
           {/* Right Column - Form with Reveal Animation */}
           <div className="pl-12 flex flex-col" data-reveal data-reveal-dir="up">
-            <form className="space-y-6 flex-grow flex flex-col">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 flex-grow flex flex-col"
+            >
               <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
-                  Name *
+                  Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Alex"
-                  className="w-full px-0 py-3 border-0 border-b-2 border-black-500 focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400"
+                  className={`w-full px-0 py-3 border-0 border-b-2 ${
+                    errors.name ? "border-red-500" : "border-black-500"
+                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
 
               <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
-                  Company *
+                  Company <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
                   placeholder="Meta"
-                  className="w-full px-0 py-3 border-0 border-b-2 border-black-500 focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400"
+                  className={`w-full px-0 py-3 border-0 border-b-2 ${
+                    errors.company ? "border-red-500" : "border-black-500"
+                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
                 />
+                {errors.company && (
+                  <p className="text-red-500 text-sm mt-1">{errors.company}</p>
+                )}
               </div>
 
               <div data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
-                  Email *
+                  Email <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="alex@meta.com"
-                  className="w-full px-0 py-3 border-0 border-b-2 border-black-500 focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400"
+                  className={`w-full px-0 py-3 border-0 border-b-2 ${
+                    errors.email ? "border-red-500" : "border-black-500"
+                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               <div className="flex-grow" data-reveal data-reveal-dir="up">
                 <label className="block text-gray-900 font-medium mb-2">
-                  Phone Number *
+                  Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   placeholder="+91 01234 45678"
-                  className="w-full px-0 py-3 border-0 border-b-2 border-black-500 focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400"
+                  className={`w-full px-0 py-3 border-0 border-b-2 ${
+                    errors.phone ? "border-red-500" : "border-black-500"
+                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
 
-              <Button type="submit" className="">
-                Submit
+              <Button type="submit" className="" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
               </Button>
             </form>
           </div>
