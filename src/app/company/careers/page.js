@@ -3,8 +3,7 @@ import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
 import CareersTable from "@/sections/Company/careers/CareersTable";
 import { fetchFromStrapi } from "@/lib/strapi";
-import { getMediaUrl  } from "@/utils/ish";
-
+import { getMediaUrl } from "@/utils/ish";
 
 function normalizeLanding(data) {
   // Strapi single type usually returns: { id, attributes: {...} }
@@ -14,28 +13,28 @@ function normalizeLanding(data) {
   const teamData = attrs.teamData ?? {};
   const sectionData = attrs.whySectionData ?? {};
   const cards = Array.isArray(attrs.cardsData)
-  ? attrs.cardsData.map((c, i) => {
-      const item = c?.attributes ?? c ?? {};
-      const rawIcon =
-        typeof item.icon === "string"
-          ? item.icon
-          : typeof item.Icon === "string"
-          ? item.Icon
-          : "";
+    ? attrs.cardsData.map((c, i) => {
+        const item = c?.attributes ?? c ?? {};
+        const rawIcon =
+          typeof item.icon === "string"
+            ? item.icon
+            : typeof item.Icon === "string"
+            ? item.Icon
+            : "";
 
-      return {
-        id: item.id ?? i,
-        title: item.title ?? item.Title ?? "",
-        description: item.description ?? item.Description ?? "",
-        // icon is a plain text path like "/Company/Team/icons/culture.svg"
-        icon: rawIcon
-          ? (rawIcon.startsWith("/") ? rawIcon : `/${rawIcon}`).trim()
-          : "",
-        // image can be Strapi media or a string path
-        image: getMediaUrl(item.image),
-      };
-    })
-  : [];
+        return {
+          id: item.id ?? i,
+          title: item.title ?? item.Title ?? "",
+          description: item.description ?? item.Description ?? "",
+          // icon is a plain text path like "/Company/Team/icons/culture.svg"
+          icon: rawIcon
+            ? (rawIcon.startsWith("/") ? rawIcon : `/${rawIcon}`).trim()
+            : "",
+          // image can be Strapi media or a string path
+          image: getMediaUrl(item.image),
+        };
+      })
+    : [];
 
   const ctaData = attrs.ctaData ?? {};
 
@@ -63,10 +62,11 @@ function normalizeLanding(data) {
   return { teamData, sectionData, cards, ctaData, defaultCareers };
 }
 export const metadata = {
-  title: "Careers at Karanji: Join Our AI, VR and Digital Learning Innovation Team",
+  title:
+    "Careers at Karanji: Join Our AI, VR and Digital Learning Innovation Team",
   description:
     "Build your career with Karanji's innovative team. Explore opportunities in AI development, VR programming, instructional design, and shape the future of technology and learning.",
-}
+};
 export default async function CareersPage() {
   // 1) Pull the single type (cards need image populate)
   // If your wrapper is picky, you can also just do "careerpage?populate=*"
@@ -77,9 +77,9 @@ export default async function CareersPage() {
   );
   if (!pageData) return null;
 
-    const { teamData, sectionData, cards , ctaData, defaultCareers } =
+  const { teamData, sectionData, cards, cta, defaultCareers } =
     normalizeLanding(pageData);
-
+  console.log("cta in careers", pageData, cta);
   // Build a fast lookup of careers by normalized Title
   const normalize = (s) => (s || "").trim().toLowerCase();
   const careersByTitle = new Map(
@@ -89,22 +89,21 @@ export default async function CareersPage() {
     })
   );
 
-   const mergedCareers =
-       (defaultCareers || []).map((row, i) => {
-      const match = careersByTitle.get(normalize(row.title));
-      return {
-        id: row.id ?? i,
-        title: row.title,
-        // prefer curated values for table display; fall back to collection values
-        type: row.type ?? match?.EmploymentType ?? "",
-        duration: row.duration ?? "",
-        location: row.location ?? match?.Location ?? "",
-        experience: row.experience ?? match?.Experience ?? "",
-        category: row.category ?? match?.category ?? "",
-        // key part: real slug from collection (fallback to empty)
-        slug: match?.Slug ?? "",
-      };
-    });
+  const mergedCareers = (defaultCareers || []).map((row, i) => {
+    const match = careersByTitle.get(normalize(row.title));
+    return {
+      id: row.id ?? i,
+      title: row.title,
+      // prefer curated values for table display; fall back to collection values
+      type: row.type ?? match?.EmploymentType ?? "",
+      duration: row.duration ?? "",
+      location: row.location ?? match?.Location ?? "",
+      experience: row.experience ?? match?.Experience ?? "",
+      category: row.category ?? match?.category ?? "",
+      // key part: real slug from collection (fallback to empty)
+      slug: match?.Slug ?? "",
+    };
+  });
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-10 space-y-16 lg:space-y-32">
@@ -116,8 +115,7 @@ export default async function CareersPage() {
             "linear-gradient(93.27deg, rgba(158, 135, 255, 0.1) 8.1%, rgba(109, 191, 254, 0.1) 41.6%, rgba(255, 143, 143, 0.1) 95.33%, rgba(255, 255, 255, 0.1) 127.34%)",
           backdropFilter: "blur(28.100000381469727px)",
           boxShadow: "0px 4px 4px 0px rgba(204, 204, 204, 0.25)",
-        }}
-      >
+        }}>
         <div className="space-y-16 lg:space-y-32">
           {/* Hero */}
           <CTA
@@ -143,13 +141,16 @@ export default async function CareersPage() {
 
           {/* Open Roles */}
           <section id="open-roles">
-            <CareersTable jobs={mergedCareers} detailBasePath="/company/careers" />
+            <CareersTable
+              jobs={mergedCareers}
+              detailBasePath="/company/careers"
+            />
           </section>
         </div>
       </div>
 
       {/* Final CTA - Outside the wrapper */}
-      <CTA data={ctaData} />
+      <CTA data={pageData.cta} />
     </main>
   );
 }

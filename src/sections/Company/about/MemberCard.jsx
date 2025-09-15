@@ -21,7 +21,7 @@ const MemberCard = ({
       <div className="flex-shrink-0 mx-auto sm:mx-0">
         <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-68 xl:w-80 xl:h-80 bg-white rounded-2xl overflow-hidden shadow-md">
           <Image
-            src={image}
+            src={image.url}
             alt={name}
             height={400}
             width={400}
@@ -59,8 +59,7 @@ const MemberCard = ({
             onClick={() => window.open(linkedin, "_blank")}
             variant="secondary"
             size="sm"
-            className="w-full sm:w-auto"
-          >
+            className="w-full sm:w-auto">
             Connect with {name.split(" ")[0]}
           </Button>
           {showTalkButton && twinlink && (

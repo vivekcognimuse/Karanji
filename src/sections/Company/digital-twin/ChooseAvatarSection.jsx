@@ -105,17 +105,6 @@ function AvatarCard({ avatar, description }) {
             <P4 className="">{description}</P4>
           </div>
         </div>
-
-        {/* CTA Section */}
-        <div className="px-6 mt-auto pb-6">
-          <div className="text-center">
-            <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
-              <Button variant="secondary" size="sm">
-                {avatar.ctaText || `Talk to ${avatar.name}`}
-              </Button>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );

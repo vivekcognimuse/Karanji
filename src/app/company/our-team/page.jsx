@@ -14,7 +14,8 @@ export default async function teampage() {
     console.error("No data object provided for our-team.");
     return null; // Or return a fallback UI component
   }
-  const { heroData, teamData, teamSectionData, ctaData } = data || {};
+  const { heroData, teamData, teamSectionData, cta } = data || {};
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}
@@ -23,7 +24,7 @@ export default async function teampage() {
       <div id="team-section">
         <TeamSections data={teamSectionData} />
       </div>
-      <CTA data={ctaData} />
+      <CTA data={cta} />
     </main>
   );
 }
