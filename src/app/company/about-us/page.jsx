@@ -1,13 +1,10 @@
-//about-us.jsx
-"use client";
-import { useState, useRef, useEffect } from "react";
+// about-us.jsx (Server-side component)
 import WebinarHeader from "@/components/webinar/WebinarHeader";
 import QuoteSection from "@/sections/Company/about/quoteSection";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
 import VisionMission from "@/sections/Company/about/VisionMission";
 import ValuesSection from "@/sections/Company/about/ValuesSection";
 import JourneySection from "@/sections/Company/about/journeySection";
-import TimelineComponent from "@/sections/Company/about/TimelineComponent";
 
 import { fetchFromStrapi } from "@/lib/strapi";
 
@@ -170,69 +167,17 @@ const defaultValuesData = [
   },
 ];
 
-export default function AboutUs() {
-  const [showTimeline, setShowTimeline] = useState(false);
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const timelineRef = useRef(null);
+export default async function AboutUs() {
+  let data = null;
+  let error = null;
 
-  // Fetch data on component mount
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        const strapiData = await fetchFromStrapi("about-us");
-        setData(strapiData);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadData();
-  }, []);
-
-  // Lock background scroll when timeline is visible
-  useEffect(() => {
-    if (showTimeline) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showTimeline]);
-
-  const handleContinueJourney = () => {
-    setShowTimeline(true);
-  };
-
-  const handleBackToAbout = () => {
-    setShowTimeline(false);
-  };
-
-  const handleNextUp = () => {
-    setShowTimeline(false);
-    document.getElementById("vision-mission")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
-  const handleMouseEnter = () => {
-    if (timelineRef.current) {
-      timelineRef.current.style.overflow = "auto";
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (timelineRef.current) {
-      timelineRef.current.style.overflow = "hidden";
-    }
-  };
+  // Fetch data on server-side
+  try {
+    data = await fetchFromStrapi("about-us");
+  } catch (err) {
+    console.error("Error fetching data:", err);
+    error = err;
+  }
 
   // Use fetched data or fallback to defaults
   const heroData = data?.heroData || defaultHeroData;
@@ -243,60 +188,24 @@ export default function AboutUs() {
   const valuesData = data?.valuesData || defaultValuesData;
   const quoteData = data?.quoteData || defaultQuoteData;
 
-  // Loading state
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-      </div>
-    );
-  }
-
-  // Error state
+  // Log error if exists
   if (error) {
     console.error("Error in AboutUs component:", error);
   }
 
   return (
-    <>
-      <main className="">
-        <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
-        <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 mt-16 lg:mt-32 lg:space-y-32">
-          <JourneySection
-            data={{
-              ...journeyData,
-              onContinueJourney: handleContinueJourney,
-            }}
-          />
-          <div id="vision-mission">
-            <VisionMission data={visionMissionData} />
-          </div>
-
-          <ValuesSection data={valuesData} />
-          <NextUpSection heading="Next Up" cards={cardsData} />
-          <QuoteSection title={quoteData.title} />
+    <main className="">
+      <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
+      <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 mt-16 lg:mt-32 lg:space-y-32">
+        <JourneySection data={journeyData} timelineData={timelineData} />
+        <div id="vision-mission">
+          <VisionMission data={visionMissionData} />
         </div>
-      </main>
 
-      {/* Timeline Component Overlay */}
-      {showTimeline && (
-        <div
-          ref={timelineRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="fixed inset-0 z-50 bg-gradient-to-br from-purple-50 to-blue-50 "
-          style={{
-            top: "60px",
-            height: "100vh",
-            overflow: "hidden",
-          }}>
-          <TimelineComponent
-            timelineData={timelineData}
-            onBackToAbout={handleBackToAbout}
-            onNextUp={handleNextUp}
-          />
-        </div>
-      )}
-    </>
+        <ValuesSection data={valuesData} />
+        <NextUpSection heading="Next Up" cards={cardsData} />
+        <QuoteSection title={quoteData.title} />
+      </div>
+    </main>
   );
 }
