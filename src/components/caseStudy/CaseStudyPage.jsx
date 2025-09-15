@@ -64,8 +64,7 @@ const CaseStudyPage = ({ data }) => {
             className="mt-10 mb-4 scroll-mt-24"
             key={idx}
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             {section.content}
           </h4>
         );
@@ -75,8 +74,7 @@ const CaseStudyPage = ({ data }) => {
             className="mt-6 text-black-950/50 mb-2"
             key={idx}
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             {section.content}
           </h5>
         );
@@ -86,8 +84,7 @@ const CaseStudyPage = ({ data }) => {
             className="text-black-950/50 mb-4"
             key={idx}
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             {section.content}
           </P3>
         );
@@ -97,8 +94,7 @@ const CaseStudyPage = ({ data }) => {
             className="text-black-950/50 mb-4"
             key={idx}
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             {section.content}
           </P3>
         );
@@ -108,8 +104,7 @@ const CaseStudyPage = ({ data }) => {
             className="font-outfit text-lg font-light sm:text-xl text-black-950/50 mb-4"
             key={idx}
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             <ul className="list-disc pl-5 space-y-2">
               {(section.items || []).map((item, index) => (
                 <li key={index}>{item}</li>
@@ -123,8 +118,7 @@ const CaseStudyPage = ({ data }) => {
             key={idx}
             className="relative mb-6 p-6"
             data-reveal
-            data-reveal-dir="up"
-          >
+            data-reveal-dir="up">
             <div
               className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
               style={{
@@ -166,16 +160,14 @@ const CaseStudyPage = ({ data }) => {
             <P1
               className="text-[#333333] text-base mb-4"
               data-reveal
-              data-reveal-dir="up"
-            >
+              data-reveal-dir="up">
               {data.description}
             </P1>
             <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
               {(data.tags || []).map((tag, idx) => (
                 <span
                   key={idx}
-                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1"
-                >
+                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1">
                   {tag}
                 </span>
               ))}
