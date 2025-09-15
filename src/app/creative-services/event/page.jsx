@@ -68,7 +68,7 @@ const VfxAnimation = async () => {
           cardImage="/entertainment/event/techstack"
           data={technologyStack}
         />
-        <SuccessStories data={successStoriesData} />
+        <SuccessStories data={successStories} />
         <Accordion data={faq} />
         <CTA data={cta} />
       </div>
