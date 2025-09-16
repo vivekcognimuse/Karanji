@@ -252,7 +252,7 @@ const KaranjiLanding = async () => {
             <LogoStoryAnimation />
           </div>
         </div>
-        {/* <ScrollVideoSequence /> */}
+
         <SuccessStories data={successStories} />
       </main>
     </div>
