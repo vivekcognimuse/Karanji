@@ -12,7 +12,7 @@ export default async function teampage() {
   const data = await fetchFromStrapi("our-team");
   if (!data) {
     console.error("No data object provided for our-team.");
-    return null; // Or return a fallback UI component
+    return null;
   }
   const { heroData, teamData, teamSectionData, cta } = data || {};
 
