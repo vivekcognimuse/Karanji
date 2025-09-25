@@ -35,8 +35,8 @@ const FeatureCard = ({ feature, cardImage, index }) => (
 );
 
 const Deliverables = ({ heroImage, data, cardImage }) => {
-  const { features, title, tags, subTitle, featureHeader } = data;
-  console.log("data of logistics", features);
+  const { cards, title, tags, subTitle, featureHeader } = data;
+  console.log("data of logistics", cards);
   // Shared Feature Card (mobile + desktop styles in one place)
 
   return (
@@ -82,7 +82,7 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
 
           {/* Desktop Grid */}
           <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-            {features?.map((feature, index) => (
+            {cards?.map((feature, index) => (
               <FeatureCard
                 index={index}
                 key={index}
@@ -94,23 +94,23 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
 
           {/* Mobile Carousel */}
           <div className="block md:hidden">
-            {features?.length > 0 && (
+            {cards?.length > 0 && (
               <>
-                {features.length === 1 ? (
+                {cards.length === 1 ? (
                   <FeatureCard
                     index={index}
                     cardImage={cardImage}
-                    feature={features[0]}
+                    feature={cards[0]}
                   />
                 ) : (
                   <CarouselContainer
-                    key={`cards-${features.length}`}
+                    key={`cards-${cards.length}`}
                     autoPlay={true}
                     autoPlayInterval={5500}
                     showDots={true}
                     showArrows={false}
                     className="w-full">
-                    {features.map((feature, index) => (
+                    {cards.map((feature, index) => (
                       <FeatureCard
                         index={index}
                         cardImage={cardImage}

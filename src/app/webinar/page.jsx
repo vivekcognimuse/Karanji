@@ -8,7 +8,7 @@ import RegisterForWebinar from "@/components/webinar/RegisterForWebinar";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { getMediaUrl } from "@/utils/ish"; // make sure this returns a full URL for Strapi media
 
-export const revalidate = 60; // ISR
+export const revalidate = 3600; // ISR
 
 // tiny helper for Strapi "blocks" -> plain text
 function blocksToText(value) {

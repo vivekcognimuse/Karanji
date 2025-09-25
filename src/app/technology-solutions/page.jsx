@@ -5,11 +5,9 @@ import SuccessStories from "@/sections/Advisory/SuccessStories";
 import TechnologyServices from "@/sections/service/Service";
 import TechnologyAdvantage from "@/sections/service/Technology";
 
-
 export async function generateMetadata() {
   return await getMetadata("technology-solutions");
 }
-
 
 export default async function TechnologySolution() {
   const data = await fetchFromStrapi("technology-solutions");
@@ -34,6 +32,7 @@ export default async function TechnologySolution() {
         />
         <div id="technology-solutions">
           <TechnologyServices
+            image="/technologySolutions"
             bgImage="/technologySolutions/gradient.svg"
             data={technologyService}
           />
