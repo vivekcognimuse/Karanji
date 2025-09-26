@@ -80,7 +80,7 @@ const TeamSection = ({ data = [] }) => {
                       role={member.role}
                       company={member.company}
                       brief={member.brief}
-                      image={member.image}
+                      image={member.image.url}
                       linkedin={member.linkedin}
                       twinlink={member.twinlink}
                       showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
