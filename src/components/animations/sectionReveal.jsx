@@ -31,6 +31,14 @@ export default function SectionReveal() {
     const items = Array.from(section.querySelectorAll("[data-reveal]"));
     if (!items.length) return;
 
+    // Fallback timeout to ensure content is visible even if animation fails
+    const fallbackTimeout = setTimeout(() => {
+      items.forEach((el) => {
+        el.classList.remove("opacity-0");
+        gsap.set(el, { opacity: 1, x: 0, y: 0, clearProps: "transform" });
+      });
+    }, 3000); // 3 second fallback
+
     const ctx = gsap.context(() => {
       // 1) initial state per item (directional offset)
       items.forEach((el) => {
@@ -63,6 +71,9 @@ export default function SectionReveal() {
         )}%`,
         once: true,
         onEnter: () => {
+          // Clear the fallback timeout since animation is working
+          clearTimeout(fallbackTimeout);
+          
           // remove Tailwind opacity-0 before we clear inline styles later
           items.forEach((el) => el.classList.remove("opacity-0"));
 
@@ -77,10 +88,25 @@ export default function SectionReveal() {
               gsap.set(items, { clearProps: "opacity,transform" }),
           });
         },
+        onRefresh: () => {
+          // Additional safety: if ScrollTrigger refreshes and elements are still hidden
+          const stillHidden = items.some(el => 
+            getComputedStyle(el).opacity === '0' || el.classList.contains('opacity-0')
+          );
+          if (stillHidden) {
+            items.forEach((el) => {
+              el.classList.remove("opacity-0");
+              gsap.set(el, { opacity: 1, x: 0, y: 0, clearProps: "transform" });
+            });
+          }
+        }
       });
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      clearTimeout(fallbackTimeout);
+      ctx.revert();
+    };
   }, []);
 
   // invisible anchor to scope to the correct section instance
