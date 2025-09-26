@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 
 const Accordion = ({ data }) => {
-  const { title, subTitle, questions } = data;
+  const { title, subTitle, list } = data;
 
   return (
     <>
@@ -17,7 +17,7 @@ const Accordion = ({ data }) => {
 
         {/* Accordion Items */}
         <div className="space-y-4">
-          {questions.map((item, index) => (
+          {list.map((item, index) => (
             <details
               key={index}
               className="accordion-item group border border-gray-200 rounded-lg overflow-hidden bg-[#F4F2FE] shadow-sm hover:shadow-md transition-shadow duration-200">

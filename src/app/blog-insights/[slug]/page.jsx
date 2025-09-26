@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
-export const revalidate = 60;
+export const revalidate = 3600;
 
 // Flatten Strapi v5 entries into your BlogPage shape
 const normalizeBlog = (entry) => {

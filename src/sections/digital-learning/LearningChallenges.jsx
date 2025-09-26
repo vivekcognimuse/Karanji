@@ -2,9 +2,9 @@ import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
 
-export default function LearningChallenges({ data }) {
-  const { title, subTitle, challenges = [], description = "" } = data;
-
+export default function LearningChallenges({ data, icons }) {
+  const { title, subTitle, cards = [], description = "" } = data;
+  console.log("LearningChallenges data:", data);
   return (
     <section className="px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-[1580px] space-y-16 mx-auto">
@@ -16,13 +16,13 @@ export default function LearningChallenges({ data }) {
 
         {/* Challenge Cards */}
         <div className="flex flex-col md:flex-row   gap-8 lg:gap-12 ">
-          {challenges.map((challenge, index) => (
+          {cards.map((card, index) => (
             <div key={index} className="border-b border-black-200 pb-8">
               {/* Icon */}
-              {challenge.icon && (
+              {icons && (
                 <Image
-                  src={challenge.icon}
-                  alt={challenge.title}
+                  src={`${icons}/${index + 1}.svg`}
+                  alt={card.title}
                   width={64}
                   height={64}
                   className="size-10 mb-8"
@@ -30,10 +30,12 @@ export default function LearningChallenges({ data }) {
               )}
 
               {/* Title */}
-              <h5 className="mb-4">{challenge.title}</h5>
+              <h5 className="mb-4">{card.title}</h5>
 
               {/* Description */}
-              <P3 className="text-black-500 ">{challenge.description}</P3>
+              <P3 className="text-black-500 ">
+                {card.description || card.subTitle}
+              </P3>
             </div>
           ))}
         </div>

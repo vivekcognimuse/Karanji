@@ -17,11 +17,9 @@ const CTA = ({ className = "", data }) => {
 
   const {
     title,
-    description,
-    PrimaryButtonText,
-    PrimaryButtonLink,
-    SecondaryButtonText,
-    SecondaryButtonLink,
+    subTitle,
+    PrimaryButton,
+    secondaryButton,
     // New props for popup
     popupTitle = "Join the Journey",
     popupSubtitle = "Share your details and discover how Karanji can support your goals.",
@@ -118,16 +116,18 @@ const CTA = ({ className = "", data }) => {
     <>
       <section className={`text-center ${className}`}>
         <h3>{title}</h3>
-        <P2>{description}</P2>
+        <P2>{subTitle}</P2>
         <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
-          {PrimaryButtonText && (
+          {PrimaryButton?.name && (
             <Button variant="secondary" onClick={handlePrimaryButtonClick}>
-              {PrimaryButtonText}
+              {PrimaryButton.name}
             </Button>
           )}
-          {SecondaryButtonText && SecondaryButtonLink && (
-            <Link href={SecondaryButtonLink}>
-              <Button href={SecondaryButtonLink}>{SecondaryButtonText}</Button>
+          {secondaryButton?.name && secondaryButton?.link && (
+            <Link href={secondaryButton.link}>
+              <Button href={secondaryButton.link}>
+                {secondaryButton.name}
+              </Button>
             </Link>
           )}
         </div>
@@ -135,7 +135,7 @@ const CTA = ({ className = "", data }) => {
 
       {/* Popup Overlay */}
       {isPopupOpen && (
-        <div className="fixed inset-0 bg-black/10 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
+        <div className="fixed  inset-0 h-screen bg-black/10 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
           <div className="bg-gradient-to-br from-purple-100 to-blue-100 flex flex-col justify-center max-h-[98vh] rounded-3xl min-h-[60vh] max-w-xl w-full mx-4 p-8 relative">
             {/* Close Button */}
             <button

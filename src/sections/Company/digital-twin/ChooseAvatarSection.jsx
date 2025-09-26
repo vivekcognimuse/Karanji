@@ -105,24 +105,13 @@ function AvatarCard({ avatar, description }) {
             <P4 className="">{description}</P4>
           </div>
         </div>
-
-        {/* CTA Section */}
-        <div className="px-6 mt-auto pb-6">
-          <div className="text-center">
-            <a target="_blank" href={avatar.ctaLink} rel="noopener noreferrer">
-              <Button variant="secondary" size="sm">
-                {avatar.ctaText || `Talk to ${avatar.name}`}
-              </Button>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );
 }
 
 // Main container component
-export default function ChooseAvatarSection() {
+export default function ChooseAvatarSection({ data }) {
   const avatarsData = [
     {
       name: "Prakash",
@@ -139,25 +128,25 @@ export default function ChooseAvatarSection() {
       ctaText: "Talk to Our CEO",
       ctaLink: "https://linkly.link/2BKPj",
     },
-    {
-      name: "Srikant",
-      description: `At Karanji, we created Srikant's (our Solution Architect) clone to help our team tackle AI implementation challenges for clients in Aviation, Healthcare, Oil & Gas, Logistics, and Education. You can ask Srikant real-world questions like, "How can a mid-sized healthcare provider automate customer service while ensuring compliance?" and get customized frameworks, templates, and examples. Srikant's clone cut our solutioning TAT by 50%.`,
-      role: "Solution Architect, Karanji",
-      image: "/Company/Digital Twins/Srikant Digital Twin.webp",
-      iframeFile: "/avatars/srikant-avatar.html", // Path to isolated HTML file
-      expertise: [
-        "Solves AI Implementation Challenges",
-        "Explore Industry Use Cases",
-        "Get Tailored Frameworks",
-        "Get Actionable Templates",
-      ],
-      ctaText: "Talk to Our Solution Architect",
-      ctaLink: "https://2ly.link/28kzS",
-    },
+    // {
+    //   name: "Srikant",
+    //   description: `At Karanji, we created Srikant's (our Solution Architect) clone to help our team tackle AI implementation challenges for clients in Aviation, Healthcare, Oil & Gas, Logistics, and Education. You can ask Srikant real-world questions like, "How can a mid-sized healthcare provider automate customer service while ensuring compliance?" and get customized frameworks, templates, and examples. Srikant's clone cut our solutioning TAT by 50%.`,
+    //   role: "Solution Architect, Karanji",
+    //   image: "/Company/Digital Twins/Srikant Digital Twin.webp",
+    //   iframeFile: "/avatars/srikant-avatar.html", // Path to isolated HTML file
+    //   expertise: [
+    //     "Solves AI Implementation Challenges",
+    //     "Explore Industry Use Cases",
+    //     "Get Tailored Frameworks",
+    //     "Get Actionable Templates",
+    //   ],
+    //   ctaText: "Talk to Our Solution Architect",
+    //   ctaLink: "https://2ly.link/28kzS",
+    // },
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center   items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
+    <div className="flex flex-col md:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
         <AvatarCard
           key={avatar.name}

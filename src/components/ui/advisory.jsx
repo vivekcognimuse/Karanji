@@ -112,6 +112,8 @@ export const MethodologyStep = memo(function MethodologyStep({
   isStepHidden = false,
   column = false,
 }) {
+  console.log("MethodologyStep tags:", tags);
+
   if (column) {
     return (
       <div className={`${"border-b border-black/50 pb-8"}`}>
@@ -122,7 +124,11 @@ export const MethodologyStep = memo(function MethodologyStep({
             </div>
           )}
           <h4 className="">{title}</h4>
-          <P2 className="text-black-500">{description}</P2>
+          <div className="flex-1 text-lg md:text-xl font-light text-black/50 tracking-wide">
+            {description.split("\n\n").map((line, index) => (
+              <P2 key={index}>{line}</P2>
+            ))}
+          </div>
 
           <div>
             {tags && (
@@ -131,7 +137,7 @@ export const MethodologyStep = memo(function MethodologyStep({
                   <P3
                     key={index}
                     className="rounded-full bg-white/40 text-nowrap font-light shadow-md border text-black-500 border-black-300 py-1 px-4">
-                    {tag}
+                    {tag.text}
                   </P3>
                 ))}
               </div>

@@ -14,7 +14,7 @@ const chunkArray = (array, chunkSize) => {
 
 export default function Methodology({ column, data }) {
   const { title, subTitle, list, isStepHidden } = data || {};
-
+  console.log("methodology data:", data);
   // Chunk the list into pairs for mobile carousel
   const chunkedList = chunkArray(list, 2);
 
@@ -24,7 +24,7 @@ export default function Methodology({ column, data }) {
       data-reveal-amount="0.3"
       data-reveal-duration="0.5"
       data-reveal-stagger="0.12">
-      <div className="max-w-6xl mx-auto">
+      <div className=" mx-auto">
         <div className="mb-16">
           <h3 className="" data-reveal data-reveal-dir="up">
             {title}
@@ -35,7 +35,7 @@ export default function Methodology({ column, data }) {
         </div>
 
         {/* Desktop View - Original Implementation */}
-        <div className="hidden lg:block lg:px-32 -z-1 rounded-2xl space-y-8">
+        <div className="hidden max-w-6xl mx-auto lg:block lg:px-32 -z-1 rounded-2xl space-y-8">
           {list.map((item, index) => (
             <div key={index} data-reveal data-reveal-dir="up">
               <MethodologyStep

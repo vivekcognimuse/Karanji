@@ -15,12 +15,12 @@ export const NAV_LINKS = [
         icon: "/nav/technology-solutions.svg",
         description: "Innovative technology for your digital needs.",
         links: [
-          {
-            name: "AI Advisory & Implementation",
-            href: "/technology-solutions/ai-advisory",
-            icon: "/nav/ai-advisory-implementation.svg",
-            description: "Implement AI to drive smarter decisions.",
-          },
+          // {
+          //   name: "AI Advisory & Implementation",
+          //   href: "/technology-solutions/ai-advisory",
+          //   icon: "/nav/ai-advisory-implementation.svg",
+          //   description: "Implement AI to drive smarter decisions.",
+          // },
           {
             name: "XR & Gaming Solutions",
             href: "/technology-solutions/xr-gaming",
@@ -91,36 +91,36 @@ export const NAV_LINKS = [
       },
     ],
   },
-  {
-    title: "Industries",
-    href: "/Industries",
-    links: [
-      {
-        name: "Oil & Gas",
-        href: "/Industries/oil-and-gas",
-        icon: "/nav/oil-gas.png",
-        description: "Fueling digital innovation & efficiency.",
-      },
-      {
-        name: "Healthcare",
-        href: "/Industries/healthcare",
-        icon: "/nav/healthcare.png",
-        description: "Empowering care with smart technology.",
-      },
-      {
-        name: "Aviation",
-        href: "/Industries/aviation",
-        icon: "/nav/aviation.png",
-        description: "Transforming aviation with future-ready solutions.",
-      },
-      {
-        name: "Logistics",
-        href: "/Industries/logistics",
-        icon: "/nav/logistics.png",
-        description: "Streamlining supply chains with precision.",
-      },
-    ],
-  },
+  // {
+  //   title: "Industries",
+  //   href: "/Industries",
+  //   links: [
+  //     {
+  //       name: "Oil & Gas",
+  //       href: "/Industries/oil-and-gas",
+  //       icon: "/nav/oil-gas.png",
+  //       description: "Fueling digital innovation & efficiency.",
+  //     },
+  //     {
+  //       name: "Healthcare",
+  //       href: "/Industries/healthcare",
+  //       icon: "/nav/healthcare.png",
+  //       description: "Empowering care with smart technology.",
+  //     },
+  //     {
+  //       name: "Aviation",
+  //       href: "/Industries/aviation",
+  //       icon: "/nav/aviation.png",
+  //       description: "Transforming aviation with future-ready solutions.",
+  //     },
+  //     {
+  //       name: "Logistics",
+  //       href: "/Industries/logistics",
+  //       icon: "/nav/logistics.png",
+  //       description: "Streamlining supply chains with precision.",
+  //     },
+  //   ],
+  // },
   {
     title: "Company",
     href: "/company",
@@ -169,13 +169,13 @@ export const NAV_LINKS = [
       },
       {
         name: "Blog & Insights",
-        href: "/blog-insights",
+        href: "/coming-soon",
         icon: "/nav/blog-insights.svg",
         description: "Stay informed with the latest trends & insights.",
       },
       {
         name: "Webinars",
-        href: "/webinar",
+        href: "/coming-soon",
         icon: "/nav/webinars.svg",
         description: "Join us for insightful webinars & events.",
       },
