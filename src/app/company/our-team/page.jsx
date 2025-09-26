@@ -152,6 +152,7 @@ export default async function teampage() {
     return null; // Or return a fallback UI component
   }
   const { heroData, teamData, teamSectionData, ctaData } = data || {};
+  console.log("Fetched team data:", teamSectionData);
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

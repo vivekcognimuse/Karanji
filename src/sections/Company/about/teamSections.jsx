@@ -4,7 +4,7 @@ import { P3 } from "@/components/CustomTags";
 import MemberCard from "./MemberCard";
 import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
 
-const TeamSection = ({ sections = [] }) => {
+const TeamSection = ({ data = [] }) => {
   const [expandedSection, setExpandedSection] = useState(0); // First accordion expanded by default
 
   const toggleSection = (index) => {
@@ -25,7 +25,7 @@ const TeamSection = ({ sections = [] }) => {
     <div className="w-full">
       {/* Desktop view - separate boxes */}
       <div className="hidden md:block space-y-4">
-        {(sections || []).map((section, index) => (
+        {(data || []).map((section, index) => (
           <div
             key={index}
             className="rounded-2xl px-4"
@@ -83,7 +83,7 @@ const TeamSection = ({ sections = [] }) => {
                       role={member.role}
                       company={member.company}
                       brief={member.brief}
-                      image={member.image}
+                      image={member.image.url}
                       linkedin={member.linkedin}
                       twinlink={member.twinlink}
                       showTalkButton={member.showTalkButton} // Directly pass showTalkButton from data
@@ -102,7 +102,7 @@ const TeamSection = ({ sections = [] }) => {
 
       {/* Mobile view - separate boxes with spacing */}
       <div className="block md:hidden space-y-4">
-        {(sections || []).map((section, index) => (
+        {(data || []).map((section, index) => (
           <div key={index} className="border border-gray-200 rounded-lg mx-4">
             <button
               className="w-full py-6 px-4 text-left focus:outline-none"
