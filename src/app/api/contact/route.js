@@ -2,6 +2,9 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
+// Don't initialize Resend here - do it inside the handler
+// This ensures environment variables are available in serverless environments
+
 // Rate limiting store (in-memory, resets on deployment)
 const rateLimitStore = new Map();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
@@ -54,6 +57,16 @@ export async function POST(request) {
     method: request.method,
   });
 
+  // DIAGNOSTIC: Log all environment variable keys (not values)
+  console.log("Available env keys:", Object.keys(process.env));
+  console.log("RESEND_API_KEY exists:", "RESEND_API_KEY" in process.env);
+  console.log(
+    "RESEND_API_KEY length:",
+    process.env.RESEND_API_KEY?.length || 0
+  );
+  console.log("RESEND_FROM_EMAIL exists:", "RESEND_FROM_EMAIL" in process.env);
+  console.log("RESEND_TO_EMAIL exists:", "RESEND_TO_EMAIL" in process.env);
+
   try {
     // Initialize Resend inside the handler to ensure env vars are available
     let resend;
@@ -67,6 +80,10 @@ export async function POST(request) {
             "The email service is not properly configured. Please contact support.",
           code: "SERVICE_UNAVAILABLE",
           timestamp: new Date().toISOString(),
+          debug: {
+            hasKey: false,
+            envKeysCount: Object.keys(process.env).length,
+          },
         },
         { status: 503 }
       );
@@ -83,6 +100,11 @@ export async function POST(request) {
             "Failed to initialize email service. Please contact support.",
           code: "INIT_ERROR",
           timestamp: new Date().toISOString(),
+          debug: {
+            hasKey: true,
+            keyLength: process.env.RESEND_API_KEY?.length,
+            initError: initError.message,
+          },
         },
         { status: 503 }
       );
