@@ -2,19 +2,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-// Initialize Resend - handle missing API key gracefully
-let resend;
-try {
-  const RESEND_API_KEY = "re_g8836uHE_PEc2aCfPbF7yyuBJX2iiz8i7"; // Directly included API Key
-  if (!RESEND_API_KEY) {
-    console.error("RESEND_API_KEY is not set");
-  } else {
-    resend = new Resend(RESEND_API_KEY);
-  }
-} catch (error) {
-  console.error("Failed to initialize Resend:", error);
-}
-
 // Rate limiting store (in-memory, resets on deployment)
 const rateLimitStore = new Map();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
@@ -68,9 +55,11 @@ export async function POST(request) {
   });
 
   try {
-    // Check if Resend is initialized
-    if (!resend) {
-      console.error("Resend not initialized - missing API key");
+    // Initialize Resend inside the handler to ensure env vars are available
+    let resend;
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY environment variable is not set");
       return NextResponse.json(
         {
           error: "Email service not configured",
@@ -83,11 +72,27 @@ export async function POST(request) {
       );
     }
 
-    // Verify environment variables (directly using hardcoded values for testing)
+    try {
+      resend = new Resend(process.env.RESEND_API_KEY);
+    } catch (initError) {
+      console.error("Failed to initialize Resend:", initError);
+      return NextResponse.json(
+        {
+          error: "Email service initialization failed",
+          message:
+            "Failed to initialize email service. Please contact support.",
+          code: "INIT_ERROR",
+          timestamp: new Date().toISOString(),
+        },
+        { status: 503 }
+      );
+    }
+
+    // Verify environment variables
     const envCheck = {
-      hasResendKey: true,
-      hasFromEmail: true,
-      hasToEmail: true,
+      hasResendKey: !!process.env.RESEND_API_KEY,
+      hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
+      hasToEmail: !!process.env.RESEND_TO_EMAIL,
     };
 
     console.log("Environment check:", envCheck);
@@ -198,8 +203,8 @@ export async function POST(request) {
 
     // Prepare email data with sanitized HTML
     const emailData = {
-      from: "website@karanji.com", // Directly included "from" email
-      to: ["sandeshbhat234@gmail.com"], // Directly included "to" email
+      from: process.env.RESEND_FROM_EMAIL,
+      to: [process.env.RESEND_TO_EMAIL],
       subject: `New Contact Form Submission from ${escapeHtml(name)}`,
       html: `
         <!DOCTYPE html>
@@ -293,6 +298,7 @@ export async function POST(request) {
                 <span class="label">Name</span>
                 <div class="value">${escapeHtml(name)}</div>
               </div>
+              
               <div class="field">
                 <span class="label">Email</span>
                 <div class="value">
@@ -303,6 +309,7 @@ export async function POST(request) {
                   </a>
                 </div>
               </div>
+              
               ${
                 company
                   ? `
@@ -313,12 +320,14 @@ export async function POST(request) {
               `
                   : ""
               }
+              
               <div class="field">
                 <span class="label">Project Description</span>
                 <div class="value project-description">${escapeHtml(
                   project
                 )}</div>
               </div>
+              
               ${
                 metadata
                   ? `
@@ -347,6 +356,7 @@ export async function POST(request) {
         </body>
         </html>
       `,
+      // Plain text version as fallback
       text: `
 New Contact Form Submission
 
