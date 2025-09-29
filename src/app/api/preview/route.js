@@ -1,27 +1,57 @@
-import { NextResponse } from "next/server";
 import { draftMode } from "next/headers";
-
-export const dynamic = "force-dynamic";
+import { redirect } from "next/navigation";
 
 export async function GET(request) {
+  console.log("Preview API route called");
+
   const { searchParams } = new URL(request.url);
-  const secret = searchParams.get("secret") || "";
-  const status = (searchParams.get("status") || "").toLowerCase();
-  const rawUrl = searchParams.get("url") || "/";
+  const secret = searchParams.get("secret");
+  const url = searchParams.get("url");
+  const status = searchParams.get("status");
 
-  // 1) Check secret
-  if (secret !== process.env.PREVIEW_SECRET) {
-    return new NextResponse("Invalid token", { status: 401 });
+  console.log("Preview params:", {
+    hasSecret: !!secret,
+    url,
+    status,
+  });
+
+  // Check for preview secret with Amplify compatibility
+  const previewSecret =
+    process.env.PREVIEW_SECRET || process.env.NEXT_PUBLIC_PREVIEW_SECRET;
+
+  if (!previewSecret) {
+    console.error("PREVIEW_SECRET not configured");
+    return new Response("Preview mode not configured", { status: 503 });
   }
 
-  // 2) Enable/disable draft mode
+  if (secret !== previewSecret) {
+    console.log("Invalid secret provided");
+    return new Response("Invalid token", { status: 401 });
+  }
+
+  console.log("Secret valid, toggling draft mode");
+
+  // Enable/disable draft mode based on status
+  const draft = await draftMode();
+
   if (status === "published") {
-    draftMode().disable();
+    draft.disable();
+    console.log("Draft mode disabled (published content)");
   } else {
-    draftMode().enable();
+    draft.enable();
+    console.log("Draft mode enabled (draft content)");
   }
 
-  // 3) Only allow internal redirects
-  const target = rawUrl.startsWith("/") ? rawUrl : "/";
-  return NextResponse.redirect(new URL(target, request.url));
+  // Validate and sanitize redirect URL
+  const redirectUrl = url || "/blog-insights";
+
+  // Security: Only allow relative URLs to prevent open redirect
+  if (redirectUrl.startsWith("http://") || redirectUrl.startsWith("https://")) {
+    console.error("External redirect blocked:", redirectUrl);
+    return new Response("Invalid redirect URL", { status: 400 });
+  }
+
+  console.log("Redirecting to:", redirectUrl);
+
+  redirect(redirectUrl);
 }
