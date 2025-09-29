@@ -264,8 +264,6 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
   }, [reset, defaultValues, clearSavedData]);
 
   // Submit handler
-  // hooks/useForm.js - Update only the onSubmit function
-  // Replace the existing onSubmit callback with this one:
 
   const onSubmit = useCallback(
     async (data) => {
@@ -413,7 +411,6 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
   );
 
   return {
-    // React Hook Form methods
     ...form,
 
     // Custom submission handling
@@ -427,10 +424,6 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
     clearSavedData,
   };
 };
-
-// ============================================================================
-// CONTACT FORM SPECIFIC HOOK
-// ============================================================================
 
 // Contact form schema
 export const contactFormSchema = z.object({

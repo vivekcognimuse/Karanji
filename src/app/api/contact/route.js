@@ -5,8 +5,18 @@ import { NextResponse } from "next/server";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
+  // Add early logging
+  console.log("=== API ROUTE CALLED ===");
+  console.log("Environment check:", {
+    hasResendKey: !!process.env.RESEND_API_KEY,
+    hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
+    hasToEmail: !!process.env.RESEND_TO_EMAIL,
+    nodeEnv: process.env.NODE_ENV,
+  });
+
   try {
     const body = await request.json();
+    console.log("Request body parsed successfully:", Object.keys(body));
     const { name, email, company, project } = body;
 
     // Basic validation
@@ -118,7 +128,16 @@ export async function POST(request) {
     console.error("Error name:", error.name);
     console.error("Error message:", error.message);
     console.error("Error stack:", error.stack);
-    console.error("Full error object:", JSON.stringify(error, null, 2));
+
+    // Try to serialize the error object
+    try {
+      console.error(
+        "Full error object:",
+        JSON.stringify(error, Object.getOwnPropertyNames(error), 2)
+      );
+    } catch (serializeError) {
+      console.error("Could not serialize error:", serializeError.message);
+    }
 
     // Log additional error details if available
     if (error.response) {
@@ -129,17 +148,41 @@ export async function POST(request) {
       console.error("Error status code:", error.statusCode);
     }
 
-    // Return detailed error response
-    return NextResponse.json(
-      {
-        error: error.message || "Unknown error occurred",
-        errorName: error.name,
-        errorStack: error.stack,
-        ...(error.statusCode && { statusCode: error.statusCode }),
-        ...(error.response && { response: error.response }),
-        timestamp: new Date().toISOString(),
+    // Build comprehensive error response
+    const errorResponse = {
+      error: error.message || "Unknown error occurred",
+      errorName: error.name || "Error",
+      errorType: typeof error,
+      timestamp: new Date().toISOString(),
+    };
+
+    // Add optional fields if they exist
+    if (error.stack) {
+      errorResponse.errorStack = error.stack;
+    }
+    if (error.statusCode) {
+      errorResponse.statusCode = error.statusCode;
+    }
+    if (error.response) {
+      errorResponse.response = error.response;
+    }
+
+    // Add all enumerable properties
+    Object.keys(error).forEach((key) => {
+      if (!errorResponse[key]) {
+        errorResponse[key] = error[key];
+      }
+    });
+
+    console.error("Sending error response:", errorResponse);
+
+    // Return detailed error response with explicit status
+    const statusCode = error.statusCode || 500;
+    return new NextResponse(JSON.stringify(errorResponse), {
+      status: statusCode,
+      headers: {
+        "Content-Type": "application/json",
       },
-      { status: error.statusCode || 500 }
-    );
+    });
   }
 }
