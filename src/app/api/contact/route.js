@@ -59,20 +59,31 @@ export async function POST(request) {
 
   // DIAGNOSTIC: Log all environment variable keys (not values)
   console.log("Available env keys:", Object.keys(process.env));
-  console.log("RESEND_API_KEY exists:", "RESEND_API_KEY" in process.env);
   console.log(
-    "RESEND_API_KEY length:",
-    process.env.RESEND_API_KEY?.length || 0
+    "NEXT_PUBLIC_RESEND_API_KEY exists:",
+    "NEXT_PUBLIC_RESEND_API_KEY" in process.env
   );
-  console.log("RESEND_FROM_EMAIL exists:", "RESEND_FROM_EMAIL" in process.env);
-  console.log("RESEND_TO_EMAIL exists:", "RESEND_TO_EMAIL" in process.env);
+  console.log(
+    "NEXT_PUBLIC_RESEND_API_KEY length:",
+    process.env.NEXT_PUBLIC_RESEND_API_KEY?.length || 0
+  );
+  console.log(
+    "NEXT_PUBLIC_RESEND_FROM_EMAIL exists:",
+    "NEXT_PUBLIC_RESEND_FROM_EMAIL" in process.env
+  );
+  console.log(
+    "NEXT_PUBLIC_RESEND_TO_EMAIL exists:",
+    "NEXT_PUBLIC_RESEND_TO_EMAIL" in process.env
+  );
 
   try {
     // Initialize Resend inside the handler to ensure env vars are available
     let resend;
 
-    if (!process.env.RESEND_API_KEY) {
-      console.error("RESEND_API_KEY environment variable is not set");
+    if (!process.env.NEXT_PUBLIC_RESEND_API_KEY) {
+      console.error(
+        "NEXT_PUBLIC_RESEND_API_KEY environment variable is not set"
+      );
       return NextResponse.json(
         {
           error: "Email service not configured",
@@ -90,7 +101,7 @@ export async function POST(request) {
     }
 
     try {
-      resend = new Resend(process.env.RESEND_API_KEY);
+      resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
     } catch (initError) {
       console.error("Failed to initialize Resend:", initError);
       return NextResponse.json(
@@ -102,7 +113,7 @@ export async function POST(request) {
           timestamp: new Date().toISOString(),
           debug: {
             hasKey: true,
-            keyLength: process.env.RESEND_API_KEY?.length,
+            keyLength: process.env.NEXT_PUBLIC_RESEND_API_KEY?.length,
             initError: initError.message,
           },
         },
@@ -112,9 +123,9 @@ export async function POST(request) {
 
     // Verify environment variables
     const envCheck = {
-      hasResendKey: !!process.env.RESEND_API_KEY,
-      hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
-      hasToEmail: !!process.env.RESEND_TO_EMAIL,
+      hasResendKey: !!process.env.NEXT_PUBLIC_RESEND_API_KEY,
+      hasFromEmail: !!process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL,
+      hasToEmail: !!process.env.NEXT_PUBLIC_RESEND_TO_EMAIL,
     };
 
     console.log("Environment check:", envCheck);
@@ -225,8 +236,8 @@ export async function POST(request) {
 
     // Prepare email data with sanitized HTML
     const emailData = {
-      from: process.env.RESEND_FROM_EMAIL,
-      to: [process.env.RESEND_TO_EMAIL],
+      from: process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL,
+      to: [process.env.NEXT_PUBLIC_RESEND_TO_EMAIL],
       subject: `New Contact Form Submission from ${escapeHtml(name)}`,
       html: `
         <!DOCTYPE html>

@@ -2,6 +2,14 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  // Check both standard and NEXT_PUBLIC_ prefixed vars (Amplify compatibility)
+  const apiKey =
+    process.env.RESEND_API_KEY || process.env.NEXT_PUBLIC_RESEND_API_KEY;
+  const fromEmail =
+    process.env.RESEND_FROM_EMAIL || process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL;
+  const toEmail =
+    process.env.RESEND_TO_EMAIL || process.env.NEXT_PUBLIC_RESEND_TO_EMAIL;
+
   const healthData = {
     status: "ok",
     timestamp: new Date().toISOString(),
@@ -13,22 +21,15 @@ export async function GET() {
       platform: process.platform,
     },
     configuration: {
-      hasResendApiKey: !!process.env.RESEND_API_KEY,
-      hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
-      hasToEmail: !!process.env.RESEND_TO_EMAIL,
-      resendApiKeyLength: process.env.RESEND_API_KEY?.length || 0,
-      fromEmail: process.env.RESEND_FROM_EMAIL
-        ? `${process.env.RESEND_FROM_EMAIL.substring(0, 3)}***`
-        : "not set",
-      toEmail: process.env.RESEND_TO_EMAIL
-        ? `${process.env.RESEND_TO_EMAIL.substring(0, 3)}***`
-        : "not set",
+      hasResendApiKey: !!apiKey,
+      hasFromEmail: !!fromEmail,
+      hasToEmail: !!toEmail,
+      resendApiKeyLength: apiKey?.length || 0,
+      fromEmail: fromEmail ? `${fromEmail.substring(0, 3)}***` : "not set",
+      toEmail: toEmail ? `${toEmail.substring(0, 3)}***` : "not set",
     },
     checks: {
-      environmentVariables:
-        !!process.env.RESEND_API_KEY &&
-        !!process.env.RESEND_FROM_EMAIL &&
-        !!process.env.RESEND_TO_EMAIL,
+      environmentVariables: !!apiKey && !!fromEmail && !!toEmail,
       apiRouteWorking: true,
     },
   };
