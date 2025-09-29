@@ -264,6 +264,9 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
   }, [reset, defaultValues, clearSavedData]);
 
   // Submit handler
+  // hooks/useForm.js - Update only the onSubmit function
+  // Replace the existing onSubmit callback with this one:
+
   const onSubmit = useCallback(
     async (data) => {
       // Check rate limiting
@@ -312,19 +315,44 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
             body: JSON.stringify(submissionData),
           });
 
+          // Parse response body first (before checking if response is ok)
+          const responseData = await response.json().catch(() => ({}));
+
+          // Log full response details for debugging
+          console.log("API Response Details:", {
+            status: response.status,
+            statusText: response.statusText,
+            ok: response.ok,
+            headers: Object.fromEntries(response.headers.entries()),
+            body: responseData,
+          });
+
           if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
+            // Create detailed error message
+            const errorDetails = {
+              status: response.status,
+              statusText: response.statusText,
+              message:
+                responseData.error || responseData.message || "Unknown error",
+              errorName: responseData.errorName,
+              errorStack: responseData.errorStack,
+              statusCode: responseData.statusCode,
+              response: responseData.response,
+              timestamp: responseData.timestamp,
+            };
+
+            console.error("API Error Details:", errorDetails);
+
             throw new Error(
-              errorData.message ||
-                `HTTP ${response.status}: ${response.statusText}`
+              `API Error (${response.status}): ${
+                errorDetails.message
+              }\n\nDetails: ${JSON.stringify(errorDetails, null, 2)}`
             );
           }
 
-          const result = await response.json();
-
           setSubmitStatus({
             type: "success",
-            message: result.message || "Form submitted successfully!",
+            message: responseData.message || "Form submitted successfully!",
             code: "SUCCESS",
           });
 
@@ -332,7 +360,7 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
 
           // Call success callback
           if (onSuccess) {
-            await onSuccess(result, data);
+            await onSuccess(responseData, data);
           }
 
           // Reset form after successful submission
@@ -351,10 +379,14 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
           });
         }
       } catch (error) {
-        console.error("Form submission error:", error);
+        console.error("=== FORM SUBMISSION ERROR ===");
+        console.error("Error object:", error);
+        console.error("Error message:", error.message);
+        console.error("Error stack:", error.stack);
 
         const errorMessage =
           error.message || "An unexpected error occurred. Please try again.";
+
         setSubmitStatus({
           type: "error",
           message: errorMessage,

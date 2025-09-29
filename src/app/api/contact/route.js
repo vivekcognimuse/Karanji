@@ -129,10 +129,12 @@ export async function POST(request) {
       console.error("Error status code:", error.statusCode);
     }
 
+    // Return detailed error response
     return NextResponse.json(
       {
-        error: error.message,
-        name: error.name,
+        error: error.message || "Unknown error occurred",
+        errorName: error.name,
+        errorStack: error.stack,
         ...(error.statusCode && { statusCode: error.statusCode }),
         ...(error.response && { response: error.response }),
         timestamp: new Date().toISOString(),
