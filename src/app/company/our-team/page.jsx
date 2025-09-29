@@ -4,6 +4,7 @@ import TeamSections from "@/sections/Company/about/teamSections";
 import Head from "next/head";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { getMetadata } from "@/lib/metadata";
+import { c } from "next/dist/compiled/next-server/app-page-turbo.runtime.dev";
 
 export async function generateMetadata() {
   return await getMetadata("our-team");
@@ -15,7 +16,7 @@ export default async function teampage() {
     return null;
   }
   const { heroData, teamData, teamSectionData, cta } = data || {};
-
+  console.log("Team Section Data:", data);
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

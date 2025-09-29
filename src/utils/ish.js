@@ -1,12 +1,17 @@
 // utils-ish (inline is fine)
 export const slugify = (s) =>
-  (s || "").toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-");
+  (s || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-");
 
 export const toPlainText = (value) => {
   if (typeof value === "string") return value;
   if (Array.isArray(value)) return value.map(toPlainText).join("");
   if (value && typeof value === "object") {
-    if (Array.isArray(value.children)) return value.children.map(toPlainText).join("");
+    if (Array.isArray(value.children))
+      return value.children.map(toPlainText).join("");
     if (typeof value.text === "string") return value.text;
     return Object.values(value).map(toPlainText).join("");
   }
@@ -20,11 +25,18 @@ export const getMediaUrl = (fileOrPath) => {
     if (!raw) return "";
     if (/^https?:\/\//i.test(raw)) return raw;
     const path = raw.startsWith("/") ? raw : `/${raw}`;
-    return path.split("/").map((seg, i) => (i === 0 ? seg : encodeURIComponent(seg))).join("/");
+    return path
+      .split("/")
+      .map((seg, i) => (i === 0 ? seg : encodeURIComponent(seg)))
+      .join("/");
   }
   const url = fileOrPath?.data?.attributes?.url || fileOrPath?.url;
   if (!url) return "";
-  const origin = (process.env.STRAPI_API_URL ?? "http://localhost:1337/api").replace(/\/api$/, "");
+  const origin = (
+    process.env.STRAPI_API_URL ||
+    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+    "http://localhost:1337/api"
+  ).replace(/\/api$/, "");
   return url.startsWith("http") ? url : `${origin}${url}`;
 };
 
@@ -34,8 +46,8 @@ export const arrayifyList = (val) => {
   const text = toPlainText(val);
   if (!text) return [];
   return text
-    .split(/\r?\n|•|–|- /g)     // common bullet/line separators
-    .map(s => s.replace(/^\s*[•\-–]\s*/, "").trim())
+    .split(/\r?\n|•|–|- /g) // common bullet/line separators
+    .map((s) => s.replace(/^\s*[•\-–]\s*/, "").trim())
     .filter(Boolean);
 };
 
