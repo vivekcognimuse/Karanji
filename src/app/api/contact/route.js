@@ -1,4 +1,3 @@
-// For App Router: app/api/contact/route.js
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
@@ -57,12 +56,10 @@ export async function POST(request) {
                 <span class="label">Name:</span>
                 <div class="value">${name}</div>
               </div>
-              
               <div class="field">
                 <span class="label">Email:</span>
                 <div class="value">${email}</div>
               </div>
-              
               ${
                 company
                   ? `
@@ -73,12 +70,10 @@ export async function POST(request) {
               `
                   : ""
               }
-              
               <div class="field">
                 <span class="label">Project Description:</span>
                 <div class="value project-description">${project}</div>
               </div>
-              
               <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 12px;">
                 <p>This email was sent from your website contact form at ${new Date().toLocaleString()}.</p>
               </div>
@@ -89,48 +84,6 @@ export async function POST(request) {
       `,
     });
 
-    // Optional: Send confirmation email to the user
-    // await resend.emails.send({
-    //   from: process.env.RESEND_FROM_EMAIL,
-    //   to: [email],
-    //   subject: "Thank you for contacting us!",
-    //   html: `
-    //     <!DOCTYPE html>
-    //     <html>
-    //     <head>
-    //       <style>
-    //         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    //         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    //         .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-    //         .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-    //       </style>
-    //     </head>
-    //     <body>
-    //       <div class="container">
-    //         <div class="header">
-    //           <h1>Thank you for reaching out!</h1>
-    //         </div>
-    //         <div class="content">
-    //           <p>Hi ${name},</p>
-
-    //           <p>Thank you for contacting us about your digital learning project. We've received your inquiry and will get back to you within 24 hours.</p>
-
-    //           <p><strong>Your message:</strong></p>
-    //           <div style="background: white; padding: 15px; border-radius: 5px; border-left: 4px solid #667eea; margin: 15px 0;">
-    //             ${project}
-    //           </div>
-
-    //           <p>We're excited to learn more about your project and discuss how we can help bring your digital learning vision to life.</p>
-
-    //           <p>Best regards,<br>
-    //           The Karanji Infotech Team</p>
-    //         </div>
-    //       </div>
-    //     </body>
-    //     </html>
-    //   `,
-    // });
-
     return NextResponse.json(
       {
         message: "Email sent successfully",
@@ -140,45 +93,18 @@ export async function POST(request) {
     );
   } catch (error) {
     console.error("Error sending email:", error);
+
     return NextResponse.json(
-      { error: "Failed to send email" },
+      process.env.NODE_ENV === "development"
+        ? {
+            error: "Failed to send email",
+            message: error.message || "Unknown error",
+            name: error.name || "Error",
+            stack: error.stack,
+            details: error.response || null,
+          }
+        : { error: "Failed to send email" },
       { status: 500 }
     );
   }
 }
-
-// For Pages Router: pages/api/contact.js
-// export default async function handler(req, res) {
-//   if (req.method !== 'POST') {
-//     return res.status(405).json({ error: 'Method not allowed' });
-//   }
-
-//   try {
-//     const { name, email, company, project } = req.body;
-
-//     // Basic validation
-//     if (!name || !email || !project) {
-//       return res.status(400).json({ error: 'Missing required fields' });
-//     }
-
-//     // Email validation
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!emailRegex.test(email)) {
-//       return res.status(400).json({ error: 'Invalid email format' });
-//     }
-
-//     // Send email using Resend (same logic as above)
-//     const emailData = await resend.emails.send({
-//       // ... same email configuration
-//     });
-
-//     res.status(200).json({
-//       message: 'Email sent successfully',
-//       id: emailData.id
-//     });
-
-//   } catch (error) {
-//     console.error('Error sending email:', error);
-//     res.status(500).json({ error: 'Failed to send email' });
-//   }
-// }

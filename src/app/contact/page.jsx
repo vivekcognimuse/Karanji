@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button";
 import { useContactForm } from "@/hooks/contactform";
 
 import { Icon } from "@iconify/react";
-import Head from "next/head";
+
 import React, { useEffect } from "react";
 
 // Enhanced form input component with accessibility
