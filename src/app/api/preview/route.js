@@ -1,36 +1,27 @@
+import { NextResponse } from "next/server";
 import { draftMode } from "next/headers";
-import { redirect } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request) {
-  console.log("🔍 Preview API route called"); // Debug log
-  
   const { searchParams } = new URL(request.url);
-  const secret = searchParams.get("secret");
-  const url = searchParams.get("url");
-  const status = searchParams.get("status");
+  const secret = searchParams.get("secret") || "";
+  const status = (searchParams.get("status") || "").toLowerCase();
+  const rawUrl = searchParams.get("url") || "/";
 
-  console.log("Preview params:", { secret, url, status }); // Debug log
-
-  // Check the secret
+  // 1) Check secret
   if (secret !== process.env.PREVIEW_SECRET) {
-    console.log("❌ Invalid secret:", secret);
-    return new Response("Invalid token", { status: 401 });
+    return new NextResponse("Invalid token", { status: 401 });
   }
 
-  console.log("✅ Secret valid, enabling preview mode");
-
-  // Enable Draft Mode
+  // 2) Enable/disable draft mode
   if (status === "published") {
     draftMode().disable();
-    console.log("📝 Draft mode disabled (published content)");
   } else {
     draftMode().enable();
-    console.log("🔍 Draft mode enabled (draft content)");
   }
 
-  const redirectUrl = url || "/blog-insights";
-  console.log("↗️ Redirecting to:", redirectUrl);
-  
-  // Redirect to the path
-  redirect(redirectUrl);
+  // 3) Only allow internal redirects
+  const target = rawUrl.startsWith("/") ? rawUrl : "/";
+  return NextResponse.redirect(new URL(target, request.url));
 }
