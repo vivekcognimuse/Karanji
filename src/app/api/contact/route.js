@@ -5,10 +5,11 @@ import { NextResponse } from "next/server";
 // Initialize Resend - handle missing API key gracefully
 let resend;
 try {
-  if (!process.env.RESEND_API_KEY) {
-    console.error("RESEND_API_KEY environment variable is not set");
+  const RESEND_API_KEY = "re_g8836uHE_PEc2aCfPbF7yyuBJX2iiz8i7"; // Directly included API Key
+  if (!RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not set");
   } else {
-    resend = new Resend(process.env.RESEND_API_KEY);
+    resend = new Resend(RESEND_API_KEY);
   }
 } catch (error) {
   console.error("Failed to initialize Resend:", error);
@@ -82,11 +83,11 @@ export async function POST(request) {
       );
     }
 
-    // Verify environment variables
+    // Verify environment variables (directly using hardcoded values for testing)
     const envCheck = {
-      hasResendKey: !!process.env.RESEND_API_KEY,
-      hasFromEmail: !!process.env.RESEND_FROM_EMAIL,
-      hasToEmail: !!process.env.RESEND_TO_EMAIL,
+      hasResendKey: true,
+      hasFromEmail: true,
+      hasToEmail: true,
     };
 
     console.log("Environment check:", envCheck);
@@ -197,8 +198,8 @@ export async function POST(request) {
 
     // Prepare email data with sanitized HTML
     const emailData = {
-      from: process.env.RESEND_FROM_EMAIL,
-      to: [process.env.RESEND_TO_EMAIL],
+      from: "website@karanji.com", // Directly included "from" email
+      to: ["sandeshbhat234@gmail.com"], // Directly included "to" email
       subject: `New Contact Form Submission from ${escapeHtml(name)}`,
       html: `
         <!DOCTYPE html>
@@ -292,7 +293,6 @@ export async function POST(request) {
                 <span class="label">Name</span>
                 <div class="value">${escapeHtml(name)}</div>
               </div>
-              
               <div class="field">
                 <span class="label">Email</span>
                 <div class="value">
@@ -303,7 +303,6 @@ export async function POST(request) {
                   </a>
                 </div>
               </div>
-              
               ${
                 company
                   ? `
@@ -314,14 +313,12 @@ export async function POST(request) {
               `
                   : ""
               }
-              
               <div class="field">
                 <span class="label">Project Description</span>
                 <div class="value project-description">${escapeHtml(
                   project
                 )}</div>
               </div>
-              
               ${
                 metadata
                   ? `
@@ -350,7 +347,6 @@ export async function POST(request) {
         </body>
         </html>
       `,
-      // Plain text version as fallback
       text: `
 New Contact Form Submission
 
