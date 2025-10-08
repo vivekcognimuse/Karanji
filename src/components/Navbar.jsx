@@ -539,6 +539,7 @@ export default function Navbar() {
                             }`}>
                             <Link
                               href={section.href}
+                              onClick={() => setActiveDropdown(null)}
                               className={`block px-4 py-3 text-black hover:bg-[#F0E4FF] transition-colors duration-150 group select-none
                                 ${
                                   pathname === section.href ||
@@ -591,7 +592,10 @@ export default function Navbar() {
                         {item.subSections[activeSolution]?.links.map(
                           (link, linkIndex) => {
                             return (
-                              <Link key={linkIndex} href={link.href}>
+                              <Link
+                                key={linkIndex}
+                                href={link.href}
+                                onClick={() => setActiveDropdown(null)}>
                                 <div
                                   className={`block px-4 py-2 hover:bg-[#F0E4FF] transition-colors duration-150 select-none
                                     ${
@@ -649,6 +653,7 @@ export default function Navbar() {
                         <Link
                           key={linkIndex}
                           href={link.href}
+                          onClick={() => setActiveDropdown(null)}
                           className={`block px-4 py-2 text-xl hover:bg-[#F0E4FF]  transition-colors duration-150 select-none
                           ${
                             pathname === link.href ||
