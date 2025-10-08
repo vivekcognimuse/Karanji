@@ -11,7 +11,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const {
     populate = "all", // Use * for Strapi v4
-    revalidate = 60,
+    revalidate = 21600,
     preview = false,
   } = options;
 
