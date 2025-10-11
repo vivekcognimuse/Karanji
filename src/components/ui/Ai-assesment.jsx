@@ -41,28 +41,69 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
 
-    if (thankYouPopup) {
-      // Show thank you message
-      setShowThankYou(true);
-      setShowForm(false);
-    } else {
-      // Redirect to ctaLink if provided
-      if (ctaLink) {
-        window.open(ctaLink, "_blank", "noopener,noreferrer");
-      }
-      setShowForm(false);
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email address");
+      return;
     }
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-    });
+    try {
+      // Get current URL and page title
+      const sourceUrl = window.location.href;
+      const pageTitle = document.title;
+
+      // Send data to API
+      const response = await fetch("/api/cta-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          query: `CTA: Request Content Catalogue - ${
+            ctaText || "Assessment Request"
+          }`,
+          sourceUrl: sourceUrl,
+          pageTitle: "Content Design",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error("API error:", result);
+        alert(result.message || "Failed to submit form. Please try again.");
+        return;
+      }
+
+      console.log("Form submitted successfully:", result);
+
+      if (thankYouPopup) {
+        // Show thank you message
+        setShowThankYou(true);
+        setShowForm(false);
+      } else {
+        // Redirect to ctaLink if provided
+        if (ctaLink) {
+          window.open(ctaLink, "_blank", "noopener,noreferrer");
+        }
+        setShowForm(false);
+      }
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   const handleBack = () => {

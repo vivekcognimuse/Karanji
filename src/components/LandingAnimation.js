@@ -424,7 +424,7 @@ const LogoStoryAnimation = () => {
           <h3
             ref={headingRef}
             className="text-center w-full justify-start text-black text-6xl font-normal font-sans">
-            Innovate.Design.Transform
+            Innovate. Design. Transform
           </h3>
           <div ref={buttonRef}>
             <Link href="/company/digital-twin">

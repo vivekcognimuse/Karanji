@@ -27,7 +27,7 @@ const DownloadSection = ({
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form data
@@ -43,15 +43,41 @@ const DownloadSection = ({
       return;
     }
 
-    // Process form submission (you can add your API call here)
-    console.log("Form submitted:", formData);
+    try {
+      // Send data to API
+      const response = await fetch("/api/download-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          pdfLink: pdfLink,
+          title: title,
+        }),
+      });
 
-    // Trigger download
-    handleDownload();
+      const result = await response.json();
 
-    // Close modal and reset form
-    setIsModalOpen(false);
-    setFormData({ name: "", email: "" });
+      if (!response.ok) {
+        console.error("API error:", result);
+        alert(result.message || "Failed to submit form. Please try again.");
+        return;
+      }
+
+      console.log("Form submitted successfully:", result);
+
+      // Trigger download
+      handleDownload();
+
+      // Close modal and reset form
+      setIsModalOpen(false);
+      setFormData({ name: "", email: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   const handleDownload = () => {
@@ -101,8 +127,7 @@ const DownloadSection = ({
               e.stopPropagation();
               openModal();
             }}
-            className="cursor-pointer flex-shrink-0"
-          >
+            className="cursor-pointer flex-shrink-0">
             {buttonLabel}
           </Button>
         </div>
@@ -114,8 +139,7 @@ const DownloadSection = ({
             <button
               onClick={closeModal}
               className="text-black-500 hover:text-black-900 text-3xl leading-none p-1"
-              aria-label="Close form"
-            >
+              aria-label="Close form">
               ×
             </button>
           </div>
@@ -126,8 +150,7 @@ const DownloadSection = ({
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                  className="block text-sm font-medium text-gray-700 mb-2">
                   Name *
                 </label>
                 <input
@@ -145,8 +168,7 @@ const DownloadSection = ({
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
+                  className="block text-sm font-medium text-gray-700 mb-2">
                   Email *
                 </label>
                 <input
@@ -171,8 +193,7 @@ const DownloadSection = ({
                 variant="secondary"
                 type="button"
                 onClick={closeModal}
-                className="flex-1"
-              >
+                className="flex-1">
                 Cancel
               </Button>
             </div>

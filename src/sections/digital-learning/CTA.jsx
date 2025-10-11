@@ -76,8 +76,35 @@ const CTA = ({ className = "", data }) => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Get current URL and page title
+      const sourceUrl = window.location.href;
+      const pageTitle = document.title;
+
+      // Send data to API
+      const response = await fetch("/api/cta-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          query: formData.query,
+          sourceUrl: sourceUrl,
+          pageTitle: pageTitle,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error("API error:", result);
+        alert(result.message || "Failed to submit form. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      console.log("Form submitted successfully:", result);
 
       // Show thank you message
       setShowThankYou(true);
@@ -86,13 +113,14 @@ const CTA = ({ className = "", data }) => {
       setFormData({ name: "", email: "", query: "" });
       setErrors({});
 
-      // Close popup after 3 seconds
+      // Close popup after 7 seconds
       setTimeout(() => {
         setShowThankYou(false);
         setIsPopupOpen(false);
       }, 7000);
     } catch (error) {
       console.error("Form submission error:", error);
+      alert("An error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
