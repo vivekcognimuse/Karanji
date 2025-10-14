@@ -23,6 +23,7 @@ const Card = ({ resource, className }) => {
           src={resource.image}
           alt={resource.title}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover object-center aspect-square group-hover:scale-105 transition-transform duration-300"
         />
         <span className="absolute top-3 left-3 bg-white/90 text-black-950 text-xs px-3 py-1 rounded-full font-medium border border-black-100">

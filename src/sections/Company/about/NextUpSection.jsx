@@ -2,7 +2,7 @@
 import React from "react";
 import NextUpCard from "./NextUpCard";
 import { P1 } from "@/components/CustomTags";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const NextUpSection = ({ heading, title, description, cards }) => {
   const handleCardClick = (card) => {
@@ -12,28 +12,32 @@ const NextUpSection = ({ heading, title, description, cards }) => {
   };
 
   return (
-    <div
-      className="w-full"
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+    <div className="w-full">
       <div className="mx-auto">
         {/* Section Heading */}
-        <h3 className="text-black" data-reveal data-reveal-dir="up">
-          {heading}
-        </h3>
+        <RevealWrapper direction="up" duration={0.5} threshold={0.3}>
+          <h3 className="text-black">{heading}</h3>
+        </RevealWrapper>
 
         {/* Title & Description */}
-        <div
-          className="text-center mx-auto mb-10"
-          data-reveal
-          data-reveal-dir="up">
-          <h2 className="mb-4" data-reveal data-reveal-dir="up">
-            {title}
-          </h2>
-          <P1 className="text-black-950" data-reveal data-reveal-dir="up">
-            {description}
-          </P1>
+        <div className="text-center mx-auto mb-10">
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.3}
+          >
+            <h2 className="mb-4">{title}</h2>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.15}
+            threshold={0.3}
+          >
+            <P1 className="text-black-950">{description}</P1>
+          </RevealWrapper>
         </div>
 
         {/* Cards Grid */}
@@ -48,23 +52,26 @@ const NextUpSection = ({ heading, title, description, cards }) => {
                 : "/Company/Landing page/Career.webp";
 
             return (
-              <NextUpCard
+              <RevealWrapper
                 key={index}
-                title={card.title}
-                description={card.description}
-                image={cardImage} // Pass the image from the public folder
-                href={card.href}
-                onClick={() => handleCardClick(card)}
-                data-reveal
-                data-reveal-dir="up" // Apply the animation to each card
-              />
+                direction="up"
+                duration={0.5}
+                delay={0.2 + index * 0.12} // Staggered animation matching original timing
+                distance={30}
+                threshold={0.3}
+              >
+                <NextUpCard
+                  title={card.title}
+                  description={card.description}
+                  image={cardImage}
+                  href={card.href}
+                  onClick={() => handleCardClick(card)}
+                />
+              </RevealWrapper>
             );
           })}
         </div>
       </div>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </div>
   );
 };

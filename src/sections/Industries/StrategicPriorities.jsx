@@ -1,7 +1,7 @@
 import { P2, P3 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import React from "react";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const StrategicPriorities = ({ data }) => {
   const {
@@ -59,7 +59,7 @@ const StrategicPriorities = ({ data }) => {
 
   // Individual priority card component for carousel
   const PriorityCard = ({ card }) => (
-    <div className="w-full px-4" data-reveal data-reveal-dir="up">
+    <div className="w-full px-4">
       <div className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full h-full">
         {renderCardContent(card)}
       </div>
@@ -85,30 +85,37 @@ const StrategicPriorities = ({ data }) => {
   };
 
   return (
-    <section
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+    <section>
       <div className="mx-auto space-y-6">
         {/* Section Title */}
         {sectionTitle && (
-          <h3 className="mb-4" data-reveal data-reveal-dir="up">
-            {sectionTitle}
-          </h3>
+          <RevealWrapper direction="up" duration={0.5} threshold={0.3}>
+            <h3 className="mb-4">{sectionTitle}</h3>
+          </RevealWrapper>
         )}
 
         {/* Section Description - only show if provided */}
         {sectionDescription && (
-          <P2 className="text-gray-600 mb-12" data-reveal data-reveal-dir="up">
-            {sectionDescription}
-          </P2>
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.3}
+          >
+            <P2 className="text-gray-600 mb-12">{sectionDescription}</P2>
+          </RevealWrapper>
         )}
 
         {/* Business Priorities Title - only show if provided */}
         {businessPrioritiesTitle && (
-          <h4 className="mb-16 text-lg" data-reveal data-reveal-dir="up">
-            {businessPrioritiesTitle}
-          </h4>
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.15}
+            threshold={0.3}
+          >
+            <h4 className="mb-16 text-lg">{businessPrioritiesTitle}</h4>
+          </RevealWrapper>
         )}
 
         {/* Desktop Layout - Hidden on Mobile */}
@@ -116,14 +123,19 @@ const StrategicPriorities = ({ data }) => {
           {/* Top row */}
           {topRowCards && topRowCards.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {topRowCards.map((card) => (
-                <div
+              {topRowCards.map((card, index) => (
+                <RevealWrapper
                   key={card.id}
-                  className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
-                  data-reveal
-                  data-reveal-dir="up">
-                  {renderCardContent(card)}
-                </div>
+                  direction="up"
+                  duration={0.5}
+                  delay={0.2 + index * 0.12}
+                  distance={30}
+                  threshold={0.3}
+                >
+                  <div className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full">
+                    {renderCardContent(card)}
+                  </div>
+                </RevealWrapper>
               ))}
             </div>
           )}
@@ -131,15 +143,21 @@ const StrategicPriorities = ({ data }) => {
           {/* Bottom row */}
           {bottomRowCards && bottomRowCards.length > 0 && (
             <div
-              className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}>
-              {bottomRowCards.map((card) => (
-                <div
+              className={`grid ${getBottomRowGridCols()} gap-6 ${getBottomRowPadding()} mt-6`}
+            >
+              {bottomRowCards.map((card, index) => (
+                <RevealWrapper
                   key={card.id}
-                  className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full"
-                  data-reveal
-                  data-reveal-dir="up">
-                  {renderCardContent(card)}
-                </div>
+                  direction="up"
+                  duration={0.5}
+                  delay={0.2 + (topRowCards?.length || 0) * 0.12 + index * 0.12}
+                  distance={30}
+                  threshold={0.3}
+                >
+                  <div className="bg-white rounded-2xl border border-gray-300 shadow-[0px_7px_10px_0px_rgba(0,0,0,0.10)] p-6 text-center w-full">
+                    {renderCardContent(card)}
+                  </div>
+                </RevealWrapper>
               ))}
             </div>
           )}
@@ -159,32 +177,46 @@ const StrategicPriorities = ({ data }) => {
             if (allCards.length === 1) {
               // Single card - no carousel needed
               return (
-                <div className="px-4">
-                  <PriorityCard card={allCards[0]} />
-                </div>
+                <RevealWrapper
+                  direction="up"
+                  duration={0.5}
+                  delay={0.2}
+                  distance={30}
+                  threshold={0.3}
+                >
+                  <div className="px-4">
+                    <PriorityCard card={allCards[0]} />
+                  </div>
+                </RevealWrapper>
               );
             }
 
             // Multiple cards - use single carousel
             return (
-              <CarouselContainer
-                key={`all-cards-${allCards.length}`}
-                autoPlay={true}
-                autoPlayInterval={5000}
-                showDots={true}
-                showArrows={false}
-                className="w-full">
-                {allCards.map((card) => (
-                  <PriorityCard key={card.id} card={card} />
-                ))}
-              </CarouselContainer>
+              <RevealWrapper
+                direction="up"
+                duration={0.5}
+                delay={0.2}
+                distance={30}
+                threshold={0.3}
+              >
+                <CarouselContainer
+                  key={`all-cards-${allCards.length}`}
+                  autoPlay={true}
+                  autoPlayInterval={5000}
+                  showDots={true}
+                  showArrows={false}
+                  className="w-full"
+                >
+                  {allCards.map((card) => (
+                    <PriorityCard key={card.id} card={card} />
+                  ))}
+                </CarouselContainer>
+              </RevealWrapper>
             );
           })()}
         </div>
       </div>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </section>
   );
 };

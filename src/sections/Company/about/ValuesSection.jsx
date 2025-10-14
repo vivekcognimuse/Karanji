@@ -2,7 +2,7 @@
 import React from "react";
 import ValueCard from "./ValueCard";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 import CarouselContainer from "@/components/animations/Carousal";
 
 const ValuesSection = ({ data }) => {
@@ -16,82 +16,126 @@ const ValuesSection = ({ data }) => {
   ];
 
   return (
-    <section
-      className="values-section py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 rounded-2xl shadow-xl"
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+    <section className="values-section py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 rounded-2xl shadow-xl">
       <div className="mx-auto">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
-          <div className="mb-4" data-reveal data-reveal-dir="up">
-            <Image
-              src="/Company/about/values_16257068 1.svg"
-              alt="Values Icon"
-              width="48"
-              height="48"
-              unoptimized
-              className="w-10 h-10 sm:w-12 sm:h-12 mx-auto"
-            />
-          </div>
-          <h4
-            className="text-black-950 text-xl sm:text-2xl lg:text-3xl mb-3 font-semibold"
-            data-reveal
-            data-reveal-dir="up"
+          <RevealWrapper direction="up" duration={0.5} threshold={0.3}>
+            <div className="mb-4">
+              <Image
+                src="/Company/about/values_16257068 1.svg"
+                alt="Values Icon"
+                width="48"
+                height="48"
+                unoptimized
+                className="w-10 h-10 sm:w-12 sm:h-12 mx-auto"
+              />
+            </div>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.3}
           >
-            Values
-          </h4>
-          <div
-            className="w-full h-px bg-gray-300 mx-auto"
-            data-reveal
-            data-reveal-dir="up"
-          ></div>
+            <h4 className="text-black-950 text-xl sm:text-2xl lg:text-3xl mb-3 font-semibold">
+              Values
+            </h4>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.15}
+            threshold={0.3}
+          >
+            <div className="w-full h-px bg-gray-300 mx-auto"></div>
+          </RevealWrapper>
         </div>
 
         {/* Values Content */}
         <div className="space-y-4 sm:space-y-0">
           {/* Mobile */}
           <div className="block sm:hidden">
-            {/* Carousel for all cards */}
-            <CarouselContainer
-              autoPlay={true}
-              autoPlayInterval={5000}
-              showDots={true}
-              showArrows={false}
+            {/* Carousel for all cards - wrapped once since carousel handles internal animations */}
+            <RevealWrapper
+              direction="up"
+              duration={0.5}
+              delay={0.2}
+              distance={30}
+              threshold={0.3}
             >
-              {valuesData.map((value, index) => (
-                <ValueCard
-                  key={index}
-                  {...value}
-                  isFullWidth={false}
-                  data-reveal
-                  data-reveal-dir="up"
-                />
-              ))}
-            </CarouselContainer>
+              <CarouselContainer
+                autoPlay={true}
+                autoPlayInterval={5000}
+                showDots={true}
+                showArrows={false}
+              >
+                {valuesData.map((value, index) => (
+                  <ValueCard key={index} {...value} isFullWidth={false} />
+                ))}
+              </CarouselContainer>
+            </RevealWrapper>
           </div>
 
           {/* Tablet/Desktop */}
           <div className="hidden sm:block">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6">
               {/* First Row */}
-              <ValueCard {...valuesData[0]} data-reveal data-reveal-dir="up" />
-              <ValueCard {...valuesData[1]} data-reveal data-reveal-dir="up" />
+              <RevealWrapper
+                direction="up"
+                duration={0.5}
+                delay={0.2}
+                distance={30}
+                threshold={0.3}
+              >
+                <ValueCard {...valuesData[0]} />
+              </RevealWrapper>
+
+              <RevealWrapper
+                direction="up"
+                duration={0.5}
+                delay={0.32} // 0.2 + 0.12 stagger
+                distance={30}
+                threshold={0.3}
+              >
+                <ValueCard {...valuesData[1]} />
+              </RevealWrapper>
 
               {/* Full-width card */}
               <div className="sm:col-span-2">
-                <ValueCard
-                  isFullWidth={true}
-                  {...valuesData[2]}
-                  data-reveal
-                  data-reveal-dir="up"
-                />
+                <RevealWrapper
+                  direction="up"
+                  duration={0.5}
+                  delay={0.44} // 0.2 + 0.12*2 stagger
+                  distance={30}
+                  threshold={0.3}
+                >
+                  <ValueCard isFullWidth={true} {...valuesData[2]} />
+                </RevealWrapper>
               </div>
 
               {/* Third Row */}
-              <ValueCard {...valuesData[3]} data-reveal data-reveal-dir="up" />
-              <ValueCard {...valuesData[4]} data-reveal data-reveal-dir="up" />
+              <RevealWrapper
+                direction="up"
+                duration={0.5}
+                delay={0.56} // 0.2 + 0.12*3 stagger
+                distance={30}
+                threshold={0.3}
+              >
+                <ValueCard {...valuesData[3]} />
+              </RevealWrapper>
+
+              <RevealWrapper
+                direction="up"
+                duration={0.5}
+                delay={0.68} // 0.2 + 0.12*4 stagger
+                distance={30}
+                threshold={0.3}
+              >
+                <ValueCard {...valuesData[4]} />
+              </RevealWrapper>
             </div>
           </div>
         </div>
@@ -113,9 +157,6 @@ const ValuesSection = ({ data }) => {
           }
         }
       `}</style>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </section>
   );
 };
