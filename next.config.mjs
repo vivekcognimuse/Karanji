@@ -1,17 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // Option 1: simple allow-list
     domains: [
-      "calm-joy-61798b158b.media.strapiapp.com", // your Strapi media host
-      "localhost", // if you load images from local Strapi during dev
-      "karanji.com", // if you load images from local Strapi during dev
-      "www.karanji.com", // if you load images from local Strapi during dev
+      "calm-joy-61798b158b.media.strapiapp.com",
+      "localhost",
+      "karanji.com",
+      "www.karanji.com",
     ],
   },
   reactStrictMode: process.env.NODE_ENV === "development",
 
-  // Add headers to allow embedding in Strapi admin panel
   async headers() {
     return [
       {
@@ -19,19 +17,19 @@ const nextConfig = {
         headers: [
           {
             key: "X-Frame-Options",
-            value: "ALLOWALL", // Remove restrictive frame options
+            value: "ALLOWALL",
           },
           {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              // Allow both local development and Strapi Cloud
               "frame-ancestors 'self' http://localhost:1337 https://*.strapiapp.com https://cloud.strapi.io",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com",
+              // 👇 Added https://agent.d-id.com here
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://agent.d-id.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: calm-joy-61798b158b.media.strapiapp.com",
               "font-src 'self' data: https://fonts.gstatic.com",
-              "connect-src 'self' https: http://localhost:1337 https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
+              "connect-src 'self' https: http://localhost:1337 https://agent.d-id.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
             ].join("; "),
           },
         ],
