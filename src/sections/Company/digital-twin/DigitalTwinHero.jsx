@@ -24,24 +24,13 @@ export default function DigitalTwinHeroSection({ data, bgImage }) {
       className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain `}
       style={{
         backgroundImage: `url('${bgImage}')`,
-      }}
-    >
+      }}>
       <div className="space-y-6  sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto">
         <div className="space-y-3 sm:space-y-4">
-          <h2
-            className="text-center opacity-0 will-change-transform"
-            data-reveal
-          >
-            {title && <>{title}</>}
-          </h2>
+          <h2 className="text-center ">{title && <>{title}</>}</h2>
 
           {subTitle && (
-            <P1
-              className="text-black text-center mx-auto opacity-0 will-change-transform"
-              data-reveal
-            >
-              {subTitle}
-            </P1>
+            <P1 className="text-black text-center mx-auto ">{subTitle}</P1>
           )}
         </div>
 
@@ -51,8 +40,7 @@ export default function DigitalTwinHeroSection({ data, bgImage }) {
               ctaLink={PrimaryButtonLink}
               ctaText={PrimaryButtonText}
               variant="primary"
-              href={PrimaryButtonLink}
-            >
+              href={PrimaryButtonLink}>
               {PrimaryButtonText}
             </ScrollButton>
           )}
@@ -70,11 +58,9 @@ export default function DigitalTwinHeroSection({ data, bgImage }) {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`text-center space-y-2 opacity-0 will-change-transform ${
+                className={`text-center space-y-2  ${
                   index > 0 ? "lg:border-l lg:border-gray-300 lg:pl-8" : ""
-                }`}
-                data-reveal
-              >
+                }`}>
                 <h5 className=" text-black ">{stat.text}</h5>
                 {stat.subText && (
                   <h6 className="text-gray-600 ">{stat.subText}</h6>

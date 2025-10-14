@@ -25,9 +25,7 @@ const IndustryExpertise = ({ data, icon }) => {
         {/* Header Section */}
         <div className="mb-12">
           <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
-            <h3 className="text-3xl lg:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
-              {title}
-            </h3>
+            <h3 className="">{title}</h3>
           </RevealWrapper>
 
           <RevealWrapper

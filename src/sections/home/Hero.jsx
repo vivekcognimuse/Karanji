@@ -63,6 +63,7 @@ const HeroSection = ({ data, cta1_Text, cta2_Link, cta2_Text }) => {
             <video
               ref={mobileVideoRef}
               className="w-full h-full object-contain rounded-lg"
+              poster="/home/logo.svg"
               autoPlay
               muted
               playsInline
