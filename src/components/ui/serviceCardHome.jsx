@@ -31,7 +31,7 @@ export const ServiceCardHome = memo(function ServiceCard({
             data-reveal
             image={service.image}
             data-reveal-dir={dirForIndex(i)}
-            className="opacity-0 will-change-transform flex-shrink-0"
+            className=" flex-shrink-0"
           />
         ))}
       </div>
