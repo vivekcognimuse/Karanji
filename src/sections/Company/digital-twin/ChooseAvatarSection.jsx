@@ -18,7 +18,6 @@ function AvatarCard({ avatar, description }) {
         event.data.agent === avatar.name.toLowerCase()
       ) {
         setAgentLoaded(true);
-        console.log(`${avatar.name} agent loaded via iframe`);
       }
 
       if (

@@ -6,6 +6,13 @@ import { RevealWrapper } from "@/components/animations/RevealWrapper";
 const StrategicRoadmap = ({ data }) => {
   const { sectionTitle, sectionDescription, roadmapData } = data;
 
+  // Helper function to extract text from point object
+  const getPointText = (point) => {
+    if (typeof point === "string") return point;
+    if (point?.children?.[0]?.text) return point.children[0].text;
+    return "";
+  };
+
   // Individual roadmap card component
   const RoadmapCard = ({ title, timeframe, intro, points, note }) => (
     <div className="w-full px-4">
@@ -18,7 +25,7 @@ const StrategicRoadmap = ({ data }) => {
 
         <ul className="text-black-700 px-2 list-disc list-inside space-y-1">
           {points.map((point, i) => (
-            <li key={i}>{point}</li>
+            <li key={i}>{getPointText(point)}</li>
           ))}
         </ul>
         <P3 className="mt-4 font-medium text-black-900">{note}</P3>
@@ -64,7 +71,7 @@ const StrategicRoadmap = ({ data }) => {
 
                 <ul className="text-black-700 px-2 list-disc list-inside space-y-1">
                   {points.map((point, i) => (
-                    <li key={i}>{point}</li>
+                    <li key={i}>{getPointText(point)}</li>
                   ))}
                 </ul>
                 <P3 className="mt-4 font-medium text-black-900">{note}</P3>

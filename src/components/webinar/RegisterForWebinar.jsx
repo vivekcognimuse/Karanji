@@ -76,9 +76,6 @@ export default function RegisterForWebinar({ data }) {
     setIsSubmitting(true);
 
     try {
-      // Add your form submission logic here
-      console.log("Form submitted:", formData);
-
       // Reset form on successful submission
       setFormData({
         name: "",

@@ -10,6 +10,13 @@ const DigitalTransformation = ({ data, bgImage }) => {
   // Default background image fallback
   const backgroundImage = bgImage || "/gradients/Card default.svg";
 
+  // Helper function to extract text from point object
+  const getPointText = (point) => {
+    if (typeof point === "string") return point;
+    if (point?.children?.[0]?.text) return point.children[0].text;
+    return "";
+  };
+
   // Individual digital transformation card component
   const DigitalCard = ({ card }) => {
     const { id, title, icon, points } = card;
@@ -37,7 +44,7 @@ const DigitalTransformation = ({ data, bgImage }) => {
           <ul className="text-sm text-black-500 space-y-2">
             {points.map((point, idx) => (
               <P3 key={idx} className="border-b border-black-200 pt-2 p-4">
-                {point}
+                {getPointText(point)}
               </P3>
             ))}
           </ul>
@@ -75,7 +82,7 @@ const DigitalTransformation = ({ data, bgImage }) => {
             threshold={0.3}
           >
             <div
-              className="bg-white w-full max-w-[20rem] border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
+              className="bg-white  w-full max-w-[20rem] border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
               style={{
                 backgroundImage: `url('${backgroundImage}')`,
               }}
@@ -95,7 +102,7 @@ const DigitalTransformation = ({ data, bgImage }) => {
               <ul className="text-sm text-black-500 space-y-2">
                 {points.map((point, idx) => (
                   <P3 key={idx} className="border-b border-black-200 pt-2 p-4">
-                    {point}
+                    {getPointText(point)}
                   </P3>
                 ))}
               </ul>

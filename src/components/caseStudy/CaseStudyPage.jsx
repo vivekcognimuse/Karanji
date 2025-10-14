@@ -172,7 +172,7 @@ const CaseStudyPage = ({ data }) => {
   };
 
   return (
-    <div className="relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain">
+    <div className="relative bg-no-repeat flex flex-col h-fit md:pt-0 lg:min-h-[calc(100vh-80px)] items-center bg-center bg-contain">
       <article>
         {/* Full Width Header */}
         <div className="mx-auto">
