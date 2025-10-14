@@ -75,7 +75,7 @@ const DigitalTransformation = ({ data, bgImage }) => {
             threshold={0.3}
           >
             <div
-              className="bg-white rounded-xl w-full max-w-[20rem] border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
+              className="bg-white w-full max-w-[20rem] border border-black/10 bg-contain bg-bottom bg-no-repeat rounded-2xl shadow-lg p-4 z-10 relative"
               style={{
                 backgroundImage: `url('${backgroundImage}')`,
               }}
