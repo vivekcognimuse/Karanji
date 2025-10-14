@@ -25,7 +25,7 @@ const IndustryExpertise = ({ data, icon }) => {
         {/* Header Section */}
         <div className="mb-12">
           <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
-            <h3 className="text-3xl lg:text-4xl lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
+            <h3 className="text-3xl  lg:text-5xl font-medium font-['Albert_Sans'] text-black mb-4">
               {title}
             </h3>
           </RevealWrapper>
@@ -34,7 +34,8 @@ const IndustryExpertise = ({ data, icon }) => {
             direction="up"
             duration={0.6}
             delay={0.1}
-            threshold={0.2}>
+            threshold={0.2}
+          >
             <P3 className="text-lg lg:text-xl font-normal font-['Outfit'] text-black leading-relaxed tracking-wide">
               {subTitle}
             </P3>
@@ -50,7 +51,8 @@ const IndustryExpertise = ({ data, icon }) => {
               duration={0.5}
               delay={0.2 + index * 0.12} // Staggered grid items
               distance={30}
-              threshold={0.15}>
+              threshold={0.15}
+            >
               <IndustryCard
                 title={industry.title}
                 description={industry.description}
@@ -68,7 +70,8 @@ const IndustryExpertise = ({ data, icon }) => {
           delay={0.2}
           distance={30}
           threshold={0.2}
-          className="lg:hidden">
+          className="lg:hidden"
+        >
           <CarouselContainer>
             {chunkedCards.map((chunk, chunkIndex) => (
               <div key={chunkIndex} className="w-full space-y-6 p-4">
