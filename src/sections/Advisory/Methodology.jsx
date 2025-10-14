@@ -15,7 +15,7 @@ const chunkArray = (array, chunkSize) => {
 
 export default function Methodology({ column, data }) {
   const { title, subTitle, list, isStepHidden } = data || {};
-  console.log("methodology data:", data);
+
   // Chunk the list into pairs for mobile carousel
   const chunkedList = chunkArray(list, 2);
 

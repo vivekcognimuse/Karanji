@@ -86,7 +86,7 @@ const ContentFormats = ({ data, cardImage }) => {
             <div key={chunkIndex} className="w-full space-y-4 px-4">
               {chunk.map((item, itemIndex) => {
                 const originalIndex = chunkIndex * 2 + itemIndex;
-                console.log("imgsrc", `${cardImage}/${originalIndex + 1}.svg`);
+
                 return (
                   <div
                     key={originalIndex}

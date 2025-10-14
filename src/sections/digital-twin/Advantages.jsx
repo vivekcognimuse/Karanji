@@ -8,7 +8,6 @@ import CarouselContainer from "@/components/animations/Carousal";
 
 const Advantages = ({ className = "", data }) => {
   const { title, lists } = data || {};
-  console.log("Fetched Advantages data:", data);
 
   return (
     <section className={className}>

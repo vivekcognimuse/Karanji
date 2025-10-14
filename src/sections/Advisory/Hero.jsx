@@ -16,7 +16,6 @@ export default function HeroSection({ data, bgImage }) {
     stats,
     backgroundImage,
   } = data;
-  console.log("HeroSection data:", data);
 
   return (
     <section

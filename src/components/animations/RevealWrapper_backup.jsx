@@ -12,7 +12,7 @@ let isGSAPInitialized = false;
 // Initialize GSAP safely for both development and production
 const initializeGSAP = () => {
   if (typeof window === "undefined" || isGSAPInitialized) return;
-
+  
   try {
     gsap.registerPlugin(ScrollTrigger);
     // Ensure ScrollTrigger is refreshed on load
@@ -45,7 +45,7 @@ export function RevealWrapper({
     setIsMounted(true);
     // Initialize GSAP on mount
     initializeGSAP();
-
+    
     // Refresh ScrollTrigger after a brief delay to ensure proper calculation
     const refreshTimer = setTimeout(() => {
       if (isGSAPInitialized) {
@@ -59,6 +59,9 @@ export function RevealWrapper({
   useLayoutEffect(() => {
     const container = containerRef.current;
     if (!container || !isMounted || !isGSAPInitialized) return;
+
+    // Wait a frame to ensure DOM is stable
+    const animationFrame = requestAnimationFrame(() => {
 
     // Wait a frame to ensure DOM is stable
     const animationFrame = requestAnimationFrame(() => {

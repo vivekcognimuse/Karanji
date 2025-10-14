@@ -30,7 +30,7 @@ export const ServiceCard = memo(function ServiceCard({
             data-reveal
             image={image}
             data-reveal-dir={dirForIndex(i)}
-            className="opacity-0 will-change-transform flex-shrink-0"
+            className=" flex-shrink-0"
           />
         ))}
       </div>
@@ -159,7 +159,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   ...props
 }) {
   const { title, description, list, ctaText, ctaLink, id } = data || {};
-  console.log("index of technology solution:", index);
+
   return (
     <div
       {...props}
@@ -174,8 +174,9 @@ const SingleServiceCard = memo(function SingleServiceCard({
             style={{ backgroundImage: `url('${bgImage}')` }}>
             <Image
               src={
-                `${image}/${index + 1}.webp` ||
-                `/technologySolutions/card${index + 1}.webp`
+                image
+                  ? `${image}/${index + 1}.webp`
+                  : `/technologySolutions/card${index + 1}.webp`
               }
               alt={title}
               width={180}

@@ -52,7 +52,7 @@ export const ServiceCard = memo(function ServiceCard({
   const dynamicHeight = heightDifference
     ? `calc(420px + ${index * 70}px)`
     : "450px";
-  console.log("bg image", bgImage);
+
   return (
     <div
       {...props}
@@ -112,8 +112,6 @@ export const MethodologyStep = memo(function MethodologyStep({
   isStepHidden = false,
   column = false,
 }) {
-  console.log("MethodologyStep tags:", tags);
-
   if (column) {
     return (
       <div className={`${"border-b border-black/50 pb-8"}`}>

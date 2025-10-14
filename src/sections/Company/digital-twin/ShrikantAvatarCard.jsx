@@ -39,7 +39,6 @@ function AvatarCard({ avatar, delay = 0 }) {
       try {
         setUseIframe(true);
         setIsLoading(false);
-        console.log(`Using iframe for ${avatar.name}`);
       } catch (err) {
         console.error(`Failed to initialize ${avatar.name}:`, err);
         setError(err.message);

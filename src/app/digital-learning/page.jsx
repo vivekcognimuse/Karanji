@@ -20,7 +20,7 @@ const DigitalLearning = async () => {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
   }
-  console.log("DigitalLearning data:", data);
+
   const {
     hero,
     methodologyData,

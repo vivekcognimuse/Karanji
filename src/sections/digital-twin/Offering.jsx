@@ -23,7 +23,6 @@ const DigitalTwinOfferings = ({
 }) => {
   const { title, subTitle, bottomtext, list, ctaCard, icon, cards } =
     data || {};
-  console.log("DigitalTwinOfferings data:", data);
 
   return (
     <section className={cn("", className)}>

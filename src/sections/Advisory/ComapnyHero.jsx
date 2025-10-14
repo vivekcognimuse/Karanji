@@ -9,16 +9,11 @@ import LogoAnimation from "@/components/LogoAnimation";
 
 import Image from "next/image";
 
-
 export default function HeroSection({ data, bgImage }) {
-
-  console.log("HeroSection data:", data);
-
   return (
     <section
       id="hero-section"
-      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] bg-top bg-contain`}
-    >
+      className={`relative bg-no-repeat flex flex-col h-fit pt-16 md:pt-0 lg:min-h-[calc(100vh-80px)] bg-top bg-contain`}>
       <div className="space-y-6 sm:space-y-8 flex lg:flex-grow  flex-col justify-center  max-w-[1580px] lg:mx-auto">
         <div className="hidden lg:block">
           <LogoAnimation />
@@ -52,7 +47,6 @@ export default function HeroSection({ data, bgImage }) {
             </div>
           </div>
         </div>
-
       </div>
 
       {/* GSAP runs client-side; does not affect SSR of markup */}

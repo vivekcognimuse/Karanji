@@ -36,7 +36,7 @@ const FeatureCard = ({ feature, cardImage, index }) => (
 
 const Deliverables = ({ heroImage, data, cardImage }) => {
   const { cards, title, tags, subTitle, featureHeader } = data;
-  console.log("data of logistics", cards);
+
   // Shared Feature Card (mobile + desktop styles in one place)
 
   return (

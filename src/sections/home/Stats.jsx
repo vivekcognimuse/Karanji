@@ -3,7 +3,7 @@ import React from "react";
 
 const StatsSection = ({ data }) => {
   const { cards } = data || {};
-  console.log("cards", cards);
+
   return (
     <section className="w-full">
       <style jsx>{`

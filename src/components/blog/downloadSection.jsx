@@ -66,8 +66,6 @@ const DownloadSection = ({
         return;
       }
 
-      console.log("Form submitted successfully:", result);
-
       // Trigger download
       handleDownload();
 

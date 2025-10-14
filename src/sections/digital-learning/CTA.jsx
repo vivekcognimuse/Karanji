@@ -106,8 +106,6 @@ const CTA = ({ className = "", data }) => {
         return;
       }
 
-      console.log("Form submitted successfully:", result);
-
       // Show thank you message
       setShowThankYou(true);
 

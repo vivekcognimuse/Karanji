@@ -6,7 +6,6 @@ import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 export default function LearningChallenges({ data, icons }) {
   const { title, subTitle, cards = [], description = "" } = data;
-  console.log("LearningChallenges data:", data);
 
   return (
     <section className="px-4 sm:px-6 lg:px-8">

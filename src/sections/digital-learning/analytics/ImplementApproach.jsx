@@ -6,7 +6,7 @@ import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const ImplementApproach = ({ data }) => {
   const { title, subTitle, implementationTimeline } = data;
-  console.log("ImplementApproach data:", data);
+
   const [currentTimelineIndex, setCurrentTimelineIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 

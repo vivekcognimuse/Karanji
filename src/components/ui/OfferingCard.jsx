@@ -82,7 +82,6 @@ const OfferingCard = ({ card, index, icon, bgImage, bgImageHover }) => {
   const iconSrc = icon
     ? `${icon}/${index + 1}.svg` // If `icon` is passed as a prop, use that path
     : `/technologySolutions/digital-offering/${index + 1}.svg`; // Default fallback
-  console.log("Icon Source:", icon);
 
   return (
     <div
@@ -94,13 +93,11 @@ const OfferingCard = ({ card, index, icon, bgImage, bgImageHover }) => {
         backgroundImage: `url('${bgImage}')`,
       }}
       data-reveal
-      data-reveal-dir="up"
-    >
+      data-reveal-dir="up">
       {/* Front Content - Default State */}
       <div
         ref={frontContentRef}
-        className="relative z-10 p-4 flex flex-col h-full"
-      >
+        className="relative z-10 p-4 flex flex-col h-full">
         {/* Top section */}
         <div className="flex-none">
           <div className="mb-6 w-16 h-16 flex items-center justify-center">
@@ -132,8 +129,7 @@ const OfferingCard = ({ card, index, icon, bgImage, bgImageHover }) => {
             backgroundImage: `url('${bgImageHover ?? bgImage}')`,
             backgroundSize: "cover",
             backgroundPosition: "bottom",
-          }}
-        >
+          }}>
           <div className="rounded-xl p-6 h-full flex flex-col">
             <div className="space-y-8 flex-1">
               {hoverContent.map((item, idx) => (

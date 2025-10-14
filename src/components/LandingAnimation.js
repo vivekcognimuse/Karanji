@@ -393,9 +393,7 @@ const LogoStoryAnimation = () => {
   }, []);
 
   // Debug: Log current stage
-  useEffect(() => {
-    console.log("Current Stage:", currentStage);
-  }, [currentStage]);
+  useEffect(() => {}, [currentStage]);
 
   return (
     <div>

@@ -16,7 +16,7 @@ export default async function teampage() {
     return null;
   }
   const { heroData, teamData, teamSectionData, cta } = data || {};
-  console.log("Team Section Data:", data);
+
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">
       {" "}

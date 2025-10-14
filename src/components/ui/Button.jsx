@@ -79,12 +79,6 @@ const Button = forwardRef(
           page_location: pathname || window.location.pathname,
         };
 
-        // ✅ Log to console for debugging
-        console.log("🔍 GA Event Fired:", {
-          event: "select_content",
-          ...analyticsData,
-        });
-
         // ✅ Send to GA via official helper
         sendGAEvent("event", "select_content", analyticsData);
 

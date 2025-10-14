@@ -246,7 +246,6 @@ const ContactPage = () => {
     resetForm,
   } = useContactForm({
     onSuccess: (result, data) => {
-      console.log("Form submitted successfully:", { result, data });
       setShowThankYou(true);
     },
     onError: (error, data) => {

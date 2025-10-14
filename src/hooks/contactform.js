@@ -317,13 +317,6 @@ export const useForm = ({ schema, defaultValues = {}, options = {} }) => {
           const responseData = await response.json().catch(() => ({}));
 
           // Log full response details for debugging
-          console.log("API Response Details:", {
-            status: response.status,
-            statusText: response.statusText,
-            ok: response.ok,
-            headers: Object.fromEntries(response.headers.entries()),
-            body: responseData,
-          });
 
           if (!response.ok) {
             // Create detailed error message

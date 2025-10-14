@@ -81,8 +81,6 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
         return;
       }
 
-      console.log("Form submitted successfully:", result);
-
       if (thankYouPopup) {
         // Show thank you message
         setShowThankYou(true);
@@ -118,8 +116,6 @@ export const AIAssessmentCard = memo(function AIAssessmentCard({
   // Check if both fields are filled
   const isFormValid =
     formData.name.trim() !== "" && formData.email.trim() !== "";
-
-  console.log("bg Image card", bgImage);
 
   return (
     <div

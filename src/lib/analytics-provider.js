@@ -18,12 +18,6 @@ function AnalyticsTracker() {
       page_location: window.location.href,
     };
 
-    // ✅ Log to console for debugging
-    console.log("🔍 GA Page Event Fired:", {
-      event: "custom_page_view",
-      ...analyticsData,
-    });
-
     // ✅ Send to GA (avoids duplication with GA's built-in page_view)
     sendGAEvent("event", "custom_page_view", analyticsData);
   }, [pathname, searchParams]);

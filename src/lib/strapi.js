@@ -43,13 +43,6 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     fetchOptions.next = { revalidate };
   }
 
-  console.log("🚀 Fetching from Strapi:", {
-    url: url.toString(),
-    hasToken: !!token,
-    preview,
-    revalidate,
-  });
-
   try {
     const res = await fetch(url.toString(), fetchOptions);
 

@@ -59,7 +59,6 @@
           script.setAttribute("data-target-id", "did-agent-container");
 
           script.onload = () => {
-            console.log("Prakash agent loaded successfully");
             // Send message to parent that agent is loaded
             window.parent.postMessage(
               { type: "agent-loaded", agent: "prakash" },

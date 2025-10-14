@@ -229,7 +229,7 @@ const KaranjiLanding = async () => {
 
   const { hero, stats, successStories, cta1_Text, cta2_Link, cta2_Text } =
     data || {};
-  console.log("hero", data);
+
   return (
     <div className="bg-[url('/page/home.svg')] bg-cover bg-right bg-no-repeat">
       <main className="w-full max-w-[1580px]  mx-auto px-4 lg:p-10 ">

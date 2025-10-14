@@ -119,7 +119,7 @@ const SingleServiceCard = memo(function SingleServiceCard({
   ...props
 }) {
   const { title, description, list, ctaText, ctaLink, image } = data || {};
-  console.log("index of technology soliution:", image);
+
   return (
     <Link href={ctaLink}>
       <div
