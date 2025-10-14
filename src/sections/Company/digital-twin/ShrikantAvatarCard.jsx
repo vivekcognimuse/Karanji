@@ -55,20 +55,23 @@ function AvatarCard({ avatar, delay = 0 }) {
     <div
       className="relative w-[318px] h-[482px] cursor-pointer flex-shrink-0"
       onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
+      onMouseLeave={handleMouseLeave}
+    >
       <div
         className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${
           isFlipped ? "rotate-y-180" : ""
         }`}
         style={{
           transformStyle: "preserve-3d",
-        }}>
+        }}
+      >
         {/* Front Face */}
         <div
           className="absolute inset-0 w-full h-full backface-hidden rounded-2xl p-3 border border-black-100 bg-white shadow-sm overflow-hidden"
           style={{
             backfaceVisibility: "hidden",
-          }}>
+          }}
+        >
           {/* Online Status */}
           <div className="absolute top-6 right-6 flex items-center gap-2 text-sm text-green-500 font-medium z-10">
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -97,7 +100,6 @@ function AvatarCard({ avatar, delay = 0 }) {
                 allowFullScreen
                 title={`${avatar.name} Digital Avatar`}
                 onLoad={() => {
-                  console.log(`Iframe loaded for ${avatar.name}`);
                   setIsLoading(false);
                 }}
                 onError={(e) => {
@@ -111,7 +113,8 @@ function AvatarCard({ avatar, delay = 0 }) {
               <div
                 ref={containerRef}
                 className="w-full h-full rounded-2xl border border-black-200 shadow-lg bg-white flex items-center justify-center"
-                style={{ minHeight: "350px" }}>
+                style={{ minHeight: "350px" }}
+              >
                 {isLoading && (
                   <div className="text-gray-400 text-sm animate-pulse">
                     Loading {avatar.name}...
@@ -123,7 +126,8 @@ function AvatarCard({ avatar, delay = 0 }) {
                     <div className="text-xs mt-1">{error}</div>
                     <button
                       onClick={() => window.open(avatar.ctaLink, "_blank")}
-                      className="mt-2 text-blue-500 underline text-xs">
+                      className="mt-2 text-blue-500 underline text-xs"
+                    >
                       Chat directly instead
                     </button>
                   </div>
@@ -168,7 +172,8 @@ function AvatarCard({ avatar, delay = 0 }) {
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-          }}>
+          }}
+        >
           {/* Content on top of background */}
           <div className="relative z-10 flex-1 flex flex-col justify-start space-y-4 pt-4">
             {avatar.expertise?.map((item, index) => (

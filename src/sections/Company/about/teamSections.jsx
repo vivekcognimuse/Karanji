@@ -11,15 +11,9 @@ const TeamSection = ({ data = [] }) => {
     setExpandedSection(expandedSection === index ? null : index);
   };
 
-  const handleConnect = (memberName) => {
-    console.log(`Connecting with ${memberName}`);
-    // Add your connect logic here
-  };
+  const handleConnect = (memberName) => {};
 
-  const handleTalkToDigitalTwin = (memberName) => {
-    console.log(`Talking to ${memberName}'s digital twin`);
-    // Add your digital twin logic here
-  };
+  const handleTalkToDigitalTwin = (memberName) => {};
 
   return (
     <div className="w-full">
