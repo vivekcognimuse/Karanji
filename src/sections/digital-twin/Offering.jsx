@@ -1,10 +1,11 @@
+// Updated DigitalTwinOfferings.jsx
 import React from "react";
 import Image from "next/image";
 import { P2, P3, P4 } from "@/components/CustomTags";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 import CarouselContainer from "@/components/animations/Carousal";
 import OfferingCard from "@/components/ui/OfferingCard";
 import MultiCardCarousel from "@/components/animations/MultiCardCarousal";
@@ -23,97 +24,122 @@ const DigitalTwinOfferings = ({
   const { title, subTitle, bottomtext, list, ctaCard, icon, cards } =
     data || {};
   console.log("DigitalTwinOfferings data:", data);
+
   return (
-    <section
-      className={cn("", className)}
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+    <section className={cn("", className)}>
       <div className="max-w-[1580px] mx-auto">
+        {/* Header Section */}
         <div className="text-left mb-12">
-          <h3 className=" text-gray-900 mb-6" data-reveal data-reveal-dir="up">
-            {title}
-          </h3>
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h3 className="text-gray-900 mb-6">{title}</h3>
+          </RevealWrapper>
+
           {subTitle && (
-            <P2 className=" max-w-4xl" data-reveal data-reveal-dir="up">
-              {subTitle}
-            </P2>
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.1}
+              threshold={0.2}>
+              <P2 className="max-w-4xl">{subTitle}</P2>
+            </RevealWrapper>
           )}
         </div>
 
+        {/* List and CTA Card Section */}
         {list && (
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-16">
             <div className="lg:col-span-6">
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
                 {list?.map((service, index) => (
-                  <P3
+                  <RevealWrapper
                     key={index}
-                    className="flex items-start"
-                    data-reveal
-                    data-reveal-dir="up">
-                    <span className="text-black-400 mr-3 mt-1">
-                      {index + 1}.
-                    </span>
-                    <span className="text-black-400">{service.text}</span>
-                  </P3>
+                    direction="up"
+                    duration={0.5}
+                    delay={0.15 + index * 0.08} // Staggered list items
+                    distance={20}
+                    threshold={0.15}>
+                    <P3 className="flex items-start">
+                      <span className="text-black-400 mr-3 mt-1">
+                        {index + 1}.
+                      </span>
+                      <span className="text-black-400">{service.text}</span>
+                    </P3>
+                  </RevealWrapper>
                 ))}
               </div>
             </div>
 
-            {/* <div
-              className={cn(
-                "bg-[url('/gradients/offering-card-gradient.svg')] max-w-xl col-span-6 lg:col-end-12 bg-contain bg-bottom bg-no-repeat border border-black-300 shadow-lg rounded-2xl p-8 text-center",
-                CtaClassName
-              )}
-              data-reveal
-              data-reveal-dir="up">
-              <h4 className="text-gray-900  mb-4">{ctaCard.title}</h4>
-              <P4 className="text-gray-600 mb-8">{ctaCard.subTitle}</P4>
-              <Link href={ctaCard.ctaLink} className="w-auto">
-                <Button className="">{ctaCard.ctaText}</Button>
-              </Link>
-            </div> */}
-            <AIAssessmentCard
-              noPopup={noPopup}
-              thankYouPopup={thankYouPopup}
-              bgImage={bgImageCard}
-              className="max-w-xl"
-              data={ctaCard}
-            />
+            {/* AI Assessment Card */}
+            <RevealWrapper
+              direction="right"
+              duration={0.7}
+              delay={0.3}
+              distance={30}
+              threshold={0.2}>
+              <AIAssessmentCard
+                noPopup={noPopup}
+                thankYouPopup={thankYouPopup}
+                bgImage={bgImageCard}
+                className="max-w-xl"
+                data={ctaCard}
+              />
+            </RevealWrapper>
           </div>
         )}
 
+        {/* Desktop Cards Section */}
         <div className="hidden lg:block">
           {cards.length === 3 ? (
             <div className="w-full flex gap-8 justify-center">
               {cards.map((card, index) => (
-                <OfferingCard
-                  icon={icon}
-                  bgImage={bgImage}
+                <RevealWrapper
                   key={index}
-                  bgImageHover={bgImageHover}
-                  card={card}
-                  index={index}
-                />
+                  direction="up"
+                  duration={0.6}
+                  delay={0.2 + index * 0.12} // Staggered cards
+                  distance={30}
+                  threshold={0.15}>
+                  <OfferingCard
+                    icon={icon}
+                    bgImage={bgImage}
+                    bgImageHover={bgImageHover}
+                    card={card}
+                    index={index}
+                  />
+                </RevealWrapper>
               ))}
             </div>
           ) : (
-            <MultiCardCarousel>
-              {cards.map((card, index) => (
-                <OfferingCard
-                  icon={icon}
-                  bgImage={bgImage}
-                  key={index}
-                  bgImageHover={bgImageHover}
-                  card={card}
-                  index={index}
-                />
-              ))}
-            </MultiCardCarousel>
+            <RevealWrapper
+              direction="up"
+              duration={0.7}
+              delay={0.2}
+              distance={30}
+              threshold={0.15}>
+              <MultiCardCarousel>
+                {cards.map((card, index) => (
+                  <OfferingCard
+                    icon={icon}
+                    bgImage={bgImage}
+                    key={index}
+                    bgImageHover={bgImageHover}
+                    card={card}
+                    index={index}
+                  />
+                ))}
+              </MultiCardCarousel>
+            </RevealWrapper>
           )}
         </div>
 
-        <div className="lg:hidden">
+        {/* Mobile Carousel */}
+        <RevealWrapper
+          direction="up"
+          duration={0.7}
+          delay={0.2}
+          distance={30}
+          threshold={0.2}
+          className="lg:hidden">
           <CarouselContainer>
             {cards.map((card, index) => (
               <OfferingCard
@@ -126,15 +152,20 @@ const DigitalTwinOfferings = ({
               />
             ))}
           </CarouselContainer>
-        </div>
+        </RevealWrapper>
       </div>
 
+      {/* Bottom Text */}
       {bottomtext && (
-        <P2 className="mt-12 " data-reveal data-reveal-dir="up">
-          {bottomtext}
-        </P2>
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.3}
+          distance={20}
+          threshold={0.2}>
+          <P2 className="mt-12">{bottomtext}</P2>
+        </RevealWrapper>
       )}
-      <SectionReveal />
     </section>
   );
 };

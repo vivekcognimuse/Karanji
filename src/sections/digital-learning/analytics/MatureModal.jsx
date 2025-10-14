@@ -1,6 +1,7 @@
 import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const AnalyticsMaturityModel = ({ data, stairImage }) => {
   const { title, subTitle, cards } = data;
@@ -9,18 +10,32 @@ const AnalyticsMaturityModel = ({ data, stairImage }) => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Title Section */}
       <div className="mb-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          {title}
-        </h2>
-        <p className="text-base sm:text-lg text-gray-600 max-w-6xl">
-          {subTitle}
-        </p>
+        <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            {title}
+          </h2>
+        </RevealWrapper>
+
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.1}
+          threshold={0.2}>
+          <p className="text-base sm:text-lg text-gray-600 max-w-6xl">
+            {subTitle}
+          </p>
+        </RevealWrapper>
       </div>
 
       {/* Main Content Grid */}
       <div className="flex flex-col lg:flex-row gap-y-8 gap-x-16">
         {/* Left Side - Stair Step Image */}
-        <div className="flex  items-center justify-center lg:justify-start">
+        <RevealWrapper
+          direction="left"
+          duration={0.6}
+          delay={0.2}
+          threshold={0.2}
+          className="flex  items-center justify-center lg:justify-start">
           <div className="relative w-full max-w-md">
             <Image
               src={stairImage}
@@ -31,10 +46,16 @@ const AnalyticsMaturityModel = ({ data, stairImage }) => {
               height={484}
             />
           </div>
-        </div>
+        </RevealWrapper>
 
         {/* Right Side - Stage Details */}
-        <div className=" grid  lg:grid-cols-2 gap-16 ">
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.3}
+          stagger={0.15}
+          threshold={0.15}
+          className=" grid  lg:grid-cols-2 gap-16 ">
           {cards.map((stage, index) => (
             <div key={index} className="space-y-3">
               {/* Stage Title */}
@@ -55,7 +76,7 @@ const AnalyticsMaturityModel = ({ data, stairImage }) => {
               </ul>
             </div>
           ))}
-        </div>
+        </RevealWrapper>
       </div>
     </div>
   );

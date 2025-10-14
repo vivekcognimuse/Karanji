@@ -1,16 +1,32 @@
 import { P2, P3 } from "@/components/CustomTags";
 import Image from "next/image";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const LMSLearning = ({ data }) => {
   const { title, description, cards } = data || {};
 
   return (
     <div>
-      <h3>{title}</h3>
-      <P2>{description}</P2>
+      <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+        <h3>{title}</h3>
+      </RevealWrapper>
+      
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.1}
+        threshold={0.2}>
+        <P2>{description}</P2>
+      </RevealWrapper>
 
-      <div className="justify-center lg:items-start flex flex-col w-full   lg:flex-row gap-4  md:gap-8">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.2}
+        stagger={0.15}
+        threshold={0.15}
+        className="justify-center lg:items-start flex flex-col w-full   lg:flex-row gap-4  md:gap-8">
         {cards.map((card, index) => (
           <div
             key={index}
@@ -35,7 +51,7 @@ const LMSLearning = ({ data }) => {
             </div>
           </div>
         ))}
-      </div>
+      </RevealWrapper>
     </div>
   );
 };

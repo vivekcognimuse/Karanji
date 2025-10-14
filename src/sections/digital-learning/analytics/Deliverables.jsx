@@ -2,7 +2,7 @@ import { P2, P3 } from "@/components/CustomTags";
 import CarouselContainer from "@/components/animations/Carousal";
 import Image from "next/image";
 import React from "react";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const FeatureCard = ({ feature, cardImage, index }) => (
   <div className="w-full px-4 md:px-0">
@@ -42,27 +42,38 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
   return (
     <div>
       {/* Main Content Section */}
-      <div
-        className="mb-8 lg:mb-16"
-        data-reveal-amount="0.3"
-        data-reveal-duration="0.5"
-        data-reveal-stagger="0.12">
-        <h3 className="mb-4" data-reveal data-reveal-dir="up">
-          {title}
-        </h3>
+      <div className="mb-8 lg:mb-16">
+        <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+          <h3 className="mb-4">{title}</h3>
+        </RevealWrapper>
 
-        {tags && <h4 className="mb-4 lg:mb-6 text-black">{tags}</h4>}
-        <P2 className="text-black mb-16" data-reveal data-reveal-dir="up">
-          {subTitle}
-        </P2>
+        {tags && (
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}>
+            <h4 className="mb-4 lg:mb-6 text-black">{tags}</h4>
+          </RevealWrapper>
+        )}
+
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.15}
+          threshold={0.2}>
+          <P2 className="text-black mb-16">{subTitle}</P2>
+        </RevealWrapper>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Side - Hero Image */}
-        <div
-          className="relative rounded-2xl overflow-hidden"
-          data-reveal
-          data-reveal-dir="left">
+        <RevealWrapper
+          direction="left"
+          duration={0.6}
+          delay={0.2}
+          threshold={0.2}
+          className="relative rounded-2xl overflow-hidden">
           <Image
             src={heroImage}
             alt="Student learning with laptop"
@@ -70,18 +81,28 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
             width={800}
             height={800}
           />
-        </div>
+        </RevealWrapper>
 
         {/* Right Side - Features */}
         <div>
           {featureHeader && (
-            <h4 className="text-black mb-16" data-reveal data-reveal-dir="up">
-              {featureHeader}
-            </h4>
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.3}
+              threshold={0.2}>
+              <h4 className="text-black mb-16">{featureHeader}</h4>
+            </RevealWrapper>
           )}
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.4}
+            stagger={0.1}
+            threshold={0.15}
+            className="hidden md:grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
             {cards?.map((feature, index) => (
               <FeatureCard
                 index={index}
@@ -90,10 +111,15 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
                 feature={feature}
               />
             ))}
-          </div>
+          </RevealWrapper>
 
           {/* Mobile Carousel */}
-          <div className="block md:hidden">
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.4}
+            threshold={0.15}
+            className="block md:hidden">
             {cards?.length > 0 && (
               <>
                 {cards.length === 1 ? (
@@ -122,12 +148,9 @@ const Deliverables = ({ heroImage, data, cardImage }) => {
                 )}
               </>
             )}
-          </div>
+          </RevealWrapper>
         </div>
       </div>
-
-      {/* Trigger animations */}
-      <SectionReveal />
     </div>
   );
 };

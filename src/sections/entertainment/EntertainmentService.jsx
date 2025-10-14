@@ -3,6 +3,7 @@ import { P2, P3 } from "@/components/CustomTags";
 
 import Image from "next/image";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const EntertainmentServices = ({ data, icon }) => {
   const { title, subTitle, services } = data;
@@ -12,12 +13,27 @@ const EntertainmentServices = ({ data, icon }) => {
       <div className="">
         {/* Header Section */}
         <div className=" mb-16">
-          <h3 className=" mb-4">{title}</h3>
-          <P2 className="">{subTitle}</P2>
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h3 className=" mb-4">{title}</h3>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}>
+            <P2 className="">{subTitle}</P2>
+          </RevealWrapper>
         </div>
 
         {/* Services Grid */}
-        <div className=" hidden  lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.2}
+          stagger={0.1}
+          threshold={0.15}
+          className=" hidden  lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -46,8 +62,14 @@ const EntertainmentServices = ({ data, icon }) => {
               </div>
             </div>
           ))}
-        </div>
-        <div className="lg:hidden">
+        </RevealWrapper>
+
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.2}
+          threshold={0.15}
+          className="lg:hidden">
           <CarouselContainer>
             {services.map((service, index) => (
               <div
@@ -78,7 +100,7 @@ const EntertainmentServices = ({ data, icon }) => {
               </div>
             ))}
           </CarouselContainer>
-        </div>
+        </RevealWrapper>
       </div>
     </div>
   );

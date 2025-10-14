@@ -2,6 +2,7 @@
 import { P1, P2, P3 } from "@/components/CustomTags";
 import { Icon } from "@iconify/react";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const Accordion = ({ data }) => {
   const { title, subTitle, list } = data;
@@ -11,12 +12,29 @@ const Accordion = ({ data }) => {
       <div className="">
         {/* Header */}
         <div className="mb-16 ">
-          <h3 className=" mb-4">{title}</h3>
-          {subTitle && <P2 className="">{subTitle}</P2>}
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h3 className=" mb-4">{title}</h3>
+          </RevealWrapper>
+
+          {subTitle && (
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.1}
+              threshold={0.2}>
+              <P2 className="">{subTitle}</P2>
+            </RevealWrapper>
+          )}
         </div>
 
         {/* Accordion Items */}
-        <div className="space-y-4">
+        <RevealWrapper
+          direction="up"
+          duration={0.9}
+          delay={0.3}
+          stagger={0.15}
+          threshold={0.3}
+          className="space-y-4">
           {list.map((item, index) => (
             <details
               key={index}
@@ -40,7 +58,7 @@ const Accordion = ({ data }) => {
               </div>
             </details>
           ))}
-        </div>
+        </RevealWrapper>
       </div>
 
       <style jsx>{`

@@ -1,5 +1,6 @@
+// Updated ServiceOfferings.jsx
 import CarouselContainer from "@/components/animations/Carousal";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 import { P2 } from "@/components/CustomTags";
 import { ServiceCard } from "@/components/ui/advisory";
 import { cn } from "@/lib/utils";
@@ -23,33 +24,38 @@ export default function ServiceOfferings({
   };
 
   return (
-    <section
-      data-reveal-amount="0.25"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-      className=" ">
+    <section className="">
       <div className="max-w-[1580px] mx-auto">
+        {/* Header Section */}
         <div className="mb-8">
-          <h3
-            className=" mb-4 opacity-0 will-change-transform"
-            data-reveal
-            data-reveal-dir="up">
-            {title}
-          </h3>
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h3 className="mb-4">{title}</h3>
+          </RevealWrapper>
 
-          <P2
-            className=" text-black mb-16  opacity-0 will-change-transform"
-            data-reveal
-            data-reveal-dir="up">
-            {subTitle || description}
-          </P2>
-          {tag && <h4>{tag}</h4>}
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}>
+            <P2 className="text-black mb-16">{subTitle || description}</P2>
+          </RevealWrapper>
+
+          {tag && (
+            <RevealWrapper
+              direction="up"
+              duration={0.5}
+              delay={0.15}
+              threshold={0.2}>
+              <h4>{tag}</h4>
+            </RevealWrapper>
+          )}
         </div>
 
+        {/* Desktop Grid/Flex Layout */}
         <div
           className={cn(
             heightDifference
-              ? "hidden lg:flex flex-wrap items-end w-full justify-center gap-6 lg:gap-8" // No items-end, use justify-center for proper horizontal centering
+              ? "hidden lg:flex flex-wrap items-end w-full justify-center gap-6 lg:gap-8"
               : `lg:grid grid-cols-1 justify-center gap-6 ${
                   cards.length === 3
                     ? "lg:grid-cols-3"
@@ -60,24 +66,35 @@ export default function ServiceOfferings({
             className
           )}>
           {cards.map((service, index) => (
-            <ServiceCard
+            <RevealWrapper
               key={index}
-              title={service.title}
-              subTitle={service.subTitle}
-              description={service.description}
-              featured={service.featured}
-              index={index}
-              bgImage={bgImage}
-              heightDifference={heightDifference}
-              icon={`${icon}/${index + 1}.svg`}
-              // reveal
-              data-reveal
-              data-reveal-dir={dirForIndex(index)}
-              className="opacity-0 will-change-transform"
-            />
+              direction={dirForIndex(index)}
+              duration={0.5}
+              delay={0.25 + index * 0.12} // Staggered cards
+              distance={30}
+              threshold={0.15}>
+              <ServiceCard
+                title={service.title}
+                subTitle={service.subTitle}
+                description={service.description}
+                featured={service.featured}
+                index={index}
+                bgImage={bgImage}
+                heightDifference={heightDifference}
+                icon={`${icon}/${index + 1}.svg`}
+              />
+            </RevealWrapper>
           ))}
         </div>
-        <div className="lg:hidden">
+
+        {/* Mobile Carousel */}
+        <RevealWrapper
+          direction="up"
+          duration={0.7}
+          delay={0.2}
+          distance={30}
+          threshold={0.2}
+          className="lg:hidden">
           <CarouselContainer>
             {cards.map((service, i) => (
               <ServiceCard
@@ -90,18 +107,11 @@ export default function ServiceOfferings({
                 bgImage={bgImage}
                 heightDifference={heightDifference}
                 icon={`${icon}/${i + 1}.svg`}
-                // reveal
-                data-reveal
-                data-reveal-dir={dirForIndex(i)}
-                className="opacity-0 will-change-transform"
               />
             ))}
           </CarouselContainer>
-        </div>
+        </RevealWrapper>
       </div>
-
-      {/* run the animation for this section only */}
-      <SectionReveal />
     </section>
   );
 }

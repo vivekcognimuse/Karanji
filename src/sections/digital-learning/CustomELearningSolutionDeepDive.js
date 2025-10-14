@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 /**
  * Reusable Card Component
@@ -68,22 +69,46 @@ export default function ELearningSolutions({ data, setActiveTab }) {
     <section className="relative isolate">
       {/* Header */}
       <div className="mb-16">
-        <h3 className="mb-4">{title}</h3>
-        <P2 className="">{subTitle}</P2>
+        <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+          <h3 className="mb-4">{title}</h3>
+        </RevealWrapper>
+
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.1}
+          threshold={0.2}>
+          <P2 className="">{subTitle}</P2>
+        </RevealWrapper>
       </div>
 
       {/* Cards - Desktop */}
-      <div className="w-full hidden md:block md:min-w-lg gap-8 mx-auto px-6">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.2}
+        threshold={0.15}
+        className="w-full hidden md:block md:min-w-lg gap-8 mx-auto px-6">
         <MultiCardCarousel showButtons>{renderCards()}</MultiCardCarousel>
-      </div>
+      </RevealWrapper>
 
       {/* Cards - Mobile */}
-      <div className="w-full md:hidden md:min-w-lg gap-8 mx-auto px-6">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.2}
+        threshold={0.15}
+        className="w-full md:hidden md:min-w-lg gap-8 mx-auto px-6">
         <CarouselContainer>{renderCards()}</CarouselContainer>
-      </div>
+      </RevealWrapper>
 
       {/* CTA */}
-      <div className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.3}
+        threshold={0.2}
+        className="mt-16 flex-col md:flex-row text-center md:text-start flex justify-end items-center gap-4 ">
         <P2 className=" ">
           {ctaText || "Need something totally ready to deploy?"}
         </P2>
@@ -92,7 +117,7 @@ export default function ELearningSolutions({ data, setActiveTab }) {
             {ctaButtonText || "View Ready Solutions and Resources"}
           </Button>
         </Link>
-      </div>
+      </RevealWrapper>
     </section>
   );
 }

@@ -1,8 +1,9 @@
 import CarouselContainer from "@/components/animations/Carousal";
 import { P2 } from "@/components/CustomTags";
-import { Car } from "lucide-react";
+
 import Image from "next/image";
 import React from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 // Utility function to chunk array into groups of specified size
 const chunkArray = (array, chunkSize) => {
@@ -21,10 +22,21 @@ const ContentFormats = ({ data, cardImage }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
-      <P2>{subTitle}</P2>
+      <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+        <h3>{title}</h3>
+      </RevealWrapper>
+
+      <RevealWrapper direction="up" duration={0.6} delay={0.1} threshold={0.2}>
+        <P2>{subTitle}</P2>
+      </RevealWrapper>
+
       {image && (
-        <div className="mt-8 rounded-2xl h-auto max-h-96 bg-purple-200 object-bottom overflow-hidden">
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.2}
+          threshold={0.2}
+          className="mt-8 rounded-2xl h-auto max-h-96 bg-purple-200 object-bottom overflow-hidden">
           <Image
             src={image}
             alt="Content Formats"
@@ -33,11 +45,17 @@ const ContentFormats = ({ data, cardImage }) => {
             height={400}
             className="w-full h-full object-cover object-center"
           />
-        </div>
+        </RevealWrapper>
       )}
 
       {/* Desktop View - Original Grid Implementation */}
-      <div className="mt-16 hidden lg:grid gap-4 grid-cols-1 lg:grid-cols-3">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.3}
+        stagger={0.1}
+        threshold={0.15}
+        className="mt-16 hidden lg:grid gap-4 grid-cols-1 lg:grid-cols-3">
         {cards.map((item, index) => (
           <div
             key={index}
@@ -54,10 +72,15 @@ const ContentFormats = ({ data, cardImage }) => {
             <h5 className="mb-0">{item.title}</h5>
           </div>
         ))}
-      </div>
+      </RevealWrapper>
 
       {/* Mobile View - Chunked Carousel */}
-      <div className="mt-16 lg:hidden">
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.3}
+        threshold={0.15}
+        className="mt-16 lg:hidden">
         <CarouselContainer>
           {chunkedContent.map((chunk, chunkIndex) => (
             <div key={chunkIndex} className="w-full space-y-4 px-4">
@@ -84,7 +107,7 @@ const ContentFormats = ({ data, cardImage }) => {
             </div>
           ))}
         </CarouselContainer>
-      </div>
+      </RevealWrapper>
     </div>
   );
 };

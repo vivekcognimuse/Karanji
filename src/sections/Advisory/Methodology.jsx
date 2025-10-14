@@ -1,6 +1,7 @@
+// Updated Methodology.jsx
 import { P2 } from "@/components/CustomTags";
 import { MethodologyStep } from "@/components/ui/advisory";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 import CarouselContainer from "@/components/animations/Carousal";
 
 // Utility function to chunk array into groups of specified size
@@ -19,25 +20,33 @@ export default function Methodology({ column, data }) {
   const chunkedList = chunkArray(list, 2);
 
   return (
-    <section
-      className=" "
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
-      <div className=" mx-auto">
+    <section className="">
+      <div className="mx-auto">
+        {/* Header Section */}
         <div className="mb-16">
-          <h3 className="" data-reveal data-reveal-dir="up">
-            {title}
-          </h3>
-          <P2 className="" data-reveal data-reveal-dir="up">
-            {subTitle}
-          </P2>
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h3 className="">{title}</h3>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}>
+            <P2 className="">{subTitle}</P2>
+          </RevealWrapper>
         </div>
 
-        {/* Desktop View - Original Implementation */}
+        {/* Desktop View - Individual step animations */}
         <div className="hidden max-w-6xl mx-auto lg:block lg:px-32 -z-1 rounded-2xl space-y-8">
           {list.map((item, index) => (
-            <div key={index} data-reveal data-reveal-dir="up">
+            <RevealWrapper
+              key={index}
+              direction="up"
+              duration={0.5}
+              delay={0.2 + index * 0.12} // Staggered steps
+              distance={30}
+              threshold={0.15}>
               <MethodologyStep
                 column={column}
                 isStepHidden={isStepHidden}
@@ -46,19 +55,21 @@ export default function Methodology({ column, data }) {
                 tags={item.tags}
                 description={item.description}
               />
-            </div>
+            </RevealWrapper>
           ))}
         </div>
 
-        {/* Mobile View - Chunked Carousel */}
-        <div className="lg:hidden lg:px-32 -z-1 rounded-2xl space-y-8">
+        {/* Mobile View - Carousel with chunked items */}
+        <RevealWrapper
+          direction="up"
+          duration={0.7}
+          delay={0.2}
+          distance={30}
+          threshold={0.2}
+          className="lg:hidden lg:px-32 -z-1 rounded-2xl space-y-8">
           <CarouselContainer>
             {chunkedList.map((chunk, chunkIndex) => (
-              <div
-                key={chunkIndex}
-                className="w-full space-y-6 px-4"
-                data-reveal
-                data-reveal-dir="up">
+              <div key={chunkIndex} className="w-full space-y-6 px-4">
                 {chunk.map((item, itemIndex) => {
                   // Calculate the original step number
                   const originalIndex = chunkIndex * 2 + itemIndex;
@@ -78,10 +89,8 @@ export default function Methodology({ column, data }) {
               </div>
             ))}
           </CarouselContainer>
-        </div>
+        </RevealWrapper>
       </div>
-
-      <SectionReveal />
     </section>
   );
 }

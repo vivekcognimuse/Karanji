@@ -9,6 +9,7 @@
 
 import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 export default function Results({ data = {} }) {
   const {
@@ -23,10 +24,25 @@ export default function Results({ data = {} }) {
     <div className=" ">
       {/* Header */}
       <div className="mb-8">
-        <h4 className=" mb-4">{title}</h4>
-        <P3 className="text-sm text-gray-600">{subTitle}</P3>
+        <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+          <h4 className=" mb-4">{title}</h4>
+        </RevealWrapper>
+        
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.1}
+          threshold={0.2}>
+          <P3 className="text-sm text-gray-600">{subTitle}</P3>
+        </RevealWrapper>
       </div>
-      <div className="flex-center">
+      
+      <RevealWrapper
+        direction="up"
+        duration={0.6}
+        delay={0.2}
+        threshold={0.2}
+        className="flex-center">
         <Image
           src="/digital-learning/analytics/theResult.svg"
           alt="Descriptive Alt Text"
@@ -34,7 +50,7 @@ export default function Results({ data = {} }) {
           height={317}
           className="object-contain w-full lg:max-w-xl h-auto"
         />
-      </div>
+      </RevealWrapper>
 
       {/* Content Layout */}
       {/* <div className="space-y-6">

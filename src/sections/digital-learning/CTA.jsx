@@ -1,8 +1,10 @@
+// Updated CTA.jsx
 "use client";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import React, { useState } from "react";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const CTA = ({ className = "", data }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -143,25 +145,45 @@ const CTA = ({ className = "", data }) => {
   return (
     <>
       <section className={`text-center ${className}`}>
-        <h3>{title}</h3>
-        <P2>{subTitle}</P2>
-        <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
-          {PrimaryButton?.name && (
-            <Button variant="secondary" onClick={handlePrimaryButtonClick}>
-              {PrimaryButton.name}
-            </Button>
-          )}
-          {secondaryButton?.name && secondaryButton?.link && (
-            <Link href={secondaryButton.link}>
-              <Button href={secondaryButton.link}>
-                {secondaryButton.name}
+        {/* Title */}
+        <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+          <h3>{title}</h3>
+        </RevealWrapper>
+
+        {/* Subtitle */}
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.1}
+          threshold={0.2}>
+          <P2>{subTitle}</P2>
+        </RevealWrapper>
+
+        {/* Buttons */}
+        <RevealWrapper
+          direction="up"
+          duration={0.6}
+          delay={0.2}
+          distance={25}
+          threshold={0.2}>
+          <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
+            {PrimaryButton?.name && (
+              <Button variant="secondary" onClick={handlePrimaryButtonClick}>
+                {PrimaryButton.name}
               </Button>
-            </Link>
-          )}
-        </div>
+            )}
+            {secondaryButton?.name && secondaryButton?.link && (
+              <Link href={secondaryButton.link}>
+                <Button href={secondaryButton.link}>
+                  {secondaryButton.name}
+                </Button>
+              </Link>
+            )}
+          </div>
+        </RevealWrapper>
       </section>
 
-      {/* Popup Overlay */}
+      {/* Popup Overlay - No changes */}
       {isPopupOpen && (
         <div className="fixed  inset-0 h-screen bg-black/10 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
           <div className="bg-gradient-to-br from-purple-100 to-blue-100 flex flex-col justify-center max-h-[98vh] rounded-3xl min-h-[60vh] max-w-xl w-full mx-4 p-8 relative">
