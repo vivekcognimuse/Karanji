@@ -31,6 +31,7 @@ const EcoSystem = () => {
           alt="ecosystem visualisation"
           height={196}
           width={1062}
+          className="w-full max-w-5/6 max-h-52 h-auto"
         />
       </RevealWrapper>
 

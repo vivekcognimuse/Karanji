@@ -170,8 +170,12 @@ const SingleServiceCard = memo(function SingleServiceCard({
         <div className="relative h-full w-full px-8 py-8">
           {/* Background Image - hidden on hover */}
           <div
-            className="absolute z-0 bottom-0 flex justify-center  bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300"
-            style={{ backgroundImage: `url('${bgImage}')` }}>
+            className="absolute z-0 bottom-0 flex justify-center bg-cover bg-no-repeat w-full h-full top-0 right-0 left-0 group-hover:opacity-0 transition-opacity duration-300"
+            style={
+              bgImage
+                ? { backgroundImage: `url('${bgImage}')` }
+                : { backgroundImage: "none" }
+            }>
             <Image
               src={
                 image
