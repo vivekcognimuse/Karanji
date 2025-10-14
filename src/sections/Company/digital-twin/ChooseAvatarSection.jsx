@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { P3, P4 } from "@/components/CustomTags";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 // Single AvatarCard component with iFrame isolation
 function AvatarCard({ avatar, description }) {
@@ -47,11 +47,7 @@ function AvatarCard({ avatar, description }) {
   }, []);
 
   return (
-    <div
-      className="relative w-full mx-auto md:mx-0  lg:w-1/2 flex-shrink-0"
-      data-reveal
-      data-reveal-dir="up" // Add data-reveal for animation
-    >
+    <div className="relative w-full">
       <div className="relative flex flex-col w-full h-full rounded-2xl p-3 border border-black-100  shadow-sm overflow-hidden">
         {/* Online Status */}
         <div className="absolute top-6 left-6 flex items-center gap-2 z-10">
@@ -148,14 +144,18 @@ export default function ChooseAvatarSection({ data }) {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center sm:items-stretch gap-4 sm:gap-6 md:gap-8">
       {avatarsData.map((avatar, index) => (
-        <AvatarCard
+        <RevealWrapper
           key={avatar.name}
-          description={avatar.description}
-          avatar={avatar}
-        />
+          direction="up"
+          duration={0.6}
+          delay={0.2 + index * 0.15}
+          distance={30}
+          threshold={0.2}
+          className="w-full mx-auto md:mx-0  lg:w-1/2 flex-shrink-0"
+        >
+          <AvatarCard description={avatar.description} avatar={avatar} />
+        </RevealWrapper>
       ))}
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </div>
   );
 }

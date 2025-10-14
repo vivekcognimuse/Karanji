@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import { P2, P3 } from "../CustomTags";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 export default function RegisterForWebinar({ data }) {
   const [formData, setFormData] = useState({
@@ -99,153 +99,161 @@ export default function RegisterForWebinar({ data }) {
   };
 
   return (
-    <section
-      className="py-20"
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+    <section className="py-20">
       <div className="mx-auto">
         {/* Title and Description with Reveal Animation */}
-        <div className="mb-16" data-reveal data-reveal-dir="up">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">
-            {data.title}
-          </h3>
-          <P2 className="text-gray-600 text-lg">{data.description}</P2>
-        </div>
+        <RevealWrapper direction="up" duration={0.5} threshold={0.3}>
+          <div className="mb-16">
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">
+              {data.title}
+            </h3>
+            <P2 className="text-gray-600 text-lg">{data.description}</P2>
+          </div>
+        </RevealWrapper>
 
         <div className="grid lg:grid-cols-2 gap-16 items-stretch">
           {/* Left Column with Reveal Animation */}
-          <div
-            className="flex flex-col justify-between space-y-8"
-            data-reveal
-            data-reveal-dir="up"
-          >
+          <div className="flex flex-col justify-between space-y-8">
             {/* Features List with Reveal Animation */}
             <div className="space-y-6">
               {data.features.map((feature, idx) => (
-                <div
+                <RevealWrapper
                   key={idx}
-                  className="space-y-2"
-                  data-reveal
-                  data-reveal-dir="up"
+                  direction="up"
+                  duration={0.5}
+                  delay={0.2 + idx * 0.12}
+                  distance={30}
+                  threshold={0.3}
                 >
-                  <h4 className="text-xl font-semibold text-gray-900">
-                    {feature.title}
-                  </h4>
-                  <P3 className="text-gray-600">{feature.description}</P3>
-                </div>
+                  <div className="space-y-2">
+                    <h4 className="text-xl font-semibold text-gray-900">
+                      {feature.title}
+                    </h4>
+                    <P3 className="text-gray-600">{feature.description}</P3>
+                  </div>
+                </RevealWrapper>
               ))}
             </div>
 
             {/* Register for Free Box with Reveal Animation */}
-            <div
-              className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl"
-              data-reveal
-              data-reveal-dir="up"
+            <RevealWrapper
+              direction="up"
+              duration={0.5}
+              delay={0.2 + data.features.length * 0.12}
+              distance={30}
+              threshold={0.3}
             >
-              <div className="text-center">
-                <h5 className="text-black-950 mb-4">REGISTER FOR FREE</h5>
-                <P3 className="text-black-700 text-lg ">
-                  Transform Your Workforce with Karanji's Virtual Engine
-                  Workshop Today
-                </P3>
+              <div className="bg-gradient-to-br from-purple-200 via-purple-300 to-pink-200 p-8 rounded-3xl">
+                <div className="text-center">
+                  <h5 className="text-black-950 mb-4">REGISTER FOR FREE</h5>
+                  <P3 className="text-black-700 text-lg ">
+                    Transform Your Workforce with Karanji's Virtual Engine
+                    Workshop Today
+                  </P3>
+                </div>
               </div>
-            </div>
+            </RevealWrapper>
           </div>
 
           {/* Right Column - Form with Reveal Animation */}
-          <div className="pl-12 flex flex-col" data-reveal data-reveal-dir="up">
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-6 flex-grow flex flex-col"
-            >
-              <div data-reveal data-reveal-dir="up">
-                <label className="block text-gray-900 font-medium mb-2">
-                  Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Alex"
-                  className={`w-full px-0 py-3 border-0 border-b-2 ${
-                    errors.name ? "border-red-500" : "border-black-500"
-                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                )}
-              </div>
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.3}
+            distance={30}
+            threshold={0.3}
+          >
+            <div className="pl-12 flex flex-col">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6 flex-grow flex flex-col"
+              >
+                <div>
+                  <label className="block text-gray-900 font-medium mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Alex"
+                    className={`w-full px-0 py-3 border-0 border-b-2 ${
+                      errors.name ? "border-red-500" : "border-black-500"
+                    } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
+                </div>
 
-              <div data-reveal data-reveal-dir="up">
-                <label className="block text-gray-900 font-medium mb-2">
-                  Company <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  placeholder="Meta"
-                  className={`w-full px-0 py-3 border-0 border-b-2 ${
-                    errors.company ? "border-red-500" : "border-black-500"
-                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
-                />
-                {errors.company && (
-                  <p className="text-red-500 text-sm mt-1">{errors.company}</p>
-                )}
-              </div>
+                <div>
+                  <label className="block text-gray-900 font-medium mb-2">
+                    Company <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    placeholder="Meta"
+                    className={`w-full px-0 py-3 border-0 border-b-2 ${
+                      errors.company ? "border-red-500" : "border-black-500"
+                    } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
+                  />
+                  {errors.company && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.company}
+                    </p>
+                  )}
+                </div>
 
-              <div data-reveal data-reveal-dir="up">
-                <label className="block text-gray-900 font-medium mb-2">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="alex@meta.com"
-                  className={`w-full px-0 py-3 border-0 border-b-2 ${
-                    errors.email ? "border-red-500" : "border-black-500"
-                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                )}
-              </div>
+                <div>
+                  <label className="block text-gray-900 font-medium mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="alex@meta.com"
+                    className={`w-full px-0 py-3 border-0 border-b-2 ${
+                      errors.email ? "border-red-500" : "border-black-500"
+                    } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
+                </div>
 
-              <div className="flex-grow" data-reveal data-reveal-dir="up">
-                <label className="block text-gray-900 font-medium mb-2">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="+91 01234 45678"
-                  className={`w-full px-0 py-3 border-0 border-b-2 ${
-                    errors.phone ? "border-red-500" : "border-black-500"
-                  } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
-                />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                )}
-              </div>
+                <div className="flex-grow">
+                  <label className="block text-gray-900 font-medium mb-2">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 01234 45678"
+                    className={`w-full px-0 py-3 border-0 border-b-2 ${
+                      errors.phone ? "border-red-500" : "border-black-500"
+                    } focus:border-purple-500 focus:outline-none bg-transparent text-gray-900 placeholder-gray-400`}
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                  )}
+                </div>
 
-              <Button type="submit" className="" disabled={isSubmitting}>
-                {isSubmitting ? "Submitting..." : "Submit"}
-              </Button>
-            </form>
-          </div>
+                <Button type="submit" className="" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </Button>
+              </form>
+            </div>
+          </RevealWrapper>
         </div>
       </div>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </section>
   );
 }

@@ -3,6 +3,8 @@ import Button from "@/components/ui/Button";
 import { toPlainText } from "@/utils/ish";
 import Image from "next/image";
 import Link from "next/link";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
+
 export default function WebinarHeader({ data, bgImage }) {
   const buttons = Array.isArray(data?.buttons)
     ? data.buttons[0] ?? {}
@@ -73,147 +75,174 @@ export default function WebinarHeader({ data, bgImage }) {
         <div className="space-y-6 sm:space-y-8 lg:flex-grow flex flex-col justify-center max-w-[1580px] lg:mx-auto px-4 sm:px-6">
           {/* Title and Description - Following HeroSection spacing */}
           <div className="space-y-3 sm:space-y-4">
-            <h2 className="text-center">{data?.title}</h2>
+            <RevealWrapper
+              direction="up"
+              duration={0.7}
+              delay={0.2}
+              threshold={0.2}
+            >
+              <h2 className="text-center">{data?.title}</h2>
+            </RevealWrapper>
 
             {data?.description && (
-              <P1 className="text-center mx-auto max-w-4xl">
-                {toPlainText(data.description)}
-              </P1>
+              <RevealWrapper
+                direction="up"
+                duration={0.7}
+                delay={0.3}
+                threshold={0.2}
+              >
+                <P1 className="text-center mx-auto max-w-4xl">
+                  {toPlainText(data.description)}
+                </P1>
+              </RevealWrapper>
             )}
           </div>
 
           {/* Buttons - Following HeroSection CTA pattern */}
           {(buttons.register || buttons.preview) && (
-            <div className="flex justify-center gap-4 flex-wrap">
-              {buttons.register && buttons.registerLink && (
-                <Link
-                  href={buttons.registerLink}
-                  target={
-                    buttons.registerLink?.startsWith("http")
-                      ? "_blank"
-                      : undefined
-                  }
-                  rel={
-                    buttons.registerLink?.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <Button className="whitespace-nowrap">
-                    {buttons.register}
-                  </Button>
-                </Link>
-              )}
-              {buttons.preview && buttons.previewLink && (
-                <Link
-                  href={buttons.previewLink}
-                  target={
-                    buttons.previewLink?.startsWith("http")
-                      ? "_blank"
-                      : undefined
-                  }
-                  rel={
-                    buttons.previewLink?.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  <Button
-                    variant="secondary"
-                    className="bg-white text-black border border-black whitespace-nowrap"
+            <RevealWrapper
+              direction="up"
+              duration={0.7}
+              delay={0.4}
+              threshold={0.2}
+            >
+              <div className="flex justify-center gap-4 flex-wrap">
+                {buttons.register && buttons.registerLink && (
+                  <Link
+                    href={buttons.registerLink}
+                    target={
+                      buttons.registerLink?.startsWith("http")
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel={
+                      buttons.registerLink?.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                   >
-                    {buttons.preview}
-                  </Button>
-                </Link>
-              )}
-            </div>
+                    <Button className="whitespace-nowrap">
+                      {buttons.register}
+                    </Button>
+                  </Link>
+                )}
+                {buttons.preview && buttons.previewLink && (
+                  <Link
+                    href={buttons.previewLink}
+                    target={
+                      buttons.previewLink?.startsWith("http")
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel={
+                      buttons.previewLink?.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                  >
+                    <Button
+                      variant="secondary"
+                      className="bg-white text-black border border-black whitespace-nowrap"
+                    >
+                      {buttons.preview}
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </RevealWrapper>
           )}
         </div>
 
         {/* Event Details Section - Following HeroSection stats pattern */}
-        {/* Event Details Section - Following HeroSection stats pattern */}
         {(data?.date || data?.time || data?.location) && (
-          <div className="w-full my-8 sm:my-12 lg:my-16 px-4 sm:px-6">
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
-              {/* Date */}
-              {data?.date && (
-                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Image
-                      height={40}
-                      width={40}
-                      unoptimized
-                      src="/Icons/Calendar.svg"
-                      alt="Calendar"
-                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
-                    />
-                  </div>
-                  <div className="text-left min-w-0">
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {dateFormatted.line1}
+          <RevealWrapper
+            direction="up"
+            duration={0.7}
+            delay={0.5}
+            threshold={0.2}
+          >
+            <div className="w-full my-8 sm:my-12 lg:my-16 px-4 sm:px-6">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+                {/* Date */}
+                {data?.date && (
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Image
+                        height={40}
+                        width={40}
+                        unoptimized
+                        src="/Icons/Calendar.svg"
+                        alt="Calendar"
+                        className="w-6 h-6 sm:w-8 sm:h-8"
+                      />
                     </div>
-                    {dateFormatted.line2 && (
+                    <div className="text-left min-w-0">
                       <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                        {dateFormatted.line2}
+                        {dateFormatted.line1}
                       </div>
-                    )}
+                      {dateFormatted.line2 && (
+                        <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                          {dateFormatted.line2}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Time */}
-              {data?.time && (
-                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                  <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Image
-                      unoptimized
-                      height={40}
-                      width={40}
-                      src="/Icons/Clock.svg"
-                      alt="Time"
-                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
-                    />
-                  </div>
-                  <div className="text-left min-w-0">
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {timeFormatted.line1}
+                {/* Time */}
+                {data?.time && (
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                    <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Image
+                        unoptimized
+                        height={40}
+                        width={40}
+                        src="/Icons/Clock.svg"
+                        alt="Time"
+                        className="w-6 h-6 sm:w-8 sm:h-8"
+                      />
                     </div>
-                    {timeFormatted.line2 && (
+                    <div className="text-left min-w-0">
                       <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                        {timeFormatted.line2}
+                        {timeFormatted.line1}
                       </div>
-                    )}
+                      {timeFormatted.line2 && (
+                        <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                          {timeFormatted.line2}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* Location */}
-              {data?.location && (
-                <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Image
-                      height={40}
-                      width={40}
-                      unoptimized
-                      src="/Icons/weui_location-outlined.svg"
-                      alt="Location"
-                      className="w-6 h-6 sm:w-8 sm:h-8" // Slightly larger on bigger screens
-                    />
-                  </div>
-                  <div className="text-left min-w-0">
-                    <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                      {locationFormatted.line1}
+                {/* Location */}
+                {data?.location && (
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg min-w-0 w-full sm:w-auto justify-center sm:justify-start">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Image
+                        height={40}
+                        width={40}
+                        unoptimized
+                        src="/Icons/weui_location-outlined.svg"
+                        alt="Location"
+                        className="w-6 h-6 sm:w-8 sm:h-8"
+                      />
                     </div>
-                    {locationFormatted.line2 && (
+                    <div className="text-left min-w-0">
                       <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
-                        {locationFormatted.line2}
+                        {locationFormatted.line1}
                       </div>
-                    )}
+                      {locationFormatted.line2 && (
+                        <div className="text-sm sm:text-base font-medium text-gray-900 whitespace-nowrap">
+                          {locationFormatted.line2}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          </RevealWrapper>
         )}
       </div>
     </section>

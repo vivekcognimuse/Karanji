@@ -5,7 +5,7 @@ import CarouselContainer from "@/components/animations/Carousal";
 import FilterDropdown from "@/components/ui/filter";
 import React, { useState } from "react";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const StrategicUseCase = ({ data, icon }) => {
   const {
@@ -45,7 +45,7 @@ const StrategicUseCase = ({ data, icon }) => {
     } = card;
 
     return (
-      <div className="w-full px-2 md:px-0" data-reveal data-reveal-dir="up">
+      <div className="w-full px-2 md:px-0">
         <div className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition h-full bg-white">
           <div className="flex items-center justify-between mb-2 text-sm font-semibold">
             <div className="p-2 rounded-full">
@@ -66,7 +66,8 @@ const StrategicUseCase = ({ data, icon }) => {
                   "linear-gradient(90deg, #5254CB 100%, #FF942F 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-              }}>
+              }}
+            >
               {category}
             </P5>
           </div>
@@ -85,24 +86,25 @@ const StrategicUseCase = ({ data, icon }) => {
   };
 
   return (
-    <section
-      className="py-16 px-6"
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12">
+    <section className="py-16 px-6">
       <div className="mx-auto">
         {/* Section Title */}
         {sectionTitle && (
-          <h3 className="mb-2" data-reveal data-reveal-dir="up">
-            {sectionTitle}
-          </h3>
+          <RevealWrapper direction="up" duration={0.5} threshold={0.3}>
+            <h3 className="mb-2">{sectionTitle}</h3>
+          </RevealWrapper>
         )}
 
         {/* Section Description - only show if provided */}
         {sectionDescription && (
-          <P2 className="mb-8" data-reveal data-reveal-dir="up">
-            {sectionDescription}
-          </P2>
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.3}
+          >
+            <P2 className="mb-8">{sectionDescription}</P2>
+          </RevealWrapper>
         )}
 
         {/* Filter Buttons */}
@@ -110,39 +112,53 @@ const StrategicUseCase = ({ data, icon }) => {
           {/* Desktop Filter Buttons - Hidden on Mobile */}
           <div className="hidden md:flex flex-wrap gap-4">
             {filterButtons.map((button, idx) => (
-              <Button
+              <RevealWrapper
                 key={idx}
-                size="sm"
-                variant="secondary"
-                onClick={() => handleFilterClick(button.label)}
-                className={`px-6 py-2 gap-10 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
-                  selectedCategory === button.label
-                    ? "text-black" // Remove bg-black
-                    : "bg-white hover:bg-black/30 text-black"
-                }`}
-                style={
-                  selectedCategory === button.label
-                    ? {
-                        background:
-                          "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
-                      }
-                    : undefined
-                }
-                data-reveal
-                data-reveal-dir="up">
-                {button.label}
-              </Button>
+                direction="up"
+                duration={0.5}
+                delay={0.15 + idx * 0.12}
+                distance={30}
+                threshold={0.3}
+              >
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={() => handleFilterClick(button.label)}
+                  className={`px-6 py-2 gap-10 rounded-full shadow-elevated shadow-lg text-base sm:text-lg font-light transition-all duration-200 cursor-pointer ${
+                    selectedCategory === button.label
+                      ? "text-black"
+                      : "bg-white hover:bg-black/30 text-black"
+                  }`}
+                  style={
+                    selectedCategory === button.label
+                      ? {
+                          background:
+                            "linear-gradient(83.18deg, #D3C9FF 0.51%, #DCF0FF 48.72%, #FFCFCF 96.92%)",
+                        }
+                      : undefined
+                  }
+                >
+                  {button.label}
+                </Button>
+              </RevealWrapper>
             ))}
           </div>
 
           {/* Mobile Filter Dropdown - Shown only on Mobile */}
-          <div className="block md:hidden">
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.15}
+            threshold={0.3}
+            className="block md:hidden"
+          >
             <FilterDropdown
               selectedValue={selectedCategory}
               showSelectedInButton={true}
               buttonText="Filter Categories"
               position="left"
-              className="w-full max-w-xs">
+              className="w-full max-w-xs"
+            >
               {filterButtons.map((button, idx) => (
                 <button
                   key={idx}
@@ -152,13 +168,12 @@ const StrategicUseCase = ({ data, icon }) => {
                       ? "bg-gradient-to-r from-[rgb(105,189,242)] via-[rgb(212,128,242)] to-[rgb(255,191,128)] text-white font-medium"
                       : "text-gray-700"
                   }`}
-                  data-reveal
-                  data-reveal-dir="up">
+                >
                   {button.label}
                 </button>
               ))}
             </FilterDropdown>
-          </div>
+          </RevealWrapper>
         </div>
 
         {/* Content Area */}
@@ -167,50 +182,63 @@ const StrategicUseCase = ({ data, icon }) => {
             {/* Desktop Grid - Hidden on Mobile */}
             <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCards.map((card, index) => (
-                <div
+                <RevealWrapper
                   key={card.id}
-                  className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition"
-                  data-reveal
-                  data-reveal-dir="up">
-                  <div className="flex items-center justify-between mb-2 text-sm font-semibold">
-                    <div className="p-2 rounded-full">
-                      <Image
-                        src={`${icon}/${index + 1}.svg`}
-                        alt={card.title}
-                        width={40}
-                        height={40}
-                        unoptimized
-                        className="size-10"
-                      />
+                  direction="up"
+                  duration={0.5}
+                  delay={0.2 + index * 0.12}
+                  distance={30}
+                  threshold={0.3}
+                >
+                  <div className="border border-black-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition">
+                    <div className="flex items-center justify-between mb-2 text-sm font-semibold">
+                      <div className="p-2 rounded-full">
+                        <Image
+                          src={`${icon}/${index + 1}.svg`}
+                          alt={card.title}
+                          width={40}
+                          height={40}
+                          unoptimized
+                          className="size-10"
+                        />
+                      </div>
+                      <P5 className="ml-auto border text-sm border-black-500 rounded-[5px] py-0.5 bg-gradient-to-r bg-clip-text text-transparent from-[#5254CB] to-[#FF942F] px-1 block w-fit mb-4">
+                        {card.category}
+                      </P5>
                     </div>
-                    <P5 className="ml-auto border text-sm border-black-500 rounded-[5px] py-0.5 bg-gradient-to-r bg-clip-text text-transparent from-[#5254CB] to-[#FF942F] px-1 block w-fit mb-4">
-                      {card.category}
-                    </P5>
+
+                    <P2 className="mb-2 border-b border-gray-300">
+                      {card.title}
+                    </P2>
+
+                    <P3 className="text-black-500 mb-3">{card.description}</P3>
+
+                    <div className="flex justify-between text-black-500">
+                      <P4>{card.duration}</P4>
+                      <P4>{card.complexity}</P4>
+                    </div>
                   </div>
-
-                  <P2 className="mb-2 border-b border-gray-300">
-                    {card.title}
-                  </P2>
-
-                  <P3 className="text-black-500 mb-3">{card.description}</P3>
-
-                  <div className="flex justify-between text-black-500">
-                    <P4>{card.duration}</P4>
-                    <P4>{card.complexity}</P4>
-                  </div>
-                </div>
+                </RevealWrapper>
               ))}
             </div>
 
             {/* Mobile Carousel - Shown only on Mobile */}
-            <div className="block md:hidden">
+            <RevealWrapper
+              direction="up"
+              duration={0.5}
+              delay={0.2}
+              distance={30}
+              threshold={0.3}
+              className="block md:hidden"
+            >
               <CarouselContainer
                 key={`${selectedCategory}-${filteredCards.length}`}
                 autoPlay={true}
                 autoPlayInterval={6000}
                 showDots={true}
                 showArrows={false}
-                className="w-full">
+                className="w-full"
+              >
                 {filteredCards.map((card, index) => (
                   <UseCaseCard
                     key={card.id}
@@ -220,17 +248,21 @@ const StrategicUseCase = ({ data, icon }) => {
                   />
                 ))}
               </CarouselContainer>
-            </div>
+            </RevealWrapper>
           </>
         ) : (
-          <div className="text-center py-8">
-            <P3>No cards available for the selected category.</P3>
-          </div>
+          <RevealWrapper
+            direction="up"
+            duration={0.5}
+            delay={0.2}
+            threshold={0.3}
+          >
+            <div className="text-center py-8">
+              <P3>No cards available for the selected category.</P3>
+            </div>
+          </RevealWrapper>
         )}
       </div>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </section>
   );
 };

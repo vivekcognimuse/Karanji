@@ -5,7 +5,7 @@ import DownloadSection from "../blog/downloadSection";
 import QuoteBlock from "../blog/QuoteBlock";
 import { P1, P3 } from "../CustomTags";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal";
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 const slugify = (s) =>
   (s || "")
@@ -59,89 +59,112 @@ const CaseStudyPage = ({ data }) => {
     switch (section.type) {
       case "heading":
         return (
-          <h4
-            id={slugify(section.content)}
-            className="mt-10 mb-4 scroll-mt-24"
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up">
-            {section.content}
-          </h4>
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <h4
+              id={slugify(section.content)}
+              className="mt-10 mb-4 scroll-mt-24"
+            >
+              {section.content}
+            </h4>
+          </RevealWrapper>
         );
       case "subheading":
         return (
-          <h5
-            className="mt-6 text-black-950/50 mb-2"
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up">
-            {section.content}
-          </h5>
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <h5 className="mt-6 text-black-950/50 mb-2">{section.content}</h5>
+          </RevealWrapper>
         );
       case "text":
         return (
-          <P3
-            className="text-black-950/50 mb-4"
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up">
-            {section.content}
-          </P3>
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <P3 className="text-black-950/50 mb-4">{section.content}</P3>
+          </RevealWrapper>
         );
       case "subtext":
         return (
-          <P3
-            className="text-black-950/50 mb-4"
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up">
-            {section.content}
-          </P3>
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <P3 className="text-black-950/50 mb-4">{section.content}</P3>
+          </RevealWrapper>
         );
       case "list":
         return (
-          <P3
-            className="font-outfit text-lg font-light sm:text-xl text-black-950/50 mb-4"
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up">
-            <ul className="list-disc pl-5 space-y-2">
-              {(section.items || []).map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </P3>
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <div className="font-outfit text-lg font-light sm:text-xl text-black-950/50 mb-4">
+              <ul className="list-disc pl-5 space-y-2">
+                {(section.items || []).map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </RevealWrapper>
         );
       case "quote_group":
         return (
-          <div
+          <RevealWrapper
             key={idx}
-            className="relative mb-6 p-6"
-            data-reveal
-            data-reveal-dir="up">
-            <div
-              className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
-              style={{
-                backgroundImage: "url('/blog/Quotes.svg')",
-                opacity: 0.3,
-                pointerEvents: "none",
-              }}
-            />
-            <div className="relative z-10">
-              {section.quotes.map((quote, quoteIndex) => (
-                <QuoteBlock key={quoteIndex} quote={quote.content} />
-              ))}
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <div className="relative mb-6 p-6">
+              <div
+                className="absolute inset-0 bg-cover bg-right bg-no-repeat rounded-lg"
+                style={{
+                  backgroundImage: "url('/blog/Quotes.svg')",
+                  opacity: 0.3,
+                  pointerEvents: "none",
+                }}
+              />
+              <div className="relative z-10">
+                {section.quotes.map((quote, quoteIndex) => (
+                  <QuoteBlock key={quoteIndex} quote={quote.content} />
+                ))}
+              </div>
             </div>
-          </div>
+          </RevealWrapper>
         );
       case "quote":
         return (
-          <QuoteBlock
-            quote={section.content}
+          <RevealWrapper
             key={idx}
-            data-reveal
-            data-reveal-dir="up"
-          />
+            direction="up"
+            duration={0.5}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <QuoteBlock quote={section.content} />
+          </RevealWrapper>
         );
       default:
         return null;
@@ -154,40 +177,64 @@ const CaseStudyPage = ({ data }) => {
         {/* Full Width Header */}
         <div className="mx-auto">
           <header className="mb-10">
-            <h2 className="mt-20 mb-4" data-reveal data-reveal-dir="up">
-              {data.title}
-            </h2>
-            <P1
-              className="text-[#333333] text-base mb-4"
-              data-reveal
-              data-reveal-dir="up">
-              {data.description}
-            </P1>
-            <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
-              {(data.tags || []).map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.2}
+              threshold={0.2}
+            >
+              <h2 className="mt-20 mb-4">{data.title}</h2>
+            </RevealWrapper>
+
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.3}
+              threshold={0.2}
+            >
+              <P1 className="text-[#333333] text-base mb-4">
+                {data.description}
+              </P1>
+            </RevealWrapper>
+
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.35}
+              threshold={0.2}
+            >
+              <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4 mt-4">
+                {(data.tags || []).map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="leading-[28px] tracking-[0.05em] text-black bg-gray-300/50 rounded-full px-3 py-1"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </RevealWrapper>
           </header>
         </div>
 
         {/* Full Width Hero Image */}
         <div className="mx-auto">
-          <Image
-            id="hero-image"
-            src={data.image}
-            alt={data.title}
-            width={1200}
-            height={600}
-            unoptimized
-            className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
-            data-reveal
-            data-reveal-dir="up"
-          />
+          <RevealWrapper
+            direction="up"
+            duration={0.7}
+            delay={0.4}
+            threshold={0.2}
+          >
+            <Image
+              id="hero-image"
+              src={data.image}
+              alt={data.title}
+              width={1200}
+              height={600}
+              unoptimized
+              className="w-full max-h-[80vh] object-cover object-center rounded-2xl my-6"
+            />
+          </RevealWrapper>
         </div>
 
         {/* Content Section with Sidebar Layout */}
@@ -203,7 +250,12 @@ const CaseStudyPage = ({ data }) => {
                   )}
 
                   {/* Download Section within the main content area */}
-                  <div data-reveal data-reveal-dir="up">
+                  <RevealWrapper
+                    direction="up"
+                    duration={0.6}
+                    delay={0.2}
+                    threshold={0.2}
+                  >
                     <DownloadSection
                       title={data.downloadCta.title}
                       intro={data.downloadCta.intro}
@@ -213,7 +265,7 @@ const CaseStudyPage = ({ data }) => {
                       buttonLabel={data.downloadCta.buttonLabel}
                       pdfLink={data.pdfLink}
                     />
-                  </div>
+                  </RevealWrapper>
                 </div>
               </div>
 
@@ -239,7 +291,12 @@ const CaseStudyPage = ({ data }) => {
             </div>
 
             {/* Download Section for mobile - full width */}
-            <div data-reveal data-reveal-dir="up">
+            <RevealWrapper
+              direction="up"
+              duration={0.6}
+              delay={0.2}
+              threshold={0.2}
+            >
               <DownloadSection
                 title={data.downloadCta.title}
                 intro={data.downloadCta.intro}
@@ -249,7 +306,7 @@ const CaseStudyPage = ({ data }) => {
                 buttonLabel={data.downloadCta.buttonLabel}
                 pdfLink={data.pdfLink}
               />
-            </div>
+            </RevealWrapper>
 
             {/* Mobile Sidebar (Below Content) */}
             <div className="mt-8 space-y-6">
@@ -262,9 +319,6 @@ const CaseStudyPage = ({ data }) => {
           </div>
         </div>
       </article>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </div>
   );
 };

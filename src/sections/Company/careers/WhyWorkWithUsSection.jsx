@@ -2,15 +2,13 @@
 import React from "react";
 import { P3 } from "@/components/CustomTags";
 import Image from "next/image";
-import SectionReveal from "@/components/animations/sectionReveal"; // Import SectionReveal
+import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
 // Reusable Card Component
 const WhyWorkCard = ({ icon, title, description, image, className = "" }) => {
   return (
     <div
       className={`relative overflow-hidden rounded-[16px] max-w-xs shadow-lg ${className}`}
-      data-reveal
-      data-reveal-dir="up" // Added reveal direction
     >
       {/* Background and border */}
       <div
@@ -76,18 +74,24 @@ const WhyWorkWithUsSection = ({
   className = "",
 }) => {
   return (
-    <section
-      className={` ${className}`}
-      data-reveal-amount="0.3"
-      data-reveal-duration="0.5"
-      data-reveal-stagger="0.12"
-    >
+    <section className={` ${className}`}>
       <div className="mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8" data-reveal data-reveal-dir="up">
-          <h4 className="mb-8">{title}</h4>
-          <P3 className="text-black-950 mx-auto">{description}</P3>
+        <div className="text-center mb-8">
+          <RevealWrapper direction="up" duration={0.6} threshold={0.2}>
+            <h4 className="mb-8">{title}</h4>
+          </RevealWrapper>
+
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <P3 className="text-black-950 mx-auto">{description}</P3>
+          </RevealWrapper>
         </div>
+
         {/* Cards Scatter Flexbox */}
         <div className="flex flex-wrap justify-center items-center gap-8 relative">
           {cards.map((card, index) => {
@@ -99,24 +103,27 @@ const WhyWorkWithUsSection = ({
               scatter = `translateY(${offset}px) rotate(${rotate}deg)`;
             }
             return (
-              <WhyWorkCard
+              <RevealWrapper
                 key={index}
-                icon={card.icon}
-                title={card.title}
-                description={card.description}
-                image={card.image}
-                className="transform hover:scale-105 transition-transform duration-300"
-                style={{ transform: scatter }}
-                data-reveal
-                data-reveal-dir="up" // Apply the animation to each card
-              />
+                direction="up"
+                duration={0.5}
+                delay={0.2 + index * 0.12} // Staggered animation matching original timing
+                distance={30}
+                threshold={0.3}
+              >
+                <WhyWorkCard
+                  icon={card.icon}
+                  title={card.title}
+                  description={card.description}
+                  image={card.image}
+                  className="transform hover:scale-105 transition-transform duration-300"
+                  style={{ transform: scatter }}
+                />
+              </RevealWrapper>
             );
           })}
         </div>
       </div>
-
-      {/* Include SectionReveal to trigger the animations */}
-      <SectionReveal />
     </section>
   );
 };
