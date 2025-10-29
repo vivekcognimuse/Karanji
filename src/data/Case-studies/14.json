@@ -1,0 +1,62 @@
+{
+  "card": {
+    "title": "Convocation Day School Real Video Project",
+    "tag": "Entertainment",
+    "stats": [
+      {
+        "text": "On time",
+        "number": "Delivery"
+      },
+      {
+        "text": "Production",
+        "number": "Quality"
+      }
+    ],
+    "description": "A three-day, end-to-end convocation video for a school, produced via rapid scripting/storyboarding, in-school filming, and smart use of stock footage to showcase the institution during the ceremony."
+  },
+  "caseStudyPage": {
+    "challenge": {
+      "title": "Challenge",
+      "text": "Immediate request and short duration created time constraints, limiting thorough planning and execution. Limits on shooting in public places and lack of resources made the project harder to complete smoothly."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Create an engaging and visually appealing video to showcase the school during the convocation ceremony."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Rapid scripting and storyboarding were done to meet tight deadlines.",
+      "details": [
+        "Filming took place within the school premises, with visuals enhanced using stock footage to elevate the production value."
+      ]
+    },
+    "implementation": {
+      "title": "Implementation",
+      "text": "Completed pre-production, shooting, and editing within three days.",
+      "details": [
+        "Worked day and night with full dedication on both shooting and editing.",
+        "Coordinated with multiple teams for spot editing and quick output."
+      ]
+    },
+    "results": {
+      "title": "Results",
+      "text": "Delivered the video on time and received enthusiastic response during the convocation.",
+      "details": [
+        "Earned positive feedback for its emotional impact and production quality."
+      ]
+    },
+    "testimonial": {
+      "quote": "\"The video was exactly what we envisioned, and more. Despite the tight timeline, it beautifully captured the essence of our school. The team was professional, creative, and incredibly efficient.\"",
+      "author": "School Coordinator"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "This project illustrates how agility, creativity, and smart resource management can overcome constraints of time and access. With strong teamwork and focused execution, powerful visual stories can still be told, even under pressure."
+    }
+  },
+  "cta": {
+    "title": "Access Convocation Day Video Story",
+    "description": "See how quick scripting, spot editing, and stock footage created an impactful video under tight timelines. If you’re in event production or school branding, this case shows how rapid production techniques can tell powerful stories, even with limited resources.",
+    "buttonText": "Download Full Case Study"
+  }
+}

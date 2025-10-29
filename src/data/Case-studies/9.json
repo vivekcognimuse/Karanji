@@ -1,0 +1,70 @@
+{
+  "card": {
+    "title": "Ujjivan - Banking Sector, Corporate Learning & Development Teams",
+    "tag": "Digital Learning",
+    "stats": [
+      {
+        "text": "High-quality",
+        "number": "Animations"
+      },
+      {
+        "text": "Clarity",
+        "number": "Modules"
+      }
+    ],
+    "description": "Gamified, branching eLearning modules for a banking L&D team, built with sprint-based production, visual logic maps, and parallel sub-teams to keep complex Yes/No paths coherent-delivered on time."
+  },
+  "caseStudyPage": {
+    "client": {
+      "industry": "Banking Sector",
+      "description": "Corporate Learning & Development Teams"
+    },
+    "challenge": {
+      "title": "Challenge",
+      "text": "High complexity in gamified design with branching logic for both 'Yes' and 'No' responses. Added difficulty in setting themes, writing realistic dialogues, and developing matching scenario-based activities."
+    },
+    "goals": {
+      "title": "Goals",
+      "text": "Develop interactive, decision-driven learning modules. Reinforce workplace policies and soft skills through realistic, story-based simulations. Deliver a visually engaging and instructionally sound learning experience."
+    },
+    "solution": {
+      "title": "Solution",
+      "text": "Designed scenario branches using visual logic maps to avoid narrative gaps.",
+      "details": [
+        "Parallelized production with dedicated sub-teams for 'Yes' and 'No' paths."
+      ]
+    },
+    "implementation": {
+      "title": "Implementation - Sprint-Based Development",
+      "text": "Cross-functional teams built scripts, characters, and animations in parallel.",
+      "details": [
+        "Weekly stakeholder reviews for alignment and fast feedback.",
+        "Scenario trees visualized learner pathways and ensured logical flow.",
+        "Complex choice-based character responses pre-mapped with logic templates.",
+        "Packaging and rollout aligned to a Training management system model and existing Learning management systems (LMS)."
+      ]
+    },
+    "results": {
+      "title": "Results",
+      "text": "Complex branching scenarios delivered on time.",
+      "details": [
+        "High-quality animations despite tight deadlines.",
+        "Strong learner engagement via interactive storytelling and realistic situations.",
+        "Modules praised for clarity, impact, and professional polish."
+      ]
+    },
+    "testimonial": {
+      "quote": "\"We asked for multiple animated, scenario-driven modules in a very tight timeline, and the team delivered with precision and creativity. The branching structure, character animation, and real-life challenges made it truly immersive.\"",
+      "author": "Client Representative"
+    },
+    "keyTakeaway": {
+      "title": "Key Takeaway",
+      "text": "Well-structured gamified eLearning requires careful logic planning, modular design, and cross-functional team synergy. With the right framework, even the most complex, choice-based training can be delivered efficiently and effectively."
+    }
+  },
+  "cta": {
+    "title": "Access Banking Branching Simulation Story",
+    "description": "See how visual logic maps, parallel production, and scenario trees create realistic, decision-driven training for financial teams-plus best practices for crafting impactful E-learning content.",
+    "buttonText": "Download Full Case Study"
+  }
+}

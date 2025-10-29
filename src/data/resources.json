@@ -1,0 +1,66 @@
+[
+  {
+    "type": "Case Study",
+    "title": "3D AI Advertisement",
+    "image": "/CaseStudyImages/1_3d_ai_advertisement.webp",
+    "link": "/case-studies/1",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
+    "type": "Case Study",
+    "title": "K Buddy AI Learning Companion",
+    "image": "/CaseStudyImages/_2_k_buddy_ai_learning_companion.webp",
+    "link": "/case-studies/3",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+    {
+    "type": "Case Study",
+    "title": "Outbound Calling Agent",
+    "image": "/CaseStudyImages/3_outbound_calling_agent_.webp",
+    "link": "/case-studies/4",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
+    "type": "Webinar",  
+    "title": "Future of Automotive Engineering Training",
+    "image": "/caseStudies/Casestudy 1.webp",
+    "link": "/coming-soon/",
+    "cta": "Register for Webinar",
+    "domain": "Webinar"
+  },
+  {
+    "type": "Blog",
+    "title": "Immersive Healthcare Education: Bridging the Skill Gap through VR",
+    "image": "/blog/Casestudy 2.webp",
+    "link": "/coming-soon",
+    "cta": "Read Blog",
+    "domain": "Blog"
+  },
+  {
+    "type": "Case Study",
+    "title": "Sign Language Bot (SignBot)",
+    "image": "/CaseStudyImages/4_sign_language_bot_signbot_.webp",
+    "link": "/case-studies/5",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
+    "type": "Case Study",
+    "title": "Teacher Empowerment System (TES) ",
+    "image": "/CaseStudyImages/5_teacher_empowerment_system_tes_.webp",
+    "link": "/case-studies/6",
+    "cta": "View Case Study",
+    "domain": "Technology Solutions"
+  },
+  {
+    "type": "Case Study",
+    "title": "Futuristic Digital Payments Training Module",
+    "image": "/CaseStudyImages/7_futuristic_digital_payments_training_module.webp",
+    "link": "/case-studies/8",
+    "cta": "View Case Study",
+    "domain": "Digital Learning"
+  }
+]

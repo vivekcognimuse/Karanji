@@ -1,0 +1,73 @@
+{
+  "card": {
+    "title": "Elevating a One-Hour Podcast into a Visually Engaging Experience",
+    "tag": "Entertainment",
+    "stats": [
+      {
+        "text": "Improved Video Clarity",
+        "number": "+100%"
+      },
+      {
+        "text": "Project Completion",
+        "number": "1 Week"
+      }
+    ],
+    "description": "A one-hour, low-quality video-call podcast (Senior Director × bestselling author) was turned into a visually engaging piece for a global IT services provider-covering innovation, resilience, and storytelling."
+  },
+  "caseStudyPage": {
+    "client": {
+      "industry": "Corporate Learning & Innovation",
+      "description": "A global IT services provider",
+      "date": "June 2025"
+    },
+    "theSituation": {
+      "title": "The Situation",
+      "text": "A global IT services company recorded a one-hour podcast featuring a Senior Director in conversation with a bestselling author and keynote speaker. The discussion covered themes like innovation, resilience, and storytelling. While insightful, the raw video, captured via a basic video call, was unclear and visually unappealing."
+    },
+    "theChallenge": {
+      "title": "The Challenge",
+      "text": "The recording looked like a regular virtual meeting: low-quality video, patchy audio, and no visuals. With no image assets and just one week to deliver, the task was to turn this into a visually engaging podcast that matched the brand’s focus on innovation."
+    },
+    "solution": {
+      "title": "Our Solution",
+      "details": [
+        "Upscaled the video using AI-driven video enhancement tools.",
+        "Created a dynamic 30-second motion graphics hook to open the podcast and engage viewers instantly.",
+        "Visualized key discussion points with AI-generated imagery, adding emotional depth to the conversation."
+      ]
+    },
+    "howWeDidIt": {
+      "title": "How We Did It",
+      "details": [
+        "Upscaled video from 720p to 1080p using AI.",
+        "Enhanced unclear audio for improved listening quality.",
+        "Developed a 30-second motion graphics hook to create excitement.",
+        "Visualized key discussion points with AI-generated visuals and added dynamic animations.",
+        "Delivered the final podcast within one week."
+      ]
+    },
+    "impact": {
+      "title": "Impact at a Glance",
+      "details": [
+        "+100% Improved Video Clarity",
+        "1st Podcast Project for this Client",
+        "30-second Hook Developed Proactively",
+        "1 Week End-to-End Project Completion"
+      ]
+    },
+    "clientPerspective": {
+      "quote": "\"The output was beyond what we imagined. The hook at the beginning brought the podcast to life with visuals. It looked and sounded so much better than we expected. It made the podcast more exciting to watch.\"",
+      "author": "Senior Director, Innovation Learning, Client Organisation"
+    },
+    "whatsNext": {
+      "title": "What’s Next?",
+      "text": "This successful project has opened up opportunities for similar creative work in podcast editing and visual storytelling, especially for leadership and learning content."
+    }
+  },
+  "cta": {
+    "title": "Access 'From Dull to Dynamic' Podcast Transformation Story",
+    "description": "See how AI-driven video enhancement and custom motion graphics turned a basic podcast into an engaging, visually-rich learning asset. If you’re in corporate learning or innovation, this case demonstrates how AI-generated imagery and interactive design can elevate leadership content.",
+    "buttonText": "Download Full Case Study"
+  }
+}
+ 

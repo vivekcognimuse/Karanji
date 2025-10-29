@@ -1,0 +1,75 @@
+{
+  "card": {
+    "title": "Driving School & Training Module",
+    "tag": "Digital Learning",
+    "stats": [
+      {
+        "text": "Crafted modules",
+        "number": "6"
+      },
+      {
+        "text": "Seamless",
+        "number": "Integration"
+      }
+    ],
+    "description": "A specialized, end-to-end eLearning program for a leading automotive company’s professional driving school in India, delivered on a tight timeline for both managers and practical trainers."
+  },
+  "caseStudyPage": {
+    "clientProfile": {
+      "industry": "Automotive",
+      "description": "A leading automotive manufacturer with an in-house driving school focused on promoting road safety through advanced training methods."
+    },
+    "businessChallenge": {
+      "title": "Business Challenge",
+      "text": "The client provided only a high-level requirement for vehicle-focused training aimed at driving school managers and practical trainers. With just a brief outline, we were tasked to design an end-to-end program covering managerial soft skills and instructor-level technical knowledge with a strong emphasis on vehicle operations and road safety."
+    },
+    "objectives": {
+      "title": "Objectives",
+      "text": "For Driving School Managers: Strengthen knowledge in selling techniques, KPI tracking, communication skills, and grooming standards-packaged as part of their broader learning and development solutions.",
+      "details": [
+        "For Driving Practical Trainers: Deliver focused training on vehicle controls, driving techniques, road safety protocols, and efficient instructional delivery using advanced simulators."
+      ]
+    },
+    "solutionOverview": {
+      "title": "Solution Overview",
+      "text": "Mobilized a dedicated team to meet a tight delivery schedule.",
+      "details": [
+        "Structured the curriculum into six comprehensive modules (three for managers, three for trainers).",
+        "Built each module around relatable scenarios, high-level interactivities, and detailed explanations to ensure both depth and engagement.",
+        "Enhanced with compelling UI and multimedia to maximize retention, aligned to a training management system approach for scheduling and role mapping."
+      ]
+    },
+    "implementationDetails": {
+      "title": "Implementation Details",
+      "text": "Used narrative design that mirrors real classroom and on-road sessions so trainers can visualize their roles.",
+      "details": [
+        "Presented lifelike situations and examples that connect theory to practice and simulator exercises.",
+        "Packaged the course for deployment via existing learning management systems (LMS) to streamline rollout and reporting."
+      ]
+    },
+    "keyResults": {
+      "title": "Key Results",
+      "text": "Six expertly crafted modules (~20 minutes each).",
+      "details": [
+        "Seamless integration with simulator-based training and road-safety objectives.",
+        "Strong learner engagement through scenario storytelling and immersive visuals.",
+        "Positive client feedback for clarity, depth, and operational fit.",
+        "Practical design that enhances hands-on simulator training.",
+        "Transformed a high-level brief into an impactful, interactive program."
+      ]
+    },
+    "keyLearnings": {
+      "title": "Key Learnings",
+      "text": "Scenario-based learning improves retention and transfer.",
+      "details": [
+        "Combining theory with simulator practice strengthens skills.",
+        "Role-tailored content increases relevance and satisfaction."
+      ]
+    }
+  },
+  "cta": {
+    "title": "Access Driving School & Training Module Story",
+    "description": "See how scenario design, simulator alignment, and role-based modules create job-ready training for managers and instructors. If you run an automotive academy or safety initiative, this case shows how eLearning solutions can translate real-world driving demands into clear, scalable instruction.",
+    "buttonText": "Download Full Case Study"
+  }
+}

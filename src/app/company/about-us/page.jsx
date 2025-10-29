@@ -1,0 +1,211 @@
+// about-us.jsx (Server-side component)
+import WebinarHeader from "@/components/webinar/WebinarHeader";
+import QuoteSection from "@/sections/Company/about/quoteSection";
+import NextUpSection from "@/sections/Company/about/NextUpSection";
+import VisionMission from "@/sections/Company/about/VisionMission";
+import ValuesSection from "@/sections/Company/about/ValuesSection";
+import JourneySection from "@/sections/Company/about/journeySection";
+
+import { fetchFromStrapi } from "@/lib/strapi";
+
+// Default/fallback data
+const defaultHeroData = {
+  title: "Our Identity and Purpose",
+  description:
+    "Discover who we are, what drives us, and the values that shape every solution we deliver.",
+  backgroundImage: "/path/to/your/hero-image.jpg",
+};
+
+const defaultCardsData = [
+  {
+    title: "Our Team",
+    description:
+      "Meet the minds shaping the future of immersive tech and storytelling.",
+    image: "/Company/Landing page/Our Team.webp",
+    href: "/company/our-team",
+  },
+  {
+    title: "Career",
+    description:
+      "Build your career at the crossroads of AI, creativity, and impact.",
+    image: "/Company/Landing page/Career.webp",
+    href: "/company/careers",
+  },
+];
+
+const defaultJourneyData = {
+  title: "Redefining the Future: Karanji's Journey",
+  subTitle:
+    "Step through Karanji's 18+ year journey with our interactive timeline experience. From a bold start in 2007 to becoming a global leader in AI, VR, and digital learning, each milestone reveals how we've continually pushed technological boundaries, delivered transformational solutions, and shaped the future of enterprise learning and digital experiences.",
+  currentYear: "2007",
+  currentYearDescription:
+    "A seed was planted in 2007 with a goal to change the future of learning.",
+  yearDescription:
+    "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, and innovation in learning technology.",
+  buttonText: "Continue the Journey",
+  iconSrc: "/Icons/year07icon.svg",
+};
+
+// Timeline data for the interactive timeline component
+const defaultTimelineData = [
+  {
+    year: "2007",
+    yearDescription:
+      "A seed was planted in 2007 with a goal to change the future of learning.",
+    title: "Where It All Began",
+    description:
+      "Karanji was founded with a vision to revolutionize how people learn by integrating emerging technologies when most still relied on traditional methods. The name 'Karanji', meaning fountain in our local language, symbolizes our mission - to be a constant source of fresh ideas, energy, and innovation in learning technology.",
+    iconSrc: "/Icons/year08icon.svg",
+  },
+  {
+    year: "2007-10",
+    yearDescription:
+      "We built a bridge between traditional training and cutting-edge technology.",
+    title: "Building the Bridge Between Traditional and Modern Learning",
+    description:
+      "Karanji started working on creating a bridge between traditional training methods and emerging technologies like AI and Virtual Reality (VR).",
+    iconSrc: "/Icons/year10icon.svg",
+  },
+  {
+    year: "2010-13",
+    yearDescription:
+      "Our first big break came with Infosys - the first validation of our ideas.",
+    title: "Growing the Foundation – First Major Client: Infosys",
+    description:
+      "Through hard work and a tad bit of luck, Infosys became the company's first major client, which validated their vision and gave them confidence.",
+    iconSrc: "/Icons/year16icon.svg",
+  },
+  {
+    year: "2014-16",
+    yearDescription:
+      "2014-16 marked a leap into the future with Virtual Reality and Augmented Reality.",
+    title: "The Big Leap - Entering Virtual Reality and Augmented Reality",
+    description:
+      "Karanji made a strategic decision to integrate VR and AR into their learning design, which would revolutionize training and learning processes.",
+    iconSrc: "/Icons/year13icon.svg",
+  },
+  {
+    year: "2017",
+    yearDescription:
+      "In 2017, we formed a strategic partnership with Novigo Solutions, expanding our global reach.",
+    title: "Global Expansion – Partnership with Novigo Solutions",
+    description:
+      "Karanji partnered with Novigo Solutions, gaining access to global clients and resources for more innovative ideas.",
+    iconSrc: "/Icons/year17icon.svg",
+  },
+  {
+    year: "2020",
+    yearDescription:
+      "As the world shifted to remote learning, Karanji was ready to guide businesses with comprehensive digital learning solutions.",
+    title:
+      "Adapting to the Global Shift - Helping Clients Transition to Remote Learning During COVID-19",
+    description:
+      "When COVID-19 hit, Karanji quickly adapted and helped businesses shift to remote learning through their integrated solutions.",
+    iconSrc: "/Icons/year20icon.svg",
+  },
+  {
+    year: "2024",
+    yearDescription:
+      "In 2024, we took another leap by forming a full AI team to drive the future of learning and business innovation.",
+    title: "The AI Revolution - Building a Full AI Team",
+    description:
+      "Karanji created a dedicated AI team to help clients use AI in smart, impactful ways for learning and business solutions.",
+    iconSrc: "/Icons/year24icon.svg",
+  },
+  {
+    year: "2025",
+    yearDescription:
+      "In 2024, we took another leap by forming a full AI team to drive the future of learning and business innovation.",
+    title: "A Bold New Identity: Reimagined for the Future",
+    subTitle:
+      "We rebranded to reflect who we've become - an integrated technology partner for the AI era.",
+    description:
+      "In 2025, Karanji embraced a new visual identity to match its evolved mission. What began as a digital learning company now leads the way in AI, VR, AR and creative technology. This rebrand marks our transformation into a comprehensive technology services partner, helping businesses across industries create meaningful, human-centered digital experiences.",
+    iconSrc: "/Icons/year25icon.svg",
+  },
+];
+
+const defaultQuoteData = {
+  title: "Innovate. Design. Transform.",
+};
+
+const defaultVisionMissionData = {
+  visionTitle: "Vision",
+  visionDescription:
+    "To be the global leader in creative design and emerging technologies, transforming how people learn, engage, and work efficiently.",
+  missionTitle: "Mission",
+  missionDescription:
+    "We create immersive experiences using extended reality, AI and creative design to help organizations improve training, entertainment, and business performance in today's digital world.",
+};
+
+const defaultValuesData = [
+  {
+    icon: "/Company/about/hugeicons_ai-innovation-03.svg",
+    title: "Continuous innovation",
+    description: "Leading with new ideas in design, AI, and XR.",
+  },
+  {
+    icon: "/Company/about/carbon_collaborate.svg",
+    title: "Empowerment",
+    description: "Helping people grow through immersive tech.",
+  },
+  {
+    icon: "/Company/about/arcticons_s-trust.svg",
+    title: "Impact",
+    description: "Transforming how the world learns and works.",
+    isFullWidth: true,
+  },
+  {
+    icon: "/Company/about/pepicons-pencil_stars.svg",
+    title: "Agility",
+    description: "Adapting fast to emerging trends and needs.",
+  },
+  {
+    icon: "/Company/about/emojione-monotone_world-map.svg",
+    title: "Integrity",
+    description: "Building trust through vision, honesty and progress.",
+  },
+];
+
+export default async function AboutUs() {
+  let data = null;
+  let error = null;
+
+  // Fetch data on server-side
+  try {
+    data = await fetchFromStrapi("about-us");
+  } catch (err) {
+    console.error("Error fetching data:", err);
+    error = err;
+  }
+
+  // Use fetched data or fallback to defaults
+  const heroData = data?.heroData || defaultHeroData;
+  const cardsData = data?.cardsData || defaultCardsData;
+  const journeyData = data?.journeyData || defaultJourneyData;
+  const timelineData = data?.timelineData || defaultTimelineData;
+  const visionMissionData = data?.visionMissionData || defaultVisionMissionData;
+  const valuesData = data?.valuesData || defaultValuesData;
+  const quoteData = data?.quoteData || defaultQuoteData;
+
+  // Log error if exists
+  if (error) {
+    console.error("Error in AboutUs component:", error);
+  }
+
+  return (
+    <main className="">
+      <WebinarHeader data={heroData} bgImage={"/hero/aboutUsBg.webp"} />
+      <div className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 mt-16 lg:mt-32 lg:space-y-32">
+        <JourneySection data={journeyData} timelineData={timelineData} />
+        <div id="vision-mission">
+          <VisionMission data={visionMissionData} />
+        </div>
+
+        <ValuesSection data={valuesData} />
+        <NextUpSection heading="Next Up" cards={cardsData} />
+        <QuoteSection title={quoteData.title} />
+      </div>
+    </main>
+  );
+}

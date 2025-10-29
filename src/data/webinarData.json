@@ -1,0 +1,132 @@
+{
+  "header": {
+    "title": "Future of Automotive Engineering Training",
+    "description": "Join us to discover how innovative virtual hands-on workshops are transforming automotive training & helping companies stay ahead in the industry.",
+    "date": "March 20, 2025",
+    "time": "2:00 PM EST",
+    "location": "Virtual Event - Join from Anywhere",
+    "buttons": {
+      "register": "Register for Free Now",
+      "registerLink": "https://karanji.com/webinar-registration",
+      "preview": "Watch Preview",
+      "previewLink": "https://karanji.com/webinar-preview"
+    }
+  },
+  "speakers": {
+  "title": "Meet Your Expert Speakers",
+  "description": "Learn from industry-leading experts at Karanji, pioneers in virtual automotive engineering training.",
+  "list": [
+    {
+      "name": "Alex Thompson",
+      "title": "Chief Technology Officer, Karanji",
+      "image": "/speakers/alex.png",
+      "linkedin": "https://linkedin.com/in/alexthompson"
+    },
+    {
+      "name": "Rajesh Krishnan",
+      "title": "VP, Automotive Engineering Solutions, Karanji",
+      "image": "/speakers/rajesh.png",
+      "linkedin": "https://linkedin.com/in/rajeshkrishnan"
+    },
+    {
+      "name": "Ananya Gupta",
+      "title": "Senior Training Specialist, Karanji",
+      "image": "/speakers/ananya.png",
+      "linkedin": "https://linkedin.com/in/ananyagupta"
+    }
+  ]
+},
+  "successStories": [
+    {
+      "company": "Abc",
+      "testimonial": "Our employees found the Virtual Engine Workshop Training by Karanji truly engaging & informative. The interactive platform provided a hands-on experience without the need for physical engines. It's a game-changer in automotive training.",
+      "author": "CTO, Alex",
+      "companyFull": "Abc Solutions Pvt Limited",
+      "image": "/testimonials/alex.png"
+    },
+    {
+      "company": "Xyz",
+      "testimonial": "Karanji's solution significantly improved our training efficiency. The realistic engine models allowed our team to understand complex engine operations better, reducing our training time.",
+      "author": "CEO, John",
+      "companyFull": "Xyz Tech",
+      "image": "/testimonials/john.png"
+    },
+    {
+      "company": "Abc2",
+      "testimonial": "Karanji's Virtual Engine Workshop transformed our training. The interactive platform improved our team's skills & efficiency without needing physical engines.",
+      "author": "CTO, Shreya Mehta",
+      "companyFull": "Abc2 Dynamics",
+      "image": "/testimonials/shreya.png"
+    }
+  ],
+  "registration": {
+    "title": "Secure Your Free Spot",
+    "description": "Join 2,947+ business leaders already registered for this exclusive automotive training webinar.",
+    "features": [
+      {
+        "title": "Expert-Led Session",
+        "description": "Learn from Karanji Infotech's certified specialists"
+      },
+      {
+        "title": "100% Free Access",
+        "description": "No hidden costs, complete access to all materials"
+      },
+      {
+        "title": "Lifetime Recording",
+        "description": "Access the session recording anytime, anywhere"
+      }
+    ],
+    "registerBox": {
+      " subTitle": "Transform Your Workforce with Karanji's Virtual Engine Workshop Today"
+    }
+  },
+  "agenda": {
+    "title": "Webinar Agenda",
+    " subTitle": "2 hours packed with actionable insights & proven strategies from industry experts",
+    "sessions": [
+      {
+        "time": "2:00 - 2:20 PM",
+        "tag": "Setting the Stage",
+        "title": "Introduction",
+        "description": "Overview of the importance of hands-on training in automotive engineering.",
+        "speaker": "Alex Thompson"
+      },
+      {
+        "time": "2:20 - 2:45 PM",
+        "tag": "Explore Platform",
+        "title": "Virtual Engine Workshop Overview",
+        "description": "Introduction to the Virtual Engine Workshop platform & its key features.",
+        "speaker": "Rajesh Krishnan"
+      },
+      {
+        "time": "2:45 - 3:10 PM",
+        "tag": "Understand Basics",
+        "title": "Learning Engine Components & Operations",
+        "description": "Detailed breakdown of engine types & components: Petrol, Diesel, Hybrid.",
+        "speaker": "Ananya Gupta"
+      },
+      {
+        "time": "3:10 - 3:35 PM",
+        "tag": "Hands-on Demo",
+        "title": "Interactive Engine Assembly & Disassembly",
+        "description": "Walkthrough of assembly & disassembly procedures using the platform.",
+        "speaker": "All Speakers"
+      },
+      {
+        "time": "3:35 - 3:55 PM",
+        "tag": "Q&A",
+        "title": "Q&A Session",
+        "description": "Emerging technologies, market predictions, & preparing for the next wave of innovation.",
+        "speaker": "Panel Discussion"
+      }
+    ],
+    "takeaways": [
+      "Readiness Assessment – Framework for skill gap evaluation",
+      "Industry Best Practices – Proven implementation strategies",
+      "Implementation Roadmap – Step-by-step guide for skill development",
+      "Case Study Repository – Exclusive success stories",
+      "Certificate of completion",
+      "30-day access to exclusive resource library"
+    ]
+  }
+}
