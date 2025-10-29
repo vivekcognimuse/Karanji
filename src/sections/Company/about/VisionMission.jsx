@@ -46,29 +46,19 @@ const VisionMission = ({ data }) => {
   return (
     <section className="py-12 px-4">
       <div className="mx-auto">
-        <div className="flex flex-col lg:flex-row gap-6">
-          {/* Vision Card */}
-          <RevealWrapper
-            direction="up"
-            duration={0.5}
-            delay={0.2}
-            distance={30}
-            threshold={0.3}
-          >
+        {/* Vision Card */}
+        <RevealWrapper
+          direction="up"
+          duration={0.5}
+          delay={0.2}
+          distance={30}
+          threshold={0.3}>
+          <div className="flex flex-col lg:flex-row gap-6">
             <VisionCard {...visionData} />
-          </RevealWrapper>
 
-          {/* Mission Card */}
-          <RevealWrapper
-            direction="up"
-            duration={0.5}
-            delay={0.32} // 0.2 + 0.12 stagger
-            distance={30}
-            threshold={0.3}
-          >
             <VisionCard {...missionData} />
-          </RevealWrapper>
-        </div>
+          </div>
+        </RevealWrapper>
       </div>
     </section>
   );
