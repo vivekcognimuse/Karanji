@@ -52,7 +52,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
         res.status,
         res.statusText
       );
-      return null; // Return null consistently
+      return null; // Return null
     }
 
     const json = await res.json();
