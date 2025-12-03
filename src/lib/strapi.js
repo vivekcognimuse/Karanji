@@ -9,11 +9,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     throw new Error("STRAPI_API_URL is not defined");
   }
 
-  const {
-    populate = "all", // Use * for Strapi v4
-    revalidate = 21600,
-    preview = false,
-  } = options;
+  const { populate = "all", revalidate = 21600, preview = false } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
 
@@ -21,18 +17,17 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     url.searchParams.append("populate", populate);
   }
 
-  // Use publicationState for Strapi v4
+  // Strapi 5: use status=draft|published [[REST status](https://docs.strapi.io/cms/api/rest/status)]
   if (preview) {
-    url.searchParams.append("publicationState", "preview");
+    url.searchParams.append("status", "draft");
   } else {
-    url.searchParams.append("publicationState", "live");
+    url.searchParams.append("status", "published");
   }
 
   const fetchOptions = {
     headers: {},
   };
 
-  // Only add Authorization if token exists
   const token =
     process.env.STRAPI_API_TOKEN || process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   if (token) {
@@ -52,13 +47,13 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
         res.status,
         res.statusText
       );
-      return null; // Return null
+      return null;
     }
 
     const json = await res.json();
     return json?.data || null;
   } catch (error) {
     console.error(`❌ Strapi fetch error for ${endpoint}:`, error.message);
-    return null; // Return null consistently
+    return null;
   }
 }
