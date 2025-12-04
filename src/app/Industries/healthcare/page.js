@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import Industrychallenge from "@/sections/digital-learning/analytics/Deliverables";
@@ -13,7 +14,9 @@ export async function generateMetadata() {
   return await getMetadata("healthcare");
 }
 export default async function HealthCare() {
-  const data = await fetchFromStrapi("healthcare");
+  const { isEnabled: isPreview } = await draftMode();
+  
+  const data = await fetchFromStrapi("healthcare", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for healthcare.");
     return null; // Or return a fallback UI component

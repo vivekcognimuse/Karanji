@@ -1,6 +1,7 @@
 // app/blog-insights/page.jsx
 import React from "react";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import ResourcesGrid from "@/components/resources/ResourcesGrid";
 import Upcoming from "@/components/blog/Upcoming";
 import { fetchFromStrapi } from "@/lib/strapi";
@@ -48,18 +49,25 @@ const normalizeCard = ({
   };
 };
 
-async function fetchBlogs() {
+async function fetchBlogs(isPreview = false) {
   return fetchFromStrapi(
     "blogs",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
+    {
+      populate: "*",
+      pagination: { pageSize: 100 },
+      sort: "createdAt:desc",
+      preview: isPreview,
+    },
     STRAPI
   );
 }
 
 export default async function BlogInsightsListing() {
+  const { isEnabled: isPreview } = await draftMode();
+
   let blogRes;
   try {
-    blogRes = await fetchBlogs();
+    blogRes = await fetchBlogs(isPreview);
   } catch (e) {
     console.error("Blogs fetch failed:", e);
     notFound();

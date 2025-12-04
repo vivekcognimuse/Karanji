@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import IndustriesSection from "@/sections/Industries/IndustriesSection";
@@ -65,7 +66,11 @@ export async function generateMetadata() {
   return await getMetadata("xr-gaming");
 }
 export default async function IndustryLanding() {
-  const data = await fetchFromStrapi("Industry-landing");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("Industry-landing", {
+    preview: isPreview,
+  });
   if (!data) {
     console.error("No data object provided for aviation.");
     return null; // Or return a fallback UI component
