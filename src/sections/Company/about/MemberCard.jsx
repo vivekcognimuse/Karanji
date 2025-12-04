@@ -3,6 +3,7 @@ import React from "react";
 import { P1, P3, P4 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import { getMediaUrl } from "@/utils/ish";
 const MemberCard = ({
   name,
   role,
@@ -19,15 +20,35 @@ const MemberCard = ({
     <div className="member-card rounded-2xl p-3 sm:p-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 shadow-lg">
       {/* Profile Image */}
       <div className="flex-shrink-0 mx-auto sm:mx-0">
-        <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-68 xl:w-80 xl:h-80 bg-white rounded-2xl overflow-hidden shadow-md">
-          <Image
-            src={image.url}
-            alt={name}
-            height={400}
-            width={400}
-            unoptimized
-            className="w-full h-full object-cover"
-          />
+        <div className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-68 xl:w-80 xl:h-80 rounded-2xl overflow-hidden shadow-md relative">
+          {image ? (
+            <>
+              {/* Gradient Background */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/company/Gradient-cropped.svg"
+                  alt=""
+                  fill
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Member Image on top */}
+              <div className="absolute inset-0">
+                <Image
+                  src={getMediaUrl(image) || "/avatars/default-avatar.png"}
+                  alt={name}
+                  fill
+                  className="w-full h-full object-contain object-bottom"
+                />
+              </div>
+            </>
+          ) : (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-400 text-4xl">
+                {name?.charAt(0) || "?"}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -55,13 +76,16 @@ const MemberCard = ({
 
         {/* Action Buttons */}
         <div className="flex flex-col space-y-2 px-2 sm:px-0">
-          <Button
-            onClick={() => window.open(linkedin, "_blank")}
-            variant="secondary"
-            size="sm"
-            className="w-full sm:w-auto">
-            Connect with {name.split(" ")[0]}
-          </Button>
+          {linkedin && (
+            <Button
+              onClick={() => window.open(linkedin, "_blank")}
+              variant="secondary"
+              size="sm"
+              className="w-full sm:w-auto"
+            >
+              Connect with {name.split(" ")[0]}
+            </Button>
+          )}
           {showTalkButton && twinlink && (
             <a
               href={twinlink}

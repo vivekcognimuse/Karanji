@@ -1,5 +1,6 @@
 // app/case-studies/[id]/page.jsx
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import CaseStudyPage from "@/components/caseStudy/CaseStudyPage";
 import { fetchFromStrapi } from "@/lib/strapi";
 import {
@@ -65,6 +66,8 @@ const normalizeCaseStudy = (entry) => {
 };
 
 export default async function CaseStudyDetail({ params }) {
+  const { isEnabled: isPreview } = await draftMode();
+
   // ✅ Next 15: params is a Promise — await it
   const p = await params;
   const slug = p?.id ?? p?.slug; // folder is [id], so id is expected
@@ -74,7 +77,7 @@ export default async function CaseStudyDetail({ params }) {
   try {
     res = await fetchFromStrapi(
       `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
-      { populate: "*" },
+      { populate: "*", preview: isPreview },
       "https://calm-joy-61798b158b.strapiapp.com/api"
     );
   } catch (e) {
