@@ -26,7 +26,7 @@ const MemberCard = ({
               {/* Gradient Background */}
               <div className="absolute inset-0">
                 <Image
-                  src="/company/Gradient-cropped.svg"
+                  src="/Company/Gradient-cropped.svg"
                   alt=""
                   fill
                   unoptimized
