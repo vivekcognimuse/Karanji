@@ -11,6 +11,8 @@ export async function generateMetadata() {
 }
 export default async function teampage() {
   const data = await fetchFromStrapi("our-team");
+
+  console.log("dataaa", data);
   if (!data) {
     console.error("No data object provided for our-team.");
     return null;

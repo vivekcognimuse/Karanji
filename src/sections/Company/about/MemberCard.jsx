@@ -29,6 +29,7 @@ const MemberCard = ({
                   src="/company/Gradient-cropped.svg"
                   alt=""
                   fill
+                  unoptimized
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -81,8 +82,7 @@ const MemberCard = ({
               onClick={() => window.open(linkedin, "_blank")}
               variant="secondary"
               size="sm"
-              className="w-full sm:w-auto"
-            >
+              className="w-full sm:w-auto">
               Connect with {name.split(" ")[0]}
             </Button>
           )}
