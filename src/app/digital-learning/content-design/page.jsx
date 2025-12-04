@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import { P2 } from "@/components/CustomTags";
 import Button from "@/components/ui/Button";
 import { getMetadata } from "@/lib/metadata";
@@ -24,9 +25,10 @@ export async function generateMetadata() {
   return await getMetadata("content-design");
 }
 const ContentDesign = async ({ searchParams }) => {
+  const { isEnabled: isPreview } = await draftMode();
   const activeTab = searchParams?.tab || "custom";
 
-  const data = await fetchFromStrapi("content-design");
+  const data = await fetchFromStrapi("content-design", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
@@ -86,7 +88,8 @@ const ContentDesign = async ({ searchParams }) => {
         {/* Toggle Buttons */}
         <div
           id="solutions-and-resources"
-          className="flex justify-center gap-2 mb-8">
+          className="flex justify-center gap-2 mb-8"
+        >
           {tabs.map(({ key, buttonLabel }) => (
             <Link
               key={key}
@@ -95,7 +98,8 @@ const ContentDesign = async ({ searchParams }) => {
                 activeTab === key
                   ? "bg-[#F0B8B8] text-gray-800"
                   : "bg-white text-gray-600 hover:bg-pink-100"
-              }`}>
+              }`}
+            >
               {buttonLabel}
             </Link>
           ))}

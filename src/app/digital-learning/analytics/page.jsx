@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
@@ -15,7 +16,11 @@ export async function generateMetadata() {
   return await getMetadata("advance-learning-analytics");
 }
 const ContentDesign = async () => {
-  const data = await fetchFromStrapi("advance-learning-analytics");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("advance-learning-analytics", {
+    preview: isPreview,
+  });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

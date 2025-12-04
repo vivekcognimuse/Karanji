@@ -1,5 +1,6 @@
-// app/blog-insights/page.jsx
+// app/blog-insights/[slug]/page.jsx
 import BlogPage from "@/components/blog/BlogPage";
+import { draftMode } from "next/headers";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { toPlainText, arrayifyList, getMediaUrl } from "@/utils/ish";
 
@@ -60,10 +61,17 @@ const normalizeBlog = (entry) => {
 };
 
 export default async function BlogInsights() {
+  const { isEnabled: isPreview } = await draftMode();
+
   // ✅ use the params-object style that works in your app
   const res = await fetchFromStrapi(
     "blogs",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
+    {
+      populate: "*",
+      pagination: { pageSize: 100 },
+      sort: "createdAt:desc",
+      preview: isPreview,
+    },
     STRAPI
   );
 

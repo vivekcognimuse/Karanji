@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import { getMetadata } from "@/lib/metadata";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
@@ -77,7 +78,9 @@ function transformSwitchSectionData(apiSwitchSection) {
 }
 
 export default async function LMSImplementation() {
-  const data = await fetchFromStrapi("k-nest-lms");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("k-nest-lms", { preview: isPreview });
 
   if (!data) {
     console.error("No data object provided for HeroSection.");

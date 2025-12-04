@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import HeroSection from "@/sections/home/Hero";
 import StatsSection from "@/sections/home/Stats";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -221,7 +222,9 @@ export async function generateMetadata() {
 }
 
 const KaranjiLanding = async () => {
-  const data = await fetchFromStrapi("landing-page");
+  const { isEnabled: isPreview } = await draftMode();
+  
+  const data = await fetchFromStrapi("landing-page", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

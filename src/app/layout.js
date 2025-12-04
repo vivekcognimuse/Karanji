@@ -2,7 +2,7 @@ import { Albert_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 
 import Footer from "@/components/Footer";
-
+import PreviewBanner from "@/components/PreviewBanner";
 import Navbar from "@/components/Navbar";
 import CookieNotification from "@/components/CookieNotification";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -56,6 +56,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${albertSans.variable} ${outfit.variable}   antialiased`}>
+        <PreviewBanner />
         <Navbar />
         {/* <SmoothScrollWrapper> */}
         <div className="] pb-16 ">{children}</div>

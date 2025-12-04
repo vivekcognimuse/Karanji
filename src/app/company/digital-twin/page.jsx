@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import DigitalTwinHeroSection from "@/sections/Company/digital-twin/DigitalTwinHero";
 import CTA from "@/sections/digital-learning/CTA";
 import ChooseAvatarSection from "@/sections/Company/digital-twin/ChooseAvatarSection";
@@ -10,7 +11,9 @@ export async function generateMetadata() {
   return await getMetadata("company-twin");
 }
 export default async function companyLanding() {
-  const data = await fetchFromStrapi("company-twin");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("company-twin", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component
