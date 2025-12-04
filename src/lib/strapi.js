@@ -9,7 +9,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     throw new Error("STRAPI_API_URL is not defined");
   }
 
-  const { populate = "all", revalidate = false, preview = false } = options;
+  const { populate = "all", revalidate = 10, preview = false } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
 
