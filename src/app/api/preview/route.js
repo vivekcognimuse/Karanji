@@ -33,16 +33,17 @@ export async function GET(request) {
 
   const redirectUrl = url || "/";
 
-  // Security: prevent external redirects (allow localhost for development)
+  // Security: prevent external redirects (allow localhost and Amplify domains)
   if (redirectUrl.startsWith("http://") || redirectUrl.startsWith("https://")) {
     const urlObj = new URL(redirectUrl);
     const isLocalhost = urlObj.hostname === "localhost" || urlObj.hostname === "127.0.0.1";
+    const isAmplify = urlObj.hostname.endsWith(".amplifyapp.com");
     
-    if (!isLocalhost) {
+    if (!isLocalhost && !isAmplify) {
       return new Response("Invalid redirect URL", { status: 400 });
     }
     
-    // Extract just the pathname for localhost URLs
+    // Extract just the pathname for allowed URLs
     const localPath = urlObj.pathname + urlObj.search + urlObj.hash;
     redirect(localPath);
     return;
