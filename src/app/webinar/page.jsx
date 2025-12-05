@@ -4,6 +4,7 @@ import MeetSpeakers from "@/components/webinar/MeetSpeakers";
 import WebinarAgenda from "@/components/webinar/WebinarAgenda";
 import SuccessStories from "@/components/webinar/SuccessStories";
 import RegisterForWebinar from "@/components/webinar/RegisterForWebinar";
+import { draftMode } from "next/headers";
 
 import { fetchFromStrapi } from "@/lib/strapi";
 import { getMediaUrl } from "@/utils/ish"; // make sure this returns a full URL for Strapi media
@@ -175,8 +176,9 @@ function normalizeWebinar(strapiData) {
 }
 
 export default async function WebinarPage() {
+  const { isEnabled: isPreview } = await draftMode();
   // Single type name is "webinar". Use populate=* to get media inside components.
-  const data = await fetchFromStrapi("webinar");
+  const data = await fetchFromStrapi("webinar", { preview: isPreview });
   if (!data) return null;
 
   const webinar = normalizeWebinar(data);

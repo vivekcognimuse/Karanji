@@ -1,4 +1,5 @@
 // about-us.jsx (Server-side component)
+import { draftMode } from "next/headers";
 import WebinarHeader from "@/components/webinar/WebinarHeader";
 import QuoteSection from "@/sections/Company/about/quoteSection";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
@@ -168,12 +169,14 @@ const defaultValuesData = [
 ];
 
 export default async function AboutUs() {
+  const { isEnabled: isPreview } = await draftMode();
+
   let data = null;
   let error = null;
 
   // Fetch data on server-side
   try {
-    data = await fetchFromStrapi("about-us");
+    data = await fetchFromStrapi("about-us", { preview: isPreview });
   } catch (err) {
     console.error("Error fetching data:", err);
     error = err;

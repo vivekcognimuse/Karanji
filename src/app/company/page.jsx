@@ -1,13 +1,10 @@
 import HeroSection from "@/sections/Advisory/ComapnyHero";
+import { draftMode } from "next/headers";
 import { fetchFromStrapi } from "@/lib/strapi";
 import NextUpSection from "@/sections/Company/about/NextUpSection";
 import { RevealWrapper } from "@/components/animations/RevealWrapper";
 
-const data = await fetchFromStrapi(
-  "company-landing",
-  { populate: "*" },
-  "https://calm-joy-61798b158b.strapiapp.com/api"
-);
+const data = await fetchFromStrapi("company-landing", { populate: "*" });
 if (!data) {
   console.error("No data object provided for HeroSection.");
 }

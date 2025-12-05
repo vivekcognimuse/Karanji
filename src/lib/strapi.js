@@ -5,6 +5,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     process.env.NEXT_PUBLIC_STRAPI_API_URL ||
     "https://calm-joy-61798b158b.strapiapp.com/api";
 
+
   if (!baseUrl) {
     throw new Error("STRAPI_API_URL is not defined");
   }
@@ -30,6 +31,15 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
 
   const token =
     process.env.STRAPI_API_TOKEN || process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+  
+  // Debug logging
+  console.log('🔍 Strapi Debug:', {
+    endpoint,
+    baseUrl,
+    hasToken: !!token,
+    tokenPrefix: token ? token.substring(0, 20) + '...' : 'MISSING',
+  });
+  
   if (token) {
     fetchOptions.headers.Authorization = `Bearer ${token}`;
   }

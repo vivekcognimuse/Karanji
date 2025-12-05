@@ -1,5 +1,6 @@
 // app/company/careers/[slug]/page.jsx
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import CareerDetails from "@/sections/Company/careers/CareerDetails";
 import { fetchFromStrapi } from "@/lib/strapi";
 import { toPlainText, arrayifyList } from "@/utils/ish";
@@ -67,12 +68,15 @@ function normalizeCareer(entry) {
 }
 
 export default async function CareerDetailsPage({ params }) {
-  const { slug } = params;
+  const { isEnabled: isPreview } = await draftMode();
+
+  const { slug } = await params;
 
   // Filter by UID field "Slug" (as per your schema)
   // This builds: /api/careers?filters[Slug][$eq]=<slug>&populate=<...>
   const rows = await fetchFromStrapi(
-    `careers?filters[Slug][$eq]=${encodeURIComponent(slug)}`
+    `careers?filters[Slug][$eq]=${encodeURIComponent(slug)}`,
+    { preview: isPreview }
   );
 
   const entry = Array.isArray(rows) ? rows[0] : rows;

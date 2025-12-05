@@ -13,8 +13,6 @@ export const metadata = {
     "Browse all Karanji resources: case studies, blogs, and webinars powered by Strapi. No filters — everything in one place.",
 };
 
-const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
-
 // --- helpers ---
 // Handle both collectionType and singleType shapes
 const asArr = (res) => {

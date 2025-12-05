@@ -13,8 +13,6 @@ export const metadata = {
     "Explore Karanji's case studies showcasing real-world success in AI, VR, and digital learning. See how our solutions drive measurable results across industries.",
 };
 
-const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
-
 // helpers
 const asArr = (res) =>
   Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : [];

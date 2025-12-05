@@ -77,6 +77,11 @@
   --color-black-950: #010101;
 }
 
+/* Force white background for all pages */
+body {
+  background-color: white !important;
+}
+
 @utility flex-center {
   @apply flex items-center justify-center;
 }

@@ -1,3 +1,4 @@
+import { draftMode } from "next/headers";
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/about/teamSections";
@@ -10,7 +11,9 @@ export async function generateMetadata() {
   return await getMetadata("our-team");
 }
 export default async function teampage() {
-  const data = await fetchFromStrapi("our-team");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("our-team", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for our-team.");
     return null;

@@ -1,4 +1,5 @@
 // app/company/careers/page.jsx
+import { draftMode } from "next/headers";
 import CTA from "@/sections/digital-learning/CTA";
 import WhyWorkWithUsSection from "@/sections/Company/careers/WhyWorkWithUsSection";
 import CareersTable from "@/sections/Company/careers/CareersTable";
@@ -68,12 +69,15 @@ export const metadata = {
     "Build your career with Karanji's innovative team. Explore opportunities in AI development, VR programming, instructional design, and shape the future of technology and learning.",
 };
 export default async function CareersPage() {
+  const { isEnabled: isPreview } = await draftMode();
+  
   // 1) Pull the single type (cards need image populate)
   // If your wrapper is picky, you can also just do "careerpage?populate=*"
-  const pageData = await fetchFromStrapi("careerpage");
+  const pageData = await fetchFromStrapi("careerpage", { preview: isPreview });
   // 2) Pull careers (source of truth for Slug)
   const careers = await fetchFromStrapi(
-    "careers?fields[0]=Title&fields[1]=Slug&fields[2]=category&fields[3]=Location&fields[4]=Experience&fields[5]=EmploymentType&sort=PostedAt:desc&pagination[pageSize]=200"
+    "careers?fields[0]=Title&fields[1]=Slug&fields[2]=category&fields[3]=Location&fields[4]=Experience&fields[5]=EmploymentType&sort=PostedAt:desc&pagination[pageSize]=200",
+    { preview: isPreview }
   );
   if (!pageData) return null;
 

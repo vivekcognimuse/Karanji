@@ -1,4 +1,5 @@
 import { getMetadata } from "@/lib/metadata";
+import { draftMode } from "next/headers";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import SuccessStories from "@/sections/Advisory/SuccessStories";
@@ -10,7 +11,10 @@ export async function generateMetadata() {
 }
 
 export default async function TechnologySolution() {
-  const data = await fetchFromStrapi("technology-solutions");
+  const { isEnabled: isPreview } = await draftMode();
+  const data = await fetchFromStrapi("technology-solutions", {
+    preview: isPreview,
+  });
 
   if (!data) {
     console.error("No data object provided for HeroSection.");
