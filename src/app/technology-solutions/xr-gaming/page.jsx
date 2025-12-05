@@ -40,4 +40,4 @@ const XrGaming = async () => {
   );
 };
 
-export default XRGaming;
+export default XrGaming;
