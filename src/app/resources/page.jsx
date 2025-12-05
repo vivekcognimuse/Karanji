@@ -1,6 +1,7 @@
 // app/resources/page.jsx
 import React from "react";
 import { notFound } from "next/navigation";
+import { draftMode } from "next/headers";
 import ResourcesGrid from "@/components/resources/ResourcesGrid";
 import Upcoming from "@/components/blog/Upcoming";
 import { fetchFromStrapi } from "@/lib/strapi";
@@ -61,32 +62,34 @@ const normalizeCard = ({
 };
 
 // --- fetchers ---
-async function fetchCaseStudies() {
-  return fetchFromStrapi(
-    "case-studies",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+async function fetchCaseStudies(preview = false) {
+  return fetchFromStrapi("case-studies", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+    preview,
+  });
 }
 
-async function fetchBlogs() {
-  return fetchFromStrapi(
-    "blogs",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+async function fetchBlogs(preview = false) {
+  return fetchFromStrapi("blogs", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+    preview,
+  });
 }
 
-async function fetchWebinars() {
+async function fetchWebinars(preview = false) {
   // singleType: no pagination/sort
-  return fetchFromStrapi("webinar", STRAPI);
+  return fetchFromStrapi("webinar", { preview });
 }
 
-async function fetchAllResources() {
+async function fetchAllResources(preview = false) {
   const [csRes, blogRes, webinarRes] = await Promise.all([
-    fetchCaseStudies(),
-    fetchBlogs(),
-    fetchWebinars(),
+    fetchCaseStudies(preview),
+    fetchBlogs(preview),
+    fetchWebinars(preview),
   ]);
 
   const caseStudies = asArr(csRes).map((item) =>
@@ -132,9 +135,11 @@ async function fetchAllResources() {
 }
 
 export default async function ResourcesPage() {
+  const { isEnabled: isPreview } = await draftMode();
+
   let data;
   try {
-    data = await fetchAllResources();
+    data = await fetchAllResources(isPreview);
   } catch (e) {
     console.error("Resources fetch failed:", e);
     notFound();
