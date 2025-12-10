@@ -13,11 +13,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: "/(.*)",
         headers: [
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            value: "ALLOWALL",
           },
           {
             key: "Content-Security-Policy",
