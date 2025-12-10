@@ -3,7 +3,6 @@ const nextConfig = {
   images: {
     domains: [
       "calm-joy-61798b158b.media.strapiapp.com",
-      "c6d6e8f0ebb8.ngrok-free.app",
       "localhost",
       "karanji.com",
       "www.karanji.com",
@@ -24,7 +23,7 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "frame-ancestors 'self' http://localhost:1337 https://*.strapiapp.com https://cloud.strapi.io https://c6d6e8f0ebb8.ngrok-free.app",
+              "frame-ancestors 'self' http://localhost:1337 https://*.strapiapp.com https://cloud.strapi.io",
               // 👇 Added https://agent.d-id.com here
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://agent.d-id.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://tagmanager.google.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
