@@ -3,6 +3,7 @@ import DigitalTwinOfferings from "@/sections/digital-twin/Offering";
 import HeroSection from "@/sections/Advisory/Hero";
 import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
 import Methodology from "@/sections/Advisory/Methodology";
+import { draftMode } from "next/headers";
 
 import SuccessStories from "@/sections/Advisory/SuccessStories";
 import { fetchFromStrapi } from "@/lib/strapi";
@@ -14,7 +15,8 @@ export async function generateMetadata() {
 }
 
 const DigitalTwins = async () => {
-  const data = await fetchFromStrapi("twin");
+  const { isEnabled: isPreview } = await draftMode();
+  const data = await fetchFromStrapi("twin", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

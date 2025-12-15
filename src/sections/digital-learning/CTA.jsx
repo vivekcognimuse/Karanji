@@ -20,6 +20,7 @@ const CTA = ({ className = "", data }) => {
   const {
     title,
     subTitle,
+    description,
     PrimaryButton,
     secondaryButton,
     // New props for popup
@@ -27,6 +28,9 @@ const CTA = ({ className = "", data }) => {
     popupSubtitle = "Share your details and discover how Karanji can support your goals.",
     popupButtonText = "Submit",
   } = data || {};
+
+  // Use description if provided, otherwise fall back to subTitle
+  const displayText = description || subTitle;
 
   // Validation function
   const validateForm = () => {
@@ -148,14 +152,17 @@ const CTA = ({ className = "", data }) => {
           <h3>{title}</h3>
         </RevealWrapper>
 
-        {/* Subtitle */}
-        <RevealWrapper
-          direction="up"
-          duration={0.6}
-          delay={0.1}
-          threshold={0.2}>
-          <P2>{subTitle}</P2>
-        </RevealWrapper>
+        {/* Subtitle or Description */}
+        {displayText && (
+          <RevealWrapper
+            direction="up"
+            duration={0.6}
+            delay={0.1}
+            threshold={0.2}
+          >
+            <P2>{displayText}</P2>
+          </RevealWrapper>
+        )}
 
         {/* Buttons */}
         <RevealWrapper
@@ -163,7 +170,8 @@ const CTA = ({ className = "", data }) => {
           duration={0.6}
           delay={0.2}
           distance={25}
-          threshold={0.2}>
+          threshold={0.2}
+        >
           <div className="flex-center flex-col lg:flex-row mt-8 gap-8">
             {PrimaryButton?.name && (
               <Button variant="secondary" onClick={handlePrimaryButtonClick}>
@@ -189,7 +197,8 @@ const CTA = ({ className = "", data }) => {
             <button
               onClick={closePopup}
               className="absolute top-6 cursor-pointer right-6 text-black-600 hover:text-gray-800 text-4xl font-light"
-              type="button">
+              type="button"
+            >
               ×
             </button>
 
@@ -287,7 +296,8 @@ const CTA = ({ className = "", data }) => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className=" disabled:opacity-50 mx-auto px-12 lg:px-12 disabled:cursor-not-allowed ">
+                      className=" disabled:opacity-50 mx-auto px-12 lg:px-12 disabled:cursor-not-allowed "
+                    >
                       {popupButtonText}
                     </Button>
                   </div>

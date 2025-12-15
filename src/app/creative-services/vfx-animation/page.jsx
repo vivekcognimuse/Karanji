@@ -1,4 +1,5 @@
 import { getMetadata } from "@/lib/metadata";
+import { draftMode } from "next/headers";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import Methodology from "@/sections/Advisory/Methodology";
@@ -31,7 +32,9 @@ export async function generateMetadata() {
 }
 
 const AudioPodcastProduction = async () => {
-  const data = await fetchFromStrapi("vfx");
+  const { isEnabled: isPreview } = await draftMode();
+
+  const data = await fetchFromStrapi("vfx", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

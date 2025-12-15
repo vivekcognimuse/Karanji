@@ -10,7 +10,6 @@ export const metadata = {
     "Explore the Karanji blog for expert insights on AI, VR, digital learning, and emerging technology trends. Stay updated with cutting-edge strategies and industry innovations.",
 };
 
-const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
 export const revalidate = 3600;
 
 // Flatten Strapi v5 entries into your BlogPage shape
@@ -64,16 +63,12 @@ export default async function BlogInsights() {
   const { isEnabled: isPreview } = await draftMode();
 
   // ✅ use the params-object style that works in your app
-  const res = await fetchFromStrapi(
-    "blogs",
-    {
-      populate: "*",
-      pagination: { pageSize: 100 },
-      sort: "createdAt:desc",
-      preview: isPreview,
-    },
-    STRAPI
-  );
+  const res = await fetchFromStrapi("blogs", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+    preview: isPreview,
+  });
 
   const blogs = (
     Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : []

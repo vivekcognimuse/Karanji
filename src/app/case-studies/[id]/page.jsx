@@ -10,8 +10,6 @@ import {
   splitCommaString,
 } from "@/utils/ish";
 
-const STRAPI_BASE_URL = "https://calm-joy-61798b158b.strapiapp.com/api";
-
 export const dynamicParams = true;
 
 const normalizeCaseStudy = (entry) => {
@@ -77,8 +75,7 @@ export default async function CaseStudyDetail({ params }) {
   try {
     res = await fetchFromStrapi(
       `case-studies?filters[slug][$eq]=${encodeURIComponent(slug)}`,
-      { populate: "*", preview: isPreview },
-      "https://calm-joy-61798b158b.strapiapp.com/api"
+      { populate: "*", preview: isPreview }
     );
   } catch (e) {
     console.error("Strapi fetch failed:", e);
@@ -104,11 +101,10 @@ export default async function CaseStudyDetail({ params }) {
 
 export async function generateStaticParams() {
   try {
-    const res = await fetchFromStrapi(
-      "case-studies",
-      { fields: ["slug"], pagination: { pageSize: 100 } },
-      STRAPI_BASE_URL
-    );
+    const res = await fetchFromStrapi("case-studies", {
+      fields: ["slug"],
+      pagination: { pageSize: 100 },
+    });
     const items = Array.isArray(res)
       ? res
       : Array.isArray(res?.data)

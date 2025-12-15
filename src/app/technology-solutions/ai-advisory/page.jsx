@@ -1,4 +1,5 @@
 import { getMetadata } from "@/lib/metadata";
+import { draftMode } from "next/headers";
 import { fetchFromStrapi } from "@/lib/strapi";
 import HeroSection from "@/sections/Advisory/Hero";
 import IndustryExpertise from "@/sections/Advisory/IndustryExpertise";
@@ -11,7 +12,8 @@ export async function generateMetadata() {
   return await getMetadata("ai-advisory");
 }
 export default async function AIAdvisoryPage() {
-  const data = await fetchFromStrapi("ai-advisory");
+  const { isEnabled: isPreview } = await draftMode();
+  const data = await fetchFromStrapi("ai-advisory", { preview: isPreview });
   if (!data) {
     console.error("No data object provided for HeroSection.");
     return null; // Or return a fallback UI component

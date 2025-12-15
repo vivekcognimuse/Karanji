@@ -13,8 +13,6 @@ export const metadata = {
     "Explore all Karanji blog posts pulled from Strapi — grid of highlights plus a full upcoming list.",
 };
 
-const STRAPI = "https://calm-joy-61798b158b.strapiapp.com/api";
-
 const asArr = (res) =>
   Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : [];
 
