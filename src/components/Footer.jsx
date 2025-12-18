@@ -162,7 +162,7 @@ const Footer = () => {
               </Link>
               <ul className="space-y-4 mt-4">
                 {section.links.map((link) => (
-                  <li key={link.name} className="min-w-0">
+                  <li key={link.name} className="min-w-0  w-fit">
                     <Link
                       href={link.href}
                       className="text-black hover:underline font-normal font-outfit leading-relaxed tracking-wide break-words">

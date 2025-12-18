@@ -2,10 +2,9 @@ import { draftMode } from "next/headers";
 import HeroSection from "@/sections/Advisory/Hero";
 import CTA from "@/sections/digital-learning/CTA";
 import TeamSections from "@/sections/Company/about/teamSections";
-import Head from "next/head";
+
 import { fetchFromStrapi } from "@/lib/strapi";
 import { getMetadata } from "@/lib/metadata";
-import { c } from "next/dist/compiled/next-server/app-page-turbo.runtime.dev";
 
 export async function generateMetadata() {
   return await getMetadata("our-team");
