@@ -44,8 +44,9 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     fetchOptions.headers.Authorization = `Bearer ${token}`;
   }
 
-  // Fix for Amplify caching issue: Disable cache during build time or when forceRefresh is true
-  // This ensures webhook-triggered builds always fetch fresh data
+  // Fix for Amplify caching issue: Use revalidate: 0 during build time
+  // This allows static generation but ensures immediate revalidation on first request
+  // revalidate: 0 means "always revalidate" but still allows static generation
   const isBuildTime = 
     process.env.NEXT_PHASE === 'phase-production-build' || 
     process.env.AMPLIFY_BUILD === 'true' ||
@@ -53,11 +54,15 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     process.env.AWS_EXECUTION_ENV !== undefined || // AWS Lambda/Amplify
     process.env.VERCEL === undefined && process.env.NODE_ENV === 'production'; // Production build (not Vercel)
   
-  if (forceRefresh || isBuildTime) {
-    // Force fresh fetch - no caching (fixes Amplify stale cache issue)
+  if (forceRefresh) {
+    // Explicit force refresh: use no-store (only when explicitly requested)
     fetchOptions.cache = 'no-store';
-    console.log('🔄 Force refresh mode: cache disabled for', endpoint, {
-      forceRefresh,
+    console.log('🔄 Force refresh mode: cache disabled for', endpoint);
+  } else if (isBuildTime) {
+    // During build: use revalidate: 0 to allow static generation but ensure fresh data on first request
+    // This fixes Amplify caching issue while maintaining static generation capability
+    fetchOptions.next = { revalidate: 0 };
+    console.log('🔄 Build-time mode: revalidate: 0 for', endpoint, {
       isBuildTime,
       env: {
         NEXT_PHASE: process.env.NEXT_PHASE,
@@ -71,8 +76,8 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     // Use ISR with revalidation time (runtime caching)
     fetchOptions.next = { revalidate };
   } else {
-    // Default: no cache to ensure fresh data
-    fetchOptions.cache = 'no-store';
+    // Default: use revalidate: 0 (always revalidate but allow static generation)
+    fetchOptions.next = { revalidate: 0 };
   }
 
   try {
