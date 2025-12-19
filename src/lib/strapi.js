@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     throw new Error("STRAPI_API_URL is not defined");
   }
 
-  const { populate = "all", revalidate = 60, preview = false, forceRefresh = false } = options;
+  const { populate = "all", revalidate = false, preview = false, forceRefresh = false } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
 
@@ -76,8 +76,9 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     // Use ISR with revalidation time (allows static generation)
     fetchOptions.next = { revalidate };
   } else {
-    // Default: use provided revalidate or 60 seconds
-    fetchOptions.next = { revalidate: revalidate || 60 };
+    // Default: revalidate: false (fully static, no runtime API calls)
+    // Cache-busting query param (_build) ensures fresh data during builds
+    // No revalidate option = fully static until next build
   }
 
   try {
