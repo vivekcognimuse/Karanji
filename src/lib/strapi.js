@@ -44,9 +44,8 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     fetchOptions.headers.Authorization = `Bearer ${token}`;
   }
 
-  // Fix for Amplify caching issue: Use revalidate: 0 during build time
-  // This allows static generation but ensures immediate revalidation on first request
-  // revalidate: 0 means "always revalidate" but still allows static generation
+  // Fix for Amplify caching issue: Add cache-busting query param during build time
+  // This ensures fresh fetches during builds while allowing static generation
   const isBuildTime = 
     process.env.NEXT_PHASE === 'phase-production-build' || 
     process.env.AMPLIFY_BUILD === 'true' ||
@@ -54,30 +53,31 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     process.env.AWS_EXECUTION_ENV !== undefined || // AWS Lambda/Amplify
     process.env.VERCEL === undefined && process.env.NODE_ENV === 'production'; // Production build (not Vercel)
   
+  // Add cache-busting query parameter during build time to ensure fresh data
+  // This prevents Amplify from using cached fetch results from previous builds
+  if (isBuildTime) {
+    // Use build ID or timestamp to bust cache - ensures unique URL per build
+    const buildId = process.env.AMPLIFY_BUILD_ID || 
+                    process.env.VERCEL_DEPLOYMENT_ID || 
+                    process.env.BUILD_ID ||
+                    Date.now().toString();
+    url.searchParams.append('_build', buildId);
+    console.log('🔄 Build-time mode: cache-busting enabled for', endpoint, {
+      buildId: buildId.substring(0, 20) + '...',
+      isBuildTime,
+    });
+  }
+  
   if (forceRefresh) {
     // Explicit force refresh: use no-store (only when explicitly requested)
     fetchOptions.cache = 'no-store';
     console.log('🔄 Force refresh mode: cache disabled for', endpoint);
-  } else if (isBuildTime) {
-    // During build: use revalidate: 0 to allow static generation but ensure fresh data on first request
-    // This fixes Amplify caching issue while maintaining static generation capability
-    fetchOptions.next = { revalidate: 0 };
-    console.log('🔄 Build-time mode: revalidate: 0 for', endpoint, {
-      isBuildTime,
-      env: {
-        NEXT_PHASE: process.env.NEXT_PHASE,
-        AMPLIFY_BUILD: process.env.AMPLIFY_BUILD,
-        CI: process.env.CI,
-        AWS_EXECUTION_ENV: process.env.AWS_EXECUTION_ENV,
-        NODE_ENV: process.env.NODE_ENV,
-      }
-    });
   } else if (revalidate !== null && revalidate !== undefined && revalidate !== false) {
-    // Use ISR with revalidation time (runtime caching)
+    // Use ISR with revalidation time (allows static generation)
     fetchOptions.next = { revalidate };
   } else {
-    // Default: use revalidate: 0 (always revalidate but allow static generation)
-    fetchOptions.next = { revalidate: 0 };
+    // Default: use provided revalidate or 60 seconds
+    fetchOptions.next = { revalidate: revalidate || 60 };
   }
 
   try {
