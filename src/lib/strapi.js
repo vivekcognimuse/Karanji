@@ -32,14 +32,6 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
   const token =
     process.env.STRAPI_API_TOKEN || process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   
-  // Debug logging
-  console.log('🔍 Strapi Debug:', {
-    endpoint,
-    baseUrl,
-    hasToken: !!token,
-    tokenPrefix: token ? token.substring(0, 20) + '...' : 'MISSING',
-  });
-  
   if (token) {
     fetchOptions.headers.Authorization = `Bearer ${token}`;
   }
@@ -62,16 +54,11 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
                     process.env.BUILD_ID ||
                     Date.now().toString();
     url.searchParams.append('_build', buildId);
-    console.log('🔄 Build-time mode: cache-busting enabled for', endpoint, {
-      buildId: buildId.substring(0, 20) + '...',
-      isBuildTime,
-    });
   }
   
   if (forceRefresh) {
     // Explicit force refresh: use no-store (only when explicitly requested)
     fetchOptions.cache = 'no-store';
-    console.log('🔄 Force refresh mode: cache disabled for', endpoint);
   } else if (revalidate !== null && revalidate !== undefined && revalidate !== false) {
     // Use ISR with revalidation time (allows static generation)
     fetchOptions.next = { revalidate };
