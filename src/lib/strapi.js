@@ -10,7 +10,7 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     throw new Error("STRAPI_API_URL is not defined");
   }
 
-  const { populate = "all", revalidate = 21000, preview = false } = options;
+  const { populate = "all", revalidate = 60, preview = false, forceRefresh = false } = options;
 
   const url = new URL(`${baseUrl}/${endpoint}`);
 
@@ -44,8 +44,35 @@ export async function fetchFromStrapi(endpoint, options = {}, baseUrl) {
     fetchOptions.headers.Authorization = `Bearer ${token}`;
   }
 
-  if (revalidate !== null && revalidate !== undefined) {
+  // Fix for Amplify caching issue: Disable cache during build time or when forceRefresh is true
+  // This ensures webhook-triggered builds always fetch fresh data
+  const isBuildTime = 
+    process.env.NEXT_PHASE === 'phase-production-build' || 
+    process.env.AMPLIFY_BUILD === 'true' ||
+    process.env.CI === 'true' ||
+    process.env.AWS_EXECUTION_ENV !== undefined || // AWS Lambda/Amplify
+    process.env.VERCEL === undefined && process.env.NODE_ENV === 'production'; // Production build (not Vercel)
+  
+  if (forceRefresh || isBuildTime) {
+    // Force fresh fetch - no caching (fixes Amplify stale cache issue)
+    fetchOptions.cache = 'no-store';
+    console.log('🔄 Force refresh mode: cache disabled for', endpoint, {
+      forceRefresh,
+      isBuildTime,
+      env: {
+        NEXT_PHASE: process.env.NEXT_PHASE,
+        AMPLIFY_BUILD: process.env.AMPLIFY_BUILD,
+        CI: process.env.CI,
+        AWS_EXECUTION_ENV: process.env.AWS_EXECUTION_ENV,
+        NODE_ENV: process.env.NODE_ENV,
+      }
+    });
+  } else if (revalidate !== null && revalidate !== undefined && revalidate !== false) {
+    // Use ISR with revalidation time (runtime caching)
     fetchOptions.next = { revalidate };
+  } else {
+    // Default: no cache to ensure fresh data
+    fetchOptions.cache = 'no-store';
   }
 
   try {
