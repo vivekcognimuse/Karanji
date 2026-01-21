@@ -56,28 +56,8 @@ async function fetchCaseStudies() {
   });
 }
 
-async function fetchBlogs() {
-  return fetchFromStrapi("blogs", {
-    populate: "*",
-    pagination: { pageSize: 100 },
-    sort: "createdAt:desc",
-  });
-}
-
-async function fetchWebinars() {
-  return fetchFromStrapi("webinar", {
-    populate: "*",
-    pagination: { pageSize: 100 },
-    sort: "createdAt:desc",
-  });
-}
-
 async function fetchAllResources() {
-  const [csRes, blogRes, webinarRes] = await Promise.all([
-    fetchCaseStudies(),
-    fetchBlogs(),
-    fetchWebinars(),
-  ]);
+  const csRes = await fetchCaseStudies();
 
   const caseStudies = asArr(csRes).map((item) =>
     normalizeCard({
@@ -89,27 +69,7 @@ async function fetchAllResources() {
     }),
   );
 
-  const blogCards = asArr(blogRes).map((item) =>
-    normalizeCard({
-      type: "Blog",
-      item,
-      basePath: "/blog-insights",
-      defaultCTA: "Read Blog",
-      domainField: "domain",
-    }),
-  );
-
-  const webinarCards = asArr(webinarRes).map((item) =>
-    normalizeCard({
-      type: "Webinar",
-      item,
-      basePath: "/webinars",
-      defaultCTA: "Register for Webinar",
-      domainField: "domain",
-    }),
-  );
-
-  return { caseStudies, blogCards, webinarCards };
+  return { caseStudies };
 }
 
 export default async function CaseStudiesPage() {
@@ -121,13 +81,13 @@ export default async function CaseStudiesPage() {
     notFound();
   }
 
-  const { caseStudies, webinarCards } = data;
+  const { caseStudies } = data;
 
   // ✅ show first 6 in the grid
   const gridItems = caseStudies.slice(0, 6);
 
-  // ✅ Upcoming shows webinars + remaining case studies (no duplicates)
-  const upcomingItems = [...webinarCards, ...caseStudies.slice(6)];
+  // ✅ Upcoming shows remaining case studies
+  const upcomingItems = caseStudies.slice(6);
 
   return (
     <main className="w-full max-w-[1580px] mx-auto px-4 lg:px-10 space-y-16 lg:space-y-32">

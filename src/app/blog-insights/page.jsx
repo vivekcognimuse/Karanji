@@ -48,16 +48,12 @@ const normalizeCard = ({
 };
 
 async function fetchBlogs(isPreview = false) {
-  return fetchFromStrapi(
-    "blogs",
-    {
-      populate: "*",
-      pagination: { pageSize: 100 },
-      sort: "createdAt:desc",
-      preview: isPreview,
-    },
-    STRAPI
-  );
+  return fetchFromStrapi("blogs", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+    preview: isPreview,
+  });
 }
 
 export default async function BlogInsightsListing() {
@@ -79,7 +75,7 @@ export default async function BlogInsightsListing() {
       defaultCTA: "Read Blog",
       domainField: "category",
       imageField: "image",
-    })
+    }),
   );
 
   if (blogCards.length === 0) {
