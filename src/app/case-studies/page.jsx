@@ -49,27 +49,27 @@ const normalizeCard = ({
 };
 
 async function fetchCaseStudies() {
-  return fetchFromStrapi(
-    "case-studies",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+  return fetchFromStrapi("case-studies", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+  });
 }
 
 async function fetchBlogs() {
-  return fetchFromStrapi(
-    "blogs",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+  return fetchFromStrapi("blogs", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+  });
 }
 
 async function fetchWebinars() {
-  return fetchFromStrapi(
-    "webinar",
-    { populate: "*", pagination: { pageSize: 100 }, sort: "createdAt:desc" },
-    STRAPI
-  );
+  return fetchFromStrapi("webinar", {
+    populate: "*",
+    pagination: { pageSize: 100 },
+    sort: "createdAt:desc",
+  });
 }
 
 async function fetchAllResources() {
@@ -86,7 +86,7 @@ async function fetchAllResources() {
       basePath: "/case-studies",
       defaultCTA: "View Case Study",
       domainField: "domain",
-    })
+    }),
   );
 
   const blogCards = asArr(blogRes).map((item) =>
@@ -96,7 +96,7 @@ async function fetchAllResources() {
       basePath: "/blog-insights",
       defaultCTA: "Read Blog",
       domainField: "domain",
-    })
+    }),
   );
 
   const webinarCards = asArr(webinarRes).map((item) =>
@@ -106,7 +106,7 @@ async function fetchAllResources() {
       basePath: "/webinars",
       defaultCTA: "Register for Webinar",
       domainField: "domain",
-    })
+    }),
   );
 
   return { caseStudies, blogCards, webinarCards };
